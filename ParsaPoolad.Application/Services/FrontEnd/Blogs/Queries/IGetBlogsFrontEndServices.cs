@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using ParsaPoolad.Application.Interfaces.Contexts;
+using ParsaPoolad.Common.Services;
 using ParsaPoolad.Domain.Entities;
 
 namespace ParsaPoolad.Application.Services.FrontEnd.Blogs.Queries
 {
     public interface IGetBlogsFrontEndService
     {
-        ResultGetBlogsFrontEndDto Execute();
+        ResultGetBlogsFrontEndDto Execute(int pageNumber,int pageSize);
     }
 
     public class GetBlogsFrontEndService : IGetBlogsFrontEndService
@@ -25,11 +26,14 @@ namespace ParsaPoolad.Application.Services.FrontEnd.Blogs.Queries
 
 
 
-        public ResultGetBlogsFrontEndDto Execute()
+        public ResultGetBlogsFrontEndDto Execute(int pageNumber,int pageSize)
         {
+            int totalRow = 0;
+            // var totalRow = _context.CrmCmsNews.ToPaged(pageSize, pageNumber, out totalRows);
             var blogs = _context.CrmCmsNews
-                .Where(s=>s.IsVerified==true)
                 .Include(s=>s.NewsGroup)
+                .ToPaged(pageNumber, pageSize, out totalRow)
+                .Where(s=>s.IsVerified==true)
                 .Select(s=> new GetBlogsDto
                 {
                     NewsId =s.NewsId,
@@ -58,6 +62,7 @@ namespace ParsaPoolad.Application.Services.FrontEnd.Blogs.Queries
             {
                 Blogs = blogs,
                 BlogsGroup = blogsGroup,
+                TotalRow = totalRow,
             };
         }
     }
@@ -66,6 +71,7 @@ namespace ParsaPoolad.Application.Services.FrontEnd.Blogs.Queries
     {
         public List<GetBlogsDto> Blogs { get; set; }
         public List<CrmCmsNewsGroups> BlogsGroup { get; set; }
+        public int TotalRow { get; set; }
     }
 
 

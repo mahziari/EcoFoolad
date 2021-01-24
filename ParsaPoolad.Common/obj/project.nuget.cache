@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "qQHeo3IYfqgYl8Fnh+mGCV72JhOmytYiLE6NfLFjGPUyUO+8ckWrQCOokdq9G25vu03+A/CGK46jlqbdTJoYzQ==",
+  "dgSpecHash": "HHeCsLaeKGqbh06MkN5rAvwkovxPTcxaAesnlobZwUZuFmazXUYwF6eg8p12hL8H1xUFMsVuI2c9TNOMDj2igw==",
   "success": true,
-  "projectFilePath": "D:\\.NET\\01_ParsaPoolad\\ParsaPoolad.Common\\ParsaPoolad.Common.csproj",
+  "projectFilePath": "/Users/hosseinkaraji/NET5/02_Developing/01_ParsaPoolad/ParsaPoolad.Common/ParsaPoolad.Common.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\pc-2\\.nuget\\packages\\persiandatetime.core\\1.0.8\\persiandatetime.core.1.0.8.nupkg.sha512"
+    "/Users/hosseinkaraji/.nuget/packages/persiandatetime.core/1.0.8/persiandatetime.core.1.0.8.nupkg.sha512"
   ],
   "logs": []
 }

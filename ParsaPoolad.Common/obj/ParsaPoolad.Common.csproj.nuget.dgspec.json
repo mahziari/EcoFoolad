@@ -1,31 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "D:\\.NET\\01_ParsaPoolad\\ParsaPoolad.Common\\ParsaPoolad.Common.csproj": {}
+    "/Users/hosseinkaraji/NET5/02_Developing/01_ParsaPoolad/ParsaPoolad.Common/ParsaPoolad.Common.csproj": {}
   },
   "projects": {
-    "D:\\.NET\\01_ParsaPoolad\\ParsaPoolad.Common\\ParsaPoolad.Common.csproj": {
+    "/Users/hosseinkaraji/NET5/02_Developing/01_ParsaPoolad/ParsaPoolad.Common/ParsaPoolad.Common.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\.NET\\01_ParsaPoolad\\ParsaPoolad.Common\\ParsaPoolad.Common.csproj",
+        "projectUniqueName": "/Users/hosseinkaraji/NET5/02_Developing/01_ParsaPoolad/ParsaPoolad.Common/ParsaPoolad.Common.csproj",
         "projectName": "ParsaPoolad.Common",
-        "projectPath": "D:\\.NET\\01_ParsaPoolad\\ParsaPoolad.Common\\ParsaPoolad.Common.csproj",
-        "packagesPath": "C:\\Users\\pc-2\\.nuget\\packages\\",
-        "outputPath": "D:\\.NET\\01_ParsaPoolad\\ParsaPoolad.Common\\obj\\",
+        "projectPath": "/Users/hosseinkaraji/NET5/02_Developing/01_ParsaPoolad/ParsaPoolad.Common/ParsaPoolad.Common.csproj",
+        "packagesPath": "/Users/hosseinkaraji/.nuget/packages/",
+        "outputPath": "/Users/hosseinkaraji/NET5/02_Developing/01_ParsaPoolad/ParsaPoolad.Common/obj/",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet"
-        ],
         "configFilePaths": [
-          "C:\\Users\\pc-2\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "/Users/hosseinkaraji/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -64,7 +58,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.102/RuntimeIdentifierGraph.json"
         }
       }
     }

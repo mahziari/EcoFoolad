@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "m7ZSuEUC09vZ7WS5+6VciVfiBdcKMjjaJBkw3jNMNlyY4DbDA67DRWWT6nEJkVZgPLuk3FxnSYQHAHO1vMFt9g==",
+  "dgSpecHash": "8hjBTDXg7MKMqev+d2cXbyIPRFb+omWxzYrYrtuH2EAxpq7I8ubt9YoqtzxK14n0zd+L9Yp6UfMIvOm43CwG5w==",
   "success": true,
-  "projectFilePath": "D:\\.NET\\01_ParsaPoolad\\ParsaPoolad.Infrastructure\\ParsaPoolad.Infrastructure.csproj",
+  "projectFilePath": "/Users/hosseinkaraji/NET5/02_Developing/01_ParsaPoolad/ParsaPoolad.Infrastructure/ParsaPoolad.Infrastructure.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

@@ -92,11 +92,11 @@ namespace EndPoint.Web.Areas.Auth.Controllers
                 return View(registerDto);
             }
 
-            // if (registerDto.PhoneNumber == registerDto.Password)
-            // {
-            //     TempData["ErrorChangePhoneNumberInRegister"] = "پسوورد شما قابل حدس میباشد";
-            //     RedirectToAction(nameof(Register));
-            // }
+            if (registerDto.PhoneNumber == registerDto.Password)
+            {
+                TempData["ErrorChangePhoneNumberInRegister"] = "استفاده از شماره موبایل به عنوان رمز عبور غیر مجاز میباشد";
+                RedirectToAction(nameof(Register));
+            }
 
             var userAvalable = _userManager.FindByNameAsync(registerDto.PhoneNumber).Result;
             if (userAvalable != null)
