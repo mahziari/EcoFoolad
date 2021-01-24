@@ -1,0 +1,543 @@
+﻿@using ParsaPoolad.Application.Services.FrontEnd.Blogs.Queries
+@using ParsaPoolad.Common.Extentions
+@model ResultGetBlogsFrontEndDto
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@addTagHelper *, LazZiya.TagHelpers
+@{
+    ViewData["Title"] = "بلاگ اکوفولاد";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container top_content_page_blog">
+    <aside class="sidebar_top_blog" style="">
+        <ul id="menu-10" class="nk-blog-menu menu">
+            <li id="menu-item-2227"
+                class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2227"
+                onmouseover="this.style.background='#f6f5f4'"
+                onmouseout="this.style.background='#fff'"
+                style="background: rgb(255, 255, 255);">
+                <a href=""
+                   onmouseover="this.style.color='#666'"
+                   onmouseout="this.style.color='#666'"
+                   style="color: rgb(102, 102, 102);">
+                    <i class="fas fa-blog"></i> آخرین مطالب
+                </a>
+            </li>
+            @foreach (var item in Model.BlogsGroup)
+            {
+                <li id="menu-item-2227"
+                    class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2227"
+                    onmouseover="this.style.background='@item.Color'"
+                    onmouseout="this.style.background='#fff'"
+                    style="background: rgb(255, 255, 255);">
+                    <a asp-controller="Blogs"
+                       asp-action="Category"
+                       asp-route-category="@item.en_GroupName"
+                       onmouseover="this.style.color='#ffffff'"
+                       onmouseout="this.style.color='#666'"
+                       style="color: rgb(102, 102, 102);">
+                        <i class="@item.FaIcon"></i> @item.GroupName
+                    </a>
+                </li>
+            }
+        </ul>
+        <a asp-controller="Blogs"
+           asp-action="Details"
+           asp-route-category="@Model.Blogs.Where(b => b.Position == 8).Select(b => b.en_NewsGroupName).FirstOrDefault()"
+           asp-route-title="@Model.Blogs.Where(b => b.Position == 8).Select(b => b.Title).FirstOrDefault().Replace(" ", "-")"
+           >
+            <div id="media_image-4" class="main-blog-widget main-top-blog-widget  widget_media_image">
+                <img width="280" height="154" src="@Model.Blogs.Where(b => b.Position == 8).Select(b => b.HeadLine).FirstOrDefault()" class="image wp-image-2223 attachment-full size-full lazyloaded" alt="@Model.Blogs.Where(b => b.Position == 8).Select(b => b.Title).FirstOrDefault()" style="max-width: 100%; height: auto;" data-ll-status="loaded">
+                <noscript>
+                    <img width="280" height="154" src="@Model.Blogs.Where(b => b.Position == 8).Select(b => b.HeadLine).FirstOrDefault()" class="image wp-image-2223  attachment-full size-full" alt="@Model.Blogs.Where(b => b.Position == 8).Select(b => b.Title).FirstOrDefault()" style="max-width: 100%; height: auto;"/>
+                </noscript>
+            </div>
+        </a>
+    </aside>
+    <section class="content_top_blog" style="">
+        <a asp-controller="Blogs"
+           asp-action="Details"
+           asp-route-category="@Model.Blogs.Where(b => b.Position == 1).Select(b => b.en_NewsGroupName).FirstOrDefault()"
+           asp-route-title="@Model.Blogs.Where(b => b.Position == 1).Select(b => b.Title).FirstOrDefault().Replace(" ", "-")"
+           >
+            <img class="top_banner_wide_blog lazyloaded" src="@Model.Blogs.Where(b => b.Position == 1).Select(b => b.HeadLine).FirstOrDefault()" data-ll-status="loaded" alt="@Model.Blogs.Where(b => b.Position == 1).Select(b => b.Title).FirstOrDefault()">
+            <noscript>
+                <img class="top_banner_wide_blog" src="@Model.Blogs.Where(b => b.Position == 1).Select(b => b.HeadLine).FirstOrDefault()" alt="@Model.Blogs.Where(b => b.Position == 1).Select(b => b.Title).FirstOrDefault()"/>
+            </noscript>
+        </a>
+        <div class="main_last_post_top_blog">
+
+            <div class="last_post_top_blog">
+
+                <div class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-148 category-147 category-uncategorized category-152 category-151 category-150 category-149 rocket-lazyload lazyloaded" data-ll-status="loaded" style="background-image:  url(@Model.Blogs.Where(b => b.Position == 2).Select(b => b.HeadLine).FirstOrDefault());">
+
+
+                    <a asp-controller="Blogs"
+                       asp-action="Details"
+                       asp-route-category="@Model.Blogs.Where(b => b.Position == 2).Select(b => b.en_NewsGroupName).FirstOrDefault()"
+                       asp-route-title="@Model.Blogs.Where(b => b.Position == 2).Select(b => b.Title).FirstOrDefault().Replace(" ", "-")"
+                       >
+                    </a>
+                    <h2>@Model.Blogs.Where(b => b.Position == 2).Select(b => b.Title).FirstOrDefault()</h2>
+                </div>
+
+                <div class="post-275 post type-post status-publish format-standard has-post-thumbnail hentry category-148 category-147 category-uncategorized category-152 category-151 category-150 category-149 tag-73 tag-71 rocket-lazyload lazyloaded" style="background-image: url(@Model.Blogs.Where(b => b.Position == 3).Select(b => b.HeadLine).FirstOrDefault());" data-ll-status="loaded">
+
+
+                    <a asp-controller="Blogs"
+                       asp-action="Details"
+                       asp-route-category="@Model.Blogs.Where(b => b.Position == 3).Select(b => b.en_NewsGroupName).FirstOrDefault()"
+                       asp-route-title="@Model.Blogs.Where(b => b.Position == 3).Select(b => b.Title).FirstOrDefault().Replace(" ", "-")"
+                       >
+                    </a>
+                    <h2>@Model.Blogs.Where(b => b.Position == 3).Select(b => b.Title).FirstOrDefault()</h2>
+                </div>
+
+                <div class="post-70 post type-post status-publish format-standard has-post-thumbnail hentry category-148 category-147 category-uncategorized category-152 category-151 category-150 category-149 tag-71 rocket-lazyload lazyloaded" style="background-image: url(@Model.Blogs.Where(b => b.Position == 4).Select(b => b.HeadLine).FirstOrDefault());" data-ll-status="loaded">
+
+
+                    <a asp-controller="Blogs"
+                       asp-action="Details"
+                       asp-route-category="@Model.Blogs.Where(b => b.Position == 4).Select(b => b.en_NewsGroupName).FirstOrDefault()"
+                       asp-route-title="@Model.Blogs.Where(b => b.Position == 4).Select(b => b.Title).FirstOrDefault().Replace(" ", "-")"
+                       >
+                    </a>
+                    <h2> @Model.Blogs.Where(b => b.Position == 4).Select(b => b.Title).FirstOrDefault()</h2>
+                </div>
+
+                <div class="post-65 post type-post status-publish format-standard has-post-thumbnail hentry category-148 category-147 category-uncategorized category-152 category-151 category-150 category-149 tag-71 rocket-lazyload lazyloaded" style="background-position: center top; flex: 0 0 65.5%; max-width: 65.5%; background-image: url(@Model.Blogs.Where(b => b.Position == 5).Select(b => b.HeadLine).FirstOrDefault());" data-ll-status="loaded">
+
+
+                    <a asp-controller="Blogs"
+                       asp-action="Details"
+                       asp-route-category="@Model.Blogs.Where(b => b.Position == 5).Select(b => b.en_NewsGroupName).FirstOrDefault()"
+                       asp-route-title="@Model.Blogs.Where(b => b.Position == 5).Select(b => b.Title).FirstOrDefault().Replace(" ", "-")"
+                       >
+                    </a>
+                    <h2>@Model.Blogs.Where(b => b.Position == 5).Select(b => b.Title).FirstOrDefault()</h2>
+                </div>
+
+                <div class="post-284 post type-post status-publish format-standard has-post-thumbnail hentry category-148 category-147 category-uncategorized category-152 category-151 category-150 category-149 rocket-lazyload lazyloaded" style="background-image: url(@Model.Blogs.Where(b => b.Position == 6).Select(b => b.HeadLine).FirstOrDefault());" data-ll-status="loaded">
+
+
+                    <a asp-controller="Blogs"
+                       asp-action="Details"
+                       asp-route-category="@Model.Blogs.Where(b => b.Position == 6).Select(b => b.en_NewsGroupName).FirstOrDefault()"
+                       asp-route-title="@Model.Blogs.Where(b => b.Position == 6).Select(b => b.Title).FirstOrDefault().Replace(" ", "-")"
+                       >
+                    </a>
+                    <h2> @Model.Blogs.Where(b => b.Position == 6).Select(b => b.Title).FirstOrDefault()</h2>
+                </div>
+            </div>
+
+            <a class="right_banner_side" asp-controller="Blogs"
+               asp-action="Details"
+               asp-route-category="@Model.Blogs.Where(b => b.Position == 7).Select(b => b.en_NewsGroupName).FirstOrDefault()"
+               asp-route-title="@Model.Blogs.Where(b => b.Position == 7).Select(b => b.Title).FirstOrDefault().Replace(" ", "-")"
+               >
+                <img class="side_banner_wide_blog lazyloaded" src="@Model.Blogs.Where(b => b.Position == 7).Select(b => b.HeadLine).FirstOrDefault()" data-ll-status="loaded" alt="@Model.Blogs.Where(b => b.Position == 7).Select(b => b.Title).FirstOrDefault()">
+                <noscript>
+                    <img class="side_banner_wide_blog" src="@Model.Blogs.Where(b => b.Position == 7).Select(b => b.HeadLine).FirstOrDefault()" alt="@Model.Blogs.Where(b => b.Position == 7).Select(b => b.Title).FirstOrDefault()"/>
+                </noscript>
+            </a>
+        </div>
+    </section>
+</div>
+
+
+@* <div class="main_posts_slider"> *@
+@* *@
+@* <div class="module-title"> *@
+@*     <div class="module-title__txt"> *@
+@*         <span class="bold"></span> *@
+@*         <span> *@
+@*             <strong>پیشنهاد شده</strong> *@
+@*         </span> *@
+@*     </div> *@
+@* *@
+@*     <div class="module-title__sep"></div> *@
+@* </div> *@
+@* *@
+@* *@
+@* <!-- Swiper --> *@
+@* <div class="swiper-container swiper-container-post-slider-newkala swiper-container-initialized swiper-container-horizontal swiper-container-free-mode swiper-container-rtl" dir="rtl" style="position: relative;"> *@
+@* <div class="swiper-wrapper container_newkala_posts_slider" style="transform: translate3d(0px, 0px, 0px);"> *@
+@* *@
+@* *@
+@* <article id="post-1" class="swiper-slide post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-148 category-147 category-uncategorized category-152 category-151 category-150 category-149 swiper-slide-active" style="width: 237.8px; margin-left: 30px;"> *@
+@* *@
+@* *@
+@*     <div class="main-wp-post-image"> *@
+@*         <a href="https://newkalatheme.ir/preview/category/%da%a9%d8%aa%d8%a7%d8%a8/" title="" class="cat_of_post">کتاب</a> <img width="300" height="191" src="https://newkalatheme.ir/preview/wp-content/uploads/2018/03/assassin-s-creed-syndicate-300x191.jpg" class="attachment-medium size-medium wp-post-image lazyloaded" alt="" sizes="(max-width: 300px) 100vw, 300px" srcset="https://newkalatheme.ir/preview/wp-content/uploads/2018/03/assassin-s-creed-syndicate-300x191.jpg 300w, https://newkalatheme.ir/preview/wp-content/uploads/2018/03/assassin-s-creed-syndicate-600x381.jpg 600w, https://newkalatheme.ir/preview/wp-content/uploads/2018/03/assassin-s-creed-syndicate-768x488.jpg 768w, https://newkalatheme.ir/preview/wp-content/uploads/2018/03/assassin-s-creed-syndicate-180x114.jpg 180w, https://newkalatheme.ir/preview/wp-content/uploads/2018/03/assassin-s-creed-syndicate-500x318.jpg 500w, https://newkalatheme.ir/preview/wp-content/uploads/2018/03/assassin-s-creed-syndicate.jpg 822w" data-ll-status="loaded"> *@
+@*         <noscript> *@
+@*             <img width="300" height="191" src="https://newkalatheme.ir/preview/wp-content/uploads/2018/03/assassin-s-creed-syndicate-300x191.jpg" class="attachment-medium size-medium wp-post-image" alt="" srcset="https://newkalatheme.ir/preview/wp-content/uploads/2018/03/assassin-s-creed-syndicate-300x191.jpg 300w, https://newkalatheme.ir/preview/wp-content/uploads/2018/03/assassin-s-creed-syndicate-600x381.jpg 600w, https://newkalatheme.ir/preview/wp-content/uploads/2018/03/assassin-s-creed-syndicate-768x488.jpg 768w, https://newkalatheme.ir/preview/wp-content/uploads/2018/03/assassin-s-creed-syndicate-180x114.jpg 180w, https://newkalatheme.ir/preview/wp-content/uploads/2018/03/assassin-s-creed-syndicate-500x318.jpg 500w, https://newkalatheme.ir/preview/wp-content/uploads/2018/03/assassin-s-creed-syndicate.jpg 822w" sizes="(max-width: 300px) 100vw, 300px"/> *@
+@*         </noscript> *@
+@*         <div class="main_post_meta"> *@
+@*             <span class="comment_number" lang="fa">3</span> *@
+@*         </div> *@
+@*     </div> *@
+@* *@
+@*     <h3 class="entry-title"> *@
+@*         <a href="https://newkalatheme.ir/preview/assassins-creed-syndicate/" rel="bookmark">بازی Assassin’s Creed Syndicate برای ایکس&zwnj;باکس وان</a> *@
+@*     </h3> *@
+@*     <div class="author"> *@
+@* *@
+@*         <img alt="" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2030%2030'%3E%3C/svg%3E" data-lazy-srcset="https://newkalatheme.ir/preview/wp-content/uploads/2020/05/cropped-NKaka-New-logo-1.png 2x" class="avatar avatar-30 photo" height="30" width="30" data-lazy-src="https://newkalatheme.ir/preview/wp-content/uploads/2020/05/cropped-NKaka-New-logo-1.png"> *@
+@*         <noscript> *@
+@*             <img alt='' src='https://newkalatheme.ir/preview/wp-content/uploads/2020/05/cropped-NKaka-New-logo-1.png' srcset='https://newkalatheme.ir/preview/wp-content/uploads/2020/05/cropped-NKaka-New-logo-1.png 2x' class='avatar avatar-30 photo' height='30' width='30'/> *@
+@*         </noscript> *@
+@*         <a href="https://newkalatheme.ir/preview/author/newkala/">سید حسن حسینی</a> *@
+@*     </div> *@
+@* *@
+@* *@
+@*     <div class="human_time_diff">3 سال قبل</div> *@
+@* *@
+@* </article><!-- #post-## --> *@
+@* *@
+@* *@
+@* <article id="post-275" class="swiper-slide post-275 post type-post status-publish format-standard has-post-thumbnail hentry category-148 category-147 category-uncategorized category-152 category-151 category-150 category-149 tag-73 tag-71 swiper-slide-next" style="width: 237.8px; margin-left: 30px;"> *@
+@* *@
+@* *@
+@*     <div class="main-wp-post-image"> *@
+@*         <a href="https://newkalatheme.ir/preview/category/%da%a9%d8%aa%d8%a7%d8%a8/" title="" class="cat_of_post">کتاب</a> <img width="300" height="200" src="https://newkalatheme.ir/preview/wp-content/uploads/2015/11/atr-300x200.jpg" class="attachment-medium size-medium wp-post-image lazyloaded" alt="" sizes="(max-width: 300px) 100vw, 300px" srcset="https://newkalatheme.ir/preview/wp-content/uploads/2015/11/atr-300x200.jpg 300w, https://newkalatheme.ir/preview/wp-content/uploads/2015/11/atr-600x400.jpg 600w, https://newkalatheme.ir/preview/wp-content/uploads/2015/11/atr-768x512.jpg 768w, https://newkalatheme.ir/preview/wp-content/uploads/2015/11/atr-1024x683.jpg 1024w, https://newkalatheme.ir/preview/wp-content/uploads/2015/11/atr-1320x880.jpg 1320w, https://newkalatheme.ir/preview/wp-content/uploads/2015/11/atr.jpg 1600w" data-ll-status="loaded"> *@
+@*         <noscript> *@
+@*             <img width="300" height="200" src="https://newkalatheme.ir/preview/wp-content/uploads/2015/11/atr-300x200.jpg" class="attachment-medium size-medium wp-post-image" alt="" srcset="https://newkalatheme.ir/preview/wp-content/uploads/2015/11/atr-300x200.jpg 300w, https://newkalatheme.ir/preview/wp-content/uploads/2015/11/atr-600x400.jpg 600w, https://newkalatheme.ir/preview/wp-content/uploads/2015/11/atr-768x512.jpg 768w, https://newkalatheme.ir/preview/wp-content/uploads/2015/11/atr-1024x683.jpg 1024w, https://newkalatheme.ir/preview/wp-content/uploads/2015/11/atr-1320x880.jpg 1320w, https://newkalatheme.ir/preview/wp-content/uploads/2015/11/atr.jpg 1600w" sizes="(max-width: 300px) 100vw, 300px"/> *@
+@*         </noscript> *@
+@*         <div class="main_post_meta"> *@
+@*             <span class="comment_number" lang="fa">1</span> *@
+@*         </div> *@
+@*     </div> *@
+@* *@
+@*     <h3 class="entry-title"> *@
+@*         <a href="https://newkalatheme.ir/preview/%da%86%d8%b7%d9%88%d8%b1-%db%8c%da%a9-%d8%b9%d8%b7%d8%b1-%d8%ae%d9%88%d8%a8-%d8%a8%d8%ae%d8%b1%db%8c%d9%85%d8%9f/" rel="bookmark">چطور یک عطر خوب بخریم؟</a> *@
+@*     </h3> *@
+@*     <div class="author"> *@
+@* *@
+@*         <img alt="" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2030%2030'%3E%3C/svg%3E" data-lazy-srcset="https://newkalatheme.ir/preview/wp-content/uploads/2020/05/cropped-NKaka-New-logo-1.png 2x" class="avatar avatar-30 photo" height="30" width="30" data-lazy-src="https://newkalatheme.ir/preview/wp-content/uploads/2020/05/cropped-NKaka-New-logo-1.png"> *@
+@*         <noscript> *@
+@*             <img alt='' src='https://newkalatheme.ir/preview/wp-content/uploads/2020/05/cropped-NKaka-New-logo-1.png' srcset='https://newkalatheme.ir/preview/wp-content/uploads/2020/05/cropped-NKaka-New-logo-1.png 2x' class='avatar avatar-30 photo' height='30' width='30'/> *@
+@*         </noscript> *@
+@*         <a href="https://newkalatheme.ir/preview/author/newkala/">سید حسن حسینی</a> *@
+@*     </div> *@
+@* *@
+@* *@
+@*     <div class="human_time_diff">5 سال قبل</div> *@
+@* *@
+@* </article><!-- #post-## --> *@
+@* *@
+@* *@
+@* <article id="post-70" class="swiper-slide post-70 post type-post status-publish format-standard has-post-thumbnail hentry category-148 category-147 category-uncategorized category-152 category-151 category-150 category-149 tag-71" style="width: 237.8px; margin-left: 30px;"> *@
+@* *@
+@* *@
+@*     <div class="main-wp-post-image"> *@
+@*         <a href="https://newkalatheme.ir/preview/category/%da%a9%d8%aa%d8%a7%d8%a8/" title="" class="cat_of_post">کتاب</a> <img width="300" height="200" src="https://newkalatheme.ir/preview/wp-content/uploads/2015/11/32-300x200.jpg" class="attachment-medium size-medium wp-post-image lazyloaded" alt="" sizes="(max-width: 300px) 100vw, 300px" srcset="https://newkalatheme.ir/preview/wp-content/uploads/2015/11/32-300x200.jpg 300w, https://newkalatheme.ir/preview/wp-content/uploads/2015/11/32-600x400.jpg 600w, https://newkalatheme.ir/preview/wp-content/uploads/2015/11/32-768x512.jpg 768w, https://newkalatheme.ir/preview/wp-content/uploads/2015/11/32.jpg 1000w" data-ll-status="loaded"> *@
+@*         <noscript> *@
+@*             <img width="300" height="200" src="https://newkalatheme.ir/preview/wp-content/uploads/2015/11/32-300x200.jpg" class="attachment-medium size-medium wp-post-image" alt="" srcset="https://newkalatheme.ir/preview/wp-content/uploads/2015/11/32-300x200.jpg 300w, https://newkalatheme.ir/preview/wp-content/uploads/2015/11/32-600x400.jpg 600w, https://newkalatheme.ir/preview/wp-content/uploads/2015/11/32-768x512.jpg 768w, https://newkalatheme.ir/preview/wp-content/uploads/2015/11/32.jpg 1000w" sizes="(max-width: 300px) 100vw, 300px"/> *@
+@*         </noscript> *@
+@*         <div class="main_post_meta"> *@
+@*             <span class="comment_number" lang="fa">0</span> *@
+@*         </div> *@
+@*     </div> *@
+@* *@
+@*     <h3 class="entry-title"> *@
+@*         <a href="https://newkalatheme.ir/preview/%d9%84%d8%a8%d8%a7%d8%b3-%da%a9%d9%88%d8%af%da%a9-%d9%88-%d9%86%d9%88%d8%b2%d8%a7%d8%af/" rel="bookmark">لباس کودک و نوزاد</a> *@
+@*     </h3> *@
+@*     <div class="author"> *@
+@* *@
+@*         <img alt="" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2030%2030'%3E%3C/svg%3E" data-lazy-srcset="https://newkalatheme.ir/preview/wp-content/uploads/2020/05/cropped-NKaka-New-logo-1.png 2x" class="avatar avatar-30 photo" height="30" width="30" data-lazy-src="https://newkalatheme.ir/preview/wp-content/uploads/2020/05/cropped-NKaka-New-logo-1.png"> *@
+@*         <noscript> *@
+@*             <img alt='' src='https://newkalatheme.ir/preview/wp-content/uploads/2020/05/cropped-NKaka-New-logo-1.png' srcset='https://newkalatheme.ir/preview/wp-content/uploads/2020/05/cropped-NKaka-New-logo-1.png 2x' class='avatar avatar-30 photo' height='30' width='30'/> *@
+@*         </noscript> *@
+@*         <a href="https://newkalatheme.ir/preview/author/newkala/">سید حسن حسینی</a> *@
+@*     </div> *@
+@* *@
+@* *@
+@*     <div class="human_time_diff">5 سال قبل</div> *@
+@* *@
+@* </article><!-- #post-## --> *@
+@* *@
+@* *@
+@* <article id="post-65" class="swiper-slide post-65 post type-post status-publish format-standard has-post-thumbnail hentry category-148 category-147 category-uncategorized category-152 category-151 category-150 category-149 tag-71" style="width: 237.8px; margin-left: 30px;"> *@
+@* *@
+@* *@
+@*     <div class="main-wp-post-image"> *@
+@*         <a href="https://newkalatheme.ir/preview/category/%da%a9%d8%aa%d8%a7%d8%a8/" title="" class="cat_of_post">کتاب</a> <img width="300" height="196" src="https://newkalatheme.ir/preview/wp-content/uploads/2015/11/2606-300x196.jpg" class="attachment-medium size-medium wp-post-image lazyloaded" alt="" sizes="(max-width: 300px) 100vw, 300px" srcset="https://newkalatheme.ir/preview/wp-content/uploads/2015/11/2606-300x196.jpg 300w, https://newkalatheme.ir/preview/wp-content/uploads/2015/11/2606-600x392.jpg 600w, https://newkalatheme.ir/preview/wp-content/uploads/2015/11/2606-768x502.jpg 768w, https://newkalatheme.ir/preview/wp-content/uploads/2015/11/2606.jpg 800w" data-ll-status="loaded"> *@
+@*         <noscript> *@
+@*             <img width="300" height="196" src="https://newkalatheme.ir/preview/wp-content/uploads/2015/11/2606-300x196.jpg" class="attachment-medium size-medium wp-post-image" alt="" srcset="https://newkalatheme.ir/preview/wp-content/uploads/2015/11/2606-300x196.jpg 300w, https://newkalatheme.ir/preview/wp-content/uploads/2015/11/2606-600x392.jpg 600w, https://newkalatheme.ir/preview/wp-content/uploads/2015/11/2606-768x502.jpg 768w, https://newkalatheme.ir/preview/wp-content/uploads/2015/11/2606.jpg 800w" sizes="(max-width: 300px) 100vw, 300px"/> *@
+@*         </noscript> *@
+@*         <div class="main_post_meta"> *@
+@*             <span class="comment_number" lang="fa">0</span> *@
+@*         </div> *@
+@*     </div> *@
+@* *@
+@*     <h3 class="entry-title"> *@
+@*         <a href="https://newkalatheme.ir/preview/%d8%b1%d8%a7%d9%87%d9%86%d9%85%d8%a7%db%8c-%d8%ae%d8%b1%db%8c%d8%af-%d9%84%d8%a8%d8%a7%d8%b3/" rel="bookmark">راهنمای خرید لباس</a> *@
+@*     </h3> *@
+@*     <div class="author"> *@
+@* *@
+@*         <img alt="" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2030%2030'%3E%3C/svg%3E" data-lazy-srcset="https://newkalatheme.ir/preview/wp-content/uploads/2020/05/cropped-NKaka-New-logo-1.png 2x" class="avatar avatar-30 photo" height="30" width="30" data-lazy-src="https://newkalatheme.ir/preview/wp-content/uploads/2020/05/cropped-NKaka-New-logo-1.png"> *@
+@*         <noscript> *@
+@*             <img alt='' src='https://newkalatheme.ir/preview/wp-content/uploads/2020/05/cropped-NKaka-New-logo-1.png' srcset='https://newkalatheme.ir/preview/wp-content/uploads/2020/05/cropped-NKaka-New-logo-1.png 2x' class='avatar avatar-30 photo' height='30' width='30'/> *@
+@*         </noscript> *@
+@*         <a href="https://newkalatheme.ir/preview/author/newkala/">سید حسن حسینی</a> *@
+@*     </div> *@
+@* *@
+@* *@
+@*     <div class="human_time_diff">5 سال قبل</div> *@
+@* *@
+@* </article><!-- #post-## --> *@
+@* *@
+@* *@
+@* <article id="post-284" class="swiper-slide post-284 post type-post status-publish format-standard has-post-thumbnail hentry category-148 category-147 category-uncategorized category-152 category-151 category-150 category-149" style="width: 237.8px; margin-left: 30px;"> *@
+@* *@
+@* *@
+@*     <div class="main-wp-post-image"> *@
+@*         <a href="https://newkalatheme.ir/preview/category/%da%a9%d8%aa%d8%a7%d8%a8/" title="" class="cat_of_post">کتاب</a> <img width="300" height="200" src="https://newkalatheme.ir/preview/wp-content/uploads/2015/10/samsung-event-300x200.jpg" class="attachment-medium size-medium wp-post-image lazyloaded" alt="" sizes="(max-width: 300px) 100vw, 300px" srcset="https://newkalatheme.ir/preview/wp-content/uploads/2015/10/samsung-event-300x200.jpg 300w, https://newkalatheme.ir/preview/wp-content/uploads/2015/10/samsung-event-600x400.jpg 600w, https://newkalatheme.ir/preview/wp-content/uploads/2015/10/samsung-event-768x512.jpg 768w, https://newkalatheme.ir/preview/wp-content/uploads/2015/10/samsung-event-1024x682.jpg 1024w, https://newkalatheme.ir/preview/wp-content/uploads/2015/10/samsung-event.jpg 2000w" data-ll-status="loaded"> *@
+@*         <noscript> *@
+@*             <img width="300" height="200" src="https://newkalatheme.ir/preview/wp-content/uploads/2015/10/samsung-event-300x200.jpg" class="attachment-medium size-medium wp-post-image" alt="" srcset="https://newkalatheme.ir/preview/wp-content/uploads/2015/10/samsung-event-300x200.jpg 300w, https://newkalatheme.ir/preview/wp-content/uploads/2015/10/samsung-event-600x400.jpg 600w, https://newkalatheme.ir/preview/wp-content/uploads/2015/10/samsung-event-768x512.jpg 768w, https://newkalatheme.ir/preview/wp-content/uploads/2015/10/samsung-event-1024x682.jpg 1024w, https://newkalatheme.ir/preview/wp-content/uploads/2015/10/samsung-event.jpg 2000w" sizes="(max-width: 300px) 100vw, 300px"/> *@
+@*         </noscript> *@
+@*         <div class="main_post_meta"> *@
+@*             <span class="comment_number" lang="fa">0</span> *@
+@*         </div> *@
+@*     </div> *@
+@* *@
+@*     <h3 class="entry-title"> *@
+@*         <a href="https://newkalatheme.ir/preview/%d8%b3%d8%a7%d9%85%d8%b3%d9%88%d9%86%da%af-%d8%b3%d8%b1%d9%88%db%8c%d8%b3-%d8%a7%d8%b3%d9%85%d8%a7%d8%b1%d8%aa-%da%a9%db%8c%d9%88%d8%b3%da%a9-%d8%b1%d8%a7-%d8%af%d8%b1-%d8%a7%db%8c%d8%b1%d8%a7%d9%86/" rel="bookmark">سامسونگ سرویس اسمارت کیوسک را در ایران راه&zwnj;اندازی کرد</a> *@
+@*     </h3> *@
+@*     <div class="author"> *@
+@* *@
+@*         <img alt="" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2030%2030'%3E%3C/svg%3E" data-lazy-srcset="https://newkalatheme.ir/preview/wp-content/uploads/2020/05/cropped-NKaka-New-logo-1.png 2x" class="avatar avatar-30 photo" height="30" width="30" data-lazy-src="https://newkalatheme.ir/preview/wp-content/uploads/2020/05/cropped-NKaka-New-logo-1.png"> *@
+@*         <noscript> *@
+@*             <img alt='' src='https://newkalatheme.ir/preview/wp-content/uploads/2020/05/cropped-NKaka-New-logo-1.png' srcset='https://newkalatheme.ir/preview/wp-content/uploads/2020/05/cropped-NKaka-New-logo-1.png 2x' class='avatar avatar-30 photo' height='30' width='30'/> *@
+@*         </noscript> *@
+@*         <a href="https://newkalatheme.ir/preview/author/newkala/">سید حسن حسینی</a> *@
+@*     </div> *@
+@* *@
+@* *@
+@*     <div class="human_time_diff">5 سال قبل</div> *@
+@* *@
+@* </article><!-- #post-## --> *@
+@* *@
+@* *@
+@* </div> *@
+@* *@
+@* <div class="slider-posts-button slider-posts-button-next" tabindex="0" role="button" aria-label="Next slide" aria-disabled="false"></div> *@
+@* <div class="slider-posts-button slider-posts-button-prev swiper-button-disabled" tabindex="0" role="button" aria-label="Previous slide" aria-disabled="true"></div> *@
+@* *@
+@* *@
+@* <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span> *@
+@* <div class="resize" style="position:absolute; width:auto; height:auto; top:0; right:0; bottom:0; left:0; margin:0; padding:0; overflow:hidden; visibility:hidden; z-index:-1"> *@
+@*     <iframe style="width:100%; height:0; border:0; visibility:visible; margin:0"> *@
+@*         <iframe style='width:0; height:100%; border:0; visibility:visible; margin:0'/> *@
+@*     </iframe> *@
+@* </div> *@
+@* $1$ </iframe> #1# *@
+@* </div><span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span> *@
+@* </div> *@
+
+
+<script>
+    function swiper_container_post_slider_newkala(){
+        var width_div = jQuery(".swiper-container-post-slider-newkala").width();
+        if( width_div < 5000 && width_div > 1367 ){
+                var swiper = new Swiper('.swiper-container-post-slider-newkala', {
+                  slidesPerView: 6,
+                  spaceBetween: 30,
+                  freeMode: true,
+                  navigation: {
+                    nextEl: '.slider-posts-button-next',
+                    prevEl: '.slider-posts-button-prev',
+                  },
+                });				
+        } else if( width_div < 1367 && width_div > 1000 ){
+                var swiper = new Swiper('.swiper-container-post-slider-newkala', {
+                  slidesPerView: 5,
+                  spaceBetween: 30,
+                  freeMode: true,
+                  navigation: {
+                    nextEl: '.slider-posts-button-next',
+                    prevEl: '.slider-posts-button-prev',
+                  },
+                });				
+        } else if( width_div < 1000 && width_div > 768 ){
+                var swiper = new Swiper('.swiper-container-post-slider-newkala', {
+                  slidesPerView: 3,
+                  spaceBetween: 30,
+                  freeMode: true,
+                  navigation: {
+                    nextEl: '.slider-posts-button-next',
+                    prevEl: '.slider-posts-button-prev',
+                  },
+                });				
+        } else if( width_div < 768 && width_div > 480 ) {
+            
+                var swiper = new Swiper('.swiper-container-post-slider-newkala', {
+                  slidesPerView: 2,
+                  spaceBetween: 30,
+                  freeMode: true,
+                  navigation: {
+                    nextEl: '.slider-posts-button-next',
+                    prevEl: '.slider-posts-button-prev',
+                  },
+                });					
+        }else {
+            
+                var swiper = new Swiper('.swiper-container-post-slider-newkala', {
+                  slidesPerView: 1,
+                  spaceBetween: 30,
+                  freeMode: true,
+                  navigation: {
+                    nextEl: '.slider-posts-button-next',
+                    prevEl: '.slider-posts-button-prev',
+                  },
+                });					
+        }
+    }
+    swiper_container_post_slider_newkala();
+    jQuery(".swiper-container-post-slider-newkala").on("mresize",function(){
+        swiper_container_post_slider_newkala();
+    });
+  </script>
+
+
+@* </div> *@
+
+<div class="container">
+    <div class="module-title">
+        <div class="module-title__txt">
+            <span class="bold"></span>
+            <span>
+                <strong>آخرین مطالب </strong>
+            </span>
+        </div>
+
+        <div class="module-title__sep"></div>
+    </div>
+
+    <section class="content_right_blog" style="width: 100%;">
+        <div class="posts_blog">
+
+            @foreach (var item in Model.Blogs.Where(b => b.Position == 0))
+            {
+                <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-148 category-147 category-uncategorized category-152 category-151 category-150 category-149">
+                    <div class="main-wp-post-image">
+                        <a asp-controller="Blogs"
+                           asp-action="Details"
+                           asp-route-category="@item.en_NewsGroupName"
+                           asp-route-title="@item.Title.Replace(" ", "-")"
+                           title="@item.Title" class="cat_of_post">
+                            @item.NewsGroupName
+                        </a>
+                        <a asp-controller="Blogs"
+                           asp-action="Details"
+                           asp-route-category="@item.en_NewsGroupName"
+                           asp-route-title="@item.Title.Replace(" ", "-")"
+                           >
+                            <img width="300" height="191"
+                                 src="/@item.HeadLine"
+                                 data-lazy-srcset="/@item.HeadLine" data-lazy-sizes="(max-width: 300px) 100vw, 300px"
+                                 data-lazy-src="/@item.HeadLine"
+                                 class="attachment-medium size-medium wp-post-image" alt="@item.Title">
+                            <noscript>
+                                <img width="300" height="191" src="/@item.HeadLine" class="attachment-medium size-medium wp-post-image" alt="@item.Title"
+                                     srcset="/@item.HeadLine" sizes="(max-width: 300px) 100vw, 300px"/>
+                            </noscript>
+                        </a>
+                        @* <div class="main_post_meta"> *@
+                        @*     <span class="comment_number" lang="fa">3</span> *@
+                        @* </div> *@
+                    </div>
+
+                    <h3 class="entry-title">
+                        <a asp-controller="Blogs"
+                           asp-action="Details"
+                           asp-route-category="@item.en_NewsGroupName"
+                           asp-route-title="@item.Title.Replace(" ", "-")"
+                           rel="bookmark">
+                            @item.Title
+                        </a>
+                    </h3>
+                    <div class="entry-summary">
+                        <p>@item.NewsSummery</p>
+                    </div><!-- .entry-summary -->
+
+                    <div class="author">
+
+                        <img alt="@item.Title" src="/Images/Favicon/favicon-16x16.png" data-lazy-srcset="/Images/Favicon/favicon-16x16.png" class="avatar avatar-30 photo" height="30" width="30"
+                             data-lazy-src="/Images/Favicon/favicon-16x16.png">
+                        <noscript>
+                            <img alt='@item.Title' src='/Images/Favicon/favicon-16x16.png' srcset='/Images/Favicon/favicon-16x16.png' class='avatar avatar-30 photo' height='30' width='30'/>
+                        </noscript>
+                        @* <a href="https://newkalatheme.ir/preview/author/newkala/">سید حسن حسینی</a> *@
+                    </div>
+
+
+                    <div class="human_time_diff">@item.RegisterDatePersian</div>
+
+                </article>
+                <!-- #post-## -->
+            }
+
+
+            <div class="archive_pagination" lang="fa">
+            </div>
+
+        </div>
+    </section>
+    <nav class="woocommerce-pagination" lang="fa">
+    	<paging total-records="100"
+                    page-no="1"
+                    page-size="20"
+                    show-prev-next="true"
+                    show-total-pages="false"
+                    show-total-records="false"
+                    show-page-size-nav="true"
+                    show-first-numbered-page="true"
+                    show-last-numbered-page="true"
+                    gap-size="2"
+                    query-string-key-page-no="page"
+                    query-string-key-page-size="page-size"
+                    query-string-value="@@(Request.QueryString.Value)"
+                    >
+            </paging>
+    </nav>
+    @* <aside class="main_blog_sidebar"> *@
+    @*     <div id="media_image-5" class="main-blog-widget widget_media_image"> *@
+    @*         <img width="345" height="283" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20345%20283'%3E%3C/svg%3E" class="image wp-image-2608  attachment-full size-full" alt="" style="max-width: 100%; height: auto;" data-lazy-srcset="https://newkalatheme.ir/preview/wp-content/uploads/2019/10/mag-1-1.jpg 345w, https://newkalatheme.ir/preview/wp-content/uploads/2019/10/mag-1-1-300x246.jpg 300w" data-lazy-sizes="(max-width: 345px) 100vw, 345px" data-lazy-src="https://newkalatheme.ir/preview/wp-content/uploads/2019/10/mag-1-1.jpg"> *@
+    @*         <noscript> *@
+    @*             <img width="345" height="283" src="https://newkalatheme.ir/preview/wp-content/uploads/2019/10/mag-1-1.jpg" class="image wp-image-2608  attachment-full size-full" alt="" style="max-width: 100%; height: auto;" srcset="https://newkalatheme.ir/preview/wp-content/uploads/2019/10/mag-1-1.jpg 345w, https://newkalatheme.ir/preview/wp-content/uploads/2019/10/mag-1-1-300x246.jpg 300w" sizes="(max-width: 345px) 100vw, 345px"/> *@
+    @*         </noscript> *@
+    @*     </div> *@
+    @* </aside> *@
+    <div class="clear"></div>
+</div>
+<div class="clear"></div>
+
+@* <div class="nk_container_top_footer"> *@
+@* *@
+@*     <div class="container nk_inside_container_top_footer"> *@
+@* *@
+@* *@
+@*         <div class="collaborative-media"> *@
+@*             <span class="title-collaborative-media">رسانه های همکار</span> *@
+@*             <img class="footer_blog_item_brand" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" data-lazy-src="https://newkalatheme.ir/preview/wp-content/uploads/2020/06/3.jpg"> *@
+@*             <noscript> *@
+@*                 <img class="footer_blog_item_brand" src="https://newkalatheme.ir/preview/wp-content/uploads/2020/06/3.jpg"> *@
+@*             </noscript><img class="footer_blog_item_brand" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" data-lazy-src="https://newkalatheme.ir/preview/wp-content/uploads/2020/06/1.jpg"> *@
+@*             <noscript> *@
+@*                 <img class="footer_blog_item_brand" src="https://newkalatheme.ir/preview/wp-content/uploads/2020/06/1.jpg"> *@
+@*             </noscript><img class="footer_blog_item_brand" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" data-lazy-src="https://newkalatheme.ir/preview/wp-content/uploads/2020/06/2.jpg"> *@
+@*             <noscript> *@
+@*                 <img class="footer_blog_item_brand" src="https://newkalatheme.ir/preview/wp-content/uploads/2020/06/2.jpg"> *@
+@*             </noscript> *@
+@*         </div> *@
+@* *@
+@* *@
+@*         <img class="footer-logo-blog blog_logo" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" data-lazy-src="https://newkalatheme.ir/preview/wp-content/uploads/2020/06/footer-blog.png"> *@
+@*         <noscript> *@
+@*             <img class="footer-logo-blog blog_logo" src="https://newkalatheme.ir/preview/wp-content/uploads/2020/06/footer-blog.png"> *@
+@*         </noscript> *@
+@* *@
+@* *@
+@*     </div> *@
+@* </div> *@

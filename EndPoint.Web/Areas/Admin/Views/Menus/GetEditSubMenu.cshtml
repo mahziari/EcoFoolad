@@ -1,0 +1,85 @@
+﻿@using ParsaPoolad.Application.Services.BackEnd.Admin.Menus.Queries
+@model ResultGetEditMenusDto
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "ویرایش منو";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@section Head{
+    <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/vendors/css/vendors-rtl.min.css">
+    <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/vendors/css/extensions/bootstrap-treeview.min.css">
+    <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/css/bootstrap-extended.min.css">
+    <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/css/colors.min.css">
+    <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/css/components.min.css">
+    <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/css/themes/dark-layout.min.css">
+    <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/css/themes/semi-dark-layout.min.css">
+    <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/css/custom-rtl.min.css">
+    <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/css/core/menu/menu-types/vertical-menu-karaji.min.css">
+    <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/css/plugins/extensions/ext-component-treeview.min.css">
+    <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/css/style.css">
+}
+
+@section Foo{
+    <script src="~/BackEnd/Admin/vendors/js/vendors.min.js"></script>
+    <script src="~/BackEnd/Admin/vendors/js/extensions/bootstrap-treeview.min.js"></script>
+    <script src="~/BackEnd/Admin/js/scripts/configs/vertical-menu-dark.min.js"></script>
+    <script src="~/BackEnd/Admin/js/core/app-menu.min.js"></script>
+    <script src="~/BackEnd/Admin/js/core/app.min.js"></script>
+    <script src="~/BackEnd/Admin/js/scripts/components.min.js"></script>
+    <script src="~/BackEnd/Admin/js/scripts/footer.min.js"></script>
+    <script src="~/BackEnd/Admin/js/scripts/customizer.min.js"></script>
+    <script src="~/BackEnd/Admin/js/scripts/extensions/ext-component-treeview.min.js"></script>
+}
+
+
+<div class="app-content content">
+    <div class="content-overlay"></div>
+    <div class="content-wrapper">
+        <div class="content-header row">
+        </div>
+        <div class="content-body">
+            <!-- users edit start -->
+            <section class="users-edit">
+                <div class="card">
+                    <div class="card-content">
+                        <div class="card-body">
+                            <div class="tab-content">
+                                <div class="tab-pane active fade show" id="account" aria-labelledby="account-tab" role="tabpanel">
+                                    <!-- users edit media object start -->
+                                    <div class="media mb-2">
+                                        <div class="media-body">
+                                            <h4 class="media-heading"> ویرایش نام برای منو "@ViewBag.Sgname" </h4>
+                                        </div>
+                                    </div>
+                                    <!-- users edit media object ends -->
+                                    <!-- users edit account form start -->
+                                    <form asp-area="Admin" asp-controller="Menus" asp-action="EditSubMenu" method="post">
+                                        <div class="row">
+                                            <div class="col-12 col-sm-12">
+                                                <div class="form-group">
+                                                    <div class="controls">
+                                                        @* <label></label> *@
+                                                        <input type="hidden" name="id" value="@ViewBag.Id"/>
+                                                        <input type="text" name="name" class="form-control" placeholder="نام را وارد کنید" required>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 d-flex flex-sm-row flex-column justify-content-end mt-1">
+                                                <button type="submit" class="btn btn-primary glow mb-1 mb-sm-0 mr-0 mr-sm-1">ویرایش</button>
+                                                @* <button type="reset" class="btn btn-light">Cancel</button> *@
+                                            </div>
+                                        </div>
+                                    </form>
+                                    <!-- users edit account form ends -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- users edit ends -->
+        </div>
+    </div>
+</div>

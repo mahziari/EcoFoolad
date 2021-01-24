@@ -1,0 +1,13 @@
+﻿# Default ignored files
+/shelf/
+/workspace.xml
+# Rider ignored files
+/projectSettingsUpdater.xml
+/modules.xml
+/.idea.ParsaPoolad.iml
+/contentModel.xml
+# Datasource local storage ignored files
+/../../../../../../:\.NET\01_ParsaPoolad\.idea\.idea.ParsaPoolad\.idea/dataSources/
+/dataSources.local.xml
+# Editor-based HTTP Client requests
+/httpRequests/

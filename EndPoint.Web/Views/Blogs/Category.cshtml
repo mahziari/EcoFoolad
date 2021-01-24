@@ -1,0 +1,105 @@
+﻿@using ParsaPoolad.Application.Services.FrontEnd.Blogs.Queries
+@using ParsaPoolad.Common.Extentions
+@model ResultGetBlogsCategoryFrontEndDto
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "بلاگ اکوفولاد";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container">
+    <div class="module-title">
+        <div class="module-title__txt">
+            <span class="bold"></span>
+            <span>
+                <strong>آخرین مطالب </strong>
+            </span>
+        </div>
+
+        <div class="module-title__sep"></div>
+    </div>
+
+    <section class="content_right_blog" style="width: 100%;">
+        <div class="posts_blog">
+
+            @foreach (var item in Model.BlogsCatrgory)
+            {
+                <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-148 category-147 category-uncategorized category-152 category-151 category-150 category-149">
+                    <div class="main-wp-post-image">
+                        <a asp-controller="Blogs"
+                           asp-action="Details"
+                           asp-route-category="@item.en_NewsGroupName"
+                           asp-route-title="@item.Title.Replace(" ", "-")"
+                           title="@item.Title" class="cat_of_post">
+                            @item.NewsGroupName
+                        </a>
+
+                        
+                        <a asp-controller="Blogs"
+                           asp-action="Details"
+                           asp-route-category="@item.en_NewsGroupName"
+                           asp-route-title="@item.Title.Replace(" ", "-")"
+                           >
+                        <img width="300" height="191"
+                             src="/@item.HeadLine"
+                             data-lazy-srcset="/@item.HeadLine" data-lazy-sizes="(max-width: 300px) 100vw, 300px"
+                             data-lazy-src="/@item.HeadLine"
+                             class="attachment-medium size-medium wp-post-image" alt="@item.Title">
+                        <noscript>
+                            <img width="300" height="191" src="/@item.HeadLine" class="attachment-medium size-medium wp-post-image" alt="@item.Title"
+                                 srcset="/@item.HeadLine" sizes="(max-width: 300px) 100vw, 300px"/>
+                        </noscript>
+                        </a>
+                        @* <div class="main_post_meta"> *@
+                        @*     <span class="comment_number" lang="fa">3</span> *@
+                        @* </div> *@
+                    </div>
+
+                    <h3 class="entry-title">
+                        <a asp-controller="Blogs"
+                           asp-action="Details"
+                           asp-route-category="@item.en_NewsGroupName"
+                           asp-route-title="@item.Title.Replace(" ", "-")"
+                           rel="bookmark">
+                            @item.Title
+                        </a>
+                    </h3>
+                    <div class="entry-summary">
+                        <p>@item.NewsSummery</p>
+                    </div><!-- .entry-summary -->
+
+                    <div class="author">
+
+                        <img alt="@item.Title" src="/Images/Favicon/favicon-16x16.png" data-lazy-srcset="/Images/Favicon/favicon-16x16.png" class="avatar avatar-30 photo" height="30" width="30"
+                             data-lazy-src="/Images/Favicon/favicon-16x16.png">
+                        <noscript>
+                            <img alt='@item.Title' src='/Images/Favicon/favicon-16x16.png' srcset='/Images/Favicon/favicon-16x16.png' class='avatar avatar-30 photo' height='30' width='30'/>
+                        </noscript>
+                        @* <a href="https://newkalatheme.ir/preview/author/newkala/">سید حسن حسینی</a> *@
+                    </div>
+
+
+                    <div class="human_time_diff">@item.PublishDateTime</div>
+
+                </article>
+                <!-- #post-## -->
+            }
+
+
+            <div class="archive_pagination" lang="fa">
+            </div>
+
+        </div>
+    </section>
+    @* <aside class="main_blog_sidebar"> *@
+    @*     <div id="media_image-5" class="main-blog-widget widget_media_image"> *@
+    @*         <img width="345" height="283" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20345%20283'%3E%3C/svg%3E" class="image wp-image-2608  attachment-full size-full" alt="" style="max-width: 100%; height: auto;" data-lazy-srcset="https://newkalatheme.ir/preview/wp-content/uploads/2019/10/mag-1-1.jpg 345w, https://newkalatheme.ir/preview/wp-content/uploads/2019/10/mag-1-1-300x246.jpg 300w" data-lazy-sizes="(max-width: 345px) 100vw, 345px" data-lazy-src="https://newkalatheme.ir/preview/wp-content/uploads/2019/10/mag-1-1.jpg"> *@
+    @*         <noscript> *@
+    @*             <img width="345" height="283" src="https://newkalatheme.ir/preview/wp-content/uploads/2019/10/mag-1-1.jpg" class="image wp-image-2608  attachment-full size-full" alt="" style="max-width: 100%; height: auto;" srcset="https://newkalatheme.ir/preview/wp-content/uploads/2019/10/mag-1-1.jpg 345w, https://newkalatheme.ir/preview/wp-content/uploads/2019/10/mag-1-1-300x246.jpg 300w" sizes="(max-width: 345px) 100vw, 345px"/> *@
+    @*         </noscript> *@
+    @*     </div> *@
+    @* </aside> *@
+    <div class="clear"></div>
+</div>
+<div class="clear"></div>

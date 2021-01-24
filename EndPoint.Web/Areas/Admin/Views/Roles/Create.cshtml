@@ -1,0 +1,91 @@
+﻿@using ParsaPoolad.Application.Services.BackEnd.Admin.Roles.Queries
+@model ResultGetCreateRolesDto
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "ایجاد کلیم";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@section Head{
+    <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/vendors/css/vendors-rtl.min.css">
+    <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/vendors/css/forms/select/select2.min.css">
+    <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/css/bootstrap-extended.min.css">
+    <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/css/colors.min.css">
+    <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/css/components.min.css">
+    <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/css/themes/dark-layout.min.css">
+    <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/css/themes/semi-dark-layout.min.css">
+    <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/css/custom-rtl.min.css">
+    <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/css/core/menu/menu-types/vertical-menu-karaji.min.css">
+    <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/css/style.css">
+}
+
+@section Foo{
+    <script src="~/BackEnd/Admin/vendors/js/vendors.min.js"></script>
+    <script src="~/BackEnd/Admin/vendors/js/forms/select/select2.full.min.js"></script>
+    <script src="~/BackEnd/Admin/vendors/js/extensions/jquery.steps.min.js"></script>
+    <script src="~/BackEnd/Admin/vendors/js/forms/validation/jquery.validate.min.js"></script>
+    <script src="~/BackEnd/Admin/js/scripts/configs/vertical-menu-dark.min.js"></script>
+    <script src="~/BackEnd/Admin/js/core/app-menu.min.js"></script>
+    <script src="~/BackEnd/Admin/js/core/app.min.js"></script>
+    <script src="~/BackEnd/Admin/js/scripts/components.min.js"></script>
+    <script src="~/BackEnd/Admin/js/scripts/footer.min.js"></script>
+    <script src="~/BackEnd/Admin/js/scripts/customizer.min.js"></script>
+    <script src="~/BackEnd/Admin/js/scripts/forms/select/form-select2.min.js"></script>
+    <script>$('div.alert').delay(3000).slideUp(300); </script>
+    <script src="~/BackEnd/CkEditor/ckeditor_4.13.1_full/ckeditor.js"></script>
+    <script src="~/BackEnd/CkEditor/ckfinder/ckfinder.js"></script>
+    <script>
+        var options = {
+           filebrowserBrowseUrl: '/ckfinder/ckfinder.html',
+        filebrowserUploadUrl: '/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files'
+        };
+    </script>
+    <script>
+       var editor = CKEDITOR.replace( 'NewsSummery' );
+        CKFinder.setupCKEditor( editor );
+    </script>
+}
+
+
+<div class="app-content content">
+    <div class="content-overlay"></div>
+    <div class="content-wrapper">
+        <div class="content-header row"></div>
+        <div class="content-body">
+            <!-- app invoice View Page -->
+
+            <form asp-area="Admin" asp-controller="Roles" asp-action="Create" method="post">
+                <section class="invoice-edit-wrapper">
+                    <div asp-validation-summary="All" class="text-danger"></div>
+                    <div class="row">
+                        <!-- invoice view page -->
+                        <div class="col-xl-12 col-md-12 col-12">
+                            <div class="card">
+                                <div class="card-content">
+                                    <div class="card-body pb-0 mx-25">
+
+                                        <!-- header section -->
+                                        <div class="row my-2 py-50">
+                                            <div class="col-sm-6 col-12 order-2 order-sm-1">
+                                                <h6 class="text-primary">Role Title<b class="text-danger h3">*</b></h6>
+                                                <input asp-for="Name" type="text" class="form-control">
+                                            </div>
+
+                                            <div class="col-sm-6 col-12 order-2 order-sm-1">
+                                                <h6 class="text-primary">Role Description<b class="text-danger h3">*</b></h6>
+                                                <input asp-for="Description" type="text" class="form-control">
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <button class="btn btn-primary btn-block subtotal-preview-btn">Create</button>
+            </form>
+        </div>
+    </div>
+</div>

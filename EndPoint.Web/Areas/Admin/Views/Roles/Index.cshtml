@@ -1,0 +1,138 @@
+﻿@using ParsaPoolad.Application.Services.BackEnd.Admin.Roles.Queries
+@model ResultGetIndexRolesDto
+@{
+    ViewData["Title"] = "کلیم ها";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+
+@section Head{
+    <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/vendors/css/vendors-rtl.min.css">
+    <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/vendors/css/tables/datatable/datatables.min.css">
+    <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/css/bootstrap-extended.min.css">
+    <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/css/colors.min.css">
+    <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/css/components.min.css">
+    <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/css/themes/dark-layout.min.css">
+    <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/css/themes/semi-dark-layout.min.css">
+    <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/css/custom-rtl.min.css">
+    <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/css/core/menu/menu-types/vertical-menu-karaji.min.css">
+    <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/css/pages/page-users.min.css">
+    <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/css/style.css">
+}
+
+@section Foo{
+    <script src="~/BackEnd/Admin/vendors/js/vendors.min.js"></script>
+    <script src="~/BackEnd/Admin/vendors/js/tables/datatable/datatables.min.js"></script>
+    <script src="~/BackEnd/Admin/vendors/js/tables/datatable/dataTables.bootstrap4.min.js"></script>
+    <script src="~/BackEnd/Admin/js/scripts/configs/vertical-menu-dark.min.js"></script>
+    <script src="~/BackEnd/Admin/js/core/app-menu.min.js"></script>
+    <script src="~/BackEnd/Admin/js/core/app.min.js"></script>
+    <script src="~/BackEnd/Admin/js/scripts/components.min.js"></script>
+    <script src="~/BackEnd/Admin/js/scripts/footer.min.js"></script>
+    <script src="~/BackEnd/Admin/js/scripts/customizer.min.js"></script>
+    <script src="~/BackEnd/Admin/js/scripts/pages/page-users.min.js"></script>
+    <script> $('div.alert').delay(3000).slideUp(300); </script>
+}
+
+
+<div class="app-content content">
+    <div class="content-overlay"></div>
+    <div class="content-wrapper">
+        <div class="content-header row">
+        </div>
+        <div class="content-body">
+
+            @if (TempData["IsSuccess"] != null)
+            {
+                @if (Convert.ToBoolean(TempData["IsSuccess"]) == true)
+                {
+                    <div class="alert alert-success">
+                        @TempData["Message"]
+                    </div>
+                }
+
+                else if (Convert.ToBoolean(TempData["IsSuccess"]) == false)
+                {
+                    <div class="alert alert-danger">
+                        @TempData["Message"]
+                    </div>
+                }
+            }
+
+            <section class="users-list-wrapper">
+                <div class="users-list-table">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="card-body">
+
+                                <div class="table-responsive">
+                                    <table id="users-list-datatable" class="table">
+                                        <thead>
+                                        <tr>
+                                            <th>Subject</th>
+                                            <th> Issuer</th>
+                                            <th> Type</th>
+                                            <th>Value </th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        @foreach (var item in Model.Roles)
+                                        {
+                                            <tr>
+                                                <td style="display:none"> </td>
+                                                <td style="display:none"> </td>
+
+
+                                                <td> @item.Id</td>
+
+                                                <td>
+                                                    @item.Name
+                                                </td>
+
+                                                <td>
+                                                    @item.NormalizedName
+
+                                                </td>
+
+                                                <td>
+                                                    @item.ConcurrencyStamp
+                                                </td>
+
+                                                <td>
+                                                    @item.Description
+                                                </td>
+
+
+                                                @* <td class="tdDisplay"> *@
+                                                @*     <a href="~/Admin/blogs/Details/@item.NewsId" title="مشاهده جزییات"><span class="badge badge-info d-inline-flex align-items-center mr-1 mb-1"><i class="fa fa-folder-open" aria-hidden="true"></i></span></a> *@
+                                                @*     <a href="~/Admin/blogs/Edit/@item.NewsId" title="ویرایش"><span class="badge badge-warning d-inline-flex align-items-center mr-1 mb-1"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></span></a> *@
+                                                @* *@
+                                                @*     @if (@item.IsVerified == false) *@
+                                                @*     { *@
+                                                @*         <a href="~/Admin/blogs/Active/@item.NewsId" title="غیر فعال است"><span class="badge badge-secondary d-inline-flex align-items-center mr-1 mb-1"><i class="fa fa-toggle-off" aria-hidden="true"></i></span></a> *@
+                                                @*     } *@
+                                                @*     else *@
+                                                @*     { *@
+                                                @*         <a href="~/Admin/blogs/Active/@item.NewsId" title="فعال است"><span class="badge badge-primary d-inline-flex align-items-center mr-1 mb-1"><i class="fa fa-toggle-on" aria-hidden="true"></i></span></a> *@
+                                                @*     } *@
+                                                @* *@
+                                                @*     <a href="~/Admin/blogs/Delete/@item.NewsId" title="حذف" onclick="return confirm('ایا از حذف مطمعن هستید؟');"><span class="badge badge-danger d-inline-flex align-items-center mr-1 mb-1"><i class="fa fa-window-close" aria-hidden="true"></i></span></a> *@
+                                                @* </td> *@
+
+                                            </tr>
+                                        }
+
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>

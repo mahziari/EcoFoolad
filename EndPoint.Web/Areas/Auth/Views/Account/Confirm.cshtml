@@ -1,0 +1,95 @@
+﻿@using EndPoint.Web.Areas.Auth.Data.Dto
+@model EndPoint.Web.Areas.Auth.Data.Dto.ConfirmDto
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    ViewData["Title"] = "احراز هویت کاربر";
+    Layout = "~/Areas/Auth/Views/Shared/_Layout.cshtml";
+}
+
+
+@section Head{
+    <link rel='stylesheet' id='main-theme-style-css-css'
+          href='~/wp-content/themes/newkala/style.css?ver=5.1.4' type='text/css'
+          media='all'/>
+    <link rel='stylesheet' id='woocommerce-general-rtl-css'
+          href='~/wp-content/plugins/woocommerce/assets/css/woocommerce-rtl.css?ver=4.7.0'
+          type='text/css' media='all'/>
+
+    <link rel="stylesheet" type="text/css"
+          href="~/wp-content/themes/newkala/css/woocommerce_dashboard.css">
+    
+    <link rel="stylesheet" type="text/css"
+          href="~/wp-content/themes/newkala/inHead.css">
+    
+    <link rel="stylesheet" type="text/css"
+          href="~/css/Auth.css">
+    <script>
+          setTimeout(function() {
+                 document.getElementById('againsendSms').disabled = false;
+             }, 60000);
+    </script>
+}
+
+@section Foo{
+    <partial name="_ValidationScriptsPartial"/>
+  <script>$('.alertSlideUp').delay(3000).slideUp(300); </script>
+     <script src="~/js/Auth.js"></script>
+}
+
+<main>
+    <div class="sp_body_panel">
+        <div class="woocommerce">
+            <div class="main_login_form">
+                <a href="https://newkalatheme.ir/preview">
+                    <img style="display:block;margin:20px auto;" src="~/Images/Settings/Logo-Header.jpg" title="اکوفولاد ">
+                </a>
+                @if (TempData["ErrorVerifyPhoneNumber"] != null)
+                {
+                    <ul class="woocommerce-error alertSlideUp">
+                        <li>
+                        <strong>خطا:</strong>
+
+                        @TempData["ErrorVerifyPhoneNumber"]
+                    </ul>
+                }
+
+                
+                <div class="woocommerce-notices-wrapper"></div>
+                <h2>کد تایید را وارد نمایید</h2>
+                <form asp-controller="Account" asp-action="Confirm" method="post" class="woocommerce-form woocommerce-form-register register">
+
+                    <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+                        <label>
+                            برای ساخت حساب جدید برای @TempData["PhoneNumber"] ، کد تایید برای این شماره ارسال گردید.
+                        </label>
+                        <input  asp-for="Code" type="text" class="woocommerce-Input woocommerce-Input--text input-text"/>
+                        <span asp-validation-for="Code" class="text-danger"></span>
+                    </p>
+                    
+                    <div class="woocommerce-privacy-policy-text"></div>
+                    <input type="hidden" asp-for="PhoneNumber">
+                    <p class="woocommerce-FormRow form-row">
+                        <button type="submit" class="woocommerce-Button button go_to_all_products_offer" name="register" value="ورود">ورود به اکوفولاد</button>
+                    </p>
+                </form>
+                
+                
+                <form asp-controller="Account" asp-action="AgainSmsSend" method="post">
+                    <div class="go_to_register_form">
+                        <input  asp-for="PhoneNumber" type="hidden"/>
+                        <button type="submit" id="againsendSms" disabled class="woocommerce-Button button" value=" بازیابی رمز عبور" style="background-color: #ffffff;color: #7d7e80">
+                            کد تایید دریافت نشد؟
+                            <a>
+                                دریافت مجدد
+                            </a>
+                        </button>
+                        <div id="app" style="margin-right: 47%"></div>
+                       
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</main>

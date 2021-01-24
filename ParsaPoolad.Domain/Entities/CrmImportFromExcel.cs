@@ -1,0 +1,104 @@
+﻿using System;
+using System.Collections.Generic;
+
+namespace ParsaPoolad.Domain.Entities
+{
+    public partial class CrmImportFromExcel
+    {
+        public long Id { get; set; }
+        public bool? Selector { get; set; }
+        public int? RelationId { get; set; }
+        public string CmpName { get; set; }
+        public string CmpNameEng { get; set; }
+        public string CmpFame { get; set; }
+        public string CmpActivityType { get; set; }
+        public string CmpPreTel { get; set; }
+        public string CmpTel { get; set; }
+        public string CmpTelUpTo { get; set; }
+        public string CmpTelDesc { get; set; }
+        public string CmpPreTelIi { get; set; }
+        public string CmpTelIi { get; set; }
+        public string CmpTelUpToIi { get; set; }
+        public string CmpTelIidesc { get; set; }
+        public string CmpMobile { get; set; }
+        public string CmpFax { get; set; }
+        public string CmpFaxDesc { get; set; }
+        public string CmpAddress { get; set; }
+        public string CmpAddressDesc { get; set; }
+        public string CmpZipCode { get; set; }
+        public string CmpPostBox { get; set; }
+        public string CmpWebSite { get; set; }
+        public string CmpEmail { get; set; }
+        public string CmpInteresting { get; set; }
+        public string CmpSpecialPoint { get; set; }
+        public string CmpDescription { get; set; }
+        public string CmpUserName { get; set; }
+        public string CmpPassword { get; set; }
+        public string CmpRegistrationNumber { get; set; }
+        public string CmpEconomicCode { get; set; }
+        public string CmpNationalCode { get; set; }
+        public string PrsFname { get; set; }
+        public string PrsLname { get; set; }
+        public int? PrsTitleId { get; set; }
+        public string PrsPreTel { get; set; }
+        public string PrsTel { get; set; }
+        public string PrsTelUpTo { get; set; }
+        public string PrsTelDesc { get; set; }
+        public string PrsTelIi { get; set; }
+        public string PrsFax { get; set; }
+        public string PrsFaxDesc { get; set; }
+        public string PrsMobile { get; set; }
+        public string PrsWebSite { get; set; }
+        public string PrsEmail { get; set; }
+        public string PrsEmailIi { get; set; }
+        public string PrsAddress { get; set; }
+        public string PrsAddressDesc { get; set; }
+        public string PrsZipCode { get; set; }
+        public string PrsPostBox { get; set; }
+        public string PrsBirthDate { get; set; }
+        public string PrsMarriageDate { get; set; }
+        public string PrsDescription { get; set; }
+        public string PrjTitle { get; set; }
+        public string CnvsDesc { get; set; }
+        public string CnvsReferDesc { get; set; }
+        public string CnvsRemindDate { get; set; }
+        public string CnvsRemindTime { get; set; }
+        public string CnvsRemindDateForAllarm { get; set; }
+        public int? IsDuplicate { get; set; }
+        public int? FindedcmpId { get; set; }
+        public int? InsertedcmpId { get; set; }
+        public int? InsertedprsId { get; set; }
+        public int? InsertedprjId { get; set; }
+        public int? InsertedcnvsId { get; set; }
+        public string CmpCode { get; set; }
+        public string CmpEffectiveDatePersian { get; set; }
+        public DateTime? CmpEffectiveDateTime { get; set; }
+        public DateTime? ImportDateTime { get; set; }
+        public DateTime? PrsBirthDateTime { get; set; }
+        public DateTime? PrsMarriageDateTime { get; set; }
+        public DateTime? PrsImportDateTime { get; set; }
+        public string PrjPostFix { get; set; }
+        public string PrjRemindDate { get; set; }
+        public DateTime? PrjRemindDateTime { get; set; }
+        public DateTime? CnvsDateTime { get; set; }
+        public DateTime? CnvsRemindDateTime { get; set; }
+        public DateTime? CnvsFirstRegisterDateTime { get; set; }
+        public DateTime? CnvsRemindDateTimeForAllarm { get; set; }
+        public string PrsNationalCode { get; set; }
+        public int? CmpKind { get; set; }
+        public int? CmpNumber { get; set; }
+        public string CmpBuyLimit { get; set; }
+        public string CmpAccountNumber { get; set; }
+        public string CmpAccInquiry { get; set; }
+        public string CmpFreight { get; set; }
+        public string CmpInquiry { get; set; }
+        public string CmpSpecialWordForCi { get; set; }
+        public string CmpCoordinateLatitude { get; set; }
+        public string CmpCoordinateLongitude { get; set; }
+        public string CmpCoordinateLastDatePersian { get; set; }
+        public int? CmpCoordinateZoomLevel { get; set; }
+        public string PrjDesc { get; set; }
+        public string ErrorMessage { get; set; }
+        public string FirstRegisterDatePersian { get; set; }
+    }
+}

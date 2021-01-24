@@ -1,0 +1,32 @@
+﻿@using ParsaPoolad.Application.Services.FrontEnd.Common.Menus.Queries
+@model ResultGetMenusFrontEndDto
+
+@{
+    Layout = null;
+}
+
+
+@foreach (var item in Model.Menus)
+{
+    <li class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-has-children menu-item-233">
+        <a href="https://newkalatheme.ir/preview/product-category/digital-product/">@item.Name</a>
+        <ul class="sub-menu">
+            @foreach (var subItem in item.Sub)
+            {
+                <li class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-has-children menu-item-234">
+                    <a > @subItem.Fgname</a>
+                    <ul class="sub-menu">
+                        @foreach (var subSunItem in subItem.SubSub)
+                        {
+                            <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-240">
+                                <a href="#">
+                                    @subSunItem.Sgname
+                                </a>
+                            </li>
+                        }
+                    </ul>
+                </li>
+            }
+        </ul>
+    </li>
+}
