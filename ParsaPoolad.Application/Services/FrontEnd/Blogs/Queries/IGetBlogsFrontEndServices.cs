@@ -3,14 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using ParsaPoolad.Application.Interfaces.Contexts;
-using ParsaPoolad.Common.Services;
 using ParsaPoolad.Domain.Entities;
 
 namespace ParsaPoolad.Application.Services.FrontEnd.Blogs.Queries
 {
     public interface IGetBlogsFrontEndService
     {
-        ResultGetBlogsFrontEndDto Execute(int pageNumber,int pageSize);
+        ResultGetBlogsFrontEndDto Execute();
     }
 
     public class GetBlogsFrontEndService : IGetBlogsFrontEndService
@@ -26,17 +25,12 @@ namespace ParsaPoolad.Application.Services.FrontEnd.Blogs.Queries
 
 
 
-        public ResultGetBlogsFrontEndDto Execute(int pageNumber,int pageSize)
+        public ResultGetBlogsFrontEndDto Execute()
         {
-            int rowsCount = 0;
-            
-          
-            
             var blogs = _context.CrmCmsNews
                 .Include(s=>s.NewsGroup)
-                .ToPaged(pageNumber, pageSize, out rowsCount)
                 .Where(s=>s.IsVerified)
-                .Where(b => b.Position == 0)
+                .Where(s => s.Position == 0)
                 .Select(s=> new GetBlogsDto
                 {
                     NewsId =s.NewsId,
@@ -55,12 +49,13 @@ namespace ParsaPoolad.Application.Services.FrontEnd.Blogs.Queries
                     RegisterDatePersian =s.RegisterDate.ToPersianDigitalDateTimeString(),
                     IsVerified = s.IsVerified,
                     Position=s.Position,
-                }).ToList();
-            
+                }).Take(16)
+                .ToList();
+
             var blogsFav = _context.CrmCmsNews
                 .Include(s=>s.NewsGroup)
                 .Where(s=>s.IsVerified)
-                .Where(S => S.Position != 0)
+                .Where(s => s.Position != 0)
                 .Select(s=> new GetBlogsDto
                 {
                     NewsId =s.NewsId,
@@ -90,7 +85,6 @@ namespace ParsaPoolad.Application.Services.FrontEnd.Blogs.Queries
                 Blogs = blogs,
                 BlogsFav = blogsFav,
                 BlogsGroup = blogsGroup,
-                RowsCount = rowsCount,
             };
         }
     }
@@ -100,7 +94,6 @@ namespace ParsaPoolad.Application.Services.FrontEnd.Blogs.Queries
         public List<GetBlogsDto> Blogs { get; set; }
         public List<GetBlogsDto> BlogsFav { get; set; }
         public List<CrmCmsNewsGroups> BlogsGroup { get; set; }
-        public int RowsCount { get; set; }
     }
 
 

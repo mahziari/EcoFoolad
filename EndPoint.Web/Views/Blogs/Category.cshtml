@@ -1,12 +1,11 @@
 ﻿@using ParsaPoolad.Application.Services.FrontEnd.Blogs.Queries
-@using ParsaPoolad.Common.Extentions
 @model ResultGetBlogsCategoryFrontEndDto
+
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 @{
     ViewData["Title"] = "بلاگ اکوفولاد";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
 
 <div class="container">
     <div class="module-title">
@@ -35,21 +34,20 @@
                             @item.NewsGroupName
                         </a>
 
-                        
+
                         <a asp-controller="Blogs"
                            asp-action="Details"
                            asp-route-category="@item.en_NewsGroupName"
-                           asp-route-title="@item.Title.Replace(" ", "-")"
-                           >
-                        <img width="300" height="191"
-                             src="/@item.HeadLine"
-                             data-lazy-srcset="/@item.HeadLine" data-lazy-sizes="(max-width: 300px) 100vw, 300px"
-                             data-lazy-src="/@item.HeadLine"
-                             class="attachment-medium size-medium wp-post-image" alt="@item.Title">
-                        <noscript>
-                            <img width="300" height="191" src="/@item.HeadLine" class="attachment-medium size-medium wp-post-image" alt="@item.Title"
-                                 srcset="/@item.HeadLine" sizes="(max-width: 300px) 100vw, 300px"/>
-                        </noscript>
+                           asp-route-title="@item.Title.Replace(" ", "-")">
+                            <img width="300" height="191"
+                                 src="/@item.HeadLine"
+                                 data-lazy-srcset="/@item.HeadLine" data-lazy-sizes="(max-width: 300px) 100vw, 300px"
+                                 data-lazy-src="/@item.HeadLine"
+                                 class="attachment-medium size-medium wp-post-image" alt="@item.Title">
+                            <noscript>
+                                <img width="300" height="191" src="/@item.HeadLine" class="attachment-medium size-medium wp-post-image" alt="@item.Title"
+                                     srcset="/@item.HeadLine" sizes="(max-width: 300px) 100vw, 300px"/>
+                            </noscript>
                         </a>
                         @* <div class="main_post_meta"> *@
                         @*     <span class="comment_number" lang="fa">3</span> *@
@@ -80,7 +78,7 @@
                     </div>
 
 
-                    <div class="human_time_diff">@item.PublishDateTime</div>
+                    <div class="human_time_diff">@item.RegisterDatePersian</div>
 
                 </article>
                 <!-- #post-## -->
@@ -92,6 +90,45 @@
 
         </div>
     </section>
+
+
+    @* @if (Model.PageId > 1) *@
+    @* { *@
+        <nav class="woocommerce-pagination" lang="fa"> 
+            <ul class="page-numbers">
+
+                @for (int i = 1; i <= Model.PageCount + 1; i++)
+                {
+                    <li>
+                        <span aria-current="page" class="page-numbers @(Model.PageId == i ? "current":"")">
+                            <a asp-controller="Blogs" asp-action="Category" asp-route-pageView="page" asp-route-page="@i">@i</a>
+                        </span>
+                    </li>
+                }
+                <li>
+                    <a class="page-numbers" href="#">2</a>
+                </li>
+
+                <li>
+                    <span class="page-numbers dots">…</span>
+                </li>
+
+
+                <li>
+                    <a class="page-numbers" href="#">8</a>
+                </li>
+
+
+                <li>
+                    <a class="next page-numbers" href="#">→</a>
+                </li>
+            </ul>
+        </nav>
+    @* } *@
+
+
+
+
     @* <aside class="main_blog_sidebar"> *@
     @*     <div id="media_image-5" class="main-blog-widget widget_media_image"> *@
     @*         <img width="345" height="283" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20345%20283'%3E%3C/svg%3E" class="image wp-image-2608  attachment-full size-full" alt="" style="max-width: 100%; height: auto;" data-lazy-srcset="https://newkalatheme.ir/preview/wp-content/uploads/2019/10/mag-1-1.jpg 345w, https://newkalatheme.ir/preview/wp-content/uploads/2019/10/mag-1-1-300x246.jpg 300w" data-lazy-sizes="(max-width: 345px) 100vw, 345px" data-lazy-src="https://newkalatheme.ir/preview/wp-content/uploads/2019/10/mag-1-1.jpg"> *@

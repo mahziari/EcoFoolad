@@ -8,7 +8,7 @@ namespace ParsaPoolad.Application.Services.FrontEnd.Blogs.Queries
 {
     public interface IGetBlogsCategoryFrontEndService
     {
-        ResultGetBlogsCategoryFrontEndDto Execute(string category);
+        ResultGetBlogsCategoryFrontEndDto Execute(string category, int page);
     }
 
     public class GetBlogsCategoryFrontEndService: IGetBlogsCategoryFrontEndService
@@ -22,12 +22,26 @@ namespace ParsaPoolad.Application.Services.FrontEnd.Blogs.Queries
 
 
 
-        public ResultGetBlogsCategoryFrontEndDto Execute(string category)
+        public ResultGetBlogsCategoryFrontEndDto Execute(string category, int page)
         {
+
+            var resultInEachPage = 1;
+            int skip = (page - 1) * resultInEachPage;
+            int count = _context.CrmCmsNews
+                .Where(b => b.NewsGroup.en_GroupName == category)
+                .Where(b=>b.IsVerified)
+                .Where(b=>b.Position == 0)
+                .Count();
+            var pageId = page;
+            var pageCount = count / resultInEachPage;
+
+
             var blogsCatrgory = _context.CrmCmsNews
                 .Include(b=>b.NewsGroup)
                 .Where(b => b.NewsGroup.en_GroupName == category)
+                .Where(b=>b.IsVerified)
                 .Where(b=>b.Position == 0)
+                .OrderByDescending(b=>b.NewsId)
                 .Select(b => new GetBlogsCatrgoryDto
                 {
                     NewsId=b.NewsId,
@@ -37,15 +51,20 @@ namespace ParsaPoolad.Application.Services.FrontEnd.Blogs.Queries
                     Title = b.Title,
                     NewsBody=b.NewsBody,
                     NewsSummery=b.NewsSummery,
-                    RegisterDatePersian = b.FirstRegisterDatePersian,
+                    RegisterDatePersian =b.RegisterDate.ToPersianDigitalDateTimeString(),
                     IsVerified = b.IsVerified,
                     Position=b.Position,
                     HeadLine=b.HeadLine
-                }).ToList();
+                }).Skip(skip).Take(resultInEachPage).ToList();
 
+            
+            
+            
             return new ResultGetBlogsCategoryFrontEndDto
             {
                 BlogsCatrgory =blogsCatrgory,
+                PageId =pageId,
+                PageCount =pageCount,
             };
         }
     }
@@ -53,6 +72,8 @@ namespace ParsaPoolad.Application.Services.FrontEnd.Blogs.Queries
     public class ResultGetBlogsCategoryFrontEndDto
     {
         public List<GetBlogsCatrgoryDto> BlogsCatrgory { get; set; }
+        public int PageId { get; set; }
+        public int PageCount { get; set; }
     }
 
 

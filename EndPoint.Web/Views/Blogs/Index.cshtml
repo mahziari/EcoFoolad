@@ -6,10 +6,6 @@
 @{
     ViewData["Title"] = "بلاگ اکوفولاد";
     Layout = "~/Views/Shared/_Layout.cshtml";
-    int pageNumber=1;
-    int pageSize=6;
-    int.TryParse(Context.Request.Query["pageNumber"],out pageNumber);
-    int.TryParse(Context.Request.Query["pageSize"],out pageSize);
 }
  
 <div class="container top_content_page_blog">
@@ -35,8 +31,8 @@
                     onmouseout="this.style.background='#fff'"
                     style="background: rgb(255, 255, 255);">
                     <a asp-controller="Blogs"
-                       asp-action="Category"
-                       asp-route-category="@item.en_GroupName"
+                                              asp-action="Category"
+                                              asp-route-category="@item.en_GroupName"
                        onmouseover="this.style.color='#ffffff'"
                        onmouseout="this.style.color='#666'"
                        style="color: rgb(102, 102, 102);">
@@ -488,64 +484,7 @@
 
         </div>
     </section>
-    <nav class="woocommerce-pagination" lang="fa">
-    @* <ul class="page-numbers"> *@
-    	    <paging total-records="@Model.RowsCount"
-                    page-no="pageNumber==0?1:pageNumber"
-                    page-size="pageSize==0?6:pageSize"
-                    show-prev-next="true"
-                    show-total-pages="false"
-                    show-total-records="false"
-                    show-page-size-nav="true"
-                    show-first-numbered-page="true"
-                    show-last-numbered-page="true"
-                    gap-size="2"
-                    query-string-key-page-no="pageNumber"
-                    query-string-key-page-size="PageSize"
-                    query-string-value="@@(Request.QueryString.Value)"
-                    class="page-numbers"
-                    class-info-div="2"
-                    class-paging-control="page-numbers"
-                    class-active-page="current"
-                    class-disabled-jumping-button="next page-numbers"
-                    class-total-pages="page-numbers"
-                    class-total-records="6"
-                    >
-            </paging>
-    @* </ul> *@
-    </nav>
-    
-    @* <ul class="page-numbers"> *@
-    @*         <li> *@
-    @*             <span aria-current="page" class="page-numbers current">1</span> *@
-    @*         </li> *@
-    @*         <li> *@
-    @*             <a class="page-numbers" href="https://newkalatheme.ir/preview/shop/page/2/?orderby=popularity">2</a> *@
-    @*         </li> *@
-    @*         <li> *@
-    @*             <a class="page-numbers" href="https://newkalatheme.ir/preview/shop/page/3/?orderby=popularity">3</a> *@
-    @*         </li> *@
-    @*         <li> *@
-    @*             <a class="page-numbers" href="https://newkalatheme.ir/preview/shop/page/4/?orderby=popularity">4</a> *@
-    @*         </li> *@
-    @*         <li> *@
-    @*             <span class="page-numbers dots">…</span> *@
-    @*         </li> *@
-    @*         <li> *@
-    @*             <a class="page-numbers" href="https://newkalatheme.ir/preview/shop/page/8/?orderby=popularity">8</a> *@
-    @*         </li> *@
-    @*         <li> *@
-    @*             <a class="page-numbers" href="https://newkalatheme.ir/preview/shop/page/9/?orderby=popularity">9</a> *@
-    @*         </li> *@
-    @*         <li> *@
-    @*             <a class="page-numbers" href="https://newkalatheme.ir/preview/shop/page/10/?orderby=popularity">10</a> *@
-    @*         </li> *@
-    @*         <li> *@
-    @*             <a class="next page-numbers" href="https://newkalatheme.ir/preview/shop/page/2/?orderby=popularity">→</a> *@
-    @*         </li> *@
-    @*     </ul> *@
-    
-    
+   
     @* <aside class="main_blog_sidebar"> *@
     @*     <div id="media_image-5" class="main-blog-widget widget_media_image"> *@
     @*         <img width="345" height="283" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20345%20283'%3E%3C/svg%3E" class="image wp-image-2608  attachment-full size-full" alt="" style="max-width: 100%; height: auto;" data-lazy-srcset="https://newkalatheme.ir/preview/wp-content/uploads/2019/10/mag-1-1.jpg 345w, https://newkalatheme.ir/preview/wp-content/uploads/2019/10/mag-1-1-300x246.jpg 300w" data-lazy-sizes="(max-width: 345px) 100vw, 345px" data-lazy-src="https://newkalatheme.ir/preview/wp-content/uploads/2019/10/mag-1-1.jpg"> *@

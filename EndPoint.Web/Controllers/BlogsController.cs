@@ -1,7 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ParsaPoolad.Application.Interfaces.FacadPatterns.FrontEnd;
-using ParsaPoolad.Application.Services.BackEnd.Admin.Sliders.Queries;
-
 namespace EndPoint.Web.Controllers
 {
     [Route("blog")]
@@ -16,18 +14,18 @@ namespace EndPoint.Web.Controllers
 
         [HttpGet]
         [Route("")]
-        public IActionResult Index(int pageNumber=1,int pageSize=6)
+        public IActionResult Index()
         {
-            var result = _blogsFrontEndFacad.GetBlogsFrontEndService.Execute(pageNumber,pageSize);
+            var result = _blogsFrontEndFacad.GetBlogsFrontEndService.Execute();
             return View(result);
         }
 
 
         [HttpGet]
-        [Route("{category}")]
-        public IActionResult Category(string category)
+        [Route("{category}/{pageView?}/{page?}")]
+        public IActionResult Category(string category,string pageView ,int page=1)
         {
-            var result = _blogsFrontEndFacad.GetBlogsCategoryFrontEndService.Execute(category);
+            var result = _blogsFrontEndFacad.GetBlogsCategoryFrontEndService.Execute(category,page);
             return View(result);
         }
 
