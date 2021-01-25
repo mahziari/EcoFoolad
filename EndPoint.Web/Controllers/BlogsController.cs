@@ -16,7 +16,7 @@ namespace EndPoint.Web.Controllers
 
         [HttpGet]
         [Route("")]
-        public IActionResult Index(int pageNumber=1,int pageSize=20)
+        public IActionResult Index(int pageNumber=1,int pageSize=6)
         {
             var result = _blogsFrontEndFacad.GetBlogsFrontEndService.Execute(pageNumber,pageSize);
             return View(result);

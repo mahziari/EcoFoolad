@@ -1,36 +1,42 @@
 {
   "format": 1,
   "restore": {
-    "/Users/hosseinkaraji/NET5/02_Developing/01_ParsaPoolad/ParsaPoolad.Persistence/ParsaPoolad.Persistence.csproj": {}
+    "D:\\.NET\\01_ParsaPoolad\\ParsaPoolad.Persistence\\ParsaPoolad.Persistence.csproj": {}
   },
   "projects": {
-    "/Users/hosseinkaraji/NET5/02_Developing/01_ParsaPoolad/ParsaPoolad.Application/ParsaPoolad.Application.csproj": {
+    "D:\\.NET\\01_ParsaPoolad\\ParsaPoolad.Application\\ParsaPoolad.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/hosseinkaraji/NET5/02_Developing/01_ParsaPoolad/ParsaPoolad.Application/ParsaPoolad.Application.csproj",
+        "projectUniqueName": "D:\\.NET\\01_ParsaPoolad\\ParsaPoolad.Application\\ParsaPoolad.Application.csproj",
         "projectName": "ParsaPoolad.Application",
-        "projectPath": "/Users/hosseinkaraji/NET5/02_Developing/01_ParsaPoolad/ParsaPoolad.Application/ParsaPoolad.Application.csproj",
-        "packagesPath": "/Users/hosseinkaraji/.nuget/packages/",
-        "outputPath": "/Users/hosseinkaraji/NET5/02_Developing/01_ParsaPoolad/ParsaPoolad.Application/obj/",
+        "projectPath": "D:\\.NET\\01_ParsaPoolad\\ParsaPoolad.Application\\ParsaPoolad.Application.csproj",
+        "packagesPath": "C:\\Users\\pc-2\\.nuget\\packages\\",
+        "outputPath": "D:\\.NET\\01_ParsaPoolad\\ParsaPoolad.Application\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet"
+        ],
         "configFilePaths": [
-          "/Users/hosseinkaraji/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\pc-2\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "/Users/hosseinkaraji/NET5/02_Developing/01_ParsaPoolad/ParsaPoolad.Common/ParsaPoolad.Common.csproj": {
-                "projectPath": "/Users/hosseinkaraji/NET5/02_Developing/01_ParsaPoolad/ParsaPoolad.Common/ParsaPoolad.Common.csproj"
+              "D:\\.NET\\01_ParsaPoolad\\ParsaPoolad.Common\\ParsaPoolad.Common.csproj": {
+                "projectPath": "D:\\.NET\\01_ParsaPoolad\\ParsaPoolad.Common\\ParsaPoolad.Common.csproj"
               },
-              "/Users/hosseinkaraji/NET5/02_Developing/01_ParsaPoolad/ParsaPoolad.Domain/ParsaPoolad.Domain.csproj": {
-                "projectPath": "/Users/hosseinkaraji/NET5/02_Developing/01_ParsaPoolad/ParsaPoolad.Domain/ParsaPoolad.Domain.csproj"
+              "D:\\.NET\\01_ParsaPoolad\\ParsaPoolad.Domain\\ParsaPoolad.Domain.csproj": {
+                "projectPath": "D:\\.NET\\01_ParsaPoolad\\ParsaPoolad.Domain\\ParsaPoolad.Domain.csproj"
               }
             }
           }
@@ -89,26 +95,32 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.102/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "/Users/hosseinkaraji/NET5/02_Developing/01_ParsaPoolad/ParsaPoolad.Common/ParsaPoolad.Common.csproj": {
+    "D:\\.NET\\01_ParsaPoolad\\ParsaPoolad.Common\\ParsaPoolad.Common.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/hosseinkaraji/NET5/02_Developing/01_ParsaPoolad/ParsaPoolad.Common/ParsaPoolad.Common.csproj",
+        "projectUniqueName": "D:\\.NET\\01_ParsaPoolad\\ParsaPoolad.Common\\ParsaPoolad.Common.csproj",
         "projectName": "ParsaPoolad.Common",
-        "projectPath": "/Users/hosseinkaraji/NET5/02_Developing/01_ParsaPoolad/ParsaPoolad.Common/ParsaPoolad.Common.csproj",
-        "packagesPath": "/Users/hosseinkaraji/.nuget/packages/",
-        "outputPath": "/Users/hosseinkaraji/NET5/02_Developing/01_ParsaPoolad/ParsaPoolad.Common/obj/",
+        "projectPath": "D:\\.NET\\01_ParsaPoolad\\ParsaPoolad.Common\\ParsaPoolad.Common.csproj",
+        "packagesPath": "C:\\Users\\pc-2\\.nuget\\packages\\",
+        "outputPath": "D:\\.NET\\01_ParsaPoolad\\ParsaPoolad.Common\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet"
+        ],
         "configFilePaths": [
-          "/Users/hosseinkaraji/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\pc-2\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -147,26 +159,32 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.102/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "/Users/hosseinkaraji/NET5/02_Developing/01_ParsaPoolad/ParsaPoolad.Domain/ParsaPoolad.Domain.csproj": {
+    "D:\\.NET\\01_ParsaPoolad\\ParsaPoolad.Domain\\ParsaPoolad.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/hosseinkaraji/NET5/02_Developing/01_ParsaPoolad/ParsaPoolad.Domain/ParsaPoolad.Domain.csproj",
+        "projectUniqueName": "D:\\.NET\\01_ParsaPoolad\\ParsaPoolad.Domain\\ParsaPoolad.Domain.csproj",
         "projectName": "ParsaPoolad.Domain",
-        "projectPath": "/Users/hosseinkaraji/NET5/02_Developing/01_ParsaPoolad/ParsaPoolad.Domain/ParsaPoolad.Domain.csproj",
-        "packagesPath": "/Users/hosseinkaraji/.nuget/packages/",
-        "outputPath": "/Users/hosseinkaraji/NET5/02_Developing/01_ParsaPoolad/ParsaPoolad.Domain/obj/",
+        "projectPath": "D:\\.NET\\01_ParsaPoolad\\ParsaPoolad.Domain\\ParsaPoolad.Domain.csproj",
+        "packagesPath": "C:\\Users\\pc-2\\.nuget\\packages\\",
+        "outputPath": "D:\\.NET\\01_ParsaPoolad\\ParsaPoolad.Domain\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet"
+        ],
         "configFilePaths": [
-          "/Users/hosseinkaraji/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\pc-2\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -221,37 +239,43 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.102/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "/Users/hosseinkaraji/NET5/02_Developing/01_ParsaPoolad/ParsaPoolad.Persistence/ParsaPoolad.Persistence.csproj": {
+    "D:\\.NET\\01_ParsaPoolad\\ParsaPoolad.Persistence\\ParsaPoolad.Persistence.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/hosseinkaraji/NET5/02_Developing/01_ParsaPoolad/ParsaPoolad.Persistence/ParsaPoolad.Persistence.csproj",
+        "projectUniqueName": "D:\\.NET\\01_ParsaPoolad\\ParsaPoolad.Persistence\\ParsaPoolad.Persistence.csproj",
         "projectName": "ParsaPoolad.Persistence",
-        "projectPath": "/Users/hosseinkaraji/NET5/02_Developing/01_ParsaPoolad/ParsaPoolad.Persistence/ParsaPoolad.Persistence.csproj",
-        "packagesPath": "/Users/hosseinkaraji/.nuget/packages/",
-        "outputPath": "/Users/hosseinkaraji/NET5/02_Developing/01_ParsaPoolad/ParsaPoolad.Persistence/obj/",
+        "projectPath": "D:\\.NET\\01_ParsaPoolad\\ParsaPoolad.Persistence\\ParsaPoolad.Persistence.csproj",
+        "packagesPath": "C:\\Users\\pc-2\\.nuget\\packages\\",
+        "outputPath": "D:\\.NET\\01_ParsaPoolad\\ParsaPoolad.Persistence\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet"
+        ],
         "configFilePaths": [
-          "/Users/hosseinkaraji/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\pc-2\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "/Users/hosseinkaraji/NET5/02_Developing/01_ParsaPoolad/ParsaPoolad.Application/ParsaPoolad.Application.csproj": {
-                "projectPath": "/Users/hosseinkaraji/NET5/02_Developing/01_ParsaPoolad/ParsaPoolad.Application/ParsaPoolad.Application.csproj"
+              "D:\\.NET\\01_ParsaPoolad\\ParsaPoolad.Application\\ParsaPoolad.Application.csproj": {
+                "projectPath": "D:\\.NET\\01_ParsaPoolad\\ParsaPoolad.Application\\ParsaPoolad.Application.csproj"
               },
-              "/Users/hosseinkaraji/NET5/02_Developing/01_ParsaPoolad/ParsaPoolad.Domain/ParsaPoolad.Domain.csproj": {
-                "projectPath": "/Users/hosseinkaraji/NET5/02_Developing/01_ParsaPoolad/ParsaPoolad.Domain/ParsaPoolad.Domain.csproj"
+              "D:\\.NET\\01_ParsaPoolad\\ParsaPoolad.Domain\\ParsaPoolad.Domain.csproj": {
+                "projectPath": "D:\\.NET\\01_ParsaPoolad\\ParsaPoolad.Domain\\ParsaPoolad.Domain.csproj"
               }
             }
           }
@@ -304,7 +328,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.102/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     }

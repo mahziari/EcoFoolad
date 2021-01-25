@@ -7,7 +7,7 @@
     ViewData["Title"] = "بلاگ اکوفولاد";
     Layout = "~/Views/Shared/_Layout.cshtml";
     int pageNumber=1;
-    int pageSize=20;
+    int pageSize=6;
     int.TryParse(Context.Request.Query["pageNumber"],out pageNumber);
     int.TryParse(Context.Request.Query["pageSize"],out pageSize);
 }
@@ -47,13 +47,13 @@
         </ul>
         <a asp-controller="Blogs"
            asp-action="Details"
-           asp-route-category="@Model.Blogs.Where(b => b.Position == 8).Select(b => b.en_NewsGroupName).FirstOrDefault()"
-           asp-route-title="@Model.Blogs.Where(b => b.Position == 8).Select(b => b.Title).FirstOrDefault().Replace(" ", "-")"
+           asp-route-category="@Model.BlogsFav.Where(b => b.Position == 8).Select(b => b.en_NewsGroupName).FirstOrDefault()"
+           asp-route-title="@Model.BlogsFav.Where(b => b.Position == 8).Select(b => b.Title).FirstOrDefault().Replace(" ", "-")"
            >
             <div id="media_image-4" class="main-blog-widget main-top-blog-widget  widget_media_image">
-                <img width="280" height="154" src="@Model.Blogs.Where(b => b.Position == 8).Select(b => b.HeadLine).FirstOrDefault()" class="image wp-image-2223 attachment-full size-full lazyloaded" alt="@Model.Blogs.Where(b => b.Position == 8).Select(b => b.Title).FirstOrDefault()" style="max-width: 100%; height: auto;" data-ll-status="loaded">
+                <img width="280" height="154" src="@Model.BlogsFav.Where(b => b.Position == 8).Select(b => b.HeadLine).FirstOrDefault()" class="image wp-image-2223 attachment-full size-full lazyloaded" alt="@Model.BlogsFav.Where(b => b.Position == 8).Select(b => b.Title).FirstOrDefault()" style="max-width: 100%; height: auto;" data-ll-status="loaded">
                 <noscript>
-                    <img width="280" height="154" src="@Model.Blogs.Where(b => b.Position == 8).Select(b => b.HeadLine).FirstOrDefault()" class="image wp-image-2223  attachment-full size-full" alt="@Model.Blogs.Where(b => b.Position == 8).Select(b => b.Title).FirstOrDefault()" style="max-width: 100%; height: auto;"/>
+                    <img width="280" height="154" src="@Model.BlogsFav.Where(b => b.Position == 8).Select(b => b.HeadLine).FirstOrDefault()" class="image wp-image-2223  attachment-full size-full" alt="@Model.BlogsFav.Where(b => b.Position == 8).Select(b => b.Title).FirstOrDefault()" style="max-width: 100%; height: auto;"/>
                 </noscript>
             </div>
         </a>
@@ -61,87 +61,87 @@
     <section class="content_top_blog" style="">
         <a asp-controller="Blogs"
            asp-action="Details"
-           asp-route-category="@Model.Blogs.Where(b => b.Position == 1).Select(b => b.en_NewsGroupName).FirstOrDefault()"
-           asp-route-title="@Model.Blogs.Where(b => b.Position == 1).Select(b => b.Title).FirstOrDefault().Replace(" ", "-")"
+           asp-route-category="@Model.BlogsFav.Where(b => b.Position == 1).Select(b => b.en_NewsGroupName).FirstOrDefault()"
+           asp-route-title="@Model.BlogsFav.Where(b => b.Position == 1).Select(b => b.Title).FirstOrDefault().Replace(" ", "-")"
            >
-            <img class="top_banner_wide_blog lazyloaded" src="@Model.Blogs.Where(b => b.Position == 1).Select(b => b.HeadLine).FirstOrDefault()" data-ll-status="loaded" alt="@Model.Blogs.Where(b => b.Position == 1).Select(b => b.Title).FirstOrDefault()">
+            <img class="top_banner_wide_blog lazyloaded" src="@Model.BlogsFav.Where(b => b.Position == 1).Select(b => b.HeadLine).FirstOrDefault()" data-ll-status="loaded" alt="@Model.BlogsFav.Where(b => b.Position == 1).Select(b => b.Title).FirstOrDefault()">
             <noscript>
-                <img class="top_banner_wide_blog" src="@Model.Blogs.Where(b => b.Position == 1).Select(b => b.HeadLine).FirstOrDefault()" alt="@Model.Blogs.Where(b => b.Position == 1).Select(b => b.Title).FirstOrDefault()"/>
+                <img class="top_banner_wide_blog" src="@Model.BlogsFav.Where(b => b.Position == 1).Select(b => b.HeadLine).FirstOrDefault()" alt="@Model.BlogsFav.Where(b => b.Position == 1).Select(b => b.Title).FirstOrDefault()"/>
             </noscript>
         </a>
         <div class="main_last_post_top_blog">
 
             <div class="last_post_top_blog">
 
-                <div class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-148 category-147 category-uncategorized category-152 category-151 category-150 category-149 rocket-lazyload lazyloaded" data-ll-status="loaded" style="background-image:  url(@Model.Blogs.Where(b => b.Position == 2).Select(b => b.HeadLine).FirstOrDefault());">
+                <div class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-148 category-147 category-uncategorized category-152 category-151 category-150 category-149 rocket-lazyload lazyloaded" data-ll-status="loaded" style="background-image:  url(@Model.BlogsFav.Where(b => b.Position == 2).Select(b => b.HeadLine).FirstOrDefault());">
 
 
                     <a asp-controller="Blogs"
                        asp-action="Details"
-                       asp-route-category="@Model.Blogs.Where(b => b.Position == 2).Select(b => b.en_NewsGroupName).FirstOrDefault()"
-                       asp-route-title="@Model.Blogs.Where(b => b.Position == 2).Select(b => b.Title).FirstOrDefault().Replace(" ", "-")"
+                       asp-route-category="@Model.BlogsFav.Where(b => b.Position == 2).Select(b => b.en_NewsGroupName).FirstOrDefault()"
+                       asp-route-title="@Model.BlogsFav.Where(b => b.Position == 2).Select(b => b.Title).FirstOrDefault().Replace(" ", "-")"
                        >
                     </a>
-                    <h2>@Model.Blogs.Where(b => b.Position == 2).Select(b => b.Title).FirstOrDefault()</h2>
+                    <h2>@Model.BlogsFav.Where(b => b.Position == 2).Select(b => b.Title).FirstOrDefault()</h2>
                 </div>
 
-                <div class="post-275 post type-post status-publish format-standard has-post-thumbnail hentry category-148 category-147 category-uncategorized category-152 category-151 category-150 category-149 tag-73 tag-71 rocket-lazyload lazyloaded" style="background-image: url(@Model.Blogs.Where(b => b.Position == 3).Select(b => b.HeadLine).FirstOrDefault());" data-ll-status="loaded">
+                <div class="post-275 post type-post status-publish format-standard has-post-thumbnail hentry category-148 category-147 category-uncategorized category-152 category-151 category-150 category-149 tag-73 tag-71 rocket-lazyload lazyloaded" style="background-image: url(@Model.BlogsFav.Where(b => b.Position == 3).Select(b => b.HeadLine).FirstOrDefault());" data-ll-status="loaded">
 
 
                     <a asp-controller="Blogs"
                        asp-action="Details"
-                       asp-route-category="@Model.Blogs.Where(b => b.Position == 3).Select(b => b.en_NewsGroupName).FirstOrDefault()"
-                       asp-route-title="@Model.Blogs.Where(b => b.Position == 3).Select(b => b.Title).FirstOrDefault().Replace(" ", "-")"
+                       asp-route-category="@Model.BlogsFav.Where(b => b.Position == 3).Select(b => b.en_NewsGroupName).FirstOrDefault()"
+                       asp-route-title="@Model.BlogsFav.Where(b => b.Position == 3).Select(b => b.Title).FirstOrDefault().Replace(" ", "-")"
                        >
                     </a>
-                    <h2>@Model.Blogs.Where(b => b.Position == 3).Select(b => b.Title).FirstOrDefault()</h2>
+                    <h2>@Model.BlogsFav.Where(b => b.Position == 3).Select(b => b.Title).FirstOrDefault()</h2>
                 </div>
 
-                <div class="post-70 post type-post status-publish format-standard has-post-thumbnail hentry category-148 category-147 category-uncategorized category-152 category-151 category-150 category-149 tag-71 rocket-lazyload lazyloaded" style="background-image: url(@Model.Blogs.Where(b => b.Position == 4).Select(b => b.HeadLine).FirstOrDefault());" data-ll-status="loaded">
+                <div class="post-70 post type-post status-publish format-standard has-post-thumbnail hentry category-148 category-147 category-uncategorized category-152 category-151 category-150 category-149 tag-71 rocket-lazyload lazyloaded" style="background-image: url(@Model.BlogsFav.Where(b => b.Position == 4).Select(b => b.HeadLine).FirstOrDefault());" data-ll-status="loaded">
 
 
                     <a asp-controller="Blogs"
                        asp-action="Details"
-                       asp-route-category="@Model.Blogs.Where(b => b.Position == 4).Select(b => b.en_NewsGroupName).FirstOrDefault()"
-                       asp-route-title="@Model.Blogs.Where(b => b.Position == 4).Select(b => b.Title).FirstOrDefault().Replace(" ", "-")"
+                       asp-route-category="@Model.BlogsFav.Where(b => b.Position == 4).Select(b => b.en_NewsGroupName).FirstOrDefault()"
+                       asp-route-title="@Model.BlogsFav.Where(b => b.Position == 4).Select(b => b.Title).FirstOrDefault().Replace(" ", "-")"
                        >
                     </a>
-                    <h2> @Model.Blogs.Where(b => b.Position == 4).Select(b => b.Title).FirstOrDefault()</h2>
+                    <h2> @Model.BlogsFav.Where(b => b.Position == 4).Select(b => b.Title).FirstOrDefault()</h2>
                 </div>
 
-                <div class="post-65 post type-post status-publish format-standard has-post-thumbnail hentry category-148 category-147 category-uncategorized category-152 category-151 category-150 category-149 tag-71 rocket-lazyload lazyloaded" style="background-position: center top; flex: 0 0 65.5%; max-width: 65.5%; background-image: url(@Model.Blogs.Where(b => b.Position == 5).Select(b => b.HeadLine).FirstOrDefault());" data-ll-status="loaded">
+                <div class="post-65 post type-post status-publish format-standard has-post-thumbnail hentry category-148 category-147 category-uncategorized category-152 category-151 category-150 category-149 tag-71 rocket-lazyload lazyloaded" style="background-position: center top; flex: 0 0 65.5%; max-width: 65.5%; background-image: url(@Model.BlogsFav.Where(b => b.Position == 5).Select(b => b.HeadLine).FirstOrDefault());" data-ll-status="loaded">
 
 
                     <a asp-controller="Blogs"
                        asp-action="Details"
-                       asp-route-category="@Model.Blogs.Where(b => b.Position == 5).Select(b => b.en_NewsGroupName).FirstOrDefault()"
-                       asp-route-title="@Model.Blogs.Where(b => b.Position == 5).Select(b => b.Title).FirstOrDefault().Replace(" ", "-")"
+                       asp-route-category="@Model.BlogsFav.Where(b => b.Position == 5).Select(b => b.en_NewsGroupName).FirstOrDefault()"
+                       asp-route-title="@Model.BlogsFav.Where(b => b.Position == 5).Select(b => b.Title).FirstOrDefault().Replace(" ", "-")"
                        >
                     </a>
-                    <h2>@Model.Blogs.Where(b => b.Position == 5).Select(b => b.Title).FirstOrDefault()</h2>
+                    <h2>@Model.BlogsFav.Where(b => b.Position == 5).Select(b => b.Title).FirstOrDefault()</h2>
                 </div>
 
-                <div class="post-284 post type-post status-publish format-standard has-post-thumbnail hentry category-148 category-147 category-uncategorized category-152 category-151 category-150 category-149 rocket-lazyload lazyloaded" style="background-image: url(@Model.Blogs.Where(b => b.Position == 6).Select(b => b.HeadLine).FirstOrDefault());" data-ll-status="loaded">
+                <div class="post-284 post type-post status-publish format-standard has-post-thumbnail hentry category-148 category-147 category-uncategorized category-152 category-151 category-150 category-149 rocket-lazyload lazyloaded" style="background-image: url(@Model.BlogsFav.Where(b => b.Position == 6).Select(b => b.HeadLine).FirstOrDefault());" data-ll-status="loaded">
 
 
                     <a asp-controller="Blogs"
                        asp-action="Details"
-                       asp-route-category="@Model.Blogs.Where(b => b.Position == 6).Select(b => b.en_NewsGroupName).FirstOrDefault()"
-                       asp-route-title="@Model.Blogs.Where(b => b.Position == 6).Select(b => b.Title).FirstOrDefault().Replace(" ", "-")"
+                       asp-route-category="@Model.BlogsFav.Where(b => b.Position == 6).Select(b => b.en_NewsGroupName).FirstOrDefault()"
+                       asp-route-title="@Model.BlogsFav.Where(b => b.Position == 6).Select(b => b.Title).FirstOrDefault().Replace(" ", "-")"
                        >
                     </a>
-                    <h2> @Model.Blogs.Where(b => b.Position == 6).Select(b => b.Title).FirstOrDefault()</h2>
+                    <h2> @Model.BlogsFav.Where(b => b.Position == 6).Select(b => b.Title).FirstOrDefault()</h2>
                 </div>
             </div>
 
             <a class="right_banner_side" asp-controller="Blogs"
                asp-action="Details"
-               asp-route-category="@Model.Blogs.Where(b => b.Position == 7).Select(b => b.en_NewsGroupName).FirstOrDefault()"
-               asp-route-title="@Model.Blogs.Where(b => b.Position == 7).Select(b => b.Title).FirstOrDefault().Replace(" ", "-")"
+               asp-route-category="@Model.BlogsFav.Where(b => b.Position == 7).Select(b => b.en_NewsGroupName).FirstOrDefault()"
+               asp-route-title="@Model.BlogsFav.Where(b => b.Position == 7).Select(b => b.Title).FirstOrDefault().Replace(" ", "-")"
                >
-                <img class="side_banner_wide_blog lazyloaded" src="@Model.Blogs.Where(b => b.Position == 7).Select(b => b.HeadLine).FirstOrDefault()" data-ll-status="loaded" alt="@Model.Blogs.Where(b => b.Position == 7).Select(b => b.Title).FirstOrDefault()">
+                <img class="side_banner_wide_blog lazyloaded" src="@Model.BlogsFav.Where(b => b.Position == 7).Select(b => b.HeadLine).FirstOrDefault()" data-ll-status="loaded" alt="@Model.BlogsFav.Where(b => b.Position == 7).Select(b => b.Title).FirstOrDefault()">
                 <noscript>
-                    <img class="side_banner_wide_blog" src="@Model.Blogs.Where(b => b.Position == 7).Select(b => b.HeadLine).FirstOrDefault()" alt="@Model.Blogs.Where(b => b.Position == 7).Select(b => b.Title).FirstOrDefault()"/>
+                    <img class="side_banner_wide_blog" src="@Model.BlogsFav.Where(b => b.Position == 7).Select(b => b.HeadLine).FirstOrDefault()" alt="@Model.BlogsFav.Where(b => b.Position == 7).Select(b => b.Title).FirstOrDefault()"/>
                 </noscript>
             </a>
         </div>
@@ -421,7 +421,7 @@
     <section class="content_right_blog" style="width: 100%;">
         <div class="posts_blog">
 
-            @foreach (var item in Model.Blogs.Where(b => b.Position == 0))
+            @foreach (var item in Model.Blogs)
             {
                 <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-148 category-147 category-uncategorized category-152 category-151 category-150 category-149">
                     <div class="main-wp-post-image">
@@ -489,10 +489,10 @@
         </div>
     </section>
     <nav class="woocommerce-pagination" lang="fa">
-    <ul class="page-numbers">
-    	    <paging total-records="@Model.TotalRow"
+    @* <ul class="page-numbers"> *@
+    	    <paging total-records="@Model.RowsCount"
                     page-no="pageNumber==0?1:pageNumber"
-                    page-size="pageSize==0?20:pageSize"
+                    page-size="pageSize==0?6:pageSize"
                     show-prev-next="true"
                     show-total-pages="false"
                     show-total-records="false"
@@ -500,21 +500,19 @@
                     show-first-numbered-page="true"
                     show-last-numbered-page="true"
                     gap-size="2"
-                    query-string-key-page-no="Page"
+                    query-string-key-page-no="pageNumber"
                     query-string-key-page-size="PageSize"
                     query-string-value="@@(Request.QueryString.Value)"
                     class="page-numbers"
-                    class-paging-control-div=""
-                    class-info-div=""
-                    class-page-size-div=""
-                    class-paging-control=""
-                    class-active-page=""
-                    class-disabled-jumping-button=""
-                    class-total-pages=""
-                    class-total-records=""
+                    class-info-div="2"
+                    class-paging-control="page-numbers"
+                    class-active-page="current"
+                    class-disabled-jumping-button="next page-numbers"
+                    class-total-pages="page-numbers"
+                    class-total-records="6"
                     >
             </paging>
-    </ul>
+    @* </ul> *@
     </nav>
     
     @* <ul class="page-numbers"> *@

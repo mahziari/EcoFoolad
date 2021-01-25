@@ -8,7 +8,6 @@ namespace ParsaPoolad.Common.Services
 {
     public static class Pagination
     {
-
         public static IEnumerable<TSource> ToPaged<TSource>(this IEnumerable<TSource> source, int pageNumber, int pageSize, out int rowsCount)
         {
             rowsCount = source.Count();
