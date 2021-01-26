@@ -124,7 +124,7 @@
                                                         <span class="icon check-icon bx bxs-minus-square"></span>
                                                         @itemSub.Fgname
 
-                                                        <form id="formSub" class="form my_form" asp-action="CreateSubMenu" asp-route-id="@itemSub.PrdFirstGroupId" method="post">
+                                                        <form id="my_form-@itemSub.PrdFirstGroupId" class="form my_form" asp-action="CreateSubMenu" asp-route-id="@itemSub.PrdFirstGroupId" method="post">
                                                             <div class="col-md-12 col-12">
                                                                 <div class="form-label-group parsa-form-label-group">
                                                                     <input type="text" id="first-name-column" class="form-control" placeholder=" نام زیر منو @itemSub.Fgname" name="name">
@@ -133,7 +133,7 @@
                                                             @* <input type="submit" class="btn btn-warning mb-1 w-100"  *@
                                                             @*        id="btn-uncheck-all" value=" اضافه کردن زیر منو برای @itemSub.Fgname"> *@
                                                             
-                                                            <a  onclick="document.getElementById('formSub').submit()" style="margin-top:7px;" class="float-right text-success" title="ایجاد">
+                                                            <a  onclick="document.getElementById('my_form-@itemSub.PrdFirstGroupId').submit()" style="margin-top:7px;" class="float-right text-success" title="ایجاد">
                                                                 <i class="fa fa-plus-square" aria-hidden="true"></i>
                                                             </a>
                                                         </form>

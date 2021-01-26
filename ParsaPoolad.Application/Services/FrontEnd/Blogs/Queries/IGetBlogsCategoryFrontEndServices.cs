@@ -33,7 +33,7 @@ namespace ParsaPoolad.Application.Services.FrontEnd.Blogs.Queries
                 .Where(b=>b.Position == 0)
                 .Count();
             var pageId = page;
-            var pageCount = count / resultInEachPage;
+            var pageCount = (int)Math.Ceiling(count / (double)resultInEachPage);
 
 
             var blogsCatrgory = _context.CrmCmsNews

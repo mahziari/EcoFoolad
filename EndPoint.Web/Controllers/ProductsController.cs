@@ -20,23 +20,22 @@ namespace EndPoint.Web.Controllers
             var result = _productsFrontEndFacad.GetProductsFrontEndService.Execute();
             return View(result);
         }
+        
+        [HttpGet]
+        [Route("{category}/{menu}/{subMenu}/{pageView?}/{page?}")]
+        public IActionResult Category(string category,string Menu,string subMenu,string pageView ,int page=1)
+        {
+            var result = _productsFrontEndFacad.GetProductsCategoryFrontEndService.Execute(subMenu,page);
+            return View(result);
+        }
 
-        //
-        // [HttpGet]
-        // [Route("{category}")]
-        // public IActionResult Category(string category)
-        // {
-        //     var result = _productsFrontEndFacad.GetProductsCategoryFrontEndService.Execute(category);
-        //     return View(result);
-        // }
-        //
-        //
-        // [HttpGet]
-        // [Route("{category}/{title}")]
-        // public IActionResult Details(string category,string title)
-        // {
-        //     var result = _productsFrontEndFacad.GetProductsDetailsFrontEndService.Execute(title);
-        //     return View(result);
-        // }
+
+        [HttpGet]
+        [Route("{category}/{title}")]
+        public IActionResult Details(string category,string title)
+        {
+            var result = _productsFrontEndFacad.GetProductsDetailsFrontEndService.Execute(title);
+            return View(result);
+        }
     }
 }

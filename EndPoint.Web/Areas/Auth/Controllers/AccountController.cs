@@ -51,7 +51,7 @@ namespace EndPoint.Web.Areas.Auth.Controllers
             {
                 return View(checkOutDto);
             }
-
+            
             TempData["PhoneNumber"] = checkOutDto.PhoneNumber;
             TempData["ReturnUrl"] = checkOutDto.ReturnUrl;
             var user = _userManager.FindByNameAsync(checkOutDto.PhoneNumber).Result;

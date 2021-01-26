@@ -28,6 +28,7 @@
     <Folder Include="Areas\Auth\Models" />
     <Folder Include="wwwroot\Images\Blogs" />
     <Folder Include="wwwroot\Images\Favicon" />
+    <Folder Include="wwwroot\Images\Menus" />
     <Folder Include="wwwroot\Images\Settings" />
     <Folder Include="wwwroot\Images\Sliders" />
   </ItemGroup>

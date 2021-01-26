@@ -8,7 +8,7 @@ namespace ParsaPoolad.Application.Services.FrontEnd.Products.Queries
 {
     public interface IGetProductsCategoryFrontEndService
     {
-        ResultGetProductsCategoryFrontEndDto Execute(string category);
+        ResultGetProductsCategoryFrontEndDto Execute(string subMenu,int page);
     }
 
     public class GetProductsCategoryFrontEndService: IGetProductsCategoryFrontEndService
@@ -20,37 +20,47 @@ namespace ParsaPoolad.Application.Services.FrontEnd.Products.Queries
             _context = context;
         }
 
-
-
-        public ResultGetProductsCategoryFrontEndDto Execute(string category)
+        public ResultGetProductsCategoryFrontEndDto Execute(string subMenu,int page)
         {
+            
+            var products = _context.Wsproducts
+                .OrderByDescending(p=> p.ProductId)
+                .Select(p=>new GetIndexProductsDto
+                {
+                    ProductId = p.ProductId,
+                    PrdName=p.PrdName,
+                    PrdInactiveInSale=p.PrdInactiveInSale,
+                    RegisterDatePersian=p.RegisterDatePersian,
+                    subMenu= _context.WsproductSecondGroup
+                        .Where(s=> s.PrdSecondGroupId == p.PrdGroupId)
+                        .Select(s=>new GetIndexMenuDto{Sgname = s.Sgname})
+                        .First(),
+                }).ToList();
 
             return new ResultGetProductsCategoryFrontEndDto
             {
+                Products = products
             };
         }
     }
 
     public class ResultGetProductsCategoryFrontEndDto
     {
-        public List<GetProductsCatrgoryDto> ProductsCatrgory { get; set; }
+        public List<GetIndexProductsDto> Products { get; set; }
     }
 
 
-    public class GetProductsCatrgoryDto
+    public class GetIndexProductsDto
     {
-        public int NewsId { get; set; }
-        public int NewsGroupId { get; set; }
-        public string Title { get; set; }
-        public string NewsGroupName { get; set; }
-        public string en_NewsGroupName { get; set; }
-        public string NewsSummery { get; set; }
-        public string NewsBody { get; set; }
-        public string HeadLine { get; set; }
+        public int ProductId { get; set; }
+        public string PrdName { get; set; }
+        public bool? PrdInactiveInSale { get; set; }
         public string RegisterDatePersian { get; set; }
-        public DateTime PublishDateTime { get; set; }
-        // public string PublishDateTime { get; set; }
-        public bool IsVerified { get; set; }
-        public int Position { get; set; }
+        public GetIndexMenuDto subMenu { get; set; }
+    }
+    
+    public class GetIndexMenuDto
+    {
+        public string Sgname { get; set; }
     }
 }

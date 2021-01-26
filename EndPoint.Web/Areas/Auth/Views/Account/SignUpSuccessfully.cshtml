@@ -36,23 +36,30 @@
                 </a>
                 <div class="woocommerce-notices-wrapper"></div>
                 
-                 <br>
-                 <br>
-                    @if (TempData["AuthSuccess"] != null)
-                    {
-                        <ul class="woocommerce-success" role="alert">
-                            <li>
+                <br>
+                <br>
+                @if (TempData["AuthSuccess"] != null)
+                {
+                    <ul class="woocommerce-success" role="alert">
+                        <li>
                             <h3 class="text-center">@TempData["AuthSuccess"]</h3>
-                            </li>
-                        </ul>
-                    }
+                        </li>
+                    </ul>
+                }
                 <br>
                 <br>
 
-                <div class="go_to_register_form">میخوای وارد سایت بشی؟ <a asp-controller="Account" asp-action="CheckOut" >ورود   </a></div>
+                <div class="go_to_register_form">میخوای وارد سایت بشی؟ <a href="/" >ورود به سایت  </a></div>
 
             </div>
 
         </div>
     </div>
 </main>
+
+<script>
+ setTimeout(function(){
+    window.location.href = '/';
+ }, 2500);
+</script>
+      

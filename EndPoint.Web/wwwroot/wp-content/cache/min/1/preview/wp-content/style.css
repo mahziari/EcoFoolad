@@ -1969,7 +1969,7 @@ header#header_newkala .top_header_section button i {
     content: "\E08F";
     font-size: 25px;
     font-size: 1.786rem;
-    line-height: 52px;
+    line-height: 48px;
     height: 27px
 }
 
@@ -8290,10 +8290,14 @@ a.back_to_dashboard_my_account {
 
 .main_newkala_responsive_menu li a {
     display: block;
-    color: #333;
+    color: #26247b;
     font-size: 13px;
     line-height: 30px;
     margin-right: 48px
+}
+
+.main_newkala_responsive_menu li a:hover {
+    color: #ef3f3e;;
 }
 
 .main_newkala_responsive_menu li ul {
@@ -11407,13 +11411,13 @@ i.newkala_menu_icon_shop {
 }
 
 a.newkala_icon_faq {
-    border: 2px solid #828282;
-    padding: 1px 5px;
-    border-radius: 7px
+    /*border: 2px solid #828282;*/
+    /*padding: 1px 5px;*/
+    /*border-radius: 7px*/
 }
 
 a.newkala_icon_faq i {
-    font-size: 14px;
+    font-size: 20px;
     color: #828282
 }
 
@@ -47410,5 +47414,5 @@ li.nk-store-listing-page {
 }
 
 .fa, .fas {
-    font-weight: 900
+    /*font-weight: 900*/
 }
