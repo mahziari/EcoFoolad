@@ -22,19 +22,19 @@ namespace EndPoint.Web.Controllers
         }
         
         [HttpGet]
-        [Route("{category}/{menu}/{subMenu}/{pageView?}/{page?}")]
-        public IActionResult Category(string category,string Menu,string subMenu,string pageView ,int page=1)
+        [Route("{category}/{menuName}/{page?}/{pageNumber?}")]
+        public IActionResult Category(string category,string menuName,string page ,int pageNumber=1)
         {
-            var result = _productsFrontEndFacad.GetProductsCategoryFrontEndService.Execute(subMenu,page);
+            var result = _productsFrontEndFacad.GetProductsCategoryFrontEndService.Execute(menuName,pageNumber);
             return View(result);
         }
 
 
         [HttpGet]
-        [Route("{category}/{title}")]
-        public IActionResult Details(string category,string title)
+        [Route("{category}/{name}/{page?}/{pageNumber?}/{id?}")]
+        public IActionResult Details(string category,string name,string pageView ,int pageNumber=1)
         {
-            var result = _productsFrontEndFacad.GetProductsDetailsFrontEndService.Execute(title);
+            var result = _productsFrontEndFacad.GetProductsDetailsFrontEndService.Execute(name,pageNumber);
             return View(result);
         }
     }

@@ -73,14 +73,14 @@ namespace EndPoint.Web.Areas.Admin.Controllers
         
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(CreateBlogsServicesDto createBlogsServicesDto,CrmCmsNews crmCmsNews,int id)
+        public IActionResult Edit(EditBlogsServicesDto editBlogsServicesDto,int id)
         {
             if (!ModelState.IsValid)
             {
                 return View("Edit",_blogsFacad.GetEditBlogsServices.Execute(id));
             }
             
-            var result = _blogsFacad.EditBlogsServices.Execute(createBlogsServicesDto,crmCmsNews,id);
+            var result = _blogsFacad.EditBlogsServices.Execute(editBlogsServicesDto,id);
         
             TempData["IsSuccess"] = result.IsSuccess;
             TempData["Message"] = result.Message; 

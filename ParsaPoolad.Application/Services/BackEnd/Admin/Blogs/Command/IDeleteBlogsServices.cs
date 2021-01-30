@@ -12,9 +12,9 @@ namespace ParsaPoolad.Application.Services.BackEnd.Admin.Blogs.Command
     public class DeleteBlogsServices : IDeleteBlogsServices
     {
         private readonly IDataBaseContext _context;
-        private readonly IHostingEnvironment _environment;
+        private readonly IWebHostEnvironment _environment;
 
-        public DeleteBlogsServices(IDataBaseContext context,IHostingEnvironment hostingEnvironment)
+        public DeleteBlogsServices(IDataBaseContext context,IWebHostEnvironment hostingEnvironment)
         {
             _context = context;
             _environment = hostingEnvironment;

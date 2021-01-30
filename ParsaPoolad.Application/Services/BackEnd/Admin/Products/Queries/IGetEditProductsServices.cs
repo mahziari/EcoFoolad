@@ -23,40 +23,12 @@ namespace ParsaPoolad.Application.Services.BackEnd.Admin.Products.Queries
 
         public ResultGetEditProductsDto Execute(int id)
         {
-            // var product = _context.Wsproducts
-            //     .Join(_context.WsproductSecondGroup, p =>p.PrdGroupId  , s=> s.PrdSecondGroupId,(p, s) => new { p, s })
-            //     .Join(_context.WsproductFirstGroup, e =>e.s.FirstGroupId  , f=> f.PrdFirstGroupId,(e,f)=>new {e,f})
-            //     .Join(_context.ParsaPooladMenus, z =>z.f.ParsaPooladMenusId  , m=> m.ParentMenusId,(z,m)=>new {z,m})
-            //     .Join(_context.WsproductUnits, x =>x.z.e.p.PrdUnitId  , u=> u.ProductUnitId,(x,u)=>new {x,u})
-            //     .Join(_context.CrmCompany, y =>y.x.z.e.p.PrdShpotherSupplierId  , c=> c.CompanyId,(y,c)=>new {y,c})
-            //     .Where(p => p.y.x.z.e.p.ProductId==id)
-            //     .Select(p=> new GetProductDto
-            //     {
-            //         PrdGroupId=p.y.x.z.e.s.PrdSecondGroupId,
-            //         Sgname=p.y.x.z.e.s.Sgname,
-            //         PrdFirstGroupId=p.y.x.z.f.PrdFirstGroupId,
-            //         Fgname=p.y.x.z.f.Fgname,
-            //         ParentMenusId=p.y.x.m.ParentMenusId,
-            //         Name=p.y.x.m.Name,
-            //         PrdUnitId=p.y.u.ProductUnitId,
-            //         Unit=p.y.u.Unit,
-            //         PrdShpotherSupplierId=p.c.CompanyId,
-            //         CmpName=p.c.CmpName,
-            //         PrdName=p.y.x.z.e.p.PrdName,
-            //         PrdSize=p.y.x.z.e.p.PrdSize,
-            //         PrdMaxQty=p.y.x.z.e.p.PrdMaxQty,
-            //         PrdDescription=p.y.x.z.e.p.PrdDescription,
-            //         PrdModel=p.y.x.z.e.p.PrdModel,
-            //         PrdPrice=p.y.x.z.e.p.PrdPrice,
-            //     }).FirstOrDefault();
-            
             var product = _context.Wsproducts
                 .Include(p=>p.PrdGroup)
                 .Include(p => p.PrdUnit)
                 .Include(p => p.PrdShpotherSupplier)
                 .FirstOrDefault(p => p.ProductId==id);
 
-            
             var subMenus = _context.WsproductFirstGroup
                 .FirstOrDefault(s => s.PrdFirstGroupId == product.PrdGroup.FirstGroupId);
             
@@ -147,6 +119,4 @@ namespace ParsaPoolad.Application.Services.BackEnd.Admin.Products.Queries
         public int ProductUnitId { get; set; }
         public string Unit { get; set; }
     }
-    
-   
 }

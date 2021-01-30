@@ -88,3 +88,13 @@ D:\.NET\01_ParsaPoolad\ParsaPoolad.Common\bin\Debug\net5.0\Microsoft.Extensions.
 D:\.NET\01_ParsaPoolad\ParsaPoolad.Common\bin\Debug\net5.0\Microsoft.Extensions.Primitives.dll
 D:\.NET\01_ParsaPoolad\ParsaPoolad.Common\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.Abstractions.xml
 D:\.NET\01_ParsaPoolad\ParsaPoolad.Common\bin\Debug\net5.0\Microsoft.Extensions.Primitives.xml
+D:\.NET\01_ParsaPoolad\ParsaPoolad.Common\bin\Debug\net5.0\Microsoft.AspNetCore.Authorization.dll
+D:\.NET\01_ParsaPoolad\ParsaPoolad.Common\bin\Debug\net5.0\Microsoft.AspNetCore.Components.dll
+D:\.NET\01_ParsaPoolad\ParsaPoolad.Common\bin\Debug\net5.0\Microsoft.Extensions.Logging.Abstractions.dll
+D:\.NET\01_ParsaPoolad\ParsaPoolad.Common\bin\Debug\net5.0\Microsoft.AspNetCore.Metadata.dll
+D:\.NET\01_ParsaPoolad\ParsaPoolad.Common\bin\Debug\net5.0\Microsoft.Extensions.Options.dll
+D:\.NET\01_ParsaPoolad\ParsaPoolad.Common\bin\Debug\net5.0\Microsoft.AspNetCore.Authorization.xml
+D:\.NET\01_ParsaPoolad\ParsaPoolad.Common\bin\Debug\net5.0\Microsoft.AspNetCore.Components.xml
+D:\.NET\01_ParsaPoolad\ParsaPoolad.Common\bin\Debug\net5.0\Microsoft.Extensions.Logging.Abstractions.xml
+D:\.NET\01_ParsaPoolad\ParsaPoolad.Common\bin\Debug\net5.0\Microsoft.AspNetCore.Metadata.xml
+D:\.NET\01_ParsaPoolad\ParsaPoolad.Common\bin\Debug\net5.0\Microsoft.Extensions.Options.xml

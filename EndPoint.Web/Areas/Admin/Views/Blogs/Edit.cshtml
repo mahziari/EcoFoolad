@@ -45,7 +45,11 @@
         <div class="content-body">
             <!-- app invoice View Page -->
 
-            <form asp-area="Admin" asp-controller="Blogs" enctype="multipart/form-data" asp-action="Edit" asp-route-id="@Model.Blog.NewsId" method="post">
+            <form asp-area="Admin" 
+                  asp-controller="Blogs"
+                  asp-action="Edit"
+                  asp-route-id="@Model.Blog.NewsId" 
+                  method="post" enctype="multipart/form-data">
                 <section class="invoice-edit-wrapper">
 
                     <div class="row">

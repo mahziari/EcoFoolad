@@ -7,7 +7,7 @@ namespace ParsaPoolad.Application.Services.FrontEnd.Products.Queries
 {
     public interface IGetProductsDetailsFrontEndService
     {
-        ResultGetProductsDetailsFrontEndDto Execute(string title);
+        ResultGetProductsDetailsFrontEndDto Execute(string name,int pageNumber);
     }
 
     public class GetProductsDetailsFrontEndService: IGetProductsDetailsFrontEndService
@@ -21,10 +21,10 @@ namespace ParsaPoolad.Application.Services.FrontEnd.Products.Queries
 
 
 
-        public ResultGetProductsDetailsFrontEndDto Execute(string title)
+        public ResultGetProductsDetailsFrontEndDto Execute(string name,int pageNumber)
         {
             var blog = _context.CrmCmsNews
-                .Where(b => b.Title == title.Replace("-"," "))
+                .Where(b => b.Title == name.Replace("-"," "))
                 .Include(b=>b.NewsGroup)
                 .Select(b => new GetProductsDetailsDto
                 {

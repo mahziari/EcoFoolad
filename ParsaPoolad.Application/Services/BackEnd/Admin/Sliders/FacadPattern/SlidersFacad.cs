@@ -4,14 +4,15 @@ using ParsaPoolad.Application.Interfaces.FacadPatterns.BackEnd.Admin;
 using ParsaPoolad.Application.Services.BackEnd.Admin.Sliders.Commands;
 using ParsaPoolad.Application.Services.BackEnd.Admin.Sliders.Queries;
 
+
 namespace ParsaPoolad.Application.Services.BackEnd.Admin.Sliders.FacadPattern
 {
     public class SlidersFacad:ISlidersFacad
     {
         private readonly IIdentityDataBaseContext _context;
-        private readonly IHostingEnvironment _environment;
+        private readonly IWebHostEnvironment _environment;
 
-        public SlidersFacad(IIdentityDataBaseContext context, IHostingEnvironment hostingEnvironment)
+        public SlidersFacad(IIdentityDataBaseContext context, IWebHostEnvironment hostingEnvironment)
         {
             _context = context;
             _environment = hostingEnvironment;

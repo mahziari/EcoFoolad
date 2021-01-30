@@ -10,6 +10,7 @@ namespace ParsaPoolad.Domain.Entities
     {
         public int ParsaPooladMenusId { get; set; }
         public string Name { get; set; }
+        public string UrlName { get; set; }
         public int? ParentMenusId { get; set; }
         public string Image { get; set; }
 

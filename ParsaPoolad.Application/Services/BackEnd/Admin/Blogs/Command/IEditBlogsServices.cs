@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 using System.IO;
 using System.Linq;
 using Microsoft.AspNetCore.Hosting;
@@ -10,20 +11,20 @@ namespace ParsaPoolad.Application.Services.BackEnd.Admin.Blogs.Command
 {
     public interface IEditBlogsServices
     {
-        ResultEditBlogsDto Execute(CreateBlogsServicesDto createBlogsServicesDto,CrmCmsNews crmCmsNews,int id);
+        ResultEditBlogsDto Execute(EditBlogsServicesDto editBlogsServicesDto,int id);
     }
 
     public class EditBlogsServices:IEditBlogsServices {
         private readonly IDataBaseContext _context;
-        private readonly IHostingEnvironment _environment;
+        private readonly IWebHostEnvironment _environment;
 
-        public EditBlogsServices(IDataBaseContext context, IHostingEnvironment hostingEnvironment)
+        public EditBlogsServices(IDataBaseContext context, IWebHostEnvironment hostingEnvironment)
         {
             _context = context;
             _environment = hostingEnvironment;
         }
 
-        public ResultEditBlogsDto Execute(CreateBlogsServicesDto createBlogsServicesDto,CrmCmsNews crmCmsNews,int id)
+        public ResultEditBlogsDto Execute(EditBlogsServicesDto editBlogsServicesDto,int id)
         {
             // if (createBlogsServicesDto.Position != 0)
             // {
@@ -40,7 +41,7 @@ namespace ParsaPoolad.Application.Services.BackEnd.Admin.Blogs.Command
             //     }
             // }
             
-            var uploadedResult = UploadFile(createBlogsServicesDto.Images);
+            var uploadedResult = UploadFile(editBlogsServicesDto.Images);
 
             // if (uploadedResult.Status != true)
             // {
@@ -55,22 +56,27 @@ namespace ParsaPoolad.Application.Services.BackEnd.Admin.Blogs.Command
             
             var blog = _context.CrmCmsNews.Find(id);
 
-            string file =blog.HeadLine;
-            string folder = _environment.WebRootPath;
-            var filePath = Path.Combine(_environment.WebRootPath, file);
-            var fileStream = new FileInfo(filePath);
-            if (fileStream.Exists)
+        
+            if (uploadedResult.FileNameAddress != "ImageNotChange")
             {
-                fileStream.Delete();
+                string file =blog.HeadLine;
+                var filePath = Path.Combine(_environment.WebRootPath, file);
+                var fileStream = new FileInfo(filePath);
+                if (fileStream.Exists)
+                {
+                    fileStream.Delete();
+                }
             }
-            
 
-            blog.NewsGroupId = crmCmsNews.NewsGroupId;
-            blog.Title = crmCmsNews.Title;
-            blog.NewsSummery = crmCmsNews.NewsSummery;
-            blog.HeadLine = uploadedResult.FileNameAddress;
-            blog.NewsBody = createBlogsServicesDto.NewsBody;
-            blog.Position = createBlogsServicesDto.Position;
+            blog.NewsGroupId = editBlogsServicesDto.NewsGroupId;
+            blog.Title = editBlogsServicesDto.Title;
+            blog.NewsSummery = editBlogsServicesDto.NewsSummery;
+            if (uploadedResult.FileNameAddress != "ImageNotChange")
+            {
+                blog.HeadLine = uploadedResult.FileNameAddress;
+            }
+            blog.NewsBody = editBlogsServicesDto.NewsBody;
+            blog.Position = editBlogsServicesDto.Position;
             _context.SaveChanges();
 
             return new ResultEditBlogsDto
@@ -82,6 +88,13 @@ namespace ParsaPoolad.Application.Services.BackEnd.Admin.Blogs.Command
         
         private UploadDto UploadFile(IFormFile file)
         {
+            if (file == null || file.Length <= 0)
+                return new UploadDto()
+                {
+                    Status = true,
+                    FileNameAddress = "ImageNotChange",
+                };
+
             string folder = @"Images/Blogs/";
             var uploadsRootFolder = Path.Combine(_environment.WebRootPath, folder);
             if (!Directory.Exists(uploadsRootFolder))
@@ -107,6 +120,34 @@ namespace ParsaPoolad.Application.Services.BackEnd.Admin.Blogs.Command
     {
         public bool IsSuccess { get; set; }
         public string Message { get; set; }
+    }
+    
+    public class EditBlogsServicesDto
+    {
+        public int NewsId { get; set; }
+
+        [Display(Name = "نوع بلاگ")]
+        [Required(AllowEmptyStrings = false,ErrorMessage = "پر کردن فیلد {0} اجباری است")]
+        public int NewsGroupId { get; set; }
+
+        [Display(Name = "عنوان بلاگ")]
+        [Required(ErrorMessage = "پر کردن فیلد {0} اجباری است")]
+        [StringLength(200, ErrorMessage = "تعداد کاراکتر بیش از حد مجاز")]
+        public string Title { get; set; }
+
+        [Display(Name = "توضیح کوتاه بلاگ")]
+        [Required(ErrorMessage = "پر کردن فیلد {0} اجباری است")]
+        public string NewsSummery { get; set; }
+
+        [Display(Name = "متن بلاگ")]
+        [Required(ErrorMessage = "پر کردن فیلد {0} اجباری است")]
+        public string NewsBody { get; set; }
+        
+        [Display(Name = "تصویر بلاگ")]
+        // [Required(ErrorMessage = "لطفا یک {0} انتخاب کنید")]
+        [DataType(DataType.Upload)]
+        public IFormFile Images { get; set; }
+        public int Position { get; set; }
     }
 
 

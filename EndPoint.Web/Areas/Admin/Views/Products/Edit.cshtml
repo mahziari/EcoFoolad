@@ -48,7 +48,7 @@
             $.ajax({
                 type: 'POST',
                 headers:{'RequestVerificationToken' :token},
-                url: '/Admin/products/GetReturnSubMenuAjax',
+                url: '/panel/admin/products/GetReturnSubMenuAjax',
                 data_type:'Json',
                 data: {id : $id,},
                 success: function (result) {
@@ -71,7 +71,7 @@
              $.ajax({
                 type: 'POST',
                 headers:{'RequestVerificationToken' :token},
-                url: '/Admin/products/GetReturnCompanyAjax',
+                url: '/panel/admin/products/GetReturnCompanyAjax',
                 data_type:'Json',
                 data: {id : $id,},
                 success: function (result) {
@@ -92,7 +92,7 @@
                 $.ajax({
                     type: 'POST',
                     headers:{'RequestVerificationToken' :token},
-                    url: '/Admin/products/GetReturnSubSubMenuAjax',
+                    url: '/panel/admin/products/GetReturnSubSubMenuAjax',
                     data_type:'Json',
                     data: {id : $id,},
                     success: function (result) {

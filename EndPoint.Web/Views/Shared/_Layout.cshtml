@@ -13,7 +13,7 @@
 </head>
 
 @* <body data-rsssl=1 class="rtl home page-template page-template-home-page page-template-home-page-php page page-id-1211 theme-newkala woocommerce-no-js nk_desktop nk_my_account_page loggedout elementor-default dokan-theme-newkala"> *@
-<body data-rsssl=1 class="rtl home page-template page-template-home-page page-template-home-page-php page page-id-1211 theme-newkala woocommerce-js nk_desktop nk_my_account_page loggedout elementor-default dokan-theme-newkala">
+<!body @await RenderSectionAsync("BodyAttr", true)>
 <partial name="_HeaderPartial"/>
 <partial name="_MenusPartial"/>
 
@@ -25,5 +25,5 @@
 
 
 @* @await RenderSectionAsync("Scripts", required: false) *@
-</body>
+</!body>
 </html>

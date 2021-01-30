@@ -49,6 +49,7 @@ namespace ParsaPoolad.Application.Services.FrontEnd.Products.Queries
                 {
                     ParsaPooladMenusId = f.ParsaPooladMenusId,
                     Name = f.Name,
+                    UrlName=f.UrlName,
                     Sub = f.WsproductFirstGroup
                         .Where(first => first.IsRemoved == null)
                         .Select(first => new GetMenu2Dto {
@@ -101,6 +102,7 @@ namespace ParsaPoolad.Application.Services.FrontEnd.Products.Queries
     {
         public int ParsaPooladMenusId { get; set; }
         public string Name { get; set; }
+        public string UrlName { get; set; }
         public string Image { get; set; }
         public List<GetMenu2Dto> Sub { get; set; }
     }

@@ -9,21 +9,26 @@
 {
     <li id="menu-item-233"
         class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-has-children megamenu_by_two_level">
-        <a href="">@item.Name</a>
+        <a href="#" style="pointer-events: none; cursor: default;">
+            @item.Name
+        </a>
         <ul class="sub-menu nk-level-0">
             @foreach (var subItem in item.Sub)
             {
                 <li id="menu-item-234"
                     class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-has-children">
-                    <a href="">
+                    <a href="#">
                         @subItem.Fgname
                     </a>
                     <ul class="sub-menu nk-level-1">
                         @foreach (var subSunItem in subItem.SubSub)
                         {
-                            <li id="menu-item-240" class="menu-item menu-item-type-custom menu-item-object-custom">
-                                <a
-                                    href="">
+                            <li class="menu-item menu-item-type-custom menu-item-object-custom">
+                                <a asp-controller="Products"
+                                   asp-action="Category"
+                                   asp-route-category="@item.UrlName"
+                                   asp-route-menuName="@subSunItem.Sgname.Replace(" ","-")"
+                                >
                                     @subSunItem.Sgname
                                 </a>
                             </li>

@@ -26,6 +26,7 @@ namespace ParsaPoolad.Application.Services.BackEnd.Admin.Products.Queries.GetCre
 
             var subSubMenus = _context.WsproductSecondGroup
                 .Where(s => s.FirstGroupId==id)
+                .Where(s=>s.IsRemoved!=1)
                 .Select(s=>new AjaxReturnSubSubMenusDto
                 {
                     WsproductSecondGroupId=s.PrdSecondGroupId,

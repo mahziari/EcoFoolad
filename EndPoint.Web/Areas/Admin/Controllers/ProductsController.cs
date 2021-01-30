@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using ParsaPoolad.Application.Interfaces.FacadPatterns;
 using ParsaPoolad.Application.Interfaces.FacadPatterns.BackEnd.Admin;
+using ParsaPoolad.Application.Services.BackEnd.Admin.Products.Commands;
 using ParsaPoolad.Domain.Entities;
 
 namespace EndPoint.Web.Areas.Admin.Controllers
@@ -91,9 +92,8 @@ namespace EndPoint.Web.Areas.Admin.Controllers
             return RedirectToAction(nameof(Index));
             
         }
-        
-        
-        // GET: testController1/Edit/5
+
+        [HttpGet]
         public IActionResult Edit(int id)
         {
             var result = _productsFacad.GetEditProductServices.Execute(id);
@@ -102,14 +102,14 @@ namespace EndPoint.Web.Areas.Admin.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(Wsproducts wsproducts,int id)
+        public IActionResult Edit(EditProductsDto editProductsDto,int id)
         {
             if (!ModelState.IsValid)
             {
                 return View("Edit",_productsFacad.GetEditProductServices.Execute(id));
             }
             
-            var result = _productsFacad.EditProductsServices.Execute(wsproducts,id);
+            var result = _productsFacad.EditProductsServices.Execute(editProductsDto,id);
         
             TempData["IsSuccess"] = result.IsSuccess;
             TempData["Message"] = result.Message; 

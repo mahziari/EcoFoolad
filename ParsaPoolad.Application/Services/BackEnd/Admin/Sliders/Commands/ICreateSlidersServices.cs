@@ -16,9 +16,9 @@ namespace ParsaPoolad.Application.Services.BackEnd.Admin.Sliders.Commands
     public class CreateSlidersServices : ICreateSlidersServices
     {
         private readonly IIdentityDataBaseContext _context;
-        private readonly IHostingEnvironment _environment;
+        private readonly IWebHostEnvironment _environment;
 
-        public CreateSlidersServices(IIdentityDataBaseContext context, IHostingEnvironment hostingEnvironment)
+        public CreateSlidersServices(IIdentityDataBaseContext context, IWebHostEnvironment hostingEnvironment)
         {
             _context = context;
             _environment = hostingEnvironment;

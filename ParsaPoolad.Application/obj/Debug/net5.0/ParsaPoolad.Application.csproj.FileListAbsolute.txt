@@ -98,3 +98,13 @@ D:\.NET\01_ParsaPoolad\ParsaPoolad.Application\bin\Debug\net5.0\Microsoft.AspNet
 D:\.NET\01_ParsaPoolad\ParsaPoolad.Application\bin\Debug\net5.0\Microsoft.AspNetCore.DataProtection.Abstractions.xml
 D:\.NET\01_ParsaPoolad\ParsaPoolad.Application\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.xml
 D:\.NET\01_ParsaPoolad\ParsaPoolad.Application\obj\Debug\net5.0\ParsaPoolad.Application.csproj.CopyComplete
+D:\.NET\01_ParsaPoolad\ParsaPoolad.Application\bin\Debug\net5.0\Microsoft.AspNetCore.Authorization.dll
+D:\.NET\01_ParsaPoolad\ParsaPoolad.Application\bin\Debug\net5.0\Microsoft.AspNetCore.Components.dll
+D:\.NET\01_ParsaPoolad\ParsaPoolad.Application\bin\Debug\net5.0\Microsoft.AspNetCore.Metadata.dll
+D:\.NET\01_ParsaPoolad\ParsaPoolad.Application\bin\Debug\net5.0\Microsoft.AspNetCore.Authorization.xml
+D:\.NET\01_ParsaPoolad\ParsaPoolad.Application\bin\Debug\net5.0\Microsoft.AspNetCore.Components.xml
+D:\.NET\01_ParsaPoolad\ParsaPoolad.Application\bin\Debug\net5.0\Microsoft.AspNetCore.Metadata.xml
+D:\.NET\01_ParsaPoolad\ParsaPoolad.Application\bin\Debug\net5.0\Microsoft.AspNetCore.Hosting.Server.Abstractions.dll
+D:\.NET\01_ParsaPoolad\ParsaPoolad.Application\bin\Debug\net5.0\Microsoft.AspNetCore.Http.Abstractions.dll
+D:\.NET\01_ParsaPoolad\ParsaPoolad.Application\bin\Debug\net5.0\Microsoft.AspNetCore.Hosting.Server.Abstractions.xml
+D:\.NET\01_ParsaPoolad\ParsaPoolad.Application\bin\Debug\net5.0\Microsoft.AspNetCore.Http.Abstractions.xml

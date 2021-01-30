@@ -17,8 +17,8 @@ namespace ParsaPoolad.Application.Services.BackEnd.Admin.Blogs.Command
     {
 
         private readonly IDataBaseContext _context;
-        private readonly IHostingEnvironment _environment;
-        public CreateBlogsServices(IDataBaseContext context, IHostingEnvironment environment)
+        private readonly IWebHostEnvironment _environment;
+        public CreateBlogsServices(IDataBaseContext context, IWebHostEnvironment environment)
         {
             _context = context;
             _environment = environment;
