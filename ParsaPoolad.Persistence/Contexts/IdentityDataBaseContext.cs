@@ -13,20 +13,16 @@ namespace ParsaPoolad.Persistence.Contexts
             : base(options)
         {
         }
-
-
-        // public DbSet<UserRoles> UserRoles { get; set; }
-        // public DbSet<UserClaims> UserClaims { get; set; }
-        // public DbSet<UserLogins> UserLogins { get; set; }
-        // public DbSet<RoleClaims> RoleClaims { get; set; }
+        
         public DbSet<Sliders> Sliders { get; set; }
+        public DbSet<Claims> Claims { get; set; }
 
-        
-        
-        
-        
-        
-        
+
+
+
+
+
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

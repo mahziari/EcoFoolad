@@ -2,13 +2,14 @@
 using System.Threading;
 using System.Threading.Tasks;
 using ParsaPoolad.Domain.Entities.DbTwoEntities;
+using ParsaPoolad.Domain.Entities.Identity;
 
 namespace ParsaPoolad.Application.Interfaces.Contexts
 {
     public interface IIdentityDataBaseContext
     {
-        DbSet<Sliders> Sliders { get; set; }
-       
+        DbSet<Sliders> Sliders { get; set; } 
+        DbSet<Claims> Claims { get; set; }
 
 
         int SaveChanges(bool acceptAllChangesSuccess);

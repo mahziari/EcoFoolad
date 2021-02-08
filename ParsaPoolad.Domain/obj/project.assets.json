@@ -9103,7 +9103,7 @@
   },
   "packageFolders": {
     "C:\\Users\\pc-2\\.nuget\\packages\\": {},
-    "C:\\Microsoft\\Xamarin\\NuGet\\": {}
+    "C:\\Microsoft\\Xamarin\\NuGet": {}
   },
   "project": {
     "version": "1.0.0",
@@ -9115,7 +9115,7 @@
       "outputPath": "D:\\.NET\\01_ParsaPoolad\\ParsaPoolad.Domain\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Microsoft\\Xamarin\\NuGet\\"
+        "C:\\Microsoft\\Xamarin\\NuGet"
       ],
       "configFilePaths": [
         "C:\\Users\\pc-2\\AppData\\Roaming\\NuGet\\NuGet.Config",

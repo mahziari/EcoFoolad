@@ -14,7 +14,7 @@ namespace ParsaPoolad.Domain.Entities
         public int? ParentMenusId { get; set; }
         public string Image { get; set; }
 
-        // public virtual ParsaPooladMenus ParsaPooladMenu { get; set; }
         public virtual ICollection<WsproductFirstGroup> WsproductFirstGroup { get; set; }
+        public virtual ICollection<CrmCompany> CrmCompany { get; set; }
     }
 }

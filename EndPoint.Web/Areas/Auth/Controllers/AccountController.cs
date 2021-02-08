@@ -6,11 +6,12 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.Extensions;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using ParsaPoolad.Common.Extentions;
 using ParsaPoolad.Common.Services;
+using ParsaPoolad.Common.Utilities;
 using ParsaPoolad.Domain.Entities.Identity;
 using ParsaPoolad.Persistence.Contexts;
-
 
 namespace EndPoint.Web.Areas.Auth.Controllers
 {
@@ -21,15 +22,18 @@ namespace EndPoint.Web.Areas.Auth.Controllers
         private readonly RoleManager<Role> _roleManager;
         private readonly SignInManager<User> _signInManager;
         private readonly IdentityDataBaseContext _identityContext;
+        private readonly ILogger _logger;
 
         public AccountController(UserManager<User> userManager, RoleManager<Role> roleManager,
             SignInManager<User> signInManager,
-            IdentityDataBaseContext identityContext)
+            IdentityDataBaseContext identityContext,
+            ILoggerFactory logger)
         {
             _userManager = userManager;
             _roleManager = roleManager;
             _signInManager = signInManager;
             _identityContext = identityContext;
+            _logger = logger.CreateLogger("Account");
         }
 
         [HttpGet]
@@ -51,7 +55,7 @@ namespace EndPoint.Web.Areas.Auth.Controllers
             {
                 return View(checkOutDto);
             }
-            
+
             TempData["PhoneNumber"] = checkOutDto.PhoneNumber;
             TempData["ReturnUrl"] = checkOutDto.ReturnUrl;
             var user = _userManager.FindByNameAsync(checkOutDto.PhoneNumber).Result;
@@ -94,13 +98,15 @@ namespace EndPoint.Web.Areas.Auth.Controllers
 
             if (registerDto.PhoneNumber == registerDto.Password)
             {
-                TempData["ErrorChangePhoneNumberInRegister"] = "استفاده از شماره موبایل به عنوان رمز عبور غیر مجاز میباشد";
+                TempData["ErrorChangePhoneNumberInRegister"] =
+                    "استفاده از شماره موبایل به عنوان رمز عبور غیر مجاز میباشد";
                 RedirectToAction(nameof(Register));
             }
 
             var userAvalable = _userManager.FindByNameAsync(registerDto.PhoneNumber).Result;
             if (userAvalable != null)
             {
+                _logger.LogInformation(LogEvents.LogInformationComplete, "RegisterAuthErrors");
                 TempData["AuthErrors"] = "شما شماره همراه خود را به صورت غیر مجاز تغییر داده اید";
                 return RedirectToAction(nameof(Login));
             }
@@ -120,8 +126,8 @@ namespace EndPoint.Web.Areas.Auth.Controllers
                 var user = _userManager.FindByNameAsync(registerDto.PhoneNumber).Result;
 
 
-                // Add Role User To Users
-                var roles = _roleManager.Roles.FirstOrDefault(r => r.Name == "SeniorProgrammer");
+                // Add Role User To Register Users
+                var roles = _roleManager.Roles.FirstOrDefault(r => r.Name == "User");
                 _userManager.AddToRoleAsync(user, roles.Name);
 
                 var code = _userManager.GenerateChangePhoneNumberTokenAsync(user, registerDto.PhoneNumber).Result;
@@ -171,6 +177,7 @@ namespace EndPoint.Web.Areas.Auth.Controllers
 
             if (resultVerify == false)
             {
+                _logger.LogInformation(LogEvents.LogInformationComplete, "ConfirmErrorVerifyPhoneNumber");
                 TempData["ErrorVerifyPhoneNumber"] = "کد وارد شده اشتباه است";
                 return View(confirmDto);
             }
@@ -214,15 +221,7 @@ namespace EndPoint.Web.Areas.Auth.Controllers
             }
 
             var user = _userManager.FindByNameAsync(loginDto.UserName).Result;
-
-            // if (user == null)
-            // {
-            //     TempData["AuthSuccess"] = "کاربری با این شماره تلفن وجود ندارد";
-            //     return View(loginDto);
-            // }
-
             _signInManager.SignOutAsync();
-
 
             var result = _signInManager
                 .PasswordSignInAsync(user, loginDto.Password, false, true)
@@ -230,6 +229,7 @@ namespace EndPoint.Web.Areas.Auth.Controllers
 
             if (result.Succeeded)
             {
+                _logger.LogInformation(LogEvents.LogInformationComplete, "LoginSuccess");
                 return Redirect(loginDto.ReturnUrl);
             }
 
@@ -244,7 +244,8 @@ namespace EndPoint.Web.Areas.Auth.Controllers
             }
 
             ModelState.AddModelError(string.Empty, "رمز نادرست است");
-
+            _logger.LogInformation(LogEvents.LogInformationComplete, "LoginWrongPassword");
+            
             return View(loginDto);
         }
 
@@ -316,6 +317,7 @@ namespace EndPoint.Web.Areas.Auth.Controllers
 
             if (resultVerify == false)
             {
+                _logger.LogInformation(LogEvents.LogInformationComplete, "SuccessChangePassword");
                 TempData["ErrorVerifyPhoneNumber"] = "کد وارد شده اشتباه است";
                 return View(forgotPasswordDto);
             }
@@ -326,13 +328,13 @@ namespace EndPoint.Web.Areas.Auth.Controllers
                 .Result;
             if (result.Succeeded)
             {
-                //Send Success Sms
+                _logger.LogInformation(LogEvents.LogInformationComplete, "SuccessChangePassword");
 
+                //Send Success Sms
                 var firstName = user.FirstName.FixPersianChars();
                 var lastName = user.LastName.FixPersianChars();
                 SmsServices.SmsSend(forgotPasswordDto.PhoneNumber, "SuccessChangePassword", firstName, lastName,
                     forgotPasswordDto.PhoneNumber);
-
 
                 TempData["PhoneNumber"] = forgotPasswordDto.PhoneNumber;
                 TempData["SuccessChangePassword"] = "رمز عبور شما با موفقیت ویرایش شد";
@@ -341,6 +343,7 @@ namespace EndPoint.Web.Areas.Auth.Controllers
             else
             {
                 TempData["ForgotPasswordErrors"] = result.Errors;
+                _logger.LogWarning(LogEvents.LogWarningComplete, "ForgotPasswordErrors");
                 return View(forgotPasswordDto);
             }
         }

@@ -62,7 +62,7 @@ namespace EndPoint.Web.Areas.Auth.Helpers
             return new IdentityError
             {
                 Code = nameof(InvalidUserName),
-                Description = $"نام کاربری '{userName}' نامعتبر است، فقط می تواند حاوی حروف ویا اعداد باشد."
+                Description = $"نام کاربری '{userName}' نامعتبر است، فقط می تواند حاوی حروف و یا اعداد باشد."
             };
         }
 

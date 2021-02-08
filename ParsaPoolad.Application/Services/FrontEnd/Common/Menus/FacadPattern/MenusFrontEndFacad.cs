@@ -1,4 +1,5 @@
-﻿using ParsaPoolad.Application.Interfaces.Contexts;
+﻿using Microsoft.Extensions.Caching.Distributed;
+using ParsaPoolad.Application.Interfaces.Contexts;
 using ParsaPoolad.Application.Interfaces.FacadPatterns.FrontEnd;
 using ParsaPoolad.Application.Services.FrontEnd.Common.Menus.Queries;
 
@@ -8,10 +9,11 @@ namespace ParsaPoolad.Application.Services.FrontEnd.Common.Menus.FacadPattern
     public class MenusFrontEndFacad : IMenusFrontEndFacad
     {
         private readonly IDataBaseContext _context;
-
-        public MenusFrontEndFacad(IDataBaseContext context)
+        private readonly IDistributedCache cache;
+        public MenusFrontEndFacad(IDataBaseContext context, IDistributedCache cache)
         {
             _context = context;
+            this.cache = cache;
         }
         
         
@@ -20,7 +22,7 @@ namespace ParsaPoolad.Application.Services.FrontEnd.Common.Menus.FacadPattern
         {
             get
             {
-                return _getMenusFrontEndService ??= new GetMenusFrontEndService(_context);
+                return _getMenusFrontEndService ??= new GetMenusFrontEndService(_context,cache);
             }
         }
         

@@ -9,7 +9,7 @@ namespace ParsaPoolad.Domain.Entities.Identity
 {
    public class UserRoles
     {
-        public String UserId { get; set; }
-        public String RoleId { get; set; }
+        public string UserId { get; set; }
+        public string RoleId { get; set; }
     }
 }

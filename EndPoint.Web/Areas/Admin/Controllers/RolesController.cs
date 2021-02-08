@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using ParsaPoolad.Application.Interfaces.FacadPatterns.BackEnd.Admin;
+using ParsaPoolad.Application.Services.BackEnd.Admin.Roles.Command;
+using ParsaPoolad.Application.Services.BackEnd.Admin.Roles.Commands;
 using ParsaPoolad.Application.Services.BackEnd.Admin.Roles.Queries;
 
 namespace EndPoint.Web.Areas.Admin.Controllers
@@ -17,7 +19,7 @@ namespace EndPoint.Web.Areas.Admin.Controllers
             _rolesFacad = rolesFacad;
         }
 
-
+        [HttpGet]
         public IActionResult Index()
         {
             var result = _rolesFacad.GetIndexRolesServices.Execute();
@@ -25,33 +27,66 @@ namespace EndPoint.Web.Areas.Admin.Controllers
         }
 
 
-
+        [HttpGet]
         public IActionResult Create()
         {
             var result = _rolesFacad.GetCreateRolesServices.Execute();
-           
+
             return View(result);
         }
-        
-        
+
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(GetIndexRolesRolesDto getIndexRolesRolesDto)
+        public IActionResult Create(CreateRolesServicesDto createRolesServicesDto)
         {
-            
             if (!ModelState.IsValid)
             {
-                return View("Create",_rolesFacad.GetCreateRolesServices.Execute());
+                return View("Create", _rolesFacad.GetCreateRolesServices.Execute());
             }
-            
-            var result = _rolesFacad.CreateRolesServices.Execute(getIndexRolesRolesDto);
-        
+
+            var result = _rolesFacad.CreateRolesServices.Execute(createRolesServicesDto);
+
             TempData["IsSuccess"] = result.IsSuccess;
-            TempData["Message"] = result.Message; 
-            
+            TempData["Message"] = result.Message;
+
             return RedirectToAction(nameof(Index));
-            
         }
-        
+
+
+        [HttpGet]
+        public IActionResult Edit(string id)
+        {
+            var result = _rolesFacad.GetEditRolesServices.Execute(id);
+            return View(result);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Edit(EditRolesServicesDto editRolesServicesDto,string id)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View("Edit", _rolesFacad.GetEditRolesServices.Execute(id));
+            }
+
+            var result = _rolesFacad.EditRolesServices.Execute(editRolesServicesDto,id);
+
+            TempData["IsSuccess"] = result.IsSuccess;
+            TempData["Message"] = result.Message;
+
+            return RedirectToAction(nameof(Index));
+        }
+
+
+        // public IActionResult Delete(int id)
+        // {
+        //     var result = _rolesFacad.DeleteProductServices.Execute(id);
+        //
+        //     TempData["IsSuccess"] = result.IsSuccess;
+        //     TempData["Message"] = result.Message; 
+        //     
+        //     return RedirectToAction(nameof(Index));
+        // }
     }
 }

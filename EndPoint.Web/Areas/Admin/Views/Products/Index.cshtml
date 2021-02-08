@@ -69,14 +69,16 @@
                                 <div class="table-responsive">
                                     <table id="users-list-datatable" class="table">
                                         <thead>
-                                            <tr>
-                                                <th>شماره</th>
-                                                <th>نام محصول</th>
-                                                <th>جز منو</th>
-                                                <th>تاریخ ایجاد </th>
-                                                @* <th>نام صاحب محصول</th> *@
-                                                <th>عملیات</th>
-                                            </tr>
+                                        <tr>
+                                            <th style="display:none">None</th>
+                                            <th style="display:none">None</th>
+                                            <th style="display:none">None</th>
+                                            <th>شماره</th>
+                                            <th>نام محصول</th>
+                                            <th>جز منو</th>
+                                            <th>تاریخ ایجاد </th>
+                                            <th>عملیات</th>
+                                        </tr>
                                         </thead>
                                         <tbody>
                                             @{var counter = 0; }
@@ -84,6 +86,7 @@
                                             {
                                                 counter++;
                                                 <tr>
+                                                    <td style="display:none"> </td>
                                                     <td style="display:none"> </td>
                                                     <td style="display:none"> </td>
                                                    

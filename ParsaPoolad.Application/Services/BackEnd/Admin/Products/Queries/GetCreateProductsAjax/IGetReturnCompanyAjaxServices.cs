@@ -24,7 +24,7 @@ namespace ParsaPoolad.Application.Services.BackEnd.Admin.Products.Queries.GetCre
         {
 
             var companyMenus = _context.CrmCompany
-                .Where(c => c.cmpParsaPooladMenuId == id)
+                .Where(c => c.ParsaPooladMenusId == id)
                 .Select(c => new AjaxReturnCompanyDto
                 {
                     CompanyId = c.CompanyId,

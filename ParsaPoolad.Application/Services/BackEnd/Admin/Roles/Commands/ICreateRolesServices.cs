@@ -8,7 +8,7 @@ namespace ParsaPoolad.Application.Services.BackEnd.Admin.Roles.Commands
 {
     public interface ICreateRolesServices
     {
-        ResultCreateRolesDto Execute(GetIndexRolesRolesDto getIndexRolesRolesDto);
+        ResultCreateRolesDto Execute(CreateRolesServicesDto createRolesServicesDto);
     }
 
     public class CreateRolesServices : ICreateRolesServices
@@ -20,12 +20,12 @@ namespace ParsaPoolad.Application.Services.BackEnd.Admin.Roles.Commands
             _roleManager = roleManager;
         }
 
-        public ResultCreateRolesDto Execute(GetIndexRolesRolesDto getIndexRolesRolesDto)
+        public ResultCreateRolesDto Execute(CreateRolesServicesDto createRolesServicesDto)
         {
             var role = new Role()
             {
-                Name = getIndexRolesRolesDto.Name,
-                Description = getIndexRolesRolesDto.Description
+                Name = createRolesServicesDto.Name,
+                Description = createRolesServicesDto.Description
             };
             var result = _roleManager.CreateAsync(role).Result;
             if (!result.Succeeded)
@@ -50,5 +50,11 @@ namespace ParsaPoolad.Application.Services.BackEnd.Admin.Roles.Commands
     {
         public bool IsSuccess { get; set; }
         public string Message { get; set; }
+    }
+    
+    public class CreateRolesServicesDto
+    {
+        public string Name { get; set; }
+        public string Description { get; set; }
     }
 }

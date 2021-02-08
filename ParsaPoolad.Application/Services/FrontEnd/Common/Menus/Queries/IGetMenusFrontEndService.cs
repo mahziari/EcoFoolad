@@ -1,7 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Caching.Distributed;
+using Newtonsoft.Json;
 using ParsaPoolad.Application.Interfaces.Contexts;
 
 namespace ParsaPoolad.Application.Services.FrontEnd.Common.Menus.Queries
@@ -14,35 +17,58 @@ namespace ParsaPoolad.Application.Services.FrontEnd.Common.Menus.Queries
     public class GetMenusFrontEndService : IGetMenusFrontEndService
     {
         private readonly IDataBaseContext _context;
+        private readonly IDistributedCache _cache;
 
-        public GetMenusFrontEndService(IDataBaseContext context)
+        public GetMenusFrontEndService(IDataBaseContext context, IDistributedCache cache)
         {
             _context = context;
+            _cache = cache;
         }
 
 
-        public ResultGetMenusFrontEndDto  Execute()
+        public ResultGetMenusFrontEndDto Execute()
         {
-            var menus = _context.ParsaPooladMenus
-                .Include(f => f.WsproductFirstGroup)
-                .Select(f => new GetMenu1Dto
+            // TODO Redis Cache
+            List<GetMenu1Dto> menus;
+            if (string.IsNullOrEmpty(_cache.GetString("IGetMenusFrontEndService_menus")))
+            {
+                menus = _context.ParsaPooladMenus
+                    .Include(f => f.WsproductFirstGroup)
+                    .Select(f => new GetMenu1Dto
+                    {
+                        ParsaPooladMenusId = f.ParsaPooladMenusId,
+                        Name = f.Name,
+                        UrlName = f.UrlName,
+                        Sub = f.WsproductFirstGroup
+                            .Where(first => first.IsRemoved == null)
+                            .Select(first => new GetMenu2Dto
+                            {
+                                PrdFirstGroupId = first.PrdFirstGroupId,
+                                Fgname = first.Fgname,
+                                SubSub = first.WsproductSecondGroup
+                                    .Where(seconds => seconds.IsRemoved == null)
+                                    .Select(seconds => new GetMenu3Dto
+                                    {
+                                        WsproductSecondGroupId = seconds.PrdSecondGroupId,
+                                        Sgname = seconds.Sgname,
+                                    }).ToList()
+                            }).ToList()
+                    }).ToList();
+
+                var options = new DistributedCacheEntryOptions
                 {
-                    ParsaPooladMenusId = f.ParsaPooladMenusId,
-                    Name = f.Name,
-                    UrlName=f.UrlName,
-                    Sub = f.WsproductFirstGroup
-                        .Where(first => first.IsRemoved == null)
-                        .Select(first => new GetMenu2Dto {
-                        PrdFirstGroupId = first.PrdFirstGroupId,
-                        Fgname = first.Fgname,
-                        SubSub=first.WsproductSecondGroup
-                        .Where(secound => secound.IsRemoved == null)
-                        .Select(secound=> new GetMenu3Dto {
-                            WsproductSecondGroupId = secound.PrdSecondGroupId,
-                            Sgname = secound.Sgname,
-                        }).ToList()
-                    }).ToList()
-                }).ToList();
+                    AbsoluteExpirationRelativeToNow = TimeSpan.FromMinutes(15)
+                };
+
+
+                var jsonData = JsonConvert.SerializeObject(menus);
+                _cache.SetString("IGetMenusFrontEndService_menus", jsonData, options);
+            }
+            else
+            {
+                var menusFromRedis = _cache.GetString("IGetMenusFrontEndService_menus");
+                menus = JsonConvert.DeserializeObject<List<GetMenu1Dto>>(menusFromRedis);
+            }
 
             return new ResultGetMenusFrontEndDto
             {

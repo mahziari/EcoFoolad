@@ -86,9 +86,3 @@ D:\.NET\01_ParsaPoolad\ParsaPoolad.Persistence\obj\Debug\net5.0\ParsaPoolad.Pers
 D:\.NET\01_ParsaPoolad\ParsaPoolad.Persistence\obj\Debug\net5.0\ref\ParsaPoolad.Persistence.dll
 D:\.NET\01_ParsaPoolad\ParsaPoolad.Persistence\obj\Debug\net5.0\ParsaPoolad.Persistence.pdb
 D:\.NET\01_ParsaPoolad\ParsaPoolad.Persistence\obj\Debug\net5.0\ParsaPoolad.Persistence.genruntimeconfig.cache
-D:\.NET\01_ParsaPoolad\ParsaPoolad.Persistence\bin\Debug\net5.0\Microsoft.AspNetCore.Authorization.dll
-D:\.NET\01_ParsaPoolad\ParsaPoolad.Persistence\bin\Debug\net5.0\Microsoft.AspNetCore.Components.dll
-D:\.NET\01_ParsaPoolad\ParsaPoolad.Persistence\bin\Debug\net5.0\Microsoft.AspNetCore.Metadata.dll
-D:\.NET\01_ParsaPoolad\ParsaPoolad.Persistence\bin\Debug\net5.0\Microsoft.AspNetCore.Authorization.xml
-D:\.NET\01_ParsaPoolad\ParsaPoolad.Persistence\bin\Debug\net5.0\Microsoft.AspNetCore.Components.xml
-D:\.NET\01_ParsaPoolad\ParsaPoolad.Persistence\bin\Debug\net5.0\Microsoft.AspNetCore.Metadata.xml

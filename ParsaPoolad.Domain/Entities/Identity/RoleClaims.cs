@@ -10,9 +10,9 @@ namespace ParsaPoolad.Domain.Entities.Identity
 {
    public class RoleClaims
     {
-        public String Id { get; set; }
-        public String RoleId { get; set; }
-        public String ClaimType { get; set; }
-        public String ClaimValue { get; set; }
+        public string Id { get; set; }
+        public string RoleId { get; set; }
+        public string ClaimType { get; set; }
+        public string ClaimValue { get; set; }
     }
 }

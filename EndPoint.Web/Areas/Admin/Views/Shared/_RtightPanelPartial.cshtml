@@ -69,11 +69,6 @@
             <li class=" navigation-header">
                 <span>Apps</span>
             </li>
-            <li class=" nav-item">
-                <a asp-area="Admin" asp-controller="Menus" asp-action="Index">
-                    <i class="fa fa-sort-alpha-desc" aria-hidden="true"></i><span class="menu-title" data-i18n="Email">منوها</span>
-                </a>
-            </li>
 
             <li class=" nav-item">
                 <a href="#">
@@ -93,7 +88,31 @@
                 </ul>
             </li>
 
-
+            
+            <li class=" nav-item">
+                <a href="#">
+                    <i class="fa fa-th" aria-hidden="true"></i><span class="menu-title" data-i18n="Invoice">شرکت ها</span>
+                </a>
+                <ul class="menu-content">
+                    @* <li> *@
+                    @*     <a asp-area="Admin" asp-controller="Company" asp-action="Create"> *@
+                    @*         <i class="bx bx-right-arrow-alt"></i><span class="menu-item" data-i18n="Invoice List">ایجاد</span> *@
+                    @*     </a> *@
+                    @* </li> *@
+                    <li>
+                        <a asp-area="Admin" asp-controller="Company" asp-action="Index">
+                            <i class="bx bx-right-arrow-alt"></i><span class="menu-item" data-i18n="Invoice">مشاهده همه</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            
+            <li class=" nav-item">
+                <a asp-area="Admin" asp-controller="Menus" asp-action="Index">
+                    <i class="fa fa-sort-alpha-desc" aria-hidden="true"></i><span class="menu-title" data-i18n="Email">دسته بندی محصولات</span>
+                </a>
+            </li>
+            
             <li class=" nav-item">
                 <a href="#">
                     <i class="fa fa-th" aria-hidden="true"></i><span class="menu-title" data-i18n="Invoice">محصولات</span>
@@ -156,12 +175,12 @@
 
             <li class=" nav-item">
                 <a href="#">
-                    <i class="fa fa-users" aria-hidden="true"></i><span class="menu-title" data-i18n="Invoice">Users</span>
+                    <i class="fa fa-users" aria-hidden="true"></i><span class="menu-title" data-i18n="Invoice">کاربران</span>
                 </a>
                 <ul class="menu-content">
                     <li>
                         <a asp-area="Admin" asp-controller="Users" asp-action="Index">
-                            <i class="bx bx-right-arrow-alt"></i><span class="menu-item" data-i18n="Invoice">Show All</span>
+                            <i class="bx bx-right-arrow-alt"></i><span class="menu-item" data-i18n="Invoice">مشاهده همه</span>
                         </a>
                     </li>
                 </ul>
@@ -169,17 +188,17 @@
 
             <li class=" nav-item">
                 <a href="#">
-                    <i class="fa fa-random" aria-hidden="true"></i><span class="menu-title" data-i18n="Invoice">Roles</span>
+                    <i class="fa fa-random" aria-hidden="true"></i><span class="menu-title" data-i18n="Invoice">نقش ها</span>
                 </a>
                 <ul class="menu-content">
                     <li>
                         <a asp-area="Admin" asp-controller="Roles" asp-action="Create">
-                            <i class="bx bx-right-arrow-alt"></i><span class="menu-item" data-i18n="Invoice List">Create</span>
+                            <i class="bx bx-right-arrow-alt"></i><span class="menu-item" data-i18n="Invoice List">ایجاد</span>
                         </a>
                     </li>
                     <li>
                         <a asp-area="Admin" asp-controller="Roles" asp-action="Index">
-                            <i class="bx bx-right-arrow-alt"></i><span class="menu-item" data-i18n="Invoice">Show All</span>
+                            <i class="bx bx-right-arrow-alt"></i><span class="menu-item" data-i18n="Invoice">مشاهده همه</span>
                         </a>
                     </li>
                 </ul>

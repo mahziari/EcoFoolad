@@ -76,7 +76,7 @@ namespace EndPoint.Web.Areas.Admin.Controllers
         
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(Wsproducts wsproducts)
+        public IActionResult Create(CreateProductsServicesDto createProductsServicesDto)
         {
             
             if (!ModelState.IsValid)
@@ -84,7 +84,7 @@ namespace EndPoint.Web.Areas.Admin.Controllers
                 return View("Create",_productsFacad.GetCreateProductServices.Execute());
             }
             
-            var result = _productsFacad.CreateProductsServices.Execute(wsproducts);
+            var result = _productsFacad.CreateProductsServices.Execute(createProductsServicesDto);
       
             TempData["IsSuccess"] = result.IsSuccess;
             TempData["Message"] = result.Message; 
@@ -102,14 +102,14 @@ namespace EndPoint.Web.Areas.Admin.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(EditProductsDto editProductsDto,int id)
+        public IActionResult Edit(EditProductsServicesDto editProductsServicesDto,int id)
         {
             if (!ModelState.IsValid)
             {
                 return View("Edit",_productsFacad.GetEditProductServices.Execute(id));
             }
             
-            var result = _productsFacad.EditProductsServices.Execute(editProductsDto,id);
+            var result = _productsFacad.EditProductsServices.Execute(editProductsServicesDto,id);
         
             TempData["IsSuccess"] = result.IsSuccess;
             TempData["Message"] = result.Message; 
@@ -118,7 +118,7 @@ namespace EndPoint.Web.Areas.Admin.Controllers
         }
         
     
-        // [HttpDelete]
+        [HttpDelete]
         // [ValidateAntiForgeryToken]
         public IActionResult Delete(int id)
         {

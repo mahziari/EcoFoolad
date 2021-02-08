@@ -46,7 +46,6 @@ namespace ParsaPoolad.Domain.Entities
             Wsproducts = new HashSet<Wsproducts>();
             WsproductsRate = new HashSet<WsproductsRate>();
         }
-
         public int CompanyId { get; set; }
         public string ImportDate { get; set; }
         public int? CmpNumber { get; set; }
@@ -128,7 +127,7 @@ namespace ParsaPoolad.Domain.Entities
         public bool? CmpIsDraft { get; set; }
         public int? CmpKind { get; set; }
         public int? CmpMainPersonId { get; set; }
-        public int? cmpParsaPooladMenuId { get; set; }
+        public int? ParsaPooladMenusId { get; set; }
 
         public virtual City CmpCity { get; set; }
         public virtual Country CmpCountry { get; set; }
@@ -144,6 +143,8 @@ namespace ParsaPoolad.Domain.Entities
         public virtual CrmCompanyType CmpType { get; set; }
         public virtual Languages Language { get; set; }
         public virtual Users User { get; set; }
+        
+        public virtual ParsaPooladMenus ParsaPooladMenus { get; set; }
         public virtual ICollection<CrmBankingAccounts> CrmBankingAccounts { get; set; }
         public virtual ICollection<CrmCallHistory> CrmCallHistory { get; set; }
         public virtual ICollection<CrmCmsComments> CrmCmsComments { get; set; }

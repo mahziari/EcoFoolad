@@ -9,6 +9,6 @@ namespace ParsaPoolad.Domain.Entities.Identity
 {
    public class UserLogins
     {
-        public String Id { get; set; }
+        public string Id { get; set; }
     }
 }

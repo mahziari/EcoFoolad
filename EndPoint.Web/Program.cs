@@ -1,11 +1,6 @@
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace EndPoint.Web
 {
@@ -20,7 +15,19 @@ namespace EndPoint.Web
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
-                    webBuilder.UseStartup<Startup>();
+                    // for Environment Area
+                    var projectName = System.Reflection.Assembly.GetExecutingAssembly().GetName().Name;
+                    webBuilder.UseStartup(projectName ?? string.Empty);
+                    
+                    
+                    // Error Handling
+                    webBuilder.ConfigureLogging(logger =>
+                    {
+                        logger.ClearProviders();
+                        logger.AddDebug();
+                        logger.AddEventLog();
+                        logger.AddFile("/Logs/logText.txt");
+                    });
                 });
     }
 }

@@ -29,33 +29,16 @@ namespace ParsaPoolad.Domain.Entities
         }
 
         public int ProductId { get; set; }
-        
-        [Display(Name = "دسته بندی محصول")]
-        [Required(ErrorMessage = "پر کردن فیلد {0} اجباری است")]
         public int PrdGroupId { get; set; }
         public string PrdCode { get; set; }
-        
-        [Display(Name = "نام محصول")]
-        [Required(ErrorMessage = "پر کردن فیلد {0} اجباری است")]
-        [StringLength(250, ErrorMessage = "تعداد کاراکتر بیش از حد مجاز")]
         public string PrdName { get; set; }
         public string PrdLatinName { get; set; }
         public string PrdType { get; set; }
         public string PrdDesign { get; set; }
-        
-        [Display(Name = "سایز محصول")]
-        [Required(ErrorMessage = "پر کردن فیلد {0} اجباری است")]
-        [StringLength(20, ErrorMessage = "تعداد کاراکتر بیش از حد مجاز")]
         public string PrdSize { get; set; }
         public int? PrdColorId { get; set; }
-        
-        [Display(Name = "واحد محصول")]
-        [Required(ErrorMessage = "پر کردن فیلد {0} اجباری است")]
         public int? PrdUnitId { get; set; }
         public int? PrdMinQty { get; set; }
-        
-        [Display(Name = "موجودی محصول")]
-        [Required(ErrorMessage = "پر کردن فیلد {0} اجباری است")]
         public int? PrdMaxQty { get; set; }
         public int? PrdSleepDay { get; set; }
         public string PrdFirstSerial { get; set; }
@@ -64,9 +47,6 @@ namespace ParsaPoolad.Domain.Entities
         public string PrdFirstBarcode { get; set; }
         public string PrdSecondBarcode { get; set; }
         public string PrdThirdBarcode { get; set; }
-        
-        [Display(Name = "توضیحات محصول")]
-        [StringLength(1000, ErrorMessage = "تعداد کاراکتر بیش از حد مجاز")]
         public string PrdDescription { get; set; }
         public int UserId { get; set; }
         public short Month1 { get; set; }
@@ -79,10 +59,6 @@ namespace ParsaPoolad.Domain.Entities
         public int? PrdAutoNumBarCodeTypeId { get; set; }
         public string PrdAutoCharBarcode { get; set; }
         public int? PrdAutoCharBarCodeTypeId { get; set; }
-        
-        [Display(Name = "مدل محصول")]
-        [Required(ErrorMessage = "پر کردن فیلد {0} اجباری است")]
-        [StringLength(250, ErrorMessage = "تعداد کاراکتر بیش از حد مجاز")]
         public string PrdModel { get; set; }
         public Guid? Guid { get; set; }
         public bool? PrdInactiveInSale { get; set; }
@@ -104,16 +80,10 @@ namespace ParsaPoolad.Domain.Entities
         public double? PrdShpstockManualyCount { get; set; }
         public bool? PrdShphiddenPriceInNoStock { get; set; }
         public bool? PrdShpselfSupplier { get; set; }
-        
-        [Display(Name = "شرکت سازنده محصول")]
-        [Required(ErrorMessage = "پر کردن فیلد {0} اجباری است")]
         public int? PrdShpotherSupplierId { get; set; }
         public int? PrdLinkAccPrdId { get; set; }
         public string PrdLinkAccPrdCode { get; set; }
         public int? OrderView { get; set; }
-        
-        [Display(Name = "قیمت محصول")]
-        [Required(ErrorMessage = "پر کردن فیلد {0} اجباری است")]
         public decimal? PrdPrice { get; set; }
 
         public virtual Users FirstRegisterUser { get; set; }

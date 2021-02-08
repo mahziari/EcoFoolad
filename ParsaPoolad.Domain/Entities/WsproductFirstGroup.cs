@@ -38,9 +38,13 @@ namespace ParsaPoolad.Domain.Entities
         public virtual WsfinancialPeriod Fp { get; set; }
         public virtual Languages Language { get; set; }
         public virtual Users User { get; set; }
+        public virtual ParsaPooladMenus ParsaPooladMenus { get; set; }
+
+
         public virtual ICollection<CrmCmsMenus> CrmCmsMenus { get; set; }
         public virtual ICollection<WspreOrderPrdGroupMustExistReasons> WspreOrderPrdGroupMustExistReasons { get; set; }
         public virtual ICollection<WsproductFirstGroupLang> WsproductFirstGroupLang { get; set; }
         public virtual ICollection<WsproductSecondGroup> WsproductSecondGroup { get; set; }
+
     }
 }

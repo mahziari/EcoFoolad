@@ -7,7 +7,7 @@ namespace ParsaPoolad.Application.Services.BackEnd.Admin.Products.Commands
 {
     public interface IEditProductsServices
     {
-        ResultEditProductsDto Execute(EditProductsDto editProductsDto,int id);
+        ResultEditProductsDto Execute(EditProductsServicesDto editProductsServicesDto,int id);
     }
 
     public class EditProductsServices:IEditProductsServices {
@@ -18,20 +18,20 @@ namespace ParsaPoolad.Application.Services.BackEnd.Admin.Products.Commands
             _context = context;
         }
 
-        public ResultEditProductsDto Execute(EditProductsDto editProductsDto,int id)
+        public ResultEditProductsDto Execute(EditProductsServicesDto editProductsServicesDto,int id)
         {
             var product = _context.Wsproducts.Find(id);
 
-            product.PrdGroupId = editProductsDto.PrdGroupId;
+            product.PrdGroupId = editProductsServicesDto.PrdGroupId;
             product.PrdCode = $"{(DateTime.Now.Ticks / 10) % 1000000000:d9}";
-            product.PrdName = editProductsDto.PrdName;
-            product.PrdShpotherSupplierId = editProductsDto.PrdShpotherSupplierId;
-            product.PrdUnitId = editProductsDto.PrdUnitId;
-            product.PrdMaxQty = editProductsDto.PrdMaxQty;
-            product.PrdSize = editProductsDto.PrdSize;
-            product.PrdModel = editProductsDto.PrdModel;
-            product.PrdDescription = editProductsDto.PrdDescription;
-            product.PrdPrice = editProductsDto.PrdPrice;
+            product.PrdName = editProductsServicesDto.PrdName;
+            product.PrdShpotherSupplierId = editProductsServicesDto.PrdShpotherSupplierId;
+            product.PrdUnitId = editProductsServicesDto.PrdUnitId;
+            product.PrdMaxQty = editProductsServicesDto.PrdMaxQty;
+            product.PrdSize = editProductsServicesDto.PrdSize;
+            product.PrdModel = editProductsServicesDto.PrdModel;
+            product.PrdDescription = editProductsServicesDto.PrdDescription;
+            product.PrdPrice = editProductsServicesDto.PrdPrice;
             _context.SaveChanges();
 
             return new ResultEditProductsDto
@@ -49,7 +49,7 @@ namespace ParsaPoolad.Application.Services.BackEnd.Admin.Products.Commands
         public string Message { get; set; }
     }
 
-    public class EditProductsDto
+    public class EditProductsServicesDto
     {
         public int ProductId { get; set; }
         

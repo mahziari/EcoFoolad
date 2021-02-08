@@ -29,13 +29,7 @@ namespace ParsaPoolad.Application.Services.BackEnd.Admin.Users.Queries
         {
             var users = _userManager.Users.ToList();
 
-            // foreach (var item in users)
-            // {
-            //   var userId = item.Id;
-            //   var user = _userManager.FindByIdAsync(item.Id).Result;
-            //   var role = _userManager.GetRolesAsync(user).Result;
-            // }
-
+      
             return new ResultGetIndexUsersDto
             {
                 Users = users,

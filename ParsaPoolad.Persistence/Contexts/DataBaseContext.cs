@@ -1,11 +1,6 @@
 ﻿using ParsaPoolad.Application.Interfaces.Contexts;
 using ParsaPoolad.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-using Microsoft.AspNetCore.Identity;
 
 namespace ParsaPoolad.Persistence.Contexts
 {
@@ -22,7 +17,6 @@ namespace ParsaPoolad.Persistence.Contexts
 
         //ParsaPoolad
         public virtual DbSet<ParsaPooladMenus> ParsaPooladMenus { get; set; }
-        public virtual DbSet<ParsaPooladImages> ParsaPooladImages { get; set; }
 
 
         //CRM 

@@ -1,21 +1,15 @@
 ﻿@using ParsaPoolad.Domain.Entities.Identity
 @using Microsoft.AspNetCore.Authorization;
 @using Microsoft.AspNetCore.Identity
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 @inject IAuthorizationService _authorizationService;
-
 @inject SignInManager<User> _signInManager
 @inject UserManager<User> _userManager
 @{
     Layout = null;
 }
-@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
-
-
-
 <!DOCTYPE html>
-
 <html class="loading" lang="fa" data-textdirection="rtl">
-
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -23,28 +17,14 @@
     <meta name="description" content="دنبال چیز خاصی میگردی؟">
     <meta name="keywords" content="...مرورگرت رو ببند">
     <meta name="author" content="HosseinKaraji : 09129283406">
-    <title>اکوفولاد | @ViewData["Title"]</title>
+    <title>@ViewData["Title"] | اکوفولاد</title>
     <link rel="shortcut icon" type="image/x-icon" href="~/BackEnd/Admin/images/logo/logo.png">
     @await RenderSectionAsync("Head", false)
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    @inject Microsoft.AspNetCore.Antiforgery.IAntiforgery Xsrf
-
-    @* @functions{ *@
-    @* *@
-    @*     public string GetAntiXsrfRequestToken() *@
-    @*     { *@
-    @*         return Xsrf.GetAndStoreTokens(Context).RequestToken; *@
-    @*     } *@
-    @* *@
-    @* } *@
-    @* *@
-    @* <input type="hidden" id="RequestVerificationToken" name="RequestVerificationToken" value="@GetAntiXsrfRequestToken()"> *@
-
-
 </head>
 <!-- END: Head-->
 <!-- BEGIN: Body-->
-<body class="vertical-layout vertical-menu-modern dark-layout 2-columns  navbar-sticky footer-static  " data-open="click" data-menu="vertical-menu-modern" data-col="2-columns" data-layout="dark-layout">
+<body class="vertical-layout vertical-menu-modern dark-layout 2-columns  navbar-sticky footer-static  " data-open="click" data-menu="vertical-menu-modern" data-col="2-columns" data-layout="light-layout">
 
 <!-- BEGIN: Header-->
 <div class="header-navbar-shadow"></div>
@@ -102,9 +82,9 @@
         <a href="/" target="_blank" title="رفتن به سایت">
             سایت
         </a>
-        <div class="dropdown-menu" aria-labelledby="dropdown-flag">
-            <a class="dropdown-item" href="#" data-language="en"><i class="flag-icon flag-icon-us mr-50"></i> English</a><a class="dropdown-item" href="#" data-language="fr"><i class="flag-icon flag-icon-fr mr-50"></i> French</a><a class="dropdown-item" href="#" data-language="de"><i class="flag-icon flag-icon-de mr-50"></i> German</a><a class="dropdown-item" href="#" data-language="pt"><i class="flag-icon flag-icon-pt mr-50"></i> Portuguese</a>
-        </div>
+        @* <div class="dropdown-menu" aria-labelledby="dropdown-flag"> *@
+        @*     <a class="dropdown-item" href="#" data-language="en"><i class="flag-icon flag-icon-us mr-50"></i> English</a><a class="dropdown-item" href="#" data-language="fr"><i class="flag-icon flag-icon-fr mr-50"></i> French</a><a class="dropdown-item" href="#" data-language="de"><i class="flag-icon flag-icon-de mr-50"></i> German</a><a class="dropdown-item" href="#" data-language="pt"><i class="flag-icon flag-icon-pt mr-50"></i> Portuguese</a> *@
+        @* </div> *@
     </li>
     <li class="nav-item d-none d-lg-block">
         <a class="nav-link nav-link-expand">
@@ -516,7 +496,7 @@
 <!-- BEGIN: Footer-->
 <footer class="footer footer-static footer-dark">
     <p class="clearfix mb-0">
-        <span class="float-left d-inline-block" style="font-family:sans-serif">2020 &copy; Tejarat Electronic Parsa Poolad</span>
+        <span class="float-left d-inline-block" style="font-family:sans-serif">2021 &copy; Tejarat Electronic Parsa Poolad</span>
         <span class="float-right d-sm-inline-block d-none">طراحی و توسعه توسط<a class="text-uppercase" href="http://www.x.com" target="_blank">تیم توسعه پارسا پولاد</a></span>
         <button class="btn btn-primary btn-icon scroll-top" type="button">
             <i class="fa fa-arrow-up" aria-hidden="true"></i>

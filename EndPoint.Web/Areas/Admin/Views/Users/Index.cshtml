@@ -6,7 +6,7 @@
 @inject UserManager<User> _userManager
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 @{
-    ViewData["Title"] = "لیست محصولات";
+    ViewData["Title"] = "لیست کاربران";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
@@ -74,11 +74,14 @@
                                     <table id="users-list-datatable" class="table">
                                         <thead>
                                         <tr>
+                                            <th style="display:none">None</th>
+                                            <th style="display:none">None</th>
+                                            <th style="display:none">None</th>
                                             <th>شماره</th>
-                                            <th>نام و نام خانوادگی</th>
-                                            <th>role</th>
+                                            <th>نام کاربر</th>
+                                            <th>نقش کاربر</th>
                                             @* <th>Claim</th> *@
-                                            <th>شماره تلفن </th>
+                                            <th>تلفن</th>
                                             <th>عملیات</th>
                                         </tr>
                                         </thead>
@@ -89,6 +92,7 @@
                                             counter++;
                                             <tr>
 
+                                                <td style="display:none"> </td>
                                                 <td style="display:none"> </td>
                                                 <td style="display:none"> </td>
 
@@ -103,9 +107,14 @@
                                                     @foreach (var userRoles in _userManager.GetRolesAsync(_userManager.FindByIdAsync(item.Id).Result).Result)
                                                     {
                                                         @userRoles
+                                                    }  
+                                                    
+                                                    @foreach (var userRoles in _userManager.GetRolesAsync(_userManager.FindByIdAsync(item.Id).Result).Result)
+                                                    {
+                                                        @userRoles
                                                     }
-                                                </td>
 
+                                                </td>
 
                                                 <td>
                                                     @item.PhoneNumber

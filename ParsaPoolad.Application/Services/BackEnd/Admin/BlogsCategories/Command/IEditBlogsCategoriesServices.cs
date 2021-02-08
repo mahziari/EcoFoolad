@@ -1,12 +1,7 @@
-﻿using System;
-using System.IO;
-using System.Linq;
-using Microsoft.AspNetCore.Hosting;
-// using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
+﻿
 using ParsaPoolad.Application.Interfaces.Contexts;
 using ParsaPoolad.Domain.Entities;
-using static Microsoft.AspNetCore.Hosting.IWebHostEnvironment;
+
 
 namespace ParsaPoolad.Application.Services.BackEnd.Admin.BlogsCategories.Command
 {
