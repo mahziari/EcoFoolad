@@ -129,6 +129,10 @@ namespace EndPoint.Web.Areas.Auth.Controllers
                 // Add Role User To Register Users
                 var roles = _roleManager.Roles.FirstOrDefault(r => r.Name == "User");
                 _userManager.AddToRoleAsync(user, roles.Name);
+                
+                var currentRole = _roleManager.FindByNameAsync(roles.Name).Result;
+                var claimsRole = _roleManager.GetClaimsAsync(currentRole).Result;
+                var addClaimsToUser = _userManager.AddClaimsAsync(user, claimsRole).Result;
 
                 var code = _userManager.GenerateChangePhoneNumberTokenAsync(user, registerDto.PhoneNumber).Result;
                 SmsServices.SmsSend(registerDto.PhoneNumber, "ConfirmPhoneNumberSmsSend", code);

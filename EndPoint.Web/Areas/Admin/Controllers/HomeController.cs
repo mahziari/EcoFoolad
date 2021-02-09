@@ -3,9 +3,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Endpoint.Web.Areas.Admin.Controllers
 {
-    [Authorize(Policy = "SeniorProgrammer")]
+    [Authorize]
     [Area("Admin")]
-    [Route("panel/admin/home/[action]")]
+    [Route("panel/home/[action]")]
     public class HomeController : Controller
     {
         

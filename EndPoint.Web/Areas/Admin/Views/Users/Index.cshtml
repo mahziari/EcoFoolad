@@ -107,13 +107,7 @@
                                                     @foreach (var userRoles in _userManager.GetRolesAsync(_userManager.FindByIdAsync(item.Id).Result).Result)
                                                     {
                                                         @userRoles
-                                                    }  
-                                                    
-                                                    @foreach (var userRoles in _userManager.GetRolesAsync(_userManager.FindByIdAsync(item.Id).Result).Result)
-                                                    {
-                                                        @userRoles
                                                     }
-
                                                 </td>
 
                                                 <td>

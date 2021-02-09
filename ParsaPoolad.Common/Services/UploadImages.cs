@@ -8,7 +8,7 @@
 // namespace ParsaPoolad.Common.Services
 // {
 //     [Authorize(Policy = "SeniorProgrammer")]
-//     [Route("panel/admin/upload/images")]
+//     [Route("panel/upload/images")]
 //     public class UploadImages
 //     {
 //         public readonly IWebHostEnvironment _environment;

@@ -13,6 +13,7 @@ namespace ParsaPoolad.Domain.Entities.Identity
         public string ClaimType { get; set; }
         public string ClaimValue { get; set; }
         public string ClaimName { get; set; }
+        public bool? IsHead { get; set; }
         
     }
 }

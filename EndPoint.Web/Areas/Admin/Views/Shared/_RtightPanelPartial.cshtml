@@ -22,15 +22,15 @@
                     {
                         <h2 class="brand-text mb-0"> پنل برنامه نویس ارشد</h2>
                     }
-                    else if (_authorizationService.AuthorizeAsync(User, "Admins").Result.Succeeded)
+                    else if (_authorizationService.AuthorizeAsync(User, "AdminRole").Result.Succeeded)
                     {
                         <h2 class="brand-text mb-0"> پنل مدیر ارشد</h2>
                     }
-                    else if (_authorizationService.AuthorizeAsync(User, "Owners").Result.Succeeded)
+                    else if (_authorizationService.AuthorizeAsync(User, "OwnerRole").Result.Succeeded)
                     {
                         <h2 class="brand-text mb-0"> پنل فروشندگان </h2>
                     }
-                    else if (_authorizationService.AuthorizeAsync(User, "Users").Result.Succeeded)
+                    else if (_authorizationService.AuthorizeAsync(User, "UserRole").Result.Succeeded)
                     {
                         <h2 class="brand-text mb-0"> پنل کاربر </h2>
                     }

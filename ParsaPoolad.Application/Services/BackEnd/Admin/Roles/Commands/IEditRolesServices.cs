@@ -27,27 +27,24 @@ namespace ParsaPoolad.Application.Services.BackEnd.Admin.Roles.Commands
         {
 
             var currentRole = _roleManager.FindByIdAsync(id).Result;
-           
+            var claimsRole = _roleManager.GetClaimsAsync(currentRole).Result;
+            
             foreach (var  item in editRolesServicesDto.Claims)
             {
-                var claim = _context.Claims.FirstOrDefault(c => c.Id == item.Id);
-                
-                if (item.IsSelect)
+                var selectedClaim = _context.Claims.FirstOrDefault(c => c.Id == item.Id);
+                // var createNewClaimType = selectedClaim.ClaimType +"-"+ currentRole;
+
+                var claimRole = claimsRole.FirstOrDefault(s => s.Value == selectedClaim.ClaimValue);
+                var newClaim = new Claim(selectedClaim.ClaimValue ,selectedClaim.ClaimValue,ClaimValueTypes.String);
+
+                if (item.IsSelect && claimsRole.FirstOrDefault(s => s.Value == newClaim.Value)==null)
                 {
-                    var availableRole = _roleManager.GetClaimsAsync(currentRole).Result;
-                    var deleteClaim = availableRole.FirstOrDefault(s => s.Value == claim.ClaimValue);
-                    if (deleteClaim ==null)
-                    {
-                        Claim newClaim = new Claim(claim.ClaimType ,claim.ClaimValue,ClaimValueTypes.String);
-                        _roleManager.AddClaimAsync(currentRole,newClaim); 
-                    }
-                }else
-                {
-                    var availableRole = _roleManager.GetClaimsAsync(currentRole).Result;
-                    var deleteClaim = availableRole.FirstOrDefault(s => s.Value == claim.ClaimValue);
-                    _roleManager.RemoveClaimAsync(currentRole,deleteClaim);
+                    var createClaimRole=_roleManager.AddClaimAsync(currentRole,newClaim).Result;
                 }
-                
+                else if(item.IsSelect == false && claimsRole.FirstOrDefault(s => s.Value == newClaim.Value)!=null)
+                {
+                    var deleteClaimRole= _roleManager.RemoveClaimAsync(currentRole,claimRole).Result;
+                }
             }
 
             return new ResultEditRolesDto

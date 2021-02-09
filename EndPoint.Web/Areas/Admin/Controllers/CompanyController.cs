@@ -5,9 +5,9 @@ using ParsaPoolad.Application.Services.BackEnd.Admin.Company.Command;
 
 namespace EndPoint.Web.Areas.Admin.Controllers
 {
-    [Authorize(Policy = "SeniorProgrammer")]
+    [Authorize(Policy = "Company")]
     [Area("Admin")]
-    [Route("panel/admin/company/[action]/{id?}")]
+    [Route("panel/company/[action]/{id?}")]
     public class CompanyController:Controller
     {
           private readonly ICompanyFacad _companyFacad;

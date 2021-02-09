@@ -13,7 +13,6 @@ namespace ParsaPoolad.Application.Services.BackEnd.Admin.Users.Commands
     {
         private readonly UserManager<User> _userManager;
         private readonly RoleManager<Role> _roleManager;
-
         public EditUsersServices(UserManager<User> userManager, RoleManager<Role> roleManager )
         {
             _userManager = userManager;
@@ -24,7 +23,15 @@ namespace ParsaPoolad.Application.Services.BackEnd.Admin.Users.Commands
         {
             var user = _userManager.FindByIdAsync(resultGetIndexUsersDto.Id).Result;
             var result =_userManager.AddToRoleAsync(user,resultGetIndexUsersDto.RoleName).Result;
-            if (!result.Succeeded)
+
+
+            var currentRole = _roleManager.FindByNameAsync(resultGetIndexUsersDto.RoleName).Result;
+            var claimsRole = _roleManager.GetClaimsAsync(currentRole).Result;
+
+            var addClaimsToUser = _userManager.AddClaimsAsync(user, claimsRole).Result;
+            
+            
+            if (!addClaimsToUser.Succeeded)
             {
                 return new ResultEditUsersDto
                 {

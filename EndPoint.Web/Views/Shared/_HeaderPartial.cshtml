@@ -212,7 +212,7 @@
                 </div>
             </div>
         }
-        else if (_authorizationService.AuthorizeAsync(User, "Admins").Result.Succeeded)
+        else if (_authorizationService.AuthorizeAsync(User, "AdminRole").Result.Succeeded)
         {
             <div class="main_login_register ">
                 <div class="title_login_register">
@@ -240,7 +240,7 @@
                 </div>
             </div>
         }
-        else if (_authorizationService.AuthorizeAsync(User, "Owners").Result.Succeeded)
+        else if (_authorizationService.AuthorizeAsync(User, "OwnerRole").Result.Succeeded)
         {
             <div class="main_login_register ">
                 <div class="title_login_register">
@@ -268,7 +268,7 @@
                 </div>
             </div>
         }
-        else if (_authorizationService.AuthorizeAsync(User, "Users").Result.Succeeded)
+        else if (_authorizationService.AuthorizeAsync(User, "UserRole").Result.Succeeded)
         {
             <div class="main_login_register ">
                 <div class="title_login_register">

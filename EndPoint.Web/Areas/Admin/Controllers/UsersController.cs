@@ -7,9 +7,8 @@ using ParsaPoolad.Domain.Entities;
 
 namespace EndPoint.Web.Areas.Admin.Controllers
 {
-    [Authorize(Policy = "SeniorProgrammer")]
     [Area("Admin")]
-    [Route("panel/admin/users/[action]/{id?}")]
+    [Route("panel/users/[action]/{id?}")]
     public class UsersController : Controller
     {
         private readonly IUsersFacad _usersFacad;
@@ -19,7 +18,7 @@ namespace EndPoint.Web.Areas.Admin.Controllers
             _usersFacad = usersFacad;
         }
 
-
+        [Authorize(Policy = "UsersIndex")]
         public IActionResult Index()
         {
             var result = _usersFacad.GetIndexUsersServices.Execute();
@@ -56,13 +55,14 @@ namespace EndPoint.Web.Areas.Admin.Controllers
         // }
         //
         
-        
+        [Authorize(Policy = "UsersEdit")]
         public IActionResult Edit(string id)
         {
             var result = _usersFacad.GetEditUsersServices.Execute(id);
             return View(result);
         }
         
+        [Authorize(Policy = "UsersEdit")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Edit(ResultGetIndexUsersDto resultGetIndexUsersDto)

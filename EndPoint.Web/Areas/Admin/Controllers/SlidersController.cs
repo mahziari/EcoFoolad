@@ -6,9 +6,9 @@ using ParsaPoolad.Application.Services.BackEnd.Admin.Sliders.Commands;
 
 namespace EndPoint.Web.Areas.Admin.Controllers
 {
-    [Authorize(Policy = "SeniorProgrammer")]
+    [Authorize(Policy = "Sliders")]
     [Area("Admin")]
-    [Route("panel/admin/sliders/[action]/{id?}")]
+    [Route("panel/sliders/[action]/{id?}")]
     public class SlidersController : Controller
     {
         private readonly ISlidersFacad _slidersFacad;

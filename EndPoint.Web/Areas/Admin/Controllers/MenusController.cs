@@ -4,9 +4,9 @@ using ParsaPoolad.Application.Interfaces.FacadPatterns.BackEnd.Admin;
 
 namespace EndPoint.Web.Areas.Admin.Controllers
 {
-    [Authorize(Policy = "SeniorProgrammer")]
+    [Authorize(Policy = "Menus")]
     [Area("Admin")]
-    [Route("panel/admin/menus/[action]/{id?}")]
+    [Route("panel/menus/[action]/{id?}")]
     public class MenusController : Controller
     {
         private readonly IMenusFacad _menusFacad;

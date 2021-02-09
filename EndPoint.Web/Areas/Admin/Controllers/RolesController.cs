@@ -9,7 +9,7 @@ namespace EndPoint.Web.Areas.Admin.Controllers
 {
     [Authorize(Policy = "SeniorProgrammer")]
     [Area("Admin")]
-    [Route("panel/admin/roles/[action]/{id?}")]
+    [Route("panel/roles/[action]/{id?}")]
     public class RolesController : Controller
     {
         private readonly IRolesFacad _rolesFacad;

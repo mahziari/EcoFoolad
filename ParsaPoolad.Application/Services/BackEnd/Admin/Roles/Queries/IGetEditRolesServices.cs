@@ -37,10 +37,9 @@ namespace ParsaPoolad.Application.Services.BackEnd.Admin.Roles.Queries
                     Id = c.Id,
                     ClaimType=c.ClaimType,
                     ClaimValue =c.ClaimValue,
-                    ClaimName=c.ClaimName
-                })
-                
-                .ToList();
+                    ClaimName=c.ClaimName,
+                    IsHead=c.IsHead,
+                }).ToList();
             return new ResultGetEditRolesDto
             {
                 Role = role,
@@ -69,7 +68,10 @@ namespace ParsaPoolad.Application.Services.BackEnd.Admin.Roles.Queries
         public string ClaimType { get; set; }
         public string ClaimValue { get; set; }
         public string ClaimName { get; set; }
+        public bool? IsHead { get; set; }
         public bool IsSelect { get; set; }
+
+
         
     }
     

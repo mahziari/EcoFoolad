@@ -6,10 +6,9 @@ using ParsaPoolad.Domain.Entities;
 
 namespace EndPoint.Web.Areas.Admin.Controllers
 {
-    [Authorize(Policy = "SeniorProgrammer")]
     [Area("Admin")]
-    [Route("panel/admin/blog-categories/[action]/{id?}")]
-    public class BlogsCategoriesController: Controller
+    [Route("panel/blog-categories/[action]/{id?}")]
+    public class BlogsCategoriesController : Controller
     {
         private readonly IBlogsCategoriesFacad _blogsCategoriesFacad;
 
@@ -18,82 +17,80 @@ namespace EndPoint.Web.Areas.Admin.Controllers
             _blogsCategoriesFacad = blogsCategoriesFacad;
         }
 
-
+        [Authorize(Policy = "BlogCategoriesIndex")]
         public IActionResult Index()
         {
             var result = _blogsCategoriesFacad.GetIndexBlogsCategoriesServices.Execute();
             return View(result);
         }
-        
-        
-        
-      
-        
-        
-        
+
+
+        [Authorize(Policy = "BlogCategoriesCreate")]
         public IActionResult Create()
         {
             var result = _blogsCategoriesFacad.GetCreateBlogsCategoriesServices.Execute();
-           
+
             return View(result);
         }
-        
-        
+
+        [Authorize(Policy = "BlogCategoriesCreate")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Create(CreateBlogsCategoriesServicesDto createBlogsCategoriesServicesDto)
         {
-            
             if (!ModelState.IsValid)
             {
-                return View("Create",_blogsCategoriesFacad.GetCreateBlogsCategoriesServices.Execute());
+                return View("Create", _blogsCategoriesFacad.GetCreateBlogsCategoriesServices.Execute());
             }
-            
+
             var result = _blogsCategoriesFacad.CreateBlogsCategoriesServices.Execute(createBlogsCategoriesServicesDto);
-        
+
             TempData["IsSuccess"] = result.IsSuccess;
-            TempData["Message"] = result.Message; 
-            
+            TempData["Message"] = result.Message;
+
             return RedirectToAction(nameof(Index));
-            
         }
-        
-        
-        
+
+
+        [Authorize(Policy = "BlogCategoriesEdit")]
         public IActionResult Edit(int id)
         {
             var result = _blogsCategoriesFacad.GetEditBlogsCategoriesServices.Execute(id);
             return View(result);
         }
-        
+
+        [Authorize(Policy = "BlogCategoriesEdit")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(CreateBlogsCategoriesServicesDto createBlogsCategoriesServicesDto,CrmCmsNewsGroups crmCmsNewsGroups,int id)
+        public IActionResult Edit(CreateBlogsCategoriesServicesDto createBlogsCategoriesServicesDto,
+            CrmCmsNewsGroups crmCmsNewsGroups, int id)
         {
             if (!ModelState.IsValid)
             {
-                return View("Edit",_blogsCategoriesFacad.GetEditBlogsCategoriesServices.Execute(id));
+                return View("Edit", _blogsCategoriesFacad.GetEditBlogsCategoriesServices.Execute(id));
             }
-            
-            var result = _blogsCategoriesFacad.EditBlogsCategoriesServices.Execute(createBlogsCategoriesServicesDto,crmCmsNewsGroups,id);
-        
+
+            var result =
+                _blogsCategoriesFacad.EditBlogsCategoriesServices.Execute(createBlogsCategoriesServicesDto,
+                    crmCmsNewsGroups, id);
+
             TempData["IsSuccess"] = result.IsSuccess;
-            TempData["Message"] = result.Message; 
-            
+            TempData["Message"] = result.Message;
+
             return RedirectToAction(nameof(Index));
         }
-        
-        
+
+        [Authorize(Policy = "BlogCategoriesDelete")]
         public IActionResult Delete(int id)
         {
             var result = _blogsCategoriesFacad.DeleteBlogsCategoriesServices.Execute(id);
-        
+
             TempData["IsSuccess"] = result.IsSuccess;
-            TempData["Message"] = result.Message; 
-            
+            TempData["Message"] = result.Message;
+
             return RedirectToAction(nameof(Index));
         }
-        
+
         //
         // public IActionResult Active(int id)
         // {
@@ -104,6 +101,5 @@ namespace EndPoint.Web.Areas.Admin.Controllers
         //     
         //     return RedirectToAction(nameof(Index));
         // }
-
     }
 }

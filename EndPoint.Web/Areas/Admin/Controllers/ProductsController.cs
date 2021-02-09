@@ -7,9 +7,8 @@ using ParsaPoolad.Domain.Entities;
 
 namespace EndPoint.Web.Areas.Admin.Controllers
 {
-    [Authorize(Policy = "SeniorProgrammer")]
     [Area("Admin")]
-    [Route("panel/admin/products/[action]/{id?}")]
+    [Route("panel/products/[action]/{id?}")]
     public class ProductsController: Controller
     {
         private readonly IProductsFacad _productsFacad;
@@ -19,7 +18,7 @@ namespace EndPoint.Web.Areas.Admin.Controllers
             _productsFacad = productsFacad;
         }
 
-
+        [Authorize(Policy = "ProductsIndex")]
         public IActionResult Index()
         {
             var result = _productsFacad.GetIndexProductsServices.Execute();
@@ -27,7 +26,7 @@ namespace EndPoint.Web.Areas.Admin.Controllers
         }
         
         
-
+        [Authorize(Policy = "ProductsIndex")]
         public IActionResult Details(int id)
         {
             var result = _productsFacad.GetDetailsProductsServices.Execute(id);
@@ -35,7 +34,7 @@ namespace EndPoint.Web.Areas.Admin.Controllers
         }
         
         
-
+        [Authorize(Policy = "ProductsCreate")]
         public IActionResult Create()
         {
             var result = _productsFacad.GetCreateProductServices.Execute();
@@ -43,6 +42,79 @@ namespace EndPoint.Web.Areas.Admin.Controllers
             return View(result);
         }
         
+        
+        [Authorize(Policy = "ProductsCreate")]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Create(CreateProductsServicesDto createProductsServicesDto)
+        {
+            
+            if (!ModelState.IsValid)
+            {
+                return View("Create",_productsFacad.GetCreateProductServices.Execute());
+            }
+            
+            var result = _productsFacad.CreateProductsServices.Execute(createProductsServicesDto);
+      
+            TempData["IsSuccess"] = result.IsSuccess;
+            TempData["Message"] = result.Message; 
+            
+            return RedirectToAction(nameof(Index));
+            
+        }
+
+        [Authorize(Policy = "ProductsEdit")]
+        [HttpGet]
+        public IActionResult Edit(int id)
+        {
+            var result = _productsFacad.GetEditProductServices.Execute(id);
+            return View(result);
+        }
+        
+        [Authorize(Policy = "ProductsEdit")]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Edit(EditProductsServicesDto editProductsServicesDto,int id)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View("Edit",_productsFacad.GetEditProductServices.Execute(id));
+            }
+            
+            var result = _productsFacad.EditProductsServices.Execute(editProductsServicesDto,id);
+        
+            TempData["IsSuccess"] = result.IsSuccess;
+            TempData["Message"] = result.Message; 
+            
+            return RedirectToAction(nameof(Index));
+        }
+        
+        [Authorize(Policy = "ProductsDelete")]
+        [HttpDelete]
+        // [ValidateAntiForgeryToken]
+        public IActionResult Delete(int id)
+        {
+            var result = _productsFacad.DeleteProductServices.Execute(id);
+        
+            TempData["IsSuccess"] = result.IsSuccess;
+            TempData["Message"] = result.Message; 
+            
+            return RedirectToAction(nameof(Index));
+        }
+        
+        
+        // [HttpPost]
+        // [ValidateAntiForgeryToken]
+        [Authorize(Policy = "ProductsActive")]
+        public IActionResult Active(int id)
+        {
+            var result = _productsFacad.ActiveProductServices.Execute(id);
+        
+            TempData["IsSuccess"] = result.IsSuccess;
+            TempData["Message"] = result.Message; 
+            
+            return RedirectToAction(nameof(Index));
+        }
         
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -71,77 +143,7 @@ namespace EndPoint.Web.Areas.Admin.Controllers
             var result = _productsFacad.GetReturnCompanyAjaxServices.Execute(id);
             return Json(result.CompanyMenus);
         }
-        
-        
-        
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public IActionResult Create(CreateProductsServicesDto createProductsServicesDto)
-        {
-            
-            if (!ModelState.IsValid)
-            {
-                return View("Create",_productsFacad.GetCreateProductServices.Execute());
-            }
-            
-            var result = _productsFacad.CreateProductsServices.Execute(createProductsServicesDto);
-      
-            TempData["IsSuccess"] = result.IsSuccess;
-            TempData["Message"] = result.Message; 
-            
-            return RedirectToAction(nameof(Index));
-            
-        }
 
-        [HttpGet]
-        public IActionResult Edit(int id)
-        {
-            var result = _productsFacad.GetEditProductServices.Execute(id);
-            return View(result);
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public IActionResult Edit(EditProductsServicesDto editProductsServicesDto,int id)
-        {
-            if (!ModelState.IsValid)
-            {
-                return View("Edit",_productsFacad.GetEditProductServices.Execute(id));
-            }
-            
-            var result = _productsFacad.EditProductsServices.Execute(editProductsServicesDto,id);
-        
-            TempData["IsSuccess"] = result.IsSuccess;
-            TempData["Message"] = result.Message; 
-            
-            return RedirectToAction(nameof(Index));
-        }
-        
-    
-        [HttpDelete]
-        // [ValidateAntiForgeryToken]
-        public IActionResult Delete(int id)
-        {
-            var result = _productsFacad.DeleteProductServices.Execute(id);
-        
-            TempData["IsSuccess"] = result.IsSuccess;
-            TempData["Message"] = result.Message; 
-            
-            return RedirectToAction(nameof(Index));
-        }
-        
-        
-        // [HttpPost]
-        // [ValidateAntiForgeryToken]
-        public IActionResult Active(int id)
-        {
-            var result = _productsFacad.ActiveProductServices.Execute(id);
-        
-            TempData["IsSuccess"] = result.IsSuccess;
-            TempData["Message"] = result.Message; 
-            
-            return RedirectToAction(nameof(Index));
-        }
 
     }
 }
