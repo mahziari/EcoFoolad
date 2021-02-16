@@ -22,9 +22,6 @@
     <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/css/core/menu/menu-types/vertical-menu-karaji.min.css">
     <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/css/style.css">
     <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/css/colors.min.css">
-}
-
-@section Foo{
     <script src="~/BackEnd/Admin/vendors/js/vendors.min.js"></script>
     <script src="~/BackEnd/Admin/js/scripts/configs/vertical-menu-dark.min.js"></script>
     <script src="~/BackEnd/Admin/js/core/app-menu.min.js"></script>
@@ -32,7 +29,10 @@
     <script src="~/BackEnd/Admin/js/scripts/components.min.js"></script>
     <script src="~/BackEnd/Admin/js/scripts/footer.min.js"></script>
     <script src="~/BackEnd/Admin/js/scripts/customizer.min.js"></script>
-    <script>$('div.alert').delay(3000).slideUp(300); </script>
+}
+
+@section Foo{
+    @* InHead *@
 }
 
 <div class="app-content content">
@@ -59,58 +59,57 @@
                                 <div class="card-content">
                                     <div class="card-body">
                                         @* <p></p> *@
-                                        @* @foreach (var item in Model.Claims) *@
-                                        @for (int i = 0; i < Model.Claims.Count; i++)
-                                        {
-                                            <ul class="list-unstyled mb-0">
-                                                <li class="d-inline-block mr-2 mb-1">
-                                                    <fieldset>
-                                                        @if (Model.Claims[i].IsHead == true)
-                                                        {
+
+                                        <ul class="list-unstyled mb-0">
+                                            <li class="d-inline-block mr-2 mb-1">
+                                                @for (int i = 0; i < @Model.Claims.Count; i++)
+                                                {
+                                                    @if (Model.Claims[i].IsHead != null)
+                                                    {
+                                                        <fieldset>
                                                             <div class="form-check">
-                                                                @{
-                                                                    var currentRole = _roleManager.FindByIdAsync(Model.Role.Id).Result;
-                                                                    var claimsRole = _roleManager.GetClaimsAsync(currentRole).Result;
-                                                                }
-                                                                @if (claimsRole.Where(c => c.Value == Model.Claims[i].ClaimValue) != null)
-                                                                {
-                                                                    @Html.CheckBoxFor(dto => dto.Claims[i].IsSelect, new {@checked = "checked"})
-                                                                    <label>@Model.Claims[i].ClaimName</label>
-                                                                    @Html.HiddenFor(dto => dto.Claims[i].Id)
-                                                                }
-                                                                else
-                                                                {
-                                                                    @Html.CheckBoxFor(dto => dto.Claims[i].IsSelect)
-                                                                    <label>@Model.Claims[i].ClaimName</label>
-                                                                    @Html.HiddenFor(dto => dto.Claims[i].Id)
-                                                                }
+                                                                @Html.CheckBoxFor(dto => dto.Claims[i].IsSelect, new {@class = "selectAll"})
+                                                                <label style="text-decoration: underline;color: aqua; ">@Model.Claims[i].ClaimName</label>
+                                                                @Html.HiddenFor(dto => dto.Claims[i].Id)
                                                             </div>
-                                                        }
-                                                        else
-                                                        {
-                                                            <div class="form-check" style="padding-right: 2.25rem !important;">
-                                                                @{
-                                                                    var currentRole = _roleManager.FindByIdAsync(Model.Role.Id).Result;
-                                                                    var claimsRole = _roleManager.GetClaimsAsync(currentRole).Result;
-                                                                }
-                                                                @if (claimsRole.Where(c => c.Value == Model.Claims[i].ClaimValue) != null)
-                                                                {
-                                                                    @Html.CheckBoxFor(dto => dto.Claims[i].IsSelect, new {@checked = "checked"})
-                                                                    <label>@Model.Claims[i].ClaimName</label>
-                                                                    @Html.HiddenFor(dto => dto.Claims[i].Id)
-                                                                }
-                                                                else
-                                                                {
-                                                                    @Html.CheckBoxFor(dto => dto.Claims[i].IsSelect)
-                                                                    <label>@Model.Claims[i].ClaimName</label>
-                                                                    @Html.HiddenFor(dto => dto.Claims[i].Id)
-                                                                }
+                                                        </fieldset>
+                                                    }
+                                                    else
+                                                    {
+                                                                      @* @{ *@
+                                                            @*     var currentRole = _roleManager.FindByIdAsync(Model.Role.Id).Result; *@
+                                                            @*     var claimsRole = _roleManager.GetClaimsAsync(currentRole).Result; *@
+                                                            @* } *@
+                                                            @*  @if (claimsRole.Where(c => c.Value == Model.Claims[j].ClaimValue) != null)*@
+                                                                @* { *@
+                                                        <fieldset  style="margin-right: 20px">
+                                                            <div class="form-check">
+                                                                @Html.CheckBoxFor(dto => dto.Claims[i].IsSelect)
+                                                                <label >@Model.Claims[i].ClaimName</label>
+                                                                @Html.HiddenFor(dto => dto.Claims[i].Id)
                                                             </div>
-                                                        }
-                                                    </fieldset>
-                                                </li>
-                                            </ul>
-                                        }
+                                                        </fieldset>
+
+
+                                                        <script>
+                                                        $('.selectAll').addClass('selectAll_@{@i}');
+                                                           
+                                                             $('.selectAll_@{@i}').change(function () {
+                                                               if ($(this).prop('checked')) {
+                                                                   $('#Claims_@{@i}__IsSelect').prop('checked', true);
+                                                               } else {
+                                                                   $('#Claims_@{@i}__IsSelect').prop('checked', false);
+                                                               }
+                                                           });
+                                                           $('.selectAll_@{@i}').trigger('change');
+                                                        </script>
+
+                                                            @* } *@
+                                                    }
+                                                }
+                                            </li>
+                                        </ul>
+
                                     </div>
                                 </div>
                             </div>

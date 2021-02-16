@@ -1,5 +1,7 @@
-﻿@using ParsaPoolad.Application.Services.BackEnd.Admin.Roles.Queries
+﻿@using Microsoft.AspNetCore.Authorization
+@using ParsaPoolad.Application.Services.BackEnd.Admin.Roles.Queries
 @model ResultGetIndexRolesDto
+@inject IAuthorizationService _authorizationService;
 @{
     ViewData["Title"] = "نقش ها";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";

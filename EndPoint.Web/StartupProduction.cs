@@ -8,7 +8,6 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
 using ParsaPoolad.Application.Interfaces.Contexts;
 using ParsaPoolad.Application.Services.BackEnd.Admin.Blogs.FacadPattern;
 using ParsaPoolad.Application.Services.BackEnd.Admin.Menus.FacadPattern;
@@ -53,7 +52,13 @@ namespace EndPoint.Web
 
 
             services.AddControllersWithViews();
-
+            //------ Redis Services
+            services.AddStackExchangeRedisCache(options =>
+            {
+                options.Configuration = Configuration.GetConnectionString("Redis");
+                options.InstanceName = "ParsaPooladRedisDb";
+            });
+            
             //------ Auth Services
             services.AddIdentity<User, Role>()
                 .AddEntityFrameworkStores<IdentityDataBaseContext>()
@@ -67,17 +72,47 @@ namespace EndPoint.Web
             {
                 // Roles Policy
                 options.AddPolicy("SeniorProgrammer", policy => { policy.RequireRole("SeniorProgrammer"); });
-                options.AddPolicy("Admins", policy => { policy.RequireRole("Admin"); });
-                options.AddPolicy("Owners", policy => { policy.RequireRole("Owner"); });
-                options.AddPolicy("Users", policy => { policy.RequireRole("User"); });
+                options.AddPolicy("AdminRole", policy => { policy.RequireRole("Admin"); });
+                options.AddPolicy("OwnerRole", policy => { policy.RequireRole("Owner"); });
+                options.AddPolicy("UserRole", policy => { policy.RequireRole("User"); });
+      
+               
                 // Claim Policy
-                // options.AddPolicy("ProgrammerAdmin", policy => { policy.RequireClaim("ProgrammerAdmin"); });
-                // options.AddPolicy("BooldType", policy => { policy.RequireClaim("Boold", "AB", "Ap"); });
+                options.AddPolicy("BlogCategories", policy => { policy.RequireClaim("BlogCategories"); });
+                options.AddPolicy("BlogCategoriesIndex", policy => { policy.RequireClaim("BlogCategoriesIndex"); });
+                options.AddPolicy("BlogCategoriesCreate", policy => { policy.RequireClaim("BlogCategoriesCreate"); });
+                options.AddPolicy("BlogCategoriesEdit", policy => { policy.RequireClaim("BlogCategoriesEdit"); });
+                options.AddPolicy("BlogCategoriesDelete", policy => { policy.RequireClaim("BlogCategoriesDelete"); });
+                
+                options.AddPolicy("Blogs", policy => { policy.RequireClaim("Blogs"); });
+                options.AddPolicy("BlogsIndex", policy => { policy.RequireClaim("BlogsIndex"); });
+                options.AddPolicy("BlogsCreate", policy => { policy.RequireClaim("BlogsCreate"); });
+                options.AddPolicy("BlogsEdit", policy => { policy.RequireClaim("BlogsEdit"); });
+                options.AddPolicy("BlogsDelete", policy => { policy.RequireClaim("BlogsDelete"); });
+                options.AddPolicy("BlogsActive", policy => { policy.RequireClaim("BlogsActive"); });
+                
+                options.AddPolicy("Company", policy => { policy.RequireClaim("Company"); });
+                
+                options.AddPolicy("Menus", policy => { policy.RequireClaim("Menus"); });
+                
+                options.AddPolicy("Products", policy => { policy.RequireClaim("Products"); });
+                options.AddPolicy("ProductsIndex", policy => { policy.RequireClaim("ProductsIndex"); });
+                options.AddPolicy("ProductsCreate", policy => { policy.RequireClaim("ProductsCreate"); });
+                options.AddPolicy("ProductsEdit", policy => { policy.RequireClaim("ProductsEdit"); });
+                options.AddPolicy("ProductsDelete", policy => { policy.RequireClaim("ProductsDelete"); });
+                options.AddPolicy("ProductsActive", policy => { policy.RequireClaim("ProductsActive"); });
+                
+                options.AddPolicy("Sliders", policy => { policy.RequireClaim("Sliders"); });
+                
+                options.AddPolicy("Users", policy => { policy.RequireClaim("Users"); });
+                options.AddPolicy("UsersIndex", policy => { policy.RequireClaim("UsersIndex"); });
+                options.AddPolicy("UsersEdit", policy => { policy.RequireClaim("UsersEdit"); });
+                
                 // کاربرانی که اعتبارشون کمتر از این مقداره بتونن احراز بشن
                 // باید یدونه کلیم برای کاربر تعریف کنم و مبلغ اعتبار اون کاربر رو درکلیم کریدیت اضافه کنم
                 options.AddPolicy("Cradit", policy => { policy.Requirements.Add(new UserCreditRequerment(10000)); });
             });
-            
+
             services.Configure<IdentityOptions>(option =>
             {
                 //UserSetting
@@ -90,7 +125,7 @@ namespace EndPoint.Web
                 option.Password.RequireUppercase = true;
                 option.Password.RequiredLength = 8;
                 option.Password.RequiredUniqueChars = 1;
-                //Lokout Setting
+                //Lockout Setting
                 option.Lockout.MaxFailedAccessAttempts = 4;
                 option.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(30);
                 //SignIn Setting
@@ -104,7 +139,7 @@ namespace EndPoint.Web
                 // cookie setting
                 option.ExpireTimeSpan = TimeSpan.FromMinutes(120);
                 option.LoginPath = "/users/auth/checkout";
-                option.AccessDeniedPath = "/users/auth/AccessDenied";
+                option.AccessDeniedPath = "/Error/AccessDenied";
                 option.SlidingExpiration = true;
             });
             //------ User Interface Services
@@ -130,17 +165,18 @@ namespace EndPoint.Web
                 options.Cookie.HttpOnly = true;
                 options.Cookie.IsEssential = true;
             });
-            //services.AddScoped<IUserClaimsPrincipalFactory<User>, AddMyClaims>();
+            // services.AddScoped<IUserClaimsPrincipalFactory<User>, AddMyClaims>();
             // services.AddScoped<IClaimsTransformation, AddClaim>();
             // services.AddSingleton<IAuthorizationHandler, UserCreditRequerment>();
             services.AddMvc();
             services.AddRouting(options => options.LowercaseUrls = true);
+            services.AddResponseCompression();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            app.UseExceptionHandler("/Home/Error");
+            app.UseStatusCodePagesWithReExecute("/Error/{0}");
             app.UseHsts();
             app.UseHttpsRedirection();
             app.UseStaticFiles();

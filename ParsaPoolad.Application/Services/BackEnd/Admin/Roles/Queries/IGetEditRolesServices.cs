@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using ParsaPoolad.Application.Interfaces.Contexts;
 using ParsaPoolad.Domain.Entities.Identity;
 
@@ -35,6 +36,7 @@ namespace ParsaPoolad.Application.Services.BackEnd.Admin.Roles.Queries
                 .Select(c=>new Claims()
                 {
                     Id = c.Id,
+                    ParentId = c.ParentId,
                     ClaimType=c.ClaimType,
                     ClaimValue =c.ClaimValue,
                     ClaimName=c.ClaimName,
@@ -65,14 +67,13 @@ namespace ParsaPoolad.Application.Services.BackEnd.Admin.Roles.Queries
     public class Claims
     {
         public int Id { get; set; }
+        public int? ParentId { get; set; }
         public string ClaimType { get; set; }
         public string ClaimValue { get; set; }
         public string ClaimName { get; set; }
         public bool? IsHead { get; set; }
         public bool IsSelect { get; set; }
-
-
         
     }
-    
+
 }

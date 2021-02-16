@@ -1,4 +1,6 @@
+using System;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
@@ -21,13 +23,26 @@ namespace EndPoint.Web
                     
                     
                     // Error Handling
-                    webBuilder.ConfigureLogging(logger =>
+                    if (OperatingSystem.IsMacOS())
                     {
-                        logger.ClearProviders();
-                        logger.AddDebug();
-                        logger.AddEventLog();
-                        logger.AddFile("/Logs/logText.txt");
-                    });
+                        webBuilder.ConfigureLogging(logger =>
+                        {
+                            logger.ClearProviders();
+                            logger.AddDebug();
+                            logger.AddFile("/Logs/logText.txt");
+                        });
+                    }
+                    else if(OperatingSystem.IsWindows())
+                    {
+                        webBuilder.ConfigureLogging(logger =>
+                        {
+                            logger.ClearProviders();
+                            logger.AddDebug();
+                            logger.AddEventLog();
+                            logger.AddFile("/Logs/logText.txt");
+                        });
+                    }         
+                
                 });
     }
 }

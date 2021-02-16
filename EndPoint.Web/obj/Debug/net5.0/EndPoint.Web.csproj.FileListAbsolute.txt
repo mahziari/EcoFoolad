@@ -870,7 +870,6 @@ D:\.NET\01_ParsaPoolad\EndPoint.Web\obj\Debug\net5.0\Razor\Areas\Admin\Views\Use
 D:\.NET\01_ParsaPoolad\EndPoint.Web\obj\Debug\net5.0\Razor\Areas\Admin\Views\Users\Details.cshtml.g.cs
 D:\.NET\01_ParsaPoolad\EndPoint.Web\obj\Debug\net5.0\Razor\Areas\Admin\Views\Users\Edit.cshtml.g.cs
 D:\.NET\01_ParsaPoolad\EndPoint.Web\obj\Debug\net5.0\Razor\Areas\Admin\Views\Users\Index.cshtml.g.cs
-D:\.NET\01_ParsaPoolad\EndPoint.Web\obj\Debug\net5.0\Razor\Areas\Auth\Views\Account\AccessDenied.cshtml.g.cs
 D:\.NET\01_ParsaPoolad\EndPoint.Web\obj\Debug\net5.0\Razor\Areas\Auth\Views\Account\CheckOut.cshtml.g.cs
 D:\.NET\01_ParsaPoolad\EndPoint.Web\obj\Debug\net5.0\Razor\Areas\Auth\Views\Account\Confirm.cshtml.g.cs
 D:\.NET\01_ParsaPoolad\EndPoint.Web\obj\Debug\net5.0\Razor\Areas\Auth\Views\Account\ForgotPassword.cshtml.g.cs
@@ -887,7 +886,6 @@ D:\.NET\01_ParsaPoolad\EndPoint.Web\obj\Debug\net5.0\Razor\Views\Products\Detail
 D:\.NET\01_ParsaPoolad\EndPoint.Web\obj\Debug\net5.0\Razor\Views\Products\Index.cshtml.g.cs
 D:\.NET\01_ParsaPoolad\EndPoint.Web\obj\Debug\net5.0\Razor\Views\Shared\Components\GetMenus\GetMenus.cshtml.g.cs
 D:\.NET\01_ParsaPoolad\EndPoint.Web\obj\Debug\net5.0\Razor\Views\Shared\Components\ResponsiveGetMenus\ResponsiveGetMenus.cshtml.g.cs
-D:\.NET\01_ParsaPoolad\EndPoint.Web\obj\Debug\net5.0\Razor\Views\Shared\Error.cshtml.g.cs
 D:\.NET\01_ParsaPoolad\EndPoint.Web\obj\Debug\net5.0\Razor\Views\Shared\_CkEditorScriptsPartial.cshtml.g.cs
 D:\.NET\01_ParsaPoolad\EndPoint.Web\obj\Debug\net5.0\Razor\Views\Shared\_FooPartial.cshtml.g.cs
 D:\.NET\01_ParsaPoolad\EndPoint.Web\obj\Debug\net5.0\Razor\Views\Shared\_FooterPartial.cshtml.g.cs
@@ -908,3 +906,5 @@ D:\.NET\01_ParsaPoolad\EndPoint.Web\obj\Debug\net5.0\EndPoint.Web.dll
 D:\.NET\01_ParsaPoolad\EndPoint.Web\obj\Debug\net5.0\ref\EndPoint.Web.dll
 D:\.NET\01_ParsaPoolad\EndPoint.Web\obj\Debug\net5.0\EndPoint.Web.pdb
 D:\.NET\01_ParsaPoolad\EndPoint.Web\obj\Debug\net5.0\EndPoint.Web.genruntimeconfig.cache
+D:\.NET\01_ParsaPoolad\EndPoint.Web\obj\Debug\net5.0\Razor\Views\Shared\Errors\AccessDenied.cshtml.g.cs
+D:\.NET\01_ParsaPoolad\EndPoint.Web\obj\Debug\net5.0\Razor\Views\Shared\Errors\Error.cshtml.g.cs

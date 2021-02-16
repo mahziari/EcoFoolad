@@ -1,6 +1,8 @@
-﻿@using ParsaPoolad.Application.Services.BackEnd.Admin.Blogs.Queries
+﻿@using Microsoft.AspNetCore.Authorization
+@using ParsaPoolad.Application.Services.BackEnd.Admin.Blogs.Queries
 @model ResultGetIndexBlogsDto
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@inject IAuthorizationService _authorizationService;
 @{
     ViewData["Title"] = "لیست محصولات";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
@@ -121,34 +123,45 @@
                                                             <i class="fa fa-folder-open" aria-hidden="true"></i>
                                                         </span>
                                                     </a>
-                                                    <a asp-area="Admin" asp-controller="Blogs" asp-action="Edit" asp-route-id="@item.NewsId" title="ویرایش">
-                                                        <span class="badge badge-warning d-inline-flex align-items-center mr-1 mb-1">
-                                                            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-                                                        </span>
-                                                    </a>
-
-                                                    @if (@item.IsVerified == false)
+                                                    @if (_authorizationService.AuthorizeAsync(User, "BlogsEdit").Result.Succeeded)
                                                     {
-                                                        <a asp-area="Admin" asp-controller="Blogs" asp-action="Active" asp-route-id="@item.NewsId" title="غیر فعال است">
-                                                            <span class="badge badge-secondary d-inline-flex align-items-center mr-1 mb-1">
-                                                                <i class="fa fa-toggle-off" aria-hidden="true"></i>
-                                                            </span>
-                                                        </a>
-                                                    }
-                                                    else
-                                                    {
-                                                        <a asp-area="Admin" asp-controller="Blogs" asp-action="Active" asp-route-id="@item.NewsId" title="فعال است">
-                                                            <span class="badge badge-primary d-inline-flex align-items-center mr-1 mb-1">
-                                                                <i class="fa fa-toggle-on" aria-hidden="true"></i>
+                                                        <a asp-area="Admin" asp-controller="Blogs" asp-action="Edit" asp-route-id="@item.NewsId" title="ویرایش">
+                                                            <span class="badge badge-warning d-inline-flex align-items-center mr-1 mb-1">
+                                                                <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                                                             </span>
                                                         </a>
                                                     }
 
-                                                    <a asp-area="Admin" asp-controller="Blogs" asp-action="Delete" asp-route-id="@item.NewsId" title="حذف" onclick="return confirm('ایا از حذف مطمعن هستید؟');">
-                                                        <span class="badge badge-danger d-inline-flex align-items-center mr-1 mb-1">
-                                                            <i class="fa fa-window-close" aria-hidden="true"></i>
-                                                        </span>
-                                                    </a>
+                                                    
+                                                    @if (_authorizationService.AuthorizeAsync(User, "BlogsActive").Result.Succeeded)
+                                                    {
+                                                        @if (@item.IsVerified == false)
+                                                        {
+                                                            <a asp-area="Admin" asp-controller="Blogs" asp-action="Active" asp-route-id="@item.NewsId" title="غیر فعال است">
+                                                                <span class="badge badge-secondary d-inline-flex align-items-center mr-1 mb-1">
+                                                                    <i class="fa fa-toggle-off" aria-hidden="true"></i>
+                                                                </span>
+                                                            </a>
+                                                        }
+                                                        else
+                                                        {
+                                                            <a asp-area="Admin" asp-controller="Blogs" asp-action="Active" asp-route-id="@item.NewsId" title="فعال است">
+                                                                <span class="badge badge-primary d-inline-flex align-items-center mr-1 mb-1">
+                                                                    <i class="fa fa-toggle-on" aria-hidden="true"></i>
+                                                                </span>
+                                                            </a>
+                                                        }
+                                                    }
+
+                                                    
+                                                      @if (_authorizationService.AuthorizeAsync(User, "BlogsDelete").Result.Succeeded)
+                                                      {
+                                                          <a asp-area="Admin" asp-controller="Blogs" asp-action="Delete" asp-route-id="@item.NewsId" title="حذف" onclick="return confirm('ایا از حذف مطمعن هستید؟');">
+                                                              <span class="badge badge-danger d-inline-flex align-items-center mr-1 mb-1">
+                                                                  <i class="fa fa-window-close" aria-hidden="true"></i>
+                                                              </span>
+                                                          </a>
+                                                      }
                                                 </td>
 
                                             </tr>

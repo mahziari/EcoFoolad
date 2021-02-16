@@ -364,12 +364,5 @@ namespace EndPoint.Web.Areas.Auth.Controllers
             TempData["PhoneNumber"] = confirmDto.PhoneNumber;
             return RedirectToAction(nameof(Confirm));
         }
-
-
-        [AllowAnonymous]
-        public IActionResult AccessDenied()
-        {
-            return View();
-        }
     }
 }

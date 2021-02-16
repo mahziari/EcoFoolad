@@ -1,9 +1,11 @@
-﻿@using Microsoft.AspNetCore.Identity
+﻿@using Microsoft.AspNetCore.Authorization
+@using Microsoft.AspNetCore.Identity
 @using ParsaPoolad.Application.Services.BackEnd.Admin.Users.Queries
 @using ParsaPoolad.Domain.Entities.Identity
 @model ResultGetIndexUsersDto
 @inject SignInManager<User> _signInManager
 @inject UserManager<User> _userManager
+@inject IAuthorizationService _authorizationService;
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 @{
     ViewData["Title"] = "لیست کاربران";

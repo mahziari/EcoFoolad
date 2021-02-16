@@ -139,7 +139,7 @@ namespace EndPoint.Web
                 // cookie setting
                 option.ExpireTimeSpan = TimeSpan.FromMinutes(120);
                 option.LoginPath = "/users/auth/checkout";
-                option.AccessDeniedPath = "/users/auth/AccessDenied";
+                option.AccessDeniedPath = "/Error/AccessDenied";
                 option.SlidingExpiration = true;
             });
             //------ User Interface Services
