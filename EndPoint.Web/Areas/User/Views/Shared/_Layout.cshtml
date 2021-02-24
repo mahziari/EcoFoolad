@@ -1,0 +1,9 @@
+﻿@using Microsoft.AspNetCore.Authorization
+@using Microsoft.AspNetCore.Identity
+@using ParsaPoolad.Domain.Entities.Identity
+@inject IAuthorizationService _authorizationService;
+
+@inject SignInManager<User> _signInManager
+@inject UserManager<User> _userManager
+
+

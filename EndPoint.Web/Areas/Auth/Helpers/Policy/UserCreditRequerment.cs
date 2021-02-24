@@ -33,7 +33,6 @@ namespace EndPoint.Web.Areas.Auth.Helpers.Policy
                     context.Succeed(requirement);
                 }
             }
-
             return Task.CompletedTask;
         }
     }

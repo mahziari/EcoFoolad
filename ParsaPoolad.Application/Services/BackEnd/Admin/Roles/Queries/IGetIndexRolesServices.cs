@@ -23,7 +23,10 @@ namespace ParsaPoolad.Application.Services.BackEnd.Admin.Roles.Queries
 
         public ResultGetIndexRolesDto Execute()
         {
-            var roles = _roleManager.Roles.ToList();
+            var roles = _roleManager.Roles
+                .Where(r=>r.Name!="User")
+                .Where(r=>r.Name!="Owner")
+                .ToList();
 
             
             return new ResultGetIndexRolesDto

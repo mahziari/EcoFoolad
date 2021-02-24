@@ -26,14 +26,6 @@
                 {
                     <h2 class="brand-text mb-0"> پنل مدیر ارشد</h2>
                 }
-                else if (_authorizationService.AuthorizeAsync(User, "OwnerRole").Result.Succeeded)
-                {
-                    <h2 class="brand-text mb-0"> پنل فروشندگان </h2>
-                }
-                else if (_authorizationService.AuthorizeAsync(User, "UserRole").Result.Succeeded)
-                {
-                    <h2 class="brand-text mb-0"> پنل کاربر </h2>
-                }
             </a>
         </li>
         <li class="nav-item nav-toggle">

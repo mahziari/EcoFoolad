@@ -7,7 +7,7 @@ using ParsaPoolad.Domain.Entities;
 namespace EndPoint.Web.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Route("panel/blog-categories/[action]/{id?}")]
+    [Route("panel/admin/blog-categories/[action]/{id?}")]
     public class BlogsCategoriesController : Controller
     {
         private readonly IBlogsCategoriesFacad _blogsCategoriesFacad;

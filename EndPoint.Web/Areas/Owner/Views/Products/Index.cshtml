@@ -1,0 +1,126 @@
+﻿@using Microsoft.AspNetCore.Authorization
+@using ParsaPoolad.Application.Services.BackEnd.Admin.Products.Queries
+@model ResultGetIndexProductsDto
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@inject IAuthorizationService _authorizationService;
+@{
+    ViewData["Title"] = "لیست محصولات";
+    Layout = "~/Areas/Owner/Views/Shared/_Layout.cshtml";
+}
+
+<div class="app-content content">
+    <div class="content-overlay"></div>
+    <div class="content-wrapper">
+        <div class="content-header row">
+        </div>
+        <div class="content-body">
+           
+            @if (TempData["IsSuccess"] != null)
+            {
+                @if (Convert.ToBoolean(TempData["IsSuccess"]) == true)
+                {
+                    <div class="alert alert-success">
+                        @TempData["Message"]
+                    </div>
+                }
+
+                else if (Convert.ToBoolean(TempData["IsSuccess"]) == false)
+                {
+                    <div class="alert alert-danger">
+                        @TempData["Message"]
+                    </div>
+                }
+            }
+            
+            <section class="users-list-wrapper">
+                <div class="users-list-table">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="card-body">
+                                
+                                <div class="table-responsive">
+                                    <table id="users-list-datatable" class="table">
+                                        <thead>
+                                        <tr>
+                                            <th style="display:none">None</th>
+                                            <th style="display:none">None</th>
+                                            <th style="display:none">None</th>
+                                            <th>شماره</th>
+                                            <th>نام محصول</th>
+                                            <th>جز منو</th>
+                                            <th>تاریخ ایجاد </th>
+                                            <th>عملیات</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                            @{var counter = 0; }
+                                            @foreach (var item in Model.Products)
+                                            {
+                                                counter++;
+                                                <tr>
+                                                    <td style="display:none"> </td>
+                                                    <td style="display:none"> </td>
+                                                    <td style="display:none"> </td>
+                                                   
+                                                    
+                                                    
+
+                                                    <td> @counter</td>
+
+                                                    <td>
+                                                        @item.PrdName
+                                                    </td>
+                                                    
+                                                    <td>
+                                                        @item.subMenu.Sgname
+                                                    </td>
+                                                    
+                                                    <td>
+                                                        @item.RegisterDatePersian
+                                                    </td>
+                                                    
+                                                    @* <td> تکمیل میگردد</td> *@
+                                                    
+                                                    <td class="tdDisplay">
+                                                        <a asp-area="Admin" asp-controller="Products" asp-action="Details" asp-route-id="@item.ProductId" title="مشاهده جزییات"><span class="badge badge-info d-inline-flex align-items-center mr-1 mb-1"><i class="fa fa-folder-open" aria-hidden="true"></i></span></a>
+                                                        
+                                                        @if (_authorizationService.AuthorizeAsync(User, "ProductsEdit").Result.Succeeded)
+                                                        {
+                                                            <a asp-area="Admin" asp-controller="Products" asp-action="Edit" asp-route-id="@item.ProductId" title="ویرایش"><span class="badge badge-warning d-inline-flex align-items-center mr-1 mb-1"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></span></a>
+                                                        }
+                                                        
+                                                        
+                                                         @if (_authorizationService.AuthorizeAsync(User, "ProductsActive").Result.Succeeded)
+                                                         {
+                                                             @if (@item.PrdInactiveInSale == false)
+                                                             {
+                                                                 <a asp-area="Admin" asp-controller="Products" asp-action="Active" asp-route-id="@item.ProductId" title="غیر فعال است"><span class="badge badge-secondary d-inline-flex align-items-center mr-1 mb-1"><i class="fa fa-toggle-off" aria-hidden="true"></i></span></a>
+                                                             }
+                                                             else
+                                                             {
+                                                                 <a asp-area="Admin" asp-controller="Products" asp-action="Active" asp-route-id="@item.ProductId" title="فعال است"><span class="badge badge-primary d-inline-flex align-items-center mr-1 mb-1"><i class="fa fa-toggle-on" aria-hidden="true"></i></span></a>
+                                                             }
+                                                         }
+
+                                                        
+                                                         @if (_authorizationService.AuthorizeAsync(User, "ProductsDelete").Result.Succeeded)
+                                                         {
+                                                             <a asp-area="Admin" asp-controller="Products" asp-action="Delete" asp-route-id="@item.ProductId" title="حذف" onclick="return confirm('ایا از حذف مطمعن هستید؟');"><span class="badge badge-danger d-inline-flex align-items-center mr-1 mb-1"><i class="fa fa-window-close" aria-hidden="true"></i></span></a>
+                                                         }
+                                                        </td>
+
+                                                </tr>
+                                            }
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                                 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>

@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using ParsaPoolad.Application.Interfaces.FacadPatterns.BackEnd.Admin;
-using ParsaPoolad.Application.Services.BackEnd.Admin.Roles.Command;
 using ParsaPoolad.Application.Services.BackEnd.Admin.Roles.Commands;
 using ParsaPoolad.Application.Services.BackEnd.Admin.Roles.Queries;
 
@@ -9,7 +8,7 @@ namespace EndPoint.Web.Areas.Admin.Controllers
 {
     [Authorize(Policy = "SeniorProgrammer")]
     [Area("Admin")]
-    [Route("panel/roles/[action]/{id?}")]
+    [Route("panel/admin/roles/[action]/{id?}")]
     public class RolesController : Controller
     {
         private readonly IRolesFacad _rolesFacad;

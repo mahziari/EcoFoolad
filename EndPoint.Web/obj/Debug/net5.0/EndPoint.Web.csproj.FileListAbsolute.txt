@@ -908,3 +908,11 @@ D:\.NET\01_ParsaPoolad\EndPoint.Web\obj\Debug\net5.0\EndPoint.Web.pdb
 D:\.NET\01_ParsaPoolad\EndPoint.Web\obj\Debug\net5.0\EndPoint.Web.genruntimeconfig.cache
 D:\.NET\01_ParsaPoolad\EndPoint.Web\obj\Debug\net5.0\Razor\Views\Shared\Errors\AccessDenied.cshtml.g.cs
 D:\.NET\01_ParsaPoolad\EndPoint.Web\obj\Debug\net5.0\Razor\Views\Shared\Errors\Error.cshtml.g.cs
+D:\.NET\01_ParsaPoolad\EndPoint.Web\obj\Debug\net5.0\Razor\Areas\Owner\Views\Home\Index.cshtml.g.cs
+D:\.NET\01_ParsaPoolad\EndPoint.Web\obj\Debug\net5.0\Razor\Areas\Owner\Views\Products\Create.cshtml.g.cs
+D:\.NET\01_ParsaPoolad\EndPoint.Web\obj\Debug\net5.0\Razor\Areas\Owner\Views\Products\Details.cshtml.g.cs
+D:\.NET\01_ParsaPoolad\EndPoint.Web\obj\Debug\net5.0\Razor\Areas\Owner\Views\Products\Edit.cshtml.g.cs
+D:\.NET\01_ParsaPoolad\EndPoint.Web\obj\Debug\net5.0\Razor\Areas\Owner\Views\Products\Index.cshtml.g.cs
+D:\.NET\01_ParsaPoolad\EndPoint.Web\obj\Debug\net5.0\Razor\Areas\Owner\Views\Shared\_Layout.cshtml.g.cs
+D:\.NET\01_ParsaPoolad\EndPoint.Web\obj\Debug\net5.0\Razor\Areas\User\Views\Home\Index.cshtml.g.cs
+D:\.NET\01_ParsaPoolad\EndPoint.Web\obj\Debug\net5.0\Razor\Areas\User\Views\Shared\_Layout.cshtml.g.cs

@@ -10,7 +10,7 @@ namespace ParsaPoolad.Domain.Entities.Identity
    public class Claims
     {
         public int Id { get; set; }
-        public int? ParentId { get; set; }
+        // public int? ParentId { get; set; }
         public string ClaimType { get; set; }
         public string ClaimValue { get; set; }
         public string ClaimName { get; set; }

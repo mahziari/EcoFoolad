@@ -1,9 +1,6 @@
-﻿using System.IO;
-using Microsoft.AspNetCore.Hosting;
-using ParsaPoolad.Application.Interfaces.Contexts;
-using ParsaPoolad.Domain.Entities;
+﻿using ParsaPoolad.Application.Interfaces.Contexts;
 
-namespace ParsaPoolad.Application.Services.BackEnd.Admin.Roles.Command
+namespace ParsaPoolad.Application.Services.BackEnd.Admin.Roles.Commands
 {
     public interface IDeleteRolesServices
     {
@@ -12,7 +9,6 @@ namespace ParsaPoolad.Application.Services.BackEnd.Admin.Roles.Command
     public class DeleteRolesServices : IDeleteRolesServices
     {
         private readonly IDataBaseContext _context;
-
         public DeleteRolesServices(IDataBaseContext context)
         {
             _context = context;

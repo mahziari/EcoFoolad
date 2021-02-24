@@ -7,7 +7,7 @@ namespace EndPoint.Web.Areas.Admin.Controllers
 {
     [Authorize(Policy = "Company")]
     [Area("Admin")]
-    [Route("panel/company/[action]/{id?}")]
+    [Route("panel/admin/company/[action]/{id?}")]
     public class CompanyController:Controller
     {
           private readonly ICompanyFacad _companyFacad;

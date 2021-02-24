@@ -8,7 +8,7 @@
 // {
 //     [Authorize(Policy = "Admins")]
 //     [Area("Admin")]
-//     [Route("panel/claims/[action]")]
+//     [Route("panel/admin/claims/[action]")]
 //     public class ClaimsController:Controller
 //     {
 //         

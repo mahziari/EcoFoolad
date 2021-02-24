@@ -24,6 +24,8 @@ using ParsaPoolad.Application.Services.FrontEnd.Blogs.FacadPattern;
 using ParsaPoolad.Application.Services.FrontEnd.Home.FacadPattern;
 using ParsaPoolad.Application.Services.FrontEnd.Products.FacadPattern;
 using ParsaPoolad.Domain.Entities.Identity;
+using Microsoft.AspNetCore.Authorization;
+
 
 namespace EndPoint.Web
 {
@@ -52,11 +54,12 @@ namespace EndPoint.Web
 
 
             services.AddControllersWithViews();
+            
             //------ Redis Services
             services.AddStackExchangeRedisCache(options =>
             {
                 options.Configuration = Configuration.GetConnectionString("Redis");
-                options.InstanceName = "ParsaPooladRedisDb";
+                options.InstanceName = "RedisDb";
             });
             
             //------ Auth Services
@@ -78,11 +81,15 @@ namespace EndPoint.Web
       
                
                 // Claim Policy
+                options.AddPolicy("Home", policy => { policy.RequireClaim("Home"); });
+               
+                
                 options.AddPolicy("BlogCategories", policy => { policy.RequireClaim("BlogCategories"); });
                 options.AddPolicy("BlogCategoriesIndex", policy => { policy.RequireClaim("BlogCategoriesIndex"); });
                 options.AddPolicy("BlogCategoriesCreate", policy => { policy.RequireClaim("BlogCategoriesCreate"); });
                 options.AddPolicy("BlogCategoriesEdit", policy => { policy.RequireClaim("BlogCategoriesEdit"); });
                 options.AddPolicy("BlogCategoriesDelete", policy => { policy.RequireClaim("BlogCategoriesDelete"); });
+                
                 
                 options.AddPolicy("Blogs", policy => { policy.RequireClaim("Blogs"); });
                 options.AddPolicy("BlogsIndex", policy => { policy.RequireClaim("BlogsIndex"); });
@@ -134,6 +141,9 @@ namespace EndPoint.Web
                 option.SignIn.RequireConfirmedPhoneNumber = true;
             });
 
+            services.Configure<SecurityStampValidatorOptions>(option => 
+                option.ValidationInterval = TimeSpan.FromSeconds(10));
+            
             services.ConfigureApplicationCookie(option =>
             {
                 // cookie setting
@@ -142,7 +152,7 @@ namespace EndPoint.Web
                 option.AccessDeniedPath = "/Error/AccessDenied";
                 option.SlidingExpiration = true;
             });
-            //------ User Interface Services
+            //------ Interface Services
             services.AddScoped<IMenusFrontEndFacad, MenusFrontEndFacad>();
             services.AddScoped<IHomeFrontEndFacad, HomeFrontEndFacad>();
             services.AddScoped<IBlogsFrontEndFacad, BlogsFrontEndFacad>();
@@ -156,6 +166,11 @@ namespace EndPoint.Web
             services.AddScoped<IUsersFacad, UsersFacad>();
             services.AddScoped<ISlidersFacad, SlidersFacad>();
             services.AddScoped<ICompanyFacad, CompanyFacad>();
+            //------ Owner Panel Services
+            services.AddScoped<IProductsFrontEndFacad, ProductsFrontEndFacad>();
+
+            
+            
             services.AddControllersWithViews();
             //------ Sessions Services
             services.AddDistributedMemoryCache();
@@ -187,7 +202,7 @@ namespace EndPoint.Web
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Home}/{action=Index}/{id?}").RequireAuthorization();
             });
         }
     }

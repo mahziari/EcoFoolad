@@ -8,7 +8,7 @@ namespace EndPoint.Web.Areas.Admin.Controllers
 {
     [Authorize(Policy = "Sliders")]
     [Area("Admin")]
-    [Route("panel/sliders/[action]/{id?}")]
+    [Route("panel/admin/sliders/[action]/{id?}")]
     public class SlidersController : Controller
     {
         private readonly ISlidersFacad _slidersFacad;

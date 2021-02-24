@@ -1,62 +1,21 @@
 ﻿@{
-    ViewData["Title"] = "AccessDenied";
-    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Page Not Access";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@section BodyAttr{
+    data-rsssl="1" class="rtl error404 theme-newkala woocommerce-js nk_desktop nk_my_account_page loggedout elementor-default elementor-kit-3073 dokan-theme-newkala" style="overflow: auto;" data-elementor-device-mode="desktop"
+    }
 
-@section Head{
-    <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/vendors/css/vendors-rtl.min.css">
-    <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/vendors/css/forms/select/select2.min.css">
-    <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/css/bootstrap-extended.min.css">
-    <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/css/colors.min.css">
-    <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/css/components.min.css">
-    <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/css/themes/dark-layout.min.css">
-    <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/css/themes/semi-dark-layout.min.css">
-    <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/css/custom-rtl.min.css">
-    <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/css/core/menu/menu-types/vertical-menu-karaji.min.css">
-    <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/css/style.css">
-}
-
-@section Foo{
-    <script src="~/BackEnd/Admin/vendors/js/vendors.min.js"></script>
-    <script src="~/BackEnd/Admin/vendors/js/forms/select/select2.full.min.js"></script>
-    <script src="~/BackEnd/Admin/vendors/js/extensions/jquery.steps.min.js"></script>
-    <script src="~/BackEnd/Admin/vendors/js/forms/validation/jquery.validate.min.js"></script>
-    <script src="~/BackEnd/Admin/js/scripts/configs/vertical-menu-dark.min.js"></script>
-    <script src="~/BackEnd/Admin/js/core/app-menu.min.js"></script>
-    <script src="~/BackEnd/Admin/js/core/app.min.js"></script>
-    <script src="~/BackEnd/Admin/js/scripts/components.min.js"></script>
-    <script src="~/BackEnd/Admin/js/scripts/footer.min.js"></script>
-    <script src="~/BackEnd/Admin/js/scripts/customizer.min.js"></script>
-    <script src="~/BackEnd/Admin/js/scripts/forms/select/form-select2.min.js"></script>
-    <script>$('div.alert').delay(3000).slideUp(300); </script>
-}
-
-
-<div class="app-content content">
-      <div class="content-overlay"></div>
-      <div class="content-wrapper">
-        <div class="content-header row"></div>
-          <div class="content-body">
-              <!-- app invoice View Page -->
-          
-                  <section class="invoice-edit-wrapper">
-                          
-                      <div class="row">
-                          <!-- invoice view page -->
-                          <div class="col-xl-12 col-md-12 col-12">
-                              <div class="card">
-                                  <div class="card-content">
-                                      <div class="card-body pb-0 mx-25">
-                                          <div class="text-danger">شما مجوز لازم برای دسترسی به این قسمت را ندارید</div>
-                                          <div>با پشتیبانی تماس بگیرید</div>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-                  </section>
-        </div>
-      </div>
+<div class="clear"></div>
+<div class="nk_container_404 product-content-onliner">
+    <div class="c-404__title">
+        <h1 style="text-align: center;">صفحه‌ای که دنبال آن بودید پیدا نشد!</h1>
+            <p>
+                <img class="aligncenter wp-image-2613 size-full"
+                     src="/Images/Settings/Error404.png"
+                     alt="404 Error"
+                     srcset="/Images/Settings/Error404.png 918w,/Images/Settings/Error404.png  600w" sizes="(max-width: 918px) 100vw, 918px" width="918" height="454">
+            </p>
+    </div>
+    <div class="c-404__actions"></div>
 </div>
-

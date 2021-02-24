@@ -6,7 +6,7 @@ namespace EndPoint.Web.Areas.Admin.Controllers
 {
     [Authorize(Policy = "Menus")]
     [Area("Admin")]
-    [Route("panel/menus/[action]/{id?}")]
+    [Route("panel/admin/menus/[action]/{id?}")]
     public class MenusController : Controller
     {
         private readonly IMenusFacad _menusFacad;

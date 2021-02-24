@@ -16,7 +16,6 @@
 
   <ItemGroup>
     <Folder Include="Helpers" />
-    <Folder Include="Interfaces\FacadPatterns\BackEnd\Owner" />
     <Folder Include="Interfaces\FacadPatterns\BackEnd\User" />
     <Folder Include="Services\BackEnd\User\" />
     <Folder Include="Services\BackEnd\Owner\" />

@@ -8,7 +8,7 @@ using ParsaPoolad.Domain.Entities;
 namespace EndPoint.Web.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Route("panel/users/[action]/{id?}")]
+    [Route("panel/admin/users/[action]/{id?}")]
     public class UsersController : Controller
     {
         private readonly IUsersFacad _usersFacad;

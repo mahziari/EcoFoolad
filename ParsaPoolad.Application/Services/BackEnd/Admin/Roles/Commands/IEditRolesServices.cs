@@ -32,7 +32,6 @@ namespace ParsaPoolad.Application.Services.BackEnd.Admin.Roles.Commands
             foreach (var  item in editRolesServicesDto.Claims)
             {
                 var selectedClaim = _context.Claims.FirstOrDefault(c => c.Id == item.Id);
-                // var createNewClaimType = selectedClaim.ClaimType +"-"+ currentRole;
 
                 var claimRole = claimsRole.FirstOrDefault(s => s.Value == selectedClaim.ClaimValue);
                 var newClaim = new Claim(selectedClaim.ClaimValue ,selectedClaim.ClaimValue,ClaimValueTypes.String);
