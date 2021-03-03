@@ -26,13 +26,13 @@ namespace ParsaPoolad.Application.Services.FrontEnd.Products.FacadPattern
         
         
         private IGetProductsDetailsFrontEndService _getProductsDetailsFrontEndService;
-        public IGetProductsDetailsFrontEndService GetProductsDetailsFrontEndService
-        {
-            get
-            {
-                return _getProductsDetailsFrontEndService ??= new GetProductsDetailsFrontEndService(_context);
-            }
-        }
+                 public IGetProductsDetailsFrontEndService GetProductsDetailsFrontEndService
+                 {
+                     get
+                     {
+                         return _getProductsDetailsFrontEndService ??= new GetProductsDetailsFrontEndService(_context);
+                     }
+                 }
         
         
         

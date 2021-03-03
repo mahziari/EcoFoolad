@@ -31,6 +31,7 @@
     <Folder Include="Areas\Owner\Models" />
     <Folder Include="Areas\User\Data" />
     <Folder Include="Areas\User\Models" />
+    <Folder Include="wwwroot\BackEnd\Owner\js" />
     <Folder Include="wwwroot\FrontEnd" />
     <Folder Include="wwwroot\Logs" />
   </ItemGroup>

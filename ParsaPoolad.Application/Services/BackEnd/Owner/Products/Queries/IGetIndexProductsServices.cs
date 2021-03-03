@@ -1,6 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using ParsaPoolad.Application.Interfaces.Contexts;
+using ParsaPoolad.Domain.Entities.Identity;
+
 
 namespace ParsaPoolad.Application.Services.BackEnd.Owner.Products.Queries
 {
@@ -21,7 +25,10 @@ namespace ParsaPoolad.Application.Services.BackEnd.Owner.Products.Queries
 
         public ResultGetIndexProductsDto Execute()
         {
+            // var currentUser = _authorizationService.AuthorizeAsync(U).Result;
             var products = _context.Wsproducts
+                // .Where(p=>p.UserId==id)
+                // .Where(p=>p.UserId==)
                 .Select(p=>new GetIndexProductsDto
                 {
                     ProductId = p.ProductId,

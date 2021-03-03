@@ -8,119 +8,391 @@
     Layout = "~/Areas/Owner/Views/Shared/_Layout.cshtml";
 }
 
-<div class="app-content content">
-    <div class="content-overlay"></div>
-    <div class="content-wrapper">
-        <div class="content-header row">
+<main id="main" class="nk-main-content-dokan-dashboard">
+
+
+<div class="dokan-dashboard-wrap">
+
+
+<div class="dokan-dashboard-content dokan-product-listing">
+
+@if (TempData["IsSuccess"] != null)
+{
+    @if (Convert.ToBoolean(TempData["IsSuccess"]) == true)
+    {
+        <div class="alert alert-success">
+            @TempData["Message"]
         </div>
-        <div class="content-body">
-           
-            @if (TempData["IsSuccess"] != null)
-            {
-                @if (Convert.ToBoolean(TempData["IsSuccess"]) == true)
+    }
+
+    else if (Convert.ToBoolean(TempData["IsSuccess"]) == false)
+    {
+        <div class="alert alert-danger">
+            @TempData["Message"]
+        </div>
+    }
+}
+
+<article class="dokan-product-listing-area">
+
+    <div class="product-listing-top dokan-clearfix">
+        <ul class="dokan-listing-filter dokan-left subsubsub">
+            <li class="active">
+                <a href="https://newkalatheme.ir/preview/dashboard/products/">همه (@Model.Products.Count)</a>
+            </li>
+            @* <li> *@
+            @*     <a href="https://newkalatheme.ir/preview/dashboard/products/?post_status=pending">در انتظار بررسی (3)</a> *@
+            @* </li> *@
+        </ul> <!-- .post-statuses-filter -->
+
+        <span class="dokan-add-product-link">
+            <a asp-area="Owner" asp-controller="Products" asp-action="Create" class="dokan-btn dokan-btn-theme ">
+                <i class="fa fa-briefcase">&nbsp;</i>
+                افزودن محصول جدید
+            </a>
+
+        </span>
+    </div>
+
+
+    @* <div class="dokan-w12"> *@
+    @*     <form class="dokan-form-inline dokan-w8 dokan-product-date-filter" method="get"> *@
+    @*         <div class="dokan-form-group"> *@
+    @*             <select name="date" id="filter-by-date" class="dokan-form-control"> *@
+    @*                 <option selected="selected" value="0">همه تاریخ‌ها</option> *@
+    @*                 <option value="202102">فوریه 2021</option> *@
+    @*             </select> *@
+    @*         </div> *@
+    @* *@
+    @*         <div class="dokan-form-group"> *@
+    @*             <select name="product_cat" id="product_cat" class="product_cat dokan-form-control chosen"> *@
+    @*                 <option value="-1" selected="selected">– انتخاب دسته –</option> *@
+    @*                 <option class="level-0" value="15">دسته بندی نشده</option> *@
+    @*                 <option class="level-0" value="229">ساعت مچی</option> *@
+    @*                 <option class="level-0" value="20">کالای دیجیتال</option> *@
+    @*                 <option class="level-1" value="22">&nbsp;&nbsp;&nbsp;تبلت و کتابخوان</option> *@
+    @*                 <option class="level-2" value="95">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;تبلت</option> *@
+    @*                 <option class="level-2" value="97">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;رهیاب ماهواره ای</option> *@
+    @*                 <option class="level-2" value="96">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;کتاب خوان</option> *@
+    @*                 <option class="level-2" value="98">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;لوازم جانبی تبلت</option> *@
+    @*                 <option class="level-1" value="102">&nbsp;&nbsp;&nbsp;کارت هدیه</option> *@
+    @*                 <option class="level-1" value="92">&nbsp;&nbsp;&nbsp;لپ تاپ</option> *@
+    @*                 <option class="level-2" value="100">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;گیمینگ</option> *@
+    @*                 <option class="level-2" value="99">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;لپ تاپ و الترابوک</option> *@
+    @*                 <option class="level-2" value="101">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;لوازم جانبی لپ تاپ</option> *@
+    @*                 <option class="level-1" value="21">&nbsp;&nbsp;&nbsp;موبایل</option> *@
+    @*                 <option class="level-2" value="93">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;گوشی موبایل</option> *@
+    @*                 <option class="level-2" value="94">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;لوازم جانبی گوشی موبایل</option> *@
+    @*                 <option class="level-0" value="178">کتاب</option> *@
+    @*                 <option class="level-0" value="231">کفش</option> *@
+    @*                 <option class="level-0" value="230">لباس</option> *@
+    @*                 <option class="level-0" value="179">لپ تاپ</option> *@
+    @*                 <option class="level-0" value="159">هایپر مارکت</option> *@
+    @*             </select> *@
+    @*         </div> *@
+    @* *@
+    @* *@
+    @*         <button type="submit" name="product_listing_filter" value="ok" class="dokan-btn">فیلتر</button> *@
+    @* *@
+    @*     </form *@
+    @*     <form method="get" class="dokan-form-inline dokan-w5 dokan-product-search-form"> *@
+    @* *@
+    @*         <button type="submit" name="product_listing_search" value="ok" class="dokan-btn">جستجو</button> *@
+    @* *@
+    @*         <input type="hidden" id="dokan_product_search_nonce" name="dokan_product_search_nonce" value="16eae621c7"><input type="hidden" name="_wp_http_referer" value="/preview/dashboard/products/"> *@
+    @*         <div class="dokan-form-group"> *@
+    @*             <input type="text" class="dokan-form-control" name="product_search_name" placeholder="جستجوی محصولات" value=""> *@
+    @*         </div> *@
+    @* *@
+    @*     </form> *@
+    @* </div> *@
+
+    <div class="dokan-dashboard-product-listing-wrapper">
+
+        <form id="product-filter" method="POST" class="dokan-form-inline">
+            @* <div class="dokan-form-group"> *@
+            @*     <label for="bulk-product-action-selector" class="screen-reader-text">انتخاب عملیات گروهی</label> *@
+            @* *@
+            @*     <select name="status" id="bulk-product-action-selector" class="dokan-form-control chosen"> *@
+            @*         <option class="bulk-product-status" value="-1">اعمال گروهی</option> *@
+            @*         <option class="bulk-product-status" value="delete">حذف دائمی</option> *@
+            @*     </select> *@
+            @* </div> *@
+
+            @* <div class="dokan-form-group"> *@
+            @*     <input type="hidden" id="security" name="security" value="3de30f58c2"><input type="hidden" name="_wp_http_referer" value="/preview/dashboard/products/"> <input type="submit" name="bulk_product_status_change" id="bulk-product-action" class="dokan-btn" value="اعمال"> *@
+            @* </div> *@
+            <table class="dokan-table dokan-table-striped product-listing-table dokan-inline-editable-table" id="dokan-product-list-table">
+                <thead>
+                <tr>
+                    <th>شماره</th>
+                    <th>نام محصول</th>
+                    <th>قیمت </th>
+                    <th>جز منو</th>
+                    <th>تاریخ ایجاد </th>
+                    <th>عملیات</th>
+
+                </tr>
+                </thead>
+                <tbody>
+                @{ var counter = 0; }
+                @foreach (var item in Model.Products)
                 {
-                    <div class="alert alert-success">
-                        @TempData["Message"]
-                    </div>
+                    counter++;
+                    <tr class="danger">
+
+
+                        <td data-title="شماره">
+                            <span class="na">@counter</span>
+                        </td>
+
+                        @* <td data-title="عکس" class="column-thumb"> *@
+                        @*     <a> *@
+                        @*         <img src="@item.ProductId" class="attachment-thumbnail size-thumbnail" alt="" width="180" height="180"> *@
+                        @*     </a> *@
+                        @* </td> *@
+                        <td data-title="نام" class="column-primary">
+                            <strong>
+                                <a > @item.PrdName</a>
+                            </strong>
+                        </td>
+
+                        <td data-title="قیمت" class="column-primary">
+                            <strong>
+                                <a > @item.Price</a>
+                            </strong>
+                        </td>
+                        
+                        
+                        <td data-title="جز منو" class="column-primary">
+                            <strong>
+                                <a > @item.subMenu.Sgname</a>
+                            </strong>
+                        </td> 
+                        
+                        <td data-title="تاریخ ایجاد " class="column-primary">
+                            <strong>
+                                <a > @item.RegisterDatePersian</a>
+                            </strong>
+                        </td>
+                        
+                        
+                        
+                        
+                        <td data-title="عملیات" class="column-">
+                            <span class="">
+                                <a asp-area="Owner" asp-controller="Products" asp-action="Details" asp-route-id="@item.ProductId" title="مشاهده جزییات">
+                                    <span class="badge badge-info d-inline-flex align-items-center mr-1 mb-1">
+                                        <i class="fa fa-folder-open" aria-hidden="true"></i>
+                                    </span>
+                                </a>
+                            </span>
+                            <span class="">
+                                @if (_authorizationService.AuthorizeAsync(User, "OwnerRole").Result.Succeeded)
+                                {
+                                    <a asp-area="Owner" asp-controller="Products" asp-action="Edit" asp-route-id="@item.ProductId" title="ویرایش">
+                                        <span class="badge badge-warning d-inline-flex align-items-center mr-1 mb-1">
+                                            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                                        </span>
+                                    </a>
+                                }
+                            </span>
+                            <span class="">
+                                @if (_authorizationService.AuthorizeAsync(User, "OwnerRole").Result.Succeeded)
+                                {
+                                    @if (@item.PrdInactiveInSale == false)
+                                    {
+                                        <a asp-area="Owner" asp-controller="Products" asp-action="Active" asp-route-id="@item.ProductId" title="غیر فعال است">
+                                            <span class="badge badge-secondary d-inline-flex align-items-center mr-1 mb-1">
+                                                <i class="fa fa-toggle-off" aria-hidden="true"></i>
+                                            </span>
+                                        </a>
+                                    }
+                                    else
+                                    {
+                                        <a asp-area="Owner" asp-controller="Products" asp-action="Active" asp-route-id="@item.ProductId" title="فعال است">
+                                            <span class="badge badge-primary d-inline-flex align-items-center mr-1 mb-1">
+                                                <i class="fa fa-toggle-on" aria-hidden="true"></i>
+                                            </span>
+                                        </a>
+                                    }
+                                }
+                            </span>
+                            <span class="delete">
+                                |  <a asp-area="Owner" asp-controller="Products" asp-action="Delete" asp-route-id="@item.ProductId" title="حذف" onclick="return confirm('ایا از حذف مطمعن هستید؟');">
+                                    <span class="badge badge-danger d-inline-flex align-items-center mr-1 mb-1">
+                                        <i class="fa fa-times" aria-hidden="true"></i>
+                                    </span>
+                                </a>
+                            </span>
+                        </td>
+
+
+                        @* <td class="post-status" data-title="وضعیت"> *@
+                        @*     <label class="dokan-label dokan-label-danger">در انتظار بررسی</label> *@
+                        @* </td> *@
+                        @* *@
+                        @* <td data-title="موجودی"> *@
+                        @*     <mark class="instock">موجود در انبار</mark> *@
+                        @* </td> *@
+                        @* *@
+                        @* <td data-title="قیمت"> *@
+                        @*     <del> *@
+                        @*         <span class="woocommerce-Price-amount amount">198,000&nbsp;<span class="woocommerce-Price-currencySymbol">تومان</span></span> *@
+                        @*     </del> *@
+                        @*     <ins> *@
+                        @*         <span class="woocommerce-Price-amount amount">128,000&nbsp;<span class="woocommerce-Price-currencySymbol">تومان</span></span> *@
+                        @*     </ins> *@
+                        @* </td> *@
+
+                        <td class="diviader"></td>
+                    </tr>
                 }
+                </tbody>
 
-                else if (Convert.ToBoolean(TempData["IsSuccess"]) == false)
-                {
-                    <div class="alert alert-danger">
-                        @TempData["Message"]
+            </table>
+        </form>
+    </div>
+</article>
+
+<script>jQuery("a.dokan-add-new-product").removeClass("dokan-add-new-product");</script>
+<script type="text/html" id="tmpl-dokan-add-new-product">
+    <div id="dokan-add-new-product-popup" class="white-popup dokan-add-new-product-popup">
+        <h2><i class="fa fa-briefcase">&nbsp;</i>&nbsp;افزودن محصول جدید</h2>
+
+        <form action="" method="post" id="dokan-add-new-product-form">
+            <div class="product-form-container">
+                <div class="content-half-part dokan-feat-image-content">
+                    <div class="dokan-feat-image-upload">
+                        <div class="instruction-inside">
+                            <input type="hidden" name="feat_image_id" class="dokan-feat-image-id" value="0">
+
+                            <i class="fa fa-cloud-upload"></i>
+                            <a href="#" class="dokan-feat-image-btn btn btn-sm">تصویر کاور محصول را بارگذاری نمائید.</a>
+                        </div>
+
+                        <div class="image-wrap dokan-hide">
+                            <a class="close dokan-remove-feat-image">&times;</a>
+                            <img height="" width="" src="" alt="">
+                        </div>
                     </div>
-                }
-            }
-            
-            <section class="users-list-wrapper">
-                <div class="users-list-table">
-                    <div class="card">
-                        <div class="card-content">
-                            <div class="card-body">
-                                
-                                <div class="table-responsive">
-                                    <table id="users-list-datatable" class="table">
-                                        <thead>
-                                        <tr>
-                                            <th style="display:none">None</th>
-                                            <th style="display:none">None</th>
-                                            <th style="display:none">None</th>
-                                            <th>شماره</th>
-                                            <th>نام محصول</th>
-                                            <th>جز منو</th>
-                                            <th>تاریخ ایجاد </th>
-                                            <th>عملیات</th>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                            @{var counter = 0; }
-                                            @foreach (var item in Model.Products)
-                                            {
-                                                counter++;
-                                                <tr>
-                                                    <td style="display:none"> </td>
-                                                    <td style="display:none"> </td>
-                                                    <td style="display:none"> </td>
-                                                   
-                                                    
-                                                    
 
-                                                    <td> @counter</td>
+                    <div class="dokan-product-gallery">
+                        <div class="dokan-side-body" id="dokan-product-images">
+                            <div id="product_images_container">
+                                <ul class="product_images dokan-clearfix">
 
-                                                    <td>
-                                                        @item.PrdName
-                                                    </td>
-                                                    
-                                                    <td>
-                                                        @item.subMenu.Sgname
-                                                    </td>
-                                                    
-                                                    <td>
-                                                        @item.RegisterDatePersian
-                                                    </td>
-                                                    
-                                                    @* <td> تکمیل میگردد</td> *@
-                                                    
-                                                    <td class="tdDisplay">
-                                                        <a asp-area="Admin" asp-controller="Products" asp-action="Details" asp-route-id="@item.ProductId" title="مشاهده جزییات"><span class="badge badge-info d-inline-flex align-items-center mr-1 mb-1"><i class="fa fa-folder-open" aria-hidden="true"></i></span></a>
-                                                        
-                                                        @if (_authorizationService.AuthorizeAsync(User, "ProductsEdit").Result.Succeeded)
-                                                        {
-                                                            <a asp-area="Admin" asp-controller="Products" asp-action="Edit" asp-route-id="@item.ProductId" title="ویرایش"><span class="badge badge-warning d-inline-flex align-items-center mr-1 mb-1"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></span></a>
-                                                        }
-                                                        
-                                                        
-                                                         @if (_authorizationService.AuthorizeAsync(User, "ProductsActive").Result.Succeeded)
-                                                         {
-                                                             @if (@item.PrdInactiveInSale == false)
-                                                             {
-                                                                 <a asp-area="Admin" asp-controller="Products" asp-action="Active" asp-route-id="@item.ProductId" title="غیر فعال است"><span class="badge badge-secondary d-inline-flex align-items-center mr-1 mb-1"><i class="fa fa-toggle-off" aria-hidden="true"></i></span></a>
-                                                             }
-                                                             else
-                                                             {
-                                                                 <a asp-area="Admin" asp-controller="Products" asp-action="Active" asp-route-id="@item.ProductId" title="فعال است"><span class="badge badge-primary d-inline-flex align-items-center mr-1 mb-1"><i class="fa fa-toggle-on" aria-hidden="true"></i></span></a>
-                                                             }
-                                                         }
+                                    <li class="add-image add-product-images tips" data-title="افزودن گالری عکس">
+                                        <a href="#" class="add-product-images">
+                                            <i class="fa fa-plus" aria-hidden="true"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                                <input type="hidden" id="product_image_gallery" name="product_image_gallery" value="">
+                            </div>
+                        </div>
+                    </div>
 
-                                                        
-                                                         @if (_authorizationService.AuthorizeAsync(User, "ProductsDelete").Result.Succeeded)
-                                                         {
-                                                             <a asp-area="Admin" asp-controller="Products" asp-action="Delete" asp-route-id="@item.ProductId" title="حذف" onclick="return confirm('ایا از حذف مطمعن هستید؟');"><span class="badge badge-danger d-inline-flex align-items-center mr-1 mb-1"><i class="fa fa-window-close" aria-hidden="true"></i></span></a>
-                                                         }
-                                                        </td>
+                </div>
+                <div class="content-half-part dokan-product-field-content">
+                    <div class="dokan-form-group">
+                        <input type="text" class="dokan-form-control" name="post_title" placeholder="نام محصول">
+                    </div>
 
-                                                </tr>
-                                            }
-
-                                        </tbody>
-                                    </table>
+                    <div class="dokan-clearfix">
+                        <div class="dokan-form-group dokan-clearfix dokan-price-container">
+                            <div class="content-half-part">
+                                <label for="_regular_price" class="form-label">قیمت</label>
+                                <div class="dokan-input-group">
+                                    <span class="dokan-input-group-addon">تومان</span>
+                                    <input type="text" class="dokan-product-regular-price wc_input_price dokan-form-control" name="_regular_price" id="_regular_price" placeholder="0.00">
                                 </div>
-                                 
+                            </div>
+
+                            <div class="content-half-part sale-price">
+                                <label for="_sale_price" class="form-label">
+                                    قیمت با تخفیف <a href="#" class="sale_schedule">برنامه</a>
+                                    <a href="#" class="cancel_sale_schedule dokan-hide">لغو</a>
+                                </label>
+
+                                <div class="dokan-input-group">
+                                    <span class="dokan-input-group-addon">تومان</span>
+                                    <input type="text" class="dokan-product-sales-price wc_input_price dokan-form-control" name="_sale_price" placeholder="0.00" id="_sale_price">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="dokan-hide sale-schedule-container sale_price_dates_fields dokan-clearfix dokan-form-group">
+                            <div class="content-half-part from">
+                                <div class="dokan-input-group">
+                                    <span class="dokan-input-group-addon">از</span>
+                                    <input type="text" name="_sale_price_dates_from" class="dokan-form-control datepicker sale_price_dates_from" value="" maxlength="10" pattern="[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|1[0-9]|2[0-9]|3[01])" placeholder="YYYY-MM-DD">
+                                </div>
+                            </div>
+
+                            <div class="content-half-part to">
+                                <div class="dokan-input-group">
+                                    <span class="dokan-input-group-addon">به</span>
+                                    <input type="text" name="_sale_price_dates_to" class="dokan-form-control datepicker sale_price_dates_to" value="" maxlength="10" pattern="[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|1[0-9]|2[0-9]|3[01])" placeholder="YYYY-MM-DD">
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </section>
-        </div>
+                <div class="dokan-clearfix"></div>
+                <div class="product-full-container">
+                    <div class="dokan-form-group">
+                        <select name='product_cat' id='product_cat' class='product_cat dokan-form-control dokan-select2'>
+                            <option value='-1' selected='selected'>&#8211; انتخاب دسته &#8211;</option>
+                            <option class="level-0" value="15">دسته بندی نشده</option>
+                            <option class="level-0" value="20">کالای دیجیتال</option>
+                            <option class="level-1" value="21">&nbsp;&nbsp;&nbsp;موبایل</option>
+                            <option class="level-2" value="93">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;گوشی موبایل</option>
+                            <option class="level-2" value="94">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;لوازم جانبی گوشی موبایل</option>
+                            <option class="level-1" value="22">&nbsp;&nbsp;&nbsp;تبلت و کتابخوان</option>
+                            <option class="level-2" value="95">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;تبلت</option>
+                            <option class="level-2" value="96">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;کتاب خوان</option>
+                            <option class="level-2" value="97">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;رهیاب ماهواره ای</option>
+                            <option class="level-2" value="98">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;لوازم جانبی تبلت</option>
+                            <option class="level-1" value="92">&nbsp;&nbsp;&nbsp;لپ تاپ</option>
+                            <option class="level-2" value="99">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;لپ تاپ و الترابوک</option>
+                            <option class="level-2" value="100">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;گیمینگ</option>
+                            <option class="level-2" value="101">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;لوازم جانبی لپ تاپ</option>
+                            <option class="level-1" value="102">&nbsp;&nbsp;&nbsp;کارت هدیه</option>
+                            <option class="level-0" value="159">هایپر مارکت</option>
+                            <option class="level-0" value="178">کتاب</option>
+                            <option class="level-0" value="179">لپ تاپ</option>
+                            <option class="level-0" value="229">ساعت مچی</option>
+                            <option class="level-0" value="230">لباس</option>
+                            <option class="level-0" value="231">کفش</option>
+                        </select>
+                    </div>
+
+                    <div class="dokan-form-group">
+                        <label for="product_tag" class="form-label">برچسب‌ها</label>
+                        <select multiple="multiple" name="product_tag[]" id="product_tag_search" class="product_tag_search product_tags dokan-form-control dokan-select2" data-placeholder="Select tags"></select>
+                    </div>
+
+
+                    <div class="dokan-form-group">
+                        <textarea name="post_excerpt" id="" class="dokan-form-control" rows="5" placeholder="توضیح کوتاهی در مورد این محصول وارد نمایید..."></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="product-container-footer">
+                <span class="dokan-show-add-product-error"></span>
+                <span class="dokan-spinner dokan-add-new-product-spinner dokan-hide"></span>
+                <input type="submit" id="dokan-create-new-product-btn" class="dokan-btn dokan-btn-default" data-btn_id="create_new" value="ایجاد محصول">
+                <input type="submit" id="dokan-create-and-add-new-product-btn" class="dokan-btn dokan-btn-theme" data-btn_id="create_and_new" value="ایجاد و افزودن جدید">
+            </div>
+        </form>
     </div>
-</div>
+</script>
+
+</div><!-- #primary .content-area -->
+
+
+</div><!-- .dokan-dashboard-wrap -->
+
+
+</main>

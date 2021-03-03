@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Microsoft.AspNetCore.Identity;
 using ParsaPoolad.Application.Interfaces.Contexts;
+using ParsaPoolad.Domain.Entities.Identity;
 
 namespace ParsaPoolad.Application.Services.BackEnd.Admin.Products.Queries
 {
@@ -25,6 +27,7 @@ namespace ParsaPoolad.Application.Services.BackEnd.Admin.Products.Queries
                 .Select(p=>new GetIndexProductsDto
                 {
                     ProductId = p.ProductId,
+                    Price=p.PrdPrice,
                     PrdName=p.PrdName,
                     PrdInactiveInSale=p.PrdInactiveInSale,
                     RegisterDatePersian=p.RegisterDatePersian,
@@ -52,6 +55,7 @@ namespace ParsaPoolad.Application.Services.BackEnd.Admin.Products.Queries
     {
         public int ProductId { get; set; }
         public string PrdName { get; set; }
+        public decimal? Price { get; set; }
         public bool? PrdInactiveInSale { get; set; }
         public string RegisterDatePersian { get; set; }
         public GetIndexMenuDto subMenu { get; set; }

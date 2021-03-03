@@ -2,11 +2,12 @@
 @using Microsoft.AspNetCore.Identity
 @using ParsaPoolad.Domain.Entities.Identity
 @inject IAuthorizationService _authorizationService;
-
 @inject SignInManager<User> _signInManager
 @inject UserManager<User> _userManager
-
-
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    Layout = null;
+}
 
 
 <!DOCTYPE html>
@@ -15,8 +16,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
     <script>document.documentElement.className = document.documentElement.className + ' yes-js js_active js'</script>
-    <title>پیشخوان &#8211; نیوکالا</title>
-    <script> var ajax_url = "https://newkalatheme.ir/preview/wp-admin/admin-ajax.php" ; </script><meta charset="UTF-8"><meta name="theme-color" content="#dd3333"/><link href='https://fonts.gstatic.com' crossorigin rel='preconnect'/>
+    <title>@ViewData["Title"] | اکوفولاد</title>
+     <script> $('div.alert').delay(3000).slideUp(300);</script>
+    <script> var ajax_url = "https://newkalatheme.ir/preview/wp-admin/admin-ajax.php" ; </script><meta charset="UTF-8"><meta name="theme-color" content="#dd3333"/>
+    <link href='https://fonts.gstatic.com' crossorigin rel='preconnect'/>
     <style type="text/css">
 img.wp-smiley,
 img.emoji {
@@ -58,7 +61,11 @@ img.emoji {
     <link rel='stylesheet' id='jcaa-core-css' href='https://newkalatheme.ir/preview/wp-content/plugins/jc-woocommerce-advanced-attributes/assets/css/core.css?ver=3.2' type='text/css' media='all'/>
     <link rel='stylesheet' id='jcaa-basic-css' href='https://newkalatheme.ir/preview/wp-content/plugins/jc-woocommerce-advanced-attributes/assets/css/basic.css?ver=3.2' type='text/css' media='all'/>
     <link rel='stylesheet' id='dokan-style-css' href='https://newkalatheme.ir/preview/wp-content/plugins/dokan-lite/assets/css/style.css?ver=1611148313' type='text/css' media='all'/>
-    <link rel='stylesheet' id='dokan-fontawesome-css' href='https://newkalatheme.ir/preview/wp-content/plugins/dokan-lite/assets/vendors/font-awesome/font-awesome.min.css?ver=3.1.2' type='text/css' media='all'/>
+    
+    
+    @* <link rel='stylesheet' id='dokan-fontawesome-css' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css' type='text/css' media='all'/> *@
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous" />
+    
     <link rel='stylesheet' id='dokan-rtl-style-css' href='https://newkalatheme.ir/preview/wp-content/plugins/dokan-lite/assets/css/rtl.css?ver=3.1.2' type='text/css' media='all'/>
     <link rel='stylesheet' id='jquery-ui-css' href='https://newkalatheme.ir/preview/wp-content/plugins/dokan-lite/assets/vendors/jquery-ui/jquery-ui-1.10.0.custom.css?ver=3.1.2' type='text/css' media='all'/>
     <link rel='stylesheet' id='dokan-magnific-popup-css' href='https://newkalatheme.ir/preview/wp-content/plugins/dokan-lite/assets/vendors/magnific/magnific-popup.css?ver=3.1.2' type='text/css' media='all'/>
@@ -72,7 +79,13 @@ img.emoji {
     <link rel='stylesheet' id='dokan-pro-style-css' href='https://newkalatheme.ir/preview/wp-content/plugins/dokan-pro/assets/css/dokan-pro.min.css?ver=3.1.3' type='text/css' media='all'/>
     <link rel='stylesheet' id='pw-datepicker-css-css' href='https://newkalatheme.ir/preview/wp-content/plugins/persian-woocommerce/assets/css/persian-datepicker.css?ver=5.6.2' type='text/css' media='all'/>
     <link rel='stylesheet' id='newkala-dokan-css' href='https://newkalatheme.ir/preview/wp-content/themes/newkala/css/dokan.css?ver=5.5.3' type='text/css' media='all'/>
-    <link rel='stylesheet' id='nk-font-awesome-css' href='https://newkalatheme.ir/preview/wp-content/themes/newkala/css/font-awesome-all.min.css?ver=5.14.0' type='text/css' media='all'/>
+    
+    
+    @* <link rel='stylesheet' id='nk-font-awesome-css' href='https://newkalatheme.ir/preview/wp-content/themes/newkala/css/font-awesome-all.min.css?ver=5.14.0' type='text/css' media='all'/> *@
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/fontawesome.min.css" integrity="sha512-8jdwayz5n8F2cnW26l9vpV6+yGOcRAqz6HTu+DQ3FtVIAts2gTdlFZOGpYhvBMXkWEgxPN3Y22UWyZXuDowNLA==" crossorigin="anonymous" />
+   <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+   <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+
     <script type='text/javascript' src='https://newkalatheme.ir/preview/wp-includes/js/jquery/jquery.min.js?ver=3.5.1' id='jquery-core-js'></script>
     <script type='text/javascript' src='https://newkalatheme.ir/preview/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.3.2' id='jquery-migrate-js'></script>
     <script type='text/javascript' src='https://newkalatheme.ir/preview/wp-content/themes/newkala/js/jquery.preloadinator.js?ver=5.5.3' id='nk-preloading-js'></script>
@@ -289,48 +302,27 @@ var userSettings = {"url":"\/preview\/","uid":"91","time":"1614166489","secure":
         <div class="sp_navbar">
             <ul class="sp_List_members">
                 <li class="sp_first_list">
-                    <a href="https://newkalatheme.ir/preview"> صفحه اصلی</a>
+                    <a href="~/">سایت</a>
                 </li>
 
                 <li class="sp_first_list dashboard active ">
-                    <a href="https://newkalatheme.ir/preview/dashboard/"> پیشخوان</a>
+                    <a asp-area="Owner" asp-controller="Home" asp-action="Index"> پیشخوان</a>
                 </li>
 
 
                 <li class="sp_first_list products  ">
-                    <a href="https://newkalatheme.ir/preview/dashboard/products/"> محصولات</a>
+                    <a asp-area="Owner" asp-controller="Products" asp-action="Index" asp-route-id=""> محصولات</a>
                 </li>
 
 
                 <li class="sp_first_list orders  ">
-                    <a href="https://newkalatheme.ir/preview/dashboard/orders/"> سفارشات</a>
+                    <a> سفارشات</a>
                 </li>
 
 
                 <li class="sp_first_list coupons  ">
-                    <a href="https://newkalatheme.ir/preview/dashboard/coupons/"> کوپن‌ها</a>
+                    <a > کوپن‌ها</a>
                 </li>
-
-
-                <li class="sp_first_list reports  ">
-                    <a href="https://newkalatheme.ir/preview/dashboard/reports/"> گزارشات</a>
-                </li>
-
-
-                <li class="sp_first_list reviews  ">
-                    <a href="https://newkalatheme.ir/preview/dashboard/reviews/"> نظرات</a>
-                </li>
-
-
-                <li class="sp_first_list withdraw  ">
-                    <a href="https://newkalatheme.ir/preview/dashboard/withdraw/"> برداشت</a>
-                </li>
-
-
-                <li class="sp_first_list settings  ">
-                    <a href="https://newkalatheme.ir/preview/dashboard/settings/store/"> تنظیمات <i class="fa fa-angle-right pull-right"></i></a>
-                </li>
-
 
             </ul>
         </div>
@@ -384,7 +376,7 @@ var userSettings = {"url":"\/preview\/","uid":"91","time":"1614166489","secure":
                                     تغییر رمز عبور
                                 </li>
                             </a>-->
-                            <a href="https://newkalatheme.ir/preview/wp-login.php?action=logout&amp;redirect_to=https%3A%2F%2Fnewkalatheme.ir%2Fpreview&amp;_wpnonce=c94f480b7d">
+                            <a asp-area="Auth" asp-controller="Account" asp-action="LogOut">
                                 <li>
                                     <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" ratio="1">
                                         <circle fill="none" stroke="#777" stroke-width="1.1" cx="10" cy="10" r="9"></circle> <line fill="none" stroke="#777" stroke-width="1.1" x1="4" y1="3.5" x2="16" y2="16.5"></line>
@@ -1401,7 +1393,7 @@ jQuery( document ).ready( function($){
                         <option value="file">
                             پرونده رسانه‌ای
                         </option>
-                        <option value="post">
+                        @* <option value="post"> *@
                         @*     برگهٔ پیوست *@
                         @* </option> *@
                         @* <option value="file"> *@

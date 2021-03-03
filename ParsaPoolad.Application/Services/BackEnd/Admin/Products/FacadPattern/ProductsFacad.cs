@@ -9,6 +9,7 @@ namespace ParsaPoolad.Application.Services.BackEnd.Admin.Products.FacadPattern
     public class ProductsFacad : IProductsFacad
     {
         private readonly IDataBaseContext _context;
+        
 
         public ProductsFacad(IDataBaseContext context)
         {

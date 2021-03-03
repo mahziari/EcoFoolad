@@ -17,9 +17,11 @@ namespace EndPoint.Web
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
-                    // for Environment Area
-                    var projectName = System.Reflection.Assembly.GetExecutingAssembly().GetName().Name;
-                    webBuilder.UseStartup(projectName ?? string.Empty);
+                    // for Environment Area-> This Code request create 3 startup.cs for env
+                    // var projectName = System.Reflection.Assembly.GetExecutingAssembly().GetName().Name;
+                    // webBuilder.UseStartup(projectName ?? string.Empty);
+                    
+                    webBuilder.UseStartup<Startup>();
                     
                     
                     // Error Handling

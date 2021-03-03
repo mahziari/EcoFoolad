@@ -2,7 +2,6 @@
 @using Microsoft.AspNetCore.Authorization;
 @using Microsoft.AspNetCore.Identity
 @inject IAuthorizationService _authorizationService;
-
 @inject SignInManager<User> _signInManager
 @inject UserManager<User> _userManager
 
@@ -194,7 +193,7 @@
                     <div class="content_login_register">
                     @* <strong> @_userManager.GetUserAsync(User).Result.FirstName</strong> *@
                         <div class="nk_main_avatar_header">
-                            <img src="~/BackEnd/Admin/images/avatars/UserAvatar.jpg" srcset="~/BackEnd/Admin/images/avatars/UserAvatar.jpg" class="avatar avatar-65 photo" height="200" width="200">
+                            <img src="~/BackEnd/Admin/images/avatars/AdminAvatar.png" srcset="~/BackEnd/Admin/images/avatars/AdminAvatar.png" class="avatar avatar-65 photo" height="200" width="200">
                             <div class="nk_main_link_panels_header">
                                 <a class="nk_go_to_dashboard" target="_blank" asp-area="Admin" asp-controller="Home" asp-action="Index">
                                     پنل برنامه نویس ارشد
@@ -222,7 +221,7 @@
                     <div class="content_login_register">
                         @* <strong>عزیز @_userManager.GetUserAsync(User).Result.FirstName</strong> *@
                         <div class="nk_main_avatar_header">
-                            <img src="~/BackEnd/Admin/images/avatars/UserAvatar.jpg" srcset="~/BackEnd/Admin/images/avatars/UserAvatar.jpg" class="avatar avatar-65 photo" height="200" width="200">
+                            <img src="~/BackEnd/Admin/images/avatars/AdminAvatar.png" srcset="~/BackEnd/Admin/images/avatars/AdminAvatar.png" class="avatar avatar-65 photo" height="200" width="200">
                             <div class="nk_main_link_panels_header">
                                 <a class="nk_go_to_dashboard" target="_blank" asp-area="Admin" asp-controller="Home" asp-action="Index">
                                     پنل مدیر ارشد 
@@ -250,7 +249,7 @@
                     <div class="content_login_register">
                         @* <strong>عزیز @_userManager.GetUserAsync(User).Result.FirstName</strong> *@
                         <div class="nk_main_avatar_header">
-                            <img src="~/BackEnd/Admin/images/avatars/UserAvatar.jpg" srcset="~/BackEnd/Admin/images/avatars/UserAvatar.jpg" class="avatar avatar-65 photo" height="200" width="200">
+                            <img src="~/BackEnd/Owner/images/avatars/SellerAvatar.jpg" srcset="~/BackEnd/Owner/images/avatars/SellerAvatar.jpg" class="avatar avatar-65 photo" height="200" width="200">
                             <div class="nk_main_link_panels_header">
                                 <a class="nk_go_to_dashboard" target="_blank" asp-area="Owner" asp-controller="Home" asp-action="Index">
                                     پنل فروشندگان
@@ -278,7 +277,7 @@
                     <div class="content_login_register">
                         @* <strong>عزیز @_userManager.GetUserAsync(User).Result.FirstName</strong> *@
                         <div class="nk_main_avatar_header">
-                            <img src="~/BackEnd/Admin/images/avatars/UserAvatar.jpg" srcset="~/BackEnd/Admin/images/avatars/UserAvatar.jpg" class="avatar avatar-65 photo" height="200" width="200">
+                            <img src="~/BackEnd/User/images/avatars/UserAvatar.jpg" srcset="~/BackEnd/User/images/avatars/UserAvatar.jpg" class="avatar avatar-65 photo" height="200" width="200">
                             <div class="nk_main_link_panels_header">
                                 <a class="nk_go_to_dashboard" target="_blank" asp-area="User" asp-controller="Home" asp-action="Index">
                                     پنل کاربر
