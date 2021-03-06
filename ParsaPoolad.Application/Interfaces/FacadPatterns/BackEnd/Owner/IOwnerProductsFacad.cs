@@ -4,7 +4,7 @@ using ParsaPoolad.Application.Services.BackEnd.Owner.Products.Queries.GetCreateP
 
 namespace ParsaPoolad.Application.Interfaces.FacadPatterns.BackEnd.Owner
 {
-    public interface IProductsFacad
+    public interface IOwnerProductsFacad
     {
         IGetIndexProductsServices GetIndexProductsServices { get; }
         IGetCreateProductServices GetCreateProductServices { get; }

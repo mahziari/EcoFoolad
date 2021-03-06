@@ -26,6 +26,8 @@ using ParsaPoolad.Application.Services.FrontEnd.Products.FacadPattern;
 using ParsaPoolad.Domain.Entities.Identity;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.Extensions.Hosting;
+using ParsaPoolad.Application.Interfaces.FacadPatterns.BackEnd.Owner;
+using ParsaPoolad.Application.Services.BackEnd.Owner.Products.FacadPattern;
 
 
 namespace EndPoint.Web
@@ -168,7 +170,7 @@ namespace EndPoint.Web
             services.AddScoped<ISlidersFacad, SlidersFacad>();
             services.AddScoped<ICompanyFacad, CompanyFacad>();
             //------ Owner Panel Services
-            services.AddScoped<IProductsFrontEndFacad, ProductsFrontEndFacad>();
+            services.AddScoped<IOwnerProductsFacad, OwnerProductsFacad>();
 
             
             

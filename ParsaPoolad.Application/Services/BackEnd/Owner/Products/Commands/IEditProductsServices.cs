@@ -6,7 +6,7 @@ namespace ParsaPoolad.Application.Services.BackEnd.Owner.Products.Commands
 {
     public interface IEditProductsServices
     {
-        ResultEditProductsDto Execute(EditProductsServicesDto editProductsServicesDto,int id);
+        ResultEditProductsDto Execute(EditProductsServicesDto editProductsServicesDto, int id);
     }
 
     public class EditProductsServices:IEditProductsServices {
@@ -17,7 +17,8 @@ namespace ParsaPoolad.Application.Services.BackEnd.Owner.Products.Commands
             _context = context;
         }
 
-        public ResultEditProductsDto Execute(EditProductsServicesDto editProductsServicesDto,int id)
+        public ResultEditProductsDto Execute(EditProductsServicesDto editProductsServicesDto,
+            int id)
         {
             var product = _context.Wsproducts.Find(id);
 

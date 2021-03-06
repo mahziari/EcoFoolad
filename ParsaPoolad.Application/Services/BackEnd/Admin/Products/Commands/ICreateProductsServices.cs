@@ -33,7 +33,7 @@ namespace ParsaPoolad.Application.Services.BackEnd.Admin.Products.Commands
                 PrdDescription = createProductsServicesDto.PrdDescription,
                 PrdPrice =createProductsServicesDto.PrdPrice,
                 PrdInactiveInSale =true,
-                UserId= 57,
+                UserId= 1,
                 Month1=6,
                 Fpid = 1,
                 RegisterDatePersian = PersianDateTime.Now.ToString("yyyyMMdd"),
@@ -108,5 +108,6 @@ namespace ParsaPoolad.Application.Services.BackEnd.Admin.Products.Commands
         [Display(Name = "قیمت محصول")]
         [Required(ErrorMessage = "پر کردن فیلد {0} اجباری است")]
         public decimal? PrdPrice { get; set; }
+        
     }
 }

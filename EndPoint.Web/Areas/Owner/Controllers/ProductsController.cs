@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using ParsaPoolad.Application.Interfaces.FacadPatterns.BackEnd.Admin;
-using ParsaPoolad.Application.Services.BackEnd.Admin.Products.Commands;
+using ParsaPoolad.Application.Interfaces.FacadPatterns.BackEnd.Owner;
+using ParsaPoolad.Application.Services.BackEnd.Owner.Products.Commands;
 
 namespace EndPoint.Web.Areas.Owner.Controllers
 {
@@ -10,31 +10,31 @@ namespace EndPoint.Web.Areas.Owner.Controllers
     [Route("panel/owner/products/[action]/{id?}")]
     public class ProductsController: Controller
     {
-        private readonly IProductsFacad _productsFacad;
+        private readonly IOwnerProductsFacad _ownerProductsFacad;
 
-        public ProductsController(IProductsFacad productsFacad)
+        public ProductsController(IOwnerProductsFacad productsFacad)
         {
-            _productsFacad = productsFacad;
+            _ownerProductsFacad = productsFacad;
         }
 
         
         public IActionResult Index()
         {
-            var result = _productsFacad.GetIndexProductsServices.Execute();
+            var result = _ownerProductsFacad.GetIndexProductsServices.Execute();
             return View(result);
         }
         
         
         public IActionResult Details(int id)
         {
-            var result = _productsFacad.GetDetailsProductsServices.Execute(id);
+            var result = _ownerProductsFacad.GetDetailsProductsServices.Execute(id);
             return View(result);
         }
         
         
         public IActionResult Create()
         {
-            var result = _productsFacad.GetCreateProductServices.Execute();
+            var result = _ownerProductsFacad.GetCreateProductServices.Execute();
            
             return View(result);
         }
@@ -47,10 +47,10 @@ namespace EndPoint.Web.Areas.Owner.Controllers
             
             if (!ModelState.IsValid)
             {
-                return View("Create",_productsFacad.GetCreateProductServices.Execute());
+                return View("Create",_ownerProductsFacad.GetCreateProductServices.Execute());
             }
             
-            var result = _productsFacad.CreateProductsServices.Execute(createProductsServicesDto);
+            var result = _ownerProductsFacad.CreateProductsServices.Execute(createProductsServicesDto);
       
             TempData["IsSuccess"] = result.IsSuccess;
             TempData["Message"] = result.Message; 
@@ -62,7 +62,7 @@ namespace EndPoint.Web.Areas.Owner.Controllers
         [HttpGet]
         public IActionResult Edit(int id)
         {
-            var result = _productsFacad.GetEditProductServices.Execute(id);
+            var result = _ownerProductsFacad.GetEditProductServices.Execute(id);
             return View(result);
         }
         
@@ -72,10 +72,10 @@ namespace EndPoint.Web.Areas.Owner.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return View("Edit",_productsFacad.GetEditProductServices.Execute(id));
+                return View("Edit",_ownerProductsFacad.GetEditProductServices.Execute(id));
             }
             
-            var result = _productsFacad.EditProductsServices.Execute(editProductsServicesDto,id);
+            var result = _ownerProductsFacad.EditProductsServices.Execute(editProductsServicesDto,id);
         
             TempData["IsSuccess"] = result.IsSuccess;
             TempData["Message"] = result.Message; 
@@ -87,7 +87,7 @@ namespace EndPoint.Web.Areas.Owner.Controllers
         // [ValidateAntiForgeryToken]
         public IActionResult Delete(int id)
         {
-            var result = _productsFacad.DeleteProductServices.Execute(id);
+            var result = _ownerProductsFacad.DeleteProductServices.Execute(id);
         
             TempData["IsSuccess"] = result.IsSuccess;
             TempData["Message"] = result.Message; 
@@ -100,7 +100,7 @@ namespace EndPoint.Web.Areas.Owner.Controllers
         // [ValidateAntiForgeryToken]
         public IActionResult Active(int id)
         {
-            var result = _productsFacad.ActiveProductServices.Execute(id);
+            var result = _ownerProductsFacad.ActiveProductServices.Execute(id);
         
             TempData["IsSuccess"] = result.IsSuccess;
             TempData["Message"] = result.Message; 
@@ -112,7 +112,7 @@ namespace EndPoint.Web.Areas.Owner.Controllers
         [ValidateAntiForgeryToken]
         public JsonResult GetReturnSubMenuAjax(int id)
         {
-            var result = _productsFacad.GetReturnSubMenusAjaxServices.Execute(id);
+            var result = _ownerProductsFacad.GetReturnSubMenusAjaxServices.Execute(id);
             return Json(result.SubMenus);
         }
         
@@ -122,7 +122,7 @@ namespace EndPoint.Web.Areas.Owner.Controllers
         [ValidateAntiForgeryToken]
         public JsonResult GetReturnSubSubMenuAjax(int id)
         {
-            var result = _productsFacad.GetReturnSubSubMenusAjaxServices.Execute(id);
+            var result = _ownerProductsFacad.GetReturnSubSubMenusAjaxServices.Execute(id);
             return Json(result.SubSubMenus);
         }
         
@@ -132,7 +132,7 @@ namespace EndPoint.Web.Areas.Owner.Controllers
         [ValidateAntiForgeryToken]
         public JsonResult GetReturnCompanyAjax(int id)
         {
-            var result = _productsFacad.GetReturnCompanyAjaxServices.Execute(id);
+            var result = _ownerProductsFacad.GetReturnCompanyAjaxServices.Execute(id);
             return Json(result.CompanyMenus);
         }
 

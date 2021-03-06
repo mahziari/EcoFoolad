@@ -1,627 +1,266 @@
-﻿@using ParsaPoolad.Application.Services.BackEnd.Admin.Products.Queries
+﻿@using ParsaPoolad.Application.Services.BackEnd.Owner.Products.Queries
 @model ResultGetCreateProductsDto
+
+@using Microsoft.AspNetCore.Authorization
+@using Microsoft.AspNetCore.Identity
+@using ParsaPoolad.Domain.Entities.Identity
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@inject IAuthorizationService _authorizationService;
+@inject SignInManager<User> _signInManager
+@inject UserManager<User> _userManager
+
 @{
     ViewData["Title"] = " محصول جدید ";
-    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    Layout = "~/Areas/Owner/Views/Shared/_Layout.cshtml";
+}
+
+@section Foo{
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script>
+     // Ajax Result Sub Menu And Company Menu
+    $(document).ready(function () {
+        $("select.selectMenuAndReturnSubMenu").change(function () {
+            $id = $(".selectMenuAndReturnSubMenu option:selected").val();
+            var token = $('input[name="__RequestVerificationToken"]').val();
+            $('#resultSubMenu').empty();
+            $('.resultSubSubMenu').empty();
+            $('#PrdShpotherSupplierId').empty();
+            $('.UnitProduct').empty();
+            
+            // Ajax Result Sub Menu
+            $.ajax({
+                type: 'POST',
+                headers:{'RequestVerificationToken' :token},
+                url: 'GetReturnSubMenuAjax',
+                data_type:'Json',
+                data: {id : $id,},
+                success: function (result) {
+                     $('#resultSubMenu').append("<option value=''>" + "انتخاب کنید" + "</option>");
+                   $.each(result,function(i,item ){
+                        $('#resultSubMenu').append("<option value='" + item.prdFirstGroupId + "'>" + item.fgname + "</option>");
+                        });
+                   
+                   if ($id==2 || $id==4 || $id==5 || $id==6 || $id==7){
+                       $('.UnitProduct').append("<option value='"+2+"'>" + "کیلوگرم" + "</option>");
+                       }
+                   if ($id==1 || $id==3){
+                          $('.UnitProduct').append("<option value='"+5+"'>" + "شاخه" + "</option>");
+                          }
+                   },
+                   
+                  });
+            // Ajax Result Company Menu
+             $.ajax({
+                type: 'POST',
+                headers:{'RequestVerificationToken' :token},
+                url: 'GetReturnCompanyAjax',
+                data_type:'Json',
+                data: {id : $id,},
+                success: function (result) {
+                   $('#PrdShpotherSupplierId').append("<option value=''>" + "انتخاب کنید" + "</option>");
+                      $.each(result,function(i,item ){
+                       $('#PrdShpotherSupplierId').append("<option value='" + item.companyId + "'>" + item.cmpName + "</option>");
+                       });
+                   },
+                  });
+            })
+        });
+      // Ajax Result Sub Sub Menu
+        $(document).ready(function () {
+            $("select.selectMenuAndReturnSubSubMenu").change(function () {
+                $id = $(".selectMenuAndReturnSubSubMenu option:selected").val();
+                var token = $('input[name="__RequestVerificationToken"]').val();
+                $('.resultSubSubMenu').empty();
+                $.ajax({
+                    type: 'POST',
+                    headers:{'RequestVerificationToken' :token},
+                    url: 'GetReturnSubSubMenuAjax',
+                    data_type:'Json',
+                    data: {id : $id,},
+                    success: function (result) {
+                        $('.resultSubSubMenu').append("<option value=''>" + "انتخاب کنید" + "</option>");
+                       $.each(result,function(i,item ){
+                            $('.resultSubSubMenu').append("<option value='" + item.wsproductSecondGroupId + "'>" + item.sgname + "</option>");
+                            });
+                       },
+                      });
+                })
+            });
+    </script>
 }
 
 
 <main id="main" class="nk-main-content-dokan-dashboard">
-		
-				
 
-    <div class="dokan-dashboard-wrap">
+
+<div class="dokan-dashboard-wrap">
+
+
+<div class="dokan-dashboard-content dokan-product-edit">
+
+
+<header class="dokan-dashboard-header dokan-clearfix">
+    <h1 class="entry-title">
+        ویرایش محصول
+        @* <span class="dokan-label dokan-label-default dokan-product-status-label"> *@
+        @*     پیش‌نویس *@
+        @* </span> *@
+
+
+    </h1>
+</header><!-- .entry-header -->
+
+<div class="product-edit-new-container product-edit-container">
+
+
+<form asp-area="Owner" asp-controller="Products" asp-action="Create" method="post">
+
+
+
+        <!--<div class="dokan-form-top-area">-->
+
+
+<div class="nk-title-box-multistep-edit-product">
+    <span class="icon"></span>
+    <h2 class="title">
+        <span>درج اطلاعات اولیه </span>
+    </h2>
+    <span class="open-close-status"></span>
+</div>
+<div class="nk-tab-content-edit-product">
+    <div class="content-half-part dokan-product-meta" style="width:100%;">
 
         
-        <div class="dokan-dashboard-content dokan-product-edit">
-
-            
-            <header class="dokan-dashboard-header dokan-clearfix">
-                <h1 class="entry-title">
-                    ویرایش محصول                    <span class="dokan-label dokan-label-default dokan-product-status-label">
-                        پیش‌نویس                    </span>
-
-                    
-                                    </h1>
-            </header><!-- .entry-header -->
-
-            <div class="product-edit-new-container product-edit-container">
-                
-                
-                                        <form class="dokan-product-edit-form" role="form" method="post">
-
-                                                        
-                            <!--<div class="dokan-form-top-area">-->
-
-                                
-								
-								<div class="nk-title-box-multistep-edit-product">
-				<span class="icon"></span>
-				<h2 class="title"> <span>درج اطلاعات اولیه </span></h2>
-				<span class="open-close-status"></span>
-			</div>								
-								
-								<div class="nk-tab-content-edit-product">	
-								<div class="content-half-part dokan-product-meta" style="width:100%;">
-
-                                    <div class="dokan-form-group">
-                                        <input type="hidden" name="dokan_product_id" id="dokan-edit-product-id" value="4718">
-
-                                        <label for="post_title" class="form-label">عنوان</label>
-                                                    <input type="text" name="post_title" id="post_title" value="بدون عنوان" class="dokan-form-control" placeholder="نام محصول">
-                                                    <div class="dokan-product-title-alert dokan-hide">
-                                            لطفا عنوان محصول را وارد کنید!                                        </div>
-                                    </div>
-
-                                    
-                                    
-                                                                            <div class="dokan-form-group">
-                                            <label for="product_type" class="form-label">نوع محصول <i class="fa fa-question-circle tips" aria-hidden="true" data-title="انتخاب متغیر اگر محصول شما چند ویژگی دارد - مانند اندازه، رنگ، کیفیت و ..." data-original-title="" title=""></i></label>
-                                            <select name="product_type" class="dokan-form-control" id="product_type">
-                                                                                                    <option value="simple" selected="selected">ساده</option>
-                                                                                                    <option value="variable">متغیر</option>
-                                                                                                    <option value="grouped">گروه محصول</option>
-                                                                                            </select>
-                                        </div>
-                                    
-                                    
-<div class="dokan-form-group">
-	<label for="newkala_subtitle_product" class="form-label">تیتر انگلیسی محصول</label>
-	<input dir="ltr" type="text" name="newkala_subtitle_product" id="newkala_subtitle_product" value="" class="dokan-form-control" placeholder="">
-</div>	
-
-
-<div class="dokan-form-group dokan-product-type-container show_if_simple" style="">
-    <div class="content-half-part downloadable-checkbox">
-        <label>
-            <input type="checkbox" class="_is_downloadable" name="_downloadable" id="_downloadable"> قابل دانلود <i class="fa fa-question-circle tips" aria-hidden="true" data-title="اگر تمایل دارید به محض خرید اجازه دانلود صادر شود این قسمت را تیک بزنید." data-original-title="" title=""></i>
-        </label>
-    </div>
-    <div class="content-half-part virtual-checkbox">
-        <label>
-            <input type="checkbox" class="_is_virtual" name="_virtual" id="_virtual"> مجازی <i class="fa fa-question-circle tips" aria-hidden="true" data-title="محصولات مجازی قابلیت ارسال ندارند." data-original-title="" title=""></i>
-        </label>
-    </div>
-    <div class="dokan-clearfix"></div>
-</div>
-
-                                    <div class="show_if_simple dokan-clearfix" style="">
-
-                                        <div class="dokan-form-group dokan-clearfix dokan-price-container">
-
-                                            <div class="content-half-part regular-price">
-                                                <label for="_regular_price" class="form-label">قیمت                                                    <span class="vendor-earning simple-product" data-commission="0" data-product-id="4718">
-                                                            (  درآمد شما: تومان                                                                <span class="vendor-price">
-                                                                    0                                                                </span>
-                                                            )
-                                                    </span>
-                                                </label>
-                                                <div class="dokan-input-group">
-                                                    
-                                                                <input type="text" name="_regular_price" id="_regular_price" value="" class="wc_input_price dokan-product-regular-price" placeholder="0.00">
-            													<span class="dokan-input-group-addon">تومان</span>
-												</div>
-                                            </div>
-
-                                            <div class="content-half-part sale-price">
-                                                <label for="_sale_price" class="form-label">
-                                                    قیمت با تخفیف                                                    <a href="#" class="sale_schedule ">زمان بندی تخفیف</a>
-                                                    <a href="#" class="cancel_sale_schedule dokan-hide">لغو</a>
-                                                </label>
-
-                                                <div class="dokan-input-group">
-                                                    
-                                                                <input type="text" name="_sale_price" id="_sale_price" value="" class="wc_input_price dokan-product-sales-price" placeholder="0.00">
-            													<span class="dokan-input-group-addon">تومان</span>
-												</div>
-                                            </div>
-                                        </div>
-
-                                        <div class="dokan-form-group dokan-clearfix dokan-price-container">
-                                            <div class="dokan-product-less-price-alert dokan-hide">
-                                                قیمت محصول نمی تواند کمتر از هزینه فروشنده باشد!                                            </div>
-                                        </div>
-
-                                        
-										
-										<div class="sale_price_dates_fields dokan-clearfix dokan-form-group dokan-hide">
-											<div class="content-half-part from">
-                                                <div class="dokan-input-group">
-                                                    <span class="dokan-input-group-addon">از</span>
-                                                    <input type="text" name="_sale_price_dates_from" class="dokan-form-control dokan-start-date hasDatepicker pdp-el" value="" maxlength="10" pattern="[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|1[0-9]|2[0-9]|3[01])" placeholder="YYYY-MM-DD" id="dp1614760581499" pdp-id="pdp-4755235">
-                                                </div>
-                                            </div>
-
-                                            <div class="content-half-part to">
-                                                <div class="dokan-input-group">
-                                                    <span class="dokan-input-group-addon">به</span>
-                                                    <input type="text" name="_sale_price_dates_to" class="dokan-form-control dokan-end-date hasDatepicker pdp-el" value="" maxlength="10" pattern="[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|1[0-9]|2[0-9]|3[01])" placeholder="YYYY-MM-DD" id="dp1614760581500" pdp-id="pdp-9074467">
-                                                </div>
-                                            </div>
-                                        </div><!-- .sale-schedule-container -->
-                                    </div>
-
-                                    
-                                                                            <div class="dokan-form-group">
-                                            <label for="product_cat" class="form-label">دسته</label>
-                                            <select name="product_cat" id="product_cat" class="product_cat dokan-form-control dokan-select2 select2-hidden-accessible" tabindex="-1" aria-hidden="true">
-	<option value="-1" selected="selected">– انتخاب دسته –</option>
-	<option class="level-0" value="15" data-commission="0" data-product-id="4718">دسته بندی نشده</option>
-	<option class="level-0" value="20" data-commission="0" data-product-id="4718">کالای دیجیتال</option>
-	<option class="level-1" value="21" data-commission="0" data-product-id="4718">&nbsp;&nbsp;&nbsp;موبایل</option>
-	<option class="level-2" value="93" data-commission="0" data-product-id="4718">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;گوشی موبایل</option>
-	<option class="level-2" value="94" data-commission="0" data-product-id="4718">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;لوازم جانبی گوشی موبایل</option>
-	<option class="level-1" value="22" data-commission="0" data-product-id="4718">&nbsp;&nbsp;&nbsp;تبلت و کتابخوان</option>
-	<option class="level-2" value="95" data-commission="0" data-product-id="4718">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;تبلت</option>
-	<option class="level-2" value="96" data-commission="0" data-product-id="4718">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;کتاب خوان</option>
-	<option class="level-2" value="97" data-commission="0" data-product-id="4718">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;رهیاب ماهواره ای</option>
-	<option class="level-2" value="98" data-commission="0" data-product-id="4718">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;لوازم جانبی تبلت</option>
-	<option class="level-1" value="92" data-commission="0" data-product-id="4718">&nbsp;&nbsp;&nbsp;لپ تاپ</option>
-	<option class="level-2" value="99" data-commission="0" data-product-id="4718">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;لپ تاپ و الترابوک</option>
-	<option class="level-2" value="100" data-commission="0" data-product-id="4718">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;گیمینگ</option>
-	<option class="level-2" value="101" data-commission="0" data-product-id="4718">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;لوازم جانبی لپ تاپ</option>
-	<option class="level-1" value="102" data-commission="0" data-product-id="4718">&nbsp;&nbsp;&nbsp;کارت هدیه</option>
-	<option class="level-0" value="159" data-commission="0" data-product-id="4718">هایپر مارکت</option>
-	<option class="level-0" value="178" data-commission="0" data-product-id="4718">کتاب</option>
-	<option class="level-0" value="179" data-commission="0" data-product-id="4718">لپ تاپ</option>
-	<option class="level-0" value="229" data-commission="0" data-product-id="4718">ساعت مچی</option>
-	<option class="level-0" value="230" data-commission="0" data-product-id="4718">لباس</option>
-	<option class="level-0" value="231" data-commission="0" data-product-id="4718">کفش</option>
-</select><span class="select2 select2-container select2-container--default" dir="rtl" style="width: 1054.8px;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-product_cat-container"><span class="select2-selection__rendered" id="select2-product_cat-container" title="– انتخاب دسته –">– انتخاب دسته –</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
-                                            <div class="dokan-product-cat-alert dokan-hide">
-                                                لطفا یک دسته را انتخاب کنید!                                            </div>
-                                        </div>
-                                    
-                                    <div class="dokan-form-group">
-                                        <label for="product_tag" class="form-label">برچسب‌ها</label>
-                                                                                <select multiple="" name="product_tag[]" id="product_tag_search" class="product_tag_search product_tags dokan-form-control dokan-select2 select2-hidden-accessible" data-placeholder="Select tags" tabindex="-1" aria-hidden="true">
-                                                                                    </select><span class="select2 select2-container select2-container--default" dir="rtl" style="width: 1054.8px;"><span class="selection"><span class="select2-selection select2-selection--multiple" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="-1"><ul class="select2-selection__rendered"><li class="select2-search select2-search--inline"><input class="select2-search__field" type="search" tabindex="0" autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false" role="textbox" aria-autocomplete="list" placeholder="Select tags" style="width: 1048.8px;"></li></ul></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
-                                    </div>
-
-                                                                    </div><!-- .content-half-part -->
-								</div>
-								
-								<div class="nk-title-box-multistep-edit-product ">
-				<span class="icon"></span>
-				<h2 class="title"> <span>توضیحات محصول </span></h2>
-				<span class="open-close-status"></span>
-			</div>								
-								<div class="nk-tab-content-edit-product">
-								<div class="dokan-product-short-description">
-									<label for="post_excerpt" class="form-label">شرح کوتاه</label>
-									<div id="wp-post_excerpt-wrap" class="wp-core-ui wp-editor-wrap tmce-active"><link rel="stylesheet" id="editor-buttons-rtl-css" href="https://newkalatheme.ir/preview/wp-includes/css/editor-rtl.min.css?ver=5.6.2" type="text/css" media="all">
-<div id="wp-post_excerpt-editor-container" class="wp-editor-container"><div id="mceu_15" class="mce-tinymce mce-rtl mce-container mce-panel" hidefocus="1" tabindex="-1" role="application" style="visibility: hidden; border-width: 1px; width: 100%;"><div id="mceu_15-body" class="mce-container-body mce-stack-layout"><div id="mceu_16" class="mce-top-part mce-rtl mce-container mce-stack-layout-item mce-first"><div id="mceu_16-body" class="mce-container-body"><div id="mceu_17" class="mce-toolbar-grp mce-rtl mce-container mce-panel mce-first mce-last" hidefocus="1" tabindex="-1" role="group"><div id="mceu_17-body" class="mce-container-body mce-stack-layout"><div id="mceu_18" class="mce-rtl mce-container mce-toolbar mce-stack-layout-item mce-first mce-last" role="toolbar"><div id="mceu_18-body" class="mce-container-body mce-flow-layout"><div id="mceu_19" class="mce-rtl mce-container mce-flow-layout-item mce-first mce-last mce-btn-group" role="group"><div id="mceu_19-body"><div id="mceu_0" class="mce-widget mce-btn mce-first" tabindex="-1" aria-pressed="false" role="button" aria-label="توپُر (Ctrl+B)"><button id="mceu_0-button" role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-bold"></i></button></div><div id="mceu_1" class="mce-widget mce-btn" tabindex="-1" aria-pressed="false" role="button" aria-label="کج (Ctrl+I)"><button id="mceu_1-button" role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-italic"></i></button></div><div id="mceu_2" class="mce-widget mce-btn" tabindex="-1" aria-pressed="false" role="button" aria-label="زیرخط دار (Ctrl+U)"><button id="mceu_2-button" role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-underline"></i></button></div><div id="mceu_3" class="mce-widget mce-btn" tabindex="-1" aria-pressed="false" role="button" aria-label="نقل قول (Shift+Alt+Q)"><button id="mceu_3-button" role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-blockquote"></i></button></div><div id="mceu_4" class="mce-widget mce-btn" tabindex="-1" aria-pressed="false" role="button" aria-label="خط خوردن (Shift+Alt+D)"><button id="mceu_4-button" role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-strikethrough"></i></button></div><div id="mceu_5" class="mce-widget mce-btn" tabindex="-1" aria-pressed="false" role="button" aria-label="لیست نشانه‌دار (Shift+Alt+U)"><button id="mceu_5-button" role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-bullist"></i></button></div><div id="mceu_6" class="mce-widget mce-btn" tabindex="-1" aria-pressed="false" role="button" aria-label="فهرست عددی (Shift+Alt+O)"><button id="mceu_6-button" role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-numlist"></i></button></div><div id="mceu_7" class="mce-widget mce-btn" tabindex="-1" aria-pressed="false" role="button" aria-label="چپ‌چین (Shift+Alt+L)"><button id="mceu_7-button" role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-alignleft"></i></button></div><div id="mceu_8" class="mce-widget mce-btn" tabindex="-1" aria-pressed="false" role="button" aria-label="وسط‌چین (Shift+Alt+C)"><button id="mceu_8-button" role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-aligncenter"></i></button></div><div id="mceu_9" class="mce-widget mce-btn" tabindex="-1" aria-pressed="false" role="button" aria-label="راست‌چین (Shift+Alt+R)"><button id="mceu_9-button" role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-alignright"></i></button></div><div id="mceu_10" class="mce-widget mce-btn mce-disabled" tabindex="-1" role="button" aria-label="بازگردانی (Ctrl+Z)" aria-disabled="true"><button id="mceu_10-button" role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-undo"></i></button></div><div id="mceu_11" class="mce-widget mce-btn mce-disabled" tabindex="-1" role="button" aria-label="بازانجام (Ctrl+Y)" aria-disabled="true"><button id="mceu_11-button" role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-redo"></i></button></div><div id="mceu_12" class="mce-widget mce-btn" tabindex="-1" aria-pressed="false" role="button" aria-label="درج/ویرایش پیوند (Ctrl+K)"><button id="mceu_12-button" role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-link"></i></button></div><div id="mceu_13" class="mce-widget mce-btn" tabindex="-1" aria-pressed="false" role="button" aria-label="تمام‌صفحه"><button id="mceu_13-button" role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-fullscreen"></i></button></div><div id="mceu_14" class="mce-widget mce-btn mce-last" tabindex="-1" aria-pressed="false" role="button" aria-label="چپ به راست"><button id="mceu_14-button" role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-ltr"></i></button></div></div></div></div></div></div></div></div></div><div id="mceu_20" class="mce-edit-area mce-rtl mce-container mce-panel mce-stack-layout-item" hidefocus="1" tabindex="-1" role="group" style="border-width: 1px 0px 0px;"><iframe id="post_excerpt_ifr" allowtransparency="true" title="محدودهٔ متنِ حالت‌دار. دکمه‌های Alt-Shift-H را برای دسترسی به راهنما فشار دهید." style="width: 100%; height: 100px; display: block;" frameborder="0"></iframe></div><div id="mceu_21" class="mce-statusbar mce-rtl mce-container mce-panel mce-stack-layout-item mce-last" hidefocus="1" tabindex="-1" role="group" style="border-width: 1px 0px 0px;"><div id="mceu_21-body" class="mce-container-body mce-flow-layout"><div id="mceu_22" class="mce-path mce-flow-layout-item mce-first"><div class="mce-path-item">&nbsp;</div></div><div id="mceu_23" class="mce-flow-layout-item mce-last mce-resizehandle"><i class="mce-ico mce-i-resize"></i></div></div></div></div></div><textarea class="post_excerpt wp-editor-area" style="height: 50px; display: none;" autocomplete="off" cols="40" name="post_excerpt" id="post_excerpt" aria-hidden="true"></textarea></div>
-</div>
-
-								</div>
-
-								<div class="dokan-product-description">
-									<label for="post_content" class="form-label">توضیحات</label>
-									<div id="wp-post_content-wrap" class="wp-core-ui wp-editor-wrap tmce-active"><div id="wp-post_content-editor-container" class="wp-editor-container"><div id="mceu_60" class="mce-tinymce mce-rtl mce-container mce-panel" hidefocus="1" tabindex="-1" role="application" style="visibility: hidden; border-width: 1px; width: 100%;"><div id="mceu_60-body" class="mce-container-body mce-stack-layout"><div id="mceu_61" class="mce-top-part mce-rtl mce-container mce-stack-layout-item mce-first"><div id="mceu_61-body" class="mce-container-body"><div id="mceu_62" class="mce-toolbar-grp mce-rtl mce-container mce-panel mce-first mce-last" hidefocus="1" tabindex="-1" role="group"><div id="mceu_62-body" class="mce-container-body mce-stack-layout"><div id="mceu_63" class="mce-rtl mce-container mce-toolbar mce-stack-layout-item mce-first mce-last" role="toolbar"><div id="mceu_63-body" class="mce-container-body mce-flow-layout"><div id="mceu_64" class="mce-rtl mce-container mce-flow-layout-item mce-first mce-last mce-btn-group" role="group"><div id="mceu_64-body"><div id="mceu_45" class="mce-widget mce-btn mce-first" tabindex="-1" aria-pressed="false" role="button" aria-label="توپُر (Ctrl+B)"><button id="mceu_45-button" role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-bold"></i></button></div><div id="mceu_46" class="mce-widget mce-btn" tabindex="-1" aria-pressed="false" role="button" aria-label="کج (Ctrl+I)"><button id="mceu_46-button" role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-italic"></i></button></div><div id="mceu_47" class="mce-widget mce-btn" tabindex="-1" aria-pressed="false" role="button" aria-label="زیرخط دار (Ctrl+U)"><button id="mceu_47-button" role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-underline"></i></button></div><div id="mceu_48" class="mce-widget mce-btn" tabindex="-1" aria-pressed="false" role="button" aria-label="نقل قول (Shift+Alt+Q)"><button id="mceu_48-button" role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-blockquote"></i></button></div><div id="mceu_49" class="mce-widget mce-btn" tabindex="-1" aria-pressed="false" role="button" aria-label="خط خوردن (Shift+Alt+D)"><button id="mceu_49-button" role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-strikethrough"></i></button></div><div id="mceu_50" class="mce-widget mce-btn" tabindex="-1" aria-pressed="false" role="button" aria-label="لیست نشانه‌دار (Shift+Alt+U)"><button id="mceu_50-button" role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-bullist"></i></button></div><div id="mceu_51" class="mce-widget mce-btn" tabindex="-1" aria-pressed="false" role="button" aria-label="فهرست عددی (Shift+Alt+O)"><button id="mceu_51-button" role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-numlist"></i></button></div><div id="mceu_52" class="mce-widget mce-btn" tabindex="-1" aria-pressed="false" role="button" aria-label="چپ‌چین (Shift+Alt+L)"><button id="mceu_52-button" role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-alignleft"></i></button></div><div id="mceu_53" class="mce-widget mce-btn" tabindex="-1" aria-pressed="false" role="button" aria-label="وسط‌چین (Shift+Alt+C)"><button id="mceu_53-button" role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-aligncenter"></i></button></div><div id="mceu_54" class="mce-widget mce-btn" tabindex="-1" aria-pressed="false" role="button" aria-label="راست‌چین (Shift+Alt+R)"><button id="mceu_54-button" role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-alignright"></i></button></div><div id="mceu_55" class="mce-widget mce-btn mce-disabled" tabindex="-1" role="button" aria-label="بازگردانی (Ctrl+Z)" aria-disabled="true"><button id="mceu_55-button" role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-undo"></i></button></div><div id="mceu_56" class="mce-widget mce-btn mce-disabled" tabindex="-1" role="button" aria-label="بازانجام (Ctrl+Y)" aria-disabled="true"><button id="mceu_56-button" role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-redo"></i></button></div><div id="mceu_57" class="mce-widget mce-btn" tabindex="-1" aria-pressed="false" role="button" aria-label="درج/ویرایش پیوند (Ctrl+K)"><button id="mceu_57-button" role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-link"></i></button></div><div id="mceu_58" class="mce-widget mce-btn" tabindex="-1" aria-pressed="false" role="button" aria-label="تمام‌صفحه"><button id="mceu_58-button" role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-fullscreen"></i></button></div><div id="mceu_59" class="mce-widget mce-btn mce-last" tabindex="-1" aria-pressed="false" role="button" aria-label="چپ به راست"><button id="mceu_59-button" role="presentation" type="button" tabindex="-1"><i class="mce-ico mce-i-ltr"></i></button></div></div></div></div></div></div></div></div></div><div id="mceu_65" class="mce-edit-area mce-rtl mce-container mce-panel mce-stack-layout-item" hidefocus="1" tabindex="-1" role="group" style="border-width: 1px 0px 0px;"><iframe id="post_content_ifr" allowtransparency="true" title="محدودهٔ متنِ حالت‌دار. دکمه‌های Alt-Shift-H را برای دسترسی به راهنما فشار دهید." style="width: 100%; height: 100px; display: block;" frameborder="0"></iframe></div><div id="mceu_66" class="mce-statusbar mce-rtl mce-container mce-panel mce-stack-layout-item mce-last" hidefocus="1" tabindex="-1" role="group" style="border-width: 1px 0px 0px;"><div id="mceu_66-body" class="mce-container-body mce-flow-layout"><div id="mceu_67" class="mce-path mce-flow-layout-item mce-first"><div class="mce-path-item">&nbsp;</div></div><div id="mceu_68" class="mce-flow-layout-item mce-last mce-resizehandle"><i class="mce-ico mce-i-resize"></i></div></div></div></div></div><textarea class="post_content wp-editor-area" style="height: 50px; display: none;" autocomplete="off" cols="40" name="post_content" id="post_content" aria-hidden="true"></textarea></div>
-</div>
-
-								</div>
-								</div>
-								
-								<div class="nk-title-box-multistep-edit-product ">
-				<span class="icon"></span>
-				<h2 class="title"> <span>بارگذاری تصاویر </span></h2>
-				<span class="open-close-status"></span>
-			</div>								
-								<div class="nk-tab-content-edit-product">
-                                <div class="content-half-part featured-image" style="width:100%;">
-
-                                    <div class="dokan-feat-image-upload dokan-new-product-featured-img">
-                                        
-                                        <div class="instruction-inside">
-                                            <input type="hidden" name="feat_image_id" class="dokan-feat-image-id" value="0">
-
-                                            <i class="fa fa-cloud-upload"></i>
-                                            <a href="#" class="dokan-feat-image-btn btn btn-sm">تصویر کاور محصول را بارگذاری نمائید.</a>
-                                        </div>
-
-                                        <div class="image-wrap dokan-hide">
-                                            <a class="close dokan-remove-feat-image">×</a>
-                                                                                            <img src="" alt="" width="" height="">
-                                                                                    </div>
-                                    </div><!-- .dokan-feat-image-upload -->
-
-                                                                            <div class="dokan-product-gallery">
-                                            <div class="dokan-side-body" id="dokan-product-images">
-                                                <div id="product_images_container">
-                                                    <ul class="product_images dokan-clearfix ui-sortable">
-                                                                                                                <li class="add-image add-product-images tips" data-title="افزودن گالری عکس" data-original-title="" title="">
-                                                            <a href="#" class="add-product-images"><i class="fa fa-plus" aria-hidden="true"></i></a>
-                                                        </li>
-                                                    </ul>
-
-                                                    <input type="hidden" id="product_image_gallery" name="product_image_gallery" value="">
-                                                </div>
-                                            </div>
-                                        </div> <!-- .product-gallery -->
-                                                                    </div><!-- .content-half-part -->
-								</div>
-
-
-
-															
-								<div class="nk-title-box-multistep-edit-product">
-				<span class="icon"></span>
-				<h2 class="title"> <span>مدیریت موجودی و دانلودها </span></h2>
-				<span class="open-close-status"></span>
-			</div>								
-								<div class="nk-tab-content-edit-product">							
-									<div class="dokan-product-inventory dokan-edit-row ">
-    <div class="dokan-section-heading" data-togglehandler="dokan_product_inventory">
-        <h2><i class="fa fa-cubes" aria-hidden="true"></i> موجودی</h2>
-        <p>مدیریت موجودی برای این محصول</p>
-        <a href="#" class="dokan-section-toggle">
-            <i class="fa fa-sort-desc fa-flip-vertical" aria-hidden="true"></i>
-        </a>
-        <div class="dokan-clearfix"></div>
-    </div>
-
-    <div class="dokan-section-content">
-
-        <div class="content-half-part dokan-form-group hide_if_variation">
-            <label for="_sku" class="form-label">شناسه <span>(واحد ذخیره موجودی)</span></label>
-                        <input type="text" name="_sku" id="_sku" value="" class="dokan-form-control" placeholder="">
-                    </div>
-
-        <div class="content-half-part hide_if_variable">
-            <label for="_stock_status" class="form-label">وضعیت موجودی</label>
-
-                        <select name="_stock_status" id="_stock_status" class="dokan-form-control">
-                                    <option value="instock">موجود است</option>
-                                    <option value="outofstock">تمام شده</option>
-                                    <option value="onbackorder">پیش‌خرید محصول</option>
-                            </select>
-
-                    </div>
-
-        <div class="dokan-clearfix"></div>
-
-                <div class="dokan-form-group hide_if_variation hide_if_grouped">
-            
-            <label class="" for="_manage_stock">
-                <input type="hidden" name="_manage_stock" value="no">
-                <input name="_manage_stock" id="_manage_stock" value="yes" type="checkbox">
-                مدیریت موجودی محصول را فعال کنید.            </label>
-
-                    </div>
-
-        <div class="show_if_stock dokan-stock-management-wrapper dokan-form-group dokan-clearfix" style="display: none;">
-
-            <div class="content-half-part hide_if_variation">
-                <label for="_stock" class="form-label">تعداد موجودی</label>
-                <input type="number" class="dokan-form-control" name="_stock" placeholder="" value="0" min="0" step="1">
-            </div>
-
-                        <div class="content-half-part hide_if_variation">
-                <label for="_low_stock_amount" class="form-label">آستانه کاهش موجودی</label>
-                <input type="number" class="dokan-form-control" name="_low_stock_amount" placeholder="" value="0" min="0" step="1">
-            </div>
-            
-            <div class="content-half-part hide_if_variation last-child">
-                <label for="_backorders" class="form-label">اجازه برگشت سفارشات</label>
-
-                            <select name="_backorders" id="_backorders" class="dokan-form-control">
-                                    <option value="no">اجازه نده</option>
-                                    <option value="notify">اجازه دهید اما به مشتری اطلاع بدهد.</option>
-                                    <option value="yes">اجازه دادن</option>
-                            </select>
-
-                        </div>
-            <div class="dokan-clearfix"></div>
-        </div><!-- .show_if_stock -->
+        <div class="dokan-form-group">
+            <label for="product_type" class="form-label">
+                انتخاب دسته بندی
+                <i class="fa fa-question-circle tips" aria-hidden="true" data-title="انتخاب متغیر اگر محصول شما چند ویژگی دارد - مانند اندازه، رنگ، کیفیت و ..." data-original-title="" title=""></i>
+            </label>
+            <select class="dokan-form-control select2 selectMenuAndReturnSubMenu">
+               <option value="">انتخاب کنید</option>
+                @foreach (var item in Model.Menus)
+                {
+                    <option value="@item.ParsaPooladMenusId">@item.Name</option>
+                }
+            </select>
+        </div>
+        <div class="dokan-form-group">
+            <select name="product_type" class="dokan-form-control select2 selectMenuAndReturnSubSubMenu" id="resultSubMenu">
+                <option value="">انتخاب کنید</option>
+            </select>
+        </div>
+        <div class="dokan-form-group">
+              <select class="select2 dokan-form-control resultSubSubMenu" asp-for="PrdGroupId">
+                   <option value="">انتخاب کنید</option>
+               </select>
+               <span asp-validation-for="PrdGroupId" class="text-danger"></span>
+        </div>
         
-        <div class="dokan-form-group hide_if_grouped">
-            <label class="" for="_sold_individually">
-                <input name="_sold_individually" id="_sold_individually" value="yes" type="checkbox">
-                اجازه دهید فقط یک مقدار از این محصول را در یک سفارش خریداری کنید.            </label>
-        </div>
-
-                            
-                        
-    </div><!-- .dokan-side-right -->
-</div><!-- .dokan-product-inventory -->
-<div class="dokan-download-options dokan-edit-row dokan-clearfix show_if_downloadable" style="display: none;">
-    <div class="dokan-section-heading" data-togglehandler="dokan_download_options">
-        <h2><i class="fa fa-download" aria-hidden="true"></i> تنظیمات قابل دانلود</h2>
-        <p>تنظیمات محصول قابل دانلود خود را پیکربندی کنید.</p>
-        <a href="#" class="dokan-section-toggle">
-            <i class="fa fa-sort-desc fa-flip-vertical" aria-hidden="true"></i>
-        </a>
-        <div class="dokan-clearfix"></div>
-    </div>
-
-    <div class="dokan-section-content">
-        <div class="dokan-divider-top dokan-clearfix">
-
-            
-            <div class="dokan-side-body dokan-download-wrapper">
-                <table class="dokan-table">
-                    <tfoot>
-                        <tr>
-                            <th colspan="3">
-                                <a href="#" class="insert-file-row dokan-btn dokan-btn-sm dokan-btn-success" data-row="<tr>
-    <td>
-        <input type=&quot;text&quot; class=&quot;dokan-form-control input_text&quot; placeholder=&quot;نام پرونده&quot; name=&quot;_wc_file_names[]&quot; value=&quot;&quot; />
-    </td>
-    <td>
-        <p>
-            <input type=&quot;text&quot; class=&quot;dokan-form-control dokan-w8 input_text wc_file_url&quot; placeholder=&quot;https://&quot; name=&quot;_wc_file_urls[]&quot; value=&quot;&quot; style=&quot;margin-right: 8px;&quot; />
-            <a href=&quot;#&quot; class=&quot;dokan-btn dokan-btn-sm dokan-btn-default upload_file_button&quot; data-choose=&quot;انتخاب فایل&quot; data-update=&quot;وارد کردن آدرس فایل&quot;>انتخاب&nbsp;فایل</a>
-        </p>
-    </td>
-
-    <td>
-        <p>
-            <a href=&quot;#&quot; class=&quot;dokan-btn dokan-btn-sm dokan-btn-danger dokan-product-delete&quot;><span>حذف</span></a>
-        </p>
-    </td>
-</tr>
-">افزودن فایل</a>
-                            </th>
-                        </tr>
-                    </tfoot>
-                    <thead>
-                        <tr>
-                            <th>نام <span class="tips" title="" data-original-title="این نام دانلود می باشد که به مشتری نشان داده می شود.">[?]</span></th>
-                            <th>آدرس فایل <span class="tips" title="" data-original-title="این آدرس و یا مسیر فایلی می باشد که مشتری برای دریافت به آن دسترسی می یابد.">[?]</span></th>
-                            <th>عملیات</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                                            </tbody>
-                </table>
-
-                <div class="dokan-clearfix">
-                    <div class="content-half-part">
-                        <label for="_download_limit" class="form-label">محدودیت دانلود</label>
-                                    <input type="text" name="_download_limit" id="_download_limit" value="" class="dokan-form-control" placeholder="به عنوان مثال: 4">
-                                </div><!-- .content-half-part -->
-
-                    <div class="content-half-part">
-                        <label for="_download_expiry" class="form-label">انقضاء دانلود</label>
-                                    <input type="text" name="_download_expiry" id="_download_expiry" value="" class="dokan-form-control" placeholder="تعداد روزها">
-                                </div><!-- .content-half-part -->
-                </div>
-
-            </div> <!-- .dokan-side-body -->
-        </div> <!-- .downloadable -->
-    </div>
-</div>
-								</div>
-							
-
-                            
-<div class="nk-title-box-multistep-edit-product nk-shipping-title">
-				<span class="icon"></span>
-				<h2 class="title"> <span>مدیریت حمل و نقل و مالیات </span></h2>
-				<span class="open-close-status"></span>
-			</div><div class="nk-tab-content-edit-product">	<div class="dokan-product-shipping-tax hide_if_grouped dokan-edit-row dokan-clearfix dokan-border-top woocommerce-no-shipping ">
-    <div class="dokan-section-heading" data-togglehandler="dokan_product_shipping_tax">
-        <h2 class="hide_if_virtual"><i class="fa fa-truck" aria-hidden="true"></i> حمل و نقل و مالیات</h2>
-        <h2 class="show_if_virtual" style="display: none;"><i class="fa fa-truck" aria-hidden="true"></i> مالیات</h2>
-        <p class="hide_if_virtual">مدیریت حمل و نقل و مالیات این محصول</p>
-        <p class="show_if_virtual" style="display: none;">مدیریت مالیات این محصول</p>
-        <a href="#" class="dokan-section-toggle">
-            <i class="fa fa-sort-desc fa-flip-vertical" aria-hidden="true"></i>
-        </a>
-        <div class="dokan-clearfix"></div>
-    </div>
-
-    <div class="dokan-section-content">
         
-                <div class="dokan-clearfix dokan-tax-container show_if_variable show_if_simple" style="">
-            <div class="dokan-tax-product-options">
-                <div class="dokan-form-group content-half-part">
-                    <label class="dokan-control-label" for="_tax_status">وضعیت مالیات</label>
-                    <div class="dokan-text-left">
-                                    <select name="_tax_status" id="_tax_status" class="dokan-form-control">
-                                    <option value="taxable">مشمول مالیات</option>
-                                    <option value="shipping">فقط حمل و نقل</option>
-                                    <option value="none">هیچ</option>
-                            </select>
-
-                                </div>
-                </div>
-
-                <div class="dokan-form-group content-half-part">
-                    <label class="dokan-control-label" for="_tax_class">نوع مالیات</label>
-                    <div class="dokan-text-left">
-                                    <select name="_tax_class" id="_tax_class" class="dokan-form-control">
-                                    <option value="" selected="selected">استاندارد</option>
-                                    <option value="reduced-rate">Reduced rate</option>
-                                    <option value="zero-rate">Zero rate</option>
-                                    <option value="%d8%b1%d8%aa%d8%a8%d9%87-%d8%b5%d9%81%d8%b1">رتبه صفر</option>
-                                    <option value="%da%a9%d8%a7%d9%87%d8%b4-%d8%b1%d8%aa%d8%a8%d9%87">کاهش رتبه</option>
-                                    <option value="%da%a9%d8%a7%d9%87%d8%b4-%d9%86%d8%b1%d8%ae">کاهش نرخ</option>
-                                    <option value="%d9%86%d8%b1%d8%ae-%d8%b5%d9%81%d8%b1">نرخ صفر</option>
-                                    <option value="%d9%86%d8%b1%d8%ae-%da%a9%d8%a7%d9%87%d8%b4">نرخ کاهش</option>
-                            </select>
-
-                                </div>
-                </div>
-
-                <div class="dokan-clearfix"></div>
-            </div>
-        </div>
-            </div><!-- .dokan-side-right -->
-</div><!-- .dokan-product-inventory -->
-
-</div>	<div class="nk-title-box-multistep-edit-product ">
-				<span class="icon"></span>
-				<h2 class="title"> <span>مدیریت محصولات مرتبط </span></h2>
-				<span class="open-close-status"></span>
-			</div><div class="nk-tab-content-edit-product">	
-
-<div class="dokan-linked-product-options dokan-edit-row dokan-clearfix">
-    <div class="dokan-section-heading" data-togglehandler="dokan_linked_product_options">
-        <h2><i class="fa fa-link" aria-hidden="true"></i> محصولات مرتبط</h2>
-        <p>محصولات مرتبط با خود را برای upsell و cross-sells تنظیم کنید</p>
-        <a href="#" class="dokan-section-toggle">
-            <i class="fa fa-sort-desc fa-flip-vertical" aria-hidden="true"></i>
-        </a>
-        <div class="dokan-clearfix"></div>
-    </div>
-
-    <div class="dokan-section-content">
-        <div class="content-half-part dokan-form-group hide_if_variation">
-            <label for="upsell_ids" class="form-label">Upsells <i class="fa fa-question-circle tips" aria-hidden="true" data-title="Upsells از محصولاتی است که به جای محصول مورد نظر توصیه می شود، به عنوان مثال، محصولاتی که سودآورتر یا با کیفیت بهتر یا گرانتر هستند." data-original-title="" title=""></i></label>
-            <select class="dokan-form-control dokan-product-search select2-hidden-accessible enhanced" multiple="" style="width: 100%;" id="upsell_ids" name="upsell_ids[]" data-placeholder="جستجوی برای محصول…" data-action="dokan_json_search_products_and_variations" data-exclude="4718" data-user_ids="91" tabindex="-1" aria-hidden="true">
-                            </select><span class="select2 select2-container select2-container--default" dir="rtl" style="width: 100%;"><span class="selection"><span class="select2-selection select2-selection--multiple" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="-1"><ul class="select2-selection__rendered"><li class="select2-search select2-search--inline"><input class="select2-search__field" type="search" tabindex="0" autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false" role="textbox" aria-autocomplete="list" placeholder="جستجوی برای محصول…" style="width: 564px;"></li></ul></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
-        </div>
-
-        <div class="content-half-part">
-            <label for="crosssell_ids" class="form-label">محصولات حراج شده <i class="fa fa-question-circle tips" aria-hidden="true" data-title="Cross-sells محصولاتی هستند که شما در سبد خرید تبلیغ می کنید، بر اساس محصول فعلی." data-original-title="" title=""></i></label>
-            <select class="dokan-form-control dokan-product-search select2-hidden-accessible enhanced" multiple="" style="width: 100%;" id="crosssell_ids" name="crosssell_ids[]" data-placeholder="جستجوی برای محصول…" data-action="dokan_json_search_products_and_variations" data-exclude="4718" data-user_ids="91" tabindex="-1" aria-hidden="true">
-                            </select><span class="select2 select2-container select2-container--default" dir="rtl" style="width: 100%;"><span class="selection"><span class="select2-selection select2-selection--multiple" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="-1"><ul class="select2-selection__rendered"><li class="select2-search select2-search--inline"><input class="select2-search__field" type="search" tabindex="0" autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false" role="textbox" aria-autocomplete="list" placeholder="جستجوی برای محصول…" style="width: 574px;"></li></ul></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
-        </div>
-
-        <div class="dokan-clearfix"></div>
-
         
-<div class="dokan-group-product-content show_if_grouped" style="display: none;">
-    <label for="crosssell_ids" class="form-label">گروه بندی محصولات <i class="fa fa-question-circle tips" aria-hidden="true" data-title="این گزینه به شما این امکان را می دهد که محصولات بخشی از این گروه را انتخاب کنید." data-original-title="" title=""></i></label>
-    <select class="dokan-form-control dokan-product-search select2-hidden-accessible enhanced" multiple="" style="width: 100%;" id="grouped_products" name="grouped_products[]" data-placeholder="جستجوی برای محصول…" data-action="dokan_json_search_products_and_variations" data-exclude="4718" data-user_ids="91" tabindex="-1" aria-hidden="true">
-            </select><span class="select2 select2-container select2-container--default" dir="rtl" style="width: 100%;"><span class="selection"><span class="select2-selection select2-selection--multiple" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="-1"><ul class="select2-selection__rendered"><li class="select2-search select2-search--inline"><input class="select2-search__field" type="search" tabindex="0" autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false" role="textbox" aria-autocomplete="list" placeholder="جستجوی برای محصول…" style="width: 1154px;"></li></ul></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
-</div>    </div>
-</div>
-</div><div class="nk-title-box-multistep-edit-product ">
-				<span class="icon"></span>
-				<h2 class="title"> <span>مدیریت ویژگی ها و متغییرهای محصول </span></h2>
-				<span class="open-close-status"></span>
-			</div>
-
-<div class="nk-tab-content-edit-product">	
-
-<div class="dokan-attribute-variation-options dokan-edit-row dokan-clearfix">
-    <div class="dokan-section-heading" data-togglehandler="dokan_attribute_variation_options">
-        <h2><i class="fa fa-list-alt" aria-hidden="true"></i> ویژگی<span class="show_if_variable show_if_variable-subscription" style="display: none;"> و تغییر</span></h2>
-        <p class="show_if_variable show_if_variable-subscription" style="display: none;">مدیریت ویژگی‌ها و تغییرات برای این محصول متغیر.</p>
-        <p class="show_if_simple show_if_subscription show_if_grouped" style="">مدیریت ویژگی‌ها برای این محصول ساده.</p>
-
-        <a href="#" class="dokan-section-toggle">
-            <i class="fa fa-sort-desc fa-flip-vertical" aria-hidden="true"></i>
-        </a>
-
-        <div class="dokan-clearfix"></div>
-    </div>
-    <div class="dokan-section-content">
-        <div class="dokan-product-attribute-wrapper show_if_simple show_if_subscription show_if_variable show_if_subscription show_if_variable-subscription show_if_grouped" style="">
-
-            <ul class="dokan-attribute-option-list ui-sortable">
-                            </ul>
-
-            <div class="dokan-attribute-type">
-                <select name="predefined_attribute" id="predefined_attribute" class="dokan-w5 dokan-form-control dokan_attribute_taxonomy" data-predefined_attr="{&quot;id:28&quot;:{&quot;attribute_id&quot;:&quot;28&quot;,&quot;attribute_name&quot;:&quot;4g-3g-2g&quot;,&quot;attribute_label&quot;:&quot;\u0634\u0628\u06a9\u0647 \u0647\u0627\u06cc \u0627\u0631\u062a\u0628\u0627\u0637\u06cc&quot;,&quot;attribute_type&quot;:&quot;select&quot;,&quot;attribute_orderby&quot;:&quot;menu_order&quot;,&quot;attribute_public&quot;:0},&quot;id:4&quot;:{&quot;attribute_id&quot;:&quot;4&quot;,&quot;attribute_name&quot;:&quot;abad&quot;,&quot;attribute_label&quot;:&quot;\u0645\u0634\u062e\u0635\u0627\u062a \u06a9\u0644\u06cc.\u0627\u0628\u0639\u0627\u062f&quot;,&quot;attribute_type&quot;:&quot;select&quot;,&quot;attribute_orderby&quot;:&quot;menu_order&quot;,&quot;attribute_public&quot;:0},&quot;id:7&quot;:{&quot;attribute_id&quot;:&quot;7&quot;,&quot;attribute_name&quot;:&quot;attributes-special&quot;,&quot;attribute_label&quot;:&quot;\u0645\u0634\u062e\u0635\u0627\u062a \u06a9\u0644\u06cc.\u0648\u06cc\u0698\u06af\u06cc \u0647\u0627\u06cc \u062e\u0627\u0635&quot;,&quot;attribute_type&quot;:&quot;select&quot;,&quot;attribute_orderby&quot;:&quot;menu_order&quot;,&quot;attribute_public&quot;:0},&quot;id:11&quot;:{&quot;attribute_id&quot;:&quot;11&quot;,&quot;attribute_name&quot;:&quot;board&quot;,&quot;attribute_label&quot;:&quot;\u067e\u0631\u062f\u0627\u0632\u0646\u062f\u0647.\u062a\u0631\u0627\u0634\u0647&quot;,&quot;attribute_type&quot;:&quot;select&quot;,&quot;attribute_orderby&quot;:&quot;menu_order&quot;,&quot;attribute_public&quot;:0},&quot;id:6&quot;:{&quot;attribute_id&quot;:&quot;6&quot;,&quot;attribute_name&quot;:&quot;body&quot;,&quot;attribute_label&quot;:&quot;\u0645\u0634\u062e\u0635\u0627\u062a \u06a9\u0644\u06cc.\u0633\u0627\u062e\u062a\u0627\u0631 \u0628\u062f\u0646\u0647&quot;,&quot;attribute_type&quot;:&quot;select&quot;,&quot;attribute_orderby&quot;:&quot;menu_order&quot;,&quot;attribute_public&quot;:0},&quot;id:25&quot;:{&quot;attribute_id&quot;:&quot;25&quot;,&quot;attribute_name&quot;:&quot;brand&quot;,&quot;attribute_label&quot;:&quot;\u0628\u0631\u0646\u062f&quot;,&quot;attribute_type&quot;:&quot;select&quot;,&quot;attribute_orderby&quot;:&quot;menu_order&quot;,&quot;attribute_public&quot;:1},&quot;id:15&quot;:{&quot;attribute_id&quot;:&quot;15&quot;,&quot;attribute_name&quot;:&quot;camera&quot;,&quot;attribute_label&quot;:&quot;\u062f\u0648\u0631\u0628\u064a\u0646.\u062f\u0648\u0631\u0628\u064a\u0646&quot;,&quot;attribute_type&quot;:&quot;select&quot;,&quot;attribute_orderby&quot;:&quot;menu_order&quot;,&quot;attribute_public&quot;:0},&quot;id:12&quot;:{&quot;attribute_id&quot;:&quot;12&quot;,&quot;attribute_name&quot;:&quot;center-board&quot;,&quot;attribute_label&quot;:&quot;\u067e\u0631\u062f\u0627\u0632\u0646\u062f\u0647.\u067e\u0631\u062f\u0627\u0632\u0646\u062f\u0647\u200c\u064a \u0645\u0631\u06a9\u0632\u064a&quot;,&quot;attribute_type&quot;:&quot;select&quot;,&quot;attribute_orderby&quot;:&quot;menu_order&quot;,&quot;attribute_public&quot;:0},&quot;id:9&quot;:{&quot;attribute_id&quot;:&quot;9&quot;,&quot;attribute_name&quot;:&quot;color&quot;,&quot;attribute_label&quot;:&quot;\u0627\u0646\u062a\u062e\u0627\u0628 \u0631\u0646\u06af&quot;,&quot;attribute_type&quot;:&quot;select&quot;,&quot;attribute_orderby&quot;:&quot;menu_order&quot;,&quot;attribute_public&quot;:1},&quot;id:33&quot;:{&quot;attribute_id&quot;:&quot;33&quot;,&quot;attribute_name&quot;:&quot;complete-sound-des&quot;,&quot;attribute_label&quot;:&quot;\u0635\u062f\u0627.\u062a\u0648\u0636\u064a\u062d\u0627\u062a \u062a\u06a9\u0645\u064a\u0644\u064a \u0635\u062f\u0627&quot;,&quot;attribute_type&quot;:&quot;select&quot;,&quot;attribute_orderby&quot;:&quot;menu_order&quot;,&quot;attribute_public&quot;:0},&quot;id:3&quot;:{&quot;attribute_id&quot;:&quot;3&quot;,&quot;attribute_name&quot;:&quot;description-simcart&quot;,&quot;attribute_label&quot;:&quot;\u0645\u0634\u062e\u0635\u0627\u062a \u06a9\u0644\u06cc.\u062a\u0648\u0636\u06cc\u062d\u0627\u062a \u0633\u06cc\u0645 \u06a9\u0627\u0631\u062a&quot;,&quot;attribute_type&quot;:&quot;select&quot;,&quot;attribute_orderby&quot;:&quot;menu_order&quot;,&quot;attribute_public&quot;:0},&quot;id:19&quot;:{&quot;attribute_id&quot;:&quot;19&quot;,&quot;attribute_name&quot;:&quot;feaucherd-camera&quot;,&quot;attribute_label&quot;:&quot;\u062f\u0648\u0631\u0628\u064a\u0646.\u0642\u0627\u0628\u0644\u064a\u062a\u200c\u0647\u0627\u064a \u062f\u0648\u0631\u0628\u064a\u0646&quot;,&quot;attribute_type&quot;:&quot;select&quot;,&quot;attribute_orderby&quot;:&quot;menu_order&quot;,&quot;attribute_public&quot;:0},&quot;id:18&quot;:{&quot;attribute_id&quot;:&quot;18&quot;,&quot;attribute_name&quot;:&quot;flash&quot;,&quot;attribute_label&quot;:&quot;\u062f\u0648\u0631\u0628\u064a\u0646.\u0641\u0644\u0634&quot;,&quot;attribute_type&quot;:&quot;select&quot;,&quot;attribute_orderby&quot;:&quot;menu_order&quot;,&quot;attribute_public&quot;:0},&quot;id:17&quot;:{&quot;attribute_id&quot;:&quot;17&quot;,&quot;attribute_name&quot;:&quot;focus&quot;,&quot;attribute_label&quot;:&quot;\u062f\u0648\u0631\u0628\u064a\u0646.\u0641\u0646\u0627\u0648\u0631\u064a \u0641\u0648\u06a9\u0648\u0633&quot;,&quot;attribute_type&quot;:&quot;select&quot;,&quot;attribute_orderby&quot;:&quot;menu_order&quot;,&quot;attribute_public&quot;:0},&quot;id:14&quot;:{&quot;attribute_id&quot;:&quot;14&quot;,&quot;attribute_name&quot;:&quot;gpu-board&quot;,&quot;attribute_label&quot;:&quot;\u067e\u0631\u062f\u0627\u0632\u0646\u062f\u0647.\u067e\u0631\u062f\u0627\u0632\u0646\u062f\u0647\u200c\u064a \u06af\u0631\u0627\u0641\u064a\u06a9\u064a&quot;,&quot;attribute_type&quot;:&quot;select&quot;,&quot;attribute_orderby&quot;:&quot;menu_order&quot;,&quot;attribute_public&quot;:0},&quot;id:10&quot;:{&quot;attribute_id&quot;:&quot;10&quot;,&quot;attribute_name&quot;:&quot;memory-capacity&quot;,&quot;attribute_label&quot;:&quot;\u0638\u0631\u0641\u06cc\u062a \u062d\u0627\u0641\u0638\u0647&quot;,&quot;attribute_type&quot;:&quot;select&quot;,&quot;attribute_orderby&quot;:&quot;menu_order&quot;,&quot;attribute_public&quot;:0},&quot;id:22&quot;:{&quot;attribute_id&quot;:&quot;22&quot;,&quot;attribute_name&quot;:&quot;memory-internal&quot;,&quot;attribute_label&quot;:&quot;\u062d\u0627\u0641\u0638\u0647.\u062d\u0627\u0641\u0638\u0647 \u062f\u0627\u062e\u0644\u064a&quot;,&quot;attribute_type&quot;:&quot;select&quot;,&quot;attribute_orderby&quot;:&quot;menu_order&quot;,&quot;attribute_public&quot;:0},&quot;id:27&quot;:{&quot;attribute_id&quot;:&quot;27&quot;,&quot;attribute_name&quot;:&quot;number-sim&quot;,&quot;attribute_label&quot;:&quot;\u062a\u0639\u062f\u0627\u062f \u0633\u06cc\u0645 \u06a9\u0627\u0631\u062a&quot;,&quot;attribute_type&quot;:&quot;select&quot;,&quot;attribute_orderby&quot;:&quot;menu_order&quot;,&quot;attribute_public&quot;:0},&quot;id:26&quot;:{&quot;attribute_id&quot;:&quot;26&quot;,&quot;attribute_name&quot;:&quot;operation-system&quot;,&quot;attribute_label&quot;:&quot;\u0633\u06cc\u0633\u062a\u0645 \u0639\u0627\u0645\u0644&quot;,&quot;attribute_type&quot;:&quot;select&quot;,&quot;attribute_orderby&quot;:&quot;menu_order&quot;,&quot;attribute_public&quot;:0},&quot;id:32&quot;:{&quot;attribute_id&quot;:&quot;32&quot;,&quot;attribute_name&quot;:&quot;out-sound&quot;,&quot;attribute_label&quot;:&quot;\u0635\u062f\u0627.\u062e\u0631\u0648\u062c\u064a \u0635\u062f\u0627&quot;,&quot;attribute_type&quot;:&quot;select&quot;,&quot;attribute_orderby&quot;:&quot;menu_order&quot;,&quot;attribute_public&quot;:0},&quot;id:23&quot;:{&quot;attribute_id&quot;:&quot;23&quot;,&quot;attribute_name&quot;:&quot;ram&quot;,&quot;attribute_label&quot;:&quot;\u062d\u0627\u0641\u0638\u0647.\u0645\u0642\u062f\u0627\u0631 RAM&quot;,&quot;attribute_type&quot;:&quot;select&quot;,&quot;attribute_orderby&quot;:&quot;menu_order&quot;,&quot;attribute_public&quot;:0},&quot;id:21&quot;:{&quot;attribute_id&quot;:&quot;21&quot;,&quot;attribute_name&quot;:&quot;selfi-camera&quot;,&quot;attribute_label&quot;:&quot;\u062f\u0648\u0631\u0628\u064a\u0646.\u062f\u0648\u0631\u0628\u064a\u0646 \u0633\u0644\u0641\u064a&quot;,&quot;attribute_type&quot;:&quot;select&quot;,&quot;attribute_orderby&quot;:&quot;menu_order&quot;,&quot;attribute_public&quot;:0},&quot;id:2&quot;:{&quot;attribute_id&quot;:&quot;2&quot;,&quot;attribute_name&quot;:&quot;simcart&quot;,&quot;attribute_label&quot;:&quot;\u0645\u0634\u062e\u0635\u0627\u062a \u06a9\u0644\u06cc.\u062a\u0639\u062f\u0627\u062f \u0633\u06cc\u0645 \u06a9\u0627\u0631\u062a&quot;,&quot;attribute_type&quot;:&quot;select&quot;,&quot;attribute_orderby&quot;:&quot;menu_order&quot;,&quot;attribute_public&quot;:0},&quot;id:30&quot;:{&quot;attribute_id&quot;:&quot;30&quot;,&quot;attribute_name&quot;:&quot;sound&quot;,&quot;attribute_label&quot;:&quot;\u0635\u062f\u0627.\u0628\u0644\u0646\u062f\u06af\u0648&quot;,&quot;attribute_type&quot;:&quot;select&quot;,&quot;attribute_orderby&quot;:&quot;menu_order&quot;,&quot;attribute_public&quot;:0},&quot;id:24&quot;:{&quot;attribute_id&quot;:&quot;24&quot;,&quot;attribute_name&quot;:&quot;support-sd-cart&quot;,&quot;attribute_label&quot;:&quot;\u062d\u0627\u0641\u0638\u0647.\u067e\u0634\u062a\u064a\u0628\u0627\u0646\u064a \u0627\u0632 \u06a9\u0627\u0631\u062a \u062d\u0627\u0641\u0638\u0647 \u062c\u0627\u0646\u0628\u064a&quot;,&quot;attribute_type&quot;:&quot;select&quot;,&quot;attribute_orderby&quot;:&quot;menu_order&quot;,&quot;attribute_public&quot;:0},&quot;id:34&quot;:{&quot;attribute_id&quot;:&quot;34&quot;,&quot;attribute_name&quot;:&quot;text-test&quot;,&quot;attribute_label&quot;:&quot;\u0648\u06cc\u0698\u06af\u06cc \u0628\u0627 \u062d\u0627\u0644\u062a \u0645\u062a\u0646&quot;,&quot;attribute_type&quot;:&quot;select&quot;,&quot;attribute_orderby&quot;:&quot;menu_order&quot;,&quot;attribute_public&quot;:0},&quot;id:13&quot;:{&quot;attribute_id&quot;:&quot;13&quot;,&quot;attribute_name&quot;:&quot;type-board&quot;,&quot;attribute_label&quot;:&quot;\u067e\u0631\u062f\u0627\u0632\u0646\u062f\u0647.\u0646\u0648\u0639 \u067e\u0631\u062f\u0627\u0632\u0646\u062f\u0647&quot;,&quot;attribute_type&quot;:&quot;select&quot;,&quot;attribute_orderby&quot;:&quot;menu_order&quot;,&quot;attribute_public&quot;:0},&quot;id:20&quot;:{&quot;attribute_id&quot;:&quot;20&quot;,&quot;attribute_name&quot;:&quot;video-camera&quot;,&quot;attribute_label&quot;:&quot;\u062f\u0648\u0631\u0628\u064a\u0646.\u0641\u064a\u0644\u0645\u0628\u0631\u062f\u0627\u0631\u064a&quot;,&quot;attribute_type&quot;:&quot;select&quot;,&quot;attribute_orderby&quot;:&quot;menu_order&quot;,&quot;attribute_public&quot;:0},&quot;id:5&quot;:{&quot;attribute_id&quot;:&quot;5&quot;,&quot;attribute_name&quot;:&quot;weight&quot;,&quot;attribute_label&quot;:&quot;\u0645\u0634\u062e\u0635\u0627\u062a \u06a9\u0644\u06cc.\u0648\u0632\u0646&quot;,&quot;attribute_type&quot;:&quot;select&quot;,&quot;attribute_orderby&quot;:&quot;menu_order&quot;,&quot;attribute_public&quot;:0},&quot;id:29&quot;:{&quot;attribute_id&quot;:&quot;29&quot;,&quot;attribute_name&quot;:&quot;\u0645\u0642\u062f\u0627\u0631-ram&quot;,&quot;attribute_label&quot;:&quot;\u0645\u0642\u062f\u0627\u0631 RAM&quot;,&quot;attribute_type&quot;:&quot;select&quot;,&quot;attribute_orderby&quot;:&quot;menu_order&quot;,&quot;attribute_public&quot;:0}}">
-                    <option value="">ویژگی‌ی دلخواه</option>
-                    <option value="pa_4g-3g-2g">شبکه های ارتباطی</option><option value="pa_abad">مشخصات کلی.ابعاد</option><option value="pa_attributes-special">مشخصات کلی.ویژگی های خاص</option><option value="pa_board">پردازنده.تراشه</option><option value="pa_body">مشخصات کلی.ساختار بدنه</option><option value="pa_brand">برند</option><option value="pa_camera">دوربين.دوربين</option><option value="pa_center-board">پردازنده.پردازنده‌ي مرکزي</option><option value="pa_color">انتخاب رنگ</option><option value="pa_complete-sound-des">صدا.توضيحات تکميلي صدا</option><option value="pa_description-simcart">مشخصات کلی.توضیحات سیم کارت</option><option value="pa_feaucherd-camera">دوربين.قابليت‌هاي دوربين</option><option value="pa_flash">دوربين.فلش</option><option value="pa_focus">دوربين.فناوري فوکوس</option><option value="pa_gpu-board">پردازنده.پردازنده‌ي گرافيکي</option><option value="pa_memory-capacity">ظرفیت حافظه</option><option value="pa_memory-internal">حافظه.حافظه داخلي</option><option value="pa_number-sim">تعداد سیم کارت</option><option value="pa_operation-system">سیستم عامل</option><option value="pa_out-sound">صدا.خروجي صدا</option><option value="pa_ram">حافظه.مقدار RAM</option><option value="pa_selfi-camera">دوربين.دوربين سلفي</option><option value="pa_simcart">مشخصات کلی.تعداد سیم کارت</option><option value="pa_sound">صدا.بلندگو</option><option value="pa_support-sd-cart">حافظه.پشتيباني از کارت حافظه جانبي</option><option value="pa_text-test">ویژگی با حالت متن</option><option value="pa_type-board">پردازنده.نوع پردازنده</option><option value="pa_video-camera">دوربين.فيلمبرداري</option><option value="pa_weight">مشخصات کلی.وزن</option><option value="pa_مقدار-ram">مقدار RAM</option>                </select>
-                <a href="#" class="dokan-btn dokan-btn-default add_new_attribute">افزودن ویژگی</a>
-                <a href="#" class="dokan-btn dokan-btn-default dokan-btn-theme dokan-save-attribute">ذخیره‌ی ویژگی</a>
-                <span class="dokan-spinner dokan-attribute-spinner dokan-hide"></span>
-            </div>
+        <div class="dokan-form-group">
+            <label asp-for="PrdName"  class="form-label">نام محصول</label>
+            <input asp-for="PrdName" type="text" class="dokan-form-control" placeholder="نام محصول">
+            <span asp-validation-for="PrdName" class="text-danger"></span>
         </div>
 
-        <div class="dokan-product-variation-wrapper show_if_variable show_if_variable-subscription" style="display: none; position: static;">
-                <div id="dokan-variable-product-options" class="">
-        <div id="dokan-variable-product-options-inner">
-
-        
-            <div id="dokan-info-message" class="dokan-alert dokan-alert-info">
-                <p>
-                    قبل از اینکه بخواهید یک تغییر برای محصول اضافه کنید، باید ویژگی‌های مختلفی را در قسمت <strong>ویژگی‌ها</strong> اضافه کنید.                </p>
-            </div>
-
-        
-        </div>
-
-    </div>
-            </div>
-    </div>
-</div>
-
-</div>
-<div class="nk-title-box-multistep-edit-product ">
-				<span class="icon"></span>
-				<h2 class="title"> <span>تنظیمات متفرقه </span></h2>
-				<span class="open-close-status"></span>
-			</div>
-
-<div class="nk-tab-content-edit-product">	
-
-<div class="dokan-other-options dokan-edit-row dokan-clearfix ">
-    <div class="dokan-section-heading" data-togglehandler="dokan_other_options">
-        <h2><i class="fa fa-cog" aria-hidden="true"></i> تنظیمات دیگر</h2>
-        <p>گزینه‌های اضافی محصول خود را تنظیم کنید.</p>
-        <a href="#" class="dokan-section-toggle">
-            <i class="fa fa-sort-desc fa-flip-vertical" aria-hidden="true"></i>
-        </a>
-        <div class="dokan-clearfix"></div>
-    </div>
-
-    <div class="dokan-section-content">
-        <div class="dokan-form-group content-half-part">
-            <label for="post_status" class="form-label">وضعیت محصول</label>
-                            
-                <select id="post_status" class="dokan-form-control" name="post_status">
-                                            <option value="publish">آنلاین</option>
-                                            <option value="draft" selected="selected">پیش‌نویس</option>
-                                    </select>
-                    </div>
-
-        <div class="dokan-form-group content-half-part">
-            <label for="_visibility" class="form-label">قابل رویت</label>
-            <select name="_visibility" id="_visibility" class="dokan-form-control">
-                                    <option value="visible" selected="selected">قابل رویت</option>
-                                    <option value="catalog">کاتالوگ</option>
-                                    <option value="search">جستجو</option>
-                                    <option value="hidden">پنهان</option>
-                            </select>
-        </div>
-
-        <div class="dokan-clearfix"></div>
 
         <div class="dokan-form-group">
-            <label for="_purchase_note" class="form-label">نکته خرید</label>
-                        <textarea name="_purchase_note" id="_purchase_note" rows="4" class="dokan-form-control" placeholder="مشتری می تواند این اطلاعات در ایمیل سفارش خود را دریافت کنید."></textarea>
-                    </div>
-
+            <label class="form-label">شرکت سازنده محصول </label>
+            <select class="select2 dokan-form-control" asp-for="PrdShpotherSupplierId">
+                <option value="">انتخاب کنید</option>
+            </select>
+            <span asp-validation-for="PrdShpotherSupplierId" class="text-danger"></span>
+        </div>
+        
+        
         <div class="dokan-form-group">
-                        
-            <label class="" for="_enable_reviews">
-                <input type="hidden" name="_enable_reviews" value="no">
-                <input name="_enable_reviews" id="_enable_reviews" value="yes" type="checkbox" checked="checked">
-                فعال کردن نمایش محصول            </label>
-
-                    </div>
-
-    </div>
-</div><!-- .dokan-other-options -->
-</div>
-							
-							
-
-                                                            
-		<div class="dokan-form-group">
-
-            <label class="" for="set-pending">
-            <input name="set-pending" value="pending" id="set-pending" type="checkbox">
-            ارسال برای بازبینی</label>
-			<p>در صورتی که مایل هستید محصول را برای بازبینی ارسال کنید حتما این گزینه را تیک بزنید در غیر اینصورت محصول در حالت پیشنویس خواهد بود و بعدا هم میتوانید محصول را ویرایش نمائید</p>
+            <label  class="form-label">واحد محصول </label>
+            <select asp-for="PrdUnitId" class="select2 dokan-form-control UnitProduct">
+            </select>
+            <span asp-validation-for="PrdUnitId" class="text-danger"></span>
+        </div>
+        
+        <div class="dokan-form-group">
+            <label asp-for="PrdMaxQty" >موجودی محصول</label>
+             <input asp-for="PrdMaxQty" type="text" class="dokan-form-control" placeholder="موجودی را وارد کنید">
+            <span asp-validation-for="PrdMaxQty" class="text-danger"></span>
+            
+        </div>
+        
+        <div class="dokan-form-group">
+            <label asp-for="PrdSize">سایز محصول</label>
+            <input asp-for="PrdSize" type="text" class="dokan-form-control" placeholder="سایز را وارد کنید">
+            <span asp-validation-for="PrdSize" class="text-danger"></span>
+        </div>
+        
+        <div class="dokan-form-group">
+            <label asp-for="PrdModel" >مدل محصول</label>
+             <input asp-for="PrdModel" type="text" class="dokan-form-control" placeholder="مدل را وارد کنید">
+             <span asp-validation-for="PrdModel" class="text-danger"></span>
+        </div>
+        
+        <div class="dokan-form-group">
+            <label asp-for="PrdPrice" >قیمت محصول</label>
+            <input asp-for="PrdPrice" type="text" class="dokan-form-control" placeholder="فقط عدد وارد کنید">
+            <span asp-validation-for="PrdPrice" class="text-danger"></span>
+        </div>
+        
+        <div class="row invoice-info">
+            <div class="col-lg-12 col-md-12 mt-25">
+                <h6 class="invoice-to text-primary"> توضیحات</h6>
+                <fieldset class="invoice-address dokan-form-group">
+                    <textarea asp-for="PrdDescription" name="description" class="dokan-form-control" rows="4" placeholder="توضیحات محصول را وارد کنید" style="margin-top: 0px; margin-bottom: 0px; height: 169px;"></textarea>
+                    <span asp-validation-for="PrdDescription" class="text-danger"></span>
+                </fieldset>
+        
+            </div>
         </div>
 
-	                            
-                            <input type="hidden" id="dokan_edit_product_nonce" name="dokan_edit_product_nonce" value="05f4370db2"><input type="hidden" name="_wp_http_referer" value="/preview/dashboard/products/?product_id=4718&amp;action=edit">
-                            <!--hidden input for Firefox issue-->
-                            <input type="hidden" name="dokan_update_product" value="ذخیره محصول">
-                            <input type="submit" name="dokan_update_product" class="dokan-btn dokan-btn-theme dokan-btn-lg dokan-right" value="ذخیره محصول">
-                            <div class="dokan-clearfix"></div>
-                        </form>
-                    
+        @* <div class="dokan-form-group"> *@
+        @*     <label for="product_tag" class="form-label">برچسب‌ها</label> *@
+        @*     <select multiple="" name="product_tag[]" id="product_tag_search" class="product_tag_search product_tags dokan-form-control dokan-select2 select2-hidden-accessible" data-placeholder="Select tags" tabindex="-1" aria-hidden="true"> *@
+        @*     </select> *@
+        @*     <span class="select2 select2-container select2-container--default" dir="rtl" style="width: 1054.8px;"> *@
+        @*         <span class="selection"> *@
+        @*             <span class="select2-selection select2-selection--multiple" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="-1"> *@
+        @*                 <ul class="select2-selection__rendered"> *@
+        @*                     <li class="select2-search select2-search--inline"> *@
+        @*                         <input class="select2-search__field" type="search" tabindex="0" autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false" role="textbox" aria-autocomplete="list" placeholder="Select tags" style="width: 1048.8px;"> *@
+        @*                     </li> *@
+        @*                 </ul> *@
+        @*             </span> *@
+        @*         </span><span class="dropdown-wrapper" aria-hidden="true"></span> *@
+        @*     </span> *@
+        @* </div> *@
+
+    </div><!-- .content-half-part -->
+</div>
+
+
+@* <div class="dokan-form-group"> *@
+@* *@
+@*     <label class="" for="set-pending"> *@
+@*         <input name="set-pending" value="pending" id="set-pending" type="checkbox"> *@
+@*         ارسال برای بازبینی *@
+@*     </label> *@
+@*     <p>در صورتی که مایل هستید محصول را برای بازبینی ارسال کنید حتما این گزینه را تیک بزنید در غیر اینصورت محصول در حالت پیشنویس خواهد بود و بعدا هم میتوانید محصول را ویرایش نمائید</p> *@
+@* </div> *@
+
+
+        <!--hidden input for Firefox issue-->
+        
+          @if (User.Identity.IsAuthenticated)
+          {
+              @if (_authorizationService.AuthorizeAsync(User, "OwnerRole").Result.Succeeded)
+              {
+                  <input type="hidden" asp-for="UserId" value="@_userManager.GetUserAsync(User).Result.Id">
+              }
+          }
+        <input type="submit" name="dokan_update_product" class="dokan-btn dokan-btn-theme dokan-btn-lg dokan-right" value="ذخیره محصول">
+<div class="dokan-clearfix"></div>
+</form>
+
 
 <script>
 jQuery(document).ready(function($){
@@ -637,12 +276,12 @@ jQuery(document).ready(function($){
 
 
 </script>
-                            </div> <!-- #primary .content-area -->
+</div> <!-- #primary .content-area -->
 
-                    </div>
+</div>
 
-        
-    </div><!-- .dokan-dashboard-wrap -->
+
+</div><!-- .dokan-dashboard-wrap -->
 
 
 <div class="dokan-clearfix"></div>
@@ -651,7 +290,9 @@ jQuery(document).ready(function($){
 
     <li class="product-attribute-list">
         <div class="dokan-product-attribute-heading">
-            <span><i class="fa fa-bars" aria-hidden="true"></i> <strong>Title</strong></span>
+            <span>
+                <i class="fa fa-bars" aria-hidden="true"></i> <strong>Title</strong>
+            </span>
             <input type="hidden" name="attribute_position[]" value="">
             <a href="#" class="dokan-product-remove-attribute">حذف‌کردن</a>
             <a href="#" class="dokan-product-toggle-attribute">
@@ -664,11 +305,11 @@ jQuery(document).ready(function($){
                 <input type="text" class="dokan-form-control dokan-product-attribute-name" name="" value="">
 
                 <label for="" class="checkbox-item form-label">
-                    <input type="checkbox" name="" value="1">  Visible on the product page
+                    <input type="checkbox" name="" value="1"> Visible on the product page
                 </label>
 
                 <label for="" class="checkbox-item form-label">
-                    <input type="checkbox" name="" value="1">  Use for variations
+                    <input type="checkbox" name="" value="1"> Use for variations
                 </label>
             </div>
 
@@ -681,4 +322,4 @@ jQuery(document).ready(function($){
 
 </script>
 
-	</main>
+</main>

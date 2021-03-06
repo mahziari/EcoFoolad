@@ -33,6 +33,7 @@ namespace ParsaPoolad.Application.Services.BackEnd.Owner.Products.Queries
                 {
                     ProductId = p.ProductId,
                     PrdName=p.PrdName,
+                    Price=p.PrdPrice,
                     PrdInactiveInSale=p.PrdInactiveInSale,
                     RegisterDatePersian=p.RegisterDatePersian,
                     subMenu= _context.WsproductSecondGroup
@@ -59,6 +60,7 @@ namespace ParsaPoolad.Application.Services.BackEnd.Owner.Products.Queries
     {
         public int ProductId { get; set; }
         public string PrdName { get; set; }
+        public decimal? Price { get; set; }
         public bool? PrdInactiveInSale { get; set; }
         public string RegisterDatePersian { get; set; }
         public GetIndexMenuDto subMenu { get; set; }

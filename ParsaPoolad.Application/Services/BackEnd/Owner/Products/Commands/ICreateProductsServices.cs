@@ -33,7 +33,7 @@ namespace ParsaPoolad.Application.Services.BackEnd.Owner.Products.Commands
                 PrdDescription = createProductsServicesDto.PrdDescription,
                 PrdPrice =createProductsServicesDto.PrdPrice,
                 PrdInactiveInSale =true,
-                UserId= 57,
+                UserId= createProductsServicesDto.UserId,
                 Month1=6,
                 Fpid = 1,
                 RegisterDatePersian = PersianDateTime.Now.ToString("yyyyMMdd"),

@@ -6,11 +6,11 @@ using ParsaPoolad.Application.Services.BackEnd.Owner.Products.Queries.GetCreateP
 
 namespace ParsaPoolad.Application.Services.BackEnd.Owner.Products.FacadPattern
 {
-    public class ProductsFacad : IProductsFacad
+    public class OwnerProductsFacad : IOwnerProductsFacad
     {
         private readonly IDataBaseContext _context;
 
-        public ProductsFacad(IDataBaseContext context)
+        public OwnerProductsFacad(IDataBaseContext context)
         {
             _context = context;
         }
