@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using ParsaPoolad.Application.Interfaces.Contexts;
-using ParsaPoolad.Domain.Entities;
+using ParsaPoolad.Domain.Entities.IdealCrm;
 
 namespace ParsaPoolad.Application.Services.BackEnd.Admin.Products.Commands
 {
@@ -11,9 +11,9 @@ namespace ParsaPoolad.Application.Services.BackEnd.Admin.Products.Commands
     }
 
     public class EditProductsServices:IEditProductsServices {
-        private readonly IDataBaseContext _context;
+        private readonly IIdealCrmDataBaseContext _context;
 
-        public EditProductsServices(IDataBaseContext context)
+        public EditProductsServices(IIdealCrmDataBaseContext context)
         {
             _context = context;
         }

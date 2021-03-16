@@ -8,9 +8,9 @@ namespace ParsaPoolad.Application.Services.BackEnd.Admin.Products.Commands
     }
     public class ActiveProductServices : IActiveProductServices
     {
-        private readonly IDataBaseContext _context;
+        private readonly IIdealCrmDataBaseContext _context;
 
-        public ActiveProductServices(IDataBaseContext context)
+        public ActiveProductServices(IIdealCrmDataBaseContext context)
         {
             _context = context;
         }

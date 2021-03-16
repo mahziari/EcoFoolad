@@ -1,11 +1,11 @@
 ﻿@using Microsoft.AspNetCore.Authorization
 @using Microsoft.AspNetCore.Identity
 @using ParsaPoolad.Application.Services.BackEnd.Admin.Users.Queries
-@using ParsaPoolad.Domain.Entities.Identity
+@using ParsaPoolad.Domain.Entities
 @model ResultGetIndexUsersDto
-@inject SignInManager<User> _signInManager
-@inject UserManager<User> _userManager
-@inject IAuthorizationService _authorizationService;
+@inject SignInManager<User> SignInManager
+@inject UserManager<User> UserManager
+@inject IAuthorizationService AuthorizationService;
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 @{
     ViewData["Title"] = "لیست کاربران";
@@ -106,7 +106,7 @@
                                                 </td>
 
                                                 <td>
-                                                    @foreach (var userRoles in _userManager.GetRolesAsync(_userManager.FindByIdAsync(item.Id).Result).Result)
+                                                    @foreach (var userRoles in UserManager.GetRolesAsync(UserManager.FindByIdAsync(item.Id.ToString()).Result).Result)
                                                     {
                                                         @userRoles
                                                     }

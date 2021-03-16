@@ -1,9 +1,9 @@
 ﻿@using Microsoft.AspNetCore.Authorization
 @using Microsoft.AspNetCore.Identity
-@using ParsaPoolad.Domain.Entities.Identity
-@inject IAuthorizationService _authorizationService;
-@inject SignInManager<User> _signInManager
-@inject UserManager<User> _userManager
+@using ParsaPoolad.Domain.Entities
+@inject IAuthorizationService AuthorizationService;
+@inject SignInManager<User> SignInManager
+@inject UserManager<User> UserManager
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 @{
     Layout = null;
@@ -376,7 +376,7 @@ var userSettings = {"url":"\/preview\/","uid":"91","time":"1614166489","secure":
                                     تغییر رمز عبور
                                 </li>
                             </a>-->
-                            <a asp-area="Auth" asp-controller="Account" asp-action="LogOut">
+                            <a asp-area="Auth" asp-controller="Auth" asp-action="LogOut">
                                 <li>
                                     <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" ratio="1">
                                         <circle fill="none" stroke="#777" stroke-width="1.1" cx="10" cy="10" r="9"></circle> <line fill="none" stroke="#777" stroke-width="1.1" x1="4" y1="3.5" x2="16" y2="16.5"></line>

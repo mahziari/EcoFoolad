@@ -14,7 +14,6 @@ D:\.NET\01_ParsaPoolad\ParsaPoolad.Infrastructure\bin\Debug\net5.0\ParsaPoolad.I
 D:\.NET\01_ParsaPoolad\ParsaPoolad.Infrastructure\bin\Debug\net5.0\ParsaPoolad.Infrastructure.dll
 D:\.NET\01_ParsaPoolad\ParsaPoolad.Infrastructure\bin\Debug\net5.0\ref\ParsaPoolad.Infrastructure.dll
 D:\.NET\01_ParsaPoolad\ParsaPoolad.Infrastructure\bin\Debug\net5.0\ParsaPoolad.Infrastructure.pdb
-D:\.NET\01_ParsaPoolad\ParsaPoolad.Infrastructure\obj\Debug\net5.0\ParsaPoolad.Infrastructure.csprojAssemblyReference.cache
 D:\.NET\01_ParsaPoolad\ParsaPoolad.Infrastructure\obj\Debug\net5.0\ParsaPoolad.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
 D:\.NET\01_ParsaPoolad\ParsaPoolad.Infrastructure\obj\Debug\net5.0\ParsaPoolad.Infrastructure.AssemblyInfoInputs.cache
 D:\.NET\01_ParsaPoolad\ParsaPoolad.Infrastructure\obj\Debug\net5.0\ParsaPoolad.Infrastructure.AssemblyInfo.cs
@@ -22,3 +21,4 @@ D:\.NET\01_ParsaPoolad\ParsaPoolad.Infrastructure\obj\Debug\net5.0\ParsaPoolad.I
 D:\.NET\01_ParsaPoolad\ParsaPoolad.Infrastructure\obj\Debug\net5.0\ParsaPoolad.Infrastructure.dll
 D:\.NET\01_ParsaPoolad\ParsaPoolad.Infrastructure\obj\Debug\net5.0\ref\ParsaPoolad.Infrastructure.dll
 D:\.NET\01_ParsaPoolad\ParsaPoolad.Infrastructure\obj\Debug\net5.0\ParsaPoolad.Infrastructure.pdb
+D:\.NET\01_ParsaPoolad\ParsaPoolad.Infrastructure\obj\Debug\net5.0\ParsaPoolad.Infrastructure.csprojAssemblyReference.cache

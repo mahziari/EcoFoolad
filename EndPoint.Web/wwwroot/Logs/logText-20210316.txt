@@ -1,0 +1,263 @@
+2021-03-16T13:34:22.7259456+03:30  [INF] User profile is available. Using '"C:\Users\pc-2\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest. (7ac5e29c)
+2021-03-16T13:34:23.0108813+03:30  [INF] Now listening on: "https://localhost:5001" (d826f4b8)
+2021-03-16T13:34:23.0109436+03:30  [INF] Now listening on: "http://localhost:5000" (d826f4b8)
+2021-03-16T13:34:23.0110277+03:30  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-03-16T13:34:23.0110438+03:30  [INF] Hosting environment: "Development" (c3307c92)
+2021-03-16T13:34:23.0110542+03:30  [INF] Content root path: "D:\.NET\01_ParsaPoolad\EndPoint.Web" (b5d60022)
+2021-03-16T13:34:23.8385967+03:30 0HM78CBFVE4IA:0000000F [INF] Request starting HTTP/2 GET https://localhost:5001/ - - (ca22a1cb)
+2021-03-16T13:34:23.8910611+03:30 0HM78CBFVE4IA:0000000F [INF] Executing endpoint '"EndPoint.Web.Controllers.HomeController.Index (EndPoint.Web)"' (500cc934)
+2021-03-16T13:34:23.9277577+03:30 0HM78CBFVE4IA:0000000F [INF] Route matched with "{action = \"Index\", controller = \"Home\", area = \"\"}". Executing controller action with signature "Microsoft.AspNetCore.Mvc.IActionResult Index()" on controller "EndPoint.Web.Controllers.HomeController" ("EndPoint.Web"). (122b2fdf)
+2021-03-16T13:34:23.9848069+03:30 0HM78CBFVE4IA:0000000F [WRN] 'AddEntityFramework*' was called on the service provider, but 'UseInternalServiceProvider' wasn't called in the DbContext options configuration. Consider removing the 'AddEntityFramework*' call, as in most cases it's not needed and may cause conflicts with other products and services registered in the same service provider. (4bc25ac5)
+2021-03-16T13:34:24.8938013+03:30 0HM78CBFVE4IA:0000000F [WRN] No type was specified for the decimal property '"Credit"' on entity type '"User"'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType()', specify precision and scale using 'HasPrecision()' or configure a value converter using 'HasConversion()'. (5c92c1c4)
+2021-03-16T13:34:25.0181453+03:30 0HM78CBFVE4IA:0000000F [INF] Entity Framework Core "5.0.4" initialized '"CustomDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2021-03-16T13:34:25.5343510+03:30 0HM78CBFVE4IA:0000000F [INF] Executed DbCommand ("33"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [s].[Id], [s].[Type], [s].[Active], [s].[Position], [s].[Url]
+FROM [Sliders] AS [s]" (0723d8ff)
+2021-03-16T13:34:51.3357993+03:30 0HM78CBFVE4IA:0000000F [WRN] No type was specified for the decimal property '"PrdPrice"' on entity type '"Wsproducts"'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType()', specify precision and scale using 'HasPrecision()' or configure a value converter using 'HasConversion()'. (5c92c1c4)
+2021-03-16T13:34:51.5377771+03:30 0HM78CBFVE4IA:0000000F [INF] Entity Framework Core "5.0.4" initialized '"IdealCrmDataBaseContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2021-03-16T13:34:51.6298868+03:30 0HM78CBFVE4IA:0000000F [INF] Executed DbCommand ("85"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c].[NewsGroupId] AS [Id], [c].[GroupName] AS [Name]
+FROM [CrmCmsNewsGroups] AS [c]" (0723d8ff)
+2021-03-16T13:34:51.6359942+03:30 0HM78CBFVE4IA:0000000F [INF] info (680db0b0)
+2021-03-16T13:34:51.6360501+03:30 0HM78CBFVE4IA:0000000F [WRN] war (fa24b367)
+2021-03-16T13:34:51.6360681+03:30 0HM78CBFVE4IA:0000000F [ERR] err (42240f44)
+2021-03-16T13:34:51.6360833+03:30 0HM78CBFVE4IA:0000000F [FTL] critical (18f63ac8)
+2021-03-16T13:34:51.6552700+03:30 0HM78CBFVE4IA:0000000F [INF] Executing ViewResult, running view "Index". (c83d0e25)
+2021-03-16T13:34:51.8618187+03:30 0HM78CBFVE4IA:0000000F [WRN] Compiling a query which loads related collections for more than one collection navigation either via 'Include' or through projection but no 'QuerySplittingBehavior' has been configured. By default Entity Framework will use 'QuerySplittingBehavior.SingleQuery' which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))' (74d62de4)
+2021-03-16T13:34:52.0868480+03:30 0HM78CBFVE4IA:0000000F [INF] Executed DbCommand ("165"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [p].[ParsaPooladMenusId], [p].[Name], [p].[UrlName], [t0].[PrdFirstGroupID], [t0].[FGName], [t0].[WsproductSecondGroupId], [t0].[Sgname]
+FROM [ParsaPooladMenus] AS [p]
+LEFT JOIN (
+    SELECT [w].[PrdFirstGroupID], [w].[FGName], [t].[WsproductSecondGroupId], [t].[Sgname], [w].[ParsaPooladMenusId]
+    FROM [WSProductFirstGroup] AS [w]
+    LEFT JOIN (
+        SELECT [w0].[PrdSecondGroupID] AS [WsproductSecondGroupId], [w0].[SGName] AS [Sgname], [w0].[FirstGroupId]
+        FROM [WSProductSecondGroup] AS [w0]
+        WHERE [w0].[IsRemoved] IS NULL
+    ) AS [t] ON [w].[PrdFirstGroupID] = [t].[FirstGroupId]
+    WHERE [w].[IsRemoved] IS NULL
+) AS [t0] ON [p].[ParsaPooladMenusId] = [t0].[ParsaPooladMenusId]
+ORDER BY [p].[ParsaPooladMenusId], [t0].[PrdFirstGroupID], [t0].[WsproductSecondGroupId]" (0723d8ff)
+2021-03-16T13:34:52.2330828+03:30 0HM78CBFVE4IA:0000000F [INF] Executed ViewResult - view "Index" executed in 588.6036ms. (f66409e9)
+2021-03-16T13:34:52.2376534+03:30 0HM78CBFVE4IA:0000000F [INF] Executed action "EndPoint.Web.Controllers.HomeController.Index (EndPoint.Web)" in 28309.4326ms (afa2e885)
+2021-03-16T13:34:52.2385891+03:30 0HM78CBFVE4IA:0000000F [INF] Executed endpoint '"EndPoint.Web.Controllers.HomeController.Index (EndPoint.Web)"' (99874f2b)
+2021-03-16T13:34:52.2548965+03:30 0HM78CBFVE4IA:00000011 [INF] Request starting HTTP/2 GET https://localhost:5001/Images/Settings/Logo-Header.jpg - - (ca22a1cb)
+2021-03-16T13:34:52.2709791+03:30 0HM78CBFVE4IA:0000000F [INF] Request finished HTTP/2 GET https://localhost:5001/ - - - 200 - text/html;+charset=utf-8 28434.4299ms (791a596a)
+2021-03-16T13:34:52.2724899+03:30 0HM78CBFVE4IA:00000011 [INF] Sending file. Request path: '"/Images/Settings/Logo-Header.jpg"'. Physical path: '"D:\.NET\01_ParsaPoolad\EndPoint.Web\wwwroot\Images\Settings\Logo-Header.jpg"' (27b0a520)
+2021-03-16T13:34:52.2727106+03:30 0HM78CBFVE4IA:00000011 [INF] Request finished HTTP/2 GET https://localhost:5001/Images/Settings/Logo-Header.jpg - - - 0 3318 image/jpeg 17.7887ms (791a596a)
+2021-03-16T13:34:52.5537815+03:30 0HM78CBFVE4IA:00000013 [INF] Request starting HTTP/2 GET https://localhost:5001/Images/Favicon/android-icon-192x192.png - - (ca22a1cb)
+2021-03-16T13:34:52.5544012+03:30 0HM78CBFVE4IA:00000013 [INF] Sending file. Request path: '"/Images/Favicon/android-icon-192x192.png"'. Physical path: '"D:\.NET\01_ParsaPoolad\EndPoint.Web\wwwroot\Images\Favicon\android-icon-192x192.png"' (27b0a520)
+2021-03-16T13:34:52.5545010+03:30 0HM78CBFVE4IA:00000013 [INF] Request finished HTTP/2 GET https://localhost:5001/Images/Favicon/android-icon-192x192.png - - - 0 21868 image/png 0.7340ms (791a596a)
+2021-03-16T14:02:34.1114280+03:30 0HM78CBFVE4IB:0000000F [INF] Request starting HTTP/2 GET https://localhost:5001/wp-content/uploads/2020/06/0b0d3f0a.svg - - (ca22a1cb)
+2021-03-16T14:02:34.1125845+03:30 0HM78CBFVE4IB:00000011 [INF] Request starting HTTP/2 GET https://localhost:5001/wp-content/uploads/2020/06/964edb61.svg - - (ca22a1cb)
+2021-03-16T14:02:34.1355388+03:30 0HM78CBFVE4IB:00000013 [INF] Request starting HTTP/2 GET https://localhost:5001/wp-content/uploads/2020/06/b3be3881.svg - - (ca22a1cb)
+2021-03-16T14:02:34.1359830+03:30 0HM78CBFVE4IB:00000015 [INF] Request starting HTTP/2 GET https://localhost:5001/wp-content/uploads/2020/06/0feb6326.svg - - (ca22a1cb)
+2021-03-16T14:02:36.6097258+03:30 0HM78CBFVE4IB:00000017 [INF] Request starting HTTP/2 GET https://localhost:5001/products - - (ca22a1cb)
+2021-03-16T14:02:36.6145782+03:30 0HM78CBFVE4IB:00000017 [INF] Executing endpoint '"EndPoint.Web.Controllers.ProductsController.Index (EndPoint.Web)"' (500cc934)
+2021-03-16T14:02:36.6170943+03:30 0HM78CBFVE4IB:00000017 [INF] Route matched with "{action = \"Index\", controller = \"Products\", area = \"\"}". Executing controller action with signature "Microsoft.AspNetCore.Mvc.IActionResult Index()" on controller "EndPoint.Web.Controllers.ProductsController" ("EndPoint.Web"). (122b2fdf)
+2021-03-16T14:02:36.6309832+03:30 0HM78CBFVE4IB:00000017 [INF] Entity Framework Core "5.0.4" initialized '"IdealCrmDataBaseContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2021-03-16T14:02:37.1044139+03:30 0HM78CBFVE4IB:0000000F [INF] Sending file. Request path: '"/wp-content/uploads/2020/06/0b0d3f0a.svg"'. Physical path: '"D:\.NET\01_ParsaPoolad\EndPoint.Web\wwwroot\wp-content\uploads\2020\06\0b0d3f0a.svg"' (27b0a520)
+2021-03-16T14:02:37.1045562+03:30 0HM78CBFVE4IB:0000000F [INF] Request finished HTTP/2 GET https://localhost:5001/wp-content/uploads/2020/06/0b0d3f0a.svg - - - 0 2054 image/svg+xml 2993.1538ms (791a596a)
+2021-03-16T14:02:37.1063828+03:30 0HM78CBFVE4IB:00000013 [INF] Sending file. Request path: '"/wp-content/uploads/2020/06/b3be3881.svg"'. Physical path: '"D:\.NET\01_ParsaPoolad\EndPoint.Web\wwwroot\wp-content\uploads\2020\06\b3be3881.svg"' (27b0a520)
+2021-03-16T14:02:37.1064355+03:30 0HM78CBFVE4IB:00000013 [INF] Request finished HTTP/2 GET https://localhost:5001/wp-content/uploads/2020/06/b3be3881.svg - - - 0 2250 image/svg+xml 2970.9235ms (791a596a)
+2021-03-16T14:02:37.1066560+03:30 0HM78CBFVE4IB:00000011 [INF] Sending file. Request path: '"/wp-content/uploads/2020/06/964edb61.svg"'. Physical path: '"D:\.NET\01_ParsaPoolad\EndPoint.Web\wwwroot\wp-content\uploads\2020\06\964edb61.svg"' (27b0a520)
+2021-03-16T14:02:37.1067127+03:30 0HM78CBFVE4IB:00000015 [INF] Sending file. Request path: '"/wp-content/uploads/2020/06/0feb6326.svg"'. Physical path: '"D:\.NET\01_ParsaPoolad\EndPoint.Web\wwwroot\wp-content\uploads\2020\06\0feb6326.svg"' (27b0a520)
+2021-03-16T14:02:37.1067546+03:30 0HM78CBFVE4IB:00000015 [INF] Request finished HTTP/2 GET https://localhost:5001/wp-content/uploads/2020/06/0feb6326.svg - - - 0 6904 image/svg+xml 2970.7871ms (791a596a)
+2021-03-16T14:02:37.1067477+03:30 0HM78CBFVE4IB:00000011 [INF] Request finished HTTP/2 GET https://localhost:5001/wp-content/uploads/2020/06/964edb61.svg - - - 0 4338 image/svg+xml 2994.1694ms (791a596a)
+2021-03-16T14:02:37.2090037+03:30 0HM78CBFVE4IB:00000017 [INF] Executed DbCommand ("571"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [w].[ProductID] AS [ProductId], [w].[PrdGroupID] AS [PrdGroupId], [w].[PrdCode], [w].[PrdName], [w].[PrdSize], [w].[PrdUnitId], [w].[PrdMaxQty], [w].[RegisterDatePersian], [w].[PrdModel], [w].[PrdPrice]
+FROM [WSProducts] AS [w]" (0723d8ff)
+2021-03-16T14:02:37.2182446+03:30 0HM78CBFVE4IB:00000017 [WRN] Compiling a query which loads related collections for more than one collection navigation either via 'Include' or through projection but no 'QuerySplittingBehavior' has been configured. By default Entity Framework will use 'QuerySplittingBehavior.SingleQuery' which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))' (74d62de4)
+2021-03-16T14:02:37.2333473+03:30 0HM78CBFVE4IB:00000017 [INF] Executed DbCommand ("5"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [p].[ParsaPooladMenusId], [p].[Name], [p].[UrlName], [p].[Image], [t0].[PrdFirstGroupID], [t0].[FGName], [t0].[WsproductSecondGroupId], [t0].[Sgname]
+FROM [ParsaPooladMenus] AS [p]
+LEFT JOIN (
+    SELECT [w].[PrdFirstGroupID], [w].[FGName], [t].[WsproductSecondGroupId], [t].[Sgname], [w].[ParsaPooladMenusId]
+    FROM [WSProductFirstGroup] AS [w]
+    LEFT JOIN (
+        SELECT [w0].[PrdSecondGroupID] AS [WsproductSecondGroupId], [w0].[SGName] AS [Sgname], [w0].[FirstGroupId]
+        FROM [WSProductSecondGroup] AS [w0]
+        WHERE [w0].[IsRemoved] IS NULL
+    ) AS [t] ON [w].[PrdFirstGroupID] = [t].[FirstGroupId]
+    WHERE [w].[IsRemoved] IS NULL
+) AS [t0] ON [p].[ParsaPooladMenusId] = [t0].[ParsaPooladMenusId]
+ORDER BY [p].[ParsaPooladMenusId], [t0].[PrdFirstGroupID], [t0].[WsproductSecondGroupId]" (0723d8ff)
+2021-03-16T14:02:37.2379608+03:30 0HM78CBFVE4IB:00000017 [INF] Executing ViewResult, running view "Index". (c83d0e25)
+2021-03-16T14:02:37.2654897+03:30 0HM78CBFVE4IB:00000017 [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [p].[ParsaPooladMenusId], [p].[Name], [p].[UrlName], [t0].[PrdFirstGroupID], [t0].[FGName], [t0].[WsproductSecondGroupId], [t0].[Sgname]
+FROM [ParsaPooladMenus] AS [p]
+LEFT JOIN (
+    SELECT [w].[PrdFirstGroupID], [w].[FGName], [t].[WsproductSecondGroupId], [t].[Sgname], [w].[ParsaPooladMenusId]
+    FROM [WSProductFirstGroup] AS [w]
+    LEFT JOIN (
+        SELECT [w0].[PrdSecondGroupID] AS [WsproductSecondGroupId], [w0].[SGName] AS [Sgname], [w0].[FirstGroupId]
+        FROM [WSProductSecondGroup] AS [w0]
+        WHERE [w0].[IsRemoved] IS NULL
+    ) AS [t] ON [w].[PrdFirstGroupID] = [t].[FirstGroupId]
+    WHERE [w].[IsRemoved] IS NULL
+) AS [t0] ON [p].[ParsaPooladMenusId] = [t0].[ParsaPooladMenusId]
+ORDER BY [p].[ParsaPooladMenusId], [t0].[PrdFirstGroupID], [t0].[WsproductSecondGroupId]" (0723d8ff)
+2021-03-16T14:02:37.2702181+03:30 0HM78CBFVE4IB:00000017 [INF] Executed ViewResult - view "Index" executed in 32.8683ms. (f66409e9)
+2021-03-16T14:02:37.2703154+03:30 0HM78CBFVE4IB:00000017 [INF] Executed action "EndPoint.Web.Controllers.ProductsController.Index (EndPoint.Web)" in 653.15ms (afa2e885)
+2021-03-16T14:02:37.2703381+03:30 0HM78CBFVE4IB:00000017 [INF] Executed endpoint '"EndPoint.Web.Controllers.ProductsController.Index (EndPoint.Web)"' (99874f2b)
+2021-03-16T14:02:37.2710438+03:30 0HM78CBFVE4IB:00000017 [INF] Request finished HTTP/2 GET https://localhost:5001/products - - - 200 - text/html;+charset=utf-8 661.3747ms (791a596a)
+2021-03-16T14:02:37.3037977+03:30 0HM78CBFVE4IB:00000019 [INF] Request starting HTTP/2 GET https://localhost:5001/Images/Menus/1.jpg - - (ca22a1cb)
+2021-03-16T14:02:37.3039658+03:30 0HM78CBFVE4IB:0000001B [INF] Request starting HTTP/2 GET https://localhost:5001/Images/Menus/2.jpg - - (ca22a1cb)
+2021-03-16T14:02:37.3044750+03:30 0HM78CBFVE4IB:0000001D [INF] Request starting HTTP/2 GET https://localhost:5001/Images/Menus/3.jpg - - (ca22a1cb)
+2021-03-16T14:02:37.3049357+03:30 0HM78CBFVE4IB:0000001F [INF] Request starting HTTP/2 GET https://localhost:5001/Images/Menus/4.jpg - - (ca22a1cb)
+2021-03-16T14:02:37.3053001+03:30 0HM78CBFVE4IB:00000021 [INF] Request starting HTTP/2 GET https://localhost:5001/Images/Menus/5.jpg - - (ca22a1cb)
+2021-03-16T14:02:37.3057878+03:30 0HM78CBFVE4IB:00000023 [INF] Request starting HTTP/2 GET https://localhost:5001/Images/Menus/6.jpg - - (ca22a1cb)
+2021-03-16T14:02:37.3062111+03:30 0HM78CBFVE4IB:00000025 [INF] Request starting HTTP/2 GET https://localhost:5001/Images/Menus/7.jpg - - (ca22a1cb)
+2021-03-16T14:02:37.3390042+03:30 0HM78CBFVE4IB:00000021 [INF] Sending file. Request path: '"/Images/Menus/5.jpg"'. Physical path: '"D:\.NET\01_ParsaPoolad\EndPoint.Web\wwwroot\Images\Menus\5.jpg"' (27b0a520)
+2021-03-16T14:02:37.3390041+03:30 0HM78CBFVE4IB:00000023 [INF] Sending file. Request path: '"/Images/Menus/6.jpg"'. Physical path: '"D:\.NET\01_ParsaPoolad\EndPoint.Web\wwwroot\Images\Menus\6.jpg"' (27b0a520)
+2021-03-16T14:02:37.3392644+03:30 0HM78CBFVE4IB:00000021 [INF] Request finished HTTP/2 GET https://localhost:5001/Images/Menus/5.jpg - - - 200 54038 image/jpeg 33.9130ms (791a596a)
+2021-03-16T14:02:37.3392718+03:30 0HM78CBFVE4IB:00000023 [INF] Request finished HTTP/2 GET https://localhost:5001/Images/Menus/6.jpg - - - 200 40099 image/jpeg 33.4260ms (791a596a)
+2021-03-16T14:02:37.3407929+03:30 0HM78CBFVE4IB:00000019 [INF] Sending file. Request path: '"/Images/Menus/1.jpg"'. Physical path: '"D:\.NET\01_ParsaPoolad\EndPoint.Web\wwwroot\Images\Menus\1.jpg"' (27b0a520)
+2021-03-16T14:02:37.3409712+03:30 0HM78CBFVE4IB:00000019 [INF] Request finished HTTP/2 GET https://localhost:5001/Images/Menus/1.jpg - - - 200 69229 image/jpeg 37.1557ms (791a596a)
+2021-03-16T14:02:37.3536831+03:30 0HM78CBFVE4IB:0000001F [INF] Sending file. Request path: '"/Images/Menus/4.jpg"'. Physical path: '"D:\.NET\01_ParsaPoolad\EndPoint.Web\wwwroot\Images\Menus\4.jpg"' (27b0a520)
+2021-03-16T14:02:37.3537918+03:30 0HM78CBFVE4IB:0000001F [INF] Request finished HTTP/2 GET https://localhost:5001/Images/Menus/4.jpg - - - 200 45530 image/jpeg 48.8288ms (791a596a)
+2021-03-16T14:02:37.3591492+03:30 0HM78CBFVE4IB:0000001B [INF] Sending file. Request path: '"/Images/Menus/2.jpg"'. Physical path: '"D:\.NET\01_ParsaPoolad\EndPoint.Web\wwwroot\Images\Menus\2.jpg"' (27b0a520)
+2021-03-16T14:02:37.3593130+03:30 0HM78CBFVE4IB:0000001B [INF] Request finished HTTP/2 GET https://localhost:5001/Images/Menus/2.jpg - - - 200 194805 image/jpeg 55.3119ms (791a596a)
+2021-03-16T14:02:37.3634979+03:30 0HM78CBFVE4IB:0000001D [INF] Sending file. Request path: '"/Images/Menus/3.jpg"'. Physical path: '"D:\.NET\01_ParsaPoolad\EndPoint.Web\wwwroot\Images\Menus\3.jpg"' (27b0a520)
+2021-03-16T14:02:37.3636162+03:30 0HM78CBFVE4IB:0000001D [INF] Request finished HTTP/2 GET https://localhost:5001/Images/Menus/3.jpg - - - 200 78534 image/jpeg 59.1054ms (791a596a)
+2021-03-16T14:02:37.3767742+03:30 0HM78CBFVE4IB:00000025 [INF] Sending file. Request path: '"/Images/Menus/7.jpg"'. Physical path: '"D:\.NET\01_ParsaPoolad\EndPoint.Web\wwwroot\Images\Menus\7.jpg"' (27b0a520)
+2021-03-16T14:02:37.3770466+03:30 0HM78CBFVE4IB:00000025 [INF] Request finished HTTP/2 GET https://localhost:5001/Images/Menus/7.jpg - - - 200 685935 image/jpeg 70.7934ms (791a596a)
+2021-03-16T14:02:39.9620046+03:30 0HM78CBFVE4IB:00000027 [INF] Request starting HTTP/2 GET https://localhost:5001/blog - - (ca22a1cb)
+2021-03-16T14:02:39.9651692+03:30 0HM78CBFVE4IB:00000027 [INF] Executing endpoint '"EndPoint.Web.Controllers.BlogsController.Index (EndPoint.Web)"' (500cc934)
+2021-03-16T14:02:39.9662487+03:30 0HM78CBFVE4IB:00000027 [INF] Route matched with "{action = \"Index\", controller = \"Blogs\", area = \"\"}". Executing controller action with signature "Microsoft.AspNetCore.Mvc.IActionResult Index()" on controller "EndPoint.Web.Controllers.BlogsController" ("EndPoint.Web"). (122b2fdf)
+2021-03-16T14:02:40.0108942+03:30 0HM78CBFVE4IB:00000027 [INF] Entity Framework Core "5.0.4" initialized '"IdealCrmDataBaseContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2021-03-16T14:02:40.0187884+03:30 0HM78CBFVE4IB:00000027 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. (96eb03fe)
+2021-03-16T14:02:40.0990620+03:30 0HM78CBFVE4IB:00000027 [INF] Executed DbCommand ("57"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(@__p_0) [c1].[NewsId], [c1].[NewsGroupId], (
+    SELECT TOP(1) [c].[GroupName]
+    FROM [CrmCmsNewsGroups] AS [c]
+    WHERE [c].[NewsGroupId] = [c1].[NewsGroupId]), (
+    SELECT TOP(1) [c0].[en_GroupName]
+    FROM [CrmCmsNewsGroups] AS [c0]
+    WHERE [c0].[NewsGroupId] = [c1].[NewsGroupId]), [c1].[HeadLine], [c1].[Title], [c1].[NewsSummery], [c1].[RegisterDate], [c1].[IsVerified], [c1].[Position]
+FROM [CrmCmsNews] AS [c1]
+WHERE ([c1].[IsVerified] = CAST(1 AS bit)) AND ([c1].[Position] = 0)" (0723d8ff)
+2021-03-16T14:02:40.1101921+03:30 0HM78CBFVE4IB:00000027 [INF] Executed DbCommand ("3"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c1].[NewsId], [c1].[NewsGroupId], (
+    SELECT TOP(1) [c].[GroupName]
+    FROM [CrmCmsNewsGroups] AS [c]
+    WHERE [c].[NewsGroupId] = [c1].[NewsGroupId]), (
+    SELECT TOP(1) [c0].[en_GroupName]
+    FROM [CrmCmsNewsGroups] AS [c0]
+    WHERE [c0].[NewsGroupId] = [c1].[NewsGroupId]), [c1].[HeadLine], [c1].[Title], [c1].[NewsSummery], [c1].[RegisterDate], [c1].[IsVerified], [c1].[Position]
+FROM [CrmCmsNews] AS [c1]
+WHERE ([c1].[IsVerified] = CAST(1 AS bit)) AND ([c1].[Position] <> 0)" (0723d8ff)
+2021-03-16T14:02:40.1369800+03:30 0HM78CBFVE4IB:00000027 [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c].[NewsGroupId], [c].[AppType], [c].[Color], [c].[FaIcon], [c].[FirstRegisterDate], [c].[FirstRegisterDatePersian], [c].[FirstRegisterUserId], [c].[GroupName], [c].[GUId], [c].[IsActive], [c].[LanguageID], [c].[Month1], [c].[OrderView], [c].[RegisterDate], [c].[RegisterDatePersian], [c].[UserId], [c].[Year1], [c].[en_GroupName]
+FROM [CrmCmsNewsGroups] AS [c]" (0723d8ff)
+2021-03-16T14:02:40.2598060+03:30 0HM78CBFVE4IB:00000027 [INF] Executing ViewResult, running view "Index". (c83d0e25)
+2021-03-16T14:02:40.3174012+03:30 0HM78CBFVE4IB:00000027 [INF] Executed ViewResult - view "Index" executed in 62.5734ms. (f66409e9)
+2021-03-16T14:02:40.3175369+03:30 0HM78CBFVE4IB:00000027 [INF] Executed action "EndPoint.Web.Controllers.BlogsController.Index (EndPoint.Web)" in 351.2401ms (afa2e885)
+2021-03-16T14:02:40.3175710+03:30 0HM78CBFVE4IB:00000027 [INF] Executed endpoint '"EndPoint.Web.Controllers.BlogsController.Index (EndPoint.Web)"' (99874f2b)
+2021-03-16T14:02:40.3180635+03:30 0HM78CBFVE4IB:00000027 [INF] Request finished HTTP/2 GET https://localhost:5001/blog - - - 200 - text/html;+charset=utf-8 356.0845ms (791a596a)
+2021-03-16T14:02:40.3567465+03:30 0HM78CBFVE4IB:00000029 [INF] Request starting HTTP/2 GET https://localhost:5001/Images/Blogs/6374725983890541425.jpg - - (ca22a1cb)
+2021-03-16T14:02:40.3575664+03:30 0HM78CBFVE4IB:0000002D [INF] Request starting HTTP/2 GET https://localhost:5001/Images/Blogs/6374725993541764621.jpg - - (ca22a1cb)
+2021-03-16T14:02:40.3575664+03:30 0HM78CBFVE4IB:0000002B [INF] Request starting HTTP/2 GET https://localhost:5001/Images/Blogs/6374719508855791158.jpg - - (ca22a1cb)
+2021-03-16T14:02:40.3580085+03:30 0HM78CBFVE4IB:0000002F [INF] Request starting HTTP/2 GET https://localhost:5001/Images/Blogs/6374725977992453382.jpg - - (ca22a1cb)
+2021-03-16T14:02:40.3610056+03:30 0HM78CBFVE4IB:00000031 [INF] Request starting HTTP/2 GET https://localhost:5001/Images/Favicon/favicon-16x16.png - - (ca22a1cb)
+2021-03-16T14:02:40.3614978+03:30 0HM78CBFVE4IB:00000033 [INF] Request starting HTTP/2 GET https://localhost:5001/Images/Blogs/6374725972153036515.jpg - - (ca22a1cb)
+2021-03-16T14:02:40.3653450+03:30 0HM78CBFVE4IB:00000031 [INF] The file "/Images/Favicon/favicon-16x16.png" was not modified (f1f8d725)
+2021-03-16T14:02:40.3658662+03:30 0HM78CBFVE4IB:00000031 [INF] Request finished HTTP/2 GET https://localhost:5001/Images/Favicon/favicon-16x16.png - - - 304 - image/png 4.8672ms (791a596a)
+2021-03-16T14:02:40.3661036+03:30 0HM78CBFVE4IB:00000035 [INF] Request starting HTTP/2 GET https://localhost:5001/Images/Blogs/6374726005392054133.jpg - - (ca22a1cb)
+2021-03-16T14:02:40.3663289+03:30 0HM78CBFVE4IB:00000037 [INF] Request starting HTTP/2 GET https://localhost:5001/Images/Blogs/6374733802295162937.jpg - - (ca22a1cb)
+2021-03-16T14:02:40.3664650+03:30 0HM78CBFVE4IB:00000039 [INF] Request starting HTTP/2 GET https://localhost:5001/Images/Blogs/6374762326606459894.jpg - - (ca22a1cb)
+2021-03-16T14:02:40.4146547+03:30 0HM78CBFVE4IB:0000002B [INF] Sending file. Request path: '"/Images/Blogs/6374719508855791158.jpg"'. Physical path: '"D:\.NET\01_ParsaPoolad\EndPoint.Web\wwwroot\Images\Blogs\6374719508855791158.jpg"' (27b0a520)
+2021-03-16T14:02:40.4150154+03:30 0HM78CBFVE4IB:0000002B [INF] Request finished HTTP/2 GET https://localhost:5001/Images/Blogs/6374719508855791158.jpg - - - 200 133024 image/jpeg 57.3793ms (791a596a)
+2021-03-16T14:02:40.4279922+03:30 0HM78CBFVE4IB:0000002D [INF] Sending file. Request path: '"/Images/Blogs/6374725993541764621.jpg"'. Physical path: '"D:\.NET\01_ParsaPoolad\EndPoint.Web\wwwroot\Images\Blogs\6374725993541764621.jpg"' (27b0a520)
+2021-03-16T14:02:40.4284341+03:30 0HM78CBFVE4IB:0000002D [INF] Request finished HTTP/2 GET https://localhost:5001/Images/Blogs/6374725993541764621.jpg - - - 200 110833 image/jpeg 70.8254ms (791a596a)
+2021-03-16T14:02:40.4299600+03:30 0HM78CBFVE4IB:0000003B [INF] Request starting HTTP/2 GET https://localhost:5001/Images/Blogs/6374725990944700537.jpg - - (ca22a1cb)
+2021-03-16T14:02:40.4301736+03:30 0HM78CBFVE4IB:0000003D [INF] Request starting HTTP/2 GET https://localhost:5001/Images/Blogs/6374725987330238533.jpg - - (ca22a1cb)
+2021-03-16T14:02:40.4305692+03:30 0HM78CBFVE4IB:0000003F [INF] Request starting HTTP/2 GET https://localhost:5001/Images/Blogs/6374725533595309362.jpg - - (ca22a1cb)
+2021-03-16T14:02:40.4330020+03:30 0HM78CBFVE4IB:00000041 [INF] Request starting HTTP/2 GET https://localhost:5001/Images/Blogs/6374726000323326316.jpg - - (ca22a1cb)
+2021-03-16T14:02:40.4349214+03:30 0HM78CBFVE4IB:00000043 [INF] Request starting HTTP/2 GET https://localhost:5001/Images/Blogs/6374725996025877954.jpg - - (ca22a1cb)
+2021-03-16T14:02:40.4395508+03:30 0HM78CBFVE4IB:00000045 [INF] Request starting HTTP/2 GET https://localhost:5001/wp-content/themes/newkala/webfonts/fa-regular-400.woff2 - - (ca22a1cb)
+2021-03-16T14:02:40.4483425+03:30 0HM78CBFVE4IB:00000029 [INF] Sending file. Request path: '"/Images/Blogs/6374725983890541425.jpg"'. Physical path: '"D:\.NET\01_ParsaPoolad\EndPoint.Web\wwwroot\Images\Blogs\6374725983890541425.jpg"' (27b0a520)
+2021-03-16T14:02:40.4484828+03:30 0HM78CBFVE4IB:00000029 [INF] Request finished HTTP/2 GET https://localhost:5001/Images/Blogs/6374725983890541425.jpg - - - 200 294080 image/jpeg 91.9082ms (791a596a)
+2021-03-16T14:02:40.5118356+03:30 0HM78CBFVE4IB:00000033 [INF] Sending file. Request path: '"/Images/Blogs/6374725972153036515.jpg"'. Physical path: '"D:\.NET\01_ParsaPoolad\EndPoint.Web\wwwroot\Images\Blogs\6374725972153036515.jpg"' (27b0a520)
+2021-03-16T14:02:40.5120613+03:30 0HM78CBFVE4IB:00000033 [INF] Request finished HTTP/2 GET https://localhost:5001/Images/Blogs/6374725972153036515.jpg - - - 200 294080 image/jpeg 150.9263ms (791a596a)
+2021-03-16T14:02:40.5159925+03:30 0HM78CBFVE4IB:00000045 [INF] Sending file. Request path: '"/wp-content/themes/newkala/webfonts/fa-regular-400.woff2"'. Physical path: '"D:\.NET\01_ParsaPoolad\EndPoint.Web\wwwroot\wp-content\themes\newkala\webfonts\fa-regular-400.woff2"' (27b0a520)
+2021-03-16T14:02:40.5168374+03:30 0HM78CBFVE4IB:00000045 [INF] Request finished HTTP/2 GET https://localhost:5001/wp-content/themes/newkala/webfonts/fa-regular-400.woff2 - - - 200 13600 font/woff2 77.6989ms (791a596a)
+2021-03-16T14:02:40.5340173+03:30 0HM78CBFVE4IB:00000037 [INF] Sending file. Request path: '"/Images/Blogs/6374733802295162937.jpg"'. Physical path: '"D:\.NET\01_ParsaPoolad\EndPoint.Web\wwwroot\Images\Blogs\6374733802295162937.jpg"' (27b0a520)
+2021-03-16T14:02:40.5342890+03:30 0HM78CBFVE4IB:00000037 [INF] Request finished HTTP/2 GET https://localhost:5001/Images/Blogs/6374733802295162937.jpg - - - 200 346569 image/jpeg 167.7810ms (791a596a)
+2021-03-16T14:02:40.5432086+03:30 0HM78CBFVE4IB:00000039 [INF] Sending file. Request path: '"/Images/Blogs/6374762326606459894.jpg"'. Physical path: '"D:\.NET\01_ParsaPoolad\EndPoint.Web\wwwroot\Images\Blogs\6374762326606459894.jpg"' (27b0a520)
+2021-03-16T14:02:40.5432093+03:30 0HM78CBFVE4IB:0000003F [INF] Sending file. Request path: '"/Images/Blogs/6374725533595309362.jpg"'. Physical path: '"D:\.NET\01_ParsaPoolad\EndPoint.Web\wwwroot\Images\Blogs\6374725533595309362.jpg"' (27b0a520)
+2021-03-16T14:02:40.5433410+03:30 0HM78CBFVE4IB:00000039 [INF] Request finished HTTP/2 GET https://localhost:5001/Images/Blogs/6374762326606459894.jpg - - - 200 392197 image/jpeg 176.8330ms (791a596a)
+2021-03-16T14:02:40.5433677+03:30 0HM78CBFVE4IB:0000003F [INF] Request finished HTTP/2 GET https://localhost:5001/Images/Blogs/6374725533595309362.jpg - - - 200 370247 image/jpeg 112.7423ms (791a596a)
+2021-03-16T14:02:40.5438756+03:30 0HM78CBFVE4IB:00000035 [INF] Sending file. Request path: '"/Images/Blogs/6374726005392054133.jpg"'. Physical path: '"D:\.NET\01_ParsaPoolad\EndPoint.Web\wwwroot\Images\Blogs\6374726005392054133.jpg"' (27b0a520)
+2021-03-16T14:02:40.5439422+03:30 0HM78CBFVE4IB:00000035 [INF] Request finished HTTP/2 GET https://localhost:5001/Images/Blogs/6374726005392054133.jpg - - - 200 450014 image/jpeg 177.8377ms (791a596a)
+2021-03-16T14:02:40.5561369+03:30 0HM78CBFVE4IB:00000043 [INF] Sending file. Request path: '"/Images/Blogs/6374725996025877954.jpg"'. Physical path: '"D:\.NET\01_ParsaPoolad\EndPoint.Web\wwwroot\Images\Blogs\6374725996025877954.jpg"' (27b0a520)
+2021-03-16T14:02:40.5565003+03:30 0HM78CBFVE4IB:00000043 [INF] Request finished HTTP/2 GET https://localhost:5001/Images/Blogs/6374725996025877954.jpg - - - 200 392197 image/jpeg 121.5655ms (791a596a)
+2021-03-16T14:02:40.5588580+03:30 0HM78CBFVE4IB:0000003B [INF] Sending file. Request path: '"/Images/Blogs/6374725990944700537.jpg"'. Physical path: '"D:\.NET\01_ParsaPoolad\EndPoint.Web\wwwroot\Images\Blogs\6374725990944700537.jpg"' (27b0a520)
+2021-03-16T14:02:40.5589981+03:30 0HM78CBFVE4IB:0000003B [INF] Request finished HTTP/2 GET https://localhost:5001/Images/Blogs/6374725990944700537.jpg - - - 200 346569 image/jpeg 129.0571ms (791a596a)
+2021-03-16T14:02:40.5598231+03:30 0HM78CBFVE4IB:0000003D [INF] Sending file. Request path: '"/Images/Blogs/6374725987330238533.jpg"'. Physical path: '"D:\.NET\01_ParsaPoolad\EndPoint.Web\wwwroot\Images\Blogs\6374725987330238533.jpg"' (27b0a520)
+2021-03-16T14:02:40.5599147+03:30 0HM78CBFVE4IB:0000003D [INF] Request finished HTTP/2 GET https://localhost:5001/Images/Blogs/6374725987330238533.jpg - - - 200 450014 image/jpeg 129.7269ms (791a596a)
+2021-03-16T14:02:40.6374695+03:30 0HM78CBFVE4IB:0000002F [INF] Sending file. Request path: '"/Images/Blogs/6374725977992453382.jpg"'. Physical path: '"D:\.NET\01_ParsaPoolad\EndPoint.Web\wwwroot\Images\Blogs\6374725977992453382.jpg"' (27b0a520)
+2021-03-16T14:02:40.6377128+03:30 0HM78CBFVE4IB:0000002F [INF] Request finished HTTP/2 GET https://localhost:5001/Images/Blogs/6374725977992453382.jpg - - - 200 370247 image/jpeg 279.6587ms (791a596a)
+2021-03-16T14:02:40.6425465+03:30 0HM78CBFVE4IB:00000041 [INF] Sending file. Request path: '"/Images/Blogs/6374726000323326316.jpg"'. Physical path: '"D:\.NET\01_ParsaPoolad\EndPoint.Web\wwwroot\Images\Blogs\6374726000323326316.jpg"' (27b0a520)
+2021-03-16T14:02:40.6509099+03:30 0HM78CBFVE4IB:00000041 [INF] Request finished HTTP/2 GET https://localhost:5001/Images/Blogs/6374726000323326316.jpg - - - 200 255195 image/jpeg 209.7120ms (791a596a)
+2021-03-16T14:02:46.4202234+03:30 0HM78CBFVE4IB:00000047 [INF] Request starting HTTP/2 GET https://localhost:5001/blog/article/پیش-بینی-قیمت-میلگرد - - (ca22a1cb)
+2021-03-16T14:02:46.4205483+03:30 0HM78CBFVE4IB:00000047 [INF] Executing endpoint '"EndPoint.Web.Controllers.BlogsController.Details (EndPoint.Web)"' (500cc934)
+2021-03-16T14:02:46.4344182+03:30 0HM78CBFVE4IB:00000047 [INF] Route matched with "{action = \"Details\", controller = \"Blogs\", area = \"\"}". Executing controller action with signature "Microsoft.AspNetCore.Mvc.IActionResult Details(System.String, System.String)" on controller "EndPoint.Web.Controllers.BlogsController" ("EndPoint.Web"). (122b2fdf)
+2021-03-16T14:02:46.4499589+03:30 0HM78CBFVE4IB:00000047 [INF] Entity Framework Core "5.0.4" initialized '"IdealCrmDataBaseContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2021-03-16T14:02:46.4729280+03:30 0HM78CBFVE4IB:00000047 [INF] Executed DbCommand ("7"ms) [Parameters=["@__Replace_0='?' (Size = 1000)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [c].[NewsId], [c].[NewsGroupId], [c0].[GroupName], [c0].[en_GroupName], [c].[Title], [c].[NewsBody], [c].[NewsSummery], [c].[RegisterDate], [c].[IsVerified], [c].[Position], [c].[HeadLine]
+FROM [CrmCmsNews] AS [c]
+INNER JOIN [CrmCmsNewsGroups] AS [c0] ON [c].[NewsGroupId] = [c0].[NewsGroupId]
+WHERE [c].[Title] = @__Replace_0" (0723d8ff)
+2021-03-16T14:02:46.4749793+03:30 0HM78CBFVE4IB:00000047 [INF] Executing ViewResult, running view "Details". (c83d0e25)
+2021-03-16T14:02:46.4820461+03:30 0HM78CBFVE4IB:00000047 [INF] Executed ViewResult - view "Details" executed in 7.5762ms. (f66409e9)
+2021-03-16T14:02:46.4821193+03:30 0HM78CBFVE4IB:00000047 [INF] Executed action "EndPoint.Web.Controllers.BlogsController.Details (EndPoint.Web)" in 47.6633ms (afa2e885)
+2021-03-16T14:02:46.4821427+03:30 0HM78CBFVE4IB:00000047 [INF] Executed endpoint '"EndPoint.Web.Controllers.BlogsController.Details (EndPoint.Web)"' (99874f2b)
+2021-03-16T14:02:46.4825073+03:30 0HM78CBFVE4IB:00000047 [INF] Request finished HTTP/2 GET https://localhost:5001/blog/article/پیش-بینی-قیمت-میلگرد - - - 200 - text/html;+charset=utf-8 62.2747ms (791a596a)
+2021-03-16T14:03:03.2153122+03:30 0HM78CBFVE4IB:00000049 [INF] Request starting HTTP/2 GET https://localhost:5001/blog/video-analysis - - (ca22a1cb)
+2021-03-16T14:03:03.2155135+03:30 0HM78CBFVE4IB:00000049 [INF] Executing endpoint '"EndPoint.Web.Controllers.BlogsController.Category (EndPoint.Web)"' (500cc934)
+2021-03-16T14:03:03.2164549+03:30 0HM78CBFVE4IB:00000049 [INF] Route matched with "{action = \"Category\", controller = \"Blogs\", area = \"\"}". Executing controller action with signature "Microsoft.AspNetCore.Mvc.IActionResult Category(System.String, System.String, Int32)" on controller "EndPoint.Web.Controllers.BlogsController" ("EndPoint.Web"). (122b2fdf)
+2021-03-16T14:03:03.2205991+03:30 0HM78CBFVE4IB:00000049 [INF] Entity Framework Core "5.0.4" initialized '"IdealCrmDataBaseContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2021-03-16T14:03:03.2364962+03:30 0HM78CBFVE4IB:00000049 [INF] Executed DbCommand ("2"ms) [Parameters=["@__category_0='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [CrmCmsNews] AS [c]
+INNER JOIN [CrmCmsNewsGroups] AS [c0] ON [c].[NewsGroupId] = [c0].[NewsGroupId]
+WHERE (([c0].[en_GroupName] = @__category_0) AND ([c].[IsVerified] = CAST(1 AS bit))) AND ([c].[Position] = 0)" (0723d8ff)
+2021-03-16T14:03:03.2460071+03:30 0HM78CBFVE4IB:00000049 [INF] Executed DbCommand ("2"ms) [Parameters=["@__category_0='?' (Size = 4000), @__p_1='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [c].[NewsId], [c].[NewsGroupId], [c0].[GroupName], [c0].[en_GroupName], [c].[Title], [c].[NewsBody], [c].[NewsSummery], [c].[RegisterDate], [c].[IsVerified], [c].[Position], [c].[HeadLine]
+FROM [CrmCmsNews] AS [c]
+INNER JOIN [CrmCmsNewsGroups] AS [c0] ON [c].[NewsGroupId] = [c0].[NewsGroupId]
+WHERE (([c0].[en_GroupName] = @__category_0) AND ([c].[IsVerified] = CAST(1 AS bit))) AND ([c].[Position] = 0)
+ORDER BY [c].[NewsId] DESC
+OFFSET 0 ROWS FETCH NEXT @__p_1 ROWS ONLY" (0723d8ff)
+2021-03-16T14:03:03.2470938+03:30 0HM78CBFVE4IB:00000049 [INF] Executing ViewResult, running view "Category". (c83d0e25)
+2021-03-16T14:03:03.3223774+03:30 0HM78CBFVE4IB:00000049 [INF] Executed ViewResult - view "Category" executed in 75.7708ms. (f66409e9)
+2021-03-16T14:03:03.3224210+03:30 0HM78CBFVE4IB:00000049 [INF] Executed action "EndPoint.Web.Controllers.BlogsController.Category (EndPoint.Web)" in 105.9244ms (afa2e885)
+2021-03-16T14:03:03.3224507+03:30 0HM78CBFVE4IB:00000049 [INF] Executed endpoint '"EndPoint.Web.Controllers.BlogsController.Category (EndPoint.Web)"' (99874f2b)
+2021-03-16T14:03:03.3227937+03:30 0HM78CBFVE4IB:00000049 [INF] Request finished HTTP/2 GET https://localhost:5001/blog/video-analysis - - - 200 - text/html;+charset=utf-8 107.4899ms (791a596a)
+2021-03-16T14:03:06.3443769+03:30 0HM78CBFVE4IB:0000004B [INF] Request starting HTTP/2 GET https://localhost:5001/products - - (ca22a1cb)
+2021-03-16T14:03:06.3445614+03:30 0HM78CBFVE4IB:0000004B [INF] Executing endpoint '"EndPoint.Web.Controllers.ProductsController.Index (EndPoint.Web)"' (500cc934)
+2021-03-16T14:03:06.3446588+03:30 0HM78CBFVE4IB:0000004B [INF] Route matched with "{action = \"Index\", controller = \"Products\", area = \"\"}". Executing controller action with signature "Microsoft.AspNetCore.Mvc.IActionResult Index()" on controller "EndPoint.Web.Controllers.ProductsController" ("EndPoint.Web"). (122b2fdf)
+2021-03-16T14:03:06.3454370+03:30 0HM78CBFVE4IB:0000004B [INF] Entity Framework Core "5.0.4" initialized '"IdealCrmDataBaseContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2021-03-16T14:03:06.3459722+03:30 0HM78CBFVE4IB:0000004B [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [w].[ProductID] AS [ProductId], [w].[PrdGroupID] AS [PrdGroupId], [w].[PrdCode], [w].[PrdName], [w].[PrdSize], [w].[PrdUnitId], [w].[PrdMaxQty], [w].[RegisterDatePersian], [w].[PrdModel], [w].[PrdPrice]
+FROM [WSProducts] AS [w]" (0723d8ff)
+2021-03-16T14:03:06.3465655+03:30 0HM78CBFVE4IB:0000004B [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [p].[ParsaPooladMenusId], [p].[Name], [p].[UrlName], [p].[Image], [t0].[PrdFirstGroupID], [t0].[FGName], [t0].[WsproductSecondGroupId], [t0].[Sgname]
+FROM [ParsaPooladMenus] AS [p]
+LEFT JOIN (
+    SELECT [w].[PrdFirstGroupID], [w].[FGName], [t].[WsproductSecondGroupId], [t].[Sgname], [w].[ParsaPooladMenusId]
+    FROM [WSProductFirstGroup] AS [w]
+    LEFT JOIN (
+        SELECT [w0].[PrdSecondGroupID] AS [WsproductSecondGroupId], [w0].[SGName] AS [Sgname], [w0].[FirstGroupId]
+        FROM [WSProductSecondGroup] AS [w0]
+        WHERE [w0].[IsRemoved] IS NULL
+    ) AS [t] ON [w].[PrdFirstGroupID] = [t].[FirstGroupId]
+    WHERE [w].[IsRemoved] IS NULL
+) AS [t0] ON [p].[ParsaPooladMenusId] = [t0].[ParsaPooladMenusId]
+ORDER BY [p].[ParsaPooladMenusId], [t0].[PrdFirstGroupID], [t0].[WsproductSecondGroupId]" (0723d8ff)
+2021-03-16T14:03:06.3467362+03:30 0HM78CBFVE4IB:0000004B [INF] Executing ViewResult, running view "Index". (c83d0e25)
+2021-03-16T14:03:06.3492967+03:30 0HM78CBFVE4IB:0000004B [INF] Executed ViewResult - view "Index" executed in 2.5678ms. (f66409e9)
+2021-03-16T14:03:06.3493463+03:30 0HM78CBFVE4IB:0000004B [INF] Executed action "EndPoint.Web.Controllers.ProductsController.Index (EndPoint.Web)" in 4.6618ms (afa2e885)
+2021-03-16T14:03:06.3493662+03:30 0HM78CBFVE4IB:0000004B [INF] Executed endpoint '"EndPoint.Web.Controllers.ProductsController.Index (EndPoint.Web)"' (99874f2b)
+2021-03-16T14:03:06.3496271+03:30 0HM78CBFVE4IB:0000004B [INF] Request finished HTTP/2 GET https://localhost:5001/products - - - 200 - text/html;+charset=utf-8 5.2492ms (791a596a)

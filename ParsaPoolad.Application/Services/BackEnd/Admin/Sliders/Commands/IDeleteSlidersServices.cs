@@ -12,10 +12,10 @@ namespace ParsaPoolad.Application.Services.BackEnd.Admin.Sliders.Commands
 
     public class DeleteSlidersServices : IDeleteSlidersServices
     {
-        private readonly IIdentityDataBaseContext _context;
+        private readonly ICustomDbContext _context;
         private readonly IWebHostEnvironment _environment;
 
-        public DeleteSlidersServices(IIdentityDataBaseContext context, IWebHostEnvironment hostingEnvironment)
+        public DeleteSlidersServices(ICustomDbContext context, IWebHostEnvironment hostingEnvironment)
         {
             _context = context;
             _environment = hostingEnvironment;

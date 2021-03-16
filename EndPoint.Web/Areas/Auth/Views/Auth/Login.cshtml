@@ -1,0 +1,107 @@
+﻿@using EndPoint.Web.Areas.Auth.Data.Dto
+@model EndPoint.Web.Areas.Auth.Data.Dto.LoginDto
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    ViewData["Title"] = "ورود کاربر ";
+    Layout = "~/Areas/Auth/Views/Shared/_Layout.cshtml";
+}
+
+
+@section Head{
+    <link rel='stylesheet' id='main-theme-style-css-css'
+          href='~/wp-content/themes/newkala/style.css?ver=5.1.4' type='text/css'
+          media='all'/>
+    <link rel='stylesheet' id='woocommerce-general-rtl-css'
+          href='~/wp-content/plugins/woocommerce/assets/css/woocommerce-rtl.css?ver=4.7.0'
+          type='text/css' media='all'/>
+    
+    <link rel="stylesheet" type="text/css"
+          href="~/wp-content/themes/newkala/css/woocommerce_dashboard.css">
+    
+    <link rel="stylesheet" type="text/css"
+          href="~/wp-content/themes/newkala/inHead.css">
+    
+  <link rel="stylesheet" type="text/css"
+            href="~/css/Auth.css">
+}
+@section Foo{
+    <partial name="_ValidationScriptsPartial"/>
+        <script>$('.alertSlideUp').delay(3000).slideUp(300); </script>
+}
+
+
+<main>
+    <div class="sp_body_panel">
+        <div class="woocommerce">
+            <div class="main_login_form">
+                <a href="https://newkalatheme.ir/preview">
+                    <img style="display:block;margin:20px auto;" src="~/Images/Settings/Logo-Header.jpg" title="اکوفولاد ">
+                </a>
+
+                @if (TempData["AuthErrors"] != null)
+                {
+                    <ul class="woocommerce-error alertSlideUp">
+                        <li>
+                            <strong>خطا:</strong>
+                            @TempData["AuthErrors"]
+                        </li>
+                    </ul>
+                }
+                
+                
+                   @if (TempData["SuccessChangePassword"] != null)
+                    {
+                        <ul class="woocommerce-success alertSlideUp" role="alert">
+                            <li>
+                            <h3 class="text-center">@TempData["SuccessChangePassword"]</h3>
+                            </li>
+                        </ul>
+                    }
+                <div asp-validation-summary="ModelOnly" class="woocommerce-error alertSlideUp"></div>
+                
+                
+
+                <div class="woocommerce-notices-wrapper"></div>
+
+
+                <h2>رمز عبور را وارد کنید</h2>
+
+                <form asp-controller="Auth" asp-action="Login" method="post" class="woocommerce-form woocommerce-form-register">
+
+                    <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+                        <label>برای ورود رمز حساب کاربری خود را وارد نمایید<span class="required">*</span></label>
+                        <input  asp-for="Password" type="password" class="woocommerce-Input woocommerce-Input--text input-text"/>
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                        
+                    </p>
+
+                    <div class="woocommerce-privacy-policy-text"></div>
+                        <input  asp-for="ReturnUrl" type="hidden"/>
+                        <input  asp-for="UserName" type="hidden"/>
+
+                    <p class="woocommerce-FormRow form-row">
+                        <button type="submit" class="woocommerce-Button button go_to_all_products_offer" name="register" value="ورود">ورود به اکوفولاد</button>
+                    </p>
+
+
+                </form>
+
+                
+                
+                <form asp-controller="Auth" asp-action="ForgotPasswordSendSmsCode" method="post">
+                    <div class="go_to_register_form">
+                        <input  asp-for="UserName" type="hidden"/>
+                        <button type="submit" class="woocommerce-Button button" value=" بازیابی رمز عبور" style="    background-color: #ffffff;">
+                            <a>
+                            بازیابی رمز عبور
+                            </a>
+                        </button>
+                    </div>
+                </form>
+
+            </div>
+
+        </div>
+    </div>
+</main>

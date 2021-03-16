@@ -3,11 +3,11 @@
 
 @using Microsoft.AspNetCore.Authorization
 @using Microsoft.AspNetCore.Identity
-@using ParsaPoolad.Domain.Entities.Identity
+@using ParsaPoolad.Domain.Entities
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
-@inject IAuthorizationService _authorizationService;
-@inject SignInManager<User> _signInManager
-@inject UserManager<User> _userManager
+@inject IAuthorizationService AuthorizationService;
+@inject SignInManager<User> SignInManager
+@inject UserManager<User> UserManager
 
 @{
     ViewData["Title"] = " محصول جدید ";
@@ -252,11 +252,12 @@
         
           @if (User.Identity.IsAuthenticated)
           {
-              @if (_authorizationService.AuthorizeAsync(User, "OwnerRole").Result.Succeeded)
+              @if (AuthorizationService.AuthorizeAsync(User, "OwnerRole").Result.Succeeded)
               {
-                  <input type="hidden" asp-for="UserId" value="@_userManager.GetUserAsync(User).Result.Id">
+                
               }
           }
+          <input type="hidden" asp-for="UserId" value="@UserManager.GetUserAsync(User).Result.Id">
         <input type="submit" name="dokan_update_product" class="dokan-btn dokan-btn-theme dokan-btn-lg dokan-right" value="ذخیره محصول">
 <div class="dokan-clearfix"></div>
 </form>

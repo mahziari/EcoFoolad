@@ -11,9 +11,9 @@ namespace ParsaPoolad.Application.Services.BackEnd.Owner.Products.Queries
 
     public class GetCreateProductServices : IGetCreateProductServices
     {
-        private readonly IDataBaseContext _context;
+        private readonly IIdealCrmDataBaseContext _context;
 
-        public GetCreateProductServices(IDataBaseContext context)
+        public GetCreateProductServices(IIdealCrmDataBaseContext context)
         {
             _context = context;
         }

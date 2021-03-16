@@ -7,24 +7,26 @@ namespace ParsaPoolad.Application.Services.FrontEnd.Home.FacadPattern
 {
     public class HomeFrontEndFacad: IHomeFrontEndFacad
     {
-        private readonly IDistributedCache cache;
-        private readonly IDataBaseContext _context;
-        private readonly IIdentityDataBaseContext _parsapooladContext;
+        private readonly IDistributedCache _cache;
+        private readonly IIdealCrmDataBaseContext _idealCrmContext;
+        private readonly ICustomDbContext _context;
 
-        public HomeFrontEndFacad(IDataBaseContext context,
-            IIdentityDataBaseContext parsapooladContext, IDistributedCache cache)
-        {
-            _context = context;
-            _parsapooladContext = parsapooladContext;
-            this.cache = cache;
-        }
+  
         
         private IGetHomeFrontEndService _getHomeFrontEndService;
+
+        public HomeFrontEndFacad(IDistributedCache cache, IIdealCrmDataBaseContext idealCrmContext, ICustomDbContext context)
+        {
+            _cache = cache;
+            _idealCrmContext = idealCrmContext;
+            _context = context;
+        }
+
         public IGetHomeFrontEndService GetHomeFrontEndService
         {
             get
             {
-                return _getHomeFrontEndService ??= new GetHomeFrontEndService(_context,_parsapooladContext,cache);
+                return _getHomeFrontEndService ??= new GetHomeFrontEndService(_cache,_idealCrmContext,_context);
             }
         }
     }

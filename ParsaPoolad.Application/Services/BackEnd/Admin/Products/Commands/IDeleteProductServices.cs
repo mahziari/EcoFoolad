@@ -8,9 +8,9 @@ namespace ParsaPoolad.Application.Services.BackEnd.Admin.Products.Commands
     }
     public class DeleteProductServices : IDeleteProductServices
     {
-        private readonly IDataBaseContext _context;
+        private readonly IIdealCrmDataBaseContext _context;
 
-        public DeleteProductServices(IDataBaseContext context)
+        public DeleteProductServices(IIdealCrmDataBaseContext context)
         {
             _context = context;
         }

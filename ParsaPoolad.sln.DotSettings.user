@@ -7,6 +7,6 @@
 	<s:Boolean x:Key="/Default/Environment/Hierarchy/Build/SolBuilderDuo/RunBuildOnSolutionLoaded/@EntryValue">True</s:Boolean>
 	<s:String x:Key="/Default/Environment/Hierarchy/Build/SolutionBuilderNext/FileVerbosityLevel/@EntryValue">Minimal</s:String>
 	<s:Int64 x:Key="/Default/Environment/Hierarchy/Build/SolutionBuilderNext/ParallelProcessesCount2/@EntryValue">6</s:Int64>
-	<s:Boolean x:Key="/Default/UnloadedProject/UnloadedProjects/=2c68ad14_002D7fd6_002D4a15_002Db694_002D54d385a0cd78_0023ParsaPoolad_002EPersistence/@EntryIndexedValue">True</s:Boolean>
-	<s:Boolean x:Key="/Default/UnloadedProject/UnloadedProjects/=40b29d96_002D0bdd_002D4145_002Da212_002De7b98c1b0db0_0023ParsaPoolad_002EDomain/@EntryIndexedValue">True</s:Boolean>
-	<s:Boolean x:Key="/Default/UnloadedProject/UnloadedProjects/=46e41e5d_002Db4be_002D436b_002D914b_002D60f543b3e3a2_0023ParsaPoolad_002ECommon/@EntryIndexedValue">True</s:Boolean></wpf:ResourceDictionary>
+	
+	
+	</wpf:ResourceDictionary>

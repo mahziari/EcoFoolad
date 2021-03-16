@@ -1,5 +1,5 @@
 ﻿using ParsaPoolad.Application.Interfaces.Contexts;
-using ParsaPoolad.Domain.Entities;
+using ParsaPoolad.Domain.Entities.IdealCrm;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,9 +15,9 @@ namespace ParsaPoolad.Application.Services.BackEnd.Admin.Menus.Commands
 
     public class CreateNewSubMenusServices : ICreateNewSubMenusServices
     {
-        private readonly IDataBaseContext _context;
+        private readonly IIdealCrmDataBaseContext _context;
 
-        public CreateNewSubMenusServices(IDataBaseContext context)
+        public CreateNewSubMenusServices(IIdealCrmDataBaseContext context)
         {
             _context = context;
         }

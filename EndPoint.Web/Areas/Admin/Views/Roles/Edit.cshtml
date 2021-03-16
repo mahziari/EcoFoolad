@@ -1,7 +1,7 @@
 ﻿@using Microsoft.AspNetCore.Identity
 @using Microsoft.AspNetCore.Mvc.Rendering
 @using ParsaPoolad.Application.Services.BackEnd.Admin.Roles.Queries
-@using ParsaPoolad.Domain.Entities.Identity
+@using ParsaPoolad.Domain.Entities
 @model ResultGetEditRolesDto
 @inject RoleManager<Role> _roleManager
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
@@ -66,6 +66,7 @@
                                                 {
                                                     @if (Model.Claims[i].IsHead != null)
                                                     {
+                                                        <hr>
                                                         <fieldset>
                                                             <div class="form-check">
                                                                 @Html.CheckBoxFor(dto => dto.Claims[i].IsSelect)
@@ -76,12 +77,10 @@
                                                         <script>
                                                         $('.selectAll input').addClass('selectAll_@i}');
                                                         </script>
-
-
                                                     }
                                                     else
                                                     {
-                                                        var currentRole = _roleManager.FindByIdAsync(Model.Role.Id).Result;
+                                                        var currentRole = _roleManager.FindByIdAsync(Model.Role.Id.ToString()).Result;
                                                         var claimsRole = _roleManager.GetClaimsAsync(currentRole).Result
                                                             .Where(c => c.Value == Model.Claims[i].ClaimValue).Select(c => c.Value).FirstOrDefault();
 
@@ -94,7 +93,8 @@
                                                                     @Html.HiddenFor(dto => dto.Claims[i].Id)
                                                                 </div>
                                                             </fieldset>
-                                                            <script>
+                                                            
+                                                                <script>
                                                                     $('.checked').prop('checked', true);
                                                                 </script>
                                                         }

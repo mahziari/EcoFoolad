@@ -3,7 +3,7 @@ using System.Linq;
 using System.Numerics;
 using Microsoft.EntityFrameworkCore;
 using ParsaPoolad.Application.Interfaces.Contexts;
-using ParsaPoolad.Domain.Entities;
+using ParsaPoolad.Domain.Entities.IdealCrm;
 
 namespace ParsaPoolad.Application.Services.BackEnd.Admin.Company.Queries
 {
@@ -14,9 +14,9 @@ namespace ParsaPoolad.Application.Services.BackEnd.Admin.Company.Queries
 
     public class GetIndexCompanyServices : IGetIndexCompanyServices
     {
-        private readonly IDataBaseContext _context;
+        private readonly IIdealCrmDataBaseContext _context;
 
-        public GetIndexCompanyServices(IDataBaseContext context)
+        public GetIndexCompanyServices(IIdealCrmDataBaseContext context)
         {
             _context = context;
         }

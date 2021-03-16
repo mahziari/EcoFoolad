@@ -65,14 +65,14 @@ namespace EndPoint.Web.Areas.Admin.Controllers
         [Authorize(Policy = "UsersEdit")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(ResultGetIndexUsersDto resultGetIndexUsersDto)
+        public IActionResult Edit(ResultGetEditUsersDto resultGetEditUsersDto)
         {
             if (!ModelState.IsValid)
             {
-                return View("Edit", _usersFacad.GetEditUsersServices.Execute(resultGetIndexUsersDto.Id));
+                return View("Edit", _usersFacad.GetEditUsersServices.Execute(resultGetEditUsersDto.UserId));
             }
         
-            var result = _usersFacad.EditUsersServices.Execute(resultGetIndexUsersDto);
+            var result = _usersFacad.EditUsersServices.Execute(resultGetEditUsersDto);
         
             TempData["IsSuccess"] = result.IsSuccess;
             TempData["Message"] = result.Message;

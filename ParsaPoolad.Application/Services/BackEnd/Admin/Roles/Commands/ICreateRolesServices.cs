@@ -1,8 +1,5 @@
-﻿using System.Linq;
-using Microsoft.AspNetCore.Identity;
-using ParsaPoolad.Application.Interfaces.Contexts;
-using ParsaPoolad.Application.Services.BackEnd.Admin.Roles.Queries;
-using ParsaPoolad.Domain.Entities.Identity;
+﻿using Microsoft.AspNetCore.Identity;
+using ParsaPoolad.Domain.Entities;
 
 namespace ParsaPoolad.Application.Services.BackEnd.Admin.Roles.Commands
 {

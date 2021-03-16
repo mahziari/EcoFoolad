@@ -1,7 +1,7 @@
 ﻿using System.IO;
 using Microsoft.AspNetCore.Hosting;
 using ParsaPoolad.Application.Interfaces.Contexts;
-using ParsaPoolad.Domain.Entities;
+using ParsaPoolad.Domain.Entities.IdealCrm;
 
 namespace ParsaPoolad.Application.Services.BackEnd.Admin.BlogsCategories.Command
 {
@@ -11,9 +11,9 @@ namespace ParsaPoolad.Application.Services.BackEnd.Admin.BlogsCategories.Command
     }
     public class DeleteBlogsCategoriesServices : IDeleteBlogsCategoriesServices
     {
-        private readonly IDataBaseContext _context;
+        private readonly IIdealCrmDataBaseContext _context;
 
-        public DeleteBlogsCategoriesServices(IDataBaseContext context)
+        public DeleteBlogsCategoriesServices(IIdealCrmDataBaseContext context)
         {
             _context = context;
         }

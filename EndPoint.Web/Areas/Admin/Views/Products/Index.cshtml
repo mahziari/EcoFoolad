@@ -2,7 +2,7 @@
 @using ParsaPoolad.Application.Services.BackEnd.Admin.Products.Queries
 @model ResultGetIndexProductsDto
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
-@inject IAuthorizationService _authorizationService;
+@inject IAuthorizationService AuthorizationService;
 @{
     ViewData["Title"] = "لیست محصولات";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
@@ -114,13 +114,13 @@
                                                     <td class="tdDisplay">
                                                         <a asp-area="Admin" asp-controller="Products" asp-action="Details" asp-route-id="@item.ProductId" title="مشاهده جزییات"><span class="badge badge-info d-inline-flex align-items-center mr-1 mb-1"><i class="fa fa-folder-open" aria-hidden="true"></i></span></a>
                                                         
-                                                        @if (_authorizationService.AuthorizeAsync(User, "ProductsEdit").Result.Succeeded)
+                                                        @if (AuthorizationService.AuthorizeAsync(User, "ProductsEdit").Result.Succeeded)
                                                         {
                                                             <a asp-area="Admin" asp-controller="Products" asp-action="Edit" asp-route-id="@item.ProductId" title="ویرایش"><span class="badge badge-warning d-inline-flex align-items-center mr-1 mb-1"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></span></a>
                                                         }
                                                         
                                                         
-                                                         @if (_authorizationService.AuthorizeAsync(User, "ProductsActive").Result.Succeeded)
+                                                         @if (AuthorizationService.AuthorizeAsync(User, "ProductsActive").Result.Succeeded)
                                                          {
                                                              @if (@item.PrdInactiveInSale == false)
                                                              {
@@ -133,7 +133,7 @@
                                                          }
 
                                                         
-                                                         @if (_authorizationService.AuthorizeAsync(User, "ProductsDelete").Result.Succeeded)
+                                                         @if (AuthorizationService.AuthorizeAsync(User, "ProductsDelete").Result.Succeeded)
                                                          {
                                                              <a asp-area="Admin" asp-controller="Products" asp-action="Delete" asp-route-id="@item.ProductId" title="حذف" onclick="return confirm('ایا از حذف مطمعن هستید؟');"><span class="badge badge-danger d-inline-flex align-items-center mr-1 mb-1"><i class="fa fa-window-close" aria-hidden="true"></i></span></a>
                                                          }

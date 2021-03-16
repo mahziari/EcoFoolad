@@ -5,7 +5,7 @@ using System.Linq;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using ParsaPoolad.Application.Interfaces.Contexts;
-using ParsaPoolad.Domain.Entities;
+using ParsaPoolad.Domain.Entities.IdealCrm;
 
 namespace ParsaPoolad.Application.Services.BackEnd.Admin.Company.Command
 {
@@ -15,9 +15,9 @@ namespace ParsaPoolad.Application.Services.BackEnd.Admin.Company.Command
     }
 
     public class EditCompanyServices:IEditCompanyServices {
-        private readonly IDataBaseContext _context;
+        private readonly IIdealCrmDataBaseContext _context;
 
-        public EditCompanyServices(IDataBaseContext context)
+        public EditCompanyServices(IIdealCrmDataBaseContext context)
         {
             _context = context;
         }

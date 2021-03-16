@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using ParsaPoolad.Application.Interfaces.Contexts;
 using ParsaPoolad.Application.Services.BackEnd.Admin.Sliders.Commands;
-using ParsaPoolad.Domain.Entities;
+using ParsaPoolad.Domain.Entities.IdealCrm;
 
 namespace ParsaPoolad.Application.Services.BackEnd.Admin.BlogsCategories.Command
 {
@@ -17,8 +17,8 @@ namespace ParsaPoolad.Application.Services.BackEnd.Admin.BlogsCategories.Command
     public class CreateBlogsCategoriesServices : ICreateBlogsCategoriesServices
     {
 
-        private readonly IDataBaseContext _context;
-        public CreateBlogsCategoriesServices(IDataBaseContext context)
+        private readonly IIdealCrmDataBaseContext _context;
+        public CreateBlogsCategoriesServices(IIdealCrmDataBaseContext context)
         {
             _context = context;
         }

@@ -1,24 +1,26 @@
 ﻿
 using ParsaPoolad.Application.Interfaces.Contexts;
-using ParsaPoolad.Domain.Entities;
+using ParsaPoolad.Domain.Entities.IdealCrm;
 
 
 namespace ParsaPoolad.Application.Services.BackEnd.Admin.BlogsCategories.Command
 {
     public interface IEditBlogsCategoriesServices
     {
-        ResultEditBlogsCategoriesDto Execute(CreateBlogsCategoriesServicesDto createBlogsCategoriesServicesDto,CrmCmsNewsGroups crmCmsNewsGroups,int id);
+        ResultEditBlogsCategoriesDto Execute(CreateBlogsCategoriesServicesDto createBlogsCategoriesServicesDto,
+            CrmCmsNewsGroups crmCmsNewsGroups, int id);
     }
 
     public class EditBlogsCategoriesServices:IEditBlogsCategoriesServices {
-        private readonly IDataBaseContext _context;
+        private readonly IIdealCrmDataBaseContext _context;
 
-        public EditBlogsCategoriesServices(IDataBaseContext context )
+        public EditBlogsCategoriesServices(IIdealCrmDataBaseContext context )
         {
             _context = context;
         }
 
-        public ResultEditBlogsCategoriesDto Execute(CreateBlogsCategoriesServicesDto createBlogsCategoriesServicesDto,CrmCmsNewsGroups crmCmsNewsGroups,int id)
+        public ResultEditBlogsCategoriesDto Execute(CreateBlogsCategoriesServicesDto createBlogsCategoriesServicesDto,
+            CrmCmsNewsGroups crmCmsNewsGroups, int id)
         {
             
             var blogCategory = _context.CrmCmsNewsGroups.Find(id);

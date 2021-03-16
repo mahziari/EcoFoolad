@@ -10,9 +10,9 @@ namespace ParsaPoolad.Application.Services.BackEnd.Admin.Menus.Queries
     }
     public class GetEditSubMenusService : IGetEditSubMenusService
     {
-        private readonly IDataBaseContext _context;
+        private readonly IIdealCrmDataBaseContext _context;
 
-        public GetEditSubMenusService(IDataBaseContext context)
+        public GetEditSubMenusService(IIdealCrmDataBaseContext context)
         {
             _context = context;
         }

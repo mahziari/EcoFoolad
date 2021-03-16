@@ -9,9 +9,9 @@ namespace ParsaPoolad.Application.Services.BackEnd.Admin.BlogsCategories.FacadPa
     public class BlogsCategoriesFacad : IBlogsCategoriesFacad
     {
         
-        private readonly IDataBaseContext _context;
+        private readonly IIdealCrmDataBaseContext _context;
 
-        public BlogsCategoriesFacad(IDataBaseContext context)
+        public BlogsCategoriesFacad(IIdealCrmDataBaseContext context)
         {
             _context = context;
         }

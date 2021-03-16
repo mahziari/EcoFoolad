@@ -43,7 +43,7 @@
         <div class="content-body">
             <!-- app invoice View Page -->
 
-            <form asp-area="Admin" asp-controller="Users" asp-action="Edit" asp-route-id="@Model.Id" method="post">
+            <form asp-area="Admin" asp-controller="Users" asp-action="Edit" asp-route-id="@Model.User.Id" method="post">
                 <section class="invoice-edit-wrapper">
 
                     <div class="row">
@@ -61,11 +61,12 @@
                                                     <select class="select2 form-control" asp-for="RoleName">
                                                         <option value="">نقش کاربر را انتخاب کنید</option>
                                                         <br>
-                                                        @foreach (var item in @Model.Roles)
+                                                        @foreach (var item in Model.Roles)
                                                         {
-                                                            <option value="@item.Id">@item.Description </option>
+                                                            <option value="@item.Name">@item.Description </option>
                                                         }
                                                     </select>
+                                                    <input asp-for="UserId" type="hidden" value="@Model.User.Id">
                                                     <span asp-validation-for="@Model.RoleName" class="text-danger"></span>
                                                 </div>
                                             </div>

@@ -13,9 +13,9 @@ namespace ParsaPoolad.Application.Services.BackEnd.Admin.Products.Queries.GetCre
 
     public class GetReturnSubSubMenusAjaxServices : IGetReturnSubSubMenusAjaxServices
     {
-        private readonly IDataBaseContext _context;
+        private readonly IIdealCrmDataBaseContext _context;
 
-        public GetReturnSubSubMenusAjaxServices(IDataBaseContext context)
+        public GetReturnSubSubMenusAjaxServices(IIdealCrmDataBaseContext context)
         {
             _context = context;
         }

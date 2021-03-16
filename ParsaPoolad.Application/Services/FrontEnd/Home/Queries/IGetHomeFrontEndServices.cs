@@ -1,12 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.Extensions.Caching.Distributed;
 using Newtonsoft.Json;
 using ParsaPoolad.Application.Interfaces.Contexts;
-using ParsaPoolad.Common.Extentions;
 
 namespace ParsaPoolad.Application.Services.FrontEnd.Home.Queries
 {
@@ -18,16 +15,14 @@ namespace ParsaPoolad.Application.Services.FrontEnd.Home.Queries
     public class GetHomeFrontEndService : IGetHomeFrontEndService
     {
         private readonly IDistributedCache _cache;
-        private readonly IDataBaseContext _context;
-        private readonly IIdentityDataBaseContext _parsapooladContext;
+        private readonly IIdealCrmDataBaseContext _idealCrmContext;
+        private readonly ICustomDbContext _context;
 
-        public GetHomeFrontEndService(IDataBaseContext context,
-            IIdentityDataBaseContext parsapooladContext,
-            IDistributedCache cache)
+        public GetHomeFrontEndService(IDistributedCache cache, IIdealCrmDataBaseContext idealCrmContext, ICustomDbContext context)
         {
-            _context = context;
-            _parsapooladContext = parsapooladContext;
             _cache = cache;
+            _idealCrmContext = idealCrmContext;
+            _context = context;
         }
 
         public ResultGetHomeFrontEndDto Execute()
@@ -36,7 +31,7 @@ namespace ParsaPoolad.Application.Services.FrontEnd.Home.Queries
             List<GetSlidersDto> sliders;
             if (string.IsNullOrEmpty(_cache.GetString("IGetHomeFrontEndService_Sliders")))
             {
-                sliders = _parsapooladContext.Sliders.Select(s => new GetSlidersDto
+                sliders = _context.Sliders.Select(s => new GetSlidersDto
                 {
                     Id = s.Id,
                     Type = s.Type,
@@ -60,7 +55,7 @@ namespace ParsaPoolad.Application.Services.FrontEnd.Home.Queries
             }
 
 
-            var blogsGroup = _context.CrmCmsNewsGroups
+            var blogsGroup = _idealCrmContext.CrmCmsNewsGroups
                 .Select(g => new GetBlogsGroupDto
                 {
                     Id = g.NewsGroupId,

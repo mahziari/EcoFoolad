@@ -9,10 +9,10 @@ namespace ParsaPoolad.Application.Services.BackEnd.Admin.Sliders.FacadPattern
 {
     public class SlidersFacad:ISlidersFacad
     {
-        private readonly IIdentityDataBaseContext _context;
+        private readonly ICustomDbContext _context;
         private readonly IWebHostEnvironment _environment;
 
-        public SlidersFacad(IIdentityDataBaseContext context, IWebHostEnvironment hostingEnvironment)
+        public SlidersFacad(ICustomDbContext context, IWebHostEnvironment hostingEnvironment)
         {
             _context = context;
             _environment = hostingEnvironment;

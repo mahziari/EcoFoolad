@@ -4,7 +4,7 @@ using System.IO;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using ParsaPoolad.Application.Interfaces.Contexts;
-using ParsaPoolad.Domain.Entities;
+using ParsaPoolad.Domain.Entities.IdealCrm;
 
 namespace ParsaPoolad.Application.Services.BackEnd.Admin.Blogs.Command
 {
@@ -16,9 +16,9 @@ namespace ParsaPoolad.Application.Services.BackEnd.Admin.Blogs.Command
     public class CreateBlogsServices : ICreateBlogsServices
     {
 
-        private readonly IDataBaseContext _context;
+        private readonly IIdealCrmDataBaseContext _context;
         private readonly IWebHostEnvironment _environment;
-        public CreateBlogsServices(IDataBaseContext context, IWebHostEnvironment environment)
+        public CreateBlogsServices(IIdealCrmDataBaseContext context, IWebHostEnvironment environment)
         {
             _context = context;
             _environment = environment;

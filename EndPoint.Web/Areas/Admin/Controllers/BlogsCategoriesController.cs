@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using ParsaPoolad.Application.Interfaces.FacadPatterns.BackEnd.Admin;
 using ParsaPoolad.Application.Services.BackEnd.Admin.BlogsCategories.Command;
 using ParsaPoolad.Domain.Entities;
+using ParsaPoolad.Domain.Entities.IdealCrm;
 
 namespace EndPoint.Web.Areas.Admin.Controllers
 {

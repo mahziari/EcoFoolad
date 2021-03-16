@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using Microsoft.AspNetCore.Http;
 using ParsaPoolad.Application.Interfaces.Contexts;
-using ParsaPoolad.Domain.Entities;
+using ParsaPoolad.Domain.Entities.IdealCrm;
 
 namespace ParsaPoolad.Application.Services.BackEnd.Admin.Blogs.Queries
 {
@@ -14,9 +14,9 @@ namespace ParsaPoolad.Application.Services.BackEnd.Admin.Blogs.Queries
 
     public class GetCreateBlogsServices : IGetCreateBlogsServices
     {
-        private readonly IDataBaseContext _context;
+        private readonly IIdealCrmDataBaseContext _context;
 
-        public GetCreateBlogsServices(IDataBaseContext context)
+        public GetCreateBlogsServices(IIdealCrmDataBaseContext context)
         {
             _context = context;
         }

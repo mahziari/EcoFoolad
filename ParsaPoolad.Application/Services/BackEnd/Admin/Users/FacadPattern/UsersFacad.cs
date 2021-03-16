@@ -2,7 +2,7 @@
 using ParsaPoolad.Application.Interfaces.FacadPatterns.BackEnd.Admin;
 using ParsaPoolad.Application.Services.BackEnd.Admin.Users.Queries;
 using ParsaPoolad.Application.Services.BackEnd.Admin.Users.Commands;
-using ParsaPoolad.Domain.Entities.Identity;
+using ParsaPoolad.Domain.Entities;
 
 namespace ParsaPoolad.Application.Services.BackEnd.Admin.Users.FacadPattern
 {

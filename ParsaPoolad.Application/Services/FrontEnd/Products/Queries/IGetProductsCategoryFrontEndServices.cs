@@ -13,9 +13,9 @@ namespace ParsaPoolad.Application.Services.FrontEnd.Products.Queries
 
     public class GetProductsCategoryFrontEndService: IGetProductsCategoryFrontEndService
     {
-        private readonly IDataBaseContext _context;
+        private readonly IIdealCrmDataBaseContext _context;
 
-        public GetProductsCategoryFrontEndService(IDataBaseContext context)
+        public GetProductsCategoryFrontEndService(IIdealCrmDataBaseContext context)
         {
             _context = context;
         }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using ParsaPoolad.Application.Interfaces.Contexts;
-using ParsaPoolad.Domain.Entities;
+using ParsaPoolad.Domain.Entities.IdealCrm;
 
 namespace ParsaPoolad.Application.Services.FrontEnd.Blogs.Queries
 {
@@ -14,10 +14,10 @@ namespace ParsaPoolad.Application.Services.FrontEnd.Blogs.Queries
 
     public class GetBlogsFrontEndService : IGetBlogsFrontEndService
     {
-        private readonly IDataBaseContext _context;
-        private readonly IIdentityDataBaseContext _parsapooladContext;
+        private readonly IIdealCrmDataBaseContext _context;
+        private readonly ICustomDbContext _parsapooladContext;
 
-        public GetBlogsFrontEndService(IDataBaseContext context,IIdentityDataBaseContext parsapooladContext)
+        public GetBlogsFrontEndService(IIdealCrmDataBaseContext context,ICustomDbContext parsapooladContext)
         {
             _context = context;
             _parsapooladContext = parsapooladContext;

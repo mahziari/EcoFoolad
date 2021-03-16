@@ -1,50 +1,49 @@
 ﻿using System.Linq;
+using System.Threading;
 using Microsoft.AspNetCore.Identity;
+using ParsaPoolad.Application.Interfaces.Contexts;
 using ParsaPoolad.Application.Services.BackEnd.Admin.Users.Queries;
-using ParsaPoolad.Domain.Entities.Identity;
+using ParsaPoolad.Domain.Entities;
 
 namespace ParsaPoolad.Application.Services.BackEnd.Admin.Users.Commands
 {
     public interface IEditUsersServices
     {
-        ResultEditUsersDto Execute(ResultGetIndexUsersDto resultGetIndexUsersDto);
+        ResultEditUsersDto Execute(ResultGetEditUsersDto resultGetEditUsersDto);
     }
     public class EditUsersServices : IEditUsersServices
     {
         private readonly UserManager<User> _userManager;
         private readonly RoleManager<Role> _roleManager;
-        public EditUsersServices(UserManager<User> userManager, RoleManager<Role> roleManager )
+       
+        public EditUsersServices(UserManager<User> userManager, RoleManager<Role> roleManager)
         {
             _userManager = userManager;
             _roleManager = roleManager;
         }
 
-        public ResultEditUsersDto Execute(ResultGetIndexUsersDto resultGetIndexUsersDto)
+        public ResultEditUsersDto Execute(ResultGetEditUsersDto resultGetEditUsersDto)
         {
-            var user = _userManager.FindByIdAsync(resultGetIndexUsersDto.Id).Result;
-            var result =_userManager.AddToRoleAsync(user,resultGetIndexUsersDto.RoleName).Result;
+            var user = _userManager.FindByIdAsync(resultGetEditUsersDto.UserId).Result;
 
-
-            var currentRole = _roleManager.FindByNameAsync(resultGetIndexUsersDto.RoleName).Result;
-            var claimsRole = _roleManager.GetClaimsAsync(currentRole).Result;
-
-            var addClaimsToUser = _userManager.AddClaimsAsync(user, claimsRole).Result;
+            foreach (var item in _userManager.GetRolesAsync(user).Result.ToList())
+            {
+                var identityResult = _userManager.RemoveFromRoleAsync(user, item).Result;
+            }
             
-            
-            if (!addClaimsToUser.Succeeded)
+            var result =_userManager.AddToRoleAsync(user,resultGetEditUsersDto.RoleName).Result;
+            if (!result.Succeeded)
             {
                 return new ResultEditUsersDto
                 {
-                    IsSuccess = true,
-                    Message = "Error"
+                    IsSuccess = false,
+                    Message = "خطایی در ویرایش نقش کاربر رخ داده است"
                 };
             }
-            
-
             return new ResultEditUsersDto
             {
                 IsSuccess = true,
-                Message = "Success"
+                Message = "ویرایش نقش کاربر با موفقیت انجام شد"
             };
         }
     }

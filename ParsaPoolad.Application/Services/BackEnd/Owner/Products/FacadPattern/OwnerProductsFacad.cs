@@ -8,9 +8,9 @@ namespace ParsaPoolad.Application.Services.BackEnd.Owner.Products.FacadPattern
 {
     public class OwnerProductsFacad : IOwnerProductsFacad
     {
-        private readonly IDataBaseContext _context;
+        private readonly IIdealCrmDataBaseContext _context;
 
-        public OwnerProductsFacad(IDataBaseContext context)
+        public OwnerProductsFacad(IIdealCrmDataBaseContext context)
         {
             _context = context;
         }

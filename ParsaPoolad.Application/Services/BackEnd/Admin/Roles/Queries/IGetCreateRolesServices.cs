@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using Microsoft.AspNetCore.Identity;
 using ParsaPoolad.Application.Interfaces.Contexts;
-using ParsaPoolad.Domain.Entities.Identity;
+using ParsaPoolad.Domain.Entities;
 
 namespace ParsaPoolad.Application.Services.BackEnd.Admin.Roles.Queries
 {

@@ -1,9 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
 using ParsaPoolad.Application.Interfaces.Contexts;
-using ParsaPoolad.Domain.Entities.Identity;
 
 
 namespace ParsaPoolad.Application.Services.BackEnd.Owner.Products.Queries
@@ -15,9 +12,9 @@ namespace ParsaPoolad.Application.Services.BackEnd.Owner.Products.Queries
 
     public class GetIndexProductsServices : IGetIndexProductsServices
     {
-        private readonly IDataBaseContext _context;
+        private readonly IIdealCrmDataBaseContext _context;
 
-        public GetIndexProductsServices(IDataBaseContext context)
+        public GetIndexProductsServices(IIdealCrmDataBaseContext context)
         {
             _context = context;
         }
@@ -25,7 +22,7 @@ namespace ParsaPoolad.Application.Services.BackEnd.Owner.Products.Queries
 
         public ResultGetIndexProductsDto Execute()
         {
-            // var currentUser = _authorizationService.AuthorizeAsync(U).Result;
+            // var currentUser = AuthorizationService.AuthorizeAsync(U).Result;
             var products = _context.Wsproducts
                 // .Where(p=>p.UserId==id)
                 // .Where(p=>p.UserId==)

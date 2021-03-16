@@ -8,9 +8,9 @@ namespace ParsaPoolad.Application.Services.BackEnd.Admin.Company.Command
     }
     public class ActiveCompanyServices : IActiveCompanyServices
     {
-        private readonly IDataBaseContext _context;
+        private readonly IIdealCrmDataBaseContext _context;
 
-        public ActiveCompanyServices(IDataBaseContext context)
+        public ActiveCompanyServices(IIdealCrmDataBaseContext context)
         {
             _context = context;
         }

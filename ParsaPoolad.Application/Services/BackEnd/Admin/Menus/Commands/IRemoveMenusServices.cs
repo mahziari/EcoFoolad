@@ -8,9 +8,9 @@ namespace ParsaPoolad.Application.Services.BackEnd.Admin.Menus.Commands
     }
     public class RemoveMenusServices : IRemoveMenusServices
     {
-        private readonly IDataBaseContext _context;
+        private readonly IIdealCrmDataBaseContext _context;
 
-        public RemoveMenusServices(IDataBaseContext context)
+        public RemoveMenusServices(IIdealCrmDataBaseContext context)
         {
             _context = context;
         }

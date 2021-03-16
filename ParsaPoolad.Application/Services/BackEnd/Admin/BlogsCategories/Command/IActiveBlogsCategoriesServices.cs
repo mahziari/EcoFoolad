@@ -8,9 +8,9 @@ namespace ParsaPoolad.Application.Services.BackEnd.Admin.BlogsCategories.Command
     }
     public class ActiveBlogsCategoriesServices : IActiveBlogsCategoriesServices
     {
-        private readonly IDataBaseContext _context;
+        private readonly IIdealCrmDataBaseContext _context;
 
-        public ActiveBlogsCategoriesServices(IDataBaseContext context)
+        public ActiveBlogsCategoriesServices(IIdealCrmDataBaseContext context)
         {
             _context = context;
         }

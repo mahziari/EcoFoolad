@@ -8,8 +8,8 @@ namespace ParsaPoolad.Application.Services.BackEnd.Admin.Roles.Commands
     }
     public class DeleteRolesServices : IDeleteRolesServices
     {
-        private readonly IDataBaseContext _context;
-        public DeleteRolesServices(IDataBaseContext context)
+        private readonly IIdealCrmDataBaseContext _context;
+        public DeleteRolesServices(IIdealCrmDataBaseContext context)
         {
             _context = context;
         }

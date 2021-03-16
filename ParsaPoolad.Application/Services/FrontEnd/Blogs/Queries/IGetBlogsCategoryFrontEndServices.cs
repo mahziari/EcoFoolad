@@ -13,9 +13,9 @@ namespace ParsaPoolad.Application.Services.FrontEnd.Blogs.Queries
 
     public class GetBlogsCategoryFrontEndService: IGetBlogsCategoryFrontEndService
     {
-        private readonly IDataBaseContext _context;
+        private readonly IIdealCrmDataBaseContext _context;
 
-        public GetBlogsCategoryFrontEndService(IDataBaseContext context)
+        public GetBlogsCategoryFrontEndService(IIdealCrmDataBaseContext context)
         {
             _context = context;
         }

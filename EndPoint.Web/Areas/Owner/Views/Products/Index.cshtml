@@ -2,7 +2,7 @@
 @using ParsaPoolad.Application.Services.BackEnd.Admin.Products.Queries
 @model ParsaPoolad.Application.Services.BackEnd.Owner.Products.Queries.ResultGetIndexProductsDto
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
-@inject IAuthorizationService _authorizationService;
+@inject IAuthorizationService AuthorizationService;
 @{
     ViewData["Title"] = "لیست محصولات";
     Layout = "~/Areas/Owner/Views/Shared/_Layout.cshtml";
@@ -188,7 +188,7 @@
                                 </a>
                             </span>
                             <span class="">
-                                @if (_authorizationService.AuthorizeAsync(User, "OwnerRole").Result.Succeeded)
+                                @if (AuthorizationService.AuthorizeAsync(User, "OwnerRole").Result.Succeeded)
                                 {
                                     <a asp-area="Owner" asp-controller="Products" asp-action="Edit" asp-route-id="@item.ProductId" title="ویرایش">
                                         <span class="badge badge-warning d-inline-flex align-items-center mr-1 mb-1">
@@ -198,7 +198,7 @@
                                 }
                             </span>
                             <span class="">
-                                @if (_authorizationService.AuthorizeAsync(User, "OwnerRole").Result.Succeeded)
+                                @if (AuthorizationService.AuthorizeAsync(User, "OwnerRole").Result.Succeeded)
                                 {
                                     @if (@item.PrdInactiveInSale == false)
                                     {

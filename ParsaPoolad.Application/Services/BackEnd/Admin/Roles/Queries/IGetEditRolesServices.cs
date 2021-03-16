@@ -3,7 +3,7 @@ using System.Linq;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using ParsaPoolad.Application.Interfaces.Contexts;
-using ParsaPoolad.Domain.Entities.Identity;
+using ParsaPoolad.Domain.Entities;
 
 namespace ParsaPoolad.Application.Services.BackEnd.Admin.Roles.Queries
 {
@@ -15,8 +15,8 @@ namespace ParsaPoolad.Application.Services.BackEnd.Admin.Roles.Queries
     public class GetEditRolesServices : IGetEditRolesServices
     {
         private readonly RoleManager<Role> _roleManager;
-        private readonly IIdentityDataBaseContext _context;
-        public GetEditRolesServices(RoleManager<Role> roleManager, IIdentityDataBaseContext context)
+        private readonly ICustomDbContext _context;
+        public GetEditRolesServices(RoleManager<Role> roleManager, ICustomDbContext context)
         {
             _roleManager = roleManager;
             _context = context;

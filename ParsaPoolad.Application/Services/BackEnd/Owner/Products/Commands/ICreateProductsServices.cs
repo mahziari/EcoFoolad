@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using ParsaPoolad.Application.Interfaces.Contexts;
-using ParsaPoolad.Domain.Entities;
+using ParsaPoolad.Domain.Entities.IdealCrm;
 
 namespace ParsaPoolad.Application.Services.BackEnd.Owner.Products.Commands
 {
@@ -11,9 +11,9 @@ namespace ParsaPoolad.Application.Services.BackEnd.Owner.Products.Commands
     }
 
     public class CreateProductsServices:ICreateProductsServices {
-        private readonly IDataBaseContext _context;
+        private readonly IIdealCrmDataBaseContext _context;
 
-        public CreateProductsServices(IDataBaseContext context)
+        public CreateProductsServices(IIdealCrmDataBaseContext context)
         {
             _context = context;
         }
@@ -60,12 +60,10 @@ namespace ParsaPoolad.Application.Services.BackEnd.Owner.Products.Commands
     
     public class CreateProductsServicesDto
     {
-        public int ProductId { get; set; }
         
         [Display(Name = "دسته بندی محصول")]
         [Required(ErrorMessage = "پر کردن فیلد {0} اجباری است")]
         public int PrdGroupId { get; set; }
-        public string PrdCode { get; set; }
         
         [Display(Name = "نام محصول")]
         [Required(ErrorMessage = "پر کردن فیلد {0} اجباری است")]
@@ -76,7 +74,6 @@ namespace ParsaPoolad.Application.Services.BackEnd.Owner.Products.Commands
         [Required(ErrorMessage = "پر کردن فیلد {0} اجباری است")]
         [StringLength(20, ErrorMessage = "تعداد کاراکتر بیش از حد مجاز")]
         public string PrdSize { get; set; }
-        public int? PrdColorId { get; set; }
         
         [Display(Name = "واحد محصول")]
         [Required(ErrorMessage = "پر کردن فیلد {0} اجباری است")]
@@ -90,16 +87,11 @@ namespace ParsaPoolad.Application.Services.BackEnd.Owner.Products.Commands
         [StringLength(1000, ErrorMessage = "تعداد کاراکتر بیش از حد مجاز")]
         public string PrdDescription { get; set; }
         public int UserId { get; set; }
-        public short Month1 { get; set; }
-        public int Fpid { get; set; }
-        public string RegisterDatePersian { get; set; }
         
         [Display(Name = "مدل محصول")]
         [Required(ErrorMessage = "پر کردن فیلد {0} اجباری است")]
         [StringLength(250, ErrorMessage = "تعداد کاراکتر بیش از حد مجاز")]
         public string PrdModel { get; set; }
-        
-        public bool? PrdInactiveInSale { get; set; }
         
         [Display(Name = "شرکت سازنده محصول")]
         [Required(ErrorMessage = "پر کردن فیلد {0} اجباری است")]

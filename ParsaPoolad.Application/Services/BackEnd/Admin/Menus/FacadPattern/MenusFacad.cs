@@ -8,9 +8,9 @@ namespace ParsaPoolad.Application.Services.BackEnd.Admin.Menus.FacadPattern
 {
     public class MenusFacad : IMenusFacad
     {
-        private readonly IDataBaseContext _context;
+        private readonly IIdealCrmDataBaseContext _context;
 
-        public MenusFacad(IDataBaseContext context)
+        public MenusFacad(IIdealCrmDataBaseContext context)
         {
             _context = context;
         }

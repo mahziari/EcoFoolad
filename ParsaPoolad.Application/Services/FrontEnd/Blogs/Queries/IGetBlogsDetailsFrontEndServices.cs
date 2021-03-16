@@ -12,9 +12,9 @@ namespace ParsaPoolad.Application.Services.FrontEnd.Blogs.Queries
 
     public class GetBlogsDetailsFrontEndService: IGetBlogsDetailsFrontEndService
     {
-        private readonly IDataBaseContext _context;
+        private readonly IIdealCrmDataBaseContext _context;
 
-        public GetBlogsDetailsFrontEndService(IDataBaseContext context)
+        public GetBlogsDetailsFrontEndService(IIdealCrmDataBaseContext context)
         {
             _context = context;
         }

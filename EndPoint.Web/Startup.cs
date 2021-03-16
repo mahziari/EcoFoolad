@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.SqlServer.Infrastructure.Internal;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using ParsaPoolad.Application.Interfaces.Contexts;
@@ -23,11 +24,10 @@ using ParsaPoolad.Application.Services.BackEnd.Admin.Sliders.FacadPattern;
 using ParsaPoolad.Application.Services.FrontEnd.Blogs.FacadPattern;
 using ParsaPoolad.Application.Services.FrontEnd.Home.FacadPattern;
 using ParsaPoolad.Application.Services.FrontEnd.Products.FacadPattern;
-using ParsaPoolad.Domain.Entities.Identity;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.Extensions.Hosting;
 using ParsaPoolad.Application.Interfaces.FacadPatterns.BackEnd.Owner;
 using ParsaPoolad.Application.Services.BackEnd.Owner.Products.FacadPattern;
+using ParsaPoolad.Domain.Entities;
 
 
 namespace EndPoint.Web
@@ -46,28 +46,28 @@ namespace EndPoint.Web
         {
             //------ DB Context Services
             services.AddEntityFrameworkSqlServer()
-                .AddDbContext<DataBaseContext>(options => options
-                    .UseSqlServer(Configuration.GetConnectionString("connectionString")));
-            services.AddScoped<IDataBaseContext, DataBaseContext>();
+                .AddDbContext<IdealCrmDataBaseContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("IdealCrmConnectionString")));
 
             services.AddEntityFrameworkSqlServer()
-                .AddDbContext<IdentityDataBaseContext>(options => options
-                    .UseSqlServer(Configuration.GetConnectionString("connectionStringIdentity")));
-            services.AddScoped<IIdentityDataBaseContext, IdentityDataBaseContext>();
+                .AddDbContext<CustomDbContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("ConnectionString")));
 
+            services.AddScoped<IIdealCrmDataBaseContext, IdealCrmDataBaseContext>();
+            services.AddScoped<ICustomDbContext, CustomDbContext>();
 
             services.AddControllersWithViews();
-            
+
             //------ Redis Services
             services.AddStackExchangeRedisCache(options =>
             {
                 options.Configuration = Configuration.GetConnectionString("Redis");
                 options.InstanceName = "RedisDb";
             });
-            
+
             //------ Auth Services
             services.AddIdentity<User, Role>()
-                .AddEntityFrameworkStores<IdentityDataBaseContext>()
+                .AddEntityFrameworkStores<CustomDbContext>()
                 .AddDefaultTokenProviders()
                 .AddRoles<Role>()
                 .AddErrorDescriber<CustomIdentityError>()
@@ -81,11 +81,9 @@ namespace EndPoint.Web
                 options.AddPolicy("AdminRole", policy => { policy.RequireRole("Admin"); });
                 options.AddPolicy("OwnerRole", policy => { policy.RequireRole("Owner"); });
                 options.AddPolicy("UserRole", policy => { policy.RequireRole("User"); });
-      
-               
+                
                 // Claim Policy
                 options.AddPolicy("Home", policy => { policy.RequireClaim("Home"); });
-               
                 
                 options.AddPolicy("BlogCategories", policy => { policy.RequireClaim("BlogCategories"); });
                 options.AddPolicy("BlogCategoriesIndex", policy => { policy.RequireClaim("BlogCategoriesIndex"); });
@@ -93,31 +91,30 @@ namespace EndPoint.Web
                 options.AddPolicy("BlogCategoriesEdit", policy => { policy.RequireClaim("BlogCategoriesEdit"); });
                 options.AddPolicy("BlogCategoriesDelete", policy => { policy.RequireClaim("BlogCategoriesDelete"); });
                 
-                
                 options.AddPolicy("Blogs", policy => { policy.RequireClaim("Blogs"); });
                 options.AddPolicy("BlogsIndex", policy => { policy.RequireClaim("BlogsIndex"); });
                 options.AddPolicy("BlogsCreate", policy => { policy.RequireClaim("BlogsCreate"); });
                 options.AddPolicy("BlogsEdit", policy => { policy.RequireClaim("BlogsEdit"); });
                 options.AddPolicy("BlogsDelete", policy => { policy.RequireClaim("BlogsDelete"); });
                 options.AddPolicy("BlogsActive", policy => { policy.RequireClaim("BlogsActive"); });
-                
+
                 options.AddPolicy("Company", policy => { policy.RequireClaim("Company"); });
-                
+
                 options.AddPolicy("Menus", policy => { policy.RequireClaim("Menus"); });
-                
+
                 options.AddPolicy("Products", policy => { policy.RequireClaim("Products"); });
                 options.AddPolicy("ProductsIndex", policy => { policy.RequireClaim("ProductsIndex"); });
                 options.AddPolicy("ProductsCreate", policy => { policy.RequireClaim("ProductsCreate"); });
                 options.AddPolicy("ProductsEdit", policy => { policy.RequireClaim("ProductsEdit"); });
                 options.AddPolicy("ProductsDelete", policy => { policy.RequireClaim("ProductsDelete"); });
                 options.AddPolicy("ProductsActive", policy => { policy.RequireClaim("ProductsActive"); });
-                
+
                 options.AddPolicy("Sliders", policy => { policy.RequireClaim("Sliders"); });
-                
+
                 options.AddPolicy("Users", policy => { policy.RequireClaim("Users"); });
                 options.AddPolicy("UsersIndex", policy => { policy.RequireClaim("UsersIndex"); });
                 options.AddPolicy("UsersEdit", policy => { policy.RequireClaim("UsersEdit"); });
-                
+
                 // کاربرانی که اعتبارشون کمتر از این مقداره بتونن احراز بشن
                 // باید یدونه کلیم برای کاربر تعریف کنم و مبلغ اعتبار اون کاربر رو درکلیم کریدیت اضافه کنم
                 options.AddPolicy("Cradit", policy => { policy.Requirements.Add(new UserCreditRequerment(10000)); });
@@ -144,9 +141,9 @@ namespace EndPoint.Web
                 option.SignIn.RequireConfirmedPhoneNumber = true;
             });
 
-            services.Configure<SecurityStampValidatorOptions>(option => 
+            services.Configure<SecurityStampValidatorOptions>(option =>
                 option.ValidationInterval = TimeSpan.FromSeconds(10));
-            
+
             services.ConfigureApplicationCookie(option =>
             {
                 // cookie setting
@@ -172,8 +169,7 @@ namespace EndPoint.Web
             //------ Owner Panel Services
             services.AddScoped<IOwnerProductsFacad, OwnerProductsFacad>();
 
-            
-            
+
             services.AddControllersWithViews();
             //------ Sessions Services
             services.AddDistributedMemoryCache();
@@ -203,7 +199,8 @@ namespace EndPoint.Web
                 app.UseStatusCodePagesWithReExecute("/Error/{0}");
                 app.UseHsts();
             }
-            
+
+
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseRouting();

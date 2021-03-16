@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 using ParsaPoolad.Application.Interfaces.Contexts;
-using ParsaPoolad.Domain.Entities;
+using ParsaPoolad.Domain.Entities.IdealCrm;
 
 namespace ParsaPoolad.Application.Services.BackEnd.Owner.Products.Queries
 {
@@ -10,9 +10,9 @@ namespace ParsaPoolad.Application.Services.BackEnd.Owner.Products.Queries
     }
     public class GetDetailsProductsServices : IGetDetailsProductsServices
     {
-        private readonly IDataBaseContext _context;
+        private readonly IIdealCrmDataBaseContext _context;
 
-        public GetDetailsProductsServices(IDataBaseContext context)
+        public GetDetailsProductsServices(IIdealCrmDataBaseContext context)
         {
             _context = context;
         }

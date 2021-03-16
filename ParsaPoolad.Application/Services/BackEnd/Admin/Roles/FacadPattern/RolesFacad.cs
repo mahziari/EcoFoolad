@@ -1,19 +1,18 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using ParsaPoolad.Application.Interfaces.Contexts;
 using ParsaPoolad.Application.Interfaces.FacadPatterns.BackEnd.Admin;
-using ParsaPoolad.Application.Services.BackEnd.Admin.BlogsCategories.Queries;
 using ParsaPoolad.Application.Services.BackEnd.Admin.Roles.Commands;
 using ParsaPoolad.Application.Services.BackEnd.Admin.Roles.Queries;
-using ParsaPoolad.Domain.Entities.Identity;
+using ParsaPoolad.Domain.Entities;
 
 namespace ParsaPoolad.Application.Services.BackEnd.Admin.Roles.FacadPattern
 {
     public class RolesFacad : IRolesFacad
     {
         private readonly RoleManager<Role> _roleManager;
-        private readonly IIdentityDataBaseContext _context;
+        private readonly ICustomDbContext _context;
 
-        public RolesFacad(RoleManager<Role> roleManager, IIdentityDataBaseContext context)
+        public RolesFacad(RoleManager<Role> roleManager, ICustomDbContext context)
         {
             _roleManager = roleManager;
             _context = context;

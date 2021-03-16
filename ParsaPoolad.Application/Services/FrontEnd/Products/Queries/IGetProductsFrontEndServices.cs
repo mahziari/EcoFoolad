@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using ParsaPoolad.Application.Interfaces.Contexts;
-using ParsaPoolad.Domain.Entities;
+using ParsaPoolad.Domain.Entities.IdealCrm;
 
 namespace ParsaPoolad.Application.Services.FrontEnd.Products.Queries
 {
@@ -14,10 +14,10 @@ namespace ParsaPoolad.Application.Services.FrontEnd.Products.Queries
 
     public class GetProductsFrontEndService : IGetProductsFrontEndService
     {
-        private readonly IDataBaseContext _context;
-        private readonly IIdentityDataBaseContext _parsapooladContext;
+        private readonly IIdealCrmDataBaseContext _context;
+        private readonly ICustomDbContext _parsapooladContext;
 
-        public GetProductsFrontEndService(IDataBaseContext context, IIdentityDataBaseContext parsapooladContext)
+        public GetProductsFrontEndService(IIdealCrmDataBaseContext context, ICustomDbContext parsapooladContext)
         {
             _context = context;
             _parsapooladContext = parsapooladContext;

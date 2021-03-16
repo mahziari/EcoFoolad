@@ -64,7 +64,6 @@ D:\.NET\01_ParsaPoolad\ParsaPoolad.Common\bin\Debug\net5.0\Microsoft.AspNetCore.
 D:\.NET\01_ParsaPoolad\ParsaPoolad.Common\bin\Debug\net5.0\Microsoft.AspNetCore.Hosting.Abstractions.dll
 D:\.NET\01_ParsaPoolad\ParsaPoolad.Common\bin\Debug\net5.0\Microsoft.AspNetCore.Http.Features.dll
 D:\.NET\01_ParsaPoolad\ParsaPoolad.Common\bin\Debug\net5.0\Microsoft.Extensions.Caching.Abstractions.dll
-D:\.NET\01_ParsaPoolad\ParsaPoolad.Common\bin\Debug\net5.0\Newtonsoft.Json.dll
 D:\.NET\01_ParsaPoolad\ParsaPoolad.Common\bin\Debug\net5.0\Microsoft.Extensions.Logging.Abstractions.dll
 D:\.NET\01_ParsaPoolad\ParsaPoolad.Common\bin\Debug\net5.0\Microsoft.AspNetCore.Metadata.dll
 D:\.NET\01_ParsaPoolad\ParsaPoolad.Common\bin\Debug\net5.0\Microsoft.Extensions.Options.dll
@@ -76,7 +75,6 @@ D:\.NET\01_ParsaPoolad\ParsaPoolad.Common\bin\Debug\net5.0\Microsoft.AspNetCore.
 D:\.NET\01_ParsaPoolad\ParsaPoolad.Common\bin\Debug\net5.0\Microsoft.AspNetCore.Hosting.Abstractions.xml
 D:\.NET\01_ParsaPoolad\ParsaPoolad.Common\bin\Debug\net5.0\Microsoft.AspNetCore.Http.Features.xml
 D:\.NET\01_ParsaPoolad\ParsaPoolad.Common\bin\Debug\net5.0\Microsoft.Extensions.Caching.Abstractions.xml
-D:\.NET\01_ParsaPoolad\ParsaPoolad.Common\bin\Debug\net5.0\Newtonsoft.Json.xml
 D:\.NET\01_ParsaPoolad\ParsaPoolad.Common\bin\Debug\net5.0\Microsoft.Extensions.Logging.Abstractions.xml
 D:\.NET\01_ParsaPoolad\ParsaPoolad.Common\bin\Debug\net5.0\Microsoft.AspNetCore.Metadata.xml
 D:\.NET\01_ParsaPoolad\ParsaPoolad.Common\bin\Debug\net5.0\Microsoft.Extensions.Options.xml

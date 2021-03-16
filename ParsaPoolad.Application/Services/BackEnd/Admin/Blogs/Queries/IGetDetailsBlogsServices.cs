@@ -2,7 +2,7 @@
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using ParsaPoolad.Application.Interfaces.Contexts;
-using ParsaPoolad.Domain.Entities;
+using ParsaPoolad.Domain.Entities.IdealCrm;
 
 namespace ParsaPoolad.Application.Services.BackEnd.Admin.Blogs.Queries
 {
@@ -13,9 +13,9 @@ namespace ParsaPoolad.Application.Services.BackEnd.Admin.Blogs.Queries
 
     public class GetDetailsBlogsServices : IGetDetailsBlogsServices
     {
-        private readonly IDataBaseContext _context;
+        private readonly IIdealCrmDataBaseContext _context;
 
-        public GetDetailsBlogsServices(IDataBaseContext context)
+        public GetDetailsBlogsServices(IIdealCrmDataBaseContext context)
         {
             _context = context;
         }

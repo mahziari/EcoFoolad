@@ -16,10 +16,10 @@ namespace ParsaPoolad.Application.Services.FrontEnd.Common.Menus.Queries
 
     public class GetMenusFrontEndService : IGetMenusFrontEndService
     {
-        private readonly IDataBaseContext _context;
+        private readonly IIdealCrmDataBaseContext _context;
         private readonly IDistributedCache _cache;
 
-        public GetMenusFrontEndService(IDataBaseContext context, IDistributedCache cache)
+        public GetMenusFrontEndService(IIdealCrmDataBaseContext context, IDistributedCache cache)
         {
             _context = context;
             _cache = cache;

@@ -6,10 +6,10 @@ namespace ParsaPoolad.Application.Services.FrontEnd.Products.FacadPattern
 {
     public class ProductsFrontEndFacad: IProductsFrontEndFacad
     {
-        private readonly IDataBaseContext _context;
-        private readonly IIdentityDataBaseContext _parsapooladContext;
+        private readonly IIdealCrmDataBaseContext _context;
+        private readonly ICustomDbContext _parsapooladContext;
 
-        public ProductsFrontEndFacad(IDataBaseContext context,IIdentityDataBaseContext parsapooladContext)
+        public ProductsFrontEndFacad(IIdealCrmDataBaseContext context,ICustomDbContext parsapooladContext)
         {
             _context = context;
             _parsapooladContext = parsapooladContext;

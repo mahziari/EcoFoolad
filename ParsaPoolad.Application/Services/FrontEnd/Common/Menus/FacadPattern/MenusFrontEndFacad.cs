@@ -8,9 +8,9 @@ namespace ParsaPoolad.Application.Services.FrontEnd.Common.Menus.FacadPattern
 {
     public class MenusFrontEndFacad : IMenusFrontEndFacad
     {
-        private readonly IDataBaseContext _context;
+        private readonly IIdealCrmDataBaseContext _context;
         private readonly IDistributedCache cache;
-        public MenusFrontEndFacad(IDataBaseContext context, IDistributedCache cache)
+        public MenusFrontEndFacad(IIdealCrmDataBaseContext context, IDistributedCache cache)
         {
             _context = context;
             this.cache = cache;

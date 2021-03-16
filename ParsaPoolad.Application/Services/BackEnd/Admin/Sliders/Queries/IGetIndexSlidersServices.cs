@@ -10,8 +10,8 @@ namespace ParsaPoolad.Application.Services.BackEnd.Admin.Sliders.Queries
     }
     public class GetIndexSlidersServices : IGetIndexSlidersServices
     {
-        private readonly IIdentityDataBaseContext _context;
-        public GetIndexSlidersServices(IIdentityDataBaseContext context)
+        private readonly ICustomDbContext _context;
+        public GetIndexSlidersServices(ICustomDbContext context)
         {
             _context = context;
         }
@@ -34,7 +34,7 @@ namespace ParsaPoolad.Application.Services.BackEnd.Admin.Sliders.Queries
 
     public class ResultGetIndexSlidersServices
     {
-        public List<Domain.Entities.DbTwoEntities.Sliders> Sliders { get; set; }
+        public List<Domain.Entities.Sliders> Sliders { get; set; }
 
     }
 }

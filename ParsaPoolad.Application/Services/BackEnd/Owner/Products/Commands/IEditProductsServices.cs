@@ -10,9 +10,9 @@ namespace ParsaPoolad.Application.Services.BackEnd.Owner.Products.Commands
     }
 
     public class EditProductsServices:IEditProductsServices {
-        private readonly IDataBaseContext _context;
+        private readonly IIdealCrmDataBaseContext _context;
 
-        public EditProductsServices(IDataBaseContext context)
+        public EditProductsServices(IIdealCrmDataBaseContext context)
         {
             _context = context;
         }

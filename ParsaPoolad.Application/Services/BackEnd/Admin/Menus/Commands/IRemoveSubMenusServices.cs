@@ -13,9 +13,9 @@ namespace ParsaPoolad.Application.Services.BackEnd.Admin.Menus.Commands
     }
     public class RemoveSubMenusServices : IRemoveSubMenusServices
     {
-        private readonly IDataBaseContext _context;
+        private readonly IIdealCrmDataBaseContext _context;
 
-        public RemoveSubMenusServices(IDataBaseContext context)
+        public RemoveSubMenusServices(IIdealCrmDataBaseContext context)
         {
             _context = context;
         }

@@ -12,9 +12,9 @@ namespace ParsaPoolad.Application.Services.FrontEnd.Products.Queries
 
     public class GetProductsDetailsFrontEndService: IGetProductsDetailsFrontEndService
     {
-        private readonly IDataBaseContext _context;
+        private readonly IIdealCrmDataBaseContext _context;
 
-        public GetProductsDetailsFrontEndService(IDataBaseContext context)
+        public GetProductsDetailsFrontEndService(IIdealCrmDataBaseContext context)
         {
             _context = context;
         }

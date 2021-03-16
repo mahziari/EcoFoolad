@@ -9,8 +9,8 @@ namespace ParsaPoolad.Application.Services.BackEnd.Admin.Sliders.Queries
 
     public class GetDetailsSlidersServices : IGetDetailsSlidersServices
     {
-        private readonly IIdentityDataBaseContext _context;
-        public GetDetailsSlidersServices(IIdentityDataBaseContext context)
+        private readonly ICustomDbContext _context;
+        public GetDetailsSlidersServices(ICustomDbContext context)
         {
             _context = context;
         }

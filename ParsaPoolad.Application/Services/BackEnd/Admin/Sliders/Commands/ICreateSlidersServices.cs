@@ -15,10 +15,10 @@ namespace ParsaPoolad.Application.Services.BackEnd.Admin.Sliders.Commands
 
     public class CreateSlidersServices : ICreateSlidersServices
     {
-        private readonly IIdentityDataBaseContext _context;
+        private readonly ICustomDbContext _context;
         private readonly IWebHostEnvironment _environment;
 
-        public CreateSlidersServices(IIdentityDataBaseContext context, IWebHostEnvironment hostingEnvironment)
+        public CreateSlidersServices(ICustomDbContext context, IWebHostEnvironment hostingEnvironment)
         {
             _context = context;
             _environment = hostingEnvironment;
@@ -49,7 +49,7 @@ namespace ParsaPoolad.Application.Services.BackEnd.Admin.Sliders.Commands
             }
             
             
-            Domain.Entities.DbTwoEntities.Sliders slider = new Domain.Entities.DbTwoEntities.Sliders()
+            Domain.Entities.Sliders slider = new Domain.Entities.Sliders()
             {
                 Active = true,
                 Type = "Sliders",

@@ -12,9 +12,9 @@ namespace ParsaPoolad.Application.Services.BackEnd.Admin.Menus.Queries
 
     public class GetMenusService : IGetMenusService
     {
-        private readonly IDataBaseContext _context;
+        private readonly IIdealCrmDataBaseContext _context;
 
-        public GetMenusService(IDataBaseContext context)
+        public GetMenusService(IIdealCrmDataBaseContext context)
         {
             _context = context;
         }

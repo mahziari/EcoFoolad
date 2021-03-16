@@ -9,10 +9,10 @@ namespace ParsaPoolad.Application.Services.BackEnd.Admin.Blogs.FacadPattern
     public class BlogsFacad : IBlogsFacad
     {
         
-        private readonly IDataBaseContext _context;
+        private readonly IIdealCrmDataBaseContext _context;
         private readonly IWebHostEnvironment _environment;
 
-        public BlogsFacad(IDataBaseContext context,IWebHostEnvironment environment)
+        public BlogsFacad(IIdealCrmDataBaseContext context,IWebHostEnvironment environment)
         {
             _context = context;
             _environment = environment;

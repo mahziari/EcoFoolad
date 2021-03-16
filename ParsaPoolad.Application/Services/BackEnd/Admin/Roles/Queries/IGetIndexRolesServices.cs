@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.Identity;
-using ParsaPoolad.Application.Interfaces.Contexts;
-using ParsaPoolad.Domain.Entities.Identity;
+using ParsaPoolad.Domain.Entities;
 
 namespace ParsaPoolad.Application.Services.BackEnd.Admin.Roles.Queries
 {
@@ -24,8 +23,8 @@ namespace ParsaPoolad.Application.Services.BackEnd.Admin.Roles.Queries
         public ResultGetIndexRolesDto Execute()
         {
             var roles = _roleManager.Roles
-                .Where(r=>r.Name!="User")
-                .Where(r=>r.Name!="Owner")
+                // .Where(r=>r.Name!="User")
+                // .Where(r=>r.Name!="Owner")
                 .ToList();
 
             

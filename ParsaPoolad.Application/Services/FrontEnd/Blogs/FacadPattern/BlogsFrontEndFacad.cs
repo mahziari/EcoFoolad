@@ -6,10 +6,10 @@ namespace ParsaPoolad.Application.Services.FrontEnd.Blogs.FacadPattern
 {
     public class BlogsFrontEndFacad: IBlogsFrontEndFacad
     {
-        private readonly IDataBaseContext _context;
-        private readonly IIdentityDataBaseContext _parsapooladContext;
+        private readonly IIdealCrmDataBaseContext _context;
+        private readonly ICustomDbContext _parsapooladContext;
 
-        public BlogsFrontEndFacad(IDataBaseContext context,IIdentityDataBaseContext parsapooladContext)
+        public BlogsFrontEndFacad(IIdealCrmDataBaseContext context,ICustomDbContext parsapooladContext)
         {
             _context = context;
             _parsapooladContext = parsapooladContext;

@@ -9,9 +9,9 @@ namespace ParsaPoolad.Application.Services.BackEnd.Admin.Company.FacadPattern
     public class CompanyFacad : ICompanyFacad
     {
         
-        private readonly IDataBaseContext _context;
+        private readonly IIdealCrmDataBaseContext _context;
 
-        public CompanyFacad(IDataBaseContext context)
+        public CompanyFacad(IIdealCrmDataBaseContext context)
         {
             _context = context;
         }

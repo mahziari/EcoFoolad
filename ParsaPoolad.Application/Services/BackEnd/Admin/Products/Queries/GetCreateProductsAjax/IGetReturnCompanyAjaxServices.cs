@@ -12,9 +12,9 @@ namespace ParsaPoolad.Application.Services.BackEnd.Admin.Products.Queries.GetCre
 
     public class GetReturnCompanyAjaxServices : IGetReturnCompanyAjaxServices
     {
-        private readonly IDataBaseContext _context;
+        private readonly IIdealCrmDataBaseContext _context;
 
-        public GetReturnCompanyAjaxServices(IDataBaseContext context)
+        public GetReturnCompanyAjaxServices(IIdealCrmDataBaseContext context)
         {
             _context = context;
         }

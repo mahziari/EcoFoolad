@@ -3,30 +3,29 @@ using System.Linq;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Identity;
 using ParsaPoolad.Application.Interfaces.Contexts;
-using ParsaPoolad.Application.Services.BackEnd.Admin.Roles.Queries;
-using ParsaPoolad.Domain.Entities.Identity;
+using ParsaPoolad.Domain.Entities;
 using Claims = ParsaPoolad.Application.Services.BackEnd.Admin.Roles.Queries.Claims;
 
 namespace ParsaPoolad.Application.Services.BackEnd.Admin.Roles.Commands
 {
     public interface IEditRolesServices
     {
-        ResultEditRolesDto Execute(EditRolesServicesDto editRolesServicesDto,string id);
+        ResultEditRolesDto Execute(EditRolesServicesDto editRolesServicesDto, string id);
     }
 
     public class EditRolesServices:IEditRolesServices {
         private readonly RoleManager<Role> _roleManager;
-        private readonly IIdentityDataBaseContext _context;
+        private readonly ICustomDbContext _context;
         public EditRolesServices(RoleManager<Role> roleManager,
-            IIdentityDataBaseContext context)
+            ICustomDbContext context)
         {
             _roleManager = roleManager;
             _context = context;
         }
-        public ResultEditRolesDto Execute(EditRolesServicesDto editRolesServicesDto,string id)
+        public ResultEditRolesDto Execute(EditRolesServicesDto editRolesServicesDto, string id)
         {
 
-            var currentRole = _roleManager.FindByIdAsync(id).Result;
+            var currentRole = _roleManager.FindByIdAsync(id.ToString()).Result;
             var claimsRole = _roleManager.GetClaimsAsync(currentRole).Result;
             
             foreach (var  item in editRolesServicesDto.Claims)

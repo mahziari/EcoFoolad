@@ -2,7 +2,7 @@
 using System.Linq;
 using Microsoft.AspNetCore.Identity;
 using ParsaPoolad.Application.Interfaces.Contexts;
-using ParsaPoolad.Domain.Entities.Identity;
+using ParsaPoolad.Domain.Entities;
 
 namespace ParsaPoolad.Application.Services.BackEnd.Admin.Products.Queries
 {
@@ -13,9 +13,9 @@ namespace ParsaPoolad.Application.Services.BackEnd.Admin.Products.Queries
 
     public class GetIndexProductsServices : IGetIndexProductsServices
     {
-        private readonly IDataBaseContext _context;
+        private readonly IIdealCrmDataBaseContext _context;
 
-        public GetIndexProductsServices(IDataBaseContext context)
+        public GetIndexProductsServices(IIdealCrmDataBaseContext context)
         {
             _context = context;
         }

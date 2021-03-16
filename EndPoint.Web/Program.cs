@@ -12,6 +12,8 @@ namespace EndPoint.Web
         {
             CreateHostBuilder(args).Build().Run();
         }
+        
+        
 
         private static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
@@ -31,7 +33,7 @@ namespace EndPoint.Web
                         {
                             logger.ClearProviders();
                             logger.AddDebug();
-                            logger.AddFile("/Logs/logText.txt");
+                            logger.AddFile("wwwroot/Logs/logText.txt");
                         });
                     }
                     else if(OperatingSystem.IsWindows())
@@ -40,11 +42,12 @@ namespace EndPoint.Web
                         {
                             logger.ClearProviders();
                             logger.AddDebug();
-                            logger.AddEventLog();
-                            logger.AddFile("/Logs/logText.txt");
+                            
+                            // Store Logs in Windows 10 Event, How to Access This? Please Search Event in windows Search
+                            // logger.AddEventLog();
+                            logger.AddFile("wwwroot/Logs/logText.txt");
                         });
-                    }         
-                
+                    }
                 });
     }
 }

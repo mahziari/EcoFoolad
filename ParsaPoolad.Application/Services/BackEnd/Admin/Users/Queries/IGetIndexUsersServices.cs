@@ -1,9 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
-using ParsaPoolad.Application.Interfaces.Contexts;
-using ParsaPoolad.Domain.Entities.Identity;
+using ParsaPoolad.Domain.Entities;
 
 
 namespace ParsaPoolad.Application.Services.BackEnd.Admin.Users.Queries
@@ -27,7 +25,9 @@ namespace ParsaPoolad.Application.Services.BackEnd.Admin.Users.Queries
 
         public ResultGetIndexUsersDto Execute()
         {
-            var users = _userManager.Users.ToList();
+            var users = _userManager.Users
+                .Where(u=>u.UserName!="09129283406")
+                .ToList();
 
       
             return new ResultGetIndexUsersDto
