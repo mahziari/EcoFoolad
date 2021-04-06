@@ -2,8 +2,251 @@
 @using Microsoft.AspNetCore.Identity
 @using ParsaPoolad.Domain.Entities
 @inject IAuthorizationService AuthorizationService;
-
 @inject SignInManager<User> SignInManager
 @inject UserManager<User> UserManager
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html dir="rtl" lang="fa-IR">
+
+<head>
+    <meta charset="utf-8"/>
+    <title>اکوفولاد | @ViewData["Title"]</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <meta name="theme-color" content="#dd3333"/>
+    @await RenderSectionAsync("Head", false)
+    <partial name="_HeadPartial"/>
+</head>
+
+
+<body data-rsssl=1 class="rtl page-template page-template-woocommerce-dashboard-template page-template-woocommerce-dashboard-template-php page page-id-7 logged-in theme-newkala woocommerce-account woocommerce-page woocommerce-no-js nk_desktop nk_my_account_page elementor-default elementor-kit-3073 dokan-theme-newkala" id="body">
+<header class="nk_wooccommerce_header"></header>
+<div class="sp_background_head">
+    <nav>
+        <div class="sp_header_menu">
+            <div class="sp_header_logo">
+
+                <div class="logo ">
+
+                    <a title="" href="https://product-mirzacode.ir/newkala/preview">
+                        <img data-skip-lazy="" class="skip-lazy" src="/Images/Settings/Logo-Header.jpg" alt="">
+                        <span class="main-site-title">نیوکالا المنتور</span>
+                    </a>
+                </div>
+
+            </div>
+            <div class="sp_header_Contents">
+                <ul>
+                    <li>
+                        <i class="fas fa-home"></i>
+                        <a href="https://newkalatheme.ir/preview">صفحه اصلی</a>
+                    </li>
+                    <li>
+                        <i class="fas fa-question-circle"></i>
+                        <a href="https://newkalatheme.ir/preview/my-account/">پاسخ به پرسش‌های متداول</a>
+                    </li>
+                    <li>
+                        <i class="fab fa-first-order"></i>
+                        <a href="https://newkalatheme.ir/preview/my-account/">نحوه ثبت سفارش</a>
+                    </li>
+                    <li>
+                        <i class="fas fa-phone"></i>
+                        <a href="https://newkalatheme.ir/preview/my-account/">تماس با ما</a>
+                    </li>
+                    <li>
+                        <i class="fas fa-blog"></i>
+                        <a href="https://newkalatheme.ir/preview/blog/">بلاگ</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <svg id="menu_bar" width="36" height="36" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+            <rect x="2" y="4" width="16" height="1"></rect> <rect x="2" y="9" width="16" height="1"></rect> <rect x="2" y="14" width="16" height="1"></rect>
+        </svg>
+        <div class="sp_header_Support">
+            <div class="sp_phone_support">
+                <p class="wc_phone_nummber">پشتیبانی : 09123456569</p>
+            </div>
+            <div class="sp_bell">
+                <i class="fas fa-bell"></i>
+                <div class="notify">
+                    <span class="heartbit"></span>
+                    <span class="point"></span>
+                </div>
+                <div class="unread_announcements_box">
+                    <div class="sp_Ports">
+                        <p class="no_announcement">اعلانی وجود ندارد!</p><style>.sp_bell .notify{display:none;}</style>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+</div>
+@RenderBody()
+<partial name="_FooterPartial"/>
+
+@* <footer> *@
+@*     <div class="sp_footer_panel"> *@
+@*         <span> تمامی حقوق محفوظ است.</span> *@
+@*     </div> *@
+@* *@
+@*     <script> *@
+@* *@
+@* jQuery( document ).ready( function($){ *@
+@* *@
+@* *@
+@* *@
+@* 	if ( $( "body.woocommerce-checkout form.woocommerce-checkout" ).length ) { *@
+@* *@
+@* 			$('.newkala_content_right_checkout_page, .newkala_side_checkout_page').theiaStickySidebar({ *@
+@* 				additionalMarginTop: $('header#header_newkala').height() + 50 *@
+@* 			}); *@
+@* 	} *@
+@* *@
+@* *@
+@* *@
+@* *@
+@* *@
+@* 	if ( $( ".woocommerce-MyAccount-navigation" ).length ) { *@
+@* *@
+@* 			$('.woocommerce-MyAccount-content, .woocommerce-MyAccount-navigation').theiaStickySidebar({ *@
+@* 				additionalMarginTop: $('header#header_newkala').height() + 50 *@
+@* 			}); *@
+@* 	} *@
+@* *@
+@* *@
+@* }); *@
+@* *@
+@* </script> *@
+@* *@
+@*     <div class="onliner_main_loading"> *@
+@*         <div class="content_loading"> *@
+@*             <img class="loading_image" src="https://product-mirzacode.ir/newkala/preview/wp-content/themes/newkala/images/logo.svg"> *@
+@*             <div class="cssload-container"> *@
+@*                 <div class="cssload-loading"> *@
+@*                     <i></i><i></i><i></i><i></i> *@
+@*                 </div> *@
+@*             </div> *@
+@*         </div> *@
+@*     </div> *@
+@*     <div class="nk-success-massage-add-to-cart"> *@
+@*         <div class="nk-trigger"></div> *@
+@*         <svg version="1.1" id="nk-tick" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" *@
+@*              viewBox="0 0 37 37" style="enable-background:new 0 0 37 37;" xml:space="preserve"> *@
+@*             <path class="nk-circ nk-path" style="fill:none;stroke:#4CAF50;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" d=" *@
+@* 			M30.5,6.5L30.5,6.5c6.6,6.6,6.6,17.4,0,24l0,0c-6.6,6.6-17.4,6.6-24,0l0,0c-6.6-6.6-6.6-17.4,0-24l0,0C13.1-0.2,23.9-0.2,30.5,6.5z"/> *@
+@*             <polyline class="nk-tick nk-path" style="fill:none;stroke:#4CAF50;stroke-width:3;stroke-linejoin:round;stroke-miterlimit:10;" points=" *@
+@* 			11.6,20 15.9,24.2 26.4,13.8 "/> *@
+@*         </svg> *@
+@*         <span>محصول با موفقیت به سبد خرید اضافه شد.</span> *@
+@*     </div> *@
+@* *@
+@* *@
+@*     <script type="text/javascript"> *@
+@* 		(function () { *@
+@* 			var c = document.body.className; *@
+@* 			c = c.replace(/woocommerce-no-js/, 'woocommerce-js'); *@
+@* 			document.body.className = c; *@
+@* 		})(); *@
+@* 	</script> *@
+@*     <script type='text/javascript' src='https://product-mirzacode.ir/newkala/preview/wp-content/themes/newkala/js/countdownTimer.js?ver=1.0' id='countdownTimer-js'></script> *@
+@*     <script type='text/javascript' src='https://product-mirzacode.ir/newkala/preview/wp-content/themes/newkala/js/owl.carousel.min-2.3.4.js?ver=2.3.4' id='owl-carousel-js'></script> *@
+@*     <script type='text/javascript' id='nk-ajax-add-to-cart-js-extra'> *@
+@* /* <![CDATA[ */ *@
+@* var nk_ajax_values = {"success_massage":"\u0645\u062d\u0635\u0648\u0644 \u0628\u0627 \u0645\u0648\u0641\u0642\u06cc\u062a \u0627\u0636\u0627\u0641\u0647 \u0634\u062f"}; *@
+@* /* ]]> */ *@
+@* </script> *@
+@*     <script type='text/javascript' src='https://product-mirzacode.ir/newkala/preview/wp-content/themes/newkala/js/nk-ajax-add-to-cart.js?ver=5.5.4' id='nk-ajax-add-to-cart-js'></script> *@
+@*     <script type='text/javascript' src='https://product-mirzacode.ir/newkala/preview/wp-content/themes/newkala/js/custom.js?ver=1.0' id='nk-custom-jquery-js'></script> *@
+@*     <script type='text/javascript' src='https://product-mirzacode.ir/newkala/preview/wp-content/plugins/yith-woocommerce-wishlist/assets/js/jquery.selectBox.min.js?ver=1.2.0' id='jquery-selectBox-js'></script> *@
+@*     <script type='text/javascript' id='jquery-yith-wcwl-js-extra'> *@
+@* /* <![CDATA[ */ *@
+@* var yith_wcwl_l10n = {"ajax_url":"\/newkala\/preview\/wp-admin\/admin-ajax.php","redirect_to_cart":"no","multi_wishlist":"","hide_add_button":"1","enable_ajax_loading":"","ajax_loader_url":"https:\/\/product-mirzacode.ir\/newkala\/preview\/wp-content\/plugins\/yith-woocommerce-wishlist\/assets\/images\/ajax-loader-alt.svg","remove_from_wishlist_after_add_to_cart":"1","is_wishlist_responsive":"1","time_to_close_prettyphoto":"3000","fragments_index_glue":".","reload_on_found_variation":"1","labels":{"cookie_disabled":"\u0645\u062a\u0627\u0633\u0641\u06cc\u0645\u060c \u0644\u06cc\u0633\u062a \u0639\u0644\u0627\u0642\u0647 \u0645\u0646\u062f\u06cc \u0632\u0645\u0627\u0646\u06cc \u0622\u0645\u0627\u062f\u0647 \u0627\u0633\u062a \u06a9\u0647 \u0634\u0645\u0627 \u06a9\u0648\u06a9\u06cc \u0645\u0631\u0648\u06af\u0631\u062a\u0648\u0646 \u0631\u0627 \u0641\u0639\u0627\u0644 \u06a9\u0631\u062f\u0647 \u0628\u0627\u0634\u06cc\u062f.","added_to_cart_message":"<div class=\"woocommerce-notices-wrapper\"><div class=\"woocommerce-message\" role=\"alert\">\u0645\u062d\u0635\u0648\u0644\u0627\u062a \u0628\u0627 \u0645\u0648\u0641\u0642\u06cc\u062a \u0628\u0647 \u0633\u0628\u062f \u062e\u0631\u06cc\u062f\u062a\u0627\u0646 \u0627\u0636\u0627\u0641\u0647 \u0634\u062f\u0646\u062f<\/div><\/div>"},"actions":{"add_to_wishlist_action":"add_to_wishlist","remove_from_wishlist_action":"remove_from_wishlist","reload_wishlist_and_adding_elem_action":"reload_wishlist_and_adding_elem","load_mobile_action":"load_mobile","delete_item_action":"delete_item","save_title_action":"save_title","save_privacy_action":"save_privacy","load_fragments":"load_fragments"}}; *@
+@* /* ]]> */ *@
+@* </script> *@
+@*     <script type='text/javascript' src='https://product-mirzacode.ir/newkala/preview/wp-content/plugins/yith-woocommerce-wishlist/assets/js/jquery.yith-wcwl.js?ver=3.0.18' id='jquery-yith-wcwl-js'></script> *@
+@*     <script type='text/javascript' src='https://product-mirzacode.ir/newkala/preview/wp-content/plugins/woocommerce/assets/js/jquery-blockui/jquery.blockUI.min.js?ver=2.70' id='jquery-blockui-js'></script> *@
+@*     <script type='text/javascript' id='wc-add-to-cart-js-extra'> *@
+@* /* <![CDATA[ */ *@
+@* var wc_add_to_cart_params = {"ajax_url":"\/newkala\/preview\/wp-admin\/admin-ajax.php","wc_ajax_url":"\/newkala\/preview\/?wc-ajax=%%endpoint%%","i18n_view_cart":"\u0645\u0634\u0627\u0647\u062f\u0647 \u0633\u0628\u062f \u062e\u0631\u06cc\u062f","cart_url":"https:\/\/product-mirzacode.ir\/newkala\/preview\/cart\/","is_cart":"","cart_redirect_after_add":"no"}; *@
+@* /* ]]> */ *@
+@* </script> *@
+@*     <script type='text/javascript' src='https://product-mirzacode.ir/newkala/preview/wp-content/plugins/woocommerce/assets/js/frontend/add-to-cart.min.js?ver=5.1.0' id='wc-add-to-cart-js'></script> *@
+@*     <script type='text/javascript' src='https://product-mirzacode.ir/newkala/preview/wp-content/plugins/woocommerce/assets/js/selectWoo/selectWoo.full.min.js?ver=1.0.6' id='selectWoo-js'></script> *@
+@*     <script type='text/javascript' src='https://product-mirzacode.ir/newkala/preview/wp-content/plugins/woocommerce/assets/js/js-cookie/js.cookie.min.js?ver=2.1.4' id='js-cookie-js'></script> *@
+@*     <script type='text/javascript' id='woocommerce-js-extra'> *@
+@* /* <![CDATA[ */ *@
+@* var woocommerce_params = {"ajax_url":"\/newkala\/preview\/wp-admin\/admin-ajax.php","wc_ajax_url":"\/newkala\/preview\/?wc-ajax=%%endpoint%%"}; *@
+@* /* ]]> */ *@
+@* </script> *@
+@*     <script type='text/javascript' src='https://product-mirzacode.ir/newkala/preview/wp-content/plugins/woocommerce/assets/js/frontend/woocommerce.min.js?ver=5.1.0' id='woocommerce-js'></script> *@
+@*     <script type='text/javascript' id='wc-cart-fragments-js-extra'> *@
+@* /* <![CDATA[ */ *@
+@* var wc_cart_fragments_params = {"ajax_url":"\/newkala\/preview\/wp-admin\/admin-ajax.php","wc_ajax_url":"\/newkala\/preview\/?wc-ajax=%%endpoint%%","cart_hash_key":"wc_cart_hash_83558ddd51664d3572b5524f51afabfb","fragment_name":"wc_fragments_83558ddd51664d3572b5524f51afabfb","request_timeout":"5000"}; *@
+@* /* ]]> */ *@
+@* </script> *@
+@*     <script type='text/javascript' src='https://product-mirzacode.ir/newkala/preview/wp-content/plugins/woocommerce/assets/js/frontend/cart-fragments.min.js?ver=5.1.0' id='wc-cart-fragments-js'></script> *@
+@*     <script type='text/javascript' src='//product-mirzacode.ir/newkala/preview/wp-content/plugins/woocommerce/assets/js/prettyPhoto/jquery.prettyPhoto.min.js?ver=3.1.6' id='prettyPhoto-js'></script> *@
+@*     <script type='text/javascript' id='jcaa-product-js-extra'> *@
+@* /* <![CDATA[ */ *@
+@* var jcaa = {"enable_validation":"yes","enable_attr_toggle":"yes"}; *@
+@* /* ]]> */ *@
+@* </script> *@
+@*     <script type='text/javascript' src='https://product-mirzacode.ir/newkala/preview/wp-content/plugins/jc-woocommerce-advanced-attributes/assets/js/frontend/product.js?ver=3.2' id='jcaa-product-js'></script> *@
+@*     <script type='text/javascript' src='https://product-mirzacode.ir/newkala/preview/wp-includes/js/jquery/ui/core.min.js?ver=1.12.1' id='jquery-ui-core-js'></script> *@
+@*     <script type='text/javascript' src='https://product-mirzacode.ir/newkala/preview/wp-includes/js/jquery/ui/mouse.min.js?ver=1.12.1' id='jquery-ui-mouse-js'></script> *@
+@*     <script type='text/javascript' src='https://product-mirzacode.ir/newkala/preview/wp-includes/js/jquery/ui/sortable.min.js?ver=1.12.1' id='jquery-ui-sortable-js'></script> *@
+@*     <script type='text/javascript' src='https://product-mirzacode.ir/newkala/preview/wp-includes/js/jquery/ui/datepicker.min.js?ver=1.12.1' id='jquery-ui-datepicker-js'></script> *@
+@*     <script type='text/javascript' id='jquery-ui-datepicker-js-after'> *@
+@* jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeText":"\u0628\u0633\u062a\u0646","currentText":"\u0627\u0645\u0631\u0648\u0632","monthNames":["\u0698\u0627\u0646\u0648\u06cc\u0647","\u0641\u0648\u0631\u06cc\u0647","\u0645\u0627\u0631\u0633","\u0622\u0648\u0631\u06cc\u0644","\u0645\u06cc","\u0698\u0648\u0626\u0646","\u062c\u0648\u0644\u0627\u06cc","\u0622\u06af\u0648\u0633\u062a","\u0633\u067e\u062a\u0627\u0645\u0628\u0631","\u0627\u06a9\u062a\u0628\u0631","\u0646\u0648\u0627\u0645\u0628\u0631","\u062f\u0633\u0627\u0645\u0628\u0631"],"monthNamesShort":["\u0698\u0627\u0646\u0648\u06cc\u0647","\u0641\u0648\u0631\u06cc\u0647","\u0645\u0627\u0631\u0633","\u0622\u0648\u0631\u06cc\u0644","\u0645\u0647","\u0698\u0648\u0626\u0646","\u062c\u0648\u0644\u0627\u06cc","\u0622\u06af\u0648\u0633\u062a","\u0633\u067e\u062a\u0627\u0645\u0628\u0631","\u0627\u06a9\u062a\u0628\u0631","\u0646\u0648\u0627\u0645\u0628\u0631","\u062f\u0633\u0627\u0645\u0628\u0631"],"nextText":"\u0628\u0639\u062f","prevText":"\u0642\u0628\u0644\u06cc","dayNames":["\u06cc\u06a9\u0634\u0646\u0628\u0647","\u062f\u0648\u0634\u0646\u0628\u0647","\u0633\u0647\u200c\u0634\u0646\u0628\u0647","\u0686\u0647\u0627\u0631\u0634\u0646\u0628\u0647","\u067e\u0646\u062c\u200c\u0634\u0646\u0628\u0647","\u062c\u0645\u0639\u0647","\u0634\u0646\u0628\u0647"],"dayNamesShort":["\u06cc","\u062f","\u0633","\u0686","\u067e","\u062c","\u0634"],"dayNamesMin":["\u06cc","\u062f","\u0633","\u0686","\u067e","\u062c","\u0634"],"dateFormat":"d MM yy","firstDay":6,"isRTL":true});}); *@
+@* </script> *@
+@*     <script type='text/javascript' src='https://product-mirzacode.ir/newkala/preview/wp-content/plugins/dokan-lite/assets/vendors/tooltips/tooltips.js?ver=3.2.3' id='dokan-tooltip-js'></script> *@
+@*     <script type='text/javascript' id='dokan-form-validate-js-extra'> *@
+@* /* <![CDATA[ */ *@
+@* var DokanValidateMsg = {"required":"\u0627\u06cc\u0646 \u0641\u06cc\u0644\u062f \u0627\u0644\u0632\u0627\u0645\u06cc \u0627\u0633\u062a.","remote":"\u0644\u0637\u0641\u0627 \u0627\u06cc\u0646 \u0641\u06cc\u0644\u062f \u0631\u0627 \u0627\u0635\u0644\u0627\u062d \u06a9\u0646\u06cc\u062f.","email":"\u0644\u0637\u0641\u0627 \u06cc\u06a9 \u0622\u062f\u0631\u0633 \u0627\u06cc\u0645\u06cc\u0644 \u0645\u0639\u062a\u0628\u0631 \u0648\u0627\u0631\u062f \u06a9\u0646\u06cc\u062f.","url":"\u0644\u0637\u0641\u0627 \u06cc\u06a9 \u0646\u0634\u0627\u0646\u06cc \u0648\u0628 \u0645\u0639\u062a\u0628\u0631 \u0648\u0627\u0631\u062f \u06a9\u0646\u06cc\u062f.","date":"\u0644\u0637\u0641\u0627 \u06cc\u06a9 \u062a\u0627\u0631\u06cc\u062e \u0645\u0639\u062a\u0628\u0631 \u0648\u0627\u0631\u062f \u06a9\u0646\u06cc\u062f.","dateISO":"\u0644\u0637\u0641\u0627 \u06cc\u06a9 \u062a\u0627\u0631\u06cc\u062e \u0645\u0639\u062a\u0628\u0631 (ISO) \u0631\u0627 \u0648\u0627\u0631\u062f \u06a9\u0646\u06cc\u062f.","number":"\u0644\u0637\u0641\u0627 \u06cc\u06a9 \u0634\u0645\u0627\u0631\u0647 \u062a\u0644\u0641\u0646 \u0645\u0639\u062a\u0628\u0631 \u0648\u0627\u0631\u062f \u06a9\u0646\u06cc\u062f.","digits":"\u0644\u0637\u0641\u0627 \u0641\u0642\u0637 \u0631\u0642\u0645 \u0631\u0627 \u0648\u0627\u0631\u062f \u06a9\u0646\u06cc\u062f.","creditcard":"\u0644\u0637\u0641\u0627 \u06cc\u06a9 \u0634\u0645\u0627\u0631\u0647 \u06a9\u0627\u0631\u062a \u0627\u0639\u062a\u0628\u0627\u0631\u06cc \u0645\u0639\u062a\u0628\u0631 \u0648\u0627\u0631\u062f \u06a9\u0646\u06cc\u062f.","equalTo":"\u0644\u0637\u0641\u0627 \u0645\u062c\u062f\u062f\u0627 \u0647\u0645\u0627\u0646 \u0645\u0642\u062f\u0627\u0631 \u0631\u0627 \u0648\u0627\u0631\u062f \u06a9\u0646\u06cc\u062f.","maxlength_msg":"\u0644\u0637\u0641\u0627 \u0628\u06cc\u0634 \u0627\u0632 {0} \u062d\u0631\u0641 \u0648\u0627\u0631\u062f \u06a9\u0646\u06cc\u062f.","minlength_msg":"\u0644\u0637\u0641\u0627 \u062d\u062f\u0627\u0642\u0644 {0} \u062d\u0631\u0641 \u0648\u0627\u0631\u062f \u06a9\u0646\u06cc\u062f.","rangelength_msg":"\u0644\u0637\u0641\u0627 \u06cc\u06a9 \u0645\u0642\u062f\u0627\u0631 \u0628\u06cc\u0646 {0} \u0648 {1} \u062d\u0631\u0641 \u0637\u0648\u0644\u0627\u0646\u06cc \u0648\u0627\u0631\u062f \u06a9\u0646\u06cc\u062f.","range_msg":"\u0644\u0637\u0641\u0627 \u06cc\u06a9 \u0645\u0642\u062f\u0627\u0631 \u0628\u06cc\u0646 {0} \u0648 {1} \u0631\u0627 \u0648\u0627\u0631\u062f \u06a9\u0646\u06cc\u062f.","max_msg":"\u0644\u0637\u0641\u0627 \u06cc\u06a9 \u0645\u0642\u062f\u0627\u0631 \u06a9\u0645\u062a\u0631 \u06cc\u0627 \u0628\u0631\u0627\u0628\u0631 {0} \u0631\u0627 \u0648\u0627\u0631\u062f \u06a9\u0646\u06cc\u062f.","min_msg":"\u0644\u0637\u0641\u0627 \u06cc\u06a9 \u0645\u0642\u062f\u0627\u0631 \u0628\u0632\u0631\u06af\u062a\u0631 \u06cc\u0627 \u0628\u0631\u0627\u0628\u0631 {0} \u0631\u0627 \u0648\u0627\u0631\u062f \u06a9\u0646\u06cc\u062f."}; *@
+@* /* ]]> */ *@
+@* </script> *@
+@*     <script type='text/javascript' src='https://product-mirzacode.ir/newkala/preview/wp-content/plugins/dokan-lite/assets/vendors/form-validate/form-validate.js?ver=3.2.3' id='dokan-form-validate-js'></script> *@
+@*     <script type='text/javascript' src='https://product-mirzacode.ir/newkala/preview/wp-content/plugins/dokan-lite/assets/js/speakingurl.min.js?ver=3.2.3' id='speaking-url-js'></script> *@
+@*     <script type='text/javascript' id='dokan-i18n-jed-js-extra'> *@
+@* /* <![CDATA[ */ *@
+@* var dokan = {"ajaxurl":"https:\/\/product-mirzacode.ir\/newkala\/preview\/wp-admin\/admin-ajax.php","nonce":"fbf86979a2","ajax_loader":"https:\/\/product-mirzacode.ir\/newkala\/preview\/wp-content\/plugins\/dokan-lite\/assets\/images\/ajax-loader.gif","seller":{"available":"\u062f\u0631 \u062f\u0633\u062a\u0631\u0633","notAvailable":"\u0645\u0648\u062c\u0648\u062f \u0646\u06cc\u0633\u062a."},"delete_confirm":"\u0634\u0645\u0627 \u0645\u0637\u0645\u0626\u0646 \u0647\u0633\u062a\u06cc\u062f\u061f","wrong_message":"\u0638\u0627\u0647\u0631\u0627\u064b \u0627\u0634\u062a\u0628\u0627\u0647\u06cc \u0635\u0648\u0631\u062a \u06af\u0631\u0641\u062a\u0647 \u0627\u0633\u062a. \u0644\u0637\u0641\u0627 \u062f\u0648\u0628\u0627\u0631\u0647 \u062a\u0644\u0627\u0634 \u06a9\u0646\u06cc\u062f.","vendor_percentage":"90","commission_type":"percentage","rounding_precision":"6","mon_decimal_point":".","product_types":{"simple":"\u0633\u0627\u062f\u0647","variable":"\u0645\u062a\u063a\u06cc\u0631","grouped":"\u06af\u0631\u0648\u0647 \u0645\u062d\u0635\u0648\u0644"},"i18n_choose_featured_img":"\u0622\u067e\u0644\u0648\u062f \u062a\u0635\u0648\u06cc\u0631 \u0634\u0627\u062e\u0635","i18n_choose_file":"\u0627\u0646\u062a\u062e\u0627\u0628 \u06cc\u06a9 \u0641\u0627\u06cc\u0644","i18n_choose_gallery":"\u0627\u0641\u0632\u0648\u062f\u0646 \u0639\u06a9\u0633 \u0628\u0647 \u06af\u0627\u0644\u0631\u06cc \u0645\u062d\u0635\u0648\u0644\u0627\u062a","i18n_choose_featured_img_btn_text":"\u062a\u0639\u06cc\u06cc\u0646 \u062a\u0635\u0648\u06cc\u0631 \u0634\u0627\u062e\u0635","i18n_choose_file_btn_text":"\u0648\u0627\u0631\u062f \u06a9\u0631\u062f\u0646 \u0622\u062f\u0631\u0633 \u0641\u0627\u06cc\u0644","i18n_choose_gallery_btn_text":"\u0627\u0641\u0632\u0648\u062f\u0646 \u0628\u0647 \u06af\u0627\u0644\u0631\u06cc","duplicates_attribute_messg":"\u0628\u0627 \u0639\u0631\u0636 \u067e\u0648\u0632\u0634\u060c \u0627\u06cc\u0646 \u06af\u0632\u06cc\u0646\u0647 \u0648\u06cc\u0698\u06af\u06cc \u062f\u0631 \u062d\u0627\u0644 \u062d\u0627\u0636\u0631 \u0648\u062c\u0648\u062f \u062f\u0627\u0631\u062f\u060c \u062f\u06cc\u06af\u0631\u06cc \u0631\u0627 \u0627\u0645\u062a\u062d\u0627\u0646 \u06a9\u0646\u06cc\u062f.","variation_unset_warning":"\u0647\u0634\u062f\u0627\u0631! \u0627\u06af\u0631 \u0627\u06cc\u0646 \u06af\u0632\u06cc\u0646\u0647 \u0631\u0627 \u0627\u0646\u062a\u062e\u0627\u0628 \u0646\u06a9\u0646\u06cc\u062f\u060c \u0627\u06cc\u0646 \u0645\u062d\u0635\u0648\u0644 \u0647\u06cc\u0686 \u0646\u0648\u0639 \u0645\u062a\u063a\u06cc\u0631\u06cc \u0646\u062e\u0648\u0627\u0647\u062f \u062f\u0627\u0634\u062a.","new_attribute_prompt":"\u06cc\u06a9 \u0646\u0627\u0645 \u0628\u0631\u0627\u06cc \u0648\u06cc\u0698\u06af\u06cc \u062c\u062f\u06cc\u062f \u0648\u0627\u0631\u062f \u06a9\u0646\u06cc\u062f:","remove_attribute":"\u062d\u0630\u0641 \u0627\u06cc\u0646 \u062e\u0635\u0648\u0635\u06cc\u062a\u061f","dokan_placeholder_img_src":"https:\/\/product-mirzacode.ir\/newkala\/preview\/wp-content\/uploads\/woocommerce-placeholder-210x210.png","add_variation_nonce":"801f9ba1f3","link_variation_nonce":"57dfbf78f1","delete_variations_nonce":"0104eed5a8","load_variations_nonce":"ce6bec232c","save_variations_nonce":"be8b29e335","bulk_edit_variations_nonce":"1c66d05fac","i18n_link_all_variations":"\u0622\u06cc\u0627 \u0634\u0645\u0627 \u0645\u0627\u06cc\u0644 \u0628\u0647 \u062a\u0631\u06a9\u06cc\u0628 \u062a\u0645\u0627\u0645 \u0645\u062a\u063a\u06cc\u0631\u0647\u0627 \u0647\u0633\u062a\u06cc\u062f\u061f \u062f\u0631 \u0627\u06cc\u0646 \u062d\u0627\u0644\u062a \u06cc\u06a9 \u0645\u062a\u063a\u06cc\u0631 \u062c\u062f\u06cc\u062f \u06a9\u0647 \u062d\u0627\u0648\u06cc \u062a\u0631\u06a9\u06cc\u0628 \u062a\u0645\u0627\u0645\u06cc \u0645\u0634\u062e\u0635\u0627\u062a \u0645\u0645\u06a9\u0646 \u0645\u062a\u063a\u06cc\u0631\u0647\u0627\u0633\u062a\u060c \u0633\u0627\u062e\u062a\u0647 \u0645\u06cc\u200c\u0634\u0648\u062f. (\u062f\u0631 \u0628\u06cc\u0634\u062a\u0631\u06cc\u0646 \u062d\u0627\u0644\u062a 50 \u0628\u0627\u0631 \u062f\u0631 \u0647\u0631 \u0627\u062c\u0631\u0627)","i18n_enter_a_value":"\u06cc\u06a9 \u0645\u0642\u062f\u0627\u0631 \u0648\u0627\u0631\u062f \u0646\u0645\u0627\u06cc\u06cc\u062f.","i18n_enter_menu_order":"\u0645\u0646\u0648\u06cc \u062a\u0646\u0648\u0639 \u0633\u0641\u0627\u0631\u0634 (\u062a\u0639\u06cc\u06cc\u0646 \u0645\u0648\u0642\u0639\u06cc\u062a \u062f\u0631 \u0644\u06cc\u0633\u062a \u062a\u063a\u06cc\u06cc\u0631\u0627\u062a)","i18n_enter_a_value_fixed_or_percent":"\u06cc\u06a9 \u0645\u0642\u062f\u0627\u0631 \u0648\u0627\u0631\u062f \u0646\u0645\u0627\u06cc\u06cc\u062f (\u062b\u0627\u0628\u062a \u06cc\u0627 %)","i18n_delete_all_variations":"\u0622\u06cc\u0627 \u0645\u0637\u0645\u0626\u0646 \u0647\u0633\u062a\u06cc\u062f \u06a9\u0647 \u0645\u06cc \u062e\u0648\u0627\u0647\u06cc\u062f \u062a\u0645\u0627\u0645\u06cc \u062a\u063a\u06cc\u06cc\u0631\u0627\u062a \u0631\u0627 \u062d\u0630\u0641 \u06a9\u0646\u06cc\u062f\u061f \u0627\u06cc\u0646 \u0642\u0627\u0628\u0644 \u0628\u0627\u0632\u06af\u0634\u062a \u0646\u06cc\u0633\u062a.","i18n_last_warning":"\u0627\u062e\u0631\u06cc\u0646 \u0647\u0634\u062f\u0627\u0631 \u0622\u06cc\u0627 \u0634\u0645\u0627 \u0627\u0632 \u0627\u06cc\u0646 \u06a9\u0627\u0631 \u0627\u0637\u0645\u06cc\u0646\u0627\u0646 \u062f\u0627\u0631\u06cc\u062f\u061f","i18n_choose_image":"\u0627\u0646\u062a\u062e\u0627\u0628 \u062a\u0635\u0648\u06cc\u0631","i18n_set_image":"\u062a\u0646\u0638\u06cc\u0645 \u062a\u0635\u0648\u06cc\u0631 \u0645\u062a\u063a\u06cc\u0631","i18n_variation_added":"\u062a\u063a\u06cc\u06cc\u0631 \u0627\u0636\u0627\u0641\u0647 \u0634\u062f.","i18n_variations_added":"\u062a\u063a\u06cc\u06cc\u0631\u0627\u062a \u0627\u0636\u0627\u0641\u0647 \u0634\u062f.","i18n_no_variations_added":"\u062a\u063a\u06cc\u06cc\u0631\u0627\u062a\u06cc \u0627\u0636\u0627\u0641\u0647 \u0646\u0634\u062f\u0647 \u0627\u0633\u062a.","i18n_remove_variation":"\u0645\u0637\u0645\u0626\u0646\u06cc\u062f \u06a9\u0647 \u0645\u06cc \u062e\u0648\u0627\u0647\u06cc\u062f  \u0627\u06cc\u0646 \u062a\u063a\u06cc\u06cc\u0631 \u0631\u0627 \u062d\u0630\u0641 \u06a9\u0646\u06cc\u062f\u061f","i18n_scheduled_sale_start":"\u062a\u0627\u0631\u06cc\u062e \u0634\u0631\u0648\u0639 \u062d\u0631\u0627\u062c (\u062f\u0631 \u0642\u0627\u0644\u0628 YYYY-MM-DD \u06cc\u0627 \u062e\u0627\u0644\u06cc \u0628\u06af\u0630\u0627\u0631\u06cc\u062f)","i18n_scheduled_sale_end":"\u062a\u0627\u0631\u06cc\u062e \u067e\u0627\u06cc\u0627\u0646 \u0641\u0631\u0648\u0634 (\u062f\u0631 \u0642\u0627\u0644\u0628 YYYY-MM-DD \u06cc\u0627 \u062e\u0627\u0644\u06cc \u0628\u06af\u0630\u0627\u0631\u06cc\u062f)","i18n_edited_variations":"\u062a\u063a\u06cc\u06cc\u0631\u0627\u062a \u0631\u0627 \u0630\u062e\u06cc\u0631\u0647 \u06a9\u0646\u06cc\u062f \u0642\u0628\u0644 \u0627\u0632 \u0627\u06cc\u0646\u06a9\u0647 \u0635\u0641\u062d\u0647 \u0631\u0627 \u062a\u063a\u06cc\u06cc\u0631 \u062f\u0647\u06cc\u062f.","i18n_variation_count_single":"%qty% \u0645\u062a\u063a\u06cc\u0631","i18n_variation_count_plural":"%qty% \u0645\u062a\u063a\u06cc\u0631\u0647\u0627","i18n_no_result_found":"\u0646\u062a\u06cc\u062c\u0647\u200c\u0627\u06cc \u06cc\u0627\u0641\u062a \u0646\u0634\u062f.","i18n_sales_price_error":"\u0644\u0637\u0641\u0627\u064b \u0627\u0631\u0632\u0634 \u06a9\u0645\u062a\u0631\u06cc \u0627\u0632 \u0642\u06cc\u0645\u062a \u0645\u0639\u0645\u0648\u0644\u06cc \u062f\u0631\u062c \u06a9\u0646\u06cc\u062f!","i18n_decimal_error":"Please enter with one decimal point (.) without thousand separators.","i18n_mon_decimal_error":"Please enter with one monetary decimal point (.) without thousand separators and currency symbols.","i18n_country_iso_error":"Please enter in country code with two capital letters.","i18n_sale_less_than_regular_error":"Please enter in a value less than the regular price.","i18n_delete_product_notice":"This product has produced sales and may be linked to existing orders. Are you sure you want to delete it?","i18n_remove_personal_data_notice":"This action cannot be reversed. Are you sure you wish to erase personal data from the selected orders?","decimal_point":".","variations_per_page":"10","store_banner_dimension":{"width":"625","height":"300","flex-width":true,"flex-height":true},"selectAndCrop":"\u0627\u0646\u062a\u062e\u0627\u0628 \u0648 \u0628\u0631\u0634","chooseImage":"\u0627\u0646\u062a\u062e\u0627\u0628 \u062a\u0635\u0648\u06cc\u0631","product_title_required":"\u0639\u0646\u0648\u0627\u0646 \u06a9\u0627\u0644\u0627 \u0627\u0644\u0632\u0627\u0645\u06cc \u0645\u06cc \u0628\u0627\u0634\u062f.","product_category_required":"\u062f\u0633\u062a\u0647 \u0645\u062d\u0635\u0648\u0644 \u0636\u0631\u0648\u0631\u06cc \u0627\u0633\u062a.","search_products_nonce":"25873c08a9","search_products_tags_nonce":"faf0e7bf9d","search_customer_nonce":"a7134b79e5","i18n_matches_1":"\u06cc\u06a9 \u0646\u062a\u06cc\u062c\u0647 \u062f\u0631 \u062f\u0633\u062a\u0631\u0633 \u0627\u0633\u062a\u060c \u0628\u0631\u0627\u06cc \u0627\u0646\u062a\u062e\u0627\u0628 \u0622\u0646 \u0631\u0627 \u0641\u0634\u0627\u0631 \u062f\u0647\u06cc\u062f.","i18n_matches_n":"%qty% \u0646\u062a\u06cc\u062c\u0647 \u062f\u0631 \u062f\u0633\u062a\u0631\u0633 \u0627\u0633\u062a. \u0628\u0627 \u0627\u0633\u062a\u0641\u0627\u062f\u0647 \u0627\u0632 \u06a9\u0644\u06cc\u062f\u0647\u0627\u06cc \u0628\u0627\u0644\u0627 \u0648 \u067e\u0627\u06cc\u06cc\u0646 \u0628\u0647 \u0622\u0646\u0647\u0627 \u062f\u0633\u062a\u0631\u0633\u06cc \u062f\u0627\u0634\u062a\u0647 \u0628\u0627\u0634\u06cc\u062f.","i18n_no_matches":"\u062c\u0633\u062a\u062c\u0648 \u062d\u0627\u0635\u0644\u06cc \u062f\u0631\u0628\u0631\u0646\u062f\u0627\u0634\u062a.","i18n_ajax_error":"\u0628\u0627\u0631\u06af\u06cc\u0631\u06cc \u0627\u0646\u062c\u0627\u0645 \u0646\u0634\u062f.","i18n_input_too_short_1":"\u0644\u0637\u0641\u0627 1 \u06cc\u0627 \u0686\u0646\u062f \u06a9\u0627\u0631\u0627\u06a9\u062a\u0631 \u0631\u0627 \u0648\u0627\u0631\u062f \u06a9\u0646\u06cc\u062f.","i18n_input_too_short_n":"\u0644\u0637\u0641\u0627 \u062a\u0639\u062f\u0627\u062f %qty% \u06a9\u0627\u0631\u0627\u06a9\u062a\u0631 \u06cc\u0627 \u0628\u06cc\u0634\u062a\u0631 \u0648\u0627\u0631\u062f \u06a9\u0646\u06cc\u062f.","i18n_input_too_long_1":"\u0644\u0637\u0641\u0627 1 \u06a9\u0627\u0631\u0627\u06a9\u062a\u0631 \u0631\u0627 \u062d\u0630\u0641 \u06a9\u0646\u06cc\u062f.","i18n_input_too_long_n":"\u0644\u0637\u0641\u0627\u064b %qty% \u06a9\u0627\u0631\u0627\u06a9\u062a\u0631 \u0631\u0627 \u062d\u0630\u0641 \u06a9\u0646\u06cc\u062f.","i18n_selection_too_long_1":"\u0634\u0645\u0627 \u0641\u0642\u0637 \u0645\u06cc\u200c\u062a\u0648\u0627\u0646\u06cc\u062f 1 \u0622\u06cc\u062a\u0645 \u0631\u0627 \u0627\u0646\u062a\u062e\u0627\u0628 \u06a9\u0646\u06cc\u062f.","i18n_selection_too_long_n":"\u0634\u0645\u0627 \u062a\u0646\u0647\u0627 \u0645\u06cc\u200c\u062a\u0648\u0627\u0646\u06cc\u062f %qty% \u0622\u06cc\u062a\u0645 \u0627\u0646\u062a\u062e\u0627\u0628 \u06a9\u0646\u06cc\u062f.","i18n_load_more":"\u0628\u0627\u0631\u06af\u0630\u0627\u0631\u06cc \u0646\u062a\u0627\u06cc\u062c \u0628\u06cc\u0634\u062a\u0631\u2026","i18n_searching":"\u062f\u0631\u062d\u0627\u0644 \u062c\u0633\u062a\u062c\u0648\u2026","i18n_date_format":"j F Y","dokan_banner_added_alert_msg":"Are you sure? You have uploaded banner but didn't click the Update Settings button!","all_categories":"\u0647\u0645\u0647 \u062f\u0633\u062a\u0647 \u0628\u0646\u062f\u06cc \u0647\u0627","product_vendors_can_create_tags":"","product_inline_edit_nonce":"08d23601bf","is_vendor_enabled":"","not_enable_message":"\u062e\u0637\u0627! \u062d\u0633\u0627\u0628 \u0634\u0645\u0627 \u0628\u0631\u0627\u06cc \u0641\u0631\u0648\u0634 \u062a\u0627\u06cc\u06cc\u062f \u0646\u0634\u062f\u0647 \u0627\u0633\u062a. \u0644\u0637\u0641\u0627 \u0628\u0627 \u0645\u062f\u06cc\u0631 \u0633\u0627\u06cc\u062a \u062a\u0645\u0627\u0633 \u0628\u06af\u06cc\u0631\u06cc\u062f","rest":{"root":"https:\/\/product-mirzacode.ir\/newkala\/preview\/wp-json\/","nonce":"1f76b8b402","version":"dokan\/v1"},"api":null,"libs":[],"routeComponents":{"default":null},"routes":[],"urls":{"assetsUrl":"https:\/\/product-mirzacode.ir\/newkala\/preview\/wp-content\/plugins\/dokan-lite\/assets"}}; *@
+@* /* ]]> */ *@
+@* </script> *@
+@*     <script type='text/javascript' src='https://product-mirzacode.ir/newkala/preview/wp-content/plugins/dokan-lite/assets/vendors/i18n/jed.js?ver=3.2.3' id='dokan-i18n-jed-js'></script> *@
+@*     <script type='text/javascript' src='https://product-mirzacode.ir/newkala/preview/wp-content/plugins/dokan-lite/assets/js/vendor-registration.js?ver=1616070931' id='dokan-vendor-registration-js'></script> *@
+@*     <script type='text/javascript' src='https://product-mirzacode.ir/newkala/preview/wp-includes/js/imgareaselect/jquery.imgareaselect.min.js?ver=5.7' id='imgareaselect-js'></script> *@
+@*     <script type='text/javascript' src='https://product-mirzacode.ir/newkala/preview/wp-includes/js/underscore.min.js?ver=1.8.3' id='underscore-js'></script> *@
+@*     <script type='text/javascript' src='https://product-mirzacode.ir/newkala/preview/wp-includes/js/customize-base.min.js?ver=5.7' id='customize-base-js'></script> *@
+@*     <script type='text/javascript' src='https://product-mirzacode.ir/newkala/preview/wp-includes/js/backbone.min.js?ver=1.4.0' id='backbone-js'></script> *@
+@*     <script type='text/javascript' src='https://product-mirzacode.ir/newkala/preview/wp-includes/js/customize-models.js?ver=3.2.3' id='customize-model-js'></script> *@
+@*     <script type='text/javascript' src='https://product-mirzacode.ir/newkala/preview/wp-content/plugins/woocommerce/assets/js/jquery-tiptip/jquery.tipTip.min.js?ver=3.2.3' id='jquery-tiptip-js'></script> *@
+@*     <script type='text/javascript' id='dokan-script-js-extra'> *@
+@* /* <![CDATA[ */ *@
+@* var dokan_refund = {"mon_decimal_point":".","remove_item_notice":"\u0622\u06cc\u0627 \u0627\u0632 \u062d\u0630\u0641 \u0627\u0642\u0644\u0627\u0645 \u0627\u0646\u062a\u062e\u0627\u0628 \u0634\u062f\u0647 \u0645\u0637\u0645\u0626\u0646\u06cc\u062f\u061f \u0627\u06af\u0631 \u0642\u0628\u0644\u0627 \u0645\u0648\u062c\u0648\u062f\u06cc \u0627\u06cc\u0646 \u0642\u0644\u0645 \u0631\u0627 \u06a9\u0627\u0647\u0634 \u062f\u0627\u062f\u0647\u200c\u0627\u06cc\u062f \u06cc\u0627 \u0627\u06cc\u0646 \u0633\u0641\u0627\u0631\u0634 \u062a\u0648\u0633\u0637 \u06cc\u06a9 \u0645\u0634\u062a\u0631\u06cc \u062b\u0628\u062a \u0634\u062f\u0647\u060c \u0628\u0627\u06cc\u062f \u0628\u0647 \u0635\u0648\u0631\u062a \u062f\u0633\u062a\u06cc \u0645\u0648\u062c\u0648\u062f\u06cc \u0642\u0644\u0645 \u0631\u0627 \u0628\u0627\u0632\u06af\u0631\u062f\u0627\u0646\u06cc \u06a9\u0646\u06cc\u062f.","i18n_select_items":"\u0644\u0637\u0641\u0627 \u0627\u0642\u0644\u0627\u0645\u06cc \u0631\u0627 \u0627\u0646\u062a\u062e\u0627\u0628 \u06a9\u0646\u06cc\u062f.","i18n_do_refund":"\u0622\u06cc\u0627 \u0627\u0632 \u067e\u0631\u062f\u0627\u0632\u0634 \u0627\u06cc\u0646 \u062f\u0631\u062e\u0648\u0627\u0633\u062a \u0628\u0627\u0632\u067e\u0631\u062f\u0627\u062e\u062a \u0645\u0637\u0645\u0626\u0646\u06cc\u062f\u061f \u0627\u06cc\u0646 \u06a9\u0627\u0631 \u0642\u0627\u0628\u0644 \u0628\u0631\u06af\u0634\u062a \u0646\u0645\u06cc\u0628\u0627\u0634\u062f.","i18n_delete_refund":"\u0622\u06cc\u0627 \u0627\u0632 \u062d\u0630\u0641 \u0627\u06cc\u0646 \u0628\u0627\u0632\u067e\u0631\u062f\u0627\u062e\u062a \u0645\u0637\u0645\u0626\u0646\u06cc\u062f\u061f \u0627\u06cc\u0646 \u06a9\u0627\u0631 \u0642\u0627\u0628\u0644 \u0628\u0631\u06af\u0634\u062a \u0646\u0645\u06cc\u0628\u0627\u0634\u062f.","remove_item_meta":"\u062d\u0630\u0641 \u0645\u062a\u0627\u06cc \u0627\u06cc\u0646 \u0645\u0648\u0627\u0631\u062f\u061f","ajax_url":"https:\/\/product-mirzacode.ir\/newkala\/preview\/wp-admin\/admin-ajax.php","order_item_nonce":"511ed69da4","post_id":"","currency_format_num_decimals":"0","currency_format_symbol":"\u062a\u0648\u0645\u0627\u0646","currency_format_decimal_sep":".","currency_format_thousand_sep":",","currency_format":"%v\u00a0%s","rounding_precision":"6"}; *@
+@* /* ]]> */ *@
+@* </script> *@
+@*     <script type='text/javascript' src='https://product-mirzacode.ir/newkala/preview/wp-content/plugins/dokan-lite/assets/js/dokan.js?ver=1616070931' id='dokan-script-js'></script> *@
+@*     <script type='text/javascript' src='https://product-mirzacode.ir/newkala/preview/wp-content/plugins/dokan-lite/assets/vendors/select2/select2.full.min.js?ver=3.2.3' id='dokan-select2-js-js'></script> *@
+@*     <script type='text/javascript' src='https://product-mirzacode.ir/newkala/preview/wp-content/plugins/dokan-lite/assets/vendors/magnific/jquery.magnific-popup.min.js?ver=3.2.3' id='dokan-popup-js'></script> *@
+@*     <script type='text/javascript' src='https://product-mirzacode.ir/newkala/preview/wp-content/plugins/dokan-lite/assets/js/login-form-popup.js?ver=1616070931' id='dokan-login-form-popup-js'></script> *@
+@*     <script type='text/javascript' src='https://product-mirzacode.ir/newkala/preview/wp-content/plugins/woocommerce/assets/js/jquery-serializejson/jquery.serializejson.min.js?ver=3.2.0' id='serializejson-js'></script> *@
+@*     <script type='text/javascript' src='https://product-mirzacode.ir/newkala/preview/wp-content/plugins/dokan-pro/assets/js/dokan-pro.min.js?ver=3.2.0' id='dokan-pro-script-js'></script> *@
+@*     <script type='text/javascript' src='https://product-mirzacode.ir/newkala/preview/wp-content/themes/newkala/js/theia-sticky-sidebar.min.js?ver=2.3.4' id='theia-sticky-sidebar-js'></script> *@
+@*     <script type='text/javascript' src='https://product-mirzacode.ir/newkala/preview/wp-includes/js/comment-reply.min.js?ver=5.7' id='comment-reply-js'></script> *@
+@* </footer> *@
+
+<!-- <div class="sp_menu_bar_fade"></div> -->
+
+
+<!-- <script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/popper.js"></script> -->
+<script src="https://product-mirzacode.ir/newkala/preview/wp-content/themes/newkala/js/custom_woocommerce_dashboard.js"></script>
+@await RenderSectionAsync("Foo", false)
+</body>
+</html>
 
 

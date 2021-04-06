@@ -5758,7 +5758,7 @@ a.back_to_top.nk_in_elementor {
 }
 
 a.back_to_top span {
-    transform: rotate(-90deg);
+    /*transform: rotate(-90deg);*/
     display: inline-block;
     width: 36px;
     height: 36px;
@@ -5767,13 +5767,13 @@ a.back_to_top span {
     margin-left: 8px
 }
 
-a.back_to_top span:before {
-    content: "\E011";
-    font-family: onliner;
-    float: right;
-    margin: 12px 7px 0;
-    color: #fff
-}
+/*a.back_to_top span:before {*/
+/*    content: "\E011";*/
+/*    font-family: onliner;*/
+/*    float: right;*/
+/*    margin: 12px 7px 0;*/
+/*    color: #fff*/
+/*}*/
 
 .mailpoet_form {
     overflow: hidden;

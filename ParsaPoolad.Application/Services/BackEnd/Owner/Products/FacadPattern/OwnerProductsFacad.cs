@@ -1,18 +1,25 @@
-﻿using ParsaPoolad.Application.Interfaces.Contexts;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
+using ParsaPoolad.Application.Interfaces.Contexts;
 using ParsaPoolad.Application.Interfaces.FacadPatterns.BackEnd.Owner;
 using ParsaPoolad.Application.Services.BackEnd.Owner.Products.Commands;
 using ParsaPoolad.Application.Services.BackEnd.Owner.Products.Queries;
 using ParsaPoolad.Application.Services.BackEnd.Owner.Products.Queries.GetCreateProductsAjax;
+using ParsaPoolad.Domain.Entities;
 
 namespace ParsaPoolad.Application.Services.BackEnd.Owner.Products.FacadPattern
 {
     public class OwnerProductsFacad : IOwnerProductsFacad
     {
         private readonly IIdealCrmDataBaseContext _context;
+        private readonly IHttpContextAccessor _httpContext;
+        private readonly UserManager<User> _userManager;
 
-        public OwnerProductsFacad(IIdealCrmDataBaseContext context)
+        public OwnerProductsFacad(IIdealCrmDataBaseContext context, IHttpContextAccessor httpContext, UserManager<User> userManager)
         {
             _context = context;
+            _httpContext = httpContext;
+            _userManager = userManager;
         }
         
         private IGetIndexProductsServices _getIndexProductsServices;
@@ -74,7 +81,7 @@ namespace ParsaPoolad.Application.Services.BackEnd.Owner.Products.FacadPattern
         {
             get
             {
-                return _createProductsServices ??= new CreateProductsServices(_context);
+                return _createProductsServices ??= new CreateProductsServices(_context,_httpContext,_userManager);
             }
         }
         

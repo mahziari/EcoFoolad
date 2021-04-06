@@ -20,5 +20,6 @@ namespace ParsaPoolad.Domain.Entities
         public string Tel { get; set; }
         public decimal? Credit { get; set; }
         public string Address { get; set; }
+        public DateTime DataCreated { get; set; }
     }
 }

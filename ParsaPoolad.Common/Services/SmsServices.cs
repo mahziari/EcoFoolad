@@ -12,6 +12,5 @@ namespace ParsaPoolad.Common.Services
             string url = $"http://panel.kavenegar.com/v1/{key}/verify/lookup.json?receptor={phoneNumber}&token={token}&token2={token2}&token3={token3}&template={template}";
             var content= client.DownloadString(url);
         }
-
     }
 }

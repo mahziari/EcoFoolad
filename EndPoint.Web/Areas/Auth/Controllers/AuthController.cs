@@ -8,6 +8,7 @@ using ParsaPoolad.Common.Extentions;
 using ParsaPoolad.Common.Services;
 using ParsaPoolad.Common.Utilities;
 using ParsaPoolad.Domain.Entities;
+using ParsaPoolad.Domain.Entities.IdealCrm;
 using ParsaPoolad.Persistence.Contexts;
 
 namespace EndPoint.Web.Areas.Auth.Controllers
@@ -19,16 +20,18 @@ namespace EndPoint.Web.Areas.Auth.Controllers
         private readonly RoleManager<Role> _roleManager;
         private readonly SignInManager<User> _signInManager;
         private readonly CustomDbContext _dataBaseContext;
+        private readonly IdealCrmDataBaseContext _idealCrmDataBaseContext;
         private readonly ILogger _logger;
 
         public AuthController(UserManager<User> userManager, RoleManager<Role> roleManager,
             SignInManager<User> signInManager,
-            ILoggerFactory logger, CustomDbContext dataBaseContext)
+            ILoggerFactory logger, CustomDbContext dataBaseContext, IdealCrmDataBaseContext idealCrmDataBaseContext)
         {
             _userManager = userManager;
             _roleManager = roleManager;
             _signInManager = signInManager;
             _dataBaseContext = dataBaseContext;
+            _idealCrmDataBaseContext = idealCrmDataBaseContext;
             _logger = logger.CreateLogger("Account");
         }
 
@@ -117,8 +120,21 @@ namespace EndPoint.Web.Areas.Auth.Controllers
                 UserName = registerDto.PhoneNumber,
                 PhoneNumber = registerDto.PhoneNumber,
                 Address = registerDto.Address,
+                DataCreated =  PersianDateTime.Now.ToDateTime(),
                 IsActive = true
             };
+            
+            
+            // This Code Add User To Ideal DataBase
+            var newUserForIdealDb = new Users
+            {
+                Fname = registerDto.FirstName,
+                Lname = registerDto.LastName,
+                UserName = registerDto.PhoneNumber,
+                RegisterDate =  PersianDateTime.Now.ToDateTime(),
+                IsActive = true
+            };
+            
             var result = _userManager.CreateAsync(newUser, registerDto.Password).Result;
             if (result.Succeeded)
             {

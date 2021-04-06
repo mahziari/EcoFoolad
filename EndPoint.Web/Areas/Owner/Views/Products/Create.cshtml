@@ -182,33 +182,33 @@
         </div>
         
         <div class="dokan-form-group">
-            <label asp-for="PrdMaxQty" >موجودی محصول</label>
+            <label asp-for="PrdMaxQty" class="form-label">موجودی محصول</label>
              <input asp-for="PrdMaxQty" type="text" class="dokan-form-control" placeholder="موجودی را وارد کنید">
             <span asp-validation-for="PrdMaxQty" class="text-danger"></span>
             
         </div>
         
         <div class="dokan-form-group">
-            <label asp-for="PrdSize">سایز محصول</label>
+            <label asp-for="PrdSize" class="form-label">سایز محصول</label>
             <input asp-for="PrdSize" type="text" class="dokan-form-control" placeholder="سایز را وارد کنید">
             <span asp-validation-for="PrdSize" class="text-danger"></span>
         </div>
         
         <div class="dokan-form-group">
-            <label asp-for="PrdModel" >مدل محصول</label>
+            <label asp-for="PrdModel" class="form-label">مدل محصول</label>
              <input asp-for="PrdModel" type="text" class="dokan-form-control" placeholder="مدل را وارد کنید">
              <span asp-validation-for="PrdModel" class="text-danger"></span>
         </div>
         
         <div class="dokan-form-group">
-            <label asp-for="PrdPrice" >قیمت محصول</label>
+            <label asp-for="PrdPrice" class="form-label">قیمت محصول</label>
             <input asp-for="PrdPrice" type="text" class="dokan-form-control" placeholder="فقط عدد وارد کنید">
             <span asp-validation-for="PrdPrice" class="text-danger"></span>
         </div>
         
         <div class="row invoice-info">
             <div class="col-lg-12 col-md-12 mt-25">
-                <h6 class="invoice-to text-primary"> توضیحات</h6>
+                <h6 class="invoice-to text-primary form-label"> توضیحات</h6>
                 <fieldset class="invoice-address dokan-form-group">
                     <textarea asp-for="PrdDescription" name="description" class="dokan-form-control" rows="4" placeholder="توضیحات محصول را وارد کنید" style="margin-top: 0px; margin-bottom: 0px; height: 169px;"></textarea>
                     <span asp-validation-for="PrdDescription" class="text-danger"></span>
@@ -250,14 +250,8 @@
 
         <!--hidden input for Firefox issue-->
         
-          @if (User.Identity.IsAuthenticated)
-          {
-              @if (AuthorizationService.AuthorizeAsync(User, "OwnerRole").Result.Succeeded)
-              {
-                
-              }
-          }
-          <input type="hidden" asp-for="UserId" value="@UserManager.GetUserAsync(User).Result.Id">
+        
+          <input type="hidden" asp-for="UserId" value="@UserManager.GetUserAsync(User).Result.LongId">
         <input type="submit" name="dokan_update_product" class="dokan-btn dokan-btn-theme dokan-btn-lg dokan-right" value="ذخیره محصول">
 <div class="dokan-clearfix"></div>
 </form>

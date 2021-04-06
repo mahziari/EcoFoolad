@@ -69,8 +69,6 @@ namespace ParsaPoolad.Application.Services.BackEnd.Owner.Products.Queries
         public int PrdShpotherSupplierId { get; set; }
         public decimal? PrdPrice { get; set; }
         public string UserId { get; set; }
-        
-        
     }
 
 
@@ -90,6 +88,4 @@ namespace ParsaPoolad.Application.Services.BackEnd.Owner.Products.Queries
         public int ProductUnitId { get; set; }
         public string Unit { get; set; }
     }
-    
-  
 }

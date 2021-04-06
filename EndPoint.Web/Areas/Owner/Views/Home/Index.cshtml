@@ -1,9 +1,16 @@
-﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+﻿@using ParsaPoolad.Application.Services.BackEnd.Owner.Home.Queries
+@model ResultGetIndexHomeDto
+@using Microsoft.AspNetCore.Authorization
+@using Microsoft.AspNetCore.Identity
+@using ParsaPoolad.Domain.Entities
+@inject IAuthorizationService AuthorizationService;
+@inject SignInManager<User> SignInManager
+@inject UserManager<User> UserManager
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 @{
     ViewData["Title"] = "پیشخوان";
     Layout = "~/Areas/Owner/Views/Shared/_Layout.cshtml";
 }
-
 
 
 <main id="main" class="nk-main-content-dokan-dashboard">
@@ -24,37 +31,41 @@
     <div class="sp_card_profile">
         <div class="sp_profile">
             <div class="sp_avatar">
-                <img alt='' src='https://secure.gravatar.com/avatar/bf44d824b64ba0a0284f4dbfda012ae6?s=60&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/bf44d824b64ba0a0284f4dbfda012ae6?s=120&#038;d=mm&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60'/>
+                <img alt="" src="https://secure.gravatar.com/avatar/bf44d824b64ba0a0284f4dbfda012ae6?s=60&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/bf44d824b64ba0a0284f4dbfda012ae6?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" width="60" height="60">
             </div>
             <div class="sp_profile_title">
-                <p>فروشگاه دمو <br> <a href="https://newkalatheme.ir/preview/store/demo-vendor/" target="_blank">مشاهده فروشگاه</a></p>
-
+                <p> فروشگاه @UserManager.GetUserAsync(User).Result.FirstName @UserManager.GetUserAsync(User).Result.LastName <br> 
+                    @* <a target="_blank">مشاهده فروشگاه</a> *@
+                    </p>
             </div>
 
             <div class="sp_stars">
-                <div class="nk-text-reating-seller">
-                    <span class="nk-not-reat">امتیازی ثبت نشده</span>
-                </div>
-                <div class="nk-rating-seller">
-
-                    <span class="nk-rating-back"></span>
-                    <span class="nk-rating-front" style="width:0%;"></span>
-
-                </div>
-                <p>عضویت از 3 ماهقبل</p>
+                @* <div class="nk-text-reating-seller"> *@
+                @*     <span class="nk-not-reat">امتیازی ثبت نشده</span> *@
+                @* </div> *@
+                @* <div class="nk-rating-seller"> *@
+                @* *@
+                @*     <span class="nk-rating-back"></span> *@
+                @*     <span class="nk-rating-front" style="width:0%;"></span> *@
+                @* *@
+                @* </div> *@
+                <p>
+                  تاریخ عضویت @Model.UserRegisteryDate
+                </p>
             </div>
 
 
             <div class="sp_profile_menu">
-                <a href="https://newkalatheme.ir/preview/dashboard/reviews/">
-                    پرسش ها <i class="fa fa-comments-o" aria-hidden="true"></i>
-                </a>
-                <a href="https://newkalatheme.ir/preview/dashboard/announcement/">
-                    پیام ها <i class="fa fa-envelope-o" aria-hidden="true"></i>
-                    <span class="sp_circle_number">0</span>
-                </a>
-                <a href="https://newkalatheme.ir/preview/dashboard/settings/store/">
-                    پروفایل <i class="fa fa-user-o" aria-hidden="true"></i>
+                @* <a href="https://product-mirzacode.ir/newkala/preview/dashboard/reviews/"> *@
+                @*     پرسش ها <i class="fa fa-comments-o" aria-hidden="true"></i> *@
+                @* </a> *@
+                @* <a href="https://product-mirzacode.ir/newkala/preview/dashboard/announcement/"> *@
+                @*     پیام ها <i class="fa fa-envelope-o" aria-hidden="true"></i> *@
+                @*     <span class="sp_circle_number">0</span> *@
+                @* </a> *@
+                <a href="https://product-mirzacode.ir/newkala/preview/dashboard/settings/store/">
+                    پروفایل 
+                    <i class="far fa-user"></i>
                 </a>
             </div>
         </div>
@@ -64,9 +75,10 @@
     <div class="sp_card_profile2">
         <div class="sp_title_dashboard">
             <h1>آخرین مطالب</h1>
-            <a target="_blank" href="https://newkalatheme.ir/preview/blog/category/%d8%a8%d8%a7%d8%b2%db%8c/">
+            <a target="_blank" href="https://product-mirzacode.ir/newkala/preview/blog/category/%d8%a8%d8%a7%d8%b2%db%8c/">
                 <svg enable-background="new 0 0 31.49 31.49" version="1.1" viewBox="0 0 31.49 31.49" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
-                    <path d="m21.205 5.007c-0.429-0.444-1.143-0.444-1.587 0-0.429 0.429-0.429 1.143 0 1.571l8.047 8.047h-26.554c-0.619 1e-3 -1.111 0.493-1.111 1.112s0.492 1.127 1.111 1.127h26.554l-8.047 8.032c-0.429 0.444-0.429 1.159 0 1.587 0.444 0.444 1.159 0.444 1.587 0l9.952-9.952c0.444-0.429 0.444-1.143 0-1.571l-9.952-9.953z"/>
+                    <path d="m21.205 5.007c-0.429-0.444-1.143-0.444-1.587 0-0.429 0.429-0.429 1.143 0 1.571l8.047 8.047h-26.554c-0.619 1e-3 -1.111 0.493-1.111 1.112s0.492 1.127 1.111 1.127h26.554l-8.047 8.032c-0.429 0.444-0.429 1.159 0 1.587 0.444 0.444 1.159 0.444 1.587 0l9.952-9.952c0.444-0.429 0.444-1.143 0-1.571l-9.952-9.953z">
+                    </path>
                 </svg>
             </a>
         </div>
@@ -74,33 +86,33 @@
             <ul>
 
 
-                <a href="https://newkalatheme.ir/preview/blog/2021/01/24/%d8%a8%d8%a7%d8%b2%db%8c-returnal-%d8%af%d8%b1-%d8%aa%d8%a7%d8%b1%db%8c%d8%ae-%db%b2%db%b9-%d8%a7%d8%b3%d9%81%d9%86%d8%af-%d9%85%d9%86%d8%aa%d8%b4%d8%b1-%d8%ae%d9%88%d8%a7%d9%87%d8%af-%d8%b4%d8%af/">
+                <a href="https://product-mirzacode.ir/newkala/preview/blog/2021/01/24/%d8%a8%d8%a7%d8%b2%db%8c-returnal-%d8%af%d8%b1-%d8%aa%d8%a7%d8%b1%db%8c%d8%ae-%db%b2%db%b9-%d8%a7%d8%b3%d9%81%d9%86%d8%af-%d9%85%d9%86%d8%aa%d8%b4%d8%b1-%d8%ae%d9%88%d8%a7%d9%87%d8%af-%d8%b4%d8%af/">
                     <li>
-                        <img width="100" height="100" src="https://newkalatheme.ir/preview/wp-content/uploads/2021/01/Returnal-PS5-release-date-100x100.jpg" class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image" alt="" srcset="https://newkalatheme.ir/preview/wp-content/uploads/2021/01/Returnal-PS5-release-date-100x100.jpg 100w, https://newkalatheme.ir/preview/wp-content/uploads/2021/01/Returnal-PS5-release-date-180x180.jpg 180w, https://newkalatheme.ir/preview/wp-content/uploads/2021/01/Returnal-PS5-release-date-20x20.jpg 20w, https://newkalatheme.ir/preview/wp-content/uploads/2021/01/Returnal-PS5-release-date-30x30.jpg 30w, https://newkalatheme.ir/preview/wp-content/uploads/2021/01/Returnal-PS5-release-date-40x40.jpg 40w, https://newkalatheme.ir/preview/wp-content/uploads/2021/01/Returnal-PS5-release-date-210x210.jpg 210w" sizes="(max-width: 100px) 100vw, 100px"/>
+                        <img src="https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2021/01/Returnal-PS5-release-date-100x100.jpg" class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image" alt="" srcset="https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2021/01/Returnal-PS5-release-date-100x100.jpg 100w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2021/01/Returnal-PS5-release-date-180x180.jpg 180w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2021/01/Returnal-PS5-release-date-20x20.jpg 20w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2021/01/Returnal-PS5-release-date-30x30.jpg 30w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2021/01/Returnal-PS5-release-date-40x40.jpg 40w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2021/01/Returnal-PS5-release-date-210x210.jpg 210w" sizes="(max-width: 100px) 100vw, 100px" width="100" height="100">
                         <p>بازی Returnal در تاریخ ۲۹ اسفند منتشر خواهد شد</p>
                     </li>
                 </a>
 
 
-                <a href="https://newkalatheme.ir/preview/blog/2021/01/24/%d9%86%d9%82%d8%b4%d9%87%e2%80%8c%db%8c-%d8%ac%d8%af%db%8c%d8%af-%d8%b4%d9%87%d8%b1%db%8c-pubg-%d8%aa%d8%ac%d8%b1%d8%a8%d9%87%e2%80%8c%db%8c-%d8%a8%d8%a7%d8%b2%db%8c-%d8%b1%d8%a7-%d8%af%da%af%d8%b1/">
+                <a href="https://product-mirzacode.ir/newkala/preview/blog/2021/01/24/%d9%86%d9%82%d8%b4%d9%87%e2%80%8c%db%8c-%d8%ac%d8%af%db%8c%d8%af-%d8%b4%d9%87%d8%b1%db%8c-pubg-%d8%aa%d8%ac%d8%b1%d8%a8%d9%87%e2%80%8c%db%8c-%d8%a8%d8%a7%d8%b2%db%8c-%d8%b1%d8%a7-%d8%af%da%af%d8%b1/">
                     <li>
-                        <img width="100" height="100" src="https://newkalatheme.ir/preview/wp-content/uploads/2021/01/new-pubg-map-title-100x100.jpg" class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image" alt="" srcset="https://newkalatheme.ir/preview/wp-content/uploads/2021/01/new-pubg-map-title-100x100.jpg 100w, https://newkalatheme.ir/preview/wp-content/uploads/2021/01/new-pubg-map-title-180x180.jpg 180w, https://newkalatheme.ir/preview/wp-content/uploads/2021/01/new-pubg-map-title-20x20.jpg 20w, https://newkalatheme.ir/preview/wp-content/uploads/2021/01/new-pubg-map-title-30x30.jpg 30w, https://newkalatheme.ir/preview/wp-content/uploads/2021/01/new-pubg-map-title-40x40.jpg 40w, https://newkalatheme.ir/preview/wp-content/uploads/2021/01/new-pubg-map-title-210x210.jpg 210w" sizes="(max-width: 100px) 100vw, 100px"/>
+                        <img src="https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2021/01/new-pubg-map-title-100x100.jpg" class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image" alt="" srcset="https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2021/01/new-pubg-map-title-100x100.jpg 100w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2021/01/new-pubg-map-title-180x180.jpg 180w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2021/01/new-pubg-map-title-20x20.jpg 20w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2021/01/new-pubg-map-title-30x30.jpg 30w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2021/01/new-pubg-map-title-40x40.jpg 40w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2021/01/new-pubg-map-title-210x210.jpg 210w" sizes="(max-width: 100px) 100vw, 100px" width="100" height="100">
                         <p>نقشه‌ی جدید شهری PUBG تجربه‌ی بازی را دگرگون می‌کند</p>
                     </li>
                 </a>
 
 
-                <a href="https://newkalatheme.ir/preview/blog/2021/01/24/%d8%b1%d8%b2%db%8c%d8%af%d9%86%d8%aa-%d8%a7%d9%88%db%8c%d9%84-%da%86%d9%86%d8%af-%d9%86%d9%81%d8%b1%d9%87%e2%80%8c%db%8c-%d8%a2%d9%86%d9%84%d8%a7%db%8c%d9%86-%d8%a8%d9%87-%d9%86%d8%a7%d9%85-re-verse/">
+                <a href="https://product-mirzacode.ir/newkala/preview/blog/2021/01/24/%d8%b1%d8%b2%db%8c%d8%af%d9%86%d8%aa-%d8%a7%d9%88%db%8c%d9%84-%da%86%d9%86%d8%af-%d9%86%d9%81%d8%b1%d9%87%e2%80%8c%db%8c-%d8%a2%d9%86%d9%84%d8%a7%db%8c%d9%86-%d8%a8%d9%87-%d9%86%d8%a7%d9%85-re-verse/">
                     <li>
-                        <img width="100" height="100" src="https://newkalatheme.ir/preview/wp-content/uploads/2021/01/resident-evil-re-verse-announce-title-100x100.jpg" class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image" alt="" srcset="https://newkalatheme.ir/preview/wp-content/uploads/2021/01/resident-evil-re-verse-announce-title-100x100.jpg 100w, https://newkalatheme.ir/preview/wp-content/uploads/2021/01/resident-evil-re-verse-announce-title-180x180.jpg 180w, https://newkalatheme.ir/preview/wp-content/uploads/2021/01/resident-evil-re-verse-announce-title-20x20.jpg 20w, https://newkalatheme.ir/preview/wp-content/uploads/2021/01/resident-evil-re-verse-announce-title-30x30.jpg 30w, https://newkalatheme.ir/preview/wp-content/uploads/2021/01/resident-evil-re-verse-announce-title-40x40.jpg 40w, https://newkalatheme.ir/preview/wp-content/uploads/2021/01/resident-evil-re-verse-announce-title-210x210.jpg 210w" sizes="(max-width: 100px) 100vw, 100px"/>
+                        <img src="https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2021/01/resident-evil-re-verse-announce-title-100x100.jpg" class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image" alt="" srcset="https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2021/01/resident-evil-re-verse-announce-title-100x100.jpg 100w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2021/01/resident-evil-re-verse-announce-title-180x180.jpg 180w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2021/01/resident-evil-re-verse-announce-title-20x20.jpg 20w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2021/01/resident-evil-re-verse-announce-title-30x30.jpg 30w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2021/01/resident-evil-re-verse-announce-title-40x40.jpg 40w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2021/01/resident-evil-re-verse-announce-title-210x210.jpg 210w" sizes="(max-width: 100px) 100vw, 100px" width="100" height="100">
                         <p>رزیدنت اویل چند نفره‌ی آنلاین به نام Re-Verse معرفی شد</p>
                     </li>
                 </a>
 
 
-                <a href="https://newkalatheme.ir/preview/blog/2018/03/20/assassins-creed-syndicate/">
+                <a href="https://product-mirzacode.ir/newkala/preview/blog/2018/03/20/assassins-creed-syndicate/">
                     <li>
-                        <img width="100" height="100" src="https://newkalatheme.ir/preview/wp-content/uploads/2018/03/assassin-s-creed-syndicate-100x100.jpg" class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image" alt="" srcset="https://newkalatheme.ir/preview/wp-content/uploads/2018/03/assassin-s-creed-syndicate-100x100.jpg 100w, https://newkalatheme.ir/preview/wp-content/uploads/2018/03/assassin-s-creed-syndicate-210x210.jpg 210w, https://newkalatheme.ir/preview/wp-content/uploads/2018/03/assassin-s-creed-syndicate-180x180.jpg 180w, https://newkalatheme.ir/preview/wp-content/uploads/2018/03/assassin-s-creed-syndicate-39x39.jpg 39w, https://newkalatheme.ir/preview/wp-content/uploads/2018/03/assassin-s-creed-syndicate-18x18.jpg 18w, https://newkalatheme.ir/preview/wp-content/uploads/2018/03/assassin-s-creed-syndicate-25x25.jpg 25w, https://newkalatheme.ir/preview/wp-content/uploads/2018/03/assassin-s-creed-syndicate-20x20.jpg 20w, https://newkalatheme.ir/preview/wp-content/uploads/2018/03/assassin-s-creed-syndicate-30x30.jpg 30w, https://newkalatheme.ir/preview/wp-content/uploads/2018/03/assassin-s-creed-syndicate-40x40.jpg 40w, https://newkalatheme.ir/preview/wp-content/uploads/2018/03/assassin-s-creed-syndicate-170x170.jpg 170w" sizes="(max-width: 100px) 100vw, 100px"/>
+                        <img src="https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2018/03/assassin-s-creed-syndicate-100x100.jpg" class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image" alt="" srcset="https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2018/03/assassin-s-creed-syndicate-100x100.jpg 100w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2018/03/assassin-s-creed-syndicate-210x210.jpg 210w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2018/03/assassin-s-creed-syndicate-180x180.jpg 180w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2018/03/assassin-s-creed-syndicate-39x39.jpg 39w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2018/03/assassin-s-creed-syndicate-18x18.jpg 18w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2018/03/assassin-s-creed-syndicate-25x25.jpg 25w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2018/03/assassin-s-creed-syndicate-20x20.jpg 20w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2018/03/assassin-s-creed-syndicate-30x30.jpg 30w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2018/03/assassin-s-creed-syndicate-40x40.jpg 40w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2018/03/assassin-s-creed-syndicate-170x170.jpg 170w" sizes="(max-width: 100px) 100vw, 100px" width="100" height="100">
                         <p>بازی Assassin’s Creed Syndicate برای ایکس‌باکس وان</p>
                     </li>
                 </a>
@@ -108,7 +120,7 @@
 
             </ul>
             <h1>
-                <a target="_blank" href="https://newkalatheme.ir/preview/blog/category/%d8%a8%d8%a7%d8%b2%db%8c/">
+                <a target="_blank" href="https://product-mirzacode.ir/newkala/preview/blog/category/%d8%a8%d8%a7%d8%b2%db%8c/">
                     <span>مشاهده مطالب بیشتر</span>
                 </a>
             </h1>
@@ -121,12 +133,12 @@
 <div class="sp_body_status">
 <div class="sp_Condition">
     <ul>
-        <li class="active">
-            <a href="">
+        <li class="reject_doc">
+            <a href="javascript:void()">
                 <p>
                     وضعیت حساب <i class="fa fa-angle-down" aria-hidden="true"></i>
                 </p>
-                <span>فعال شده</span>
+                <span>غیره فعال</span>
             </a>
             <div class="sp_interactive_status_message">
                 <div class="sp_interactive_status_message-fade"></div>
@@ -141,7 +153,7 @@
             </div>
         </li>
         <li class="active">
-            <a href="https://newkalatheme.ir/preview/dashboard/settings/payment/">
+            <a href="https://product-mirzacode.ir/newkala/preview/dashboard/settings/payment/">
                 <p>
                     تنظیمات پرداخت <i class="fa fa-angle-down" aria-hidden="true"></i>
                 </p>
@@ -187,31 +199,31 @@
 <div class="sp_dashboard_status">
     <ul>
         <li>
-            <a href="https://newkalatheme.ir/preview/dashboard/new-product/">
-                <p>افزودن محصول جدید </p>
+            <a>
+                <p>افزودن محصول جدید <span style="color:red"> (غیره فعال) </span></p>
                 <div class="sp_plus">
                     <svg enable-background="new 0 0 512 512" version="1.1" viewBox="0 0 512 512" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
-                        <path d="m492 236h-216v-216c0-11.046-8.954-20-20-20s-20 8.954-20 20v216h-216c-11.046 0-20 8.954-20 20s8.954 20 20 20h216v216c0 11.046 8.954 20 20 20s20-8.954 20-20v-216h216c11.046 0 20-8.954 20-20s-8.954-20-20-20z"/>
+                        <path d="m492 236h-216v-216c0-11.046-8.954-20-20-20s-20 8.954-20 20v216h-216c-11.046 0-20 8.954-20 20s8.954 20 20 20h216v216c0 11.046 8.954 20 20 20s20-8.954 20-20v-216h216c11.046 0 20-8.954 20-20s-8.954-20-20-20z"></path>
                     </svg>
                 </div>
             </a>
         </li>
         <li>
-            <a href="https://newkalatheme.ir/preview/dashboard/orders/?order_status=wc-processing">
+            <a href="https://product-mirzacode.ir/newkala/preview/dashboard/orders/?order_status=wc-processing">
                 <p>سفارشات در حال انجام </p>
                 <span>
-                    <p>1</p>
+                    <p>0</p>
                     <i class="fa fa-angle-right" aria-hidden="true"></i>
                 </span>
             </a>
         </li>
         <li>
-            <a href="https://newkalatheme.ir/preview/dashboard/withdraw/">
+            <a href="https://product-mirzacode.ir/newkala/preview/dashboard/withdraw/">
                 <p>
                     موجودی
                     <small>
                         <span class="woocommerce-Price-amount amount">
-                            <bdi>126,720&nbsp;<span class="woocommerce-Price-currencySymbol">تومان</span></bdi>
+                            <bdi>0.00&nbsp;<span class="woocommerce-Price-currencySymbol">تومان</span></bdi>
                         </span>
                     </small>
                 </p>
@@ -260,7 +272,7 @@
                     </p>
 
                     <strong>
-                        <span class="woocommerce-Price-amount amount">139,520&nbsp;<span class="woocommerce-Price-currencySymbol">تومان</span></span>
+                        <span class="woocommerce-Price-amount amount">0&nbsp;<span class="woocommerce-Price-currencySymbol">تومان</span></span>
                     </strong>
                 </a>
             </li>
@@ -270,7 +282,7 @@
                         درآمد شما <i class="fa fa-angle-down" aria-hidden="true"></i>
                     </p>
                     <strong>
-                        <span class="woocommerce-Price-amount amount">126,720&nbsp;<span class="woocommerce-Price-currencySymbol">تومان</span></span>
+                        <span class="woocommerce-Price-amount amount">0&nbsp;<span class="woocommerce-Price-currencySymbol">تومان</span></span>
                     </strong>
                 </a>
             </li>
@@ -280,7 +292,7 @@
                         صفحات نمایش داده شده <i class="fa fa-angle-down" aria-hidden="true"></i>
                     </p>
 
-                    <strong>4</strong>
+                    <strong>7</strong>
                 </a>
             </li>
             <li>
@@ -288,7 +300,7 @@
                     <p>
                         سفارشات معتبر <i class="fa fa-angle-down" aria-hidden="true"></i>
                     </p>
-                    <strong>1</strong>
+                    <strong>0</strong>
                 </a>
             </li>
         </ul>
@@ -301,15 +313,15 @@
         </div>
         <ul class="sp_body_Inventory_stock">
             <li>
-                <a href="https://newkalatheme.ir/preview/dashboard/orders/">
+                <a href="https://product-mirzacode.ir/newkala/preview/dashboard/orders/">
                     <p>
                         همه سفارشات <i class="fa fa-angle-down" aria-hidden="true"></i>
                     </p>
-                    <strong>1</strong>
+                    <strong>0</strong>
                 </a>
             </li>
             <li>
-                <a href="https://newkalatheme.ir/preview/dashboard/orders/?order_status=wc-completed">
+                <a href="https://product-mirzacode.ir/newkala/preview/dashboard/orders/?order_status=wc-completed">
                     <p>
                         تکمیل شده <i class="fa fa-angle-down" aria-hidden="true"></i>
                     </p>
@@ -317,7 +329,7 @@
                 </a>
             </li>
             <li>
-                <a href="https://newkalatheme.ir/preview/dashboard/orders/?order_status=wc-on-hold">
+                <a href="https://product-mirzacode.ir/newkala/preview/dashboard/orders/?order_status=wc-on-hold">
                     <p>
                         در انتظار پرداخت <i class="fa fa-angle-down" aria-hidden="true"></i>
                     </p>
@@ -325,7 +337,7 @@
                 </a>
             </li>
             <li>
-                <a href="https://newkalatheme.ir/preview/dashboard/orders/?order_status=wc-pending">
+                <a href="https://product-mirzacode.ir/newkala/preview/dashboard/orders/?order_status=wc-pending">
                     <p>
                         در انتظار بررسی <i class="fa fa-angle-down" aria-hidden="true"></i>
                     </p>
@@ -333,7 +345,7 @@
                 </a>
             </li>
             <li>
-                <a href="https://newkalatheme.ir/preview/dashboard/orders/?order_status=wc-cancelled">
+                <a href="https://product-mirzacode.ir/newkala/preview/dashboard/orders/?order_status=wc-cancelled">
                     <p>
                         لغو شده <i class="fa fa-angle-down" aria-hidden="true"></i>
                     </p>
@@ -342,7 +354,7 @@
                 </a>
             </li>
             <li>
-                <a href="https://newkalatheme.ir/preview/dashboard/orders/?order_status=wc-refunded">
+                <a href="https://product-mirzacode.ir/newkala/preview/dashboard/orders/?order_status=wc-refunded">
                     <p>
                         سفارشات مرجوعی <i class="fa fa-angle-down" aria-hidden="true"></i>
                     </p>
@@ -350,7 +362,7 @@
                 </a>
             </li>
             <li>
-                <a href="https://newkalatheme.ir/preview/dashboard/orders/?order_status=wc-failed">
+                <a href="https://product-mirzacode.ir/newkala/preview/dashboard/orders/?order_status=wc-failed">
                     <p>
                         سفارشات ناموفق <i class="fa fa-angle-down" aria-hidden="true"></i>
                     </p>
@@ -361,7 +373,7 @@
     </div>
     <div class="sp_Inventory_stock">
         <div class="sp_header_Inventory_stock">
-            وضعیت فروش ما اسفند
+            وضعیت فروش ما فروردین
         </div>
         <ul class="sp_body_Inventory_stock">
             <li>
@@ -419,11 +431,11 @@
 </div>
 
 
-<div class="sp_baner">
-    <a href="https://newkalatheme.ir/preview">
-        <img src="https://newkalatheme.ir/preview/wp-content/uploads/2020/11/banner-dashboard-1.jpg">
-    </a>
-</div>
+@* <div class="sp_baner"> *@
+@*     <a href="https://newkalatheme.ir/preview"> *@
+@*         <img src="https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/banner-dashboard-1.jpg"> *@
+@*     </a> *@
+@* </div> *@
 
 
 <div class="sp_Product_management">
@@ -433,28 +445,28 @@
     <div class="sp_body_Product_management">
         <ul>
             <div>
-                <a href="https://newkalatheme.ir/preview/dashboard/products/">
+                <a href="https://product-mirzacode.ir/newkala/preview/dashboard/products/">
                     <li>
-                        <strong>3</strong>
+                        <strong>15</strong>
                         کالا های درج شده
                     </li>
                 </a>
-                <a href="https://newkalatheme.ir/preview/dashboard/products/?post_status=publish">
+                <a href="https://product-mirzacode.ir/newkala/preview/dashboard/products/?post_status=publish">
                     <li>
                         <strong>0</strong>
                         کالاهای تأیید شده
                     </li>
                 </a>
 
-                <a href="https://newkalatheme.ir/preview/dashboard/products/?post_status=pending">
+                <a href="https://product-mirzacode.ir/newkala/preview/dashboard/products/?post_status=pending">
                     <li>
-                        <strong>3</strong>
+                        <strong>11</strong>
                         کالاهای در انتظار تأیید
                     </li>
                 </a>
-                <a href="https://newkalatheme.ir/preview/dashboard/products/?post_status=draft">
+                <a href="https://product-mirzacode.ir/newkala/preview/dashboard/products/?post_status=draft">
                     <li>
-                        <strong>0</strong>
+                        <strong>4</strong>
                         پیشنویس
                     </li>
                 </a>

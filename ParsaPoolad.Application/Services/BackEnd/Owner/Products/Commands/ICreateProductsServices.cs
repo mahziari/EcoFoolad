@@ -1,6 +1,11 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using ParsaPoolad.Application.Interfaces.Contexts;
+using ParsaPoolad.Domain.Entities;
 using ParsaPoolad.Domain.Entities.IdealCrm;
 
 namespace ParsaPoolad.Application.Services.BackEnd.Owner.Products.Commands
@@ -12,14 +17,28 @@ namespace ParsaPoolad.Application.Services.BackEnd.Owner.Products.Commands
 
     public class CreateProductsServices:ICreateProductsServices {
         private readonly IIdealCrmDataBaseContext _context;
+        private readonly IHttpContextAccessor _httpContext;
+        private readonly UserManager<User> _userManager;
 
-        public CreateProductsServices(IIdealCrmDataBaseContext context)
+        public CreateProductsServices(IIdealCrmDataBaseContext context , IHttpContextAccessor httpContext, UserManager<User> userManager)
         {
             _context = context;
+            _httpContext = httpContext;
+            _userManager = userManager;
         }
 
         public ResultCreateProductsDto Execute(CreateProductsServicesDto createProductsServicesDto)
         {
+            var userLoged =  _userManager.GetUserAsync(_httpContext.HttpContext?.User).Result;
+            if (userLoged.LongId != createProductsServicesDto.UserId)
+            {
+                return new ResultCreateProductsDto
+                {
+                    IsSuccess = false,
+                    Message = "در صورت تکرار مجدد حساب کاربری شما مسدود میگردد"
+                };
+            }
+
             Wsproducts product = new Wsproducts()
             {
                 PrdGroupId = createProductsServicesDto.PrdGroupId ,
@@ -33,11 +52,15 @@ namespace ParsaPoolad.Application.Services.BackEnd.Owner.Products.Commands
                 PrdDescription = createProductsServicesDto.PrdDescription,
                 PrdPrice =createProductsServicesDto.PrdPrice,
                 PrdInactiveInSale =true,
-                UserId= createProductsServicesDto.UserId,
+                // UserId= Convert.ToInt32(_httpContext.HttpContext.User?.FindFirstValue(ClaimTypes.NameIdentifier)),
+                UserId=createProductsServicesDto.UserId ,
                 Month1=6,
                 Fpid = 1,
                 RegisterDatePersian = PersianDateTime.Now.ToString("yyyyMMdd"),
             };
+
+
+
             
             _context.Wsproducts.Add(product);
             _context.SaveChanges();
@@ -48,7 +71,6 @@ namespace ParsaPoolad.Application.Services.BackEnd.Owner.Products.Commands
                 Message = "محصول با موفقیت اضافه شد"
             };
         }
-
     }
 
     public class ResultCreateProductsDto
@@ -74,6 +96,7 @@ namespace ParsaPoolad.Application.Services.BackEnd.Owner.Products.Commands
         [Required(ErrorMessage = "پر کردن فیلد {0} اجباری است")]
         [StringLength(20, ErrorMessage = "تعداد کاراکتر بیش از حد مجاز")]
         public string PrdSize { get; set; }
+        public int UserId { get; set; }
         
         [Display(Name = "واحد محصول")]
         [Required(ErrorMessage = "پر کردن فیلد {0} اجباری است")]
@@ -84,10 +107,9 @@ namespace ParsaPoolad.Application.Services.BackEnd.Owner.Products.Commands
         public int? PrdMaxQty { get; set; }
         
         [Display(Name = "توضیحات محصول")]
-        [StringLength(1000, ErrorMessage = "تعداد کاراکتر بیش از حد مجاز")]
+        [StringLength(4000, ErrorMessage = "تعداد کاراکتر بیش از حد مجاز")]
         public string PrdDescription { get; set; }
-        public int UserId { get; set; }
-        
+
         [Display(Name = "مدل محصول")]
         [Required(ErrorMessage = "پر کردن فیلد {0} اجباری است")]
         [StringLength(250, ErrorMessage = "تعداد کاراکتر بیش از حد مجاز")]

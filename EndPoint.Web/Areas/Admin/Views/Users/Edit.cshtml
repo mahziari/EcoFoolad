@@ -63,7 +63,7 @@
                                                         <br>
                                                         @foreach (var item in Model.Roles)
                                                         {
-                                                            <option value="@item.Name">@item.Description </option>
+                                                            <option value="@item.Name">@item.Description-(@item.Name) </option>
                                                         }
                                                     </select>
                                                     <input asp-for="UserId" type="hidden" value="@Model.User.Id">

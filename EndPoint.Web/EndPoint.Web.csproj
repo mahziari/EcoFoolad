@@ -7324,6 +7324,11 @@
     <_ContentIncludedByDefault Remove="wwwroot\wp-includes\fonts\dashicons.eot" />
     <_ContentIncludedByDefault Remove="wwwroot\wp-includes\fonts\dashicons.ttf" />
     <_ContentIncludedByDefault Remove="wwwroot\wp-includes\js\jquery.min.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\BackEnd\Owner\fonts\fontawesome\fontawesome-webfont.eot" />
+    <_ContentIncludedByDefault Remove="wwwroot\BackEnd\Owner\fonts\fontawesome\fontawesome-webfont.html" />
+    <_ContentIncludedByDefault Remove="wwwroot\BackEnd\Owner\fonts\fontawesome\fontawesome-webfont.svg" />
+    <_ContentIncludedByDefault Remove="wwwroot\BackEnd\Owner\fonts\fontawesome\fontawesome-webfont.ttf" />
+    <_ContentIncludedByDefault Remove="wwwroot\BackEnd\Owner\fonts\fontawesome\fontawesome-webfont.woff" />
   </ItemGroup>
 
 </Project>

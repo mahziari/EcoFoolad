@@ -929,3 +929,4 @@ D:\.NET\01_ParsaPoolad\EndPoint.Web\bin\Debug\net5.0\ru\Microsoft.QualityTools.T
 D:\.NET\01_ParsaPoolad\EndPoint.Web\bin\Debug\net5.0\tr\Microsoft.QualityTools.Testing.Fakes.resources.dll
 D:\.NET\01_ParsaPoolad\EndPoint.Web\bin\Debug\net5.0\zh-Hans\Microsoft.QualityTools.Testing.Fakes.resources.dll
 D:\.NET\01_ParsaPoolad\EndPoint.Web\bin\Debug\net5.0\zh-Hant\Microsoft.QualityTools.Testing.Fakes.resources.dll
+D:\.NET\01_ParsaPoolad\EndPoint.Web\obj\Debug\net5.0\Razor\Areas\User\Views\Shared\_HeadPartial.cshtml.g.cs

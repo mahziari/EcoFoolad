@@ -26,6 +26,7 @@ using ParsaPoolad.Application.Services.FrontEnd.Home.FacadPattern;
 using ParsaPoolad.Application.Services.FrontEnd.Products.FacadPattern;
 using Microsoft.Extensions.Hosting;
 using ParsaPoolad.Application.Interfaces.FacadPatterns.BackEnd.Owner;
+using ParsaPoolad.Application.Services.BackEnd.Owner.Home.FacadPattern;
 using ParsaPoolad.Application.Services.BackEnd.Owner.Products.FacadPattern;
 using ParsaPoolad.Domain.Entities;
 
@@ -168,6 +169,7 @@ namespace EndPoint.Web
             services.AddScoped<ICompanyFacad, CompanyFacad>();
             //------ Owner Panel Services
             services.AddScoped<IOwnerProductsFacad, OwnerProductsFacad>();
+            services.AddScoped<IOwnerHomeFacad, OwnerHomeFacad>();
 
 
             services.AddControllersWithViews();
