@@ -1,0 +1,273 @@
+﻿@using  Application.Services.FrontEnd.Products.Queries
+@model ResultGetProductsFrontEndDto
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "بلاگ اکوفولاد";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section BodyAttr{
+    data-rsssl="1" class="rtl archive search search-results post-type-archive post-type-archive-product theme-newkala woocommerce woocommerce-page woocommerce-js nk_desktop nk_my_account_page loggedout elementor-default elementor-kit-3073 dokan-theme-newkala" data-elementor-device-mode="desktop"   
+    }
+<style>
+    body.archive .content-area#primary ul.products li {
+        -ms-flex: 1 0 25%;
+        flex: 0 100%!important;
+        max-width: 100%!important;
+        position: relative;
+    }
+</style>
+
+
+<div class="container main_content_taxonomy_archive ">
+
+
+<div id="primary" class="content-area">
+<main id="main" class="site-main" role="main">
+<div class="responsive_button_orderby_and_filter_product">
+    <span class="button_display_filter_product">جستجوی پیشرفته</span>
+    <span class="button_display_order_by">مرتب‌سازی بر اساس محبوبیت</span>
+</div>
+@* <ul class="woocommerce-breadcrumb"> *@
+@*     <li> *@
+@*         <a href="https://newkalatheme.ir/preview">نیوکالا</a> *@
+@*     </li><span>/</span><li>لباس</li> *@
+@* </ul> *@
+@* <h1 style="overflow:hidden;height:0px;" class="woocommerce-products-header__title page-title">لباس</h1> *@
+@* *@
+@* <div class="woocommerce-notices-wrapper"></div> *@
+@* <p class="woocommerce-result-count"> *@
+@*     نمایش 1–8 از 9 نتیجه *@
+@* </p> *@
+
+
+<div class="main_custom_order_by_sort">
+
+    <form class="woocommerce-ordering" method="get" style="display:none">
+        <select name="orderby" class="orderby" aria-label="سفارش خرید">
+            <option value="menu_order" selected="selected">مرتب‌سازی پیش‌فرض</option>
+            <option value="popularity">مرتب‌سازی بر اساس محبوبیت</option>
+            <option value="rating">مرتب‌سازی بر اساس امتیاز</option>
+            <option value="date">مرتب‌سازی بر اساس آخرین</option>
+            <option value="price">مرتب‌سازی بر اساس ارزانترین</option>
+            <option value="price-desc">مرتب‌سازی بر اساس گرانترین</option>
+            <option value="featured">محصولات ویژه</option>
+            <option value="incredible_offer">شگفت انگیزها</option>
+        </select>
+        <input type="hidden" name="paged" value="1">
+    </form>
+    <span class="title_order_by">مرتب سازی بر اساس: </span>
+    <span style="display:none"> selected='selected'</span> <strong sortby="menu_order" href="" class="custom_order_by_sort selected" rel="nofollow"><span></span> پیش‌فرض</strong>
+    <span style="display:none"></span> <strong sortby="popularity" href="" class="custom_order_by_sort " rel="nofollow"><span></span> محبوبیت</strong>
+    <span style="display:none"></span> <strong sortby="rating" href="" class="custom_order_by_sort " rel="nofollow"><span></span> امتیاز</strong>
+    <span style="display:none"></span> <strong sortby="date" href="" class="custom_order_by_sort " rel="nofollow"><span></span> آخرین</strong>
+    <span style="display:none"></span> <strong sortby="price" href="" class="custom_order_by_sort " rel="nofollow"><span></span> ارزانترین</strong>
+    <span style="display:none"></span> <strong sortby="price-desc" href="" class="custom_order_by_sort " rel="nofollow"><span></span> گرانترین</strong>
+    <span style="display:none"></span> <strong sortby="featured" href="" class="custom_order_by_sort " rel="nofollow"><span></span>محصولات ویژه</strong>
+    <span style="display:none"></span> <strong sortby="incredible_offer" href="" class="custom_order_by_sort " rel="nofollow"><span></span>شگفت انگیزها</strong>
+
+
+    <script>
+
+			jQuery('.custom_order_by_sort').on('click', function(){
+				
+				var data_sort = jQuery(this).attr('sortby');
+						
+				jQuery('.orderby').val(data_sort);
+						
+				jQuery('.woocommerce-ordering').submit();
+			});
+
+		</script>
+
+
+    <span type_view="listing" class="type_view type_view_listing "></span>
+    <span type_view="grid" class="type_view type_view_grid active"></span>
+</div>
+    <style>
+        .mine_css:hover{
+        box-shadow: 0 0 17px 0 rgba(0, 0, 0, .09);
+        z-index: 41;
+        }
+        .product_catalog{
+        border-bottom: 4px solid #ebebeb;
+        position: relative;
+        margin-right: -1px;
+        margin-top: -1px;
+        margin-bottom: -1px;
+        display: -ms-flexbox;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        display: block;
+        background: #fff;
+        height: 100%;
+        padding: 26px 20px 26px;
+        position: relative;
+        transition: box-shadow .2s cubic-bezier(.4, 0, 1, 1), transform .2s cubic-bezier(.4, 0, 1, 1);
+        box-sizing: border-box;
+        }
+    </style>
+<div class="opacity_black_cover_for_order_by_product" style=""></div>
+
+    <ul class="products  columns-4">
+        @foreach (var item in Model.Menus)
+        {
+            <li class="mine_css swiper-slide not_in_offer_tax not_in_offer_slider product type-product post-3807 status-publish first instock product_cat-cloth product_tag-234 product_tag-236 has-post-thumbnail taxable shipping-taxable purchasable product-type-simple"
+                data-id="3807"
+                style="display: flex"
+                >
+                <div class="col-md-4 product_catalog">
+                    <a>
+                        <img src="/@item.Image"/>
+                    </a>
+                </div>
+                <div class="col-md-4 product_catalog">
+                    <img src="/@item.Image"/>
+                </div>
+                <div class="col-md-4 product_catalog">
+                    <img src="/@item.Image"/>
+                </div>
+                
+            </li>
+        }
+      
+    </ul>
+    
+<nav class="woocommerce-pagination" lang="fa">
+    <ul class="page-numbers">
+        <li>
+            <span aria-current="page" class="page-numbers current">1</span>
+        </li>
+        <li>
+            <a class="page-numbers" href="https://newkalatheme.ir/preview/product-category/cloth/page/2/">2</a>
+        </li>
+        <li>
+            <a class="next page-numbers" href="https://newkalatheme.ir/preview/product-category/cloth/page/2/">→</a>
+        </li>
+    </ul>
+</nav>
+</main>
+</div>
+<div class="main_sidebar sidebar_archive_product">
+
+    <div class="responsive_title_filters">
+        <strong>لباس</strong><span></span>
+    </div>
+
+    <div class="newkala_widget_display_instock">
+
+        <div class="cover_instock_display_product"></div>
+
+        <label>
+            فقط کالاهای موجود <input class="newkala_checkbox_display_instock" type="checkbox" name="display_instock" value="1">
+            <span class="checkmark"></span>
+        </label>
+        <span class="result_ajax_instock"></span>
+    </div>
+
+    <script>
+		
+		var display_instock = 0;
+		
+			jQuery('.newkala_checkbox_display_instock').on('click', function(){
+				
+				jQuery('.cover_instock_display_product').show(0);
+				
+				if ( jQuery('.newkala_checkbox_display_instock').is(':checked') ) display_instock = 1 ; else display_instock = 0;
+				
+					var d = new Date();
+					d.setTime(d.getTime() + (1*24*60*60*1000));
+					var expires = "expires="+ d.toUTCString();
+					document.cookie = "display_instock=" + display_instock + ";" + expires + ";path=/";					
+					
+					location.reload();
+					
+					/*
+					jQuery.post( ajax_url ,
+					{
+						action: "set_status_display_instock",
+						status_display_instock : display_instock,
+					},
+					function(data, status){
+						jQuery('.result_ajax_instock').html(data);
+					});	
+*/
+					
+				
+				
+			});
+		
+		</script>
+
+
+    <div id="woocommerce_product_categories-4" class="mian_widg_archive_product woocommerce widget_product_categories">
+        <div class="title-widget-archive-product">
+            <h5>دسته‌بندی نتایج</h5>
+        </div>
+        <ul class="product-categories">
+            <li class="cat-item cat-item-15">
+                <a href="https://newkalatheme.ir/preview/product-category/uncategorized/">دسته بندی نشده</a>
+            </li>
+            <li class="cat-item cat-item-229">
+                <a href="https://newkalatheme.ir/preview/product-category/wrist-watch/">ساعت مچی</a>
+            </li>
+            <li class="cat-item cat-item-20">
+                <a href="https://newkalatheme.ir/preview/product-category/digital-product/">کالای دیجیتال</a>
+            </li>
+            <li class="cat-item cat-item-178">
+                <a href="https://newkalatheme.ir/preview/product-category/book/">کتاب</a>
+            </li>
+            <li class="cat-item cat-item-231">
+                <a href="https://newkalatheme.ir/preview/product-category/shoes/">کفش</a>
+            </li>
+            <li class="cat-item cat-item-230 current-cat">
+                <a href="https://newkalatheme.ir/preview/product-category/cloth/">لباس</a>
+            </li>
+            <li class="cat-item cat-item-179">
+                <a href="https://newkalatheme.ir/preview/product-category/laptop-2/">لپ تاپ</a>
+            </li>
+            <li class="cat-item cat-item-159">
+                <a href="https://newkalatheme.ir/preview/product-category/hyper-market/">هایپر مارکت</a>
+            </li>
+        </ul>
+    </div>
+    <div id="woocommerce_product_search-3" class="mian_widg_archive_product woocommerce widget_product_search">
+        <div class="title-widget-archive-product">
+            <h5>جستجو در نتایج:</h5>
+        </div>
+        <form role="search" method="get" class="woocommerce-product-search" action="">
+
+            <input autocomplete="off" type="search" id="woocommerce-product-search-field-0" class="search-field" placeholder="نام محصول یا برند مورد نظر را بنویسید…" value="" name="s">
+            <button type="submit" value=""></button>
+            <input type="hidden" name="post_type" value="product">
+        </form>
+    </div>
+    <div id="woocommerce_price_filter-7" class="mian_widg_archive_product woocommerce widget_price_filter">
+        <div class="title-widget-archive-product">
+            <h5>فیلتر براساس قیمت : محدوده قیمت</h5>
+        </div>
+        <form method="get" action="https://newkalatheme.ir/preview/product-category/cloth/">
+            <div class="price_slider_wrapper">
+                <div class="price_slider ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content" style="">
+                    <div class="ui-slider-range ui-corner-all ui-widget-header" style="left: 0%; width: 100%;"></div><span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default" style="left: 0%;"></span><span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default" style="left: 100%;"></span>
+                </div>
+                <div class="price_slider_amount" data-step="10">
+                    <input type="text" id="min_price" name="min_price" value="94000" data-min="94000" placeholder="حداقل قیمت" style="display: none;">
+                    <input type="text" id="max_price" name="max_price" value="250000" data-max="250000" placeholder="حداکثر قیمت" style="display: none;">
+                    <button type="submit" class="button">فیلتر</button>
+                    <div class="price_label" style="">
+                        <span class="from">94,000&nbsp;تومان</span> — <span class="to">250,000&nbsp;تومان</span>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+        </form>
+
+    </div>
+</div>
+
+
+</div>
+
+<div class="clear"></div>

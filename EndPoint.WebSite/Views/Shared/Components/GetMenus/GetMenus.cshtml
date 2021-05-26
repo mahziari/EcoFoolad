@@ -1,0 +1,41 @@
+﻿@using  Application.Services.FrontEnd.Common.Menus.Queries
+@model ResultGetMenusFrontEndDto
+
+@{
+    Layout = null;
+}
+
+@foreach (var item in Model.Menus)
+{
+    <li id="menu-item-233"
+        class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-has-children megamenu_by_two_level">
+        <a href="#" style="pointer-events: none; cursor: default;">
+            @item.Name
+        </a>
+        <ul class="sub-menu nk-level-0">
+            @foreach (var subItem in item.Sub)
+            {
+                <li id="menu-item-234"
+                    class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-has-children">
+                    <a href="#">
+                        @subItem.Fgname
+                    </a>
+                    <ul class="sub-menu nk-level-1">
+                        @foreach (var subSunItem in subItem.SubSub)
+                        {
+                            <li class="menu-item menu-item-type-custom menu-item-object-custom">
+                                <a asp-controller="Products"
+                                   asp-action="Category"
+                                   asp-route-category="@item.UrlName"
+                                   asp-route-menuName="@subSunItem.Sgname.Replace(" ","-")"
+                                >
+                                    @subSunItem.Sgname
+                                </a>
+                            </li>
+                        }
+                    </ul>
+                </li>
+            }
+        </ul>
+    </li>
+}
