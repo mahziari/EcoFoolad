@@ -1,0 +1,23 @@
+﻿<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/BackEnd/Admin/vendors/ckeditor/ckeditor.js"></script>
+<script src="~/BackEnd/Admin/vendors/ckfinder/ckfinder.js"></script>
+<script>
+   const editor = CKEDITOR.replace( 'NewsBody',{
+      height:900,
+      filebrowserUploadUrl:'/panel/upload/images',
+      filebrowserUploadUrl: '/BackEnd/Admin/vendors/ckfinder/ckfinder.html',
+      // filebrowserUploadUrl= '/BackEnd/Admin/vendors/ckfinder/connector?command=QuickUpload&type=Files';
+   });
+   CKFinder.setupCKEditor( editor );
+</script>
+
+
+<script>
+   const editor = CKEDITOR.replace( 'NewsSummery',{
+      height:900,
+      // filebrowserUploadUrl:'/panel/upload/images'
+      filebrowserBrowseUrl: '/ckfinder/ckfinder.html',
+      filebrowserUploadUrl: '/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files'
+   });
+   CKFinder.setupCKEditor( editor );
+</script>
