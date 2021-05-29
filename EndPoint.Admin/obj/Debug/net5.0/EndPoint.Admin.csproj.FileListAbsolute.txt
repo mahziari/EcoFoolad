@@ -507,3 +507,7 @@ D:\.NET\01_MyProject\EndPoint.Admin\obj\Debug\net5.0\EndPoint.Admin.dll
 D:\.NET\01_MyProject\EndPoint.Admin\obj\Debug\net5.0\ref\EndPoint.Admin.dll
 D:\.NET\01_MyProject\EndPoint.Admin\obj\Debug\net5.0\EndPoint.Admin.pdb
 D:\.NET\01_MyProject\EndPoint.Admin\obj\Debug\net5.0\EndPoint.Admin.genruntimeconfig.cache
+D:\.NET\01_MyProject\EndPoint.Admin\bin\Debug\net5.0\Infrastructure.dll
+D:\.NET\01_MyProject\EndPoint.Admin\bin\Debug\net5.0\Persistence.dll
+D:\.NET\01_MyProject\EndPoint.Admin\bin\Debug\net5.0\Infrastructure.pdb
+D:\.NET\01_MyProject\EndPoint.Admin\bin\Debug\net5.0\Persistence.pdb

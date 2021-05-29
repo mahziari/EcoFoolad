@@ -1,0 +1,1341 @@
+2021-05-29T09:25:31.6535377+04:30  [INF] User profile is available. Using '"C:\Users\pc-2\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest. (7ac5e29c)
+2021-05-29T09:25:32.7714526+04:30  [INF] Now listening on: "https://localhost:5001" (d826f4b8)
+2021-05-29T09:25:32.7715994+04:30  [INF] Now listening on: "http://localhost:5000" (d826f4b8)
+2021-05-29T09:25:32.7718244+04:30  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-05-29T09:25:32.7718634+04:30  [INF] Hosting environment: "Development" (c3307c92)
+2021-05-29T09:25:32.7719851+04:30  [INF] Content root path: "D:\.NET\01_MyProject\EndPoint.WebSite" (b5d60022)
+2021-05-29T09:25:33.4357632+04:30 0HM92BNUOC629:0000000F [INF] Request starting HTTP/2 GET https://localhost:5001/ - - (ca22a1cb)
+2021-05-29T09:25:33.4797483+04:30 0HM92BNUOC629:0000000F [INF] "Identity.Application" was not authenticated. Failure message: "Unprotect ticket failed" (48071232)
+2021-05-29T09:25:33.4813746+04:30 0HM92BNUOC629:0000000F [INF] Executing endpoint '"EndPoint.WebSite.Controllers.HomeController.Index (EndPoint.WebSite)"' (500cc934)
+2021-05-29T09:25:33.5120510+04:30 0HM92BNUOC629:0000000F [INF] Route matched with "{action = \"Index\", controller = \"Home\", area = \"\"}". Executing controller action with signature "Microsoft.AspNetCore.Mvc.IActionResult Index()" on controller "EndPoint.WebSite.Controllers.HomeController" ("EndPoint.WebSite"). (122b2fdf)
+2021-05-29T09:25:33.6194609+04:30 0HM92BNUOC629:0000000F [WRN] 'AddEntityFramework*' was called on the service provider, but 'UseInternalServiceProvider' wasn't called in the DbContext options configuration. Consider removing the 'AddEntityFramework*' call, as in most cases it's not needed and may cause conflicts with other products and services registered in the same service provider. (4bc25ac5)
+2021-05-29T09:26:02.8931787+04:30 0HM92BNUOC629:0000000F [WRN] No type was specified for the decimal property '"PrdPrice"' on entity type '"Wsproducts"'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType()', specify precision and scale using 'HasPrecision()' or configure a value converter using 'HasConversion()'. (5c92c1c4)
+2021-05-29T09:26:03.1762818+04:30 0HM92BNUOC629:0000000F [INF] Entity Framework Core "5.0.6" initialized '"IdealCrmDataBaseContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2021-05-29T09:26:04.0808028+04:30 0HM92BNUOC629:0000000F [INF] Executed DbCommand ("26"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c].[NewsGroupId] AS [Id], [c].[GroupName] AS [Name]
+FROM [CrmCmsNewsGroups] AS [c]" (0723d8ff)
+2021-05-29T09:26:04.1031361+04:30 0HM92BNUOC629:0000000F [INF] info (680db0b0)
+2021-05-29T09:26:04.1031921+04:30 0HM92BNUOC629:0000000F [WRN] war (fa24b367)
+2021-05-29T09:26:04.1032097+04:30 0HM92BNUOC629:0000000F [ERR] err (42240f44)
+2021-05-29T09:26:04.1032236+04:30 0HM92BNUOC629:0000000F [FTL] critical (18f63ac8)
+2021-05-29T09:26:05.1739760+04:30 0HM92BNUOC629:0000000F [INF] Executing ViewResult, running view "Index". (c83d0e25)
+2021-05-29T09:26:05.6658565+04:30 0HM92BNUOC629:0000000F [INF] Executed ViewResult - view "Index" executed in 1546.7509ms. (f66409e9)
+2021-05-29T09:26:05.6664929+04:30 0HM92BNUOC629:0000000F [INF] Executed action "EndPoint.WebSite.Controllers.HomeController.Index (EndPoint.WebSite)" in 32153.9585ms (afa2e885)
+2021-05-29T09:26:05.6665725+04:30 0HM92BNUOC629:0000000F [INF] Executed endpoint '"EndPoint.WebSite.Controllers.HomeController.Index (EndPoint.WebSite)"' (99874f2b)
+2021-05-29T09:26:05.7086827+04:30 0HM92BNUOC629:00000011 [INF] Request starting HTTP/2 GET https://localhost:5001/Images/Settings/Logo-Header.jpg - - (ca22a1cb)
+2021-05-29T09:26:05.7086824+04:30 0HM92BNUOC629:00000013 [INF] Request starting HTTP/2 GET https://localhost:5001/Images/Sliders/6375365881386967486374719508855791158.jpg - - (ca22a1cb)
+2021-05-29T09:26:05.7088210+04:30 0HM92BNUOC629:00000015 [INF] Request starting HTTP/2 GET https://localhost:5001/Images/Sliders/63753653853633402463747102645924188010.jpg - - (ca22a1cb)
+2021-05-29T09:26:05.7149014+04:30 0HM92BNUOC629:0000000F [INF] Request finished HTTP/2 GET https://localhost:5001/ - - - 200 - text/html;+charset=utf-8 32281.3501ms (791a596a)
+2021-05-29T09:26:05.7189185+04:30 0HM92BNUOC629:00000017 [INF] Request starting HTTP/2 GET https://localhost:5001/Images/Sliders/6375581809250892016374719533335611669.jpg - - (ca22a1cb)
+2021-05-29T09:26:05.7281051+04:30 0HM92BNUOC629:00000019 [INF] Request starting HTTP/2 GET https://localhost:5001/Images/Settings/enamad.png - - (ca22a1cb)
+2021-05-29T09:26:05.7282392+04:30 0HM92BNUOC629:0000001B [INF] Request starting HTTP/2 GET https://localhost:5001/Images/Settings/samandehi.png - - (ca22a1cb)
+2021-05-29T09:26:05.7282578+04:30 0HM92BNUOC629:0000001D [INF] Request starting HTTP/2 GET https://localhost:5001/wp-content/uploads/2020/06/0b0d3f0a.svg - - (ca22a1cb)
+2021-05-29T09:26:05.7293339+04:30 0HM92BNUOC629:0000001B [INF] Sending file. Request path: '"/Images/Settings/samandehi.png"'. Physical path: '"D:\.NET\01_MyProject\EndPoint.WebSite\wwwroot\Images\Settings\samandehi.png"' (27b0a520)
+2021-05-29T09:26:05.7293588+04:30 0HM92BNUOC629:00000019 [INF] Sending file. Request path: '"/Images/Settings/enamad.png"'. Physical path: '"D:\.NET\01_MyProject\EndPoint.WebSite\wwwroot\Images\Settings\enamad.png"' (27b0a520)
+2021-05-29T09:26:05.7295783+04:30 0HM92BNUOC629:00000019 [INF] Request finished HTTP/2 GET https://localhost:5001/Images/Settings/enamad.png - - - 0 13010 image/png 2.0167ms (791a596a)
+2021-05-29T09:26:05.7298145+04:30 0HM92BNUOC629:0000001F [INF] Request starting HTTP/2 GET https://localhost:5001/wp-content/uploads/2020/06/964edb61.svg - - (ca22a1cb)
+2021-05-29T09:26:05.7295781+04:30 0HM92BNUOC629:0000001B [INF] Request finished HTTP/2 GET https://localhost:5001/Images/Settings/samandehi.png - - - 0 25123 image/png 1.2234ms (791a596a)
+2021-05-29T09:26:05.7301981+04:30 0HM92BNUOC629:00000021 [INF] Request starting HTTP/2 GET https://localhost:5001/wp-content/uploads/2020/06/6b24b899.svg - - (ca22a1cb)
+2021-05-29T09:26:05.7303044+04:30 0HM92BNUOC629:0000001F [INF] Sending file. Request path: '"/wp-content/uploads/2020/06/964edb61.svg"'. Physical path: '"D:\.NET\01_MyProject\EndPoint.WebSite\wwwroot\wp-content\uploads\2020\06\964edb61.svg"' (27b0a520)
+2021-05-29T09:26:05.7303651+04:30 0HM92BNUOC629:0000001F [INF] Request finished HTTP/2 GET https://localhost:5001/wp-content/uploads/2020/06/964edb61.svg - - - 0 4338 image/svg+xml 0.5291ms (791a596a)
+2021-05-29T09:26:05.7304766+04:30 0HM92BNUOC629:00000023 [INF] Request starting HTTP/2 GET https://localhost:5001/wp-content/uploads/2020/06/c8cfebe7.svg - - (ca22a1cb)
+2021-05-29T09:26:05.7306579+04:30 0HM92BNUOC629:00000025 [INF] Request starting HTTP/2 GET https://localhost:5001/wp-content/uploads/2020/06/b3be3881.svg - - (ca22a1cb)
+2021-05-29T09:26:05.7306931+04:30 0HM92BNUOC629:00000027 [INF] Request starting HTTP/2 GET https://localhost:5001/wp-content/uploads/2020/06/0feb6326.svg - - (ca22a1cb)
+2021-05-29T09:26:05.7375907+04:30 0HM92BNUOC629:00000015 [INF] Sending file. Request path: '"/Images/Sliders/63753653853633402463747102645924188010.jpg"'. Physical path: '"D:\.NET\01_MyProject\EndPoint.WebSite\wwwroot\Images\Sliders\63753653853633402463747102645924188010.jpg"' (27b0a520)
+2021-05-29T09:26:05.7377202+04:30 0HM92BNUOC629:00000015 [INF] Request finished HTTP/2 GET https://localhost:5001/Images/Sliders/63753653853633402463747102645924188010.jpg - - - 0 86893 image/jpeg 28.8559ms (791a596a)
+2021-05-29T09:26:05.7498037+04:30 0HM92BNUOC629:00000011 [INF] Sending file. Request path: '"/Images/Settings/Logo-Header.jpg"'. Physical path: '"D:\.NET\01_MyProject\EndPoint.WebSite\wwwroot\Images\Settings\Logo-Header.jpg"' (27b0a520)
+2021-05-29T09:26:05.7500037+04:30 0HM92BNUOC629:00000011 [INF] Request finished HTTP/2 GET https://localhost:5001/Images/Settings/Logo-Header.jpg - - - 0 3318 image/jpeg 41.4451ms (791a596a)
+2021-05-29T09:26:05.7613890+04:30 0HM92BNUOC629:00000023 [INF] Sending file. Request path: '"/wp-content/uploads/2020/06/c8cfebe7.svg"'. Physical path: '"D:\.NET\01_MyProject\EndPoint.WebSite\wwwroot\wp-content\uploads\2020\06\c8cfebe7.svg"' (27b0a520)
+2021-05-29T09:26:05.7617342+04:30 0HM92BNUOC629:00000023 [INF] Request finished HTTP/2 GET https://localhost:5001/wp-content/uploads/2020/06/c8cfebe7.svg - - - 0 4568 image/svg+xml 31.0389ms (791a596a)
+2021-05-29T09:26:05.7695778+04:30 0HM92BNUOC629:00000027 [INF] Sending file. Request path: '"/wp-content/uploads/2020/06/0feb6326.svg"'. Physical path: '"D:\.NET\01_MyProject\EndPoint.WebSite\wwwroot\wp-content\uploads\2020\06\0feb6326.svg"' (27b0a520)
+2021-05-29T09:26:05.7698438+04:30 0HM92BNUOC629:00000027 [INF] Request finished HTTP/2 GET https://localhost:5001/wp-content/uploads/2020/06/0feb6326.svg - - - 0 6904 image/svg+xml 39.1123ms (791a596a)
+2021-05-29T09:26:05.7732328+04:30 0HM92BNUOC629:0000001D [INF] Sending file. Request path: '"/wp-content/uploads/2020/06/0b0d3f0a.svg"'. Physical path: '"D:\.NET\01_MyProject\EndPoint.WebSite\wwwroot\wp-content\uploads\2020\06\0b0d3f0a.svg"' (27b0a520)
+2021-05-29T09:26:05.7733474+04:30 0HM92BNUOC629:0000001D [INF] Request finished HTTP/2 GET https://localhost:5001/wp-content/uploads/2020/06/0b0d3f0a.svg - - - 0 2054 image/svg+xml 45.0611ms (791a596a)
+2021-05-29T09:26:05.7767364+04:30 0HM92BNUOC629:00000021 [INF] Sending file. Request path: '"/wp-content/uploads/2020/06/6b24b899.svg"'. Physical path: '"D:\.NET\01_MyProject\EndPoint.WebSite\wwwroot\wp-content\uploads\2020\06\6b24b899.svg"' (27b0a520)
+2021-05-29T09:26:05.7768525+04:30 0HM92BNUOC629:00000021 [INF] Request finished HTTP/2 GET https://localhost:5001/wp-content/uploads/2020/06/6b24b899.svg - - - 0 3765 image/svg+xml 46.6125ms (791a596a)
+2021-05-29T09:26:05.7892655+04:30 0HM92BNUOC629:00000013 [INF] Sending file. Request path: '"/Images/Sliders/6375365881386967486374719508855791158.jpg"'. Physical path: '"D:\.NET\01_MyProject\EndPoint.WebSite\wwwroot\Images\Sliders\6375365881386967486374719508855791158.jpg"' (27b0a520)
+2021-05-29T09:26:05.7893870+04:30 0HM92BNUOC629:00000013 [INF] Request finished HTTP/2 GET https://localhost:5001/Images/Sliders/6375365881386967486374719508855791158.jpg - - - 0 133024 image/jpeg 80.6663ms (791a596a)
+2021-05-29T09:26:05.7985432+04:30 0HM92BNUOC629:00000029 [INF] Request starting HTTP/2 GET https://localhost:5001/Images/Settings/22414818.svg - - (ca22a1cb)
+2021-05-29T09:26:05.8050606+04:30 0HM92BNUOC629:00000025 [INF] Sending file. Request path: '"/wp-content/uploads/2020/06/b3be3881.svg"'. Physical path: '"D:\.NET\01_MyProject\EndPoint.WebSite\wwwroot\wp-content\uploads\2020\06\b3be3881.svg"' (27b0a520)
+2021-05-29T09:26:05.8052166+04:30 0HM92BNUOC629:00000025 [INF] Request finished HTTP/2 GET https://localhost:5001/wp-content/uploads/2020/06/b3be3881.svg - - - 0 2250 image/svg+xml 74.4737ms (791a596a)
+2021-05-29T09:26:05.8262461+04:30 0HM92BNUOC629:00000017 [INF] Sending file. Request path: '"/Images/Sliders/6375581809250892016374719533335611669.jpg"'. Physical path: '"D:\.NET\01_MyProject\EndPoint.WebSite\wwwroot\Images\Sliders\6375581809250892016374719533335611669.jpg"' (27b0a520)
+2021-05-29T09:26:05.8262859+04:30 0HM92BNUOC629:00000029 [INF] Sending file. Request path: '"/Images/Settings/22414818.svg"'. Physical path: '"D:\.NET\01_MyProject\EndPoint.WebSite\wwwroot\Images\Settings\22414818.svg"' (27b0a520)
+2021-05-29T09:26:05.8264234+04:30 0HM92BNUOC629:00000029 [INF] Request finished HTTP/2 GET https://localhost:5001/Images/Settings/22414818.svg - - - 0 3417 image/svg+xml 27.8954ms (791a596a)
+2021-05-29T09:26:05.8264953+04:30 0HM92BNUOC629:00000017 [INF] Request finished HTTP/2 GET https://localhost:5001/Images/Sliders/6375581809250892016374719533335611669.jpg - - - 200 88766 image/jpeg 110.5905ms (791a596a)
+2021-05-29T09:26:09.3070609+04:30 0HM92BNUOC629:0000002B [INF] Request starting HTTP/2 GET https://localhost:5001/users/auth/checkout - - (ca22a1cb)
+2021-05-29T09:26:09.3100165+04:30 0HM92BNUOC629:0000002B [INF] "Identity.Application" was not authenticated. Failure message: "Unprotect ticket failed" (48071232)
+2021-05-29T09:26:09.3102396+04:30 0HM92BNUOC629:0000002B [INF] Executing endpoint '"EndPoint.WebSite.Controllers.AuthController.CheckOut (EndPoint.WebSite)"' (500cc934)
+2021-05-29T09:26:09.3200875+04:30 0HM92BNUOC629:0000002B [INF] Route matched with "{action = \"CheckOut\", controller = \"Auth\", area = \"\"}". Executing controller action with signature "Microsoft.AspNetCore.Mvc.IActionResult CheckOut(System.String)" on controller "EndPoint.WebSite.Controllers.AuthController" ("EndPoint.WebSite"). (122b2fdf)
+2021-05-29T09:26:09.3544285+04:30 0HM92BNUOC629:0000002B [INF] Executing ViewResult, running view "CheckOut". (c83d0e25)
+2021-05-29T09:26:09.3611219+04:30 0HM92BNUOC629:0000002B [WRN] The temp data cookie ".AspNetCore.Mvc.CookieTempDataProvider" could not be loaded. (c00a4cce)
+System.Security.Cryptography.CryptographicException: The payload was invalid.
+   at Microsoft.AspNetCore.DataProtection.Cng.CbcAuthenticatedEncryptor.DecryptImpl(Byte* pbCiphertext, UInt32 cbCiphertext, Byte* pbAdditionalAuthenticatedData, UInt32 cbAdditionalAuthenticatedData)
+   at Microsoft.AspNetCore.DataProtection.Cng.Internal.CngAuthenticatedEncryptorBase.Decrypt(ArraySegment`1 ciphertext, ArraySegment`1 additionalAuthenticatedData)
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingBasedDataProtector.UnprotectCore(Byte[] protectedData, Boolean allowOperationsOnRevokedKeys, UnprotectStatus& status)
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingBasedDataProtector.DangerousUnprotect(Byte[] protectedData, Boolean ignoreRevocationErrors, Boolean& requiresMigration, Boolean& wasRevoked)
+   at Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingBasedDataProtector.Unprotect(Byte[] protectedData)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.CookieTempDataProvider.LoadTempData(HttpContext context)
+2021-05-29T09:26:09.4188307+04:30 0HM92BNUOC629:0000002B [INF] Executed ViewResult - view "CheckOut" executed in 88.2809ms. (f66409e9)
+2021-05-29T09:26:09.4189168+04:30 0HM92BNUOC629:0000002B [INF] Executed action "EndPoint.WebSite.Controllers.AuthController.CheckOut (EndPoint.WebSite)" in 98.7378ms (afa2e885)
+2021-05-29T09:26:09.4189481+04:30 0HM92BNUOC629:0000002B [INF] Executed endpoint '"EndPoint.WebSite.Controllers.AuthController.CheckOut (EndPoint.WebSite)"' (99874f2b)
+2021-05-29T09:26:09.4198675+04:30 0HM92BNUOC629:0000002B [INF] Request finished HTTP/2 GET https://localhost:5001/users/auth/checkout - - - 200 - text/html;+charset=utf-8 112.8033ms (791a596a)
+2021-05-29T09:26:11.9908641+04:30 0HM92BNUOC629:0000002D [INF] Request starting HTTP/2 POST https://localhost:5001/users/auth/checkout application/x-www-form-urlencoded 284 (ca22a1cb)
+2021-05-29T09:26:11.9945446+04:30 0HM92BNUOC629:0000002D [INF] "Identity.Application" was not authenticated. Failure message: "Unprotect ticket failed" (48071232)
+2021-05-29T09:26:11.9946106+04:30 0HM92BNUOC629:0000002D [INF] Executing endpoint '"EndPoint.WebSite.Controllers.AuthController.CheckOut (EndPoint.WebSite)"' (500cc934)
+2021-05-29T09:26:11.9969245+04:30 0HM92BNUOC629:0000002D [INF] Route matched with "{action = \"CheckOut\", controller = \"Auth\", area = \"\"}". Executing controller action with signature "Microsoft.AspNetCore.Mvc.IActionResult CheckOut(EndPoint.WebSite.Models.Auth.CheckOutDto)" on controller "EndPoint.WebSite.Controllers.AuthController" ("EndPoint.WebSite"). (122b2fdf)
+2021-05-29T09:26:12.1512006+04:30 0HM92BNUOC629:0000002D [WRN] No type was specified for the decimal property '"Credit"' on entity type '"User"'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType()', specify precision and scale using 'HasPrecision()' or configure a value converter using 'HasConversion()'. (5c92c1c4)
+2021-05-29T09:26:12.1811115+04:30 0HM92BNUOC629:0000002D [INF] Entity Framework Core "5.0.6" initialized '"IdentityDatabaseContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2021-05-29T09:26:12.3953315+04:30 0HM92BNUOC629:0000002D [ERR] Failed executing DbCommand ("32"ms) [Parameters=["@__normalizedUserName_0='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[Discriminator], [u].[Email], [u].[EmailConfirmed], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName], [u].[Address], [u].[Credit], [u].[CrmUsersId], [u].[DataCreated], [u].[Description], [u].[FirstName], [u].[IsActive], [u].[LastName], [u].[RequestToBeOwner], [u].[Tel]
+FROM [User] AS [u]
+WHERE ([u].[Discriminator] = N'User') AND ([u].[NormalizedUserName] = @__normalizedUserName_0)" (627a98df)
+2021-05-29T09:26:12.4220734+04:30 0HM92BNUOC629:0000002D [ERR] An exception occurred while iterating over the results of a query for context type '"Persistence.Contexts.IdentityDatabaseContext"'."
+""Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'Discriminator'.
+Invalid column name 'Discriminator'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__169_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__277_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(DbContext _, Boolean result, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:07b8fe48-d521-4dcd-ae02-ef3c07cb9a42
+Error Number:207,State:1,Class:16" (f5c7ac34)
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'Discriminator'.
+Invalid column name 'Discriminator'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__169_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__277_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(DbContext _, Boolean result, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:07b8fe48-d521-4dcd-ae02-ef3c07cb9a42
+Error Number:207,State:1,Class:16
+2021-05-29T09:26:12.4258460+04:30 0HM92BNUOC629:0000002D [INF] Executed action "EndPoint.WebSite.Controllers.AuthController.CheckOut (EndPoint.WebSite)" in 428.861ms (afa2e885)
+2021-05-29T09:26:12.4262833+04:30 0HM92BNUOC629:0000002D [INF] Executed endpoint '"EndPoint.WebSite.Controllers.AuthController.CheckOut (EndPoint.WebSite)"' (99874f2b)
+2021-05-29T09:26:12.4281432+04:30 0HM92BNUOC629:0000002D [ERR] An unhandled exception has occurred while executing the request. (48a46595)
+System.AggregateException: One or more errors occurred. (Invalid column name 'Discriminator'.
+Invalid column name 'Discriminator'.)
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'Discriminator'.
+Invalid column name 'Discriminator'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__169_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__277_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(DbContext _, Boolean result, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Identity.UserManager`1.FindByNameAsync(String userName)
+ClientConnectionId:07b8fe48-d521-4dcd-ae02-ef3c07cb9a42
+Error Number:207,State:1,Class:16
+   --- End of inner exception stack trace ---
+   at System.Threading.Tasks.Task`1.GetResultCore(Boolean waitCompletionNotification)
+   at System.Threading.Tasks.Task`1.get_Result()
+   at EndPoint.WebSite.Controllers.AuthController.CheckOut(CheckOutDto checkOutDto) in D:\.NET\01_MyProject\EndPoint.WebSite\Controllers\AuthController.cs:line 62
+   at lambda_method558(Closure , Object , Object[] )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2021-05-29T09:26:12.5054004+04:30 0HM92BNUOC629:0000002D [INF] Request finished HTTP/2 POST https://localhost:5001/users/auth/checkout application/x-www-form-urlencoded 284 - 500 - text/html;+charset=utf-8 514.5348ms (791a596a)
+2021-05-29T10:06:24.1466447+04:30  [WRN] 'AddEntityFramework*' was called on the service provider, but 'UseInternalServiceProvider' wasn't called in the DbContext options configuration. Consider removing the 'AddEntityFramework*' call, as in most cases it's not needed and may cause conflicts with other products and services registered in the same service provider. (4bc25ac5)
+2021-05-29T10:06:24.5913755+04:30  [WRN] No type was specified for the decimal property '"Credit"' on entity type '"User"'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType()', specify precision and scale using 'HasPrecision()' or configure a value converter using 'HasConversion()'. (5c92c1c4)
+2021-05-29T10:06:24.6712428+04:30  [INF] Entity Framework Core "5.0.6" initialized '"IdentityDatabaseContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2021-05-29T10:10:51.0687131+04:30  [WRN] 'AddEntityFramework*' was called on the service provider, but 'UseInternalServiceProvider' wasn't called in the DbContext options configuration. Consider removing the 'AddEntityFramework*' call, as in most cases it's not needed and may cause conflicts with other products and services registered in the same service provider. (4bc25ac5)
+2021-05-29T10:10:51.4399439+04:30  [WRN] No type was specified for the decimal property '"Credit"' on entity type '"User"'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType()', specify precision and scale using 'HasPrecision()' or configure a value converter using 'HasConversion()'. (5c92c1c4)
+2021-05-29T10:10:51.5076979+04:30  [INF] Entity Framework Core "5.0.6" initialized '"IdentityDatabaseContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2021-05-29T10:13:34.9236193+04:30  [WRN] 'AddEntityFramework*' was called on the service provider, but 'UseInternalServiceProvider' wasn't called in the DbContext options configuration. Consider removing the 'AddEntityFramework*' call, as in most cases it's not needed and may cause conflicts with other products and services registered in the same service provider. (4bc25ac5)
+2021-05-29T10:13:35.3211540+04:30  [WRN] No type was specified for the decimal property '"Credit"' on entity type '"User"'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType()', specify precision and scale using 'HasPrecision()' or configure a value converter using 'HasConversion()'. (5c92c1c4)
+2021-05-29T10:13:35.3891318+04:30  [INF] Entity Framework Core "5.0.6" initialized '"IdentityDatabaseContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2021-05-29T10:13:36.1500264+04:30  [INF] Executed DbCommand ("409"ms) [Parameters=[""], CommandType='Text', CommandTimeout='60']"
+""CREATE DATABASE [ParsaPoolad2];" (0723d8ff)
+2021-05-29T10:13:36.2485814+04:30  [INF] Executed DbCommand ("98"ms) [Parameters=[""], CommandType='Text', CommandTimeout='60']"
+""IF SERVERPROPERTY('EngineEdition') <> 5
+BEGIN
+    ALTER DATABASE [ParsaPoolad2] SET READ_COMMITTED_SNAPSHOT ON;
+END;" (0723d8ff)
+2021-05-29T10:13:36.2610094+04:30  [INF] Executed DbCommand ("5"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT 1" (0723d8ff)
+2021-05-29T10:13:36.3451807+04:30  [INF] Executed DbCommand ("7"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""CREATE TABLE [__EFMigrationsHistory] (
+    [MigrationId] nvarchar(150) NOT NULL,
+    [ProductVersion] nvarchar(32) NOT NULL,
+    CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY ([MigrationId])
+);" (0723d8ff)
+2021-05-29T10:13:36.3462648+04:30  [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT 1" (0723d8ff)
+2021-05-29T10:13:36.3727862+04:30  [INF] Executed DbCommand ("20"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT OBJECT_ID(N'[__EFMigrationsHistory]');" (0723d8ff)
+2021-05-29T10:13:36.3767405+04:30  [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];" (0723d8ff)
+2021-05-29T10:13:36.3897178+04:30  [INF] Applying migration '"20210529054051_firstr"'. (0e2ac64d)
+2021-05-29T10:13:36.4305049+04:30  [INF] Executed DbCommand ("3"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""CREATE TABLE [Role] (
+    [Id] nvarchar(450) NOT NULL,
+    [Name] nvarchar(max) NULL,
+    [NormalizedName] nvarchar(max) NULL,
+    [ConcurrencyStamp] nvarchar(max) NULL,
+    [Discriminator] nvarchar(max) NOT NULL,
+    [Description] nvarchar(max) NULL,
+    CONSTRAINT [PK_Role] PRIMARY KEY ([Id])
+);" (0723d8ff)
+2021-05-29T10:13:36.4351749+04:30  [INF] Executed DbCommand ("4"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""CREATE TABLE [RoleClaims] (
+    [Id] int NOT NULL IDENTITY,
+    [RoleId] nvarchar(max) NULL,
+    [ClaimType] nvarchar(max) NULL,
+    [ClaimValue] nvarchar(max) NULL,
+    CONSTRAINT [PK_RoleClaims] PRIMARY KEY ([Id])
+);" (0723d8ff)
+2021-05-29T10:13:36.4414358+04:30  [INF] Executed DbCommand ("6"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""CREATE TABLE [User] (
+    [Id] nvarchar(450) NOT NULL,
+    [UserName] nvarchar(max) NULL,
+    [NormalizedUserName] nvarchar(max) NULL,
+    [Email] nvarchar(max) NULL,
+    [NormalizedEmail] nvarchar(max) NULL,
+    [EmailConfirmed] bit NOT NULL,
+    [PasswordHash] nvarchar(max) NULL,
+    [SecurityStamp] nvarchar(max) NULL,
+    [ConcurrencyStamp] nvarchar(max) NULL,
+    [PhoneNumber] nvarchar(max) NULL,
+    [PhoneNumberConfirmed] bit NOT NULL,
+    [TwoFactorEnabled] bit NOT NULL,
+    [LockoutEnd] datetimeoffset NULL,
+    [LockoutEnabled] bit NOT NULL,
+    [AccessFailedCount] int NOT NULL,
+    [Discriminator] nvarchar(max) NOT NULL,
+    [CrmUsersId] int NULL,
+    [FirstName] nvarchar(max) NULL,
+    [LastName] nvarchar(max) NULL,
+    [IsActive] bit NULL,
+    [Description] nvarchar(max) NULL,
+    [Tel] nvarchar(max) NULL,
+    [Credit] decimal(18,2) NULL,
+    [Address] nvarchar(max) NULL,
+    [DataCreated] datetime2 NULL,
+    [RequestToBeOwner] bit NULL,
+    CONSTRAINT [PK_User] PRIMARY KEY ([Id])
+);" (0723d8ff)
+2021-05-29T10:13:36.4431826+04:30  [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""CREATE TABLE [UserClaims] (
+    [Id] int NOT NULL IDENTITY,
+    [UserId] nvarchar(max) NULL,
+    [ClaimType] nvarchar(max) NULL,
+    [ClaimValue] nvarchar(max) NULL,
+    CONSTRAINT [PK_UserClaims] PRIMARY KEY ([Id])
+);" (0723d8ff)
+2021-05-29T10:13:36.4452852+04:30  [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""CREATE TABLE [UserLogins] (
+    [LoginProvider] nvarchar(450) NOT NULL,
+    [ProviderKey] nvarchar(450) NOT NULL,
+    [ProviderDisplayName] nvarchar(max) NULL,
+    [UserId] nvarchar(max) NULL,
+    CONSTRAINT [PK_UserLogins] PRIMARY KEY ([ProviderKey], [LoginProvider])
+);" (0723d8ff)
+2021-05-29T10:13:36.4461349+04:30  [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""CREATE TABLE [UserRoles] (
+    [UserId] nvarchar(450) NOT NULL,
+    [RoleId] nvarchar(450) NOT NULL,
+    CONSTRAINT [PK_UserRoles] PRIMARY KEY ([UserId], [RoleId])
+);" (0723d8ff)
+2021-05-29T10:13:36.4502007+04:30  [INF] Executed DbCommand ("4"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""CREATE TABLE [UserTokens] (
+    [UserId] nvarchar(450) NOT NULL,
+    [LoginProvider] nvarchar(450) NOT NULL,
+    [Name] nvarchar(max) NULL,
+    [Value] nvarchar(max) NULL,
+    CONSTRAINT [PK_UserTokens] PRIMARY KEY ([UserId], [LoginProvider])
+);" (0723d8ff)
+2021-05-29T10:13:36.4586695+04:30  [INF] Executed DbCommand ("8"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20210529054051_firstr', N'5.0.6');" (0723d8ff)
+2021-05-29T10:14:09.7059016+04:30  [INF] User profile is available. Using '"C:\Users\pc-2\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest. (7ac5e29c)
+2021-05-29T10:14:10.1134404+04:30  [INF] Now listening on: "https://localhost:5001" (d826f4b8)
+2021-05-29T10:14:10.1135026+04:30  [INF] Now listening on: "http://localhost:5000" (d826f4b8)
+2021-05-29T10:14:10.1135937+04:30  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-05-29T10:14:10.1136096+04:30  [INF] Hosting environment: "Development" (c3307c92)
+2021-05-29T10:14:10.1136262+04:30  [INF] Content root path: "D:\.NET\01_MyProject\EndPoint.WebSite" (b5d60022)
+2021-05-29T10:14:10.9134000+04:30 0HM92CJ47SP79:0000000F [INF] Request starting HTTP/2 GET https://localhost:5001/ - - (ca22a1cb)
+2021-05-29T10:14:10.9646458+04:30 0HM92CJ47SP79:0000000F [INF] "Identity.Application" was not authenticated. Failure message: "Unprotect ticket failed" (48071232)
+2021-05-29T10:14:10.9660402+04:30 0HM92CJ47SP79:0000000F [INF] Executing endpoint '"EndPoint.WebSite.Controllers.HomeController.Index (EndPoint.WebSite)"' (500cc934)
+2021-05-29T10:14:10.9990281+04:30 0HM92CJ47SP79:0000000F [INF] Route matched with "{action = \"Index\", controller = \"Home\", area = \"\"}". Executing controller action with signature "Microsoft.AspNetCore.Mvc.IActionResult Index()" on controller "EndPoint.WebSite.Controllers.HomeController" ("EndPoint.WebSite"). (122b2fdf)
+2021-05-29T10:14:11.0560652+04:30 0HM92CJ47SP79:0000000F [WRN] 'AddEntityFramework*' was called on the service provider, but 'UseInternalServiceProvider' wasn't called in the DbContext options configuration. Consider removing the 'AddEntityFramework*' call, as in most cases it's not needed and may cause conflicts with other products and services registered in the same service provider. (4bc25ac5)
+2021-05-29T10:14:12.1588115+04:30 0HM92CJ47SP79:0000000F [INF] Entity Framework Core "5.0.6" initialized '"CustomDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2021-05-29T10:14:12.6396340+04:30 0HM92CJ47SP79:0000000F [ERR] Failed executing DbCommand ("24"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [s].[Id], [s].[Type], [s].[Active], [s].[Position], [s].[Url]
+FROM [Sliders] AS [s]" (627a98df)
+2021-05-29T10:14:12.6831572+04:30 0HM92CJ47SP79:0000000F [ERR] An exception occurred while iterating over the results of a query for context type '"Persistence.Contexts.CustomDbContext"'."
+""Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid object name 'Sliders'.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean isAsync, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(DbContext _, Boolean result)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+ClientConnectionId:5a09c6c0-f977-42d3-9630-1923bc3d8df7
+Error Number:208,State:1,Class:16" (f5c7ac34)
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid object name 'Sliders'.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean isAsync, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(DbContext _, Boolean result)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at Application.Services.FrontEnd.Home.Queries.GetHomeFrontEndService.Execute() in D:\.NET\01_MyProject\Application\Services\FrontEnd\Home\Queries\IGetHomeFrontEndServices.cs:line 36
+   at EndPoint.WebSite.Controllers.HomeController.Index() in D:\.NET\01_MyProject\EndPoint.WebSite\Controllers\HomeController.cs:line 27
+   at lambda_method1(Closure , Object , Object[] )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+ClientConnectionId:5a09c6c0-f977-42d3-9630-1923bc3d8df7
+Error Number:208,State:1,Class:16
+2021-05-29T10:14:12.6908405+04:30 0HM92CJ47SP79:0000000F [INF] Executed action "EndPoint.WebSite.Controllers.HomeController.Index (EndPoint.WebSite)" in 1686.2983ms (afa2e885)
+2021-05-29T10:14:12.6913784+04:30 0HM92CJ47SP79:0000000F [INF] Executed endpoint '"EndPoint.WebSite.Controllers.HomeController.Index (EndPoint.WebSite)"' (99874f2b)
+2021-05-29T10:14:12.7029098+04:30 0HM92CJ47SP79:0000000F [ERR] An unhandled exception has occurred while executing the request. (48a46595)
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid object name 'Sliders'.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean isAsync, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(DbContext _, Boolean result)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at Application.Services.FrontEnd.Home.Queries.GetHomeFrontEndService.Execute() in D:\.NET\01_MyProject\Application\Services\FrontEnd\Home\Queries\IGetHomeFrontEndServices.cs:line 36
+   at EndPoint.WebSite.Controllers.HomeController.Index() in D:\.NET\01_MyProject\EndPoint.WebSite\Controllers\HomeController.cs:line 27
+   at lambda_method1(Closure , Object , Object[] )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+ClientConnectionId:5a09c6c0-f977-42d3-9630-1923bc3d8df7
+Error Number:208,State:1,Class:16
+2021-05-29T10:14:12.7430564+04:30 0HM92CJ47SP79:0000000F [INF] Request finished HTTP/2 GET https://localhost:5001/ - - - 500 - text/html;+charset=utf-8 1832.4232ms (791a596a)
+2021-05-29T11:16:56.0182319+04:30  [WRN] 'AddEntityFramework*' was called on the service provider, but 'UseInternalServiceProvider' wasn't called in the DbContext options configuration. Consider removing the 'AddEntityFramework*' call, as in most cases it's not needed and may cause conflicts with other products and services registered in the same service provider. (4bc25ac5)
+2021-05-29T11:16:56.4879675+04:30  [INF] Entity Framework Core "5.0.6" initialized '"CustomDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2021-05-29T11:18:02.3864169+04:30  [WRN] 'AddEntityFramework*' was called on the service provider, but 'UseInternalServiceProvider' wasn't called in the DbContext options configuration. Consider removing the 'AddEntityFramework*' call, as in most cases it's not needed and may cause conflicts with other products and services registered in the same service provider. (4bc25ac5)
+2021-05-29T11:18:02.7895983+04:30  [INF] Entity Framework Core "5.0.6" initialized '"CustomDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2021-05-29T11:18:03.0977038+04:30  [INF] Executed DbCommand ("13"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT 1" (0723d8ff)
+2021-05-29T11:18:03.1567015+04:30  [INF] Executed DbCommand ("51"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT OBJECT_ID(N'[__EFMigrationsHistory]');" (0723d8ff)
+2021-05-29T11:18:03.1608027+04:30  [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT 1" (0723d8ff)
+2021-05-29T11:18:03.1613670+04:30  [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT OBJECT_ID(N'[__EFMigrationsHistory]');" (0723d8ff)
+2021-05-29T11:18:03.2018002+04:30  [INF] Executed DbCommand ("23"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];" (0723d8ff)
+2021-05-29T11:18:03.2194394+04:30  [INF] Applying migration '"20210313125846_Create_UserRoleSlidersClaims_table"'. (0e2ac64d)
+2021-05-29T11:18:03.5472526+04:30  [INF] Executed DbCommand ("229"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""CREATE TABLE [Claims] (
+    [Id] int NOT NULL IDENTITY,
+    [ClaimType] nvarchar(max) NULL,
+    [ClaimValue] nvarchar(max) NULL,
+    [ClaimName] nvarchar(max) NULL,
+    [IsHead] bit NULL,
+    [ParentId] int NULL,
+    CONSTRAINT [PK_Claims] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_Claims_Claims_ParentId] FOREIGN KEY ([ParentId]) REFERENCES [Claims] ([Id]) ON DELETE NO ACTION
+);" (0723d8ff)
+2021-05-29T11:18:03.5605537+04:30  [ERR] Failed executing DbCommand ("12"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""CREATE TABLE [Role] (
+    [Id] nvarchar(450) NOT NULL,
+    [LongId] bigint NOT NULL,
+    [Description] nvarchar(max) NULL,
+    [Name] nvarchar(max) NULL,
+    [NormalizedName] nvarchar(max) NULL,
+    [ConcurrencyStamp] nvarchar(max) NULL,
+    CONSTRAINT [PK_Role] PRIMARY KEY ([Id])
+);" (627a98df)
+2021-05-29T11:19:47.1464399+04:30  [WRN] 'AddEntityFramework*' was called on the service provider, but 'UseInternalServiceProvider' wasn't called in the DbContext options configuration. Consider removing the 'AddEntityFramework*' call, as in most cases it's not needed and may cause conflicts with other products and services registered in the same service provider. (4bc25ac5)
+2021-05-29T11:19:47.6680638+04:30  [INF] Entity Framework Core "5.0.6" initialized '"CustomDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2021-05-29T11:19:49.3123306+04:30  [INF] Executed DbCommand ("881"ms) [Parameters=[""], CommandType='Text', CommandTimeout='60']"
+""CREATE DATABASE [ParsaPoolad3];" (0723d8ff)
+2021-05-29T11:19:49.5481168+04:30  [INF] Executed DbCommand ("235"ms) [Parameters=[""], CommandType='Text', CommandTimeout='60']"
+""IF SERVERPROPERTY('EngineEdition') <> 5
+BEGIN
+    ALTER DATABASE [ParsaPoolad3] SET READ_COMMITTED_SNAPSHOT ON;
+END;" (0723d8ff)
+2021-05-29T11:19:49.5589167+04:30  [INF] Executed DbCommand ("5"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT 1" (0723d8ff)
+2021-05-29T11:19:49.6376884+04:30  [INF] Executed DbCommand ("8"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""CREATE TABLE [__EFMigrationsHistory] (
+    [MigrationId] nvarchar(150) NOT NULL,
+    [ProductVersion] nvarchar(32) NOT NULL,
+    CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY ([MigrationId])
+);" (0723d8ff)
+2021-05-29T11:19:49.6387885+04:30  [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT 1" (0723d8ff)
+2021-05-29T11:19:49.6580327+04:30  [INF] Executed DbCommand ("17"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT OBJECT_ID(N'[__EFMigrationsHistory]');" (0723d8ff)
+2021-05-29T11:19:49.6615406+04:30  [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];" (0723d8ff)
+2021-05-29T11:19:49.6743981+04:30  [INF] Applying migration '"20210313125846_Create_UserRoleSlidersClaims_table"'. (0e2ac64d)
+2021-05-29T11:19:49.8085686+04:30  [INF] Executed DbCommand ("8"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""CREATE TABLE [Claims] (
+    [Id] int NOT NULL IDENTITY,
+    [ClaimType] nvarchar(max) NULL,
+    [ClaimValue] nvarchar(max) NULL,
+    [ClaimName] nvarchar(max) NULL,
+    [IsHead] bit NULL,
+    [ParentId] int NULL,
+    CONSTRAINT [PK_Claims] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_Claims_Claims_ParentId] FOREIGN KEY ([ParentId]) REFERENCES [Claims] ([Id]) ON DELETE NO ACTION
+);" (0723d8ff)
+2021-05-29T11:19:49.8100664+04:30  [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""CREATE TABLE [Role] (
+    [Id] nvarchar(450) NOT NULL,
+    [LongId] bigint NOT NULL,
+    [Description] nvarchar(max) NULL,
+    [Name] nvarchar(max) NULL,
+    [NormalizedName] nvarchar(max) NULL,
+    [ConcurrencyStamp] nvarchar(max) NULL,
+    CONSTRAINT [PK_Role] PRIMARY KEY ([Id])
+);" (0723d8ff)
+2021-05-29T11:19:49.8109763+04:30  [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""CREATE TABLE [RoleClaims] (
+    [Id] int NOT NULL IDENTITY,
+    [RoleId] nvarchar(max) NULL,
+    [ClaimType] nvarchar(max) NULL,
+    [ClaimValue] nvarchar(max) NULL,
+    CONSTRAINT [PK_RoleClaims] PRIMARY KEY ([Id])
+);" (0723d8ff)
+2021-05-29T11:19:49.8120731+04:30  [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""CREATE TABLE [Sliders] (
+    [Id] int NOT NULL IDENTITY,
+    [Title] nvarchar(max) NULL,
+    [Subject] nvarchar(max) NULL,
+    [Description] nvarchar(max) NULL,
+    [Type] nvarchar(max) NULL,
+    [Active] bit NOT NULL,
+    [Position] int NOT NULL,
+    [Url] nvarchar(max) NULL,
+    CONSTRAINT [PK_Sliders] PRIMARY KEY ([Id])
+);" (0723d8ff)
+2021-05-29T11:19:49.8997640+04:30  [INF] Executed DbCommand ("87"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""CREATE TABLE [User] (
+    [Id] nvarchar(450) NOT NULL,
+    [LongId] bigint NOT NULL,
+    [FirstName] nvarchar(max) NULL,
+    [LastName] nvarchar(max) NULL,
+    [IsActive] bit NOT NULL,
+    [Description] nvarchar(max) NULL,
+    [Tel] nvarchar(max) NULL,
+    [Credit] decimal(18,2) NULL,
+    [Address] nvarchar(max) NULL,
+    [UserName] nvarchar(max) NULL,
+    [NormalizedUserName] nvarchar(max) NULL,
+    [Email] nvarchar(max) NULL,
+    [NormalizedEmail] nvarchar(max) NULL,
+    [EmailConfirmed] bit NOT NULL,
+    [PasswordHash] nvarchar(max) NULL,
+    [SecurityStamp] nvarchar(max) NULL,
+    [ConcurrencyStamp] nvarchar(max) NULL,
+    [PhoneNumber] nvarchar(max) NULL,
+    [PhoneNumberConfirmed] bit NOT NULL,
+    [TwoFactorEnabled] bit NOT NULL,
+    [LockoutEnd] datetimeoffset NULL,
+    [LockoutEnabled] bit NOT NULL,
+    [AccessFailedCount] int NOT NULL,
+    CONSTRAINT [PK_User] PRIMARY KEY ([Id])
+);" (0723d8ff)
+2021-05-29T11:19:49.9023742+04:30  [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""CREATE TABLE [UserClaims] (
+    [Id] int NOT NULL IDENTITY,
+    [UserId] nvarchar(max) NULL,
+    [ClaimType] nvarchar(max) NULL,
+    [ClaimValue] nvarchar(max) NULL,
+    CONSTRAINT [PK_UserClaims] PRIMARY KEY ([Id])
+);" (0723d8ff)
+2021-05-29T11:19:49.9064629+04:30  [INF] Executed DbCommand ("4"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""CREATE TABLE [UserLogins] (
+    [LoginProvider] nvarchar(450) NOT NULL,
+    [ProviderKey] nvarchar(450) NOT NULL,
+    [ProviderDisplayName] nvarchar(max) NULL,
+    [UserId] nvarchar(max) NULL,
+    CONSTRAINT [PK_UserLogins] PRIMARY KEY ([ProviderKey], [LoginProvider])
+);" (0723d8ff)
+2021-05-29T11:19:49.9089066+04:30  [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""CREATE TABLE [UserRoles] (
+    [UserId] nvarchar(450) NOT NULL,
+    [RoleId] nvarchar(450) NOT NULL,
+    CONSTRAINT [PK_UserRoles] PRIMARY KEY ([UserId], [RoleId])
+);" (0723d8ff)
+2021-05-29T11:19:49.9114921+04:30  [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""CREATE TABLE [UserTokens] (
+    [UserId] nvarchar(450) NOT NULL,
+    [LoginProvider] nvarchar(450) NOT NULL,
+    [Name] nvarchar(max) NULL,
+    [Value] nvarchar(max) NULL,
+    CONSTRAINT [PK_UserTokens] PRIMARY KEY ([UserId], [LoginProvider])
+);" (0723d8ff)
+2021-05-29T11:19:49.9176180+04:30  [INF] Executed DbCommand ("6"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""CREATE INDEX [IX_Claims_ParentId] ON [Claims] ([ParentId]);" (0723d8ff)
+2021-05-29T11:19:49.9574750+04:30  [INF] Executed DbCommand ("40"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20210313125846_Create_UserRoleSlidersClaims_table', N'5.0.6');" (0723d8ff)
+2021-05-29T11:19:49.9613354+04:30  [INF] Applying migration '"20210529064656_testss"'. (0e2ac64d)
+2021-05-29T11:19:49.9980567+04:30  [INF] Executed DbCommand ("34"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""DROP TABLE [Role];" (0723d8ff)
+2021-05-29T11:19:49.9995352+04:30  [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""DROP TABLE [RoleClaims];" (0723d8ff)
+2021-05-29T11:19:50.0005412+04:30  [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""DROP TABLE [User];" (0723d8ff)
+2021-05-29T11:19:50.0016468+04:30  [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""DROP TABLE [UserClaims];" (0723d8ff)
+2021-05-29T11:19:50.0024606+04:30  [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""DROP TABLE [UserLogins];" (0723d8ff)
+2021-05-29T11:19:50.0032024+04:30  [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""DROP TABLE [UserRoles];" (0723d8ff)
+2021-05-29T11:19:50.0040314+04:30  [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""DROP TABLE [UserTokens];" (0723d8ff)
+2021-05-29T11:19:50.0048900+04:30  [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20210529064656_testss', N'5.0.6');" (0723d8ff)
+2021-05-29T11:21:04.1234721+04:30  [WRN] 'AddEntityFramework*' was called on the service provider, but 'UseInternalServiceProvider' wasn't called in the DbContext options configuration. Consider removing the 'AddEntityFramework*' call, as in most cases it's not needed and may cause conflicts with other products and services registered in the same service provider. (4bc25ac5)
+2021-05-29T11:21:04.5603457+04:30  [WRN] No type was specified for the decimal property '"Credit"' on entity type '"User"'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType()', specify precision and scale using 'HasPrecision()' or configure a value converter using 'HasConversion()'. (5c92c1c4)
+2021-05-29T11:21:04.6243606+04:30  [INF] Entity Framework Core "5.0.6" initialized '"IdentityDatabaseContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2021-05-29T11:21:04.8104881+04:30  [INF] Executed DbCommand ("13"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT 1" (0723d8ff)
+2021-05-29T11:21:04.8293297+04:30  [INF] Executed DbCommand ("12"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT OBJECT_ID(N'[__EFMigrationsHistory]');" (0723d8ff)
+2021-05-29T11:21:04.8317199+04:30  [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT 1" (0723d8ff)
+2021-05-29T11:21:04.8321017+04:30  [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT OBJECT_ID(N'[__EFMigrationsHistory]');" (0723d8ff)
+2021-05-29T11:21:04.8386182+04:30  [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];" (0723d8ff)
+2021-05-29T11:21:04.8509048+04:30  [INF] Applying migration '"20210529054051_firstr"'. (0e2ac64d)
+2021-05-29T11:21:04.8885508+04:30  [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""CREATE TABLE [Role] (
+    [Id] nvarchar(450) NOT NULL,
+    [Name] nvarchar(max) NULL,
+    [NormalizedName] nvarchar(max) NULL,
+    [ConcurrencyStamp] nvarchar(max) NULL,
+    [Discriminator] nvarchar(max) NOT NULL,
+    [Description] nvarchar(max) NULL,
+    CONSTRAINT [PK_Role] PRIMARY KEY ([Id])
+);" (0723d8ff)
+2021-05-29T11:21:04.8894029+04:30  [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""CREATE TABLE [RoleClaims] (
+    [Id] int NOT NULL IDENTITY,
+    [RoleId] nvarchar(max) NULL,
+    [ClaimType] nvarchar(max) NULL,
+    [ClaimValue] nvarchar(max) NULL,
+    CONSTRAINT [PK_RoleClaims] PRIMARY KEY ([Id])
+);" (0723d8ff)
+2021-05-29T11:21:04.8905070+04:30  [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""CREATE TABLE [User] (
+    [Id] nvarchar(450) NOT NULL,
+    [UserName] nvarchar(max) NULL,
+    [NormalizedUserName] nvarchar(max) NULL,
+    [Email] nvarchar(max) NULL,
+    [NormalizedEmail] nvarchar(max) NULL,
+    [EmailConfirmed] bit NOT NULL,
+    [PasswordHash] nvarchar(max) NULL,
+    [SecurityStamp] nvarchar(max) NULL,
+    [ConcurrencyStamp] nvarchar(max) NULL,
+    [PhoneNumber] nvarchar(max) NULL,
+    [PhoneNumberConfirmed] bit NOT NULL,
+    [TwoFactorEnabled] bit NOT NULL,
+    [LockoutEnd] datetimeoffset NULL,
+    [LockoutEnabled] bit NOT NULL,
+    [AccessFailedCount] int NOT NULL,
+    [Discriminator] nvarchar(max) NOT NULL,
+    [CrmUsersId] int NULL,
+    [FirstName] nvarchar(max) NULL,
+    [LastName] nvarchar(max) NULL,
+    [IsActive] bit NULL,
+    [Description] nvarchar(max) NULL,
+    [Tel] nvarchar(max) NULL,
+    [Credit] decimal(18,2) NULL,
+    [Address] nvarchar(max) NULL,
+    [DataCreated] datetime2 NULL,
+    [RequestToBeOwner] bit NULL,
+    CONSTRAINT [PK_User] PRIMARY KEY ([Id])
+);" (0723d8ff)
+2021-05-29T11:21:04.8913038+04:30  [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""CREATE TABLE [UserClaims] (
+    [Id] int NOT NULL IDENTITY,
+    [UserId] nvarchar(max) NULL,
+    [ClaimType] nvarchar(max) NULL,
+    [ClaimValue] nvarchar(max) NULL,
+    CONSTRAINT [PK_UserClaims] PRIMARY KEY ([Id])
+);" (0723d8ff)
+2021-05-29T11:21:04.8926321+04:30  [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""CREATE TABLE [UserLogins] (
+    [LoginProvider] nvarchar(450) NOT NULL,
+    [ProviderKey] nvarchar(450) NOT NULL,
+    [ProviderDisplayName] nvarchar(max) NULL,
+    [UserId] nvarchar(max) NULL,
+    CONSTRAINT [PK_UserLogins] PRIMARY KEY ([ProviderKey], [LoginProvider])
+);" (0723d8ff)
+2021-05-29T11:21:04.8934067+04:30  [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""CREATE TABLE [UserRoles] (
+    [UserId] nvarchar(450) NOT NULL,
+    [RoleId] nvarchar(450) NOT NULL,
+    CONSTRAINT [PK_UserRoles] PRIMARY KEY ([UserId], [RoleId])
+);" (0723d8ff)
+2021-05-29T11:21:04.8942655+04:30  [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""CREATE TABLE [UserTokens] (
+    [UserId] nvarchar(450) NOT NULL,
+    [LoginProvider] nvarchar(450) NOT NULL,
+    [Name] nvarchar(max) NULL,
+    [Value] nvarchar(max) NULL,
+    CONSTRAINT [PK_UserTokens] PRIMARY KEY ([UserId], [LoginProvider])
+);" (0723d8ff)
+2021-05-29T11:21:04.8951794+04:30  [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20210529054051_firstr', N'5.0.6');" (0723d8ff)
+2021-05-29T11:21:47.7699299+04:30  [INF] User profile is available. Using '"C:\Users\pc-2\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest. (7ac5e29c)
+2021-05-29T11:21:48.1436038+04:30  [INF] Now listening on: "https://localhost:5001" (d826f4b8)
+2021-05-29T11:21:48.1437739+04:30  [INF] Now listening on: "http://localhost:5000" (d826f4b8)
+2021-05-29T11:21:48.1439519+04:30  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-05-29T11:21:48.1439803+04:30  [INF] Hosting environment: "Development" (c3307c92)
+2021-05-29T11:21:48.1439935+04:30  [INF] Content root path: "D:\.NET\01_MyProject\EndPoint.WebSite" (b5d60022)
+2021-05-29T11:21:48.7759276+04:30 0HM92DOTIIADO:0000000F [INF] Request starting HTTP/2 GET https://localhost:5001/ - - (ca22a1cb)
+2021-05-29T11:21:48.8254363+04:30 0HM92DOTIIADO:0000000F [INF] "Identity.Application" was not authenticated. Failure message: "Unprotect ticket failed" (48071232)
+2021-05-29T11:21:48.8270222+04:30 0HM92DOTIIADO:0000000F [INF] Executing endpoint '"EndPoint.WebSite.Controllers.HomeController.Index (EndPoint.WebSite)"' (500cc934)
+2021-05-29T11:21:48.8606828+04:30 0HM92DOTIIADO:0000000F [INF] Route matched with "{action = \"Index\", controller = \"Home\", area = \"\"}". Executing controller action with signature "Microsoft.AspNetCore.Mvc.IActionResult Index()" on controller "EndPoint.WebSite.Controllers.HomeController" ("EndPoint.WebSite"). (122b2fdf)
+2021-05-29T11:21:48.9174111+04:30 0HM92DOTIIADO:0000000F [WRN] 'AddEntityFramework*' was called on the service provider, but 'UseInternalServiceProvider' wasn't called in the DbContext options configuration. Consider removing the 'AddEntityFramework*' call, as in most cases it's not needed and may cause conflicts with other products and services registered in the same service provider. (4bc25ac5)
+2021-05-29T11:21:50.0428346+04:30 0HM92DOTIIADO:0000000F [INF] Entity Framework Core "5.0.6" initialized '"CustomDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2021-05-29T11:21:50.6653469+04:30 0HM92DOTIIADO:0000000F [INF] Executed DbCommand ("44"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [s].[Id], [s].[Type], [s].[Active], [s].[Position], [s].[Url]
+FROM [Sliders] AS [s]" (0723d8ff)
+2021-05-29T11:22:19.5888577+04:30 0HM92DOTIIADO:0000000F [WRN] No type was specified for the decimal property '"PrdPrice"' on entity type '"Wsproducts"'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType()', specify precision and scale using 'HasPrecision()' or configure a value converter using 'HasConversion()'. (5c92c1c4)
+2021-05-29T11:22:19.7985532+04:30 0HM92DOTIIADO:0000000F [INF] Entity Framework Core "5.0.6" initialized '"IdealCrmDataBaseContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2021-05-29T11:22:19.9429873+04:30 0HM92DOTIIADO:0000000F [INF] Executed DbCommand ("137"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c].[NewsGroupId] AS [Id], [c].[GroupName] AS [Name]
+FROM [CrmCmsNewsGroups] AS [c]" (0723d8ff)
+2021-05-29T11:22:19.9571457+04:30 0HM92DOTIIADO:0000000F [INF] info (680db0b0)
+2021-05-29T11:22:19.9572368+04:30 0HM92DOTIIADO:0000000F [WRN] war (fa24b367)
+2021-05-29T11:22:19.9572705+04:30 0HM92DOTIIADO:0000000F [ERR] err (42240f44)
+2021-05-29T11:22:19.9573002+04:30 0HM92DOTIIADO:0000000F [FTL] critical (18f63ac8)
+2021-05-29T11:22:20.0060897+04:30 0HM92DOTIIADO:0000000F [INF] Executing ViewResult, running view "Index". (c83d0e25)
+2021-05-29T11:22:20.2257788+04:30 0HM92DOTIIADO:0000000F [WRN] Compiling a query which loads related collections for more than one collection navigation either via 'Include' or through projection but no 'QuerySplittingBehavior' has been configured. By default Entity Framework will use 'QuerySplittingBehavior.SingleQuery' which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))' (74d62de4)
+2021-05-29T11:22:20.4360106+04:30 0HM92DOTIIADO:0000000F [INF] Executed DbCommand ("150"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [p].[ParsaPooladMenusId], [p].[Name], [p].[UrlName], [t0].[PrdFirstGroupID], [t0].[FGName], [t0].[WsproductSecondGroupId], [t0].[Sgname]
+FROM [ParsaPooladMenus] AS [p]
+LEFT JOIN (
+    SELECT [w].[PrdFirstGroupID], [w].[FGName], [t].[WsproductSecondGroupId], [t].[Sgname], [w].[ParsaPooladMenusId]
+    FROM [WSProductFirstGroup] AS [w]
+    LEFT JOIN (
+        SELECT [w0].[PrdSecondGroupID] AS [WsproductSecondGroupId], [w0].[SGName] AS [Sgname], [w0].[FirstGroupId]
+        FROM [WSProductSecondGroup] AS [w0]
+        WHERE [w0].[IsRemoved] IS NULL
+    ) AS [t] ON [w].[PrdFirstGroupID] = [t].[FirstGroupId]
+    WHERE [w].[IsRemoved] IS NULL
+) AS [t0] ON [p].[ParsaPooladMenusId] = [t0].[ParsaPooladMenusId]
+ORDER BY [p].[ParsaPooladMenusId], [t0].[PrdFirstGroupID], [t0].[WsproductSecondGroupId]" (0723d8ff)
+2021-05-29T11:22:20.5849564+04:30 0HM92DOTIIADO:0000000F [INF] Executed ViewResult - view "Index" executed in 616.8474ms. (f66409e9)
+2021-05-29T11:22:20.5853455+04:30 0HM92DOTIIADO:0000000F [INF] Executed action "EndPoint.WebSite.Controllers.HomeController.Index (EndPoint.WebSite)" in 31724.2523ms (afa2e885)
+2021-05-29T11:22:20.5854034+04:30 0HM92DOTIIADO:0000000F [INF] Executed endpoint '"EndPoint.WebSite.Controllers.HomeController.Index (EndPoint.WebSite)"' (99874f2b)
+2021-05-29T11:22:20.6082757+04:30 0HM92DOTIIADO:0000000F [INF] Request finished HTTP/2 GET https://localhost:5001/ - - - 200 - text/html;+charset=utf-8 31834.7949ms (791a596a)
+2021-05-29T11:22:20.6419962+04:30 0HM92DOTIIADO:00000013 [INF] Request starting HTTP/2 GET https://localhost:5001/wp-content/uploads/2020/06/6b24b899.svg - - (ca22a1cb)
+2021-05-29T11:22:20.6419899+04:30 0HM92DOTIIADO:00000011 [INF] Request starting HTTP/2 GET https://localhost:5001/wp-content/uploads/2020/06/964edb61.svg - - (ca22a1cb)
+2021-05-29T11:22:20.6421022+04:30 0HM92DOTIIADO:00000015 [INF] Request starting HTTP/2 GET https://localhost:5001/wp-content/uploads/2020/06/c8cfebe7.svg - - (ca22a1cb)
+2021-05-29T11:22:20.6421769+04:30 0HM92DOTIIADO:00000017 [INF] Request starting HTTP/2 GET https://localhost:5001/wp-content/uploads/2020/06/b3be3881.svg - - (ca22a1cb)
+2021-05-29T11:22:20.6424151+04:30 0HM92DOTIIADO:00000019 [INF] Request starting HTTP/2 GET https://localhost:5001/wp-content/uploads/2020/06/0feb6326.svg - - (ca22a1cb)
+2021-05-29T11:22:20.6494544+04:30 0HM92DOTIIADO:00000015 [INF] Sending file. Request path: '"/wp-content/uploads/2020/06/c8cfebe7.svg"'. Physical path: '"D:\.NET\01_MyProject\EndPoint.WebSite\wwwroot\wp-content\uploads\2020\06\c8cfebe7.svg"' (27b0a520)
+2021-05-29T11:22:20.6495197+04:30 0HM92DOTIIADO:00000011 [INF] Sending file. Request path: '"/wp-content/uploads/2020/06/964edb61.svg"'. Physical path: '"D:\.NET\01_MyProject\EndPoint.WebSite\wwwroot\wp-content\uploads\2020\06\964edb61.svg"' (27b0a520)
+2021-05-29T11:22:20.6495483+04:30 0HM92DOTIIADO:00000013 [INF] Sending file. Request path: '"/wp-content/uploads/2020/06/6b24b899.svg"'. Physical path: '"D:\.NET\01_MyProject\EndPoint.WebSite\wwwroot\wp-content\uploads\2020\06\6b24b899.svg"' (27b0a520)
+2021-05-29T11:22:20.6496587+04:30 0HM92DOTIIADO:00000015 [INF] Request finished HTTP/2 GET https://localhost:5001/wp-content/uploads/2020/06/c8cfebe7.svg - - - 0 4568 image/svg+xml 7.4719ms (791a596a)
+2021-05-29T11:22:20.6496585+04:30 0HM92DOTIIADO:00000013 [INF] Request finished HTTP/2 GET https://localhost:5001/wp-content/uploads/2020/06/6b24b899.svg - - - 0 3765 image/svg+xml 7.6276ms (791a596a)
+2021-05-29T11:22:20.6496584+04:30 0HM92DOTIIADO:00000011 [INF] Request finished HTTP/2 GET https://localhost:5001/wp-content/uploads/2020/06/964edb61.svg - - - 0 4338 image/svg+xml 7.6476ms (791a596a)
+2021-05-29T11:22:20.6674143+04:30 0HM92DOTIIADO:00000019 [INF] Sending file. Request path: '"/wp-content/uploads/2020/06/0feb6326.svg"'. Physical path: '"D:\.NET\01_MyProject\EndPoint.WebSite\wwwroot\wp-content\uploads\2020\06\0feb6326.svg"' (27b0a520)
+2021-05-29T11:22:20.6675668+04:30 0HM92DOTIIADO:00000019 [INF] Request finished HTTP/2 GET https://localhost:5001/wp-content/uploads/2020/06/0feb6326.svg - - - 0 6904 image/svg+xml 25.0980ms (791a596a)
+2021-05-29T11:22:20.6774143+04:30 0HM92DOTIIADO:00000017 [INF] Sending file. Request path: '"/wp-content/uploads/2020/06/b3be3881.svg"'. Physical path: '"D:\.NET\01_MyProject\EndPoint.WebSite\wwwroot\wp-content\uploads\2020\06\b3be3881.svg"' (27b0a520)
+2021-05-29T11:22:20.6775529+04:30 0HM92DOTIIADO:00000017 [INF] Request finished HTTP/2 GET https://localhost:5001/wp-content/uploads/2020/06/b3be3881.svg - - - 0 2250 image/svg+xml 35.3168ms (791a596a)
+2021-05-29T11:22:20.9403338+04:30 0HM92DOTIIADO:0000001B [INF] Request starting HTTP/2 GET https://localhost:5001/Images/Favicon/android-icon-192x192.png - - (ca22a1cb)
+2021-05-29T11:22:20.9413030+04:30 0HM92DOTIIADO:0000001D [INF] Request starting HTTP/2 GET https://localhost:5001/Images/Favicon/favicon-16x16.png - - (ca22a1cb)
+2021-05-29T11:22:20.9570967+04:30 0HM92DOTIIADO:0000001B [INF] Sending file. Request path: '"/Images/Favicon/android-icon-192x192.png"'. Physical path: '"D:\.NET\01_MyProject\EndPoint.WebSite\wwwroot\Images\Favicon\android-icon-192x192.png"' (27b0a520)
+2021-05-29T11:22:20.9572092+04:30 0HM92DOTIIADO:0000001B [INF] Request finished HTTP/2 GET https://localhost:5001/Images/Favicon/android-icon-192x192.png - - - 0 21868 image/png 16.8820ms (791a596a)
+2021-05-29T11:22:20.9673491+04:30 0HM92DOTIIADO:0000001D [INF] Sending file. Request path: '"/Images/Favicon/favicon-16x16.png"'. Physical path: '"D:\.NET\01_MyProject\EndPoint.WebSite\wwwroot\Images\Favicon\favicon-16x16.png"' (27b0a520)
+2021-05-29T11:22:20.9674743+04:30 0HM92DOTIIADO:0000001D [INF] Request finished HTTP/2 GET https://localhost:5001/Images/Favicon/favicon-16x16.png - - - 0 1123 image/png 26.1760ms (791a596a)
+2021-05-29T11:22:27.8753671+04:30 0HM92DOTIIADO:0000001F [INF] Request starting HTTP/2 GET https://localhost:5001/users/auth/checkout - - (ca22a1cb)
+2021-05-29T11:22:27.8781025+04:30 0HM92DOTIIADO:0000001F [INF] "Identity.Application" was not authenticated. Failure message: "Unprotect ticket failed" (48071232)
+2021-05-29T11:22:27.8782632+04:30 0HM92DOTIIADO:0000001F [INF] Executing endpoint '"EndPoint.WebSite.Controllers.AuthController.CheckOut (EndPoint.WebSite)"' (500cc934)
+2021-05-29T11:22:27.8890701+04:30 0HM92DOTIIADO:0000001F [INF] Route matched with "{action = \"CheckOut\", controller = \"Auth\", area = \"\"}". Executing controller action with signature "Microsoft.AspNetCore.Mvc.IActionResult CheckOut(System.String)" on controller "EndPoint.WebSite.Controllers.AuthController" ("EndPoint.WebSite"). (122b2fdf)
+2021-05-29T11:22:27.9025461+04:30 0HM92DOTIIADO:0000001F [INF] Executing ViewResult, running view "CheckOut". (c83d0e25)
+2021-05-29T11:22:27.9811133+04:30 0HM92DOTIIADO:0000001F [INF] Executed ViewResult - view "CheckOut" executed in 80.5755ms. (f66409e9)
+2021-05-29T11:22:27.9812240+04:30 0HM92DOTIIADO:0000001F [INF] Executed action "EndPoint.WebSite.Controllers.AuthController.CheckOut (EndPoint.WebSite)" in 92.0916ms (afa2e885)
+2021-05-29T11:22:27.9813017+04:30 0HM92DOTIIADO:0000001F [INF] Executed endpoint '"EndPoint.WebSite.Controllers.AuthController.CheckOut (EndPoint.WebSite)"' (99874f2b)
+2021-05-29T11:22:27.9826216+04:30 0HM92DOTIIADO:0000001F [INF] Request finished HTTP/2 GET https://localhost:5001/users/auth/checkout - - - 200 - text/html;+charset=utf-8 107.2243ms (791a596a)
+2021-05-29T11:22:28.0743610+04:30 0HM92DOTIIADO:00000021 [INF] Request starting HTTP/2 GET https://localhost:5001/favicon.ico - - (ca22a1cb)
+2021-05-29T11:22:28.0817379+04:30 0HM92DOTIIADO:00000021 [INF] "Identity.Application" was not authenticated. Failure message: "Unprotect ticket failed" (48071232)
+2021-05-29T11:22:28.0824226+04:30 0HM92DOTIIADO:00000021 [INF] Request finished HTTP/2 GET https://localhost:5001/favicon.ico - - - 0 - - 8.0797ms (791a596a)
+2021-05-29T11:22:30.6608450+04:30 0HM92DOTIIADO:00000023 [INF] Request starting HTTP/2 POST https://localhost:5001/users/auth/checkout application/x-www-form-urlencoded 284 (ca22a1cb)
+2021-05-29T11:22:30.6633480+04:30 0HM92DOTIIADO:00000023 [INF] "Identity.Application" was not authenticated. Failure message: "Unprotect ticket failed" (48071232)
+2021-05-29T11:22:30.6634036+04:30 0HM92DOTIIADO:00000023 [INF] Executing endpoint '"EndPoint.WebSite.Controllers.AuthController.CheckOut (EndPoint.WebSite)"' (500cc934)
+2021-05-29T11:22:30.6671243+04:30 0HM92DOTIIADO:00000023 [INF] Route matched with "{action = \"CheckOut\", controller = \"Auth\", area = \"\"}". Executing controller action with signature "Microsoft.AspNetCore.Mvc.IActionResult CheckOut(EndPoint.WebSite.Models.Auth.CheckOutDto)" on controller "EndPoint.WebSite.Controllers.AuthController" ("EndPoint.WebSite"). (122b2fdf)
+2021-05-29T11:22:30.8127810+04:30 0HM92DOTIIADO:00000023 [WRN] No type was specified for the decimal property '"Credit"' on entity type '"User"'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType()', specify precision and scale using 'HasPrecision()' or configure a value converter using 'HasConversion()'. (5c92c1c4)
+2021-05-29T11:22:30.8181593+04:30 0HM92DOTIIADO:00000023 [INF] Entity Framework Core "5.0.6" initialized '"IdentityDatabaseContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2021-05-29T11:22:30.9503786+04:30 0HM92DOTIIADO:00000023 [INF] Executed DbCommand ("42"ms) [Parameters=["@__normalizedUserName_0='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[Discriminator], [u].[Email], [u].[EmailConfirmed], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName], [u].[Address], [u].[Credit], [u].[CrmUsersId], [u].[DataCreated], [u].[Description], [u].[FirstName], [u].[IsActive], [u].[LastName], [u].[RequestToBeOwner], [u].[Tel]
+FROM [User] AS [u]
+WHERE ([u].[Discriminator] = N'User') AND ([u].[NormalizedUserName] = @__normalizedUserName_0)" (0723d8ff)
+2021-05-29T11:22:30.9636210+04:30 0HM92DOTIIADO:00000023 [INF] Executing RedirectResult, redirecting to "/users/auth/register". (d98d540e)
+2021-05-29T11:22:30.9735857+04:30 0HM92DOTIIADO:00000023 [INF] Executed action "EndPoint.WebSite.Controllers.AuthController.CheckOut (EndPoint.WebSite)" in 306.3904ms (afa2e885)
+2021-05-29T11:22:30.9736314+04:30 0HM92DOTIIADO:00000023 [INF] Executed endpoint '"EndPoint.WebSite.Controllers.AuthController.CheckOut (EndPoint.WebSite)"' (99874f2b)
+2021-05-29T11:22:30.9743453+04:30 0HM92DOTIIADO:00000023 [INF] Request finished HTTP/2 POST https://localhost:5001/users/auth/checkout application/x-www-form-urlencoded 284 - 302 0 - 313.5988ms (791a596a)
+2021-05-29T11:22:30.9767033+04:30 0HM92DOTIIADO:00000025 [INF] Request starting HTTP/2 GET https://localhost:5001/users/auth/register - - (ca22a1cb)
+2021-05-29T11:22:30.9770408+04:30 0HM92DOTIIADO:00000025 [INF] "Identity.Application" was not authenticated. Failure message: "Unprotect ticket failed" (48071232)
+2021-05-29T11:22:30.9770814+04:30 0HM92DOTIIADO:00000025 [INF] Executing endpoint '"EndPoint.WebSite.Controllers.AuthController.Register (EndPoint.WebSite)"' (500cc934)
+2021-05-29T11:22:30.9782028+04:30 0HM92DOTIIADO:00000025 [INF] Route matched with "{action = \"Register\", controller = \"Auth\", area = \"\"}". Executing controller action with signature "Microsoft.AspNetCore.Mvc.IActionResult Register()" on controller "EndPoint.WebSite.Controllers.AuthController" ("EndPoint.WebSite"). (122b2fdf)
+2021-05-29T11:22:30.9852752+04:30 0HM92DOTIIADO:00000025 [INF] Executing ViewResult, running view "Register". (c83d0e25)
+2021-05-29T11:22:31.0232150+04:30 0HM92DOTIIADO:00000025 [INF] Executed ViewResult - view "Register" executed in 39.9049ms. (f66409e9)
+2021-05-29T11:22:31.0232771+04:30 0HM92DOTIIADO:00000025 [INF] Executed action "EndPoint.WebSite.Controllers.AuthController.Register (EndPoint.WebSite)" in 45.0395ms (afa2e885)
+2021-05-29T11:22:31.0233076+04:30 0HM92DOTIIADO:00000025 [INF] Executed endpoint '"EndPoint.WebSite.Controllers.AuthController.Register (EndPoint.WebSite)"' (99874f2b)
+2021-05-29T11:22:31.0237625+04:30 0HM92DOTIIADO:00000025 [INF] Request finished HTTP/2 GET https://localhost:5001/users/auth/register - - - 200 - text/html;+charset=utf-8 47.0502ms (791a596a)
+2021-05-29T11:22:36.1128528+04:30 0HM92DOTIIADO:00000027 [INF] Request starting HTTP/2 GET https://localhost:5001/users/auth/checkout - - (ca22a1cb)
+2021-05-29T11:22:36.1133890+04:30 0HM92DOTIIADO:00000027 [INF] "Identity.Application" was not authenticated. Failure message: "Unprotect ticket failed" (48071232)
+2021-05-29T11:22:36.1134821+04:30 0HM92DOTIIADO:00000027 [INF] Executing endpoint '"EndPoint.WebSite.Controllers.AuthController.CheckOut (EndPoint.WebSite)"' (500cc934)
+2021-05-29T11:22:36.1136528+04:30 0HM92DOTIIADO:00000027 [INF] Route matched with "{action = \"CheckOut\", controller = \"Auth\", area = \"\"}". Executing controller action with signature "Microsoft.AspNetCore.Mvc.IActionResult CheckOut(System.String)" on controller "EndPoint.WebSite.Controllers.AuthController" ("EndPoint.WebSite"). (122b2fdf)
+2021-05-29T11:22:36.1147169+04:30 0HM92DOTIIADO:00000027 [INF] Executing ViewResult, running view "CheckOut". (c83d0e25)
+2021-05-29T11:22:36.1159589+04:30 0HM92DOTIIADO:00000027 [INF] Executed ViewResult - view "CheckOut" executed in 1.2723ms. (f66409e9)
+2021-05-29T11:22:36.1160084+04:30 0HM92DOTIIADO:00000027 [INF] Executed action "EndPoint.WebSite.Controllers.AuthController.CheckOut (EndPoint.WebSite)" in 2.3186ms (afa2e885)
+2021-05-29T11:22:36.1160352+04:30 0HM92DOTIIADO:00000027 [INF] Executed endpoint '"EndPoint.WebSite.Controllers.AuthController.CheckOut (EndPoint.WebSite)"' (99874f2b)
+2021-05-29T11:22:36.1165577+04:30 0HM92DOTIIADO:00000027 [INF] Request finished HTTP/2 GET https://localhost:5001/users/auth/checkout - - - 200 - text/html;+charset=utf-8 3.7182ms (791a596a)
+2021-05-29T11:28:50.8854677+04:30  [WRN] 'AddEntityFramework*' was called on the service provider, but 'UseInternalServiceProvider' wasn't called in the DbContext options configuration. Consider removing the 'AddEntityFramework*' call, as in most cases it's not needed and may cause conflicts with other products and services registered in the same service provider. (4bc25ac5)
+2021-05-29T11:28:51.3260104+04:30  [WRN] No type was specified for the decimal property '"Credit"' on entity type '"User"'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType()', specify precision and scale using 'HasPrecision()' or configure a value converter using 'HasConversion()'. (5c92c1c4)
+2021-05-29T11:28:51.3952015+04:30  [INF] Entity Framework Core "5.0.6" initialized '"IdentityDatabaseContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2021-05-29T11:29:19.9206352+04:30  [WRN] 'AddEntityFramework*' was called on the service provider, but 'UseInternalServiceProvider' wasn't called in the DbContext options configuration. Consider removing the 'AddEntityFramework*' call, as in most cases it's not needed and may cause conflicts with other products and services registered in the same service provider. (4bc25ac5)
+2021-05-29T11:29:20.2554785+04:30  [WRN] No type was specified for the decimal property '"Credit"' on entity type '"User"'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType()', specify precision and scale using 'HasPrecision()' or configure a value converter using 'HasConversion()'. (5c92c1c4)
+2021-05-29T11:29:20.3218067+04:30  [INF] Entity Framework Core "5.0.6" initialized '"IdentityDatabaseContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2021-05-29T11:29:21.5647734+04:30  [INF] Executed DbCommand ("211"ms) [Parameters=[""], CommandType='Text', CommandTimeout='60']"
+""CREATE DATABASE [ParsaPoolad4];" (0723d8ff)
+2021-05-29T11:29:21.6162139+04:30  [INF] Executed DbCommand ("50"ms) [Parameters=[""], CommandType='Text', CommandTimeout='60']"
+""IF SERVERPROPERTY('EngineEdition') <> 5
+BEGIN
+    ALTER DATABASE [ParsaPoolad4] SET READ_COMMITTED_SNAPSHOT ON;
+END;" (0723d8ff)
+2021-05-29T11:29:21.6285093+04:30  [INF] Executed DbCommand ("6"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT 1" (0723d8ff)
+2021-05-29T11:29:21.7028497+04:30  [INF] Executed DbCommand ("6"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""CREATE TABLE [__EFMigrationsHistory] (
+    [MigrationId] nvarchar(150) NOT NULL,
+    [ProductVersion] nvarchar(32) NOT NULL,
+    CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY ([MigrationId])
+);" (0723d8ff)
+2021-05-29T11:29:21.7039217+04:30  [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT 1" (0723d8ff)
+2021-05-29T11:29:21.7182222+04:30  [INF] Executed DbCommand ("12"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT OBJECT_ID(N'[__EFMigrationsHistory]');" (0723d8ff)
+2021-05-29T11:29:21.7217147+04:30  [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];" (0723d8ff)
+2021-05-29T11:29:21.7335619+04:30  [INF] Applying migration '"20210529065851_firstr"'. (0e2ac64d)
+2021-05-29T11:29:21.7642980+04:30  [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""CREATE TABLE [Role] (
+    [Id] nvarchar(450) NOT NULL,
+    [Name] nvarchar(max) NULL,
+    [NormalizedName] nvarchar(max) NULL,
+    [ConcurrencyStamp] nvarchar(max) NULL,
+    [Discriminator] nvarchar(max) NOT NULL,
+    [Description] nvarchar(max) NULL,
+    CONSTRAINT [PK_Role] PRIMARY KEY ([Id])
+);" (0723d8ff)
+2021-05-29T11:29:21.7651320+04:30  [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""CREATE TABLE [RoleClaims] (
+    [Id] int NOT NULL IDENTITY,
+    [RoleId] nvarchar(max) NULL,
+    [ClaimType] nvarchar(max) NULL,
+    [ClaimValue] nvarchar(max) NULL,
+    CONSTRAINT [PK_RoleClaims] PRIMARY KEY ([Id])
+);" (0723d8ff)
+2021-05-29T11:29:21.7665982+04:30  [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""CREATE TABLE [User] (
+    [Id] nvarchar(450) NOT NULL,
+    [UserName] nvarchar(max) NULL,
+    [NormalizedUserName] nvarchar(max) NULL,
+    [Email] nvarchar(max) NULL,
+    [NormalizedEmail] nvarchar(max) NULL,
+    [EmailConfirmed] bit NOT NULL,
+    [PasswordHash] nvarchar(max) NULL,
+    [SecurityStamp] nvarchar(max) NULL,
+    [ConcurrencyStamp] nvarchar(max) NULL,
+    [PhoneNumber] nvarchar(max) NULL,
+    [PhoneNumberConfirmed] bit NOT NULL,
+    [TwoFactorEnabled] bit NOT NULL,
+    [LockoutEnd] datetimeoffset NULL,
+    [LockoutEnabled] bit NOT NULL,
+    [AccessFailedCount] int NOT NULL,
+    [Discriminator] nvarchar(max) NOT NULL,
+    [CrmUsersId] int NULL,
+    [FirstName] nvarchar(max) NULL,
+    [LastName] nvarchar(max) NULL,
+    [IsActive] bit NULL,
+    [Description] nvarchar(max) NULL,
+    [Tel] nvarchar(max) NULL,
+    [Credit] decimal(18,2) NULL,
+    [Address] nvarchar(max) NULL,
+    [DataCreated] datetime2 NULL,
+    [RequestToBeOwner] bit NULL,
+    CONSTRAINT [PK_User] PRIMARY KEY ([Id])
+);" (0723d8ff)
+2021-05-29T11:29:21.7680170+04:30  [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""CREATE TABLE [UserClaims] (
+    [Id] int NOT NULL IDENTITY,
+    [UserId] nvarchar(max) NULL,
+    [ClaimType] nvarchar(max) NULL,
+    [ClaimValue] nvarchar(max) NULL,
+    CONSTRAINT [PK_UserClaims] PRIMARY KEY ([Id])
+);" (0723d8ff)
+2021-05-29T11:29:21.7692646+04:30  [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""CREATE TABLE [UserLogins] (
+    [LoginProvider] nvarchar(450) NOT NULL,
+    [ProviderKey] nvarchar(450) NOT NULL,
+    [ProviderDisplayName] nvarchar(max) NULL,
+    [UserId] nvarchar(max) NULL,
+    CONSTRAINT [PK_UserLogins] PRIMARY KEY ([ProviderKey], [LoginProvider])
+);" (0723d8ff)
+2021-05-29T11:29:21.7700441+04:30  [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""CREATE TABLE [UserRoles] (
+    [UserId] nvarchar(450) NOT NULL,
+    [RoleId] nvarchar(450) NOT NULL,
+    CONSTRAINT [PK_UserRoles] PRIMARY KEY ([UserId], [RoleId])
+);" (0723d8ff)
+2021-05-29T11:29:21.7708161+04:30  [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""CREATE TABLE [UserTokens] (
+    [UserId] nvarchar(450) NOT NULL,
+    [LoginProvider] nvarchar(450) NOT NULL,
+    [Name] nvarchar(max) NULL,
+    [Value] nvarchar(max) NULL,
+    CONSTRAINT [PK_UserTokens] PRIMARY KEY ([UserId], [LoginProvider])
+);" (0723d8ff)
+2021-05-29T11:29:21.7721129+04:30  [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20210529065851_firstr', N'5.0.6');" (0723d8ff)
+2021-05-29T11:29:53.9536182+04:30  [WRN] 'AddEntityFramework*' was called on the service provider, but 'UseInternalServiceProvider' wasn't called in the DbContext options configuration. Consider removing the 'AddEntityFramework*' call, as in most cases it's not needed and may cause conflicts with other products and services registered in the same service provider. (4bc25ac5)
+2021-05-29T11:29:54.4315010+04:30  [INF] Entity Framework Core "5.0.6" initialized '"CustomDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2021-05-29T11:30:19.1400431+04:30  [WRN] 'AddEntityFramework*' was called on the service provider, but 'UseInternalServiceProvider' wasn't called in the DbContext options configuration. Consider removing the 'AddEntityFramework*' call, as in most cases it's not needed and may cause conflicts with other products and services registered in the same service provider. (4bc25ac5)
+2021-05-29T11:30:19.6309536+04:30  [INF] Entity Framework Core "5.0.6" initialized '"CustomDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2021-05-29T11:30:19.8206021+04:30  [INF] Executed DbCommand ("13"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT 1" (0723d8ff)
+2021-05-29T11:30:19.8395017+04:30  [INF] Executed DbCommand ("12"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT OBJECT_ID(N'[__EFMigrationsHistory]');" (0723d8ff)
+2021-05-29T11:30:19.8417019+04:30  [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT 1" (0723d8ff)
+2021-05-29T11:30:19.8422051+04:30  [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT OBJECT_ID(N'[__EFMigrationsHistory]');" (0723d8ff)
+2021-05-29T11:30:19.8567707+04:30  [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];" (0723d8ff)
+2021-05-29T11:30:19.8691965+04:30  [INF] Applying migration '"20210529065954_testss"'. (0e2ac64d)
+2021-05-29T11:30:19.9247453+04:30  [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""CREATE TABLE [Claims] (
+    [Id] int NOT NULL IDENTITY,
+    [ClaimType] nvarchar(max) NULL,
+    [ClaimValue] nvarchar(max) NULL,
+    [ClaimName] nvarchar(max) NULL,
+    [IsHead] bit NULL,
+    [ParentId] int NULL,
+    CONSTRAINT [PK_Claims] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_Claims_Claims_ParentId] FOREIGN KEY ([ParentId]) REFERENCES [Claims] ([Id]) ON DELETE NO ACTION
+);" (0723d8ff)
+2021-05-29T11:30:19.9258988+04:30  [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""CREATE TABLE [Sliders] (
+    [Id] int NOT NULL IDENTITY,
+    [Title] nvarchar(max) NULL,
+    [Subject] nvarchar(max) NULL,
+    [Description] nvarchar(max) NULL,
+    [Type] nvarchar(max) NULL,
+    [Active] bit NOT NULL,
+    [Position] int NOT NULL,
+    [Url] nvarchar(max) NULL,
+    CONSTRAINT [PK_Sliders] PRIMARY KEY ([Id])
+);" (0723d8ff)
+2021-05-29T11:30:19.9264334+04:30  [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""CREATE INDEX [IX_Claims_ParentId] ON [Claims] ([ParentId]);" (0723d8ff)
+2021-05-29T11:30:19.9272956+04:30  [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20210529065954_testss', N'5.0.6');" (0723d8ff)
+2021-05-29T11:32:04.8393751+04:30  [INF] User profile is available. Using '"C:\Users\pc-2\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest. (7ac5e29c)
+2021-05-29T11:32:05.2453384+04:30  [INF] Now listening on: "https://localhost:5001" (d826f4b8)
+2021-05-29T11:32:05.2454118+04:30  [INF] Now listening on: "http://localhost:5000" (d826f4b8)
+2021-05-29T11:32:05.2454876+04:30  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-05-29T11:32:05.2455176+04:30  [INF] Hosting environment: "Development" (c3307c92)
+2021-05-29T11:32:05.2455359+04:30  [INF] Content root path: "D:\.NET\01_MyProject\EndPoint.WebSite" (b5d60022)
+2021-05-29T11:32:05.8402453+04:30 0HM92DULF9VO5:0000000F [INF] Request starting HTTP/2 GET https://localhost:5001/ - - (ca22a1cb)
+2021-05-29T11:32:05.9454689+04:30 0HM92DULF9VO5:0000000F [INF] "Identity.Application" was not authenticated. Failure message: "Unprotect ticket failed" (48071232)
+2021-05-29T11:32:05.9509372+04:30 0HM92DULF9VO5:0000000F [INF] Executing endpoint '"EndPoint.WebSite.Controllers.HomeController.Index (EndPoint.WebSite)"' (500cc934)
+2021-05-29T11:32:06.0436462+04:30 0HM92DULF9VO5:0000000F [INF] Route matched with "{action = \"Index\", controller = \"Home\", area = \"\"}". Executing controller action with signature "Microsoft.AspNetCore.Mvc.IActionResult Index()" on controller "EndPoint.WebSite.Controllers.HomeController" ("EndPoint.WebSite"). (122b2fdf)
+2021-05-29T11:32:06.1140743+04:30 0HM92DULF9VO5:0000000F [WRN] 'AddEntityFramework*' was called on the service provider, but 'UseInternalServiceProvider' wasn't called in the DbContext options configuration. Consider removing the 'AddEntityFramework*' call, as in most cases it's not needed and may cause conflicts with other products and services registered in the same service provider. (4bc25ac5)
+2021-05-29T11:32:35.1143712+04:30 0HM92DULF9VO5:0000000F [WRN] No type was specified for the decimal property '"PrdPrice"' on entity type '"Wsproducts"'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType()', specify precision and scale using 'HasPrecision()' or configure a value converter using 'HasConversion()'. (5c92c1c4)
+2021-05-29T11:32:35.4096950+04:30 0HM92DULF9VO5:0000000F [INF] Entity Framework Core "5.0.6" initialized '"IdealCrmDataBaseContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2021-05-29T11:32:36.0080827+04:30 0HM92DULF9VO5:0000000F [INF] Executed DbCommand ("161"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c].[NewsGroupId] AS [Id], [c].[GroupName] AS [Name]
+FROM [CrmCmsNewsGroups] AS [c]" (0723d8ff)
+2021-05-29T11:32:36.0301168+04:30 0HM92DULF9VO5:0000000F [INF] info (680db0b0)
+2021-05-29T11:32:36.0301693+04:30 0HM92DULF9VO5:0000000F [WRN] war (fa24b367)
+2021-05-29T11:32:36.0301888+04:30 0HM92DULF9VO5:0000000F [ERR] err (42240f44)
+2021-05-29T11:32:36.0302027+04:30 0HM92DULF9VO5:0000000F [FTL] critical (18f63ac8)
+2021-05-29T11:32:36.1002913+04:30 0HM92DULF9VO5:0000000F [INF] Executing ViewResult, running view "Index". (c83d0e25)
+2021-05-29T11:32:36.3167486+04:30 0HM92DULF9VO5:0000000F [INF] Executed ViewResult - view "Index" executed in 276.1575ms. (f66409e9)
+2021-05-29T11:32:36.3172128+04:30 0HM92DULF9VO5:0000000F [INF] Executed action "EndPoint.WebSite.Controllers.HomeController.Index (EndPoint.WebSite)" in 30273.0668ms (afa2e885)
+2021-05-29T11:32:36.3172715+04:30 0HM92DULF9VO5:0000000F [INF] Executed endpoint '"EndPoint.WebSite.Controllers.HomeController.Index (EndPoint.WebSite)"' (99874f2b)
+2021-05-29T11:32:36.3471047+04:30 0HM92DULF9VO5:0000000F [INF] Request finished HTTP/2 GET https://localhost:5001/ - - - 200 - text/html;+charset=utf-8 30510.4886ms (791a596a)
+2021-05-29T11:32:36.3756842+04:30 0HM92DULF9VO5:00000011 [INF] Request starting HTTP/2 GET https://localhost:5001/Images/Settings/Logo-Header.jpg - - (ca22a1cb)
+2021-05-29T11:32:36.3827164+04:30 0HM92DULF9VO5:00000011 [INF] Sending file. Request path: '"/Images/Settings/Logo-Header.jpg"'. Physical path: '"D:\.NET\01_MyProject\EndPoint.WebSite\wwwroot\Images\Settings\Logo-Header.jpg"' (27b0a520)
+2021-05-29T11:32:36.3828955+04:30 0HM92DULF9VO5:00000011 [INF] Request finished HTTP/2 GET https://localhost:5001/Images/Settings/Logo-Header.jpg - - - 0 3318 image/jpeg 7.2025ms (791a596a)
+2021-05-29T11:32:36.4105343+04:30 0HM92DULF9VO5:00000013 [INF] Request starting HTTP/2 GET https://localhost:5001/Images/Settings/22414818.svg - - (ca22a1cb)
+2021-05-29T11:32:36.4110209+04:30 0HM92DULF9VO5:00000013 [INF] Sending file. Request path: '"/Images/Settings/22414818.svg"'. Physical path: '"D:\.NET\01_MyProject\EndPoint.WebSite\wwwroot\Images\Settings\22414818.svg"' (27b0a520)
+2021-05-29T11:32:36.4111225+04:30 0HM92DULF9VO5:00000013 [INF] Request finished HTTP/2 GET https://localhost:5001/Images/Settings/22414818.svg - - - 0 3417 image/svg+xml 0.5634ms (791a596a)
+2021-05-29T11:32:46.6320928+04:30 0HM92DULF9VO5:00000015 [INF] Request starting HTTP/2 GET https://localhost:5001/users/auth/checkout - - (ca22a1cb)
+2021-05-29T11:32:46.6344392+04:30 0HM92DULF9VO5:00000015 [INF] "Identity.Application" was not authenticated. Failure message: "Unprotect ticket failed" (48071232)
+2021-05-29T11:32:46.6345507+04:30 0HM92DULF9VO5:00000015 [INF] Executing endpoint '"EndPoint.WebSite.Controllers.AuthController.CheckOut (EndPoint.WebSite)"' (500cc934)
+2021-05-29T11:32:46.6928305+04:30 0HM92DULF9VO5:00000015 [INF] Route matched with "{action = \"CheckOut\", controller = \"Auth\", area = \"\"}". Executing controller action with signature "Microsoft.AspNetCore.Mvc.IActionResult CheckOut(System.String)" on controller "EndPoint.WebSite.Controllers.AuthController" ("EndPoint.WebSite"). (122b2fdf)
+2021-05-29T11:32:46.7094467+04:30 0HM92DULF9VO5:00000015 [INF] Executing ViewResult, running view "CheckOut". (c83d0e25)
+2021-05-29T11:32:46.7774618+04:30 0HM92DULF9VO5:00000015 [INF] Executed ViewResult - view "CheckOut" executed in 70.4464ms. (f66409e9)
+2021-05-29T11:32:46.7775958+04:30 0HM92DULF9VO5:00000015 [INF] Executed action "EndPoint.WebSite.Controllers.AuthController.CheckOut (EndPoint.WebSite)" in 84.6769ms (afa2e885)
+2021-05-29T11:32:46.7776443+04:30 0HM92DULF9VO5:00000015 [INF] Executed endpoint '"EndPoint.WebSite.Controllers.AuthController.CheckOut (EndPoint.WebSite)"' (99874f2b)
+2021-05-29T11:32:46.7784672+04:30 0HM92DULF9VO5:00000015 [INF] Request finished HTTP/2 GET https://localhost:5001/users/auth/checkout - - - 200 - text/html;+charset=utf-8 146.3869ms (791a596a)
+2021-05-29T11:32:48.7399537+04:30 0HM92DULF9VO5:00000017 [INF] Request starting HTTP/2 POST https://localhost:5001/users/auth/checkout application/x-www-form-urlencoded 284 (ca22a1cb)
+2021-05-29T11:32:48.7434343+04:30 0HM92DULF9VO5:00000017 [INF] "Identity.Application" was not authenticated. Failure message: "Unprotect ticket failed" (48071232)
+2021-05-29T11:32:48.7434772+04:30 0HM92DULF9VO5:00000017 [INF] Executing endpoint '"EndPoint.WebSite.Controllers.AuthController.CheckOut (EndPoint.WebSite)"' (500cc934)
+2021-05-29T11:32:48.7455322+04:30 0HM92DULF9VO5:00000017 [INF] Route matched with "{action = \"CheckOut\", controller = \"Auth\", area = \"\"}". Executing controller action with signature "Microsoft.AspNetCore.Mvc.IActionResult CheckOut(EndPoint.WebSite.Models.Auth.CheckOutDto)" on controller "EndPoint.WebSite.Controllers.AuthController" ("EndPoint.WebSite"). (122b2fdf)
+2021-05-29T11:32:48.8877024+04:30 0HM92DULF9VO5:00000017 [WRN] No type was specified for the decimal property '"Credit"' on entity type '"User"'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType()', specify precision and scale using 'HasPrecision()' or configure a value converter using 'HasConversion()'. (5c92c1c4)
+2021-05-29T11:32:48.9075215+04:30 0HM92DULF9VO5:00000017 [INF] Entity Framework Core "5.0.6" initialized '"IdentityDatabaseContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2021-05-29T11:32:49.0608407+04:30 0HM92DULF9VO5:00000017 [ERR] Failed executing DbCommand ("34"ms) [Parameters=["@__normalizedUserName_0='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[Discriminator], [u].[Email], [u].[EmailConfirmed], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName], [u].[Address], [u].[Credit], [u].[CrmUsersId], [u].[DataCreated], [u].[Description], [u].[FirstName], [u].[IsActive], [u].[LastName], [u].[RequestToBeOwner], [u].[Tel]
+FROM [User] AS [u]
+WHERE ([u].[Discriminator] = N'User') AND ([u].[NormalizedUserName] = @__normalizedUserName_0)" (627a98df)
+2021-05-29T11:32:49.0870918+04:30 0HM92DULF9VO5:00000017 [ERR] An exception occurred while iterating over the results of a query for context type '"Persistence.Contexts.IdentityDatabaseContext"'."
+""Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'Discriminator'.
+Invalid column name 'Discriminator'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__169_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__277_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(DbContext _, Boolean result, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:5885f1ad-8191-4c4c-91c6-02e5911be8d6
+Error Number:207,State:1,Class:16" (f5c7ac34)
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'Discriminator'.
+Invalid column name 'Discriminator'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__169_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__277_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(DbContext _, Boolean result, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:5885f1ad-8191-4c4c-91c6-02e5911be8d6
+Error Number:207,State:1,Class:16
+2021-05-29T11:32:49.0901849+04:30 0HM92DULF9VO5:00000017 [INF] Executed action "EndPoint.WebSite.Controllers.AuthController.CheckOut (EndPoint.WebSite)" in 344.6037ms (afa2e885)
+2021-05-29T11:32:49.0905737+04:30 0HM92DULF9VO5:00000017 [INF] Executed endpoint '"EndPoint.WebSite.Controllers.AuthController.CheckOut (EndPoint.WebSite)"' (99874f2b)
+2021-05-29T11:32:49.0915239+04:30 0HM92DULF9VO5:00000017 [ERR] An unhandled exception has occurred while executing the request. (48a46595)
+System.AggregateException: One or more errors occurred. (Invalid column name 'Discriminator'.
+Invalid column name 'Discriminator'.)
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'Discriminator'.
+Invalid column name 'Discriminator'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__169_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__277_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(DbContext _, Boolean result, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Identity.UserManager`1.FindByNameAsync(String userName)
+ClientConnectionId:5885f1ad-8191-4c4c-91c6-02e5911be8d6
+Error Number:207,State:1,Class:16
+   --- End of inner exception stack trace ---
+   at System.Threading.Tasks.Task`1.GetResultCore(Boolean waitCompletionNotification)
+   at System.Threading.Tasks.Task`1.get_Result()
+   at EndPoint.WebSite.Controllers.AuthController.CheckOut(CheckOutDto checkOutDto) in D:\.NET\01_MyProject\EndPoint.WebSite\Controllers\AuthController.cs:line 62
+   at lambda_method552(Closure , Object , Object[] )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2021-05-29T11:32:49.1147148+04:30 0HM92DULF9VO5:00000017 [INF] Request finished HTTP/2 POST https://localhost:5001/users/auth/checkout application/x-www-form-urlencoded 284 - 500 - text/html;+charset=utf-8 374.7429ms (791a596a)
+2021-05-29T11:33:09.0790891+04:30  [INF] User profile is available. Using '"C:\Users\pc-2\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest. (7ac5e29c)
+2021-05-29T11:33:09.3992087+04:30  [INF] Now listening on: "https://localhost:5001" (d826f4b8)
+2021-05-29T11:33:09.3992688+04:30  [INF] Now listening on: "http://localhost:5000" (d826f4b8)
+2021-05-29T11:33:09.3993587+04:30  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-05-29T11:33:09.3993759+04:30  [INF] Hosting environment: "Development" (c3307c92)
+2021-05-29T11:33:09.3993858+04:30  [INF] Content root path: "D:\.NET\01_MyProject\EndPoint.WebSite" (b5d60022)
+2021-05-29T11:33:09.8705908+04:30 0HM92DV8K06A6:0000000F [INF] Request starting HTTP/2 GET https://localhost:5001/ - - (ca22a1cb)
+2021-05-29T11:33:09.9204136+04:30 0HM92DV8K06A6:0000000F [INF] "Identity.Application" was not authenticated. Failure message: "Unprotect ticket failed" (48071232)
+2021-05-29T11:33:09.9218769+04:30 0HM92DV8K06A6:0000000F [INF] Executing endpoint '"EndPoint.WebSite.Controllers.HomeController.Index (EndPoint.WebSite)"' (500cc934)
+2021-05-29T11:33:09.9535732+04:30 0HM92DV8K06A6:0000000F [INF] Route matched with "{action = \"Index\", controller = \"Home\", area = \"\"}". Executing controller action with signature "Microsoft.AspNetCore.Mvc.IActionResult Index()" on controller "EndPoint.WebSite.Controllers.HomeController" ("EndPoint.WebSite"). (122b2fdf)
+2021-05-29T11:33:10.0074418+04:30 0HM92DV8K06A6:0000000F [WRN] 'AddEntityFramework*' was called on the service provider, but 'UseInternalServiceProvider' wasn't called in the DbContext options configuration. Consider removing the 'AddEntityFramework*' call, as in most cases it's not needed and may cause conflicts with other products and services registered in the same service provider. (4bc25ac5)
+2021-05-29T11:33:36.0224872+04:30 0HM92DV8K06A6:0000000F [WRN] No type was specified for the decimal property '"PrdPrice"' on entity type '"Wsproducts"'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType()', specify precision and scale using 'HasPrecision()' or configure a value converter using 'HasConversion()'. (5c92c1c4)
+2021-05-29T11:33:36.3093380+04:30 0HM92DV8K06A6:0000000F [INF] Entity Framework Core "5.0.6" initialized '"IdealCrmDataBaseContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2021-05-29T11:33:36.7742797+04:30 0HM92DV8K06A6:0000000F [INF] Executed DbCommand ("25"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c].[NewsGroupId] AS [Id], [c].[GroupName] AS [Name]
+FROM [CrmCmsNewsGroups] AS [c]" (0723d8ff)
+2021-05-29T11:33:36.7964534+04:30 0HM92DV8K06A6:0000000F [INF] info (680db0b0)
+2021-05-29T11:33:36.7965390+04:30 0HM92DV8K06A6:0000000F [WRN] war (fa24b367)
+2021-05-29T11:33:36.7965935+04:30 0HM92DV8K06A6:0000000F [ERR] err (42240f44)
+2021-05-29T11:33:36.7966391+04:30 0HM92DV8K06A6:0000000F [FTL] critical (18f63ac8)
+2021-05-29T11:33:36.8317707+04:30 0HM92DV8K06A6:0000000F [INF] Executing ViewResult, running view "Index". (c83d0e25)
+2021-05-29T11:33:37.0346454+04:30 0HM92DV8K06A6:0000000F [INF] Executed ViewResult - view "Index" executed in 230.85ms. (f66409e9)
+2021-05-29T11:33:37.0352937+04:30 0HM92DV8K06A6:0000000F [INF] Executed action "EndPoint.WebSite.Controllers.HomeController.Index (EndPoint.WebSite)" in 27081.1038ms (afa2e885)
+2021-05-29T11:33:37.0353943+04:30 0HM92DV8K06A6:0000000F [INF] Executed endpoint '"EndPoint.WebSite.Controllers.HomeController.Index (EndPoint.WebSite)"' (99874f2b)
+2021-05-29T11:33:37.0603928+04:30 0HM92DV8K06A6:0000000F [INF] Request finished HTTP/2 GET https://localhost:5001/ - - - 200 - text/html;+charset=utf-8 27191.8884ms (791a596a)
+2021-05-29T11:33:51.7173826+04:30 0HM92DV8K06A6:00000011 [INF] Request starting HTTP/2 GET https://localhost:5001/users/auth/checkout - - (ca22a1cb)
+2021-05-29T11:33:51.7193352+04:30 0HM92DV8K06A6:00000011 [INF] "Identity.Application" was not authenticated. Failure message: "Unprotect ticket failed" (48071232)
+2021-05-29T11:33:51.7194387+04:30 0HM92DV8K06A6:00000011 [INF] Executing endpoint '"EndPoint.WebSite.Controllers.AuthController.CheckOut (EndPoint.WebSite)"' (500cc934)
+2021-05-29T11:33:51.7285961+04:30 0HM92DV8K06A6:00000011 [INF] Route matched with "{action = \"CheckOut\", controller = \"Auth\", area = \"\"}". Executing controller action with signature "Microsoft.AspNetCore.Mvc.IActionResult CheckOut(System.String)" on controller "EndPoint.WebSite.Controllers.AuthController" ("EndPoint.WebSite"). (122b2fdf)
+2021-05-29T11:33:51.7406645+04:30 0HM92DV8K06A6:00000011 [INF] Executing ViewResult, running view "CheckOut". (c83d0e25)
+2021-05-29T11:33:51.7996331+04:30 0HM92DV8K06A6:00000011 [INF] Executed ViewResult - view "CheckOut" executed in 60.8787ms. (f66409e9)
+2021-05-29T11:33:51.7997314+04:30 0HM92DV8K06A6:00000011 [INF] Executed action "EndPoint.WebSite.Controllers.AuthController.CheckOut (EndPoint.WebSite)" in 71.0812ms (afa2e885)
+2021-05-29T11:33:51.7997613+04:30 0HM92DV8K06A6:00000011 [INF] Executed endpoint '"EndPoint.WebSite.Controllers.AuthController.CheckOut (EndPoint.WebSite)"' (99874f2b)
+2021-05-29T11:33:51.8008626+04:30 0HM92DV8K06A6:00000011 [INF] Request finished HTTP/2 GET https://localhost:5001/users/auth/checkout - - - 200 - text/html;+charset=utf-8 83.4597ms (791a596a)
+2021-05-29T11:33:53.9028898+04:30 0HM92DV8K06A6:00000013 [INF] Request starting HTTP/2 POST https://localhost:5001/users/auth/checkout application/x-www-form-urlencoded 284 (ca22a1cb)
+2021-05-29T11:33:53.9064964+04:30 0HM92DV8K06A6:00000013 [INF] "Identity.Application" was not authenticated. Failure message: "Unprotect ticket failed" (48071232)
+2021-05-29T11:33:53.9065459+04:30 0HM92DV8K06A6:00000013 [INF] Executing endpoint '"EndPoint.WebSite.Controllers.AuthController.CheckOut (EndPoint.WebSite)"' (500cc934)
+2021-05-29T11:33:53.9085328+04:30 0HM92DV8K06A6:00000013 [INF] Route matched with "{action = \"CheckOut\", controller = \"Auth\", area = \"\"}". Executing controller action with signature "Microsoft.AspNetCore.Mvc.IActionResult CheckOut(EndPoint.WebSite.Models.Auth.CheckOutDto)" on controller "EndPoint.WebSite.Controllers.AuthController" ("EndPoint.WebSite"). (122b2fdf)
+2021-05-29T11:33:54.0190954+04:30 0HM92DV8K06A6:00000013 [WRN] No type was specified for the decimal property '"Credit"' on entity type '"User"'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType()', specify precision and scale using 'HasPrecision()' or configure a value converter using 'HasConversion()'. (5c92c1c4)
+2021-05-29T11:33:54.0385506+04:30 0HM92DV8K06A6:00000013 [INF] Entity Framework Core "5.0.6" initialized '"IdentityDatabaseContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2021-05-29T11:33:54.1610349+04:30 0HM92DV8K06A6:00000013 [INF] Executed DbCommand ("29"ms) [Parameters=["@__normalizedUserName_0='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[Discriminator], [u].[Email], [u].[EmailConfirmed], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName], [u].[Address], [u].[Credit], [u].[CrmUsersId], [u].[DataCreated], [u].[Description], [u].[FirstName], [u].[IsActive], [u].[LastName], [u].[RequestToBeOwner], [u].[Tel]
+FROM [User] AS [u]
+WHERE ([u].[Discriminator] = N'User') AND ([u].[NormalizedUserName] = @__normalizedUserName_0)" (0723d8ff)
+2021-05-29T11:33:54.1742150+04:30 0HM92DV8K06A6:00000013 [INF] Executing RedirectResult, redirecting to "/users/auth/register". (d98d540e)
+2021-05-29T11:33:54.1745050+04:30 0HM92DV8K06A6:00000013 [INF] Executed action "EndPoint.WebSite.Controllers.AuthController.CheckOut (EndPoint.WebSite)" in 265.9192ms (afa2e885)
+2021-05-29T11:33:54.1745365+04:30 0HM92DV8K06A6:00000013 [INF] Executed endpoint '"EndPoint.WebSite.Controllers.AuthController.CheckOut (EndPoint.WebSite)"' (99874f2b)
+2021-05-29T11:33:54.1752664+04:30 0HM92DV8K06A6:00000013 [INF] Request finished HTTP/2 POST https://localhost:5001/users/auth/checkout application/x-www-form-urlencoded 284 - 302 0 - 272.4340ms (791a596a)
+2021-05-29T11:33:54.1777995+04:30 0HM92DV8K06A6:00000015 [INF] Request starting HTTP/2 GET https://localhost:5001/users/auth/register - - (ca22a1cb)
+2021-05-29T11:33:54.1780964+04:30 0HM92DV8K06A6:00000015 [INF] "Identity.Application" was not authenticated. Failure message: "Unprotect ticket failed" (48071232)
+2021-05-29T11:33:54.1781801+04:30 0HM92DV8K06A6:00000015 [INF] Executing endpoint '"EndPoint.WebSite.Controllers.AuthController.Register (EndPoint.WebSite)"' (500cc934)
+2021-05-29T11:33:54.1792732+04:30 0HM92DV8K06A6:00000015 [INF] Route matched with "{action = \"Register\", controller = \"Auth\", area = \"\"}". Executing controller action with signature "Microsoft.AspNetCore.Mvc.IActionResult Register()" on controller "EndPoint.WebSite.Controllers.AuthController" ("EndPoint.WebSite"). (122b2fdf)
+2021-05-29T11:33:54.1863240+04:30 0HM92DV8K06A6:00000015 [INF] Executing ViewResult, running view "Register". (c83d0e25)
+2021-05-29T11:33:54.2342718+04:30 0HM92DV8K06A6:00000015 [INF] Executed ViewResult - view "Register" executed in 49.9152ms. (f66409e9)
+2021-05-29T11:33:54.2343303+04:30 0HM92DV8K06A6:00000015 [INF] Executed action "EndPoint.WebSite.Controllers.AuthController.Register (EndPoint.WebSite)" in 55.0243ms (afa2e885)
+2021-05-29T11:33:54.2343581+04:30 0HM92DV8K06A6:00000015 [INF] Executed endpoint '"EndPoint.WebSite.Controllers.AuthController.Register (EndPoint.WebSite)"' (99874f2b)
+2021-05-29T11:33:54.2348710+04:30 0HM92DV8K06A6:00000015 [INF] Request finished HTTP/2 GET https://localhost:5001/users/auth/register - - - 200 - text/html;+charset=utf-8 57.0545ms (791a596a)
+2021-05-29T12:41:36.3585539+04:30  [WRN] 'AddEntityFramework*' was called on the service provider, but 'UseInternalServiceProvider' wasn't called in the DbContext options configuration. Consider removing the 'AddEntityFramework*' call, as in most cases it's not needed and may cause conflicts with other products and services registered in the same service provider. (4bc25ac5)
+2021-05-29T12:41:36.7965632+04:30  [WRN] No type was specified for the decimal property '"Credit"' on entity type '"User"'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType()', specify precision and scale using 'HasPrecision()' or configure a value converter using 'HasConversion()'. (5c92c1c4)
+2021-05-29T12:41:36.8667353+04:30  [INF] Entity Framework Core "5.0.6" initialized '"IdentityDatabaseContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2021-05-29T12:42:15.2961237+04:30  [WRN] 'AddEntityFramework*' was called on the service provider, but 'UseInternalServiceProvider' wasn't called in the DbContext options configuration. Consider removing the 'AddEntityFramework*' call, as in most cases it's not needed and may cause conflicts with other products and services registered in the same service provider. (4bc25ac5)
+2021-05-29T12:42:15.8101104+04:30  [WRN] No type was specified for the decimal property '"Credit"' on entity type '"User"'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType()', specify precision and scale using 'HasPrecision()' or configure a value converter using 'HasConversion()'. (5c92c1c4)
+2021-05-29T12:42:15.8850385+04:30  [INF] Entity Framework Core "5.0.6" initialized '"IdentityDatabaseContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2021-05-29T12:42:17.6555311+04:30  [INF] Executed DbCommand ("814"ms) [Parameters=[""], CommandType='Text', CommandTimeout='60']"
+""CREATE DATABASE [ParsaPoolad5];" (0723d8ff)
+2021-05-29T12:42:17.8160015+04:30  [INF] Executed DbCommand ("159"ms) [Parameters=[""], CommandType='Text', CommandTimeout='60']"
+""IF SERVERPROPERTY('EngineEdition') <> 5
+BEGIN
+    ALTER DATABASE [ParsaPoolad5] SET READ_COMMITTED_SNAPSHOT ON;
+END;" (0723d8ff)
+2021-05-29T12:42:17.8284668+04:30  [INF] Executed DbCommand ("5"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT 1" (0723d8ff)
+2021-05-29T12:42:17.9982439+04:30  [INF] Executed DbCommand ("20"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""CREATE TABLE [__EFMigrationsHistory] (
+    [MigrationId] nvarchar(150) NOT NULL,
+    [ProductVersion] nvarchar(32) NOT NULL,
+    CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY ([MigrationId])
+);" (0723d8ff)
+2021-05-29T12:42:18.0111884+04:30  [INF] Executed DbCommand ("11"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT 1" (0723d8ff)
+2021-05-29T12:42:18.0468406+04:30  [INF] Executed DbCommand ("31"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT OBJECT_ID(N'[__EFMigrationsHistory]');" (0723d8ff)
+2021-05-29T12:42:18.0518785+04:30  [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];" (0723d8ff)
+2021-05-29T12:42:18.0645297+04:30  [INF] Applying migration '"20210529081137_CreateIdentityTables"'. (0e2ac64d)
+2021-05-29T12:42:18.1066066+04:30  [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""CREATE TABLE [Role] (
+    [Id] nvarchar(450) NOT NULL,
+    [Name] nvarchar(max) NULL,
+    [NormalizedName] nvarchar(max) NULL,
+    [ConcurrencyStamp] nvarchar(max) NULL,
+    [Discriminator] nvarchar(max) NOT NULL,
+    [Description] nvarchar(max) NULL,
+    CONSTRAINT [PK_Role] PRIMARY KEY ([Id])
+);" (0723d8ff)
+2021-05-29T12:42:18.1080727+04:30  [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""CREATE TABLE [RoleClaims] (
+    [Id] int NOT NULL IDENTITY,
+    [RoleId] nvarchar(max) NULL,
+    [ClaimType] nvarchar(max) NULL,
+    [ClaimValue] nvarchar(max) NULL,
+    CONSTRAINT [PK_RoleClaims] PRIMARY KEY ([Id])
+);" (0723d8ff)
+2021-05-29T12:42:18.1096885+04:30  [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""CREATE TABLE [User] (
+    [Id] nvarchar(450) NOT NULL,
+    [UserName] nvarchar(max) NULL,
+    [NormalizedUserName] nvarchar(max) NULL,
+    [Email] nvarchar(max) NULL,
+    [NormalizedEmail] nvarchar(max) NULL,
+    [EmailConfirmed] bit NOT NULL,
+    [PasswordHash] nvarchar(max) NULL,
+    [SecurityStamp] nvarchar(max) NULL,
+    [ConcurrencyStamp] nvarchar(max) NULL,
+    [PhoneNumber] nvarchar(max) NULL,
+    [PhoneNumberConfirmed] bit NOT NULL,
+    [TwoFactorEnabled] bit NOT NULL,
+    [LockoutEnd] datetimeoffset NULL,
+    [LockoutEnabled] bit NOT NULL,
+    [AccessFailedCount] int NOT NULL,
+    [Discriminator] nvarchar(max) NOT NULL,
+    [CrmUsersId] int NULL,
+    [FirstName] nvarchar(max) NULL,
+    [LastName] nvarchar(max) NULL,
+    [IsActive] bit NULL,
+    [Description] nvarchar(max) NULL,
+    [Tel] nvarchar(max) NULL,
+    [Credit] decimal(18,2) NULL,
+    [Address] nvarchar(max) NULL,
+    [DataCreated] datetime2 NULL,
+    [RequestToBeOwner] bit NULL,
+    CONSTRAINT [PK_User] PRIMARY KEY ([Id])
+);" (0723d8ff)
+2021-05-29T12:42:18.1113383+04:30  [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""CREATE TABLE [UserClaims] (
+    [Id] int NOT NULL IDENTITY,
+    [UserId] nvarchar(max) NULL,
+    [ClaimType] nvarchar(max) NULL,
+    [ClaimValue] nvarchar(max) NULL,
+    CONSTRAINT [PK_UserClaims] PRIMARY KEY ([Id])
+);" (0723d8ff)
+2021-05-29T12:42:18.1136510+04:30  [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""CREATE TABLE [UserLogins] (
+    [LoginProvider] nvarchar(450) NOT NULL,
+    [ProviderKey] nvarchar(450) NOT NULL,
+    [ProviderDisplayName] nvarchar(max) NULL,
+    [UserId] nvarchar(max) NULL,
+    CONSTRAINT [PK_UserLogins] PRIMARY KEY ([ProviderKey], [LoginProvider])
+);" (0723d8ff)
+2021-05-29T12:42:18.1144550+04:30  [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""CREATE TABLE [UserRoles] (
+    [UserId] nvarchar(450) NOT NULL,
+    [RoleId] nvarchar(450) NOT NULL,
+    CONSTRAINT [PK_UserRoles] PRIMARY KEY ([UserId], [RoleId])
+);" (0723d8ff)
+2021-05-29T12:42:18.1152608+04:30  [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""CREATE TABLE [UserTokens] (
+    [UserId] nvarchar(450) NOT NULL,
+    [LoginProvider] nvarchar(450) NOT NULL,
+    [Name] nvarchar(max) NULL,
+    [Value] nvarchar(max) NULL,
+    CONSTRAINT [PK_UserTokens] PRIMARY KEY ([UserId], [LoginProvider])
+);" (0723d8ff)
+2021-05-29T12:42:18.5496241+04:30  [INF] Executed DbCommand ("434"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'ConcurrencyStamp', N'Description', N'Discriminator', N'Name', N'NormalizedName') AND [object_id] = OBJECT_ID(N'[Role]'))
+    SET IDENTITY_INSERT [Role] ON;
+INSERT INTO [Role] ([Id], [ConcurrencyStamp], [Description], [Discriminator], [Name], [NormalizedName])
+VALUES (N'8ce221cd-1b57-4e0b-8781-79524b05fcc5', N'e27bb24c-7f4a-45f7-b35b-bdf0068d9ff4', N'برنامه نویس', N'Role', N'SeniorProgrammer', N'SENIORPROGRAMMER');
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'ConcurrencyStamp', N'Description', N'Discriminator', N'Name', N'NormalizedName') AND [object_id] = OBJECT_ID(N'[Role]'))
+    SET IDENTITY_INSERT [Role] OFF;" (0723d8ff)
+2021-05-29T12:42:18.5519630+04:30  [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20210529081137_CreateIdentityTables', N'5.0.6');" (0723d8ff)
+2021-05-29T12:43:25.5174621+04:30  [WRN] 'AddEntityFramework*' was called on the service provider, but 'UseInternalServiceProvider' wasn't called in the DbContext options configuration. Consider removing the 'AddEntityFramework*' call, as in most cases it's not needed and may cause conflicts with other products and services registered in the same service provider. (4bc25ac5)
+2021-05-29T12:43:25.9926947+04:30  [INF] Entity Framework Core "5.0.6" initialized '"CustomDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2021-05-29T12:45:26.8378090+04:30  [WRN] 'AddEntityFramework*' was called on the service provider, but 'UseInternalServiceProvider' wasn't called in the DbContext options configuration. Consider removing the 'AddEntityFramework*' call, as in most cases it's not needed and may cause conflicts with other products and services registered in the same service provider. (4bc25ac5)
+2021-05-29T12:45:27.3083709+04:30  [INF] Entity Framework Core "5.0.6" initialized '"CustomDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2021-05-29T12:45:27.5168238+04:30  [INF] Executed DbCommand ("13"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT 1" (0723d8ff)
+2021-05-29T12:45:27.5357674+04:30  [INF] Executed DbCommand ("12"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT OBJECT_ID(N'[__EFMigrationsHistory]');" (0723d8ff)
+2021-05-29T12:45:27.5382510+04:30  [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT 1" (0723d8ff)
+2021-05-29T12:45:27.5386541+04:30  [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT OBJECT_ID(N'[__EFMigrationsHistory]');" (0723d8ff)
+2021-05-29T12:45:27.5527830+04:30  [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];" (0723d8ff)
+2021-05-29T12:45:27.5651060+04:30  [INF] Applying migration '"20210529081326_CreateSlidersClaimsTables"'. (0e2ac64d)
+2021-05-29T12:45:27.6114686+04:30  [INF] Executed DbCommand ("4"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""CREATE TABLE [Claims] (
+    [Id] int NOT NULL IDENTITY,
+    [ClaimType] nvarchar(max) NULL,
+    [ClaimValue] nvarchar(max) NULL,
+    [ClaimName] nvarchar(max) NULL,
+    [IsHead] bit NULL,
+    [ParentId] int NULL,
+    CONSTRAINT [PK_Claims] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_Claims_Claims_ParentId] FOREIGN KEY ([ParentId]) REFERENCES [Claims] ([Id]) ON DELETE NO ACTION
+);" (0723d8ff)
+2021-05-29T12:45:27.6339332+04:30  [INF] Executed DbCommand ("22"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""CREATE TABLE [Sliders] (
+    [Id] int NOT NULL IDENTITY,
+    [Title] nvarchar(max) NULL,
+    [Subject] nvarchar(max) NULL,
+    [Description] nvarchar(max) NULL,
+    [Type] nvarchar(max) NULL,
+    [Active] bit NOT NULL,
+    [Position] int NOT NULL,
+    [Url] nvarchar(max) NULL,
+    CONSTRAINT [PK_Sliders] PRIMARY KEY ([Id])
+);" (0723d8ff)
+2021-05-29T12:45:27.7767775+04:30  [INF] Executed DbCommand ("142"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'ClaimName', N'ClaimType', N'ClaimValue', N'IsHead', N'ParentId') AND [object_id] = OBJECT_ID(N'[Claims]'))
+    SET IDENTITY_INSERT [Claims] ON;
+INSERT INTO [Claims] ([Id], [ClaimName], [ClaimType], [ClaimValue], [IsHead], [ParentId])
+VALUES (1, N'داشبورد', N'Home', N'Home', CAST(1 AS bit), NULL),
+(2, N'مدیریت دسته بندی بلاگ', N'BlogCategories', N'BlogCategories', CAST(1 AS bit), NULL),
+(7, N'مدیریت بلاگ', N'Blogs', N'Blogs', CAST(1 AS bit), NULL),
+(13, N'مدیریت شرکت ها', N'Company', N'Company', CAST(1 AS bit), NULL),
+(14, N'مدیریت منوها', N'Menus', N'Menus', CAST(1 AS bit), NULL),
+(15, N'مدیریت محصولات', N'Products', N'Products', CAST(1 AS bit), NULL),
+(21, N'مدیریت اسلایدرها', N'Sliders', N'Sliders', CAST(1 AS bit), NULL),
+(22, N'مدیریت یوزر ها', N'Users', N'Users', CAST(1 AS bit), NULL);
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'ClaimName', N'ClaimType', N'ClaimValue', N'IsHead', N'ParentId') AND [object_id] = OBJECT_ID(N'[Claims]'))
+    SET IDENTITY_INSERT [Claims] OFF;" (0723d8ff)
+2021-05-29T12:45:27.8353855+04:30  [INF] Executed DbCommand ("58"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'ClaimName', N'ClaimType', N'ClaimValue', N'IsHead', N'ParentId') AND [object_id] = OBJECT_ID(N'[Claims]'))
+    SET IDENTITY_INSERT [Claims] ON;
+INSERT INTO [Claims] ([Id], [ClaimName], [ClaimType], [ClaimValue], [IsHead], [ParentId])
+VALUES (3, N'مشاهده دسته بندی بلاگ ها', N'BlogCategoriesIndex', N'BlogCategoriesIndex', NULL, 2),
+(4, N'ساخت دسته بندی بلاگ', N'BlogCategoriesCreate', N'BlogCategoriesCreate', NULL, 2),
+(5, N'ویرایش دسته بندی بلاگ', N'BlogCategoriesEdit', N'BlogCategoriesEdit', NULL, 2),
+(6, N'حذف دسته بندی بلاگ', N'BlogCategoriesDelete', N'BlogCategoriesDelete', NULL, 2),
+(8, N'BlogsIndex', N'BlogsIndex', N'BlogsIndex', NULL, 7),
+(9, N'ساخت بلاگ', N'BlogsCreate', N'BlogsCreate', NULL, 7),
+(10, N'ویرایش بلاگ', N'BlogsEdit', N'BlogsEdit', NULL, 7),
+(11, N'حذف بلاگ', N'BlogsDelete', N'BlogsDelete', NULL, 7),
+(12, N'غیرفعال کردن بلاگ', N'BlogsActive', N'BlogsActive', NULL, 7),
+(16, N'نمایش محصولات', N'ProductsIndex', N'ProductsIndex', NULL, 15),
+(17, N'ساخت محصول', N'ProductsCreate', N'ProductsCreate', NULL, 15),
+(18, N'ویرایش محصول', N'ProductsEdit', N'ProductsEdit', NULL, 15),
+(19, N'حذف محصول', N'ProductsDelete', N'ProductsDelete', NULL, 15),
+(20, N'غیر فعال کردن محصول', N'ProductsActive', N'ProductsActive', NULL, 15),
+(23, N'نمایش همه یوزر ها', N'UsersIndex', N'UsersIndex', NULL, 22),
+(24, N'ویرایش یوزر', N'UsersEdit', N'UsersEdit', NULL, 22);
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'ClaimName', N'ClaimType', N'ClaimValue', N'IsHead', N'ParentId') AND [object_id] = OBJECT_ID(N'[Claims]'))
+    SET IDENTITY_INSERT [Claims] OFF;" (0723d8ff)
+2021-05-29T12:45:27.9009804+04:30  [INF] Executed DbCommand ("65"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""CREATE INDEX [IX_Claims_ParentId] ON [Claims] ([ParentId]);" (0723d8ff)
+2021-05-29T12:45:27.9041133+04:30  [INF] Executed DbCommand ("3"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20210529081326_CreateSlidersClaimsTables', N'5.0.6');" (0723d8ff)

@@ -482,3 +482,7 @@ D:\.NET\01_MyProject\EndPoint.Owner\obj\Debug\net5.0\EndPoint.Owner.dll
 D:\.NET\01_MyProject\EndPoint.Owner\obj\Debug\net5.0\ref\EndPoint.Owner.dll
 D:\.NET\01_MyProject\EndPoint.Owner\obj\Debug\net5.0\EndPoint.Owner.pdb
 D:\.NET\01_MyProject\EndPoint.Owner\obj\Debug\net5.0\EndPoint.Owner.genruntimeconfig.cache
+D:\.NET\01_MyProject\EndPoint.Owner\bin\Debug\net5.0\Infrastructure.dll
+D:\.NET\01_MyProject\EndPoint.Owner\bin\Debug\net5.0\Persistence.dll
+D:\.NET\01_MyProject\EndPoint.Owner\bin\Debug\net5.0\Infrastructure.pdb
+D:\.NET\01_MyProject\EndPoint.Owner\bin\Debug\net5.0\Persistence.pdb
