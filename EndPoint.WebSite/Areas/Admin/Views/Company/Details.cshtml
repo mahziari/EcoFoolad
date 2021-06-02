@@ -1,0 +1,130 @@
+﻿@using   Application.Services.BackEnd.Admin.Company.Queries
+@model ResultGetDetailsCompanyDto
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "نمایش محصول جدید ";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@section Head{
+    <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/vendors/css/vendors-rtl.min.css">
+    <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/css/bootstrap-extended.min.css">
+    <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/css/colors.min.css">
+    <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/css/components.min.css">
+    <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/css/themes/dark-layout.min.css">
+    <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/css/themes/semi-dark-layout.min.css">
+    <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/css/custom-rtl.min.css">
+    <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/css/core/menu/menu-types/vertical-menu-karaji.min.css">
+    <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/css/pages/app-invoice.min.css">
+    <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/css/style.css">
+}
+
+@section Foo{
+    <script src="~/BackEnd/Admin/vendors/js/vendors.min.js"></script>
+    <script src="~/BackEnd/Admin/vendors/js/forms/select/select2.full.min.js"></script>
+    <script src="~/BackEnd/Admin/js/scripts/configs/vertical-menu-dark.min.js"></script>
+    <script src="~/BackEnd/Admin/js/core/app-menu.min.js"></script>
+    <script src="~/BackEnd/Admin/js/core/app.min.js"></script>
+    <script src="~/BackEnd/Admin/js/scripts/components.min.js"></script>
+    <script src="~/BackEnd/Admin/js/scripts/footer.min.js"></script>
+    <script src="~/BackEnd/Admin/js/scripts/customizer.min.js"></script>
+    <script src="~/BackEnd/Admin/js/scripts/pages/app-invoice.min.js"></script>
+}
+
+
+<div class="app-content content">
+    <div class="content-overlay"></div>
+    <div class="content-wrapper">
+        <div class="content-header row">
+        </div>
+        <div class="content-body">
+            <!-- app invoice View Page -->
+            <section class="invoice-view-wrapper">
+                <div class="row">
+                    <!-- invoice view page -->
+                    <div class="col-xl-12 col-md-8 col-12">
+                        <div class="card invoice-print-area">
+                            <div class="card-content">
+                                <div class="card-body pb-0 mx-25">
+                                    <!-- header section -->
+                                    <div class="row">
+                                        <div class="col-xl-4 col-md-12">
+                                            <span class="invoice-number mr-50">عنوان بلاگ:</span>
+                                            <span>@Model.Blog.Title</span>
+                                        </div>
+                                        <div class="col-xl-8 col-md-12">
+                                            <div class="d-flex align-items-center justify-content-xl-end flex-wrap">
+                                                <div class="mr-3">
+                                                    <small class="text-muted">
+                                                        تاریخ ثبت بلاگ:
+                                                    </small>
+                                                    <span>@Model.Blog.RegisterDatePersian</span>
+                                                </div>
+                                                @* <div> *@
+                                                @*   <small class="text-muted">Date Due:</small> *@
+                                                @*   <span>08/10/2019</span> *@
+                                                @* </div> *@
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xl-12 col-md-12">
+                                            <span class="invoice-number mr-50">توضیح کوتاه بلاگ:</span>
+                                            <span>@Model.Blog.NewsSummery</span>
+                                        </div>
+                                        <div class="col-xl-8 col-md-12">
+                                            <div class="d-flex align-items-center justify-content-xl-end flex-wrap">
+                                                <div class="mr-3">
+                                                    <small class="text-muted">
+                                                        عکس بلاگ:
+                                                    </small>
+                                                    <img src="/@Model.Blog.HeadLine" width="90px" height="auto">
+                                                </div>
+                                                @* <div> *@
+                                                @*   <small class="text-muted">Date Due:</small> *@
+                                                @*   <span>08/10/2019</span> *@
+                                                @* </div> *@
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- logo and title -->
+                                    <div class="row my-3">
+                                        <div class="col-4">
+                                            <span>نوع بلاگ:</span>
+                                            <h6 class="text-primary">@Model.Blog.NewsGroupName</h6>
+                                        </div>
+                                        <div class="col-4">
+                                            <span>فعال بودن بلاگ(در حال انشار بودن):</span>
+                                            @if (@Model.Blog.IsVerified == true)
+                                            {
+                                                <h6 class="text-primary">فعال است</h6>
+                                            }
+                                            else
+                                            {
+                                                <h6 class="text-primary">غیر فعال است</h6>
+                                            }
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row invoice-info">
+                                        <div class="col-12 mt-1">
+                                            <h6 class="invoice-from">متن بلاگ:</h6>
+                                            <div class="mb-1">
+                                                <span>
+                                                    @Html.Raw(Model.Blog.NewsBody)
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>

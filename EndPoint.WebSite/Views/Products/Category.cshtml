@@ -1,4 +1,4 @@
-﻿@using  Application.Services.FrontEnd.Products.Queries
+﻿@using Application.Services.FrontEnd.Products.Queries
 @model ResultGetProductsCategoryFrontEndDto
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 @{
@@ -163,12 +163,23 @@
                             <bdi>235,000&nbsp;<span class="woocommerce-Price-currencySymbol">تومان</span></bdi>
                         </span>
                     </span>
-                    <a href="?add-to-cart=3807" data-quantity="1" class="button product_type_simple add_to_cart_button ajax_add_to_cart newkala_add_to_cart_button_loop select_quantity_on" data-product_id="3807" data-product_sku="#12360" aria-label="افزودن “ست تی شرت و شلوار ورزشی مردانه مدل اث میلان” به سبد" rel="nofollow" title="افزودن به سبد خرید">+</a>
+                    @* <a href="~/cart/addToCart?ProductId=@item.ProductId" *@
+                    @*    data-quantity="1"  *@
+                    @*    class="button product_type_simple add_to_cart_button ajax_add_to_cart newkala_add_to_cart_button_loop select_quantity_on"  *@
+                    @*    data-product_id="3807"  *@
+                    @*    data-product_sku="#12360"  *@
+                    @*    aria-label="" *@
+                    @*    rel="nofollow"  *@
+                    @*    title="افزودن به سبد خرید">+</a> *@
+                    
+                    <a href="~/cart/addToCart/@item.ProductId">
+                        اضافه به سبد خرید
+                    </a>
 
-                    <button class="newkala_add_to_cart_button_loop" type="button">+</button>
-                    <select class="select_quantity">
-                        <option selected="">تعداد</option><option value="1">1 عدد</option><option value="2">2 عدد</option><option value="3">3 عدد</option><option value="4">4 عدد</option><option value="5">5 عدد</option><option value="6">6 عدد</option><option value="7">7 عدد</option><option value="8">8 عدد</option><option value="9">9 عدد</option><option value="10">10 عدد</option>
-                    </select>
+                    @* <button class="newkala_add_to_cart_button_loop" type="button">+</button> *@
+                    @* <select class="select_quantity"> *@
+                    @*     <option selected="">تعداد</option><option value="1">1 عدد</option><option value="2">2 عدد</option><option value="3">3 عدد</option><option value="4">4 عدد</option><option value="5">5 عدد</option><option value="6">6 عدد</option><option value="7">7 عدد</option><option value="8">8 عدد</option><option value="9">9 عدد</option><option value="10">10 عدد</option> *@
+                    @* </select> *@
                 </div>
             </div>
         </li>

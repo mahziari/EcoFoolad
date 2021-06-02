@@ -1,0 +1,320 @@
+﻿@using Application.Services.BackEnd.Owner.Products.Queries
+@using Domain.Entities.Users
+@model ResultGetCreateProductsDto
+
+@using Microsoft.AspNetCore.Authorization
+@using Microsoft.AspNetCore.Identity
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@inject IAuthorizationService AuthorizationService;
+@inject SignInManager<User> SignInManager
+@inject UserManager<User> UserManager
+
+@{
+    ViewData["Title"] = " محصول جدید ";
+    Layout = "~/Areas/Owner/Views/Shared/_Layout.cshtml";
+}
+
+@section Foo{
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script>
+     // Ajax Result Sub Menu And Company Menu
+    $(document).ready(function () {
+        $("select.selectMenuAndReturnSubMenu").change(function () {
+            $id = $(".selectMenuAndReturnSubMenu option:selected").val();
+            var token = $('input[name="__RequestVerificationToken"]').val();
+            $('#resultSubMenu').empty();
+            $('.resultSubSubMenu').empty();
+            $('#PrdShpotherSupplierId').empty();
+            $('.UnitProduct').empty();
+            
+            // Ajax Result Sub Menu
+            $.ajax({
+                type: 'POST',
+                headers:{'RequestVerificationToken' :token},
+                url: 'GetReturnSubMenuAjax',
+                data_type:'Json',
+                data: {id : $id,},
+                success: function (result) {
+                     $('#resultSubMenu').append("<option value=''>" + "انتخاب کنید" + "</option>");
+                   $.each(result,function(i,item ){
+                        $('#resultSubMenu').append("<option value='" + item.prdFirstGroupId + "'>" + item.fgname + "</option>");
+                        });
+                   
+                   if ($id==2 || $id==4 || $id==5 || $id==6 || $id==7){
+                       $('.UnitProduct').append("<option value='"+2+"'>" + "کیلوگرم" + "</option>");
+                       }
+                   if ($id==1 || $id==3){
+                          $('.UnitProduct').append("<option value='"+5+"'>" + "شاخه" + "</option>");
+                          }
+                   },
+                   
+                  });
+            // Ajax Result Company Menu
+             $.ajax({
+                type: 'POST',
+                headers:{'RequestVerificationToken' :token},
+                url: 'GetReturnCompanyAjax',
+                data_type:'Json',
+                data: {id : $id,},
+                success: function (result) {
+                   $('#PrdShpotherSupplierId').append("<option value=''>" + "انتخاب کنید" + "</option>");
+                      $.each(result,function(i,item ){
+                       $('#PrdShpotherSupplierId').append("<option value='" + item.companyId + "'>" + item.cmpName + "</option>");
+                       });
+                   },
+                  });
+            })
+        });
+      // Ajax Result Sub Sub Menu
+        $(document).ready(function () {
+            $("select.selectMenuAndReturnSubSubMenu").change(function () {
+                $id = $(".selectMenuAndReturnSubSubMenu option:selected").val();
+                var token = $('input[name="__RequestVerificationToken"]').val();
+                $('.resultSubSubMenu').empty();
+                $.ajax({
+                    type: 'POST',
+                    headers:{'RequestVerificationToken' :token},
+                    url: 'GetReturnSubSubMenuAjax',
+                    data_type:'Json',
+                    data: {id : $id,},
+                    success: function (result) {
+                        $('.resultSubSubMenu').append("<option value=''>" + "انتخاب کنید" + "</option>");
+                       $.each(result,function(i,item ){
+                            $('.resultSubSubMenu').append("<option value='" + item.wsproductSecondGroupId + "'>" + item.sgname + "</option>");
+                            });
+                       },
+                      });
+                })
+            });
+    </script>
+}
+
+
+<main id="main" class="nk-main-content-dokan-dashboard">
+
+
+<div class="dokan-dashboard-wrap">
+
+
+<div class="dokan-dashboard-content dokan-product-edit">
+
+
+<header class="dokan-dashboard-header dokan-clearfix">
+    <h1 class="entry-title">
+        ویرایش محصول
+        @* <span class="dokan-label dokan-label-default dokan-product-status-label"> *@
+        @*     پیش‌نویس *@
+        @* </span> *@
+
+
+    </h1>
+</header><!-- .entry-header -->
+
+<div class="product-edit-new-container product-edit-container">
+
+
+<form asp-area="Owner" asp-controller="Products" asp-action="Create" method="post">
+
+
+
+        <!--<div class="dokan-form-top-area">-->
+
+
+<div class="nk-title-box-multistep-edit-product">
+    <span class="icon"></span>
+    <h2 class="title">
+        <span>درج اطلاعات اولیه </span>
+    </h2>
+    <span class="open-close-status"></span>
+</div>
+<div class="nk-tab-content-edit-product">
+    <div class="content-half-part dokan-product-meta" style="width:100%;">
+
+        
+        <div class="dokan-form-group">
+            <label for="product_type" class="form-label">
+                انتخاب دسته بندی
+                <i class="fa fa-question-circle tips" aria-hidden="true" data-title="انتخاب متغیر اگر محصول شما چند ویژگی دارد - مانند اندازه، رنگ، کیفیت و ..." data-original-title="" title=""></i>
+            </label>
+            <select class="dokan-form-control select2 selectMenuAndReturnSubMenu">
+               <option value="">انتخاب کنید</option>
+                @foreach (var item in Model.Menus)
+                {
+                    <option value="@item.ParsaPooladMenusId">@item.Name</option>
+                }
+            </select>
+        </div>
+        <div class="dokan-form-group">
+            <select name="product_type" class="dokan-form-control select2 selectMenuAndReturnSubSubMenu" id="resultSubMenu">
+                <option value="">انتخاب کنید</option>
+            </select>
+        </div>
+        <div class="dokan-form-group">
+              <select class="select2 dokan-form-control resultSubSubMenu" asp-for="PrdGroupId">
+                   <option value="">انتخاب کنید</option>
+               </select>
+               <span asp-validation-for="PrdGroupId" class="text-danger"></span>
+        </div>
+        
+        
+        
+        <div class="dokan-form-group">
+            <label asp-for="PrdName"  class="form-label">نام محصول</label>
+            <input asp-for="PrdName" type="text" class="dokan-form-control" placeholder="نام محصول">
+            <span asp-validation-for="PrdName" class="text-danger"></span>
+        </div>
+
+
+        <div class="dokan-form-group">
+            <label class="form-label">شرکت سازنده محصول </label>
+            <select class="select2 dokan-form-control" asp-for="PrdShpotherSupplierId">
+                <option value="">انتخاب کنید</option>
+            </select>
+            <span asp-validation-for="PrdShpotherSupplierId" class="text-danger"></span>
+        </div>
+        
+        
+        <div class="dokan-form-group">
+            <label  class="form-label">واحد محصول </label>
+            <select asp-for="PrdUnitId" class="select2 dokan-form-control UnitProduct">
+            </select>
+            <span asp-validation-for="PrdUnitId" class="text-danger"></span>
+        </div>
+        
+        <div class="dokan-form-group">
+            <label asp-for="PrdMaxQty" class="form-label">موجودی محصول</label>
+             <input asp-for="PrdMaxQty" type="text" class="dokan-form-control" placeholder="موجودی را وارد کنید">
+            <span asp-validation-for="PrdMaxQty" class="text-danger"></span>
+            
+        </div>
+        
+        <div class="dokan-form-group">
+            <label asp-for="PrdSize" class="form-label">سایز محصول</label>
+            <input asp-for="PrdSize" type="text" class="dokan-form-control" placeholder="سایز را وارد کنید">
+            <span asp-validation-for="PrdSize" class="text-danger"></span>
+        </div>
+        
+        <div class="dokan-form-group">
+            <label asp-for="PrdModel" class="form-label">مدل محصول</label>
+             <input asp-for="PrdModel" type="text" class="dokan-form-control" placeholder="مدل را وارد کنید">
+             <span asp-validation-for="PrdModel" class="text-danger"></span>
+        </div>
+        
+        <div class="dokan-form-group">
+            <label asp-for="PrdPrice" class="form-label">قیمت محصول</label>
+            <input asp-for="PrdPrice" type="text" class="dokan-form-control" placeholder="فقط عدد وارد کنید">
+            <span asp-validation-for="PrdPrice" class="text-danger"></span>
+        </div>
+        
+        <div class="row invoice-info">
+            <div class="col-lg-12 col-md-12 mt-25">
+                <h6 class="invoice-to text-primary form-label"> توضیحات</h6>
+                <fieldset class="invoice-address dokan-form-group">
+                    <textarea asp-for="PrdDescription" name="description" class="dokan-form-control" rows="4" placeholder="توضیحات محصول را وارد کنید" style="margin-top: 0px; margin-bottom: 0px; height: 169px;"></textarea>
+                    <span asp-validation-for="PrdDescription" class="text-danger"></span>
+                </fieldset>
+        
+            </div>
+        </div>
+
+        @* <div class="dokan-form-group"> *@
+        @*     <label for="product_tag" class="form-label">برچسب‌ها</label> *@
+        @*     <select multiple="" name="product_tag[]" id="product_tag_search" class="product_tag_search product_tags dokan-form-control dokan-select2 select2-hidden-accessible" data-placeholder="Select tags" tabindex="-1" aria-hidden="true"> *@
+        @*     </select> *@
+        @*     <span class="select2 select2-container select2-container--default" dir="rtl" style="width: 1054.8px;"> *@
+        @*         <span class="selection"> *@
+        @*             <span class="select2-selection select2-selection--multiple" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="-1"> *@
+        @*                 <ul class="select2-selection__rendered"> *@
+        @*                     <li class="select2-search select2-search--inline"> *@
+        @*                         <input class="select2-search__field" type="search" tabindex="0" autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false" role="textbox" aria-autocomplete="list" placeholder="Select tags" style="width: 1048.8px;"> *@
+        @*                     </li> *@
+        @*                 </ul> *@
+        @*             </span> *@
+        @*         </span><span class="dropdown-wrapper" aria-hidden="true"></span> *@
+        @*     </span> *@
+        @* </div> *@
+
+    </div><!-- .content-half-part -->
+</div>
+
+
+@* <div class="dokan-form-group"> *@
+@* *@
+@*     <label class="" for="set-pending"> *@
+@*         <input name="set-pending" value="pending" id="set-pending" type="checkbox"> *@
+@*         ارسال برای بازبینی *@
+@*     </label> *@
+@*     <p>در صورتی که مایل هستید محصول را برای بازبینی ارسال کنید حتما این گزینه را تیک بزنید در غیر اینصورت محصول در حالت پیشنویس خواهد بود و بعدا هم میتوانید محصول را ویرایش نمائید</p> *@
+@* </div> *@
+
+
+        <!--hidden input for Firefox issue-->
+        
+        
+          <input type="hidden" asp-for="UserId" value="@UserManager.GetUserAsync(User).Result.CrmUsersId">
+        <input type="submit" name="dokan_update_product" class="dokan-btn dokan-btn-theme dokan-btn-lg dokan-right" value="ذخیره محصول">
+<div class="dokan-clearfix"></div>
+</form>
+
+
+<script>
+jQuery(document).ready(function($){
+	
+		// on upload button click
+	$('body').on( 'click', '.nk-title-box-multistep-edit-product ', function(e){
+ 
+		$(this).next('.nk-tab-content-edit-product').toggleClass('active');
+		$(this).toggleClass('active');
+ 
+	});
+});
+
+
+</script>
+</div> <!-- #primary .content-area -->
+
+</div>
+
+
+</div><!-- .dokan-dashboard-wrap -->
+
+
+<div class="dokan-clearfix"></div>
+
+<script type="text/html" id="tmpl-dokan-add-attribute">
+
+    <li class="product-attribute-list">
+        <div class="dokan-product-attribute-heading">
+            <span>
+                <i class="fa fa-bars" aria-hidden="true"></i> <strong>Title</strong>
+            </span>
+            <input type="hidden" name="attribute_position[]" value="">
+            <a href="#" class="dokan-product-remove-attribute">حذف‌کردن</a>
+            <a href="#" class="dokan-product-toggle-attribute">
+                <i class="fa fa-sort-desc fa-flip-horizointal" aria-hidden="true"></i>
+            </a>
+        </div>
+        <div class="dokan-product-attribute-item dokan-clearfix dokan-hide">
+            <div class="content-half-part">
+                <label class="form-label" for="">Name</label>
+                <input type="text" class="dokan-form-control dokan-product-attribute-name" name="" value="">
+
+                <label for="" class="checkbox-item form-label">
+                    <input type="checkbox" name="" value="1"> Visible on the product page
+                </label>
+
+                <label for="" class="checkbox-item form-label">
+                    <input type="checkbox" name="" value="1"> Use for variations
+                </label>
+            </div>
+
+            <div class="content-half-part">
+                <label for="" class="form-label">Values</label>
+                <select name="" id="" multiple style="width:100%" class="dokan-select2" data-placeholder="Select name" data-tags="true" data-allow-clear="true" data-token-separators="[',', '|']"></select>
+            </div>
+        </div>
+    </li>
+
+</script>
+
+</main>

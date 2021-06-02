@@ -1,0 +1,65 @@
+﻿@using EndPoint.Web.Areas.Auth.Data.Dto
+@model EndPoint.Web.Areas.Auth.Data.Dto.ConfirmDto
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    ViewData["Title"] = "احراز هویت کاربر";
+    Layout = "~/Areas/Auth/Views/Shared/_Layout.cshtml";
+}
+
+
+@section Head{
+    <link rel='stylesheet' id='main-theme-style-css-css'
+          href='~/wp-content/themes/newkala/style.css?ver=5.1.4' type='text/css'
+          media='all'/>
+    <link rel='stylesheet' id='woocommerce-general-rtl-css'
+          href='~/wp-content/plugins/woocommerce/assets/css/woocommerce-rtl.css?ver=4.7.0'
+          type='text/css' media='all'/>
+
+    <link rel="stylesheet" type="text/css"
+          href="~/wp-content/themes/newkala/css/woocommerce_dashboard.css">
+    
+    <link rel="stylesheet" type="text/css"
+          href="~/wp-content/themes/newkala/inHead.css">
+    
+  <link rel="stylesheet" type="text/css"
+            href="~/css/Auth.css">
+}
+
+
+<main>
+    <div class="sp_body_panel">
+        <div class="woocommerce">
+            <div class="main_login_form">
+                <a href="https://newkalatheme.ir/preview">
+                    <img style="display:block;margin:20px auto;" src="~/Images/Settings/Logo-Header.jpg" title="اکوفولاد ">
+                </a>
+                <div class="woocommerce-notices-wrapper"></div>
+                
+                <br>
+                <br>
+                @if (TempData["AuthSuccess"] != null)
+                {
+                    <ul class="woocommerce-success" role="alert">
+                        <li>
+                            <h3 class="text-center">@TempData["AuthSuccess"]</h3>
+                        </li>
+                    </ul>
+                }
+                <br>
+                <br>
+
+                <div class="go_to_register_form">میخوای وارد سایت بشی؟ <a href="/" >ورود به سایت  </a></div>
+
+            </div>
+
+        </div>
+    </div>
+</main>
+
+<script>
+ setTimeout(function(){
+    window.location.href = '/';
+ }, 2500);
+</script>
+      

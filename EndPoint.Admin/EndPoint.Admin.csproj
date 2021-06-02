@@ -1,0 +1,269 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="LazZiya.TagHelpers" Version="5.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="5.0.6" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="5.0.6" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.6" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.6">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="5.0.6" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.6" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.6">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="5.0.2" />
+    <PackageReference Include="Serilog.Extensions.Logging.File" Version="2.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Application\Application.csproj" />
+    <ProjectReference Include="..\Infrastructure\Infrastructure.csproj" />
+    <ProjectReference Include="..\Persistence\Persistence.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Controllers" />
+    <Folder Include="Views" />
+    <Folder Include="wwwroot" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="Views\BlogsCategories\Create.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\BlogsCategories\Edit.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\BlogsCategories\Index.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Claims\Create.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Claims\Edit.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Claims\Index.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Company\Create.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Company\Details.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Company\Edit.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Company\Index.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Home\Index.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Menus\GetEditMenu.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Menus\GetEditSubMenu.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Menus\Index.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Products\Create.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Products\Details.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Products\Edit.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Products\Index.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Roles\Create.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Roles\Edit.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Roles\Index.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Shared\_CkEditorScriptsPartial.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Shared\_Layout.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Shared\_RtightPanelPartial.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Sliders\Create.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Sliders\Details.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Sliders\Edit.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Sliders\Index.cshtml" />
+    <_ContentIncludedByDefault Remove="wwwroot\css\bootstrap-extended.min.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\css\bootstrap.min.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\css\colors.min.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\css\components.min.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\css\core\colors\palette-noui.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\css\core\menu\menu-types\vertical-menu-karaji.min.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\css\core\menu\menu-types\vertical-menu.min.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\css\custom-rtl.min.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\css\pages\app-chat.min.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\css\pages\app-email.min.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\css\pages\app-file-manager.min.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\css\pages\app-invoice.min.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\css\pages\app-kanban.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\css\pages\app-todo.min.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\css\pages\authentication.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\css\pages\chart-chartist.min.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\css\pages\coming-soon.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\css\pages\dashboard-analytics.min.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\css\pages\dashboard-ecommerce.min.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\css\pages\faq.min.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\css\pages\page-knowledge-base.min.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\css\pages\page-user-profile.min.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\css\pages\page-users.min.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\css\pages\search.min.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\css\pages\widgets.min.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\css\plugins\animate\animate.min.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\css\plugins\calendars\app-calendar.min.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\css\plugins\extensions\context-menu.min.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\css\plugins\extensions\drag-and-drop.min.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\css\plugins\extensions\ext-component-treeview.min.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\css\plugins\extensions\noui-slider.min.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\css\plugins\extensions\swiper.min.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\css\plugins\extensions\toastr.min.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\css\plugins\file-uploaders\dropzone.min.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\css\plugins\forms\validation\form-validation.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\css\plugins\forms\wizard.min.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\css\plugins\tour\tour.min.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\css\style.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\css\themes\dark-layout.min.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\css\themes\semi-dark-layout.min.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\avatars\AdminAvatar.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\banner\banner-1.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\banner\banner-10.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\banner\banner-11.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\banner\banner-12.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\banner\banner-13.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\banner\banner-14.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\banner\banner-15.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\banner\banner-16.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\banner\banner-17.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\banner\banner-18.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\banner\banner-19.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\banner\banner-2.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\banner\banner-20.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\banner\banner-21.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\banner\banner-22.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\banner\banner-23.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\banner\banner-24.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\banner\banner-26.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\banner\banner-28.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\banner\banner-29.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\banner\banner-3.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\banner\banner-30.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\banner\banner-31.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\banner\banner-32.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\banner\banner-33.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\banner\banner-34.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\banner\banner-35.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\banner\banner-36.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\banner\banner-37.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\banner\banner-38.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\banner\banner-39.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\banner\banner-4.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\banner\banner-5.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\banner\banner-7.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\banner\banner-8.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\banner\banner-9.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\banner\parallax-4.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\cards\1.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\cards\2.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\cards\3.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\cards\4.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\cards\5.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\cards\6.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\cards\amer-express.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\cards\discover.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\cards\finance.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\cards\mastercard.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\cards\visa.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\dropzone\spritemap.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\elements\amazon-speaker.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\elements\apple-lap.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\elements\beats-headphones.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\elements\ipad-pro.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\elements\iphone-x.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\elements\macbook-pro.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\icon\cup.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\icon\doc.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\icon\fs.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\icon\google.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\icon\nike.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\icon\one-plus.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\icon\pdf.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\icon\psd.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\icon\puma.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\icon\sketch-mac-icon.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\icon\sketch.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\logo\logo.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\pages\1-apex.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\pages\2-stack.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\pages\3-convex.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\pages\4-materialize.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\pages\404.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\pages\500.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\pages\arrow-down.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\pages\auth-bg-dark.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\pages\auth-bg.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\pages\bank.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\pages\comingsoon.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\pages\content-img-1.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\pages\content-img-2.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\pages\content-img-3.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\pages\content-img-4.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\pages\faq.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\pages\forgot-password.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\pages\google-pay.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\pages\lock-screen.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\pages\login.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\pages\maintenance-2.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\pages\modern-thumbnail.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\pages\not-authorized.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\pages\PayPal_logo.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\pages\pixinvent-logo.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\pages\pixinvent.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\pages\register.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\pages\reset-password.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\pages\thumbnail.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\pages\vuesax-banner.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\portrait\small\avatar-s-1.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\portrait\small\avatar-s-10.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\portrait\small\avatar-s-11.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\portrait\small\avatar-s-12.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\portrait\small\avatar-s-13.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\portrait\small\avatar-s-14.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\portrait\small\avatar-s-15.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\portrait\small\avatar-s-16.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\portrait\small\avatar-s-17.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\portrait\small\avatar-s-18.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\portrait\small\avatar-s-19.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\portrait\small\avatar-s-2.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\portrait\small\avatar-s-20.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\portrait\small\avatar-s-21.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\portrait\small\avatar-s-22.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\portrait\small\avatar-s-23.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\portrait\small\avatar-s-24.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\portrait\small\avatar-s-25.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\portrait\small\avatar-s-26.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\portrait\small\avatar-s-3.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\portrait\small\avatar-s-4.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\portrait\small\avatar-s-5.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\portrait\small\avatar-s-6.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\portrait\small\avatar-s-7.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\portrait\small\avatar-s-8.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\portrait\small\avatar-s-9.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\profile\pages\birthday.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\profile\pages\pixinvent.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\profile\portraits\avatar-portrait-1.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\profile\portraits\avatar-portrait-2.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\profile\portraits\avatar-portrait-3.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\profile\portraits\avatar-portrait-4.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\profile\portraits\avatar-portrait-5.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\profile\post-media\2.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\profile\post-media\profile-banner.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\profile\user-uploads\girl-image.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\profile\user-uploads\social-2.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\profile\user-uploads\user-05.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\profile\user-uploads\user-06.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\profile\user-uploads\user-07.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\profile\user-uploads\user-08.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\profile\user-uploads\user-09.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\profile\user-uploads\user-10.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\profile\user-uploads\user-11.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\profile\user-uploads\user-12.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\profile\user-uploads\user-13.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\sliders\01.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\sliders\02.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\sliders\03.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\sliders\04.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\sliders\05.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\sliders\06.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\sliders\07.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\sliders\08.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\sliders\09.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\sliders\10.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\sliders\11.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\sliders\apex.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\sliders\materialize.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\sliders\modern.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\sliders\stack.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\sliders\vuesax.jpg" />
+  </ItemGroup>
+
+</Project>

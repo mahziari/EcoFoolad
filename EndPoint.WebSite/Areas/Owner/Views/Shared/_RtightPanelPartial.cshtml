@@ -1,0 +1,96 @@
+﻿@using Microsoft.AspNetCore.Authorization;
+@using Microsoft.AspNetCore.Identity
+@using Domain.Entities
+@using Domain.Entities.Users
+@inject IAuthorizationService AuthorizationService;
+@inject SignInManager<User> SignInManager
+@inject UserManager<User> UserManager
+
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+
+<div class="sp_tool_bar ">
+    <div class="sp_card_profile">
+        <div class="sp_profile">
+            <div class="sp_avatar">
+                <img alt="" src="https://secure.gravatar.com/avatar/bf44d824b64ba0a0284f4dbfda012ae6?s=60&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/bf44d824b64ba0a0284f4dbfda012ae6?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" width="60" height="60">
+            </div>
+            <div class="sp_profile_title">
+                <p> فروشگاه کاربر تست <br> 
+                    </p>
+            </div>
+
+            <div class="sp_stars">
+                <p>
+                  تاریخ عضویت سه شنبه 17 فروردین 1400
+                </p>
+            </div>
+
+
+            <div class="sp_profile_menu">
+                <a asp-area="Owner" asp-controller="Profile" asp-action="Index" >
+                    پروفایل 
+                    <i class="far fa-user"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="sp_card_profile2">
+        <div class="sp_title_dashboard">
+            <h1>آخرین مطالب</h1>
+            <a target="_blank" href="https://product-mirzacode.ir/newkala/preview/blog/category/%d8%a8%d8%a7%d8%b2%db%8c/">
+                <svg enable-background="new 0 0 31.49 31.49" version="1.1" viewBox="0 0 31.49 31.49" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
+                    <path d="m21.205 5.007c-0.429-0.444-1.143-0.444-1.587 0-0.429 0.429-0.429 1.143 0 1.571l8.047 8.047h-26.554c-0.619 1e-3 -1.111 0.493-1.111 1.112s0.492 1.127 1.111 1.127h26.554l-8.047 8.032c-0.429 0.444-0.429 1.159 0 1.587 0.444 0.444 1.159 0.444 1.587 0l9.952-9.952c0.444-0.429 0.444-1.143 0-1.571l-9.952-9.953z">
+                    </path>
+                </svg>
+            </a>
+        </div>
+        <div class="sp_body_dashboard">
+            <ul>
+
+
+                <a href="https://product-mirzacode.ir/newkala/preview/blog/2021/01/24/%d8%a8%d8%a7%d8%b2%db%8c-returnal-%d8%af%d8%b1-%d8%aa%d8%a7%d8%b1%db%8c%d8%ae-%db%b2%db%b9-%d8%a7%d8%b3%d9%81%d9%86%d8%af-%d9%85%d9%86%d8%aa%d8%b4%d8%b1-%d8%ae%d9%88%d8%a7%d9%87%d8%af-%d8%b4%d8%af/">
+                    <li>
+                        <img src="https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2021/01/Returnal-PS5-release-date-100x100.jpg" class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image" alt="" srcset="https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2021/01/Returnal-PS5-release-date-100x100.jpg 100w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2021/01/Returnal-PS5-release-date-180x180.jpg 180w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2021/01/Returnal-PS5-release-date-20x20.jpg 20w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2021/01/Returnal-PS5-release-date-30x30.jpg 30w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2021/01/Returnal-PS5-release-date-40x40.jpg 40w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2021/01/Returnal-PS5-release-date-210x210.jpg 210w" sizes="(max-width: 100px) 100vw, 100px" width="100" height="100">
+                        <p>بازی Returnal در تاریخ ۲۹ اسفند منتشر خواهد شد</p>
+                    </li>
+                </a>
+
+
+                <a href="https://product-mirzacode.ir/newkala/preview/blog/2021/01/24/%d9%86%d9%82%d8%b4%d9%87%e2%80%8c%db%8c-%d8%ac%d8%af%db%8c%d8%af-%d8%b4%d9%87%d8%b1%db%8c-pubg-%d8%aa%d8%ac%d8%b1%d8%a8%d9%87%e2%80%8c%db%8c-%d8%a8%d8%a7%d8%b2%db%8c-%d8%b1%d8%a7-%d8%af%da%af%d8%b1/">
+                    <li>
+                        <img src="https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2021/01/new-pubg-map-title-100x100.jpg" class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image" alt="" srcset="https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2021/01/new-pubg-map-title-100x100.jpg 100w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2021/01/new-pubg-map-title-180x180.jpg 180w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2021/01/new-pubg-map-title-20x20.jpg 20w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2021/01/new-pubg-map-title-30x30.jpg 30w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2021/01/new-pubg-map-title-40x40.jpg 40w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2021/01/new-pubg-map-title-210x210.jpg 210w" sizes="(max-width: 100px) 100vw, 100px" width="100" height="100">
+                        <p>نقشه‌ی جدید شهری PUBG تجربه‌ی بازی را دگرگون می‌کند</p>
+                    </li>
+                </a>
+
+
+                <a href="https://product-mirzacode.ir/newkala/preview/blog/2021/01/24/%d8%b1%d8%b2%db%8c%d8%af%d9%86%d8%aa-%d8%a7%d9%88%db%8c%d9%84-%da%86%d9%86%d8%af-%d9%86%d9%81%d8%b1%d9%87%e2%80%8c%db%8c-%d8%a2%d9%86%d9%84%d8%a7%db%8c%d9%86-%d8%a8%d9%87-%d9%86%d8%a7%d9%85-re-verse/">
+                    <li>
+                        <img src="https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2021/01/resident-evil-re-verse-announce-title-100x100.jpg" class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image" alt="" srcset="https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2021/01/resident-evil-re-verse-announce-title-100x100.jpg 100w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2021/01/resident-evil-re-verse-announce-title-180x180.jpg 180w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2021/01/resident-evil-re-verse-announce-title-20x20.jpg 20w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2021/01/resident-evil-re-verse-announce-title-30x30.jpg 30w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2021/01/resident-evil-re-verse-announce-title-40x40.jpg 40w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2021/01/resident-evil-re-verse-announce-title-210x210.jpg 210w" sizes="(max-width: 100px) 100vw, 100px" width="100" height="100">
+                        <p>رزیدنت اویل چند نفره‌ی آنلاین به نام Re-Verse معرفی شد</p>
+                    </li>
+                </a>
+
+
+                <a href="https://product-mirzacode.ir/newkala/preview/blog/2018/03/20/assassins-creed-syndicate/">
+                    <li>
+                        <img src="https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2018/03/assassin-s-creed-syndicate-100x100.jpg" class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image" alt="" srcset="https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2018/03/assassin-s-creed-syndicate-100x100.jpg 100w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2018/03/assassin-s-creed-syndicate-210x210.jpg 210w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2018/03/assassin-s-creed-syndicate-180x180.jpg 180w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2018/03/assassin-s-creed-syndicate-39x39.jpg 39w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2018/03/assassin-s-creed-syndicate-18x18.jpg 18w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2018/03/assassin-s-creed-syndicate-25x25.jpg 25w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2018/03/assassin-s-creed-syndicate-20x20.jpg 20w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2018/03/assassin-s-creed-syndicate-30x30.jpg 30w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2018/03/assassin-s-creed-syndicate-40x40.jpg 40w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2018/03/assassin-s-creed-syndicate-170x170.jpg 170w" sizes="(max-width: 100px) 100vw, 100px" width="100" height="100">
+                        <p>بازی Assassin’s Creed Syndicate برای ایکس‌باکس وان</p>
+                    </li>
+                </a>
+
+
+            </ul>
+            <h1>
+                <a target="_blank" href="https://product-mirzacode.ir/newkala/preview/blog/category/%d8%a8%d8%a7%d8%b2%db%8c/">
+                    <span>مشاهده مطالب بیشتر</span>
+                </a>
+            </h1>
+        </div>
+    </div>
+
+
+</div>

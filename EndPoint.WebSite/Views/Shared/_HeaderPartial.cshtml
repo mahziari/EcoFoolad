@@ -1,6 +1,5 @@
 ﻿@using Microsoft.AspNetCore.Authorization;
 @using Microsoft.AspNetCore.Identity
-@using  Domain.Entities
 @using Domain.Entities.Users
 @inject IAuthorizationService AuthorizationService;
 @inject SignInManager<User> SignInManager
@@ -201,11 +200,11 @@
                                 </a>
                             </div>
                         </div>
-                        <a class="nk_go_to_my_orders" href="/panel/admin/home">
+                        <a class="nk_go_to_my_orders"  asp-area="Admin" asp-controller="Home" asp-action="Index">
                             <i class="fa fa-file-text-o"></i>
                             ورود به پنل مدیریت
                         </a>
-                        <a class="nk_logout_my_account" href="/users/auth/logout">
+                        <a class="nk_logout_my_account" asp-area="Auth" asp-controller="Auth" asp-action="LogOut">
                             <i class="fa fa-sign-out"></i>خروج از حساب کاربری
                         </a>
                     </div>
@@ -224,16 +223,16 @@
                         <div class="nk_main_avatar_header">
                             <img src="~/BackEnd/Admin/images/avatars/AdminAvatar.png" srcset="~/BackEnd/Admin/images/avatars/AdminAvatar.png" class="avatar avatar-65 photo" height="200" width="200">
                             <div class="nk_main_link_panels_header">
-                                <a class="nk_go_to_dashboard" target="_blank"  href="/panel/admin/home">
+                                <a class="nk_go_to_dashboard" target="_blank" asp-area="Admin" asp-controller="Home" asp-action="Index">
                                     پنل مدیر ارشد 
                                 </a>
                             </div>
                         </div>
-                        <a class="nk_go_to_my_orders"   href="/panel/admin/home">
+                        <a class="nk_go_to_my_orders"  asp-area="Admin" asp-controller="Home" asp-action="Index">
                             <i class="fa fa-file-text-o"></i>
                             ورود به پنل مدیریت
                         </a>
-                        <a class="nk_logout_my_account" href="/users/auth/logout">
+                        <a class="nk_logout_my_account" asp-area="Auth" asp-controller="Auth" asp-action="LogOut">
                             <i class="fa fa-sign-out"></i>خروج از حساب کاربری
                         </a>
                     </div>
@@ -252,16 +251,16 @@
                         <div class="nk_main_avatar_header">
                             <img src="~/BackEnd/Owner/images/avatars/SellerAvatar.jpg" srcset="~/BackEnd/Owner/images/avatars/SellerAvatar.jpg" class="avatar avatar-65 photo" height="200" width="200">
                             <div class="nk_main_link_panels_header">
-                                <a class="nk_go_to_dashboard" target="_blank" href="/panel/owner/home">
+                                <a class="nk_go_to_dashboard" target="_blank" asp-area="Owner" asp-controller="Home" asp-action="Index">
                                     پنل فروشندگان
                                 </a>
                             </div>
                         </div>
-                        <a class="nk_go_to_my_orders"  href="/panel/admin/home">
+                        <a class="nk_go_to_my_orders"  asp-area="Admin" asp-controller="Home" asp-action="Index">
                             <i class="fa fa-file-text-o"></i>
                             ورود به پنل مدیریت
                         </a>
-                        <a class="nk_logout_my_account" href="/users/auth/logout">
+                        <a class="nk_logout_my_account" asp-area="Auth" asp-controller="Auth" asp-action="LogOut">
                             <i class="fa fa-sign-out"></i>خروج از حساب کاربری
                         </a>
                     </div>
@@ -280,16 +279,16 @@
                         <div class="nk_main_avatar_header">
                             <img src="~/BackEnd/User/images/avatars/UserAvatar.jpg" srcset="~/BackEnd/User/images/avatars/UserAvatar.jpg" class="avatar avatar-65 photo" height="200" width="200">
                             <div class="nk_main_link_panels_header">
-                                <a class="nk_go_to_dashboard" target="_blank" asp-route="/panel/user/home">
+                                <a class="nk_go_to_dashboard" target="_blank" asp-area="User" asp-controller="Home" asp-action="Index">
                                     پنل کاربر
                                 </a>
                             </div>
                         </div>
-                        <a class="nk_go_to_my_orders"   href="/panel/admin/home">
+                        <a class="nk_go_to_my_orders"  asp-area="Admin" asp-controller="Home" asp-action="Index">
                             <i class="fa fa-file-text-o"></i>
                             ورود به پنل مدیریت
                         </a>
-                        <a class="nk_logout_my_account" href="/users/auth/logout">
+                        <a class="nk_logout_my_account" asp-area="Auth" asp-controller="Auth" asp-action="LogOut">
                             <i class="fa fa-sign-out"></i>خروج از حساب کاربری
                         </a>
                     </div>
@@ -300,7 +299,9 @@
     else
     {
         <div class="main_login_register ">
-            <a href="/users/auth/checkout"
+            <a asp-area="Auth"
+               asp-controller="Auth" 
+               asp-action="CheckOut"
                class="title_login_register">
                 <strong>
                     ورود /
@@ -314,7 +315,7 @@
     <div class="between_border "></div>
     <div class="header_cart_button " rel="nofollow">
         <a rel="nofollow" class="cart_page_url"
-           href="https://newkalatheme.ir/preview/cart/">
+           href="~/cart">
             <strong
                 class="title_cart_mini_newkala">
                 سبد خرید

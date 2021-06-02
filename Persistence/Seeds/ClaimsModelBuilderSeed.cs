@@ -45,7 +45,7 @@ namespace Persistence.Seeds
                 },
                 new Claims
                 {
-                    Id = 8, ClaimType = "BlogsIndex", ClaimValue = "BlogsIndex", ClaimName = "BlogsIndex",
+                    Id = 8, ClaimType = "BlogsIndex", ClaimValue = "BlogsIndex", ClaimName = "مشاهده بلاگ ها",
                     IsHead = null, ParentId = 7
                 },
                 new Claims

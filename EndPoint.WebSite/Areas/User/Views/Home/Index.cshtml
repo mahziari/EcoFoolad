@@ -1,0 +1,241 @@
+﻿@using Domain.Entities.Users
+@using Microsoft.AspNetCore.Authorization
+@using Microsoft.AspNetCore.Identity
+@inject IAuthorizationService AuthorizationService;
+@inject SignInManager<User> SignInManager
+@inject UserManager<User> UserManager
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "پیشخوان";
+    Layout = "~/Areas/User/Views/Shared/_Layout.cshtml";
+}
+
+
+<main>
+<div class="sp_Personal_Information_panel">
+    <div class="sp_avatar">
+        <div class="information">
+            <div class="sp_image_avatar">
+                <img alt='' src='https://secure.gravatar.com/avatar/bf44d824b64ba0a0284f4dbfda012ae6?s=65&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/bf44d824b64ba0a0284f4dbfda012ae6?s=130&#038;d=mm&#038;r=g 2x' class='avatar avatar-65 photo' height='65' width='65'/>
+            </div>
+            <div class="sp_paragraph_avatar">
+                <span class="user_name">@UserManager.GetUserAsync(User).Result.FirstName @UserManager.GetUserAsync(User).Result.LastName</span>
+                <p>تاریخ عضویت : 28-08-1399</p>
+            </div>
+        </div>
+        <div class="sp_icon_avatar">
+            <a href="https://product-mirzacode.ir/newkala/preview/wp-login.php?action=logout&amp;redirect_to=https%3A%2F%2Fproduct-mirzacode.ir%2Fnewkala%2Fpreview%2Fmy-account%2F&amp;_wpnonce=4b99842ae7">
+                <i class="fas fa-power-off"></i>
+            </a>
+            <a href="https://product-mirzacode.ir/newkala/preview">
+                <i class="fas fa-home"></i>
+            </a>
+            <a href="https://product-mirzacode.ir/newkala/preview/my-account/edit-account/">
+                <i class="fas fa-cog"></i>
+            </a>
+        </div>
+    </div>
+
+    <div class="sp_my_account">
+        <ul class="woocommerce_menu_dashboard">
+            <li class="woocommerce-MyAccount-navigation-link woocommerce-MyAccount-navigation-link--dashboard is-active">
+                <a href="https://product-mirzacode.ir/newkala/preview/my-account/"><i class="fas fa-tachometer-alt"></i>پیشخوان</a>
+            </li>
+            <li class="woocommerce-MyAccount-navigation-link woocommerce-MyAccount-navigation-link--orders">
+                <a href="https://product-mirzacode.ir/newkala/preview/my-account/orders/"><i class="fas fa-file-alt"></i>سفارش‌ها</a>
+            </li>
+            @* <li class="woocommerce-MyAccount-navigation-link woocommerce-MyAccount-navigation-link--downloads"> *@
+            @*     <a href="https://product-mirzacode.ir/newkala/preview/my-account/downloads/"><i class="fas fa-download"></i>دانلودها</a> *@
+            @* </li> *@
+            <li class="woocommerce-MyAccount-navigation-link woocommerce-MyAccount-navigation-link--edit-address">
+                <a href="https://product-mirzacode.ir/newkala/preview/my-account/edit-address/"><i class="fas fa-address-book"></i>آدرس</a>
+            </li>
+            <li class="woocommerce-MyAccount-navigation-link woocommerce-MyAccount-navigation-link--edit-account">
+                <a href="https://product-mirzacode.ir/newkala/preview/my-account/edit-account/"><i class="fas fa-user"></i>جزئیات حساب</a>
+            </li>
+            @* <li class="woocommerce-MyAccount-navigation-link woocommerce-MyAccount-navigation-link--comments"> *@
+            @*     <a href="https://product-mirzacode.ir/newkala/preview/my-account/comments/"><i class="fas fa-comment"></i>نظرات</a> *@
+            @* </li> *@
+            @* <li class="woocommerce-MyAccount-navigation-link woocommerce-MyAccount-navigation-link--notification"> *@
+            @*     <a href="https://product-mirzacode.ir/newkala/preview/my-account/notification/"><i class="fas fa-bell"></i>اعلانات</a> *@
+            @* </li> *@
+            <li class="woocommerce-MyAccount-navigation-link woocommerce-MyAccount-navigation-link--customer-logout">
+                <a asp-area="Auth" asp-controller="Auth" asp-action="LogOut"><i class="fas fa-sign-out-alt"></i>خروج از سیستم</a>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="sp_toch">
+
+    <div class="sp_menu_bar">
+        <div class="sp_avatar">
+            <div class="sp_image_avatar">
+                <img alt='' src='https://secure.gravatar.com/avatar/bf44d824b64ba0a0284f4dbfda012ae6?s=65&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/bf44d824b64ba0a0284f4dbfda012ae6?s=130&#038;d=mm&#038;r=g 2x' class='avatar avatar-65 photo' height='65' width='65'/>
+                <svg id="sp_Multiplication" width="14" height="14" viewBox="0 0 14 14" xmlns="http://www.w3.org/2000/svg">
+                    <line fill="none" stroke="#fff" stroke-width="1.1" x1="1" y1="1" x2="13" y2="13"></line><line fill="none" stroke="#fff" stroke-width="1.1" x1="13" y1="1" x2="1" y2="13"></line>
+                </svg>
+            </div>
+            <div class="sp_paragraph_avatar">
+                <h1> @UserManager.GetUserAsync(User).Result.FirstName @UserManager.GetUserAsync(User).Result.LastName</h1>
+                <p>
+                    <p>تاریخ عضویت : 28-08-1399</p>
+                </p>
+            </div>
+            <div class="sp_icon_avatar">
+                <a asp-area="Auth" asp-controller="Auth" asp-action="LogOut">
+                    <i class="fas fa-power-off"></i>
+                </a>
+                <a href="https://product-mirzacode.ir/newkala/preview">
+                    <i class="fas fa-home"></i>
+                </a>
+                <a href="https://product-mirzacode.ir/newkala/preview/my-account/edit-account/">
+                    <i class="fas fa-cog"></i>
+                </a>
+            </div>
+        </div>
+        <div class="sp_my_account2">
+            <ul>
+                <li class="woocommerce-MyAccount-navigation-link woocommerce-MyAccount-navigation-link--dashboard is-active">
+                    <a href="https://product-mirzacode.ir/newkala/preview/my-account/"><i class="fas fa-tachometer-alt"></i>پیشخوان</a>
+                </li>
+                <li class="woocommerce-MyAccount-navigation-link woocommerce-MyAccount-navigation-link--orders">
+                    <a href="https://product-mirzacode.ir/newkala/preview/my-account/orders/"><i class="fas fa-file-alt"></i>سفارش‌ها</a>
+                </li>
+                <li class="woocommerce-MyAccount-navigation-link woocommerce-MyAccount-navigation-link--downloads">
+                    <a href="https://product-mirzacode.ir/newkala/preview/my-account/downloads/"><i class="fas fa-download"></i>دانلودها</a>
+                </li>
+                <li class="woocommerce-MyAccount-navigation-link woocommerce-MyAccount-navigation-link--edit-address">
+                    <a href="https://product-mirzacode.ir/newkala/preview/my-account/edit-address/"><i class="fas fa-address-book"></i>آدرس‌ها</a>
+                </li>
+                <li class="woocommerce-MyAccount-navigation-link woocommerce-MyAccount-navigation-link--edit-account">
+                    <a href="https://product-mirzacode.ir/newkala/preview/my-account/edit-account/"><i class="fas fa-user"></i>جزئیات حساب</a>
+                </li>
+                <li class="woocommerce-MyAccount-navigation-link woocommerce-MyAccount-navigation-link--comments">
+                    <a href="https://product-mirzacode.ir/newkala/preview/my-account/comments/"><i class="fas fa-comment"></i>نظرات</a>
+                </li>
+                <li class="woocommerce-MyAccount-navigation-link woocommerce-MyAccount-navigation-link--notification">
+                    <a href="https://product-mirzacode.ir/newkala/preview/my-account/notification/"><i class="fas fa-bell"></i>اعلانات</a>
+                </li>
+                <li class="woocommerce-MyAccount-navigation-link woocommerce-MyAccount-navigation-link--customer-logout">
+                    <a href="https://product-mirzacode.ir/newkala/preview/my-account/customer-logout/?_wpnonce=695cf61f6b"><i class="fas fa-sign-out-alt"></i>خروج از سیستم</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="sp_body_panel">
+    <div class="woocommerce">
+        <div class="woocommerce-MyAccount-content">
+            <div class="woocommerce-notices-wrapper"></div>
+            <div class="woocommerce-notices-wrapper"></div>
+            <div class="sp_top_panel">
+                @* <h1>پنل کاربران</h1> *@
+                <p><i class="far fa-user"></i>کاربر گرامی  @UserManager.GetUserAsync(User).Result.FirstName @UserManager.GetUserAsync(User).Result.LastName عزیز خوش آمدید</p>
+            </div>
+            <div class="sp_bottom_panel">
+                <div class="sp_Possibilities">
+                    <ul class="sp_Information_panel">
+                        <li class="wallet">
+                            <div class="sp_paragraph">
+                                <span>کامنت</span>
+                                <span>0</span>
+                            </div>
+                            <div class="sp_icons_Information_panel">
+                                <i class="fas fa-wallet"></i>
+                            </div>
+                        </li>
+                        <li class="order">
+                            <div class="sp_paragraph">
+                                <span>سفارشات شما</span>
+                                <span> 0</span>
+                            </div>
+                            <div class="sp_icons_Information_panel">
+                                <i class="fas fa-shopping-bag"></i>
+                            </div>
+                        </li>
+                        <li class="number_of_registration_day">
+                            <div class="sp_paragraph">
+                                136 <span>روز است که همراه ما هستید</span>
+                            </div>
+                            <div class="sp_icons_Information_panel">
+                                <i class="fas fa-smile"></i>
+                            </div>
+                        </li>
+                        <li class="discount_code">
+                            <div class="sp_paragraph">
+                                <span>اعلان ها</span>
+                                <span>1</span>
+                            </div>
+                            <div class="sp_icons_Information_panel">
+                                <i class="fas fa-scroll"></i>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="sp_Ports">
+                </div>
+                <div class="sp_posts_and_Products">
+                    <div class="sp_last_posts">
+                        <div class="sp_top_last_posts dsh_last_posts_blog">
+                            آخرین مطالب
+                        </div>
+                        <ul class="sp_bottom_last_posts">
+                            <li>
+                                <a href="https://product-mirzacode.ir/newkala/preview/blog/2021/01/24/%d8%a7%db%8c%d9%86%d8%af%db%8c%d8%a7%d9%86%d8%a7-%d8%ac%d9%88%d9%86%d8%b2-%db%b5-%d9%85%db%8c%e2%80%8c%d8%aa%d9%88%d8%a7%d9%86%d8%af-%da%a9%d9%be%db%8c-%d8%a7%d8%b2-%d9%81%db%8c%d9%84%d9%85/">
+                                    <img width="210" height="210" src="https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2021/01/Indiana-Jones-Harison-Ford-Logan--210x210.jpg" class="attachment-shop_catalog size-shop_catalog wp-post-image" alt="" srcset="https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2021/01/Indiana-Jones-Harison-Ford-Logan--210x210.jpg 210w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2021/01/Indiana-Jones-Harison-Ford-Logan--180x180.jpg 180w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2021/01/Indiana-Jones-Harison-Ford-Logan--20x20.jpg 20w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2021/01/Indiana-Jones-Harison-Ford-Logan--30x30.jpg 30w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2021/01/Indiana-Jones-Harison-Ford-Logan--40x40.jpg 40w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2021/01/Indiana-Jones-Harison-Ford-Logan--100x100.jpg 100w" sizes="(max-width: 210px) 100vw, 210px"/>
+                                    <p>ایندیانا جونز ۵ می‌­تواند کپی از فیلم لوگان باشد</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://product-mirzacode.ir/newkala/preview/blog/2021/01/24/%d8%b4%d8%a8%d8%a7%d9%87%d8%aa%e2%80%8c%d9%87%d8%a7%db%8c-%d8%b3%d8%b1%db%8c%d8%a7%d9%84-%d9%82%d9%88%d8%b1%d8%a8%d8%a7%d8%ba%d9%87-%d9%88-%d9%81%db%8c%d9%84%d9%85-%d9%86%d9%81%d8%b1%d8%aa%d8%9b/">
+                                    <img width="210" height="210" src="https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2021/01/LaHaine_Frog-Sereis-210x210.jpg" class="attachment-shop_catalog size-shop_catalog wp-post-image" alt="" srcset="https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2021/01/LaHaine_Frog-Sereis-210x210.jpg 210w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2021/01/LaHaine_Frog-Sereis-180x180.jpg 180w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2021/01/LaHaine_Frog-Sereis-20x20.jpg 20w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2021/01/LaHaine_Frog-Sereis-30x30.jpg 30w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2021/01/LaHaine_Frog-Sereis-40x40.jpg 40w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2021/01/LaHaine_Frog-Sereis-100x100.jpg 100w" sizes="(max-width: 210px) 100vw, 210px"/>
+                                    <p>شباهت‌های سریال قورباغه و فیلم نفرت؛ بچه‌های پاریس در تهران</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://product-mirzacode.ir/newkala/preview/blog/2021/01/24/%d8%a7%d9%86%da%af%d8%a7%d8%b4%d8%aa%d9%87%d8%9b-%d8%aa%d8%b4%d8%b1%db%8c%d8%ad-%da%a9%d8%a7%d9%85%d9%84-%d8%ae%d8%b7-%d8%b2%d9%85%d8%a7%d9%86%db%8c-%d9%86%d9%82%d8%b4-%d9%86%db%8c%d9%84-%d8%af%d8%b1/">
+                                    <img width="210" height="210" src="https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2021/01/TenetEndingExplainedNeilAndProtag-210x210.jpg" class="attachment-shop_catalog size-shop_catalog wp-post-image" alt="" srcset="https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2021/01/TenetEndingExplainedNeilAndProtag-210x210.jpg 210w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2021/01/TenetEndingExplainedNeilAndProtag-180x180.jpg 180w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2021/01/TenetEndingExplainedNeilAndProtag-20x20.jpg 20w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2021/01/TenetEndingExplainedNeilAndProtag-30x30.jpg 30w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2021/01/TenetEndingExplainedNeilAndProtag-40x40.jpg 40w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2021/01/TenetEndingExplainedNeilAndProtag-100x100.jpg 100w" sizes="(max-width: 210px) 100vw, 210px"/>
+                                    <p>انگاشته؛ تشریح کامل خط زمانی نقش نیل در فیلم کریستوفر نولان</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="sp_last_posts">
+                        <div class="sp_top_last_posts dsh_last_product">
+                            آخرین محصولات
+                        </div>
+                        <ul class="sp_bottom_last_posts">
+                            <li>
+                                <a href="https://product-mirzacode.ir/newkala/preview/product/%d8%aa%d8%b3%d8%aa/">
+                                    <p>تست</p>
+                                </a>
+                                <a href="https://product-mirzacode.ir/newkala/preview/product/%d8%aa%d8%b3%d8%aa/">
+                                    <span>مشاهده محصول</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://product-mirzacode.ir/newkala/preview/product/%da%af%d9%88%d8%b4%d9%8a-%d9%85%d9%88%d8%a8%d8%a7%d9%8a%d9%84-%d8%a7%d9%be%d9%84-%d9%85%d8%af%d9%84-iphone-x-2/">
+                                    <img width="210" height="210" src="https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2018/03/Apple-iPhone-X-256GB-Mobile-Phone-1fbd5a-210x210.jpg" class="attachment-shop_catalog size-shop_catalog wp-post-image" alt="" srcset="https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2018/03/Apple-iPhone-X-256GB-Mobile-Phone-1fbd5a-210x210.jpg 210w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2018/03/Apple-iPhone-X-256GB-Mobile-Phone-1fbd5a-100x100.jpg 100w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2018/03/Apple-iPhone-X-256GB-Mobile-Phone-1fbd5a-600x600.jpg 600w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2018/03/Apple-iPhone-X-256GB-Mobile-Phone-1fbd5a-180x180.jpg 180w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2018/03/Apple-iPhone-X-256GB-Mobile-Phone-1fbd5a-300x300.jpg 300w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2018/03/Apple-iPhone-X-256GB-Mobile-Phone-1fbd5a-768x768.jpg 768w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2018/03/Apple-iPhone-X-256GB-Mobile-Phone-1fbd5a-1024x1024.jpg 1024w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2018/03/Apple-iPhone-X-256GB-Mobile-Phone-1fbd5a-500x500.jpg 500w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2018/03/Apple-iPhone-X-256GB-Mobile-Phone-1fbd5a-39x39.jpg 39w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2018/03/Apple-iPhone-X-256GB-Mobile-Phone-1fbd5a-18x18.jpg 18w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2018/03/Apple-iPhone-X-256GB-Mobile-Phone-1fbd5a-25x25.jpg 25w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2018/03/Apple-iPhone-X-256GB-Mobile-Phone-1fbd5a-20x20.jpg 20w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2018/03/Apple-iPhone-X-256GB-Mobile-Phone-1fbd5a-30x30.jpg 30w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2018/03/Apple-iPhone-X-256GB-Mobile-Phone-1fbd5a-40x40.jpg 40w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2018/03/Apple-iPhone-X-256GB-Mobile-Phone-1fbd5a-170x170.jpg 170w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2018/03/Apple-iPhone-X-256GB-Mobile-Phone-1fbd5a-150x150.jpg 150w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2018/03/Apple-iPhone-X-256GB-Mobile-Phone-1fbd5a.jpg 1280w" sizes="(max-width: 210px) 100vw, 210px"/>
+                                    <p>گوشي موبايل اپل مدل iPhone X</p>
+                                </a>
+                                <a href="https://product-mirzacode.ir/newkala/preview/product/%da%af%d9%88%d8%b4%d9%8a-%d9%85%d9%88%d8%a8%d8%a7%d9%8a%d9%84-%d8%a7%d9%be%d9%84-%d9%85%d8%af%d9%84-iphone-x-2/">
+                                    <span>مشاهده محصول</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://product-mirzacode.ir/newkala/preview/product/%d9%87%d9%88%d8%af%db%8c-%d9%85%d8%b1%d8%af%d8%a7%d9%86%d9%87-%d8%b7%d8%b1%d8%ad-%d9%85%d8%a7%d8%b1%d8%b4%d9%85%d9%84%d9%88-%da%a9%d8%af-f292/">
+                                    <img width="210" height="210" src="https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/119144821-210x210.jpg" class="attachment-shop_catalog size-shop_catalog wp-post-image" alt="" srcset="https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/119144821-210x210.jpg 210w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/119144821-300x300.jpg 300w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/119144821-1024x1024.jpg 1024w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/119144821-180x180.jpg 180w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/119144821-768x768.jpg 768w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/119144821-20x20.jpg 20w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/119144821-30x30.jpg 30w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/119144821-40x40.jpg 40w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/119144821-600x600.jpg 600w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/119144821-100x100.jpg 100w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/119144821.jpg 1280w" sizes="(max-width: 210px) 100vw, 210px"/>
+                                    <p>هودی مردانه طرح مارشملو کد F292</p>
+                                </a>
+                                <a href="https://product-mirzacode.ir/newkala/preview/product/%d9%87%d9%88%d8%af%db%8c-%d9%85%d8%b1%d8%af%d8%a7%d9%86%d9%87-%d8%b7%d8%b1%d8%ad-%d9%85%d8%a7%d8%b1%d8%b4%d9%85%d9%84%d9%88-%da%a9%d8%af-f292/">
+                                    <span>مشاهده محصول</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</main>

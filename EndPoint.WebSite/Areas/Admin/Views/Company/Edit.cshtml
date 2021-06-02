@@ -1,0 +1,96 @@
+﻿@using   Application.Services.BackEnd.Admin.Company.Queries
+@model ResultGetEditCompanyDto
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = " محصول جدید ";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@section Head{
+    <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/vendors/css/vendors-rtl.min.css">
+    <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/vendors/css/forms/select/select2.min.css">
+    <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/css/bootstrap-extended.min.css">
+    <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/css/colors.min.css">
+    <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/css/components.min.css">
+    <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/css/themes/dark-layout.min.css">
+    <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/css/themes/semi-dark-layout.min.css">
+    <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/css/custom-rtl.min.css">
+    <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/css/core/menu/menu-types/vertical-menu-karaji.min.css">
+    <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/css/style.css">
+}
+
+@section Foo{
+    <script src="~/BackEnd/Admin/vendors/js/vendors.min.js"></script>
+    <script src="~/BackEnd/Admin/vendors/js/forms/select/select2.full.min.js"></script>
+    <script src="~/BackEnd/Admin/vendors/js/extensions/jquery.steps.min.js"></script>
+    <script src="~/BackEnd/Admin/vendors/js/forms/validation/jquery.validate.min.js"></script>
+    <script src="~/BackEnd/Admin/js/scripts/configs/vertical-menu-dark.min.js"></script>
+    <script src="~/BackEnd/Admin/js/core/app-menu.min.js"></script>
+    <script src="~/BackEnd/Admin/js/core/app.min.js"></script>
+    <script src="~/BackEnd/Admin/js/scripts/components.min.js"></script>
+    <script src="~/BackEnd/Admin/js/scripts/footer.min.js"></script>
+    <script src="~/BackEnd/Admin/js/scripts/customizer.min.js"></script>
+    <script src="~/BackEnd/Admin/js/scripts/forms/select/form-select2.min.js"></script>
+    <script>$('div.alert').delay(3000).slideUp(300); </script>
+    <partial name="_CkEditorScriptsPartial"/>
+}
+
+@Html.ValidationSummary(true)
+@Html.HiddenFor(model => model.Company.CompanyId)
+<div class="app-content content">
+    <div class="content-overlay"></div>
+    <div class="content-wrapper">
+        <div class="content-header row"></div>
+        <div class="content-body">
+            <!-- app invoice View Page -->
+
+            <form asp-area="Admin"
+                  asp-controller="Company"
+                  asp-action="Edit"
+                  asp-route-id="@Model.Company.CompanyId"
+                  method="post">
+                <section class="invoice-edit-wrapper">
+
+                    <div class="row">
+                        <!-- invoice view page -->
+                    <div class="col-xl-12 col-md-12 col-12">
+                        <div class="card">
+                            <div class="card-content">
+                                <div class="card-body pb-0 mx-25">
+
+                                    <!-- header section -->
+                                    <div class="row my-2 py-50">
+                                        <div class="col-sm-4 col-12 order-2 order-sm-1">
+                                            <h6 asp-for="Title" class="text-primary">نام کمپانی(شرکت): <b class="text-danger h3">*</b></h6>
+                                            <input asp-for="CmpName" value="@Model.Company.CmpName" type="text" DISABLED class="form-control">
+                                            <span asp-validation-for="CmpName" class="text-danger"></span>
+                                        </div>
+
+                                        <div class="col-md-4 col-12 order-2 order-sm-1">
+                                            <h6 class="text-primary"> تولید کننده کدام محصول است؟ :<b class="text-danger h3">*</b></h6>
+                                            <div class="form-group">
+                                                <select class="select2 form-control" asp-for="ParsaPooladMenusId">
+                                                    <option value="@Model.Company.ParsaPooladMenusId"> انتخاب شما: @Model.Company.MenuName </option>
+                                                    @foreach (var item in Model.ParsaPooladMenus)
+                                                    {
+                                                        <option value="@item.ParsaPooladMenusId">@item.Name </option>
+                                                    }
+                                                </select>
+                                                <span asp-validation-for="MenuName" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                </section>
+
+
+                <button class="btn btn-primary btn-block subtotal-preview-btn">ثبت</button>
+            </form>
+        </div>
+    </div>
+</div>

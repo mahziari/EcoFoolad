@@ -1,4 +1,4 @@
-﻿@using  Application.Services.FrontEnd.Products.Queries
+﻿@using Application.Services.FrontEnd.Products.Queries
 @model ResultGetProductsFrontEndDto
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 @{
@@ -115,10 +115,12 @@
         {
             <li class="mine_css swiper-slide not_in_offer_tax not_in_offer_slider product type-product post-3807 status-publish first instock product_cat-cloth product_tag-234 product_tag-236 has-post-thumbnail taxable shipping-taxable purchasable product-type-simple"
                 data-id="3807"
-                style="display: flex"
-                >
+                style="display: flex">
                 <div class="col-md-4 product_catalog">
-                    <a>
+                    <a asp-controller="Products"
+                       asp-action="Category"
+                       asp-route-category="@item.UrlName">
+                       asp-route-menuName="@item.ParsaPooladMenusId">
                         <img src="/@item.Image"/>
                     </a>
                 </div>
@@ -128,25 +130,24 @@
                 <div class="col-md-4 product_catalog">
                     <img src="/@item.Image"/>
                 </div>
-                
             </li>
         }
       
     </ul>
     
-<nav class="woocommerce-pagination" lang="fa">
-    <ul class="page-numbers">
-        <li>
-            <span aria-current="page" class="page-numbers current">1</span>
-        </li>
-        <li>
-            <a class="page-numbers" href="https://newkalatheme.ir/preview/product-category/cloth/page/2/">2</a>
-        </li>
-        <li>
-            <a class="next page-numbers" href="https://newkalatheme.ir/preview/product-category/cloth/page/2/">→</a>
-        </li>
-    </ul>
-</nav>
+@* <nav class="woocommerce-pagination" lang="fa"> *@
+@*     <ul class="page-numbers"> *@
+@*         <li> *@
+@*             <span aria-current="page" class="page-numbers current">1</span> *@
+@*         </li> *@
+@*         <li> *@
+@*             <a class="page-numbers" href="https://newkalatheme.ir/preview/product-category/cloth/page/2/">2</a> *@
+@*         </li> *@
+@*         <li> *@
+@*             <a class="next page-numbers" href="https://newkalatheme.ir/preview/product-category/cloth/page/2/">→</a> *@
+@*         </li> *@
+@*     </ul> *@
+@* </nav> *@
 </main>
 </div>
 <div class="main_sidebar sidebar_archive_product">

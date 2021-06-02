@@ -1,0 +1,586 @@
+﻿@using Microsoft.AspNetCore.Authorization
+@model Application.Services.BackEnd.Owner.Profile.Queries.ResultGetIndexOwnerProfileDto
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@inject IAuthorizationService AuthorizationService;
+@{
+    ViewData["Title"] = "پروفایل کاربری";
+    Layout = "~/Areas/Owner/Views/Shared/_Layout.cshtml";
+}
+
+<div class="dokan-dashboard-content dokan-settings-content">
+<article class="dokan-settings-area">
+
+<ul class="nk-sub_nav_menus">
+     <li class="sp_first_list store active ">
+            <a asp-area="Owner" asp-controller="Profile" asp-action="Index"  > اطلاعات فردی</a>
+        </li>
+    
+    <li class="sp_first_list seller-info  ">
+        <a asp-area="Owner" asp-controller="Profile" asp-action="ChangePassword" >رمز عبور</a>
+    </li>
+    
+</ul>
+<div class="nk_title_settings_page">تنظیمات</div>
+<div class="dokan-ajax-response">
+</div>
+
+
+<form method="post" id="store-form" action="" class="dokan-form-horizontal nk-store-form" novalidate="novalidate">
+<input type="hidden" id="_wpnonce" name="_wpnonce" value="b9f2077323"><input type="hidden" name="_wp_http_referer" value="/newkala/preview/dashboard/settings/store/">
+
+@* <div class="dokan-banner"> *@
+@* *@
+@*     <div class="image-wrap"> *@
+@*         <input type="hidden" class="dokan-file-field" value="4137" name="dokan_banner"> *@
+@*         <img class="dokan-banner-img" src="https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/12/cropped-12.png"> *@
+@* *@
+@*         <a class="close dokan-remove-banner-image">×</a> *@
+@*     </div> *@
+@* *@
+@*     <div class="button-area dokan-hide"> *@
+@*         <i class="fa fa-cloud-upload"></i> *@
+@* *@
+@*         <a href="#" class="dokan-banner-drag dokan-btn dokan-btn-info dokan-theme">آپلود بنر</a> *@
+@*         <p class="help-block"> *@
+@*             یک بنر برای فروشگاه خود آپلود کنید. سایز بنر باید (625x300) پیکسل باشد. *@
+@*         </p> *@
+@*     </div> *@
+@* </div> <!-- .dokan-banner --> *@
+
+
+<div class="nk_main_fields_store">
+
+
+    @* <div class="dokan-form-group"> *@
+    @*     <label class="dokan-w3 dokan-control-label" for="nk_seller_id">کد فروشنده</label> *@
+    @* *@
+    @*     <div class="dokan-w5 dokan-text-left"> *@
+    @*         <input id="nk_seller_id" value="91" name="nk_seller_id" class="dokan-form-control" type="text"> *@
+    @*     </div> *@
+    @* </div> *@
+    
+    <div class="dokan-form-group">
+        <label class="dokan-w3 dokan-control-label" for="nk_first_name">نام</label>
+
+        <div class="dokan-w5 dokan-text-left">
+            <input id="nk_first_name" value="@Model.User.FirstName" name="nk_first_name" class="dokan-form-control" type="text">
+        </div>
+    </div>
+
+
+    <div class="dokan-form-group">
+        <label class="dokan-w3 dokan-control-label" for="nk_last_name">نام خانوادگی</label>
+
+        <div class="dokan-w5 dokan-text-left">
+            <input id="nk_last_name" value="@Model.User.LastName" name="nk_last_name" class="dokan-form-control" type="text">
+        </div>
+    </div>
+
+
+    @* <div class="dokan-form-group"> *@
+    @*     <label class="dokan-w3 dokan-control-label" for="nk_gender">جنسیت</label> *@
+    @* *@
+    @*     <div class="dokan-w5 dokan-text-left"> *@
+    @*         <select id="nk_gender" name="nk_gender" class="dokan-select dokan-form-control"> *@
+    @*             <option value="male">مرد</option> *@
+    @*             <option value="femal">زن</option> *@
+    @*         </select> *@
+    @*     </div> *@
+    @* </div> *@
+
+
+    @* <div class="dokan-form-group"> *@
+    @*     <label class="dokan-w3 dokan-control-label" for="nk_birthday_date">تاریخ تولد</label> *@
+    @* *@
+    @*     <div class="dokan-w5 dokan-text-left"> *@
+    @*         <input id="nk_birthday_date" value="" name="nk_birthday_date" class="dokan-form-control" type="text"> *@
+    @*     </div> *@
+    @* </div> *@
+
+    <div class="nk_profile_and_about_seller">
+        <label class="nk_about_seller"> آدرس
+            <textarea class="wp-editor-area valid" rows="20" autocomplete="off" cols="40" name="vendor_biography" id="vendor_biography">
+              @Model.User.Address
+            </textarea>
+        </label>
+    </div>
+
+
+    @* <div class="dokan-form-group"> *@
+    @*     <label class="dokan-w3 dokan-control-label" for="nk_faragir_id">کد فراگیر (اتباع خارجی)</label> *@
+    @* *@
+    @*     <div class="dokan-w5 dokan-text-left"> *@
+    @*         <input id="nk_faragir_id" value="" name="nk_faragir_id" class="dokan-form-control" type="text"> *@
+    @*     </div> *@
+    @* </div> *@
+
+
+    @* <div class="dokan-form-group"> *@
+    @*     <label class="dokan-w3 dokan-control-label" for="nk_passport_no">شماره گذرنامه</label> *@
+    @* *@
+    @*     <div class="dokan-w5 dokan-text-left"> *@
+    @*         <input id="nk_passport_no" value="" name="nk_passport_no" class="dokan-form-control" type="text"> *@
+    @*     </div> *@
+    @* </div> *@
+
+
+    @* <div class="dokan-form-group"> *@
+    @*     <label class="dokan-w3 dokan-control-label" for="nk_sales_by_tax">مشمول مالیات بر ارزش افزوده</label> *@
+    @* *@
+    @*     <div class="dokan-w5 dokan-text-left"> *@
+    @*         <select id="nk_sales_by_tax" name="nk_sales_by_tax" class="dokan-select dokan-form-control valid"> *@
+    @*             <option value="no">خیر</option> *@
+    @*             <option value="yes">بله</option> *@
+    @*         </select> *@
+    @*     </div> *@
+    @* </div> *@
+
+
+</div>
+
+@* <div class="nk_profile_and_about_seller"> *@
+@*     <div class="dokan-form-group"> *@
+@*         <label class="dokan-w3 dokan-control-label" for="dokan_gravatar">لوگوی فروشنده</label> *@
+@* *@
+@*         <div class="dokan-w5 dokan-gravatar"> *@
+@*             <div class="dokan-left gravatar-wrap dokan-hide"> *@
+@*                 <input type="hidden" class="dokan-file-field" value="0" name="dokan_gravatar"> *@
+@*                 <img class="dokan-gravatar-img" src=""> *@
+@*                 <a class="dokan-close dokan-remove-gravatar-image">×</a> *@
+@*             </div> *@
+@*             <div class="gravatar-button-area"> *@
+@*                 <a href="#" class="dokan-pro-gravatar-drag dokan-btn dokan-btn-default"> *@
+@*                     <i class="fa fa-cloud-upload"></i> *@
+@*                 </a> *@
+@*             </div> *@
+@*         </div> *@
+@*     </div> *@
+@*     <label class="nk_about_seller"> *@
+@*         درباره فروشنده *@
+@*         <textarea class="wp-editor-area" rows="20" autocomplete="off" cols="40" name="vendor_biography" id="vendor_biography">ryjyrfjdk</textarea> *@
+@*     </label> *@
+@* </div> *@
+
+<!--terms and conditions enable or not -->
+
+@* <div class="nk_main_terms_and_conditions"> *@
+@*     <div class="dokan-form-group"> *@
+@*         <label class="dokan-w3 dokan-control-label"></label> *@
+@*         <div class="dokan-w5 dokan-text-left dokan_tock_check"> *@
+@*             <div class="checkbox"> *@
+@*                 <label> *@
+@*                     <input type="checkbox" id="dokan_store_tnc_enable" value="on" checked="" name="dokan_store_tnc_enable"> شرایط و ضوابط در صفحه فروشگاه *@
+@*                 </label> *@
+@*             </div> *@
+@*         </div> *@
+@*     </div> *@
+@*     <div class="dokan-form-group" id="dokan_tnc_text"> *@
+@*         <label class="dokan-w3 dokan-control-label" for="dokan_store_tnc">درج قوانین ارائه محصول و خدمات</label> *@
+@*         <div class="dokan-w8 dokan-text-left" style="width:100%;"> *@
+@*             <div id="wp-dokan_store_tnc-wrap" class="wp-core-ui wp-editor-wrap tmce-active"> *@
+@*                 <link rel="stylesheet" id="editor-buttons-rtl-css" href="https://product-mirzacode.ir/newkala/preview/wp-includes/css/editor-rtl.min.css?ver=5.7" type="text/css" media="all"> *@
+@*                 <div id="wp-dokan_store_tnc-editor-container" class="wp-editor-container"> *@
+@*                     <div id="mceu_15" class="mce-tinymce mce-rtl mce-container mce-panel" hidefocus="1" tabindex="-1" role="application" style="visibility: hidden; border-width: 1px; width: 100%;"> *@
+@*                         <div id="mceu_15-body" class="mce-container-body mce-stack-layout"> *@
+@*                             <div id="mceu_16" class="mce-top-part mce-rtl mce-container mce-stack-layout-item mce-first"> *@
+@*                                 <div id="mceu_16-body" class="mce-container-body"> *@
+@*                                     <div id="mceu_17" class="mce-toolbar-grp mce-rtl mce-container mce-panel mce-first mce-last" hidefocus="1" tabindex="-1" role="group"> *@
+@*                                         <div id="mceu_17-body" class="mce-container-body mce-stack-layout"> *@
+@*                                             <div id="mceu_18" class="mce-rtl mce-container mce-toolbar mce-stack-layout-item mce-first mce-last" role="toolbar"> *@
+@*                                                 <div id="mceu_18-body" class="mce-container-body mce-flow-layout"> *@
+@*                                                     <div id="mceu_19" class="mce-rtl mce-container mce-flow-layout-item mce-first mce-last mce-btn-group" role="group"> *@
+@*                                                         <div id="mceu_19-body"> *@
+@*                                                             <div id="mceu_0" class="mce-widget mce-btn mce-first" tabindex="-1" aria-pressed="false" role="button" aria-label="توپُر (Ctrl+B)"> *@
+@*                                                                 <button id="mceu_0-button" role="presentation" type="button" tabindex="-1"> *@
+@*                                                                     <i class="mce-ico mce-i-bold"></i> *@
+@*                                                                 </button> *@
+@*                                                             </div> *@
+@*                                                             <div id="mceu_1" class="mce-widget mce-btn" tabindex="-1" aria-pressed="false" role="button" aria-label="کج (Ctrl+I)"> *@
+@*                                                                 <button id="mceu_1-button" role="presentation" type="button" tabindex="-1"> *@
+@*                                                                     <i class="mce-ico mce-i-italic"></i> *@
+@*                                                                 </button> *@
+@*                                                             </div> *@
+@*                                                             <div id="mceu_2" class="mce-widget mce-btn" tabindex="-1" aria-pressed="false" role="button" aria-label="زیرخط دار (Ctrl+U)"> *@
+@*                                                                 <button id="mceu_2-button" role="presentation" type="button" tabindex="-1"> *@
+@*                                                                     <i class="mce-ico mce-i-underline"></i> *@
+@*                                                                 </button> *@
+@*                                                             </div> *@
+@*                                                             <div id="mceu_3" class="mce-widget mce-btn" tabindex="-1" aria-pressed="false" role="button" aria-label="نقل قول (Shift+Alt+Q)"> *@
+@*                                                                 <button id="mceu_3-button" role="presentation" type="button" tabindex="-1"> *@
+@*                                                                     <i class="mce-ico mce-i-blockquote"></i> *@
+@*                                                                 </button> *@
+@*                                                             </div> *@
+@*                                                             <div id="mceu_4" class="mce-widget mce-btn" tabindex="-1" aria-pressed="false" role="button" aria-label="خط خوردن (Shift+Alt+D)"> *@
+@*                                                                 <button id="mceu_4-button" role="presentation" type="button" tabindex="-1"> *@
+@*                                                                     <i class="mce-ico mce-i-strikethrough"></i> *@
+@*                                                                 </button> *@
+@*                                                             </div> *@
+@*                                                             <div id="mceu_5" class="mce-widget mce-btn" tabindex="-1" aria-pressed="false" role="button" aria-label="لیست نشانه‌دار (Shift+Alt+U)"> *@
+@*                                                                 <button id="mceu_5-button" role="presentation" type="button" tabindex="-1"> *@
+@*                                                                     <i class="mce-ico mce-i-bullist"></i> *@
+@*                                                                 </button> *@
+@*                                                             </div> *@
+@*                                                             <div id="mceu_6" class="mce-widget mce-btn" tabindex="-1" aria-pressed="false" role="button" aria-label="فهرست عددی (Shift+Alt+O)"> *@
+@*                                                                 <button id="mceu_6-button" role="presentation" type="button" tabindex="-1"> *@
+@*                                                                     <i class="mce-ico mce-i-numlist"></i> *@
+@*                                                                 </button> *@
+@*                                                             </div> *@
+@*                                                             <div id="mceu_7" class="mce-widget mce-btn" tabindex="-1" aria-pressed="false" role="button" aria-label="چپ‌چین (Shift+Alt+L)"> *@
+@*                                                                 <button id="mceu_7-button" role="presentation" type="button" tabindex="-1"> *@
+@*                                                                     <i class="mce-ico mce-i-alignleft"></i> *@
+@*                                                                 </button> *@
+@*                                                             </div> *@
+@*                                                             <div id="mceu_8" class="mce-widget mce-btn" tabindex="-1" aria-pressed="false" role="button" aria-label="وسط‌چین (Shift+Alt+C)"> *@
+@*                                                                 <button id="mceu_8-button" role="presentation" type="button" tabindex="-1"> *@
+@*                                                                     <i class="mce-ico mce-i-aligncenter"></i> *@
+@*                                                                 </button> *@
+@*                                                             </div> *@
+@*                                                             <div id="mceu_9" class="mce-widget mce-btn" tabindex="-1" aria-pressed="false" role="button" aria-label="راست‌چین (Shift+Alt+R)"> *@
+@*                                                                 <button id="mceu_9-button" role="presentation" type="button" tabindex="-1"> *@
+@*                                                                     <i class="mce-ico mce-i-alignright"></i> *@
+@*                                                                 </button> *@
+@*                                                             </div> *@
+@*                                                             <div id="mceu_10" class="mce-widget mce-btn mce-disabled" tabindex="-1" role="button" aria-label="بازگردانی (Ctrl+Z)" aria-disabled="true"> *@
+@*                                                                 <button id="mceu_10-button" role="presentation" type="button" tabindex="-1"> *@
+@*                                                                     <i class="mce-ico mce-i-undo"></i> *@
+@*                                                                 </button> *@
+@*                                                             </div> *@
+@*                                                             <div id="mceu_11" class="mce-widget mce-btn mce-disabled" tabindex="-1" role="button" aria-label="بازانجام (Ctrl+Y)" aria-disabled="true"> *@
+@*                                                                 <button id="mceu_11-button" role="presentation" type="button" tabindex="-1"> *@
+@*                                                                     <i class="mce-ico mce-i-redo"></i> *@
+@*                                                                 </button> *@
+@*                                                             </div> *@
+@*                                                             <div id="mceu_12" class="mce-widget mce-btn" tabindex="-1" aria-pressed="false" role="button" aria-label="درج/ویرایش پیوند (Ctrl+K)"> *@
+@*                                                                 <button id="mceu_12-button" role="presentation" type="button" tabindex="-1"> *@
+@*                                                                     <i class="mce-ico mce-i-link"></i> *@
+@*                                                                 </button> *@
+@*                                                             </div> *@
+@*                                                             <div id="mceu_13" class="mce-widget mce-btn" tabindex="-1" aria-pressed="false" role="button" aria-label="تمام‌صفحه"> *@
+@*                                                                 <button id="mceu_13-button" role="presentation" type="button" tabindex="-1"> *@
+@*                                                                     <i class="mce-ico mce-i-fullscreen"></i> *@
+@*                                                                 </button> *@
+@*                                                             </div> *@
+@*                                                             <div id="mceu_14" class="mce-widget mce-btn mce-last" tabindex="-1" aria-pressed="false" role="button" aria-label="چپ به راست"> *@
+@*                                                                 <button id="mceu_14-button" role="presentation" type="button" tabindex="-1"> *@
+@*                                                                     <i class="mce-ico mce-i-ltr"></i> *@
+@*                                                                 </button> *@
+@*                                                             </div> *@
+@*                                                         </div> *@
+@*                                                     </div> *@
+@*                                                 </div> *@
+@*                                             </div> *@
+@*                                         </div> *@
+@*                                     </div> *@
+@*                                 </div> *@
+@*                             </div> *@
+@*                             <div id="mceu_20" class="mce-edit-area mce-rtl mce-container mce-panel mce-stack-layout-item" hidefocus="1" tabindex="-1" role="group" style="border-width: 1px 0px 0px;"> *@
+@*                                 <iframe id="dokan_store_tnc_ifr" allowtransparency="true" title="محدودهٔ متنِ حالت‌دار. دکمه‌های Alt-Shift-H را برای دسترسی به راهنما فشار دهید." style="width: 100%; height: 200px; display: block;" frameborder="0"></iframe> *@
+@*                             </div> *@
+@*                             <div id="mceu_21" class="mce-statusbar mce-rtl mce-container mce-panel mce-stack-layout-item mce-last" hidefocus="1" tabindex="-1" role="group" style="border-width: 1px 0px 0px;"> *@
+@*                                 <div id="mceu_21-body" class="mce-container-body mce-flow-layout"> *@
+@*                                     <div id="mceu_22" class="mce-path mce-flow-layout-item mce-first"> *@
+@*                                         <div class="mce-path-item">&nbsp;</div> *@
+@*                                     </div> *@
+@*                                     <div id="mceu_23" class="mce-flow-layout-item mce-last mce-resizehandle"> *@
+@*                                         <i class="mce-ico mce-i-resize"></i> *@
+@*                                     </div> *@
+@*                                 </div> *@
+@*                             </div> *@
+@*                         </div> *@
+@*                     </div><textarea class="wp-editor-area" style="height: 200px; display: none;" autocomplete="off" cols="40" name="dokan_store_tnc" id="dokan_store_tnc" aria-hidden="true"></textarea> *@
+@*                 </div> *@
+@*             </div> *@
+@* *@
+@*         </div> *@
+@*     </div> *@
+@* </div> *@
+
+
+<div style="display:none;">
+
+<input name="dokan_store_ppp" value="10" type="hidden">
+<input name="setting_phone" value="09151234567" type="hidden">
+<!--<input type="hidden" class="dokan-file-field" value="4137" name="dokan_banner" >-->
+<input type="hidden" class="dokan-file-field" value="" name="location">
+<!--address-->
+
+
+<input type="hidden" id="dokan_selected_country" value="">
+<input type="hidden" id="dokan_selected_state" value="">
+
+<!--<label class="dokan-w3 dokan-control-label" for="setting_address">آدرس</label>-->
+
+<div class="dokan-form-group">
+    <label class="control-label" for="dokan_address[country]">
+        کشور <span class="required"> *</span>
+    </label>
+    <select required="" name="dokan_address[country]" class="dokan-select2 country_to_state dokan-form-control select2-hidden-accessible" id="dokan_address_country" tabindex="-1" aria-hidden="true">
+        <option value="">- انتخاب مکان -</option>
+        <optgroup label="------------------------------">
+            <option value="AZ">آذربایجان</option><option value="AR">آرژانتین</option><option value="AW">آروبا</option><option value="ZA">آفریقای جنوبی</option><option value="AL">آلبانی</option><option value="DE">آلمان</option><option value="US">آمریکا</option><option value="AG">آنتیگوا و باربودا</option><option value="AD">آندورا</option><option value="AO">آنگولا</option><option value="AI">آنگویلا</option><option value="AT">اتریش</option><option value="ET">اتیوپی</option><option value="JO">اردن</option><option value="AM">ارمنستان</option><option value="ER">اریتره</option><option value="UZ">ازبکستان</option><option value="ES">اسپانیا</option><option value="AU">استرالیا</option><option value="EE">استونی</option><option value="IL">اسرائیل</option><option value="SK">اسلواکی</option><option value="SI">اسلوونی</option><option value="AF">افغانستان</option><option value="EC">اکوادور</option><option value="DZ">الجزایر</option><option value="SV">السالوادور</option><option value="AE">امارات متحده عربی</option><option value="ID">اندونزی</option><option value="GB">انگلستان</option><option value="UY">اوروگوئه</option><option value="UA">اوکراین</option><option value="UG">اوگاندا</option><option value="IT">ایتالیا</option><option value="IR">ایران</option><option value="IE">ایرلند</option><option value="IS">ایسلند</option><option value="BB">باربادوس</option><option value="BS">باهاما</option><option value="BH">بحرین</option><option value="BR">برزیل</option><option value="BM">برمودا</option><option value="BN">برونئی</option><option value="BY">بلاروس</option><option value="BE">بلژیک</option><option value="BG">بلغارستان</option><option value="BZ">بلیز</option><option value="BD">بنگلادش</option><option value="BJ">بنین</option><option value="BT">بوتان</option><option value="BW">بوتسوانا</option><option value="BF">بورکینافاسو</option><option value="BI">بوروندی</option><option value="BA">بوسنی و هرزگوین</option><option value="BO">بولیوی</option><option value="PG">پاپوآ گینه نو</option><option value="PY">پاراگوئه</option><option value="PK">پاکستان</option><option value="PW">پالائو</option><option value="PA">پاناما</option><option value="PT">پرتغال</option><option value="PE">پرو </option><option value="PF">پلی‌نزی فرانسه</option><option value="PR">پورتوریکو</option><option value="TJ">تاجیکستان</option><option value="TZ">تانزانیا</option><option value="TH">تایلند</option><option value="TW">تایوان</option><option value="TM">ترکمنستان</option><option value="TR">ترکیه</option><option value="TT">ترینیداد و توباگو</option><option value="TK">توکلائو</option><option value="TG">توگو</option><option value="TN">تونس</option><option value="TO">تونگا</option><option value="TV">تووالو</option><option value="TL">تیمور شرقی</option><option value="JM">جامائیکا</option><option value="GI">جبل طارق</option><option value="JE">جرزی</option><option value="PN">جزایر پیت‌کرن</option><option value="TC">جزایر تورکس و کایکوس</option><option value="GS">جزایر ساندویچ/جورجیای جنوبی</option><option value="SB">جزایر سلیمان</option><option value="FO">جزایر فارو</option><option value="FK">جزایر فالکلند</option><option value="UM">جزایر کوچک حاشیه‌ای ایالات متحده آمریکا</option><option value="CK">جزایر کوک</option><option value="CC">جزایر کوکوس (کیلینگ)</option><option value="KY">جزایر کیمن</option><option value="MH">جزایر مارشال</option><option value="MP">جزایر ماریانای شمالی</option><option value="VI">جزایر ویرجین (ایالات متحده)</option><option value="VG">جزایر ویرجین (بریتانیایی)</option><option value="BV">جزیره بووه</option><option value="CX">جزیره کریسمس</option><option value="IM">جزیره من</option><option value="NF">جزیره نورفک</option><option value="HM">جزیره هرد و جزایر مک‌دونالد</option><option value="CF">جمهوری آفریقای مرکزی</option><option value="CZ">جمهوری چک</option><option value="DO">جمهوری دومینیکن</option><option value="DJ">جیبوتی</option><option value="TD">چاد</option><option value="CN">چین</option><option value="DK">دانمارک</option><option value="DM">دومینیکا</option><option value="RE">رئونیون</option><option value="RW">رواندا</option><option value="RU">روسیه</option><option value="RO">رومانی</option><option value="ZM">زامبیا</option><option value="ZW">زیمبابوه</option><option value="JP">ژاپن</option><option value="ST">سائوتومه و پرنسیپ</option><option value="CI">ساحل عاج</option><option value="WS">ساموآ</option><option value="AS">ساموآی آمریکا</option><option value="SM">سان مارینو</option><option value="TF">سرزمین‌های جنوبی فرانسه</option><option value="LK">سری‌لانکا</option><option value="BL">سن بارتلمی</option><option value="MF">سن مارتن (قسمت فرانسوی)</option><option value="SX">سن مارتن (قسمت هلندی)</option><option value="PM">سن-پیر-ا-میکلون</option><option value="KN">سنت کیتس و نویس</option><option value="LC">سنت لوسیا</option><option value="VC">سنت وینسنت و گرنادین‌ها</option><option value="SH">سنت هلن</option><option value="SG">سنگاپور</option><option value="SN">سنگال</option><option value="SZ">سوازیلند</option><option value="SJ">سوالبارد و یان ماین</option><option value="SE">سوئد</option><option value="CH">سوئیس</option><option value="SD">سودان</option><option value="SS">سودان جنوبی</option><option value="SR">سورینام</option><option value="SY">سوریه</option><option value="SO">سومالی</option><option value="BQ">سیبا و سینت یوستیشس، بونیر</option><option value="SL">سیرالئون</option><option value="SC">سیشل</option><option value="CL">شیلی</option><option value="EH">صحرای غربی</option><option value="RS">صربستان</option><option value="IQ">عراق</option><option value="SA">عربستان سعودی</option><option value="OM">عمان</option><option value="GH">غنا</option><option value="FR">فرانسه</option><option value="PS">فلسطین اشغالی</option><option value="FI">فنلاند</option><option value="FJ">فیجی</option><option value="PH">فیلیپین</option><option value="CY">قبرس</option><option value="KG">قرقیزستان</option><option value="KZ">قزاقستان</option><option value="AQ">قطب جنوب</option><option value="QA">قطر</option><option value="IO">قلمرو بریتانیا در اقیانوس هند</option><option value="CR">کاستاریکا</option><option value="NC">کالدونیای جدید</option><option value="KH">کامبوج</option><option value="CM">کامرون</option><option value="CA">کانادا</option><option value="HR">کرواسی</option><option value="KR">کره جنوبی</option><option value="KP">کره شمالی</option><option value="CO">کلمبیا</option><option value="CG">کنگو (برازاویل)</option><option value="CD">کنگو (کینشاسا)</option><option value="KE">کنیا</option><option value="CU">کوبا</option><option value="CW">کوراسائو</option><option value="KM">کومور</option><option value="KW">کویت</option><option value="CV">کیپ ورد</option><option value="KI">کیریباتی</option><option value="GA">گابن</option><option value="GM">گامبیا</option><option value="GE">گرجستان</option><option value="GD">گرنادا</option><option value="GG">گرنزی</option><option value="GL">گرینلند</option><option value="GU">گوآم</option><option value="GT">گواتمالا</option><option value="GP">گوادلوپ</option><option value="GY">گویان</option><option value="GF">گویان فرانسه</option><option value="GN">گینه</option><option value="GQ">گینه استوایی</option><option value="GW">گینه بیسائو</option><option value="LA">لائوس</option><option value="LB">لبنان</option><option value="LV">لتونی</option><option value="LS">لسوتو</option><option value="LU">لوکزامبورگ</option><option value="PL">لهستان</option><option value="LR">لیبریا</option><option value="LY">لیبی</option><option value="LT">لیتوانی</option><option value="LI">لیختن‌اشتاین</option><option value="MG">ماداگاسکار</option><option value="MQ">مارتینیک</option><option value="MO">ماکائو</option><option value="MW">مالاوی</option><option value="MT">مالت</option><option value="MV">مالدیو</option><option value="MY">مالزی</option><option value="ML">مالی</option><option value="YT">مایوت</option><option value="HU">مجارستان</option><option value="MA">مراکش</option><option value="EG">مصر</option><option value="MN">مغولستان</option><option value="MK">مقدونیه شمالی</option><option value="MX">مکزیک</option><option value="MR">موریتانی</option><option value="MU">موریس</option><option value="MZ">موزامبیک</option><option value="MD">مولداوی</option><option value="MC">موناکو</option><option value="MS">مونتسرات</option><option value="ME">مونته‌نگرو</option><option value="MM">میانمار</option><option value="FM">میکرونزی</option><option value="NR">نائورو</option><option value="NA">نامیبیا</option><option value="NP">نپال</option><option value="NO">نروژ</option><option value="NE">نیجر</option><option value="NG">نیجریه</option><option value="NI">نیکاراگوئه</option><option value="NZ">نیوزیلند</option><option value="NU">نیووی</option><option value="VA">واتیکان</option><option value="WF">والیس و فوتونا</option><option value="VU">وانواتو</option><option value="VE">ونزوئلا</option><option value="VN">ویتنام</option><option value="HT">هائیتی</option><option value="NL">هلند</option><option value="IN">هند</option><option value="HN">هندوراس</option><option value="HK">هنگ کنگ</option><option value="YE">یمن</option><option value="GR">یونان</option><option value="AX">Åland Islands</option>
+        </optgroup>
+    </select>
+    <span class="select2 select2-container select2-container--default" dir="rtl" style="width: auto;">
+        <span class="selection">
+            <span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-dokan_address_country-container">
+                <span class="select2-selection__rendered" id="select2-dokan_address_country-container" title="- انتخاب مکان -">- انتخاب مکان -</span>
+                <span class="select2-selection__arrow" role="presentation">
+                    <b role="presentation"></b>
+                </span>
+            </span>
+        </span><span class="dropdown-wrapper" aria-hidden="true"></span>
+    </span>
+</div>
+<div id="dokan-states-box" class="dokan-form-group">
+    <label class="dokan-w3 control-label" for="dokan_address[state]">استان </label>
+    <input name="dokan_address[state]" class="dokan-form-control " id="dokan_address_state" value="">
+</div>
+
+<div class="dokan-form-group dokan-w6 dokan-left dokan-right-margin-30">
+    <label class="control-label" for="dokan_address[city]">شهر </label>
+    <input id="dokan_address[city]" value="" name="dokan_address[city]" placeholder="شهر" class="dokan-form-control input-md" type="text">
+</div>
+
+
+<div class="dokan-form-group">
+    <label class="dokan-w3 control-label" for="dokan_address[street_1]">خیابان </label>
+    <input id="dokan_address[street_1]" value="" name="dokan_address[street_1]" placeholder="آدرس خیابان" class="dokan-form-control input-md" type="text">
+</div>
+<div class="dokan-form-group">
+    <label class="dokan-w3 control-label" for="dokan_address[street_2]">ادامه آدرس </label>
+    <input id="dokan_address[street_2]" value="" name="dokan_address[street_2]" placeholder="آپارتمان، شماره پلاک، واحد، بلوک و ... (اختیاری)" class="dokan-form-control input-md" type="text">
+</div>
+
+
+<div class="dokan-form-group dokan-w5 dokan-left">
+    <label class="control-label" for="dokan_address[zip]">کد پستی </label>
+    <input id="dokan_address[zip]" value="" name="dokan_address[zip]" placeholder="کد پستی" class="dokan-form-control input-md" type="text">
+</div>
+
+
+<!--address-->
+<div class="dokan-form-group">
+    <label class="dokan-w3 dokan-control-label">ایمیل</label>
+    <div class="dokan-w5 dokan-text-left">
+        <div class="checkbox">
+            <label>
+                <input type="hidden" name="setting_show_email" value="no">
+                <input type="checkbox" name="setting_show_email" value="yes"> نمایش آدرس ایمیل در فروشگاه
+            </label>
+        </div>
+    </div>
+</div>
+
+<div class="dokan-form-group">
+    <label class="dokan-w3 dokan-control-label">محصولات بیشتر</label>
+    <div class="dokan-w5 dokan-text-left">
+        <div class="checkbox">
+            <label>
+                <input type="hidden" name="setting_show_more_ptab" value="no">
+                <input type="checkbox" name="setting_show_more_ptab" value="yes" checked="checked"> فعال کردن بخش نمایش محصولات بیشتر در صفحه مشاهد محصول
+            </label>
+        </div>
+    </div>
+</div>
+<div class="dokan-form-group store-open-close-time">
+    <label class="dokan-w3 control-label" for="dokan-store-close">
+        زمان باز و بسته بودن فروشگاه
+    </label>
+
+    <div class="dokan-w5 dokan-text-left dokan_tock_check">
+        <div class="checkbox">
+            <label for="dokan-store-time-enable" class="control-label">
+                <input type="checkbox" name="dokan_store_time_enabled" id="dokan-store-time-enable" value="yes" checked="">
+                نمایش ابزارک زمان باز و بسته بودن فروشگاه در صفحه فروشگاه
+            </label>
+        </div>
+    </div>
+</div>
+
+<div class="dokan-form-group store-open-close">
+    <label class="dokan-w3 control-label"></label>
+    <div class="dokan-w6" style="width: auto">
+        <div class="dokan-form-group">
+            <label class="day control-label" for="sunday-opening-time">
+                یکشنبه
+            </label>
+            <label for="">
+                <select name="sunday_on_off" class="dokan-on-off dokan-form-control">
+                    <option value="close" selected="selected">
+                        بستن
+                    </option>
+                    <option value="open">
+                        باز
+                    </option>
+                </select>
+            </label>
+            <label for="opening-time" class="time" style="visibility: hidden">
+                <input type="text" class="dokan-form-control" name="sunday_opening_time" id="sunday-opening-time" placeholder="11:50 ق.ظ" value="">
+            </label>
+            <label for="closing-time" class="time" style="visibility: hidden">
+                <input type="text" class="dokan-form-control" name="sunday_closing_time" id="sunday-closing-time" placeholder="11:50 ق.ظ" value="">
+            </label>
+        </div>
+        <div class="dokan-form-group">
+            <label class="day control-label" for="monday-opening-time">
+                دوشنبه
+            </label>
+            <label for="">
+                <select name="monday_on_off" class="dokan-on-off dokan-form-control">
+                    <option value="close" selected="selected">
+                        بستن
+                    </option>
+                    <option value="open">
+                        باز
+                    </option>
+                </select>
+            </label>
+            <label for="opening-time" class="time" style="visibility: hidden">
+                <input type="text" class="dokan-form-control" name="monday_opening_time" id="monday-opening-time" placeholder="11:50 ق.ظ" value="">
+            </label>
+            <label for="closing-time" class="time" style="visibility: hidden">
+                <input type="text" class="dokan-form-control" name="monday_closing_time" id="monday-closing-time" placeholder="11:50 ق.ظ" value="">
+            </label>
+        </div>
+        <div class="dokan-form-group">
+            <label class="day control-label" for="tuesday-opening-time">
+                سه‌شنبه
+            </label>
+            <label for="">
+                <select name="tuesday_on_off" class="dokan-on-off dokan-form-control">
+                    <option value="close" selected="selected">
+                        بستن
+                    </option>
+                    <option value="open">
+                        باز
+                    </option>
+                </select>
+            </label>
+            <label for="opening-time" class="time" style="visibility: hidden">
+                <input type="text" class="dokan-form-control" name="tuesday_opening_time" id="tuesday-opening-time" placeholder="11:50 ق.ظ" value="">
+            </label>
+            <label for="closing-time" class="time" style="visibility: hidden">
+                <input type="text" class="dokan-form-control" name="tuesday_closing_time" id="tuesday-closing-time" placeholder="11:50 ق.ظ" value="">
+            </label>
+        </div>
+        <div class="dokan-form-group">
+            <label class="day control-label" for="wednesday-opening-time">
+                چهارشنبه
+            </label>
+            <label for="">
+                <select name="wednesday_on_off" class="dokan-on-off dokan-form-control">
+                    <option value="close" selected="selected">
+                        بستن
+                    </option>
+                    <option value="open">
+                        باز
+                    </option>
+                </select>
+            </label>
+            <label for="opening-time" class="time" style="visibility: hidden">
+                <input type="text" class="dokan-form-control" name="wednesday_opening_time" id="wednesday-opening-time" placeholder="11:50 ق.ظ" value="">
+            </label>
+            <label for="closing-time" class="time" style="visibility: hidden">
+                <input type="text" class="dokan-form-control" name="wednesday_closing_time" id="wednesday-closing-time" placeholder="11:50 ق.ظ" value="">
+            </label>
+        </div>
+        <div class="dokan-form-group">
+            <label class="day control-label" for="thursday-opening-time">
+                پنجشنبه
+            </label>
+            <label for="">
+                <select name="thursday_on_off" class="dokan-on-off dokan-form-control">
+                    <option value="close" selected="selected">
+                        بستن
+                    </option>
+                    <option value="open">
+                        باز
+                    </option>
+                </select>
+            </label>
+            <label for="opening-time" class="time" style="visibility: hidden">
+                <input type="text" class="dokan-form-control" name="thursday_opening_time" id="thursday-opening-time" placeholder="11:50 ق.ظ" value="">
+            </label>
+            <label for="closing-time" class="time" style="visibility: hidden">
+                <input type="text" class="dokan-form-control" name="thursday_closing_time" id="thursday-closing-time" placeholder="11:50 ق.ظ" value="">
+            </label>
+        </div>
+        <div class="dokan-form-group">
+            <label class="day control-label" for="friday-opening-time">
+                جمعه
+            </label>
+            <label for="">
+                <select name="friday_on_off" class="dokan-on-off dokan-form-control">
+                    <option value="close" selected="selected">
+                        بستن
+                    </option>
+                    <option value="open">
+                        باز
+                    </option>
+                </select>
+            </label>
+            <label for="opening-time" class="time" style="visibility: hidden">
+                <input type="text" class="dokan-form-control" name="friday_opening_time" id="friday-opening-time" placeholder="11:50 ق.ظ" value="">
+            </label>
+            <label for="closing-time" class="time" style="visibility: hidden">
+                <input type="text" class="dokan-form-control" name="friday_closing_time" id="friday-closing-time" placeholder="11:50 ق.ظ" value="">
+            </label>
+        </div>
+        <div class="dokan-form-group">
+            <label class="day control-label" for="saturday-opening-time">
+                شنبه
+            </label>
+            <label for="">
+                <select name="saturday_on_off" class="dokan-on-off dokan-form-control">
+                    <option value="close" selected="selected">
+                        بستن
+                    </option>
+                    <option value="open">
+                        باز
+                    </option>
+                </select>
+            </label>
+            <label for="opening-time" class="time" style="visibility: hidden">
+                <input type="text" class="dokan-form-control" name="saturday_opening_time" id="saturday-opening-time" placeholder="11:50 ق.ظ" value="">
+            </label>
+            <label for="closing-time" class="time" style="visibility: hidden">
+                <input type="text" class="dokan-form-control" name="saturday_closing_time" id="saturday-closing-time" placeholder="11:50 ق.ظ" value="">
+            </label>
+        </div>
+    </div>
+</div>
+
+<div class="dokan-form-group store-open-close">
+    <label class="dokan-w3 control-label" for="dokan-store-time-notice">
+        اطلاعیه باز بودن فروشگاه
+    </label>
+    <div class="dokan-w6" style="width: auto">
+        <div class="dokan-form-group">
+            <input type="text" class="dokan-form-control input-md" name="dokan_store_open_notice" placeholder="فروشگاه باز است." value="">
+        </div>
+    </div>
+</div>
+<div class="dokan-form-group store-open-close">
+    <label class="dokan-w3 control-label" for="dokan-store-time-notice">
+        اطلاعیه بسته بودن فروشگاه
+    </label>
+    <div class="dokan-w6" style="width: auto">
+        <div class="dokan-form-group">
+            <input type="text" class="dokan-form-control input-md" name="dokan_store_close_notice" placeholder="فروشگاه بسته است." value="">
+        </div>
+    </div>
+</div>
+</div>
+
+<div class="dokan-form-group">
+
+    <div class="dokan-w4 ajax_prev dokan-text-left" style="margin-left:24%;">
+        <input type="submit" name="dokan_update_store_settings" class="dokan-btn dokan-btn-danger dokan-btn-theme" value="بروز رسانی تنظیمات">
+    </div>
+</div>
+</form>
+
+
+<!--settings updated content ends-->
+</article>
+</div>

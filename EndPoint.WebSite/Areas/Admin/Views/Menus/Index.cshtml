@@ -1,0 +1,208 @@
+﻿@using   Application.Services.BackEnd.Admin.Menus.Queries
+@model ResultGetMenusDto
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "لیست منوها";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@section Head{
+    <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/vendors/css/vendors-rtl.min.css">
+    <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/vendors/css/extensions/bootstrap-treeview.min.css">
+    <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/css/bootstrap-extended.min.css">
+    <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/css/colors.min.css">
+    <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/css/components.min.css">
+    <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/css/themes/dark-layout.min.css">
+    <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/css/themes/semi-dark-layout.min.css">
+    <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/css/custom-rtl.min.css">
+    <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/css/core/menu/menu-types/vertical-menu-karaji.min.css">
+    <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/css/plugins/extensions/ext-component-treeview.min.css">
+    <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/css/style.css">
+}
+
+@section Foo{
+    <script src="~/BackEnd/Admin/vendors/js/vendors.min.js"></script>
+    <script src="~/BackEnd/Admin/vendors/js/extensions/bootstrap-treeview.min.js"></script>
+    <script src="~/BackEnd/Admin/js/scripts/configs/vertical-menu-dark.min.js"></script>
+    <script src="~/BackEnd/Admin/js/core/app-menu.min.js"></script>
+    <script src="~/BackEnd/Admin/js/core/app.min.js"></script>
+    <script src="~/BackEnd/Admin/js/scripts/components.min.js"></script>
+    <script src="~/BackEnd/Admin/js/scripts/footer.min.js"></script>
+    <script src="~/BackEnd/Admin/js/scripts/customizer.min.js"></script>
+    <script src="~/BackEnd/Admin/js/scripts/extensions/ext-component-treeview.min.js"></script>
+    <script> $('div.alert').delay(3000).slideUp(300);</script>
+}
+
+
+<div class="app-content content">
+    <div class="content-overlay"></div>
+    <div class="content-wrapper">
+        <div class="content-header row">
+            <div class="content-header-left col-12 mb-2 mt-1">
+                <div class="row breadcrumbs-top">
+                    <div class="col-12">
+
+                        @if (TempData["IsSuccess"] != null)
+                        {
+                            @if (Convert.ToBoolean(TempData["IsSuccess"]) == true)
+                            {
+                                <div class="alert alert-success">
+                                    @TempData["Message"]
+                                </div>
+                            }
+
+                            else if (Convert.ToBoolean(TempData["IsSuccess"]) == false)
+                            {
+                                <div class="alert alert-danger">
+                                    @TempData["Message"]
+                                </div>
+                            }
+                        }
+
+
+                        <h5 class="content-header-title float-left pr-1 mb-0">نمایش منوها</h5>
+                        <div class="breadcrumb-wrapper col-12">
+                            <ol class="breadcrumb p-0 mb-0">
+                                <li class="breadcrumb-item">
+                                    <a href="">
+                                        <i class="bx bx-home-alt"></i>
+                                    </a>
+                                </li>
+                                @*<li class="breadcrumb-item">
+                                        <a href="#">Extentions</a>
+                                    </li>
+                                    <li class="breadcrumb-item active">
+                                        Treeview
+                                    </li>*@
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="content-body">
+            <!-- Bootstrap Treeview start here -->
+            <section id="bootstrap-treeview" class="bootstraptreeview">
+                <div class="row">
+
+                    <!-- Checkable Tree -->
+                    @foreach (var item in Model.Menus)
+                    {
+                        <div class="col-md-6 col-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h6 class="card-title">
+                                        @item.Name
+                                    </h6>
+                                </div>
+                                <div class="card-content">
+                                    <div class="card-body">
+                                        <div class="form-group text-center">
+                                            @*<button type="button" class="btn btn-primary mb-1 mr-1" id="btn-check-all">اضافه کردن زیر منو 1</button>*@
+                                            @*<button asp-controller="Menus" asp-action="Create" asp-route-id="@item.ParsaPooladMenusId" type="button" class="btn btn-warning mb-1" id="btn-uncheck-all">  اضافه کردن زیر منو برای @item.Name</button>*@
+                                            <form class="form" asp-area="Admin" asp-controller="Menus" asp-action="CreateMenu" asp-route-id="@item.ParsaPooladMenusId" method="post">
+                                                <div class="col-md-12 col-12">
+                                                    <div class="form-label-group">
+                                                        <input type="text" id="first-name-column" class="form-control" placeholder="لطفا نام زیر منو @item.Name را وارد کنید" name="name">
+                                                        @* <input type="hidden" name="id" value="@item.ParsaPooladMenusId"> *@
+                                                    </div>
+                                                </div>
+                                                @* <a ype="button" class="btn btn-warning mb-1" id="btn-uncheck-all">  اضافه کردن زیر منو برای @item.Name</a> *@
+                                                <input type="submit" class="btn btn-warning mb-1" id="btn-uncheck-all" value=" اضافه کردن زیر منو برای @item.Name">
+                                            </form>
+
+                                        </div>
+                                        <div id="checkable" class="treeview">
+                                            <ul class="list-group">
+                                                @{ int counter = 0; }
+                                                @foreach (var itemSub in @item.Sub)
+                                                {
+                                                    counter++;
+                                                    <li class="list-group-item node-checkable-tree node-selected" data-nodeid="0" style="color:#FFFFFF;background-color:#5A8DEE;">
+                                                        <span class="icon expand-icon bx bx-minus">@counter</span>
+                                                        <span class="icon check-icon bx bxs-minus-square"></span>
+                                                        @itemSub.Fgname
+
+                                                        <form id="my_form-@itemSub.PrdFirstGroupId" class="form my_form" asp-action="CreateSubMenu" asp-route-id="@itemSub.PrdFirstGroupId" method="post">
+                                                            <div class="col-md-12 col-12">
+                                                                <div class="form-label-group parsa-form-label-group">
+                                                                    <input type="text" id="first-name-column" class="form-control" placeholder=" نام زیر منو @itemSub.Fgname" name="name">
+                                                                </div>
+                                                            </div>
+                                                            @* <input type="submit" class="btn btn-warning mb-1 w-100"  *@
+                                                            @*        id="btn-uncheck-all" value=" اضافه کردن زیر منو برای @itemSub.Fgname"> *@
+                                                            
+                                                            <a  onclick="document.getElementById('my_form-@itemSub.PrdFirstGroupId').submit()" style="margin-top:7px;" class="float-right text-success" title="ایجاد">
+                                                                <i class="fa fa-plus-square" aria-hidden="true"></i>
+                                                            </a>
+                                                        </form>
+                                                        
+                                                        
+                                                        
+                                                        @* <form id="submitDeleteSubMenus" asp-area="Admin" asp-controller="Menus" asp-action="DeleteMenu" asp-route-id="@item.ParsaPooladMenusId" method="post"> *@
+                                                            @* <input name="id" type="hidden" value="@itemSub.PrdFirstGroupId"/> *@
+                                                        @* <a action="/panel/menus/DeleteMenu/@item.ParsaPooladMenusId" *@
+                                                        
+                                                        
+                                                        
+                                                        @* <a asp-area="Admin" asp-controller="menus" asp-action="DeleteMenu" asp-route-id="@itemSub.PrdFirstGroupId" *@
+                                                        @*         onclick="return confirm('ایا از حذف مطمعن هستید؟');" *@
+                                                        @*         style="margin-top:7px;" href="#" class="float-right text-danger " title="حذف"> *@
+                                                        @*         <i class="fa fa-trash-o" aria-hidden="true"></i> *@
+                                                        @* </a> *@
+                                                        
+                                                        
+                                                        
+                                                        @* <input type="submit" class="btn btn-warning mb-1 w-100 ali" id="btn-uncheck-all" value=" حذف"> *@
+                                                        @* </form> *@
+                                                        
+                                                        
+                                                            @* <a asp-area="Admin" asp-controller="menus" asp-action="GetEditMenu" asp-route-id="@item.ParsaPooladMenusId" *@
+                                                            <a asp-action="GetEditMenu" asp-route-id="@itemSub.PrdFirstGroupId"
+                                                               style="margin-top:8px" class="float-right text-warning margin-left-menu-icon" title=" ویرایش">
+                                                                <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                                                            </a>
+                                                    </li>
+                                                    
+                                                    
+                                                    int counter2 = 0;
+                                                    @foreach (var itemSubSub in itemSub.SubSub)
+                                                    {
+                                                        counter2++;
+                                                    
+                                                        <li class="list-group-item node-checkable-tree" data-nodeid="1">
+                                                            <span class="text-secondary">@counter2</span>
+                                                            <span class="icon expand-icon bx bx-plus"></span>
+                                                            <span class="icon check-icon bx bxs-minus-square"></span>
+                                                            @itemSubSub.Sgname
+
+                                                            <a asp-area="Admin" asp-controller="Menus" asp-action="DeleteSubMenu" asp-route-id="@itemSubSub.WsproductSecondGroupId"
+                                                               onclick="return confirm('ایا از حذف مطمعن هستید؟');"
+                                                               id="submitDeleteSubMenus" class="float-right text-danger" title="حذف"
+                                                               style="margin-top: -1px;">
+                                                                <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                                            </a>
+
+                                                            <a asp-area="Admin" asp-controller="Menus" 
+                                                               asp-action="GetEditSubMenu"
+                                                               asp-route-id="@itemSubSub.WsproductSecondGroupId" 
+                                                               class="float-right text-warning margin-left-menu-icon" title=" ویرایش">
+                                                                <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                                                            </a>
+                                                         </li> 
+                                                     } 
+                                                } 
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </section>
+
+        </div>
+    </div>
+</div>

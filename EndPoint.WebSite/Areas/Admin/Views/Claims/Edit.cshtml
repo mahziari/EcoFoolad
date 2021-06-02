@@ -1,0 +1,91 @@
+﻿@* @using Microsoft.AspNetCore.Razor.Language *@
+@* @using   Application.Services.BackEnd.Admin.Roles.Queries *@
+@* @model ResultGetEditRolesDto *@
+@* @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers *@
+@* @{ *@
+@*     ViewData["Title"] = "ویرایش نقش"; *@
+@*     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml"; *@
+@* } *@
+@* *@
+@* @section Head{ *@
+@*     <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/vendors/css/vendors-rtl.min.css"> *@
+@*     $1$ <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/vendors/css/forms/select/select2.min.css"> #1# *@
+@*     <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/css/bootstrap.min.css"> *@
+@*     <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/css/bootstrap-extended.min.css"> *@
+@*     <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/css/colors.min.css"> *@
+@*     <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/css/components.min.css"> *@
+@*     <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/css/themes/dark-layout.min.css"> *@
+@*     <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/css/themes/semi-dark-layout.min.css"> *@
+@*     <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/css/custom-rtl.min.css"> *@
+@*     <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/css/core/menu/menu-types/vertical-menu-karaji.min.css"> *@
+@*     <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/css/style.css"> *@
+@*     <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/css/colors.min.css"> *@
+@* } *@
+@* *@
+@* @section Foo{ *@
+@*   <script src="~/BackEnd/Admin/vendors/js/vendors.min.js"></script> *@
+@*   $1$ <script src="~/BackEnd/Admin/vendors/js/forms/select/select2.full.min.js"></script> #1# *@
+@*   $1$ <script src="~/BackEnd/Admin/vendors/js/extensions/jquery.steps.min.js"></script> #1# *@
+@*   $1$ <script src="~/BackEnd/Admin/vendors/js/forms/validation/jquery.validate.min.js"></script> #1# *@
+@*   <script src="~/BackEnd/Admin/js/scripts/configs/vertical-menu-dark.min.js"></script> *@
+@*   <script src="~/BackEnd/Admin/js/core/app-menu.min.js"></script> *@
+@*   <script src="~/BackEnd/Admin/js/core/app.min.js"></script> *@
+@*   <script src="~/BackEnd/Admin/js/scripts/components.min.js"></script> *@
+@*   <script src="~/BackEnd/Admin/js/scripts/footer.min.js"></script> *@
+@*   <script src="~/BackEnd/Admin/js/scripts/customizer.min.js"></script> *@
+@*   $1$ <script src="~/BackEnd/Admin/js/scripts/forms/select/form-select2.min.js"></script> #1# *@
+@*   <script>$('div.alert').delay(3000).slideUp(300); </script> *@
+@* } *@
+@* *@
+@* <div class="app-content content"> *@
+@*       <div class="content-overlay"></div> *@
+@*       <div class="content-wrapper"> *@
+@*       <div class="content-body"> *@
+@* *@
+@*         <!-- Colored Checkbox start --> *@
+@*         <form asp-area="Admin" *@
+@*               asp-controller="Roles" *@
+@*               asp-action="Edit" *@
+@*               asp-route-id="@Model.Role.Id" *@
+@*               method="post"> *@
+@*            *@
+@*            *@
+@*       *@
+@*       <section id="checkbox-color"> *@
+@*         <div class="row"> *@
+@*           <div class="col-12"> *@
+@*             <div class="card"> *@
+@*               <div class="card-header"> *@
+@*                 <h4 class="card-title">تعیین سطح دسترسی برای نقش "@Model.Role.Description"</h4> *@
+@*               </div> *@
+@*               <div class="card-content"> *@
+@*                 <div class="card-body"> *@
+@*                   $1$ <p></p> #1# *@
+@*                   @foreach (var item in Model.Claims) *@
+@*                   { *@
+@*                     <ul class="list-unstyled mb-0"> *@
+@*                       <li class="d-inline-block mr-2 mb-1"> *@
+@*                         <fieldset> *@
+@*                           <div class="form-check"> *@
+@*                             <input class="form-check-input" type="checkbox" value="@item.Id" id="checkbox-@item.Id"> *@
+@*                             <label class="form-check-label" asp-for="@Model.ClaimName"> *@
+@*                               @item.ClaimName *@
+@*                             </label> *@
+@*                           </div> *@
+@*                         </fieldset> *@
+@*                       </li> *@
+@*                     </ul> *@
+@*                   } *@
+@*                 </div> *@
+@*               </div> *@
+@*             </div> *@
+@*           </div> *@
+@*         </div> *@
+@*       </section> *@
+@*           <!-- Colored Checkbox end --> *@
+@*           <button class="btn btn-primary btn-block subtotal-preview-btn">ثبت</button> *@
+@*    </form> *@
+@*   *@
+@*       </div> *@
+@*       </div> *@
+@*     </div> *@
