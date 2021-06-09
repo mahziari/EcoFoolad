@@ -14,15 +14,15 @@ using Application.Services.BackEnd.Admin.Users.FacadPattern;
 using Application.Services.BackEnd.Owner.Home.FacadPattern;
 using Application.Services.BackEnd.Owner.Products.FacadPattern;
 using Application.Services.BackEnd.Owner.Profile.FacadPattern;
+using Application.Services.FrontEnd.Basket;
 using Application.Services.FrontEnd.Blogs.FacadPattern;
-using Application.Services.FrontEnd.Carts;
 using Application.Services.FrontEnd.Common.Menus.FacadPattern;
-using Application.Services.FrontEnd.Fainances.FacadPattern;
 using Application.Services.FrontEnd.Home.FacadPattern;
 using Application.Services.FrontEnd.Products.FacadPattern;
+using Application.Services.FrontEnd.User.Addresses;
 using EndPoint.Web.Areas.Auth.Helpers.Policy;
-using EndPoint.WebSite.Utilities;
 using Infrastructure.IdentityConfigs;
+using Infrastructure.MappingProfile;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
@@ -131,9 +131,8 @@ namespace EndPoint.WebSite
             services.AddScoped<IHomeFrontEndFacad, HomeFrontEndFacad>();
             services.AddScoped<IBlogsFrontEndFacad, BlogsFrontEndFacad>();
             services.AddScoped<IProductsFrontEndFacad, ProductsFrontEndFacad>();
-            services.AddScoped<ICartFrontEndService, CartFrontEndService>();
-            services.AddScoped<CookiesManeger, CookiesManeger>();
-            services.AddScoped<IFinancesFrontEndFacad, FinancesFrontEndFacad>();
+            services.AddTransient<IBasketService,  BasketService>();
+            services.AddTransient<IUserAddressServices,  UserAddressServices>();
             //------ Admin Panel Services
             services.AddScoped<IMenusFacad, MenusFacad>();
             services.AddScoped<IProductsFacad, ProductsFacad>();
@@ -162,6 +161,10 @@ namespace EndPoint.WebSite
             services.AddMvc();
             services.AddRouting(options => options.LowercaseUrls = true);
             services.AddResponseCompression();
+            
+            
+            // Mapper
+            services.AddAutoMapper(typeof(UserMappingProfile));
 
             // load Project Ui WithOut Rebuilding When Change in Ui
             var mvcBuilder = services.AddControllersWithViews();

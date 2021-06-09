@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="10.1.1" />
     <PackageReference Include="Microsoft.AspNetCore.Server.Kestrel.Transport.Libuv" Version="5.0.6" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.6" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="5.0.6" />
@@ -19,6 +20,13 @@
   <ItemGroup>
     <ProjectReference Include="..\Common\Common.csproj" />
     <ProjectReference Include="..\Domain\Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Services\FrontEnd\User" />
+    <Folder Include="Services\FrontEnd\User\Addresses\Command" />
+    <Folder Include="Services\FrontEnd\User\Addresses\FacadPattern" />
+    <Folder Include="Services\FrontEnd\User\Addresses\Queries" />
   </ItemGroup>
 
 </Project>

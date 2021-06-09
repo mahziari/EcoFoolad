@@ -1,8 +1,7 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
 using Domain.Entities;
-using Domain.Entities.Carts;
-using Domain.Entities.Finances;
+using Domain.Entities.Baskets;
 using Domain.Entities.Products;
 using Domain.Entities.Users;
 using Microsoft.EntityFrameworkCore;
@@ -14,9 +13,10 @@ namespace Application.Interfaces.Contexts
          DbSet<Slider> Sliders { get; set; }
          DbSet<Claims> Claims { get; set; }
          DbSet<Product>  Products { get; set; }
-         DbSet<Cart> Carts { get; set; }
-         DbSet<CartItem> CartItems { get; set; }
-         DbSet<RequestPay> RequestPays { get; set; }
+        DbSet<Basket> Baskets { get; set; }
+        DbSet<BasketItem> BasketItems { get; set; }
+        DbSet<UserAddress> UserAddresses { get; set; }
+
 
         
         

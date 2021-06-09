@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.1" />
     <PackageReference Include="LazZiya.TagHelpers" Version="5.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Http.Features" Version="5.0.6" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="5.0.6" />
@@ -40,6 +41,7 @@
     <Folder Include="Areas\Owner\Models" />
     <Folder Include="Areas\User\Data" />
     <Folder Include="Areas\User\Models" />
+    <Folder Include="Models\ViewModel" />
     <Folder Include="wwwroot\FrontEnd" />
     <Folder Include="wwwroot\Images\CkEditor" />
   </ItemGroup>
@@ -733,6 +735,7 @@
     <_ContentIncludedByDefault Remove="wwwroot\wp-content\uploads\2020\12\3.png" />
     <_ContentIncludedByDefault Remove="wwwroot\wp-content\uploads\2020\12\4.png" />
     <_ContentIncludedByDefault Remove="wwwroot\wp-content\uploads\2020\12\4a98eff51fd9a61f1fb0704ece641e46d883d4e6_1606883925.png" />
+    <_ContentIncludedByDefault Remove="Views\Cart\Index.cshtml" />
   </ItemGroup>
 
 </Project>

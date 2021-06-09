@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Linq;
-using Application.Services.FrontEnd.Carts;
+using Application.Services.FrontEnd.Basket;
 using Common.Extentions;
 using Common.Utilities;
 using Domain.Entities.IdealCrm;
@@ -11,31 +11,31 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Persistence.Contexts;
+using Domain.Entities.Users;
 
 namespace EndPoint.WebSite.Areas.Auth.Controllers
 {
     [Area("Auth")]
     public class AuthController : Controller
     {
-        private readonly UserManager<User> _userManager;
+        private readonly UserManager<Domain.Entities.Users.User> _userManager;
         private readonly RoleManager<Role> _roleManager;
-        private readonly SignInManager<User> _signInManager;
+        private readonly SignInManager<Domain.Entities.Users.User> _signInManager;
         private readonly IdealCrmDataBaseContext _idealCrmDataBaseContext;
         private readonly ILogger _logger;
-        private readonly CookiesManeger _cookiesManeger ;
-        private readonly ICartFrontEndService _cartFrontEndService;
+        private readonly IBasketService _basketService;
 
-        public AuthController(UserManager<User> userManager, RoleManager<Role> roleManager,
-            SignInManager<User> signInManager,
-            ILoggerFactory logger, IdealCrmDataBaseContext idealCrmDataBaseContext, CookiesManeger cookiesManeger, ICartFrontEndService cartFrontEndService)
+
+        public AuthController(UserManager<Domain.Entities.Users.User> userManager, RoleManager<Role> roleManager,
+            SignInManager<Domain.Entities.Users.User> signInManager,
+            ILoggerFactory logger, IdealCrmDataBaseContext idealCrmDataBaseContext, IBasketService basketService)
         {
             _userManager = userManager;
             _roleManager = roleManager;
             _signInManager = signInManager;
             _idealCrmDataBaseContext = idealCrmDataBaseContext;
-            _cookiesManeger = cookiesManeger;
-            _cartFrontEndService = cartFrontEndService;
             _logger = logger.CreateLogger("Account");
+            _basketService = basketService;
         }
 
         [HttpGet]
@@ -116,7 +116,7 @@ namespace EndPoint.WebSite.Areas.Auth.Controllers
             long latestUserId = _idealCrmDataBaseContext.Users.Select(u => u.UserId).Max();
             
 
-            User newUser = new User
+            Domain.Entities.Users.User newUser = new Domain.Entities.Users.User
             {
                 CrmUsersId = (int) (latestUserId+1),
                 FirstName = registerDto.FirstName,
@@ -298,9 +298,12 @@ namespace EndPoint.WebSite.Areas.Auth.Controllers
 
             if (result.Succeeded)
             {
-                // Set User To Cart if Cart is Available In before Time By BrowserId
-                _cartFrontEndService.GetMyCart(_cookiesManeger.GetBrowserId(HttpContext), user.Id);
+                // Set User To Basket if Basket is Available In before Time By BrowserId
                 
+                if (_userManager.IsInRoleAsync(user,"User").Result)
+                {
+                    TransferBasketForuser(user.Id);
+                }
                 
                 _userManager.AddLoginAsync(user, null);
                 _logger.LogInformation(LogEvents.LogInformationComplete, "LoginSuccess");
@@ -439,6 +442,17 @@ namespace EndPoint.WebSite.Areas.Auth.Controllers
 
             TempData["PhoneNumber"] = confirmDto.PhoneNumber;
             return RedirectToAction(nameof(Confirm));
+        }
+        
+        private void TransferBasketForuser(string userId)
+        {
+            string cookieName = "BasketId";
+            if (Request.Cookies.ContainsKey(cookieName))
+            {
+                var anonymousId = Request.Cookies[cookieName];
+                _basketService.TransferBasket(anonymousId, userId);
+                Response.Cookies.Delete(cookieName);
+            }
         }
     }
 }

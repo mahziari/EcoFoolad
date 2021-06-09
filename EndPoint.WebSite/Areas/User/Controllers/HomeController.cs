@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Endpoint.Web.Areas.User.Controllers
+namespace EndPoint.WebSite.Areas.User.Controllers
 {
     [Area("User")]
     [Authorize(Policy = "UserRole")]

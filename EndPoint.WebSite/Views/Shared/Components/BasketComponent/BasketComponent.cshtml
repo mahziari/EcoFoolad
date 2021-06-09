@@ -1,0 +1,115 @@
+﻿@using Application.Services.FrontEnd.Basket;
+@model BasketDto;
+@{
+    Layout = null;
+}
+
+@if (Model == null)
+{
+    <div class="elementor-element elementor-element-8268293 elementor-widget__width-auto elementor-widget elementor-widget-newkala_cart" data-id="8268293" data-element_type="widget" data-widget_type="newkala_cart.default">
+        <div class="elementor-widget-container">
+            <div class="header_cart_button nk_in_elementor" rel="nofollow">
+                <a rel="nofollow" class="cart_page_url" href="~/basket">
+                    <strong class="title_cart_mini_newkala">سبد خرید</strong>
+                    <span class="header-icons-noti" style="opacity: 1;">0</span>
+                </a>
+                <div class="nk_mini_cart_wrapper" style="opacity: 1;">
+                    <div class="mini_cart_arrow"></div>
+                    <p class="woocommerce-mini-cart__empty-message">سبد خرید شما خالی است.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+else
+{
+  <div class="header_cart_button nk_in_elementor" rel="nofollow">
+    <a rel="nofollow" class="cart_page_url" href="~/basket">
+        <strong class="title_cart_mini_newkala">سبد خرید</strong>
+        @if (Model != null)
+        {
+            <span class="header-icons-noti" style="opacity: 1;">@Model.Items.Count</span>
+        }
+        else
+        {
+            <span class="header-icons-noti" style="opacity: 1;">0</span>
+        }
+    </a>
+    <div class="nk_mini_cart_wrapper" style="opacity: 1;">
+        <div class="mini_cart_arrow"></div>
+
+        <div class="mini_cart_top_row">
+            <p class="woocommerce-mini-cart__total total">
+                <strong>مجموع:</strong>
+                @if (Model != null)
+                {
+                    <span class="woocommerce-Price-amount amount">
+                        <bdi>@Model.Total().ToString("n0")<span class="woocommerce-Price-currencySymbol">تومان</span></bdi>
+                    </span> 
+                }
+            </p>
+            <a rel="nofollow" class="newkala_cart_page_url_mini_cart" href="~/basket">مشاهده سبد خرید</a>
+        </div>
+
+        <ul class="woocommerce-mini-cart cart_list product_list_widget ">
+            @foreach (var item in Model.Items)
+                {
+                    <li class="woocommerce-mini-cart-item mini_cart_item">
+                     
+                        <a href="~/basket/RemoveItemFromBasket/@item.Id" class="remove remove_from_cart_button" style="width: 6% !important;" aria-label="پاک کردن این آیتم">×</a>
+                        
+                        <a href="">
+                            <img src="~/Images/Blogs/6374725533595309362.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail"
+                                 alt="" loading="lazy"
+                                 srcset="~/Images/Blogs/6374725533595309362.jpg 210w,
+~/Images/Blogs/6374725533595309362.jpg  100w,
+~/Images/Blogs/6374725533595309362.jpg  600w,
+~/Images/Blogs/6374725533595309362.jpg 180w,
+ ~/Images/Blogs/6374725533595309362.jpg 300w, 
+~/Images/Blogs/6374725533595309362.jpg 768w,
+~/Images/Blogs/6374725533595309362.jpg 1024w,
+~/Images/Blogs/6374725533595309362.jpg 39w,
+~/Images/Blogs/6374725533595309362.jpg 18w,
+~/Images/Blogs/6374725533595309362.jpg 25w,
+~/Images/Blogs/6374725533595309362.jpg 20w, 
+~/Images/Blogs/6374725533595309362.jpg 30w,
+~/Images/Blogs/6374725533595309362.jpg 40w"
+
+                                 sizes="(max-width: 210px) 100vw, 210px"
+                                 width="210" height="210">
+                            @item.ProductName
+                        </a>
+                        <dl class="variation">
+                            <dt class="variation-">انتخاب رنگ:</dt>
+                            <dd class="variation-">
+                                <p>نقره ای</p>
+                            </dd>
+                            <dt class="variation-">ظرفیت حافظه:</dt>
+                            <dd class="variation-">
+                                <p>256 GB</p>
+                            </dd>
+                        </dl>
+
+                        <span class="quantity">
+                            @item.Quantity
+                            <span class="woocommerce-Price-amount amount">
+                                <bdi>
+                                    @item.UnitPrice.ToString("n0")
+                                    <span class="woocommerce-Price-currencySymbol">تومان</span>
+                                </bdi>
+                            </span>
+                        </span>
+                    </li>
+                }
+        </ul>
+
+        <p class="woocommerce-mini-cart__buttons buttons">
+            <a href="~/basket" class="button wc-forward">مشاهده سبد خرید</a>
+            <a href="~/checkout/" class="button checkout wc-forward">تسویه حساب</a>
+        </p>
+
+    </div>
+</div>
+  
+}
+

@@ -1,10 +1,12 @@
 ﻿using System;
-using Domain.Entities.Commons;
+using Domain.Entities.Attributes;
 
 namespace Domain.Entities.Products
 {
-    public class Product:BaseEntity
+    [Auditable]
+    public class Product
     {
+        public long Id { get; set; }
         public long PrdCrmId { get; set; }
         public int PrdGroupId { get; set; }
         public string PrdCode { get; set; }

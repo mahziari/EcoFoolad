@@ -1,10 +1,12 @@
-﻿using Application.Interfaces.Contexts;
+﻿using System;
+using System.Linq;
+using Application.Interfaces.Contexts;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Domain.Entities;
-using Domain.Entities.Carts;
-using Domain.Entities.Finances;
+using Domain.Entities.Attributes;
+using Domain.Entities.Baskets;
 using Domain.Entities.IdealCrm;
 using Domain.Entities.Products;
 using Domain.Entities.Users;
@@ -15,9 +17,9 @@ namespace  Persistence.Contexts
 {
     public class CustomDbContext : DbContext, ICustomDbContext
     {
-        // public CustomDbContext()
-        // {
-        // }
+        public CustomDbContext()
+        {
+        }
 
         public CustomDbContext(DbContextOptions<CustomDbContext> options)
             : base(options)
@@ -28,24 +30,70 @@ namespace  Persistence.Contexts
 
         public DbSet<Slider> Sliders { get; set; }
         public DbSet<Claims> Claims { get; set; }
-        
         public DbSet<Product>  Products { get; set; }
-        public DbSet<Cart> Carts { get; set; }
-        public DbSet<CartItem> CartItems { get; set; }
-        public DbSet<RequestPay> RequestPays { get; set; }
-
+        public DbSet<Basket> Baskets { get; set; }
+        public DbSet<BasketItem> BasketItems { get; set; }
+        public DbSet<UserAddress> UserAddresses { get; set; }
         
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        
+        
+        
+         protected override void OnModelCreating(ModelBuilder builder)
         {
-            ApplyQueryFilter(modelBuilder);
-            modelBuilder.ClaimsSeed();
+            foreach (var entityType in builder.Model.GetEntityTypes())
+            {
+                if (entityType.ClrType.GetCustomAttributes(typeof(AuditableAttribute), true).Length > 0)
+                {
+                    builder.Entity(entityType.Name).Property<DateTime>("InsertTime").HasDefaultValue(DateTime.Now);
+                    builder.Entity(entityType.Name).Property<DateTime?>("UpdateTime");
+                    builder.Entity(entityType.Name).Property<DateTime?>("RemoveTime");
+                    builder.Entity(entityType.Name).Property<bool>("IsRemoved").HasDefaultValue(false);
+                }
+            }
+           
+            builder.Entity<Product>().HasQueryFilter(m => EF.Property<bool>(m, "IsRemoved") == false);
+            builder.Entity<BasketItem>().HasQueryFilter(m => EF.Property<bool>(m, "IsRemoved") == false);
+            builder.Entity<Basket>().HasQueryFilter(m => EF.Property<bool>(m, "IsRemoved") == false);
+            
+            builder.ClaimsSeed();
+            
+            base.OnModelCreating(builder);
         }
 
-        private void ApplyQueryFilter(ModelBuilder modelBuilder)
+        public override int SaveChanges()
         {
-            modelBuilder.Entity<Cart>().HasQueryFilter(p => !p.IsRemoved);
-            modelBuilder.Entity<CartItem>().HasQueryFilter(p => !p.IsRemoved);
-            modelBuilder.Entity<RequestPay>().HasQueryFilter(p => !p.IsRemoved);
+            var modifiedEntries = ChangeTracker.Entries()
+                .Where(p => p.State == EntityState.Modified ||
+                p.State == EntityState.Added ||
+                p.State == EntityState.Deleted
+                );
+            
+            foreach (var item in modifiedEntries)
+            {
+                var entityType = item.Context.Model.FindEntityType(item.Entity.GetType());
+
+                var inserted = entityType.FindProperty("InsertTime");
+                var updated = entityType.FindProperty("UpdateTime");
+                var RemoveTime = entityType.FindProperty("RemoveTime");
+                var IsRemoved = entityType.FindProperty("IsRemoved");
+                
+                if (item.State == EntityState.Added && inserted != null)
+                {
+                    item.Property("InsertTime").CurrentValue = DateTime.Now;
+                }
+                if (item.State == EntityState.Modified && updated != null)
+                {
+                    item.Property("UpdateTime").CurrentValue = DateTime.Now;
+                }
+
+                if (item.State == EntityState.Deleted && RemoveTime != null && IsRemoved != null)
+                {
+                    item.Property("RemoveTime").CurrentValue = DateTime.Now;
+                    item.Property("IsRemoved").CurrentValue = true;
+                    item.State = EntityState.Modified;
+                }
+            }
+            return base.SaveChanges();
         }
     }
 }

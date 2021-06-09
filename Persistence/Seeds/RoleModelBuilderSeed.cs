@@ -25,6 +25,15 @@ namespace Persistence.Seeds
                     NormalizedName = "USER",
                     Discriminator = "Role",
                     ConcurrencyStamp = "7990ad8a-92a8-4cda-918c-b71887047e9e"
+                },
+                 new Role
+                {
+                    Id = "7990ad8a-92a8-4cda-918c-b71887047e9e",
+                    Description = "فروشنده",
+                    Name = "Owner",
+                    NormalizedName = "OWNER",
+                    Discriminator = "Role",
+                    ConcurrencyStamp = "2bb43ab4-61c4-4435-aa3e-c6ab7b2858de"
                 }
             );
         }

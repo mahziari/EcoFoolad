@@ -61,7 +61,7 @@ namespace  Application.Services.BackEnd.Admin.Products.Commands.CreateProducts
             _context.Wsproducts.Add(product);
             _context.SaveChanges();
 
-            var CrmPrdID = _context.Wsproducts.LastOrDefault();
+            var CrmPrdID = _context.Wsproducts.OrderBy(p=>p.ProductId).LastOrDefault();
             // Add Product to Custom Db
             var product2 = new Product()
             {

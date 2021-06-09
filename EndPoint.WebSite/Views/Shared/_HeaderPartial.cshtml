@@ -280,7 +280,7 @@
                             <img src="~/BackEnd/User/images/avatars/UserAvatar.jpg" srcset="~/BackEnd/User/images/avatars/UserAvatar.jpg" class="avatar avatar-65 photo" height="200" width="200">
                             <div class="nk_main_link_panels_header">
                                 <a class="nk_go_to_dashboard" target="_blank" asp-area="User" asp-controller="Home" asp-action="Index">
-                                    پنل کاربر
+                                    پنل خریدار
                                 </a>
                             </div>
                         </div>
@@ -313,26 +313,28 @@
 
 
     <div class="between_border "></div>
-    <div class="header_cart_button " rel="nofollow">
-        <a rel="nofollow" class="cart_page_url"
-           href="~/cart">
-            <strong
-                class="title_cart_mini_newkala">
-                سبد خرید
-            </strong> <span class="header-icons-noti">0</span>
-        </a>
-
-
-        <div class="nk_mini_cart_wrapper" style="display: none;">
-            <div class="mini_cart_arrow"></div>
-
-
-            <p class="woocommerce-mini-cart__empty-message">هیچ محصولی در سبد خرید نیست.</p>
-
-
-        </div>
-
-    </div>
+    @* <div class="header_cart_button " rel="nofollow"> *@
+    @*     <a rel="nofollow" class="cart_page_url" *@
+    @*        href="~/cart"> *@
+    @*         <strong *@
+    @*             class="title_cart_mini_newkala"> *@
+    @*             سبد خرید *@
+    @*         </strong> <span class="header-icons-noti">0</span> *@
+    @*     </a> *@
+    @* *@
+    @* *@
+    @*     <div class="nk_mini_cart_wrapper" style="display: none;"> *@
+    @*         <div class="mini_cart_arrow"></div> *@
+    @* *@
+    @* *@
+    @*         <p class="woocommerce-mini-cart__empty-message">هیچ محصولی در سبد خرید نیست.</p> *@
+    @* *@
+    @* *@
+    @*     </div> *@
+    @* *@
+    @* </div> *@
+    
+    @await Component.InvokeAsync("BasketComponent")
 
 
 </div>

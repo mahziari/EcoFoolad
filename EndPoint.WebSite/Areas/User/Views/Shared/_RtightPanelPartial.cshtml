@@ -1,0 +1,64 @@
+﻿@using Microsoft.AspNetCore.Authorization;
+@using Microsoft.AspNetCore.Identity
+@using Domain.Entities
+@using Domain.Entities.Users
+@inject IAuthorizationService AuthorizationService;
+@inject SignInManager<User> SignInManager
+@inject UserManager<User> UserManager
+
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+
+<div class="sp_Personal_Information_panel">
+    <div class="sp_avatar">
+        <div class="information">
+            <div class="sp_image_avatar">
+                <img alt='' src='~/BackEnd/User/images/avatars/UserAvatar.jpg' srcset='~/BackEnd/User/images/avatars/UserAvatar.jpg' class='avatar avatar-65 photo' height='65' width='65'/>
+            </div>
+            <div class="sp_paragraph_avatar">
+                <span class="user_name">@UserManager.GetUserAsync(User).Result.FirstName @UserManager.GetUserAsync(User).Result.LastName</span>
+                <p>تاریخ عضویت : @UserManager.GetUserAsync(User).Result.DataCreated.ToPersianDateTime().ToString("yyyy/MM/d")</p>
+            </div>
+        </div>
+        <div class="sp_icon_avatar">
+            <a href="~/users/auth/logout">
+                <i class="fas fa-power-off"></i>
+            </a>
+            <a asp-controller="Home" asp-action="Index">
+                <i class="fas fa-home"></i>
+            </a>
+            <a href="#">
+                <i class="fas fa-cog"></i>
+            </a>
+        </div>
+    </div>
+
+    <div class="sp_my_account">
+        <ul class="woocommerce_menu_dashboard">
+            <li class="woocommerce-MyAccount-navigation-link woocommerce-MyAccount-navigation-link--dashboard is-active">
+                <a href="https://product-mirzacode.ir/newkala/preview/my-account/"><i class="fas fa-tachometer-alt"></i>پیشخوان</a>
+            </li>
+            <li class="woocommerce-MyAccount-navigation-link woocommerce-MyAccount-navigation-link--orders">
+                <a href="https://product-mirzacode.ir/newkala/preview/my-account/orders/"><i class="fas fa-file-alt"></i>سفارش‌ها</a>
+            </li>
+            @* <li class="woocommerce-MyAccount-navigation-link woocommerce-MyAccount-navigation-link--downloads"> *@
+            @*     <a href="https://product-mirzacode.ir/newkala/preview/my-account/downloads/"><i class="fas fa-download"></i>دانلودها</a> *@
+            @* </li> *@
+            <li class="woocommerce-MyAccount-navigation-link woocommerce-MyAccount-navigation-link--edit-address">
+                <a asp-area="User" asp-controller="Address" asp-action="Index"><i class="fas fa-address-book"></i>آدرس</a>
+            </li>
+            <li class="woocommerce-MyAccount-navigation-link woocommerce-MyAccount-navigation-link--edit-account">
+                <a href="https://product-mirzacode.ir/newkala/preview/my-account/edit-account/"><i class="fas fa-user"></i>جزئیات حساب</a>
+            </li>
+            @* <li class="woocommerce-MyAccount-navigation-link woocommerce-MyAccount-navigation-link--comments"> *@
+            @*     <a href="https://product-mirzacode.ir/newkala/preview/my-account/comments/"><i class="fas fa-comment"></i>نظرات</a> *@
+            @* </li> *@
+            @* <li class="woocommerce-MyAccount-navigation-link woocommerce-MyAccount-navigation-link--notification"> *@
+            @*     <a href="https://product-mirzacode.ir/newkala/preview/my-account/notification/"><i class="fas fa-bell"></i>اعلانات</a> *@
+            @* </li> *@
+            <li class="woocommerce-MyAccount-navigation-link woocommerce-MyAccount-navigation-link--customer-logout">
+                <a asp-area="Auth" asp-controller="Auth" asp-action="LogOut"><i class="fas fa-sign-out-alt"></i>خروج از سیستم</a>
+            </li>
+        </ul>
+    </div>
+</div>

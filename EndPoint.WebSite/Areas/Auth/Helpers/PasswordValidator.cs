@@ -7,13 +7,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 
 namespace EndPoint.WebSite.Areas.Auth.Helpers{
-    public class PasswordValidator:IPasswordValidator<User>
+    public class PasswordValidator:IPasswordValidator<Domain.Entities.Users.User>
     {
-        // List<string> PasswordList = new List<string>()
-        // {
-        //     "password","123456789","11111111"
-        // };
-        
         private readonly IWebHostEnvironment _environment;
         public PasswordValidator(IWebHostEnvironment environment)
         {
@@ -21,9 +16,9 @@ namespace EndPoint.WebSite.Areas.Auth.Helpers{
         }
 
 
-        public Task<IdentityResult> ValidateAsync(UserManager<User> manager, User user, string password)
+        public Task<IdentityResult> ValidateAsync(UserManager<Domain.Entities.Users.User> manager, Domain.Entities.Users.User user, string password)
         {
-            string filePath = @"BackEnd/PasswordList.txt";
+            string filePath = @"/PasswordList.txt";
             var folderPath = Path.Combine(_environment.WebRootPath, filePath);
             List<string> passwordList = File.ReadAllLines(folderPath).ToList();
         
@@ -38,6 +33,5 @@ namespace EndPoint.WebSite.Areas.Auth.Helpers{
             }
             return Task.FromResult(IdentityResult.Success);
         }
-        
     }
 }

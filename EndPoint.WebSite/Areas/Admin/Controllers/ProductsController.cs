@@ -92,8 +92,6 @@ namespace EndPoint.WebSite.Areas.Admin.Controllers
         }
         
         [Authorize(Policy = "ProductsDelete")]
-        [HttpDelete]
-        [ValidateAntiForgeryToken]
         public IActionResult Delete(int id)
         {
             var result = _productsFacad.DeleteProductServices.Execute(id);
@@ -107,8 +105,6 @@ namespace EndPoint.WebSite.Areas.Admin.Controllers
         
         
         [Authorize(Policy = "ProductsActive")]
-        [HttpPost]
-        [ValidateAntiForgeryToken]
         public IActionResult Active(int id)
         {
             var result = _productsFacad.ActiveProductServices.Execute(id);

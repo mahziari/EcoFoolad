@@ -1,0 +1,60 @@
+﻿@using Application.Services.FrontEnd.User.Addresses;
+@model UserAddressDto;
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "افزودن آدرس";
+    Layout = "~/Areas/User/Views/Shared/_Layout.cshtml";
+}
+
+<div class="theiaStickySidebar" style="padding-top: 0px; padding-bottom: 1px; position: static; transform: none;">
+    <div class="woocommerce-notices-wrapper"></div>
+    <form asp-area="User" asp-controller="Address" asp-action="Create"  method="post">
+
+        <h3>آدرس برای ارسال بار : </h3>
+        <div class="woocommerce-address-fields">
+
+            <div class="woocommerce-address-fields__field-wrapper">
+                
+                <p class="form-row form-row form-row-last address-field validate-required">
+                    <label asp-for="City" class="">شهر </label>
+                    <input asp-for="City" type="text" class="input-text" placeholder="شهر">
+                    <span asp-validation-for="City" class="text-danger"></span>
+                </p>
+                <p class="form-row form-row-first address-field validate-state">
+                    <label asp-for="State" class="">استان</label>
+                    <span class="woocommerce-input-wrapper">
+                        <input asp-for="State" type="text" class="input-text " placeholder="" autocomplete="address-level1" data-input-classes="">
+                        <span asp-validation-for="State" class="text-danger"></span>
+                    </span>
+                </p>
+                <p class="form-row form-row-wide address-field validate-required validate-postcode">
+                    <label asp-for="ZipCode" class="">کد پستی&nbsp;<abbr class="required" title="ضروری">*</abbr></label>
+                    <span class="woocommerce-input-wrapper">
+                        <input asp-for="ZipCode" type="text" class="input-text" placeholder="" autocomplete="postal-code">
+                        <span asp-validation-for="ZipCode" class="text-danger"></span>
+                    </span>
+                </p>
+
+                <p class="form-row form-row-wide address-field validate-required validate-postcode" >
+                    <label asp-for="ReciverName" class="">نام گیرنده &nbsp;<abbr class="required" title="ضروری">*</abbr></label>
+                    <span class="woocommerce-input-wrapper">
+                        <input asp-for="ReciverName" type="text" class="input-text "  placeholder="" autocomplete="postal-code">
+                        <span asp-validation-for="ReciverName" class="text-danger"></span>
+                    </span>
+                </p>
+
+                <p class="form-row form-row-wide address-field validate-required validate-postcode">
+                    <label asp-for="PostalAddress" class="">آدرس کامل &nbsp;<abbr class="required" title="ضروری">*</abbr></label>
+                    <span class="woocommerce-input-wrapper">
+                        <input asp-for="PostalAddress" type="text" class="input-text " placeholder="" autocomplete="postal-code">
+                        <span asp-validation-for="PostalAddress" class="text-danger"></span>
+                    </span>
+                </p>
+            </div>
+            <p>
+                <button type="submit" class="button" name="save_address" value="ذخیره آدرس">ذخیره آدرس</button>
+            </p>
+        </div>
+
+    </form>
+</div>

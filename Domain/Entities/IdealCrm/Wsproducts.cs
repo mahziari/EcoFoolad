@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Diagnostics.CodeAnalysis;
 using System.Numerics;
-using Domain.Entities.Carts;
 
 namespace  Domain.Entities.IdealCrm
 {

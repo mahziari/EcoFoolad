@@ -17103,3 +17103,916 @@ Error Number:515,State:2,Class:16
 2021-06-02T20:00:07.4286076+04:30 0HM95RBROCCAV:000002E5 [INF] Request finished HTTP/2 POST https://localhost:5001/users/auth/login application/x-www-form-urlencoded 310 - 500 - text/html;+charset=utf-8 22.5278ms (791a596a)
 2021-06-02T20:00:07.4932762+04:30 0HM95RBROCCAV:000002E7 [INF] Request starting HTTP/2 GET https://localhost:5001/favicon.ico - - (ca22a1cb)
 2021-06-02T20:00:07.4945274+04:30 0HM95RBROCCAV:000002E7 [INF] Request finished HTTP/2 GET https://localhost:5001/favicon.ico - - - 404 0 - 1.1916ms (791a596a)
+2021-06-02T20:52:15.9919950+04:30  [INF] User profile is available. Using '"C:\Users\pc-2\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest. (7ac5e29c)
+2021-06-02T20:52:16.7117971+04:30  [INF] Now listening on: "https://localhost:5001" (d826f4b8)
+2021-06-02T20:52:16.7119029+04:30  [INF] Now listening on: "http://localhost:5000" (d826f4b8)
+2021-06-02T20:52:16.7119947+04:30  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-06-02T20:52:16.7120197+04:30  [INF] Hosting environment: "Development" (c3307c92)
+2021-06-02T20:52:16.7120303+04:30  [INF] Content root path: "C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite" (b5d60022)
+2021-06-02T20:52:17.8389196+04:30 0HM95SAB809KQ:0000000F [INF] Request starting HTTP/2 GET https://localhost:5001/ - - (ca22a1cb)
+2021-06-02T20:52:17.9034769+04:30 0HM95SAB809KQ:0000000F [INF] Executing endpoint '"EndPoint.WebSite.Controllers.HomeController.Index (EndPoint.WebSite)"' (500cc934)
+2021-06-02T20:52:17.9616481+04:30 0HM95SAB809KQ:0000000F [INF] Route matched with "{action = \"Index\", controller = \"Home\", area = \"\"}". Executing controller action with signature "Microsoft.AspNetCore.Mvc.IActionResult Index()" on controller "EndPoint.WebSite.Controllers.HomeController" ("EndPoint.WebSite"). (122b2fdf)
+2021-06-02T20:52:18.0471131+04:30 0HM95SAB809KQ:0000000F [WRN] 'AddEntityFramework*' was called on the service provider, but 'UseInternalServiceProvider' wasn't called in the DbContext options configuration. Consider removing the 'AddEntityFramework*' call, as in most cases it's not needed and may cause conflicts with other products and services registered in the same service provider. (4bc25ac5)
+2021-06-02T20:52:19.2631168+04:30 0HM95SAB809KQ:0000000F [WRN] No type was specified for the decimal property '"Credit"' on entity type '"User"'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType()', specify precision and scale using 'HasPrecision()' or configure a value converter using 'HasConversion()'. (5c92c1c4)
+2021-06-02T20:52:19.4565371+04:30 0HM95SAB809KQ:0000000F [INF] Entity Framework Core "5.0.6" initialized '"CustomDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2021-06-02T20:52:20.1396986+04:30 0HM95SAB809KQ:0000000F [INF] Executed DbCommand ("29"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [s].[Id], [s].[Type], [s].[Active], [s].[Position], [s].[Url]
+FROM [Sliders] AS [s]" (0723d8ff)
+2021-06-02T20:52:47.6496185+04:30 0HM95SAB809KQ:0000000F [WRN] No type was specified for the decimal property '"PrdPrice"' on entity type '"Wsproducts"'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType()', specify precision and scale using 'HasPrecision()' or configure a value converter using 'HasConversion()'. (5c92c1c4)
+2021-06-02T20:52:47.8448186+04:30 0HM95SAB809KQ:0000000F [INF] Entity Framework Core "5.0.6" initialized '"IdealCrmDataBaseContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2021-06-02T20:52:47.9939148+04:30 0HM95SAB809KQ:0000000F [INF] Executed DbCommand ("142"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c].[NewsGroupId] AS [Id], [c].[GroupName] AS [Name]
+FROM [CrmCmsNewsGroups] AS [c]" (0723d8ff)
+2021-06-02T20:52:48.0041517+04:30 0HM95SAB809KQ:0000000F [INF] info (680db0b0)
+2021-06-02T20:52:48.0042243+04:30 0HM95SAB809KQ:0000000F [WRN] war (fa24b367)
+2021-06-02T20:52:48.0042540+04:30 0HM95SAB809KQ:0000000F [ERR] err (42240f44)
+2021-06-02T20:52:48.0042835+04:30 0HM95SAB809KQ:0000000F [FTL] critical (18f63ac8)
+2021-06-02T20:52:48.0613036+04:30 0HM95SAB809KQ:0000000F [INF] Executing ViewResult, running view "Index". (c83d0e25)
+2021-06-02T20:52:48.2916769+04:30 0HM95SAB809KQ:0000000F [WRN] Compiling a query which loads related collections for more than one collection navigation either via 'Include' or through projection but no 'QuerySplittingBehavior' has been configured. By default Entity Framework will use 'QuerySplittingBehavior.SingleQuery' which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))' (74d62de4)
+2021-06-02T20:52:48.5297392+04:30 0HM95SAB809KQ:0000000F [INF] Executed DbCommand ("174"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [p].[ParsaPooladMenusId], [p].[Name], [p].[UrlName], [t0].[PrdFirstGroupID], [t0].[FGName], [t0].[WsproductSecondGroupId], [t0].[Sgname]
+FROM [ParsaPooladMenus] AS [p]
+LEFT JOIN (
+    SELECT [w].[PrdFirstGroupID], [w].[FGName], [t].[WsproductSecondGroupId], [t].[Sgname], [w].[ParsaPooladMenusId]
+    FROM [WSProductFirstGroup] AS [w]
+    LEFT JOIN (
+        SELECT [w0].[PrdSecondGroupID] AS [WsproductSecondGroupId], [w0].[SGName] AS [Sgname], [w0].[FirstGroupId]
+        FROM [WSProductSecondGroup] AS [w0]
+        WHERE [w0].[IsRemoved] IS NULL
+    ) AS [t] ON [w].[PrdFirstGroupID] = [t].[FirstGroupId]
+    WHERE [w].[IsRemoved] IS NULL
+) AS [t0] ON [p].[ParsaPooladMenusId] = [t0].[ParsaPooladMenusId]
+ORDER BY [p].[ParsaPooladMenusId], [t0].[PrdFirstGroupID], [t0].[WsproductSecondGroupId]" (0723d8ff)
+2021-06-02T20:52:48.6701504+04:30 0HM95SAB809KQ:0000000F [INF] Executed ViewResult - view "Index" executed in 657.5559ms. (f66409e9)
+2021-06-02T20:52:48.6705277+04:30 0HM95SAB809KQ:0000000F [INF] Executed action "EndPoint.WebSite.Controllers.HomeController.Index (EndPoint.WebSite)" in 30708.4771ms (afa2e885)
+2021-06-02T20:52:48.6705887+04:30 0HM95SAB809KQ:0000000F [INF] Executed endpoint '"EndPoint.WebSite.Controllers.HomeController.Index (EndPoint.WebSite)"' (99874f2b)
+2021-06-02T20:52:48.6921220+04:30 0HM95SAB809KQ:0000000F [INF] Request finished HTTP/2 GET https://localhost:5001/ - - - 200 - text/html;+charset=utf-8 30856.7398ms (791a596a)
+2021-06-02T20:52:48.7893264+04:30 0HM95SAB809KQ:00000011 [INF] Request starting HTTP/2 GET https://localhost:5001/js/countdownTimer.js - - (ca22a1cb)
+2021-06-02T20:52:48.7893263+04:30 0HM95SAB809KQ:00000013 [INF] Request starting HTTP/2 GET https://localhost:5001/js/owl.carousel.min-2.3.4.js - - (ca22a1cb)
+2021-06-02T20:52:48.7894213+04:30 0HM95SAB809KQ:00000015 [INF] Request starting HTTP/2 GET https://localhost:5001/wp-content/themes/newkala/js/custom.js - - (ca22a1cb)
+2021-06-02T20:52:48.7894655+04:30 0HM95SAB809KQ:00000017 [INF] Request starting HTTP/2 GET https://localhost:5001/wp-content/plugins/woocommerce/assets/js/jquery-blockui/jquery.blockUI.min.js?ver=2.70 - - (ca22a1cb)
+2021-06-02T20:52:48.7954597+04:30 0HM95SAB809KQ:00000013 [INF] Sending file. Request path: '"/js/owl.carousel.min-2.3.4.js"'. Physical path: '"C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\wwwroot\js\owl.carousel.min-2.3.4.js"' (27b0a520)
+2021-06-02T20:52:48.7956879+04:30 0HM95SAB809KQ:00000013 [INF] Request finished HTTP/2 GET https://localhost:5001/js/owl.carousel.min-2.3.4.js - - - 0 108003 application/javascript 6.3045ms (791a596a)
+2021-06-02T20:52:48.7975495+04:30 0HM95SAB809KQ:00000011 [INF] Sending file. Request path: '"/js/countdownTimer.js"'. Physical path: '"C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\wwwroot\js\countdownTimer.js"' (27b0a520)
+2021-06-02T20:52:48.7975496+04:30 0HM95SAB809KQ:00000017 [INF] Sending file. Request path: '"/wp-content/plugins/woocommerce/assets/js/jquery-blockui/jquery.blockUI.min.js"'. Physical path: '"C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\wwwroot\wp-content\plugins\woocommerce\assets\js\jquery-blockui\jquery.blockUI.min.js"' (27b0a520)
+2021-06-02T20:52:48.7977739+04:30 0HM95SAB809KQ:00000017 [INF] Request finished HTTP/2 GET https://localhost:5001/wp-content/plugins/woocommerce/assets/js/jquery-blockui/jquery.blockUI.min.js?ver=2.70 - - - 200 9566 application/javascript 8.3212ms (791a596a)
+2021-06-02T20:52:48.7989871+04:30 0HM95SAB809KQ:00000011 [INF] Request finished HTTP/2 GET https://localhost:5001/js/countdownTimer.js - - - 200 2370 application/javascript 8.6337ms (791a596a)
+2021-06-02T20:52:48.8058211+04:30 0HM95SAB809KQ:00000015 [INF] Sending file. Request path: '"/wp-content/themes/newkala/js/custom.js"'. Physical path: '"C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\wwwroot\wp-content\themes\newkala\js\custom.js"' (27b0a520)
+2021-06-02T20:52:48.8060341+04:30 0HM95SAB809KQ:00000015 [INF] Request finished HTTP/2 GET https://localhost:5001/wp-content/themes/newkala/js/custom.js - - - 0 21132 application/javascript 16.7358ms (791a596a)
+2021-06-02T20:53:00.7414706+04:30 0HM95SAB809KQ:00000019 [INF] Request starting HTTP/2 GET https://localhost:5001/products/girder/هاش-hea - - (ca22a1cb)
+2021-06-02T20:53:00.7439267+04:30 0HM95SAB809KQ:00000019 [INF] Executing endpoint '"EndPoint.WebSite.Controllers.ProductsController.Category (EndPoint.WebSite)"' (500cc934)
+2021-06-02T20:53:00.7539655+04:30 0HM95SAB809KQ:00000019 [INF] Route matched with "{action = \"Category\", controller = \"Products\", area = \"\"}". Executing controller action with signature "Microsoft.AspNetCore.Mvc.IActionResult Category(System.String, System.String, System.String, Int32)" on controller "EndPoint.WebSite.Controllers.ProductsController" ("EndPoint.WebSite"). (122b2fdf)
+2021-06-02T20:53:00.7754753+04:30 0HM95SAB809KQ:00000019 [INF] Entity Framework Core "5.0.6" initialized '"IdealCrmDataBaseContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2021-06-02T20:53:00.8321240+04:30 0HM95SAB809KQ:00000019 [INF] Executed DbCommand ("23"ms) [Parameters=["@__Replace_0='?' (Size = 200)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [w].[PrdSecondGroupID], [w].[AppType], [w].[FirstGroupId], [w].[FirstRegisterDate], [w].[FirstRegisterDatePersian], [w].[FirstRegisterUserId], [w].[FPId], [w].[GUId], [w].[IsRemoved], [w].[LanguageID], [w].[Month1], [w].[RegisterDate], [w].[RegisterDatePersian], [w].[SGCode], [w].[SGDescription], [w].[SGInactiveInBuy], [w].[SGInactiveInSale], [w].[SGLinkAccGroupCode], [w].[SGLinkAccGroupId], [w].[SGName], [w].[SGNameEn], [w].[UserId]
+FROM [WSProductSecondGroup] AS [w]
+WHERE [w].[SGName] = @__Replace_0" (0723d8ff)
+2021-06-02T20:53:00.9389351+04:30 0HM95SAB809KQ:00000019 [INF] Executed DbCommand ("1"ms) [Parameters=["@__secondGroup_FirstGroupId_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [w].[ParsaPooladMenusId]
+FROM [WSProductFirstGroup] AS [w]
+WHERE [w].[PrdFirstGroupID] = @__secondGroup_FirstGroupId_0" (0723d8ff)
+2021-06-02T20:53:00.9442988+04:30 0HM95SAB809KQ:00000019 [INF] Executed DbCommand ("1"ms) [Parameters=["@__firstGroup_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [p].[ParsaPooladMenusId], [p].[Image], [p].[Name], [p].[ParentMenusId], [p].[UrlName]
+FROM [ParsaPooladMenus] AS [p]
+WHERE [p].[ParsaPooladMenusId] = @__firstGroup_0" (0723d8ff)
+2021-06-02T20:53:01.0253213+04:30 0HM95SAB809KQ:00000019 [INF] Executed DbCommand ("51"ms) [Parameters=["@__secondGroup_PrdSecondGroupId_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [WSProducts] AS [w]
+WHERE ([w].[PrdGroupID] = @__secondGroup_PrdSecondGroupId_0) AND ([w].[PrdInactiveInSale] = CAST(1 AS bit))" (0723d8ff)
+2021-06-02T20:53:01.0346819+04:30 0HM95SAB809KQ:00000019 [INF] Executed DbCommand ("3"ms) [Parameters=["@__parsapooladMenu_UrlName_1='?' (Size = 4000), @__secondGroup_PrdSecondGroupId_0='?' (DbType = Int32), @__p_2='?' (DbType = Int32), @__p_3='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [w].[ProductID] AS [ProductId], [w].[PrdName], @__parsapooladMenu_UrlName_1 AS [UrlName], [w].[PrdInactiveInSale], [w].[RegisterDatePersian]
+FROM [WSProducts] AS [w]
+WHERE ([w].[PrdGroupID] = @__secondGroup_PrdSecondGroupId_0) AND ([w].[PrdInactiveInSale] = CAST(1 AS bit))
+ORDER BY [w].[ProductID] DESC
+OFFSET @__p_2 ROWS FETCH NEXT @__p_3 ROWS ONLY" (0723d8ff)
+2021-06-02T20:53:01.0393724+04:30 0HM95SAB809KQ:00000019 [INF] Executing ViewResult, running view "Category". (c83d0e25)
+2021-06-02T20:53:01.1801726+04:30 0HM95SAB809KQ:00000019 [INF] Executed ViewResult - view "Category" executed in 143.6844ms. (f66409e9)
+2021-06-02T20:53:01.1802736+04:30 0HM95SAB809KQ:00000019 [INF] Executed action "EndPoint.WebSite.Controllers.ProductsController.Category (EndPoint.WebSite)" in 426.262ms (afa2e885)
+2021-06-02T20:53:01.1803004+04:30 0HM95SAB809KQ:00000019 [INF] Executed endpoint '"EndPoint.WebSite.Controllers.ProductsController.Category (EndPoint.WebSite)"' (99874f2b)
+2021-06-02T20:53:01.1811733+04:30 0HM95SAB809KQ:00000019 [INF] Request finished HTTP/2 GET https://localhost:5001/products/girder/هاش-hea - - - 200 - text/html;+charset=utf-8 439.7565ms (791a596a)
+2021-06-02T20:53:01.2298916+04:30 0HM95SAB809KQ:0000001B [INF] Request starting HTTP/2 GET https://localhost:5001/wp-content/cache/min/1/preview/wp-content/style.css - - (ca22a1cb)
+2021-06-02T20:53:01.2307133+04:30 0HM95SAB809KQ:0000001D [INF] Request starting HTTP/2 GET https://localhost:5001/wp-includes/js/jquery.min.js?ver=3.5.1 - - (ca22a1cb)
+2021-06-02T20:53:01.2317061+04:30 0HM95SAB809KQ:0000001F [INF] Request starting HTTP/2 GET https://localhost:5001/wp-content/themes/newkala/js/mresize.min.js?ver=2.3.4 - - (ca22a1cb)
+2021-06-02T20:53:01.2330635+04:30 0HM95SAB809KQ:0000001F [INF] Sending file. Request path: '"/wp-content/themes/newkala/js/mresize.min.js"'. Physical path: '"C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\wwwroot\wp-content\themes\newkala\js\mresize.min.js"' (27b0a520)
+2021-06-02T20:53:01.2331619+04:30 0HM95SAB809KQ:0000001F [INF] Request finished HTTP/2 GET https://localhost:5001/wp-content/themes/newkala/js/mresize.min.js?ver=2.3.4 - - - 200 2544 application/javascript 1.4647ms (791a596a)
+2021-06-02T20:53:01.2332938+04:30 0HM95SAB809KQ:00000021 [INF] Request starting HTTP/2 GET https://localhost:5001/wp-content/themes/newkala/js/swiper.min.js?ver=4.3.3 - - (ca22a1cb)
+2021-06-02T20:53:01.2355242+04:30 0HM95SAB809KQ:00000023 [INF] Request starting HTTP/2 GET https://localhost:5001/Images/Menus/2.jpg - - (ca22a1cb)
+2021-06-02T20:53:01.2361969+04:30 0HM95SAB809KQ:00000025 [INF] Request starting HTTP/2 GET https://localhost:5001/Images/Menus/1.jpg - - (ca22a1cb)
+2021-06-02T20:53:01.2392613+04:30 0HM95SAB809KQ:00000027 [INF] Request starting HTTP/2 GET https://localhost:5001/js/countdownTimer.js - - (ca22a1cb)
+2021-06-02T20:53:01.2451174+04:30 0HM95SAB809KQ:00000029 [INF] Request starting HTTP/2 GET https://localhost:5001/js/owl.carousel.min-2.3.4.js - - (ca22a1cb)
+2021-06-02T20:53:01.2455306+04:30 0HM95SAB809KQ:0000002B [INF] Request starting HTTP/2 GET https://localhost:5001/wp-content/themes/newkala/js/custom.js - - (ca22a1cb)
+2021-06-02T20:53:01.2460258+04:30 0HM95SAB809KQ:0000002D [INF] Request starting HTTP/2 GET https://localhost:5001/wp-content/plugins/yith-woocommerce-wishlist/assets/js/jquery.selectBox.min.js?ver=1.2.0 - - (ca22a1cb)
+2021-06-02T20:53:01.2464063+04:30 0HM95SAB809KQ:0000002F [INF] Request starting HTTP/2 GET https://localhost:5001/js/jquery.yith-wcwl.js - - (ca22a1cb)
+2021-06-02T20:53:01.2466601+04:30 0HM95SAB809KQ:00000033 [INF] Request starting HTTP/2 GET https://localhost:5001/wp-content/plugins/woocommerce/assets/js/frontend/add-to-cart.min.js?ver=4.7.0 - - (ca22a1cb)
+2021-06-02T20:53:01.2466984+04:30 0HM95SAB809KQ:00000031 [INF] Request starting HTTP/2 GET https://localhost:5001/wp-content/plugins/woocommerce/assets/js/jquery-blockui/jquery.blockUI.min.js?ver=2.70 - - (ca22a1cb)
+2021-06-02T20:53:01.2475212+04:30 0HM95SAB809KQ:00000027 [INF] Sending file. Request path: '"/js/countdownTimer.js"'. Physical path: '"C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\wwwroot\js\countdownTimer.js"' (27b0a520)
+2021-06-02T20:53:01.2478846+04:30 0HM95SAB809KQ:0000001D [INF] Sending file. Request path: '"/wp-includes/js/jquery.min.js"'. Physical path: '"C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\wwwroot\wp-includes\js\jquery.min.js"' (27b0a520)
+2021-06-02T20:53:01.2480649+04:30 0HM95SAB809KQ:0000001D [INF] Request finished HTTP/2 GET https://localhost:5001/wp-includes/js/jquery.min.js?ver=3.5.1 - - - 200 89496 application/javascript 17.2864ms (791a596a)
+2021-06-02T20:53:01.2480643+04:30 0HM95SAB809KQ:0000002D [INF] Sending file. Request path: '"/wp-content/plugins/yith-woocommerce-wishlist/assets/js/jquery.selectBox.min.js"'. Physical path: '"C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\wwwroot\wp-content\plugins\yith-woocommerce-wishlist\assets\js\jquery.selectBox.min.js"' (27b0a520)
+2021-06-02T20:53:01.2481245+04:30 0HM95SAB809KQ:0000002D [INF] Request finished HTTP/2 GET https://localhost:5001/wp-content/plugins/yith-woocommerce-wishlist/assets/js/jquery.selectBox.min.js?ver=1.2.0 - - - 200 15736 application/javascript 2.1982ms (791a596a)
+2021-06-02T20:53:01.2485792+04:30 0HM95SAB809KQ:00000027 [INF] Request finished HTTP/2 GET https://localhost:5001/js/countdownTimer.js - - - 200 2370 application/javascript 9.3260ms (791a596a)
+2021-06-02T20:53:01.2486596+04:30 0HM95SAB809KQ:00000031 [INF] Sending file. Request path: '"/wp-content/plugins/woocommerce/assets/js/jquery-blockui/jquery.blockUI.min.js"'. Physical path: '"C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\wwwroot\wp-content\plugins\woocommerce\assets\js\jquery-blockui\jquery.blockUI.min.js"' (27b0a520)
+2021-06-02T20:53:01.2487220+04:30 0HM95SAB809KQ:00000031 [INF] Request finished HTTP/2 GET https://localhost:5001/wp-content/plugins/woocommerce/assets/js/jquery-blockui/jquery.blockUI.min.js?ver=2.70 - - - 200 9566 application/javascript 2.0748ms (791a596a)
+2021-06-02T20:53:01.2490118+04:30 0HM95SAB809KQ:00000033 [INF] Sending file. Request path: '"/wp-content/plugins/woocommerce/assets/js/frontend/add-to-cart.min.js"'. Physical path: '"C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\wwwroot\wp-content\plugins\woocommerce\assets\js\frontend\add-to-cart.min.js"' (27b0a520)
+2021-06-02T20:53:01.2490724+04:30 0HM95SAB809KQ:00000033 [INF] Request finished HTTP/2 GET https://localhost:5001/wp-content/plugins/woocommerce/assets/js/frontend/add-to-cart.min.js?ver=4.7.0 - - - 200 3037 application/javascript 2.4043ms (791a596a)
+2021-06-02T20:53:01.2491214+04:30 0HM95SAB809KQ:00000035 [INF] Request starting HTTP/2 GET https://localhost:5001/wp-content/plugins/woocommerce/assets/js/js-cookie/js.cookie.min.js?ver=2.1.4 - - (ca22a1cb)
+2021-06-02T20:53:01.2496118+04:30 0HM95SAB809KQ:00000037 [INF] Request starting HTTP/2 GET https://localhost:5001/wp-content/plugins/woocommerce/assets/js/frontend/woocommerce.min.js?ver=4.7.0 - - (ca22a1cb)
+2021-06-02T20:53:01.2500091+04:30 0HM95SAB809KQ:0000002B [INF] Sending file. Request path: '"/wp-content/themes/newkala/js/custom.js"'. Physical path: '"C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\wwwroot\wp-content\themes\newkala\js\custom.js"' (27b0a520)
+2021-06-02T20:53:01.2500400+04:30 0HM95SAB809KQ:00000039 [INF] Request starting HTTP/2 GET https://localhost:5001/wp-content/plugins/woocommerce/assets/js/frontend/cart-fragments.min.js?ver=4.7.0 - - (ca22a1cb)
+2021-06-02T20:53:01.2500805+04:30 0HM95SAB809KQ:0000002B [INF] Request finished HTTP/2 GET https://localhost:5001/wp-content/themes/newkala/js/custom.js - - - 200 21132 application/javascript 4.5476ms (791a596a)
+2021-06-02T20:53:01.2502273+04:30 0HM95SAB809KQ:0000002F [INF] Sending file. Request path: '"/js/jquery.yith-wcwl.js"'. Physical path: '"C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\wwwroot\js\jquery.yith-wcwl.js"' (27b0a520)
+2021-06-02T20:53:01.2503144+04:30 0HM95SAB809KQ:0000002F [INF] Request finished HTTP/2 GET https://localhost:5001/js/jquery.yith-wcwl.js - - - 200 23703 application/javascript 3.9082ms (791a596a)
+2021-06-02T20:53:01.2503800+04:30 0HM95SAB809KQ:00000037 [INF] Sending file. Request path: '"/wp-content/plugins/woocommerce/assets/js/frontend/woocommerce.min.js"'. Physical path: '"C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\wwwroot\wp-content\plugins\woocommerce\assets\js\frontend\woocommerce.min.js"' (27b0a520)
+2021-06-02T20:53:01.2508135+04:30 0HM95SAB809KQ:0000003D [INF] Request starting HTTP/2 GET https://localhost:5001/wp-content/plugins/woocommerce/assets/js/prettyPhoto/jquery.prettyPhoto.min.js?ver=3.1.6 - - (ca22a1cb)
+2021-06-02T20:53:01.2506004+04:30 0HM95SAB809KQ:0000003B [INF] Request starting HTTP/2 GET https://localhost:5001/wp-content/plugins/yith-woocommerce-added-to-cart-popup-premium/assets/js/wacp-frontend.min.js?ver=1.6.0 - - (ca22a1cb)
+2021-06-02T20:53:01.2516851+04:30 0HM95SAB809KQ:00000035 [INF] Sending file. Request path: '"/wp-content/plugins/woocommerce/assets/js/js-cookie/js.cookie.min.js"'. Physical path: '"C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\wwwroot\wp-content\plugins\woocommerce\assets\js\js-cookie\js.cookie.min.js"' (27b0a520)
+2021-06-02T20:53:01.2519074+04:30 0HM95SAB809KQ:0000003F [INF] Request starting HTTP/2 GET https://localhost:5001/js/product.js - - (ca22a1cb)
+2021-06-02T20:53:01.2520151+04:30 0HM95SAB809KQ:00000035 [INF] Request finished HTTP/2 GET https://localhost:5001/wp-content/plugins/woocommerce/assets/js/js-cookie/js.cookie.min.js?ver=2.1.4 - - - 200 1846 application/javascript 2.8850ms (791a596a)
+2021-06-02T20:53:01.2524527+04:30 0HM95SAB809KQ:0000003B [INF] Sending file. Request path: '"/wp-content/plugins/yith-woocommerce-added-to-cart-popup-premium/assets/js/wacp-frontend.min.js"'. Physical path: '"C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\wwwroot\wp-content\plugins\yith-woocommerce-added-to-cart-popup-premium\assets\js\wacp-frontend.min.js"' (27b0a520)
+2021-06-02T20:53:01.2525233+04:30 0HM95SAB809KQ:0000003B [INF] Request finished HTTP/2 GET https://localhost:5001/wp-content/plugins/yith-woocommerce-added-to-cart-popup-premium/assets/js/wacp-frontend.min.js?ver=1.6.0 - - - 200 7030 application/javascript 1.9171ms (791a596a)
+2021-06-02T20:53:01.2529422+04:30 0HM95SAB809KQ:00000037 [INF] Request finished HTTP/2 GET https://localhost:5001/wp-content/plugins/woocommerce/assets/js/frontend/woocommerce.min.js?ver=4.7.0 - - - 200 2047 application/javascript 3.2965ms (791a596a)
+2021-06-02T20:53:01.2531864+04:30 0HM95SAB809KQ:0000003F [INF] Sending file. Request path: '"/js/product.js"'. Physical path: '"C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\wwwroot\js\product.js"' (27b0a520)
+2021-06-02T20:53:01.2532429+04:30 0HM95SAB809KQ:0000003F [INF] Request finished HTTP/2 GET https://localhost:5001/js/product.js - - - 200 9434 application/javascript 1.3367ms (791a596a)
+2021-06-02T20:53:01.2533041+04:30 0HM95SAB809KQ:00000041 [INF] Request starting HTTP/2 GET https://localhost:5001/wp-content/plugins/dokan-lite/assets/vendors/magnific/jquery.magnific-popup.min.js?ver=3.0.13 - - (ca22a1cb)
+2021-06-02T20:53:01.2537183+04:30 0HM95SAB809KQ:0000003D [INF] Sending file. Request path: '"/wp-content/plugins/woocommerce/assets/js/prettyPhoto/jquery.prettyPhoto.min.js"'. Physical path: '"C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\wwwroot\wp-content\plugins\woocommerce\assets\js\prettyPhoto\jquery.prettyPhoto.min.js"' (27b0a520)
+2021-06-02T20:53:01.2537880+04:30 0HM95SAB809KQ:0000003D [INF] Request finished HTTP/2 GET https://localhost:5001/wp-content/plugins/woocommerce/assets/js/prettyPhoto/jquery.prettyPhoto.min.js?ver=3.1.6 - - - 200 21592 application/javascript 2.9632ms (791a596a)
+2021-06-02T20:53:01.2538977+04:30 0HM95SAB809KQ:00000039 [INF] Sending file. Request path: '"/wp-content/plugins/woocommerce/assets/js/frontend/cart-fragments.min.js"'. Physical path: '"C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\wwwroot\wp-content\plugins\woocommerce\assets\js\frontend\cart-fragments.min.js"' (27b0a520)
+2021-06-02T20:53:01.2539592+04:30 0HM95SAB809KQ:00000039 [INF] Request finished HTTP/2 GET https://localhost:5001/wp-content/plugins/woocommerce/assets/js/frontend/cart-fragments.min.js?ver=4.7.0 - - - 200 2939 application/javascript 3.9236ms (791a596a)
+2021-06-02T20:53:01.2545720+04:30 0HM95SAB809KQ:00000021 [INF] Sending file. Request path: '"/wp-content/themes/newkala/js/swiper.min.js"'. Physical path: '"C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\wwwroot\wp-content\themes\newkala\js\swiper.min.js"' (27b0a520)
+2021-06-02T20:53:01.2545664+04:30 0HM95SAB809KQ:00000025 [INF] Sending file. Request path: '"/Images/Menus/1.jpg"'. Physical path: '"C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\wwwroot\Images\Menus\1.jpg"' (27b0a520)
+2021-06-02T20:53:01.2546530+04:30 0HM95SAB809KQ:00000021 [INF] Request finished HTTP/2 GET https://localhost:5001/wp-content/themes/newkala/js/swiper.min.js?ver=4.3.3 - - - 200 127934 application/javascript 21.3364ms (791a596a)
+2021-06-02T20:53:01.2546519+04:30 0HM95SAB809KQ:00000025 [INF] Request finished HTTP/2 GET https://localhost:5001/Images/Menus/1.jpg - - - 200 69229 image/jpeg 18.4830ms (791a596a)
+2021-06-02T20:53:01.2556890+04:30 0HM95SAB809KQ:00000041 [INF] Sending file. Request path: '"/wp-content/plugins/dokan-lite/assets/vendors/magnific/jquery.magnific-popup.min.js"'. Physical path: '"C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\wwwroot\wp-content\plugins\dokan-lite\assets\vendors\magnific\jquery.magnific-popup.min.js"' (27b0a520)
+2021-06-02T20:53:01.2557938+04:30 0HM95SAB809KQ:00000041 [INF] Request finished HTTP/2 GET https://localhost:5001/wp-content/plugins/dokan-lite/assets/vendors/magnific/jquery.magnific-popup.min.js?ver=3.0.13 - - - 200 21143 application/javascript 2.4552ms (791a596a)
+2021-06-02T20:53:01.2565901+04:30 0HM95SAB809KQ:00000029 [INF] Sending file. Request path: '"/js/owl.carousel.min-2.3.4.js"'. Physical path: '"C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\wwwroot\js\owl.carousel.min-2.3.4.js"' (27b0a520)
+2021-06-02T20:53:01.2569580+04:30 0HM95SAB809KQ:00000029 [INF] Request finished HTTP/2 GET https://localhost:5001/js/owl.carousel.min-2.3.4.js - - - 200 108003 application/javascript 11.8353ms (791a596a)
+2021-06-02T20:53:01.2572871+04:30 0HM95SAB809KQ:00000043 [INF] Request starting HTTP/2 GET https://localhost:5001/js/jed.js - - (ca22a1cb)
+2021-06-02T20:53:01.2573320+04:30 0HM95SAB809KQ:00000045 [INF] Request starting HTTP/2 GET https://localhost:5001/wp-content/plugins/yith-woocommerce-added-to-cart-popup-premium/assets/js/perfect-scrollbar.min.js?ver=1.6.0 - - (ca22a1cb)
+2021-06-02T20:53:01.2578462+04:30 0HM95SAB809KQ:00000047 [INF] Request starting HTTP/2 GET https://localhost:5001/wp-content/plugins/wp-rocket/assets/js/lazyload/16.1/lazyload.min.js - - (ca22a1cb)
+2021-06-02T20:53:01.2590203+04:30 0HM95SAB809KQ:00000047 [INF] Sending file. Request path: '"/wp-content/plugins/wp-rocket/assets/js/lazyload/16.1/lazyload.min.js"'. Physical path: '"C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\wwwroot\wp-content\plugins\wp-rocket\assets\js\lazyload\16.1\lazyload.min.js"' (27b0a520)
+2021-06-02T20:53:01.2592901+04:30 0HM95SAB809KQ:00000047 [INF] Request finished HTTP/2 GET https://localhost:5001/wp-content/plugins/wp-rocket/assets/js/lazyload/16.1/lazyload.min.js - - - 200 7890 application/javascript 1.4026ms (791a596a)
+2021-06-02T20:53:01.2604498+04:30 0HM95SAB809KQ:00000045 [INF] Sending file. Request path: '"/wp-content/plugins/yith-woocommerce-added-to-cart-popup-premium/assets/js/perfect-scrollbar.min.js"'. Physical path: '"C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\wwwroot\wp-content\plugins\yith-woocommerce-added-to-cart-popup-premium\assets\js\perfect-scrollbar.min.js"' (27b0a520)
+2021-06-02T20:53:01.2605747+04:30 0HM95SAB809KQ:00000045 [INF] Request finished HTTP/2 GET https://localhost:5001/wp-content/plugins/yith-woocommerce-added-to-cart-popup-premium/assets/js/perfect-scrollbar.min.js?ver=1.6.0 - - - 200 17928 application/javascript 3.2016ms (791a596a)
+2021-06-02T20:53:01.2612095+04:30 0HM95SAB809KQ:00000023 [INF] Sending file. Request path: '"/Images/Menus/2.jpg"'. Physical path: '"C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\wwwroot\Images\Menus\2.jpg"' (27b0a520)
+2021-06-02T20:53:01.2613051+04:30 0HM95SAB809KQ:00000023 [INF] Request finished HTTP/2 GET https://localhost:5001/Images/Menus/2.jpg - - - 200 194805 image/jpeg 25.8011ms (791a596a)
+2021-06-02T20:53:01.2617127+04:30 0HM95SAB809KQ:00000043 [INF] Sending file. Request path: '"/js/jed.js"'. Physical path: '"C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\wwwroot\js\jed.js"' (27b0a520)
+2021-06-02T20:53:01.2618022+04:30 0HM95SAB809KQ:00000043 [INF] Request finished HTTP/2 GET https://localhost:5001/js/jed.js - - - 200 22507 application/javascript 4.5105ms (791a596a)
+2021-06-02T20:53:01.2786665+04:30 0HM95SAB809KQ:0000001B [INF] Sending file. Request path: '"/wp-content/cache/min/1/preview/wp-content/style.css"'. Physical path: '"C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\wwwroot\wp-content\cache\min\1\preview\wp-content\style.css"' (27b0a520)
+2021-06-02T20:53:01.2787933+04:30 0HM95SAB809KQ:0000001B [INF] Request finished HTTP/2 GET https://localhost:5001/wp-content/cache/min/1/preview/wp-content/style.css - - - 200 1103460 text/css 48.8945ms (791a596a)
+2021-06-02T20:53:01.4604566+04:30 0HM95SAB809KQ:00000049 [INF] Request starting HTTP/2 GET https://localhost:5001/Images/Settings/Logo-Header.jpg - - (ca22a1cb)
+2021-06-02T20:53:01.4618546+04:30 0HM95SAB809KQ:00000049 [INF] Sending file. Request path: '"/Images/Settings/Logo-Header.jpg"'. Physical path: '"C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\wwwroot\Images\Settings\Logo-Header.jpg"' (27b0a520)
+2021-06-02T20:53:01.4620107+04:30 0HM95SAB809KQ:00000049 [INF] Request finished HTTP/2 GET https://localhost:5001/Images/Settings/Logo-Header.jpg - - - 200 3318 image/jpeg 1.5403ms (791a596a)
+2021-06-02T20:53:01.4684304+04:30 0HM95SAB809KQ:0000004B [INF] Request starting HTTP/2 GET https://localhost:5001/Images/Settings/enamad.png - - (ca22a1cb)
+2021-06-02T20:53:01.4692626+04:30 0HM95SAB809KQ:0000004B [INF] Sending file. Request path: '"/Images/Settings/enamad.png"'. Physical path: '"C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\wwwroot\Images\Settings\enamad.png"' (27b0a520)
+2021-06-02T20:53:01.4693730+04:30 0HM95SAB809KQ:0000004B [INF] Request finished HTTP/2 GET https://localhost:5001/Images/Settings/enamad.png - - - 200 13010 image/png 1.0199ms (791a596a)
+2021-06-02T20:53:01.4694645+04:30 0HM95SAB809KQ:0000004D [INF] Request starting HTTP/2 GET https://localhost:5001/Images/Settings/samandehi.png - - (ca22a1cb)
+2021-06-02T20:53:01.4705688+04:30 0HM95SAB809KQ:0000004D [INF] Sending file. Request path: '"/Images/Settings/samandehi.png"'. Physical path: '"C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\wwwroot\Images\Settings\samandehi.png"' (27b0a520)
+2021-06-02T20:53:01.4706986+04:30 0HM95SAB809KQ:0000004D [INF] Request finished HTTP/2 GET https://localhost:5001/Images/Settings/samandehi.png - - - 200 25123 image/png 1.1867ms (791a596a)
+2021-06-02T20:53:01.4722008+04:30 0HM95SAB809KQ:0000004F [INF] Request starting HTTP/2 GET https://localhost:5001/wp-content/uploads/2020/06/0b0d3f0a.svg - - (ca22a1cb)
+2021-06-02T20:53:01.4730103+04:30 0HM95SAB809KQ:0000004F [INF] Sending file. Request path: '"/wp-content/uploads/2020/06/0b0d3f0a.svg"'. Physical path: '"C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\wwwroot\wp-content\uploads\2020\06\0b0d3f0a.svg"' (27b0a520)
+2021-06-02T20:53:01.4731386+04:30 0HM95SAB809KQ:0000004F [INF] Request finished HTTP/2 GET https://localhost:5001/wp-content/uploads/2020/06/0b0d3f0a.svg - - - 200 2054 image/svg+xml 0.9205ms (791a596a)
+2021-06-02T20:53:01.4804825+04:30 0HM95SAB809KQ:00000051 [INF] Request starting HTTP/2 GET https://localhost:5001/wp-content/uploads/2020/06/964edb61.svg - - (ca22a1cb)
+2021-06-02T20:53:01.4821365+04:30 0HM95SAB809KQ:00000053 [INF] Request starting HTTP/2 GET https://localhost:5001/wp-content/uploads/2020/06/6b24b899.svg - - (ca22a1cb)
+2021-06-02T20:53:01.4825393+04:30 0HM95SAB809KQ:00000051 [INF] Sending file. Request path: '"/wp-content/uploads/2020/06/964edb61.svg"'. Physical path: '"C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\wwwroot\wp-content\uploads\2020\06\964edb61.svg"' (27b0a520)
+2021-06-02T20:53:01.4826781+04:30 0HM95SAB809KQ:00000051 [INF] Request finished HTTP/2 GET https://localhost:5001/wp-content/uploads/2020/06/964edb61.svg - - - 200 4338 image/svg+xml 2.1611ms (791a596a)
+2021-06-02T20:53:01.4830528+04:30 0HM95SAB809KQ:00000053 [INF] Sending file. Request path: '"/wp-content/uploads/2020/06/6b24b899.svg"'. Physical path: '"C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\wwwroot\wp-content\uploads\2020\06\6b24b899.svg"' (27b0a520)
+2021-06-02T20:53:01.4831364+04:30 0HM95SAB809KQ:00000053 [INF] Request finished HTTP/2 GET https://localhost:5001/wp-content/uploads/2020/06/6b24b899.svg - - - 200 3765 image/svg+xml 1.1211ms (791a596a)
+2021-06-02T20:53:01.4868804+04:30 0HM95SAB809KQ:00000055 [INF] Request starting HTTP/2 GET https://localhost:5001/wp-content/uploads/2020/06/c8cfebe7.svg - - (ca22a1cb)
+2021-06-02T20:53:01.4881435+04:30 0HM95SAB809KQ:00000057 [INF] Request starting HTTP/2 GET https://localhost:5001/wp-content/uploads/2020/06/b3be3881.svg - - (ca22a1cb)
+2021-06-02T20:53:01.4884330+04:30 0HM95SAB809KQ:00000059 [INF] Request starting HTTP/2 GET https://localhost:5001/wp-content/uploads/2020/06/0feb6326.svg - - (ca22a1cb)
+2021-06-02T20:53:01.4894027+04:30 0HM95SAB809KQ:00000055 [INF] Sending file. Request path: '"/wp-content/uploads/2020/06/c8cfebe7.svg"'. Physical path: '"C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\wwwroot\wp-content\uploads\2020\06\c8cfebe7.svg"' (27b0a520)
+2021-06-02T20:53:01.4896561+04:30 0HM95SAB809KQ:00000055 [INF] Request finished HTTP/2 GET https://localhost:5001/wp-content/uploads/2020/06/c8cfebe7.svg - - - 200 4568 image/svg+xml 3.0289ms (791a596a)
+2021-06-02T20:53:01.4901275+04:30 0HM95SAB809KQ:00000059 [INF] Sending file. Request path: '"/wp-content/uploads/2020/06/0feb6326.svg"'. Physical path: '"C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\wwwroot\wp-content\uploads\2020\06\0feb6326.svg"' (27b0a520)
+2021-06-02T20:53:01.4902339+04:30 0HM95SAB809KQ:00000059 [INF] Request finished HTTP/2 GET https://localhost:5001/wp-content/uploads/2020/06/0feb6326.svg - - - 200 6904 image/svg+xml 1.8009ms (791a596a)
+2021-06-02T20:53:01.4905179+04:30 0HM95SAB809KQ:00000057 [INF] Sending file. Request path: '"/wp-content/uploads/2020/06/b3be3881.svg"'. Physical path: '"C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\wwwroot\wp-content\uploads\2020\06\b3be3881.svg"' (27b0a520)
+2021-06-02T20:53:01.4905941+04:30 0HM95SAB809KQ:00000057 [INF] Request finished HTTP/2 GET https://localhost:5001/wp-content/uploads/2020/06/b3be3881.svg - - - 200 2250 image/svg+xml 2.4754ms (791a596a)
+2021-06-02T20:53:01.5167337+04:30 0HM95SAB809KQ:0000005B [INF] Request starting HTTP/2 GET https://localhost:5001/wp-content/themes/newkala/images/seller-icon-catalog.svg - - (ca22a1cb)
+2021-06-02T20:53:01.5181070+04:30 0HM95SAB809KQ:0000005D [INF] Request starting HTTP/2 GET https://localhost:5001/Images/Settings/22414818.svg - - (ca22a1cb)
+2021-06-02T20:53:01.5189309+04:30 0HM95SAB809KQ:0000005D [INF] Sending file. Request path: '"/Images/Settings/22414818.svg"'. Physical path: '"C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\wwwroot\Images\Settings\22414818.svg"' (27b0a520)
+2021-06-02T20:53:01.5192111+04:30 0HM95SAB809KQ:0000005D [INF] Request finished HTTP/2 GET https://localhost:5001/Images/Settings/22414818.svg - - - 200 3417 image/svg+xml 1.1035ms (791a596a)
+2021-06-02T20:53:01.5196274+04:30 0HM95SAB809KQ:0000005F [INF] Request starting HTTP/2 GET https://localhost:5001/Images/Settings/a9286d2f.svg - - (ca22a1cb)
+2021-06-02T20:53:01.5206094+04:30 0HM95SAB809KQ:0000005F [INF] Sending file. Request path: '"/Images/Settings/a9286d2f.svg"'. Physical path: '"C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\wwwroot\Images\Settings\a9286d2f.svg"' (27b0a520)
+2021-06-02T20:53:01.5206079+04:30 0HM95SAB809KQ:00000061 [INF] Request starting HTTP/2 GET https://localhost:5001/Images/Settings/fdb293e6.svg - - (ca22a1cb)
+2021-06-02T20:53:01.5207551+04:30 0HM95SAB809KQ:0000005F [INF] Request finished HTTP/2 GET https://localhost:5001/Images/Settings/a9286d2f.svg - - - 200 2363 image/svg+xml 1.0644ms (791a596a)
+2021-06-02T20:53:01.5217799+04:30 0HM95SAB809KQ:00000063 [INF] Request starting HTTP/2 GET https://localhost:5001/Images/Settings/8f570b58.svg - - (ca22a1cb)
+2021-06-02T20:53:01.5223479+04:30 0HM95SAB809KQ:00000061 [INF] Sending file. Request path: '"/Images/Settings/fdb293e6.svg"'. Physical path: '"C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\wwwroot\Images\Settings\fdb293e6.svg"' (27b0a520)
+2021-06-02T20:53:01.5224924+04:30 0HM95SAB809KQ:00000061 [INF] Request finished HTTP/2 GET https://localhost:5001/Images/Settings/fdb293e6.svg - - - 200 5623 image/svg+xml 1.8551ms (791a596a)
+2021-06-02T20:53:01.5239595+04:30 0HM95SAB809KQ:0000005B [INF] Request finished HTTP/2 GET https://localhost:5001/wp-content/themes/newkala/images/seller-icon-catalog.svg - - - 404 0 - 7.3367ms (791a596a)
+2021-06-02T20:53:01.5239467+04:30 0HM95SAB809KQ:00000065 [INF] Request starting HTTP/2 GET https://localhost:5001/Images/Settings/514926b1.svg - - (ca22a1cb)
+2021-06-02T20:53:01.5252839+04:30 0HM95SAB809KQ:00000063 [INF] Sending file. Request path: '"/Images/Settings/8f570b58.svg"'. Physical path: '"C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\wwwroot\Images\Settings\8f570b58.svg"' (27b0a520)
+2021-06-02T20:53:01.5252839+04:30 0HM95SAB809KQ:00000065 [INF] Sending file. Request path: '"/Images/Settings/514926b1.svg"'. Physical path: '"C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\wwwroot\Images\Settings\514926b1.svg"' (27b0a520)
+2021-06-02T20:53:01.5254098+04:30 0HM95SAB809KQ:00000065 [INF] Request finished HTTP/2 GET https://localhost:5001/Images/Settings/514926b1.svg - - - 200 2522 image/svg+xml 1.4584ms (791a596a)
+2021-06-02T20:53:01.5254125+04:30 0HM95SAB809KQ:00000063 [INF] Request finished HTTP/2 GET https://localhost:5001/Images/Settings/8f570b58.svg - - - 200 2071 image/svg+xml 3.6582ms (791a596a)
+2021-06-02T20:53:01.5256436+04:30 0HM95SAB809KQ:00000067 [INF] Request starting HTTP/2 GET https://localhost:5001/wp-content/themes/newkala/fonts/woff2/iranyekanwebregular(fanum).woff2 - - (ca22a1cb)
+2021-06-02T20:53:01.5268783+04:30 0HM95SAB809KQ:00000067 [INF] Sending file. Request path: '"/wp-content/themes/newkala/fonts/woff2/iranyekanwebregular(fanum).woff2"'. Physical path: '"C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\wwwroot\wp-content\themes\newkala\fonts\woff2\iranyekanwebregular(fanum).woff2"' (27b0a520)
+2021-06-02T20:53:01.5269931+04:30 0HM95SAB809KQ:00000067 [INF] Request finished HTTP/2 GET https://localhost:5001/wp-content/themes/newkala/fonts/woff2/iranyekanwebregular(fanum).woff2 - - - 200 24328 font/woff2 1.3105ms (791a596a)
+2021-06-02T20:53:01.5308093+04:30 0HM95SAB809KQ:00000069 [INF] Request starting HTTP/2 GET https://localhost:5001/wp-content/themes/newkala/font/newkala.woff2 - - (ca22a1cb)
+2021-06-02T20:53:01.5315444+04:30 0HM95SAB809KQ:0000006B [INF] Request starting HTTP/2 GET https://localhost:5001/wp-content/themes/newkala/fonts/woff2/iranyekanwebbold(fanum).woff2 - - (ca22a1cb)
+2021-06-02T20:53:01.5326328+04:30 0HM95SAB809KQ:00000069 [INF] Sending file. Request path: '"/wp-content/themes/newkala/font/newkala.woff2"'. Physical path: '"C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\wwwroot\wp-content\themes\newkala\font\newkala.woff2"' (27b0a520)
+2021-06-02T20:53:01.5327387+04:30 0HM95SAB809KQ:00000069 [INF] Request finished HTTP/2 GET https://localhost:5001/wp-content/themes/newkala/font/newkala.woff2 - - - 200 43680 font/woff2 1.9357ms (791a596a)
+2021-06-02T20:53:01.5328249+04:30 0HM95SAB809KQ:0000006D [INF] Request starting HTTP/2 GET https://localhost:5001/wp-content/themes/newkala/font/4954247f.woff2 - - (ca22a1cb)
+2021-06-02T20:53:01.5330657+04:30 0HM95SAB809KQ:0000006B [INF] Sending file. Request path: '"/wp-content/themes/newkala/fonts/woff2/iranyekanwebbold(fanum).woff2"'. Physical path: '"C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\wwwroot\wp-content\themes\newkala\fonts\woff2\iranyekanwebbold(fanum).woff2"' (27b0a520)
+2021-06-02T20:53:01.5333133+04:30 0HM95SAB809KQ:0000006B [INF] Request finished HTTP/2 GET https://localhost:5001/wp-content/themes/newkala/fonts/woff2/iranyekanwebbold(fanum).woff2 - - - 200 24308 font/woff2 1.8117ms (791a596a)
+2021-06-02T20:53:01.5335215+04:30 0HM95SAB809KQ:0000006F [INF] Request starting HTTP/2 GET https://localhost:5001/wp-content/themes/newkala/webfonts/fa-solid-900.woff2 - - (ca22a1cb)
+2021-06-02T20:53:01.5343336+04:30 0HM95SAB809KQ:00000071 [INF] Request starting HTTP/2 GET https://localhost:5001/wp-content/themes/newkala/webfonts/fa-regular-400.woff2 - - (ca22a1cb)
+2021-06-02T20:53:01.5349398+04:30 0HM95SAB809KQ:0000006D [INF] Sending file. Request path: '"/wp-content/themes/newkala/font/4954247f.woff2"'. Physical path: '"C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\wwwroot\wp-content\themes\newkala\font\4954247f.woff2"' (27b0a520)
+2021-06-02T20:53:01.5350481+04:30 0HM95SAB809KQ:0000006D [INF] Request finished HTTP/2 GET https://localhost:5001/wp-content/themes/newkala/font/4954247f.woff2 - - - 200 26640 font/woff2 2.1890ms (791a596a)
+2021-06-02T20:53:01.5353187+04:30 0HM95SAB809KQ:00000071 [INF] Sending file. Request path: '"/wp-content/themes/newkala/webfonts/fa-regular-400.woff2"'. Physical path: '"C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\wwwroot\wp-content\themes\newkala\webfonts\fa-regular-400.woff2"' (27b0a520)
+2021-06-02T20:53:01.5353917+04:30 0HM95SAB809KQ:00000071 [INF] Request finished HTTP/2 GET https://localhost:5001/wp-content/themes/newkala/webfonts/fa-regular-400.woff2 - - - 200 13600 font/woff2 1.0776ms (791a596a)
+2021-06-02T20:53:01.5364136+04:30 0HM95SAB809KQ:00000073 [INF] Request starting HTTP/2 GET https://localhost:5001/wp-content/themes/newkala/fonts/woff2/iranyekanweblight(fanum).woff2 - - (ca22a1cb)
+2021-06-02T20:53:01.5376504+04:30 0HM95SAB809KQ:00000075 [INF] Request starting HTTP/2 GET https://localhost:5001/wp-content/themes/newkala/webfonts/fa-brands-400.woff2 - - (ca22a1cb)
+2021-06-02T20:53:01.5377290+04:30 0HM95SAB809KQ:00000073 [INF] Sending file. Request path: '"/wp-content/themes/newkala/fonts/woff2/iranyekanweblight(fanum).woff2"'. Physical path: '"C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\wwwroot\wp-content\themes\newkala\fonts\woff2\iranyekanweblight(fanum).woff2"' (27b0a520)
+2021-06-02T20:53:01.5377458+04:30 0HM95SAB809KQ:0000006F [INF] Sending file. Request path: '"/wp-content/themes/newkala/webfonts/fa-solid-900.woff2"'. Physical path: '"C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\wwwroot\wp-content\themes\newkala\webfonts\fa-solid-900.woff2"' (27b0a520)
+2021-06-02T20:53:01.5378333+04:30 0HM95SAB809KQ:00000073 [INF] Request finished HTTP/2 GET https://localhost:5001/wp-content/themes/newkala/fonts/woff2/iranyekanweblight(fanum).woff2 - - - 200 25112 font/woff2 1.5591ms (791a596a)
+2021-06-02T20:53:01.5378333+04:30 0HM95SAB809KQ:0000006F [INF] Request finished HTTP/2 GET https://localhost:5001/wp-content/themes/newkala/webfonts/fa-solid-900.woff2 - - - 200 80148 font/woff2 4.2794ms (791a596a)
+2021-06-02T20:53:01.5398604+04:30 0HM95SAB809KQ:00000075 [INF] Sending file. Request path: '"/wp-content/themes/newkala/webfonts/fa-brands-400.woff2"'. Physical path: '"C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\wwwroot\wp-content\themes\newkala\webfonts\fa-brands-400.woff2"' (27b0a520)
+2021-06-02T20:53:01.5399576+04:30 0HM95SAB809KQ:00000075 [INF] Request finished HTTP/2 GET https://localhost:5001/wp-content/themes/newkala/webfonts/fa-brands-400.woff2 - - - 200 77400 font/woff2 2.3302ms (791a596a)
+2021-06-02T20:53:01.6139707+04:30 0HM95SAB809KQ:00000079 [INF] Request starting HTTP/2 GET https://localhost:5001/Images/Favicon/favicon-16x16.png - - (ca22a1cb)
+2021-06-02T20:53:01.6139707+04:30 0HM95SAB809KQ:00000077 [INF] Request starting HTTP/2 GET https://localhost:5001/Images/Favicon/android-icon-192x192.png - - (ca22a1cb)
+2021-06-02T20:53:01.6148169+04:30 0HM95SAB809KQ:00000079 [INF] Sending file. Request path: '"/Images/Favicon/favicon-16x16.png"'. Physical path: '"C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\wwwroot\Images\Favicon\favicon-16x16.png"' (27b0a520)
+2021-06-02T20:53:01.6149238+04:30 0HM95SAB809KQ:00000079 [INF] Request finished HTTP/2 GET https://localhost:5001/Images/Favicon/favicon-16x16.png - - - 200 1123 image/png 0.9519ms (791a596a)
+2021-06-02T20:53:01.6155083+04:30 0HM95SAB809KQ:00000077 [INF] Sending file. Request path: '"/Images/Favicon/android-icon-192x192.png"'. Physical path: '"C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\wwwroot\Images\Favicon\android-icon-192x192.png"' (27b0a520)
+2021-06-02T20:53:01.6155851+04:30 0HM95SAB809KQ:00000077 [INF] Request finished HTTP/2 GET https://localhost:5001/Images/Favicon/android-icon-192x192.png - - - 200 21868 image/png 1.6343ms (791a596a)
+2021-06-02T20:53:04.6288014+04:30 0HM95SAB809KQ:0000007B [INF] Request starting HTTP/2 GET https://localhost:5001/cart/addToCart/35 - - (ca22a1cb)
+2021-06-02T20:53:04.6291240+04:30 0HM95SAB809KQ:0000007B [INF] Executing endpoint '"EndPoint.WebSite.Controllers.CartController.AddToCart (EndPoint.WebSite)"' (500cc934)
+2021-06-02T20:53:04.6307259+04:30 0HM95SAB809KQ:0000007B [INF] Route matched with "{action = \"AddToCart\", controller = \"Cart\", area = \"\"}". Executing controller action with signature "Microsoft.AspNetCore.Mvc.IActionResult AddToCart(Int64)" on controller "EndPoint.WebSite.Controllers.CartController" ("EndPoint.WebSite"). (122b2fdf)
+2021-06-02T20:53:04.6396214+04:30 0HM95SAB809KQ:0000007B [INF] Entity Framework Core "5.0.6" initialized '"CustomDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2021-06-02T20:53:04.6552092+04:30 0HM95SAB809KQ:0000007B [ERR] Failed executing DbCommand ("5"ms) [Parameters=["@__BrowserId_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [c].[Id], [c].[BrowserId], [c].[Finished], [c].[InsertTime], [c].[IsRemoved], [c].[RemoveTime], [c].[UpdateTime], [c].[UserId], [c].[UserId1]
+FROM [Carts] AS [c]
+WHERE ([c].[IsRemoved] <> CAST(1 AS bit)) AND (([c].[BrowserId] = @__BrowserId_0) AND ([c].[Finished] <> CAST(1 AS bit)))" (627a98df)
+2021-06-02T20:53:04.6907365+04:30 0HM95SAB809KQ:0000007B [ERR] An exception occurred while iterating over the results of a query for context type '"Persistence.Contexts.CustomDbContext"'."
+""Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'UserId1'.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean isAsync, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(DbContext _, Boolean result)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+ClientConnectionId:8a6c9034-c69d-407f-96fc-fbaa1d315a39
+Error Number:207,State:1,Class:16" (f5c7ac34)
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'UserId1'.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean isAsync, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(DbContext _, Boolean result)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+   at System.Linq.Enumerable.SingleOrDefault[TSource](IEnumerable`1 source)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.Execute[TResult](Expression query)
+   at Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryProvider.Execute[TResult](Expression expression)
+   at System.Linq.Queryable.FirstOrDefault[TSource](IQueryable`1 source, Expression`1 predicate)
+   at Application.Services.FrontEnd.Carts.CartFrontEndService.AddToCart(Int64 productId, Guid BrowserId) in C:\Users\pc-2\Pictures\.NET\01_MyProject\Application\Services\FrontEnd\Carts\CartFrontEndService.cs:line 26
+   at EndPoint.WebSite.Controllers.CartController.AddToCart(Int64 productId) in C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\Controllers\CartController.cs:line 34
+   at lambda_method782(Closure , Object , Object[] )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+ClientConnectionId:8a6c9034-c69d-407f-96fc-fbaa1d315a39
+Error Number:207,State:1,Class:16
+2021-06-02T20:53:04.6922124+04:30 0HM95SAB809KQ:0000007B [INF] Executed action "EndPoint.WebSite.Controllers.CartController.AddToCart (EndPoint.WebSite)" in 61.4261ms (afa2e885)
+2021-06-02T20:53:04.6926282+04:30 0HM95SAB809KQ:0000007B [INF] Executed endpoint '"EndPoint.WebSite.Controllers.CartController.AddToCart (EndPoint.WebSite)"' (99874f2b)
+2021-06-02T20:53:04.6936382+04:30 0HM95SAB809KQ:0000007B [ERR] An unhandled exception has occurred while executing the request. (48a46595)
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'UserId1'.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean isAsync, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(DbContext _, Boolean result)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+   at System.Linq.Enumerable.SingleOrDefault[TSource](IEnumerable`1 source)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.Execute[TResult](Expression query)
+   at Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryProvider.Execute[TResult](Expression expression)
+   at System.Linq.Queryable.FirstOrDefault[TSource](IQueryable`1 source, Expression`1 predicate)
+   at Application.Services.FrontEnd.Carts.CartFrontEndService.AddToCart(Int64 productId, Guid BrowserId) in C:\Users\pc-2\Pictures\.NET\01_MyProject\Application\Services\FrontEnd\Carts\CartFrontEndService.cs:line 26
+   at EndPoint.WebSite.Controllers.CartController.AddToCart(Int64 productId) in C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\Controllers\CartController.cs:line 34
+   at lambda_method782(Closure , Object , Object[] )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+ClientConnectionId:8a6c9034-c69d-407f-96fc-fbaa1d315a39
+Error Number:207,State:1,Class:16
+2021-06-02T20:53:04.7163223+04:30 0HM95SAB809KQ:0000007B [INF] Request finished HTTP/2 GET https://localhost:5001/cart/addToCart/35 - - - 500 - text/html;+charset=utf-8 87.4879ms (791a596a)
+2021-06-02T20:53:04.7793923+04:30 0HM95SAB809KQ:0000007D [INF] Request starting HTTP/2 GET https://localhost:5001/favicon.ico - - (ca22a1cb)
+2021-06-02T20:53:04.7808502+04:30 0HM95SAB809KQ:0000007D [INF] Request finished HTTP/2 GET https://localhost:5001/favicon.ico - - - 404 0 - 1.4304ms (791a596a)
+2021-06-02T21:06:17.6041885+04:30  [INF] User profile is available. Using '"C:\Users\pc-2\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest. (7ac5e29c)
+2021-06-02T21:06:18.5466740+04:30  [INF] Now listening on: "https://localhost:5001" (d826f4b8)
+2021-06-02T21:06:18.5467798+04:30  [INF] Now listening on: "http://localhost:5000" (d826f4b8)
+2021-06-02T21:06:18.5468873+04:30  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-06-02T21:06:18.5469083+04:30  [INF] Hosting environment: "Development" (c3307c92)
+2021-06-02T21:06:18.5469222+04:30  [INF] Content root path: "C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite" (b5d60022)
+2021-06-02T21:06:19.7657311+04:30 0HM95SI68MR2G:0000000F [INF] Request starting HTTP/2 GET https://localhost:5001/ - - (ca22a1cb)
+2021-06-02T21:06:19.8275756+04:30 0HM95SI68MR2G:0000000F [INF] Executing endpoint '"EndPoint.WebSite.Controllers.HomeController.Index (EndPoint.WebSite)"' (500cc934)
+2021-06-02T21:06:19.8783471+04:30 0HM95SI68MR2G:0000000F [INF] Route matched with "{action = \"Index\", controller = \"Home\", area = \"\"}". Executing controller action with signature "Microsoft.AspNetCore.Mvc.IActionResult Index()" on controller "EndPoint.WebSite.Controllers.HomeController" ("EndPoint.WebSite"). (122b2fdf)
+2021-06-02T21:06:19.9629353+04:30 0HM95SI68MR2G:0000000F [WRN] 'AddEntityFramework*' was called on the service provider, but 'UseInternalServiceProvider' wasn't called in the DbContext options configuration. Consider removing the 'AddEntityFramework*' call, as in most cases it's not needed and may cause conflicts with other products and services registered in the same service provider. (4bc25ac5)
+2021-06-02T21:06:51.3341444+04:30 0HM95SI68MR2G:0000000F [WRN] No type was specified for the decimal property '"PrdPrice"' on entity type '"Wsproducts"'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType()', specify precision and scale using 'HasPrecision()' or configure a value converter using 'HasConversion()'. (5c92c1c4)
+2021-06-02T21:06:51.6228230+04:30 0HM95SI68MR2G:0000000F [INF] Entity Framework Core "5.0.6" initialized '"IdealCrmDataBaseContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2021-06-02T21:06:52.2662422+04:30 0HM95SI68MR2G:0000000F [INF] Executed DbCommand ("126"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c].[NewsGroupId] AS [Id], [c].[GroupName] AS [Name]
+FROM [CrmCmsNewsGroups] AS [c]" (0723d8ff)
+2021-06-02T21:06:52.2890133+04:30 0HM95SI68MR2G:0000000F [INF] info (680db0b0)
+2021-06-02T21:06:52.2890724+04:30 0HM95SI68MR2G:0000000F [WRN] war (fa24b367)
+2021-06-02T21:06:52.2890893+04:30 0HM95SI68MR2G:0000000F [ERR] err (42240f44)
+2021-06-02T21:06:52.2891054+04:30 0HM95SI68MR2G:0000000F [FTL] critical (18f63ac8)
+2021-06-02T21:06:52.3438906+04:30 0HM95SI68MR2G:0000000F [INF] Executing ViewResult, running view "Index". (c83d0e25)
+2021-06-02T21:06:52.5990719+04:30 0HM95SI68MR2G:0000000F [INF] Executed ViewResult - view "Index" executed in 302.3855ms. (f66409e9)
+2021-06-02T21:06:52.5994117+04:30 0HM95SI68MR2G:0000000F [INF] Executed action "EndPoint.WebSite.Controllers.HomeController.Index (EndPoint.WebSite)" in 32720.664ms (afa2e885)
+2021-06-02T21:06:52.5994574+04:30 0HM95SI68MR2G:0000000F [INF] Executed endpoint '"EndPoint.WebSite.Controllers.HomeController.Index (EndPoint.WebSite)"' (99874f2b)
+2021-06-02T21:06:52.6218985+04:30 0HM95SI68MR2G:0000000F [INF] Request finished HTTP/2 GET https://localhost:5001/ - - - 200 - text/html;+charset=utf-8 32858.5775ms (791a596a)
+2021-06-02T21:06:52.7219219+04:30 0HM95SI68MR2G:00000013 [INF] Request starting HTTP/2 GET https://localhost:5001/wp-content/themes/newkala/js/swiper.min.js?ver=4.3.3 - - (ca22a1cb)
+2021-06-02T21:06:52.7219219+04:30 0HM95SI68MR2G:00000011 [INF] Request starting HTTP/2 GET https://localhost:5001/wp-content/themes/newkala/js/mresize.min.js?ver=2.3.4 - - (ca22a1cb)
+2021-06-02T21:06:52.7294047+04:30 0HM95SI68MR2G:00000013 [INF] Sending file. Request path: '"/wp-content/themes/newkala/js/swiper.min.js"'. Physical path: '"C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\wwwroot\wp-content\themes\newkala\js\swiper.min.js"' (27b0a520)
+2021-06-02T21:06:52.7294049+04:30 0HM95SI68MR2G:00000011 [INF] Sending file. Request path: '"/wp-content/themes/newkala/js/mresize.min.js"'. Physical path: '"C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\wwwroot\wp-content\themes\newkala\js\mresize.min.js"' (27b0a520)
+2021-06-02T21:06:52.7295479+04:30 0HM95SI68MR2G:00000011 [INF] Request finished HTTP/2 GET https://localhost:5001/wp-content/themes/newkala/js/mresize.min.js?ver=2.3.4 - - - 0 2544 application/javascript 7.6056ms (791a596a)
+2021-06-02T21:06:52.7295522+04:30 0HM95SI68MR2G:00000013 [INF] Request finished HTTP/2 GET https://localhost:5001/wp-content/themes/newkala/js/swiper.min.js?ver=4.3.3 - - - 0 127934 application/javascript 7.6054ms (791a596a)
+2021-06-02T21:06:56.3148642+04:30 0HM95SI68MR2G:00000015 [INF] Request starting HTTP/2 GET https://localhost:5001/products/girder/هاش-hea - - (ca22a1cb)
+2021-06-02T21:06:56.3170579+04:30 0HM95SI68MR2G:00000015 [INF] Executing endpoint '"EndPoint.WebSite.Controllers.ProductsController.Category (EndPoint.WebSite)"' (500cc934)
+2021-06-02T21:06:56.3278431+04:30 0HM95SI68MR2G:00000015 [INF] Route matched with "{action = \"Category\", controller = \"Products\", area = \"\"}". Executing controller action with signature "Microsoft.AspNetCore.Mvc.IActionResult Category(System.String, System.String, System.String, Int32)" on controller "EndPoint.WebSite.Controllers.ProductsController" ("EndPoint.WebSite"). (122b2fdf)
+2021-06-02T21:06:56.3652589+04:30 0HM95SI68MR2G:00000015 [INF] Entity Framework Core "5.0.6" initialized '"IdealCrmDataBaseContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2021-06-02T21:06:56.5520314+04:30 0HM95SI68MR2G:00000015 [INF] Executed DbCommand ("119"ms) [Parameters=["@__Replace_0='?' (Size = 200)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [w].[PrdSecondGroupID], [w].[AppType], [w].[FirstGroupId], [w].[FirstRegisterDate], [w].[FirstRegisterDatePersian], [w].[FirstRegisterUserId], [w].[FPId], [w].[GUId], [w].[IsRemoved], [w].[LanguageID], [w].[Month1], [w].[RegisterDate], [w].[RegisterDatePersian], [w].[SGCode], [w].[SGDescription], [w].[SGInactiveInBuy], [w].[SGInactiveInSale], [w].[SGLinkAccGroupCode], [w].[SGLinkAccGroupId], [w].[SGName], [w].[SGNameEn], [w].[UserId]
+FROM [WSProductSecondGroup] AS [w]
+WHERE [w].[SGName] = @__Replace_0" (0723d8ff)
+2021-06-02T21:06:56.7401126+04:30 0HM95SI68MR2G:00000015 [INF] Executed DbCommand ("50"ms) [Parameters=["@__secondGroup_FirstGroupId_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [w].[ParsaPooladMenusId]
+FROM [WSProductFirstGroup] AS [w]
+WHERE [w].[PrdFirstGroupID] = @__secondGroup_FirstGroupId_0" (0723d8ff)
+2021-06-02T21:06:56.7631873+04:30 0HM95SI68MR2G:00000015 [INF] Executed DbCommand ("8"ms) [Parameters=["@__firstGroup_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [p].[ParsaPooladMenusId], [p].[Image], [p].[Name], [p].[ParentMenusId], [p].[UrlName]
+FROM [ParsaPooladMenus] AS [p]
+WHERE [p].[ParsaPooladMenusId] = @__firstGroup_0" (0723d8ff)
+2021-06-02T21:06:56.9150147+04:30 0HM95SI68MR2G:00000015 [INF] Executed DbCommand ("112"ms) [Parameters=["@__secondGroup_PrdSecondGroupId_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [WSProducts] AS [w]
+WHERE ([w].[PrdGroupID] = @__secondGroup_PrdSecondGroupId_0) AND ([w].[PrdInactiveInSale] = CAST(1 AS bit))" (0723d8ff)
+2021-06-02T21:06:56.9407673+04:30 0HM95SI68MR2G:00000015 [INF] Executed DbCommand ("2"ms) [Parameters=["@__parsapooladMenu_UrlName_1='?' (Size = 4000), @__secondGroup_PrdSecondGroupId_0='?' (DbType = Int32), @__p_2='?' (DbType = Int32), @__p_3='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [w].[ProductID] AS [ProductId], [w].[PrdName], @__parsapooladMenu_UrlName_1 AS [UrlName], [w].[PrdInactiveInSale], [w].[RegisterDatePersian]
+FROM [WSProducts] AS [w]
+WHERE ([w].[PrdGroupID] = @__secondGroup_PrdSecondGroupId_0) AND ([w].[PrdInactiveInSale] = CAST(1 AS bit))
+ORDER BY [w].[ProductID] DESC
+OFFSET @__p_2 ROWS FETCH NEXT @__p_3 ROWS ONLY" (0723d8ff)
+2021-06-02T21:06:56.9488459+04:30 0HM95SI68MR2G:00000015 [INF] Executing ViewResult, running view "Category". (c83d0e25)
+2021-06-02T21:06:57.0607963+04:30 0HM95SI68MR2G:00000015 [INF] Executed ViewResult - view "Category" executed in 117.0297ms. (f66409e9)
+2021-06-02T21:06:57.0608860+04:30 0HM95SI68MR2G:00000015 [INF] Executed action "EndPoint.WebSite.Controllers.ProductsController.Category (EndPoint.WebSite)" in 732.9989ms (afa2e885)
+2021-06-02T21:06:57.0609128+04:30 0HM95SI68MR2G:00000015 [INF] Executed endpoint '"EndPoint.WebSite.Controllers.ProductsController.Category (EndPoint.WebSite)"' (99874f2b)
+2021-06-02T21:06:57.0615555+04:30 0HM95SI68MR2G:00000015 [INF] Request finished HTTP/2 GET https://localhost:5001/products/girder/هاش-hea - - - 200 - text/html;+charset=utf-8 746.6630ms (791a596a)
+2021-06-02T21:06:57.1663429+04:30 0HM95SI68MR2G:00000017 [INF] Request starting HTTP/2 GET https://localhost:5001/wp-content/themes/newkala/images/seller-icon-catalog.svg - - (ca22a1cb)
+2021-06-02T21:06:57.1712537+04:30 0HM95SI68MR2G:00000017 [INF] Request finished HTTP/2 GET https://localhost:5001/wp-content/themes/newkala/images/seller-icon-catalog.svg - - - 404 0 - 4.8296ms (791a596a)
+2021-06-02T21:06:58.4742332+04:30 0HM95SI68MR2G:00000019 [INF] Request starting HTTP/2 GET https://localhost:5001/cart/addToCart/35 - - (ca22a1cb)
+2021-06-02T21:06:58.4751037+04:30 0HM95SI68MR2G:00000019 [INF] Executing endpoint '"EndPoint.WebSite.Controllers.CartController.AddToCart (EndPoint.WebSite)"' (500cc934)
+2021-06-02T21:06:58.4768491+04:30 0HM95SI68MR2G:00000019 [INF] Route matched with "{action = \"AddToCart\", controller = \"Cart\", area = \"\"}". Executing controller action with signature "Microsoft.AspNetCore.Mvc.IActionResult AddToCart(Int64)" on controller "EndPoint.WebSite.Controllers.CartController" ("EndPoint.WebSite"). (122b2fdf)
+2021-06-02T21:06:58.5514729+04:30 0HM95SI68MR2G:00000019 [WRN] No type was specified for the decimal property '"Credit"' on entity type '"User"'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType()', specify precision and scale using 'HasPrecision()' or configure a value converter using 'HasConversion()'. (5c92c1c4)
+2021-06-02T21:06:58.5562494+04:30 0HM95SI68MR2G:00000019 [INF] Entity Framework Core "5.0.6" initialized '"CustomDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2021-06-02T21:06:58.5715916+04:30 0HM95SI68MR2G:00000019 [INF] Executed DbCommand ("2"ms) [Parameters=["@__BrowserId_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [c].[Id], [c].[BrowserId], [c].[Finished], [c].[InsertTime], [c].[IsRemoved], [c].[RemoveTime], [c].[UpdateTime], [c].[UserId]
+FROM [Carts] AS [c]
+WHERE ([c].[IsRemoved] <> CAST(1 AS bit)) AND (([c].[BrowserId] = @__BrowserId_0) AND ([c].[Finished] <> CAST(1 AS bit)))" (0723d8ff)
+2021-06-02T21:06:58.8287401+04:30 0HM95SI68MR2G:00000019 [INF] Executed DbCommand ("7"ms) [Parameters=["@p0='?' (DbType = Guid), @p1='?' (DbType = Boolean), @p2='?' (DbType = DateTime2), @p3='?' (DbType = Boolean), @p4='?' (DbType = DateTime2), @p5='?' (DbType = DateTime2), @p6='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SET NOCOUNT ON;
+INSERT INTO [Carts] ([BrowserId], [Finished], [InsertTime], [IsRemoved], [RemoveTime], [UpdateTime], [UserId])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6);
+SELECT [Id]
+FROM [Carts]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();" (0723d8ff)
+2021-06-02T21:06:58.8776414+04:30 0HM95SI68MR2G:00000019 [ERR] Failed executing DbCommand ("3"ms) [Parameters=["@__productId_0='?' (DbType = Int64)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [p].[Id], [p].[AppType], [p].[FirstRegisterDate], [p].[FirstRegisterDatePersian], [p].[FirstRegisterUserId], [p].[Fpid], [p].[Guid], [p].[InsertTime], [p].[IsRemoved], [p].[LanguageId], [p].[Month1], [p].[OrderView], [p].[PrdAutoCharBarCodeTypeId], [p].[PrdAutoCharBarcode], [p].[PrdAutoNumBarCodeTypeId], [p].[PrdAutoNumBarcode], [p].[PrdBarCode], [p].[PrdBarCodeTypeId], [p].[PrdCode], [p].[PrdColorId], [p].[PrdCommissionDisable], [p].[PrdCommissionPercentRate], [p].[PrdCrmId], [p].[PrdDescription], [p].[PrdDesign], [p].[PrdFirstBarcode], [p].[PrdFirstSerial], [p].[PrdGroupId], [p].[PrdInactiveInBuy], [p].[PrdInactiveInSale], [p].[PrdLatinName], [p].[PrdLinkAccPrdCode], [p].[PrdLinkAccPrdId], [p].[PrdMaxQty], [p].[PrdMinQty], [p].[PrdModel], [p].[PrdName], [p].[PrdPrice], [p].[PrdSecondBarcode], [p].[PrdSecondSerial], [p].[PrdShpcode], [p].[PrdShpdescription], [p].[PrdShpdescriptionIi], [p].[PrdShphiddenPriceInNoStock], [p].[PrdShpisActive], [p].[PrdShpmodel], [p].[PrdShpotherSupplierId], [p].[PrdShpselfSupplier], [p].[PrdShpstockManageTypeId], [p].[PrdShpstockManualyCount], [p].[PrdShptitle], [p].[PrdSize], [p].[PrdSleepDay], [p].[PrdThirdBarcode], [p].[PrdThirdSerial], [p].[PrdType], [p].[PrdUnitId], [p].[RegisterDate], [p].[RegisterDatePersian], [p].[RemoveTime], [p].[UpdateTime], [p].[UserId]
+FROM [Products] AS [p]
+WHERE ([p].[IsRemoved] <> CAST(1 AS bit)) AND ([p].[PrdCrmId] = @__productId_0)" (627a98df)
+2021-06-02T21:06:58.9169196+04:30 0HM95SI68MR2G:00000019 [ERR] An exception occurred while iterating over the results of a query for context type '"Persistence.Contexts.CustomDbContext"'."
+""Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid object name 'Products'.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean isAsync, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(DbContext _, Boolean result)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+ClientConnectionId:b9039d13-a22e-49a9-84bc-709e7c5e34b5
+Error Number:208,State:1,Class:16" (f5c7ac34)
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid object name 'Products'.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean isAsync, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(DbContext _, Boolean result)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+   at System.Linq.Enumerable.SingleOrDefault[TSource](IEnumerable`1 source)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.Execute[TResult](Expression query)
+   at Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryProvider.Execute[TResult](Expression expression)
+   at System.Linq.Queryable.FirstOrDefault[TSource](IQueryable`1 source, Expression`1 predicate)
+   at Application.Services.FrontEnd.Carts.CartFrontEndService.AddToCart(Int64 productId, Guid BrowserId) in C:\Users\pc-2\Pictures\.NET\01_MyProject\Application\Services\FrontEnd\Carts\CartFrontEndService.cs:line 39
+   at EndPoint.WebSite.Controllers.CartController.AddToCart(Int64 productId) in C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\Controllers\CartController.cs:line 34
+   at lambda_method751(Closure , Object , Object[] )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+ClientConnectionId:b9039d13-a22e-49a9-84bc-709e7c5e34b5
+Error Number:208,State:1,Class:16
+2021-06-02T21:06:58.9181730+04:30 0HM95SI68MR2G:00000019 [INF] Executed action "EndPoint.WebSite.Controllers.CartController.AddToCart (EndPoint.WebSite)" in 441.2466ms (afa2e885)
+2021-06-02T21:06:58.9185740+04:30 0HM95SI68MR2G:00000019 [INF] Executed endpoint '"EndPoint.WebSite.Controllers.CartController.AddToCart (EndPoint.WebSite)"' (99874f2b)
+2021-06-02T21:06:58.9198705+04:30 0HM95SI68MR2G:00000019 [ERR] An unhandled exception has occurred while executing the request. (48a46595)
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid object name 'Products'.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean isAsync, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(DbContext _, Boolean result)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+   at System.Linq.Enumerable.SingleOrDefault[TSource](IEnumerable`1 source)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.Execute[TResult](Expression query)
+   at Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryProvider.Execute[TResult](Expression expression)
+   at System.Linq.Queryable.FirstOrDefault[TSource](IQueryable`1 source, Expression`1 predicate)
+   at Application.Services.FrontEnd.Carts.CartFrontEndService.AddToCart(Int64 productId, Guid BrowserId) in C:\Users\pc-2\Pictures\.NET\01_MyProject\Application\Services\FrontEnd\Carts\CartFrontEndService.cs:line 39
+   at EndPoint.WebSite.Controllers.CartController.AddToCart(Int64 productId) in C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\Controllers\CartController.cs:line 34
+   at lambda_method751(Closure , Object , Object[] )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+ClientConnectionId:b9039d13-a22e-49a9-84bc-709e7c5e34b5
+Error Number:208,State:1,Class:16
+2021-06-02T21:06:58.9471463+04:30 0HM95SI68MR2G:00000019 [INF] Request finished HTTP/2 GET https://localhost:5001/cart/addToCart/35 - - - 500 - text/html;+charset=utf-8 472.9447ms (791a596a)
+2021-06-02T21:08:01.0119526+04:30  [INF] User profile is available. Using '"C:\Users\pc-2\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest. (7ac5e29c)
+2021-06-02T21:08:02.1448548+04:30  [INF] Now listening on: "https://localhost:5001" (d826f4b8)
+2021-06-02T21:08:02.1465713+04:30  [INF] Now listening on: "http://localhost:5000" (d826f4b8)
+2021-06-02T21:08:02.1486321+04:30  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-06-02T21:08:02.1502891+04:30  [INF] Hosting environment: "Development" (c3307c92)
+2021-06-02T21:08:02.1516239+04:30  [INF] Content root path: "C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite" (b5d60022)
+2021-06-02T21:08:02.7955103+04:30 0HM95SJ52RMH3:0000000F [INF] Request starting HTTP/2 GET https://localhost:5001/ - - (ca22a1cb)
+2021-06-02T21:08:02.9173211+04:30 0HM95SJ52RMH3:0000000F [INF] Executing endpoint '"EndPoint.WebSite.Controllers.HomeController.Index (EndPoint.WebSite)"' (500cc934)
+2021-06-02T21:08:03.0246744+04:30 0HM95SJ52RMH3:0000000F [INF] Route matched with "{action = \"Index\", controller = \"Home\", area = \"\"}". Executing controller action with signature "Microsoft.AspNetCore.Mvc.IActionResult Index()" on controller "EndPoint.WebSite.Controllers.HomeController" ("EndPoint.WebSite"). (122b2fdf)
+2021-06-02T21:08:03.0726165+04:30 0HM95SJ52RMH3:0000000F [WRN] 'AddEntityFramework*' was called on the service provider, but 'UseInternalServiceProvider' wasn't called in the DbContext options configuration. Consider removing the 'AddEntityFramework*' call, as in most cases it's not needed and may cause conflicts with other products and services registered in the same service provider. (4bc25ac5)
+2021-06-02T21:08:03.9431249+04:30 0HM95SJ52RMH3:0000000F [WRN] No type was specified for the decimal property '"Credit"' on entity type '"User"'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType()', specify precision and scale using 'HasPrecision()' or configure a value converter using 'HasConversion()'. (5c92c1c4)
+2021-06-02T21:08:04.0393669+04:30 0HM95SJ52RMH3:0000000F [INF] Entity Framework Core "5.0.6" initialized '"CustomDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2021-06-02T21:08:04.6390504+04:30 0HM95SJ52RMH3:0000000F [INF] Executed DbCommand ("42"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [s].[Id], [s].[Type], [s].[Active], [s].[Position], [s].[Url]
+FROM [Sliders] AS [s]" (0723d8ff)
+2021-06-02T21:09:15.2188864+04:30 0HM95SJ52RMH3:0000000F [WRN] No type was specified for the decimal property '"PrdPrice"' on entity type '"Wsproducts"'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType()', specify precision and scale using 'HasPrecision()' or configure a value converter using 'HasConversion()'. (5c92c1c4)
+2021-06-02T21:09:15.6937735+04:30 0HM95SJ52RMH3:0000000F [INF] Entity Framework Core "5.0.6" initialized '"IdealCrmDataBaseContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2021-06-02T21:09:15.7090153+04:30 0HM95SJ52RMH3:0000000F [INF] Executed DbCommand ("9"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c].[NewsGroupId] AS [Id], [c].[GroupName] AS [Name]
+FROM [CrmCmsNewsGroups] AS [c]" (0723d8ff)
+2021-06-02T21:09:15.7164251+04:30 0HM95SJ52RMH3:0000000F [INF] info (680db0b0)
+2021-06-02T21:09:15.7182510+04:30 0HM95SJ52RMH3:0000000F [WRN] war (fa24b367)
+2021-06-02T21:09:15.7199233+04:30 0HM95SJ52RMH3:0000000F [ERR] err (42240f44)
+2021-06-02T21:09:15.7216102+04:30 0HM95SJ52RMH3:0000000F [FTL] critical (18f63ac8)
+2021-06-02T21:09:15.7877773+04:30 0HM95SJ52RMH3:0000000F [INF] Executing ViewResult, running view "Index". (c83d0e25)
+2021-06-02T21:09:16.0586743+04:30 0HM95SJ52RMH3:0000000F [WRN] Compiling a query which loads related collections for more than one collection navigation either via 'Include' or through projection but no 'QuerySplittingBehavior' has been configured. By default Entity Framework will use 'QuerySplittingBehavior.SingleQuery' which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))' (74d62de4)
+2021-06-02T21:09:16.1067362+04:30 0HM95SJ52RMH3:0000000F [INF] Executed DbCommand ("6"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [p].[ParsaPooladMenusId], [p].[Name], [p].[UrlName], [t0].[PrdFirstGroupID], [t0].[FGName], [t0].[WsproductSecondGroupId], [t0].[Sgname]
+FROM [ParsaPooladMenus] AS [p]
+LEFT JOIN (
+    SELECT [w].[PrdFirstGroupID], [w].[FGName], [t].[WsproductSecondGroupId], [t].[Sgname], [w].[ParsaPooladMenusId]
+    FROM [WSProductFirstGroup] AS [w]
+    LEFT JOIN (
+        SELECT [w0].[PrdSecondGroupID] AS [WsproductSecondGroupId], [w0].[SGName] AS [Sgname], [w0].[FirstGroupId]
+        FROM [WSProductSecondGroup] AS [w0]
+        WHERE [w0].[IsRemoved] IS NULL
+    ) AS [t] ON [w].[PrdFirstGroupID] = [t].[FirstGroupId]
+    WHERE [w].[IsRemoved] IS NULL
+) AS [t0] ON [p].[ParsaPooladMenusId] = [t0].[ParsaPooladMenusId]
+ORDER BY [p].[ParsaPooladMenusId], [t0].[PrdFirstGroupID], [t0].[WsproductSecondGroupId]" (0723d8ff)
+2021-06-02T21:09:16.2217543+04:30 0HM95SJ52RMH3:0000000F [INF] Executed ViewResult - view "Index" executed in 490.2099ms. (f66409e9)
+2021-06-02T21:09:16.2245333+04:30 0HM95SJ52RMH3:0000000F [INF] Executed action "EndPoint.WebSite.Controllers.HomeController.Index (EndPoint.WebSite)" in 73198.0717ms (afa2e885)
+2021-06-02T21:09:16.2248678+04:30 0HM95SJ52RMH3:0000000F [INF] Executed endpoint '"EndPoint.WebSite.Controllers.HomeController.Index (EndPoint.WebSite)"' (99874f2b)
+2021-06-02T21:09:16.2575279+04:30 0HM95SJ52RMH3:0000000F [INF] Request finished HTTP/2 GET https://localhost:5001/ - - - 200 - text/html;+charset=utf-8 73462.4893ms (791a596a)
+2021-06-02T21:09:31.0033689+04:30 0HM95SJ52RMH3:00000011 [INF] Request starting HTTP/2 GET https://localhost:5001/products/girder/هاش-hea - - (ca22a1cb)
+2021-06-02T21:09:31.0067865+04:30 0HM95SJ52RMH3:00000011 [INF] Executing endpoint '"EndPoint.WebSite.Controllers.ProductsController.Category (EndPoint.WebSite)"' (500cc934)
+2021-06-02T21:09:31.0175182+04:30 0HM95SJ52RMH3:00000011 [INF] Route matched with "{action = \"Category\", controller = \"Products\", area = \"\"}". Executing controller action with signature "Microsoft.AspNetCore.Mvc.IActionResult Category(System.String, System.String, System.String, Int32)" on controller "EndPoint.WebSite.Controllers.ProductsController" ("EndPoint.WebSite"). (122b2fdf)
+2021-06-02T21:09:31.0533659+04:30 0HM95SJ52RMH3:00000011 [INF] Entity Framework Core "5.0.6" initialized '"IdealCrmDataBaseContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2021-06-02T21:09:31.0994820+04:30 0HM95SJ52RMH3:00000011 [INF] Executed DbCommand ("12"ms) [Parameters=["@__Replace_0='?' (Size = 200)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [w].[PrdSecondGroupID], [w].[AppType], [w].[FirstGroupId], [w].[FirstRegisterDate], [w].[FirstRegisterDatePersian], [w].[FirstRegisterUserId], [w].[FPId], [w].[GUId], [w].[IsRemoved], [w].[LanguageID], [w].[Month1], [w].[RegisterDate], [w].[RegisterDatePersian], [w].[SGCode], [w].[SGDescription], [w].[SGInactiveInBuy], [w].[SGInactiveInSale], [w].[SGLinkAccGroupCode], [w].[SGLinkAccGroupId], [w].[SGName], [w].[SGNameEn], [w].[UserId]
+FROM [WSProductSecondGroup] AS [w]
+WHERE [w].[SGName] = @__Replace_0" (0723d8ff)
+2021-06-02T21:09:31.1717514+04:30 0HM95SJ52RMH3:00000011 [INF] Executed DbCommand ("1"ms) [Parameters=["@__secondGroup_FirstGroupId_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [w].[ParsaPooladMenusId]
+FROM [WSProductFirstGroup] AS [w]
+WHERE [w].[PrdFirstGroupID] = @__secondGroup_FirstGroupId_0" (0723d8ff)
+2021-06-02T21:09:31.1757212+04:30 0HM95SJ52RMH3:00000011 [INF] Executed DbCommand ("1"ms) [Parameters=["@__firstGroup_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [p].[ParsaPooladMenusId], [p].[Image], [p].[Name], [p].[ParentMenusId], [p].[UrlName]
+FROM [ParsaPooladMenus] AS [p]
+WHERE [p].[ParsaPooladMenusId] = @__firstGroup_0" (0723d8ff)
+2021-06-02T21:09:31.1985169+04:30 0HM95SJ52RMH3:00000011 [INF] Executed DbCommand ("2"ms) [Parameters=["@__secondGroup_PrdSecondGroupId_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [WSProducts] AS [w]
+WHERE ([w].[PrdGroupID] = @__secondGroup_PrdSecondGroupId_0) AND ([w].[PrdInactiveInSale] = CAST(1 AS bit))" (0723d8ff)
+2021-06-02T21:09:31.2071917+04:30 0HM95SJ52RMH3:00000011 [INF] Executed DbCommand ("1"ms) [Parameters=["@__parsapooladMenu_UrlName_1='?' (Size = 4000), @__secondGroup_PrdSecondGroupId_0='?' (DbType = Int32), @__p_2='?' (DbType = Int32), @__p_3='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [w].[ProductID] AS [ProductId], [w].[PrdName], @__parsapooladMenu_UrlName_1 AS [UrlName], [w].[PrdInactiveInSale], [w].[RegisterDatePersian]
+FROM [WSProducts] AS [w]
+WHERE ([w].[PrdGroupID] = @__secondGroup_PrdSecondGroupId_0) AND ([w].[PrdInactiveInSale] = CAST(1 AS bit))
+ORDER BY [w].[ProductID] DESC
+OFFSET @__p_2 ROWS FETCH NEXT @__p_3 ROWS ONLY" (0723d8ff)
+2021-06-02T21:09:31.2165309+04:30 0HM95SJ52RMH3:00000011 [INF] Executing ViewResult, running view "Category". (c83d0e25)
+2021-06-02T21:09:31.4089597+04:30 0HM95SJ52RMH3:00000011 [INF] Executed ViewResult - view "Category" executed in 200.7184ms. (f66409e9)
+2021-06-02T21:09:31.4090741+04:30 0HM95SJ52RMH3:00000011 [INF] Executed action "EndPoint.WebSite.Controllers.ProductsController.Category (EndPoint.WebSite)" in 391.4688ms (afa2e885)
+2021-06-02T21:09:31.4091263+04:30 0HM95SJ52RMH3:00000011 [INF] Executed endpoint '"EndPoint.WebSite.Controllers.ProductsController.Category (EndPoint.WebSite)"' (99874f2b)
+2021-06-02T21:09:31.4107116+04:30 0HM95SJ52RMH3:00000011 [INF] Request finished HTTP/2 GET https://localhost:5001/products/girder/هاش-hea - - - 200 - text/html;+charset=utf-8 407.3433ms (791a596a)
+2021-06-02T21:09:31.4999088+04:30 0HM95SJ52RMH3:00000013 [INF] Request starting HTTP/2 GET https://localhost:5001/wp-content/themes/newkala/images/seller-icon-catalog.svg - - (ca22a1cb)
+2021-06-02T21:09:31.5063653+04:30 0HM95SJ52RMH3:00000013 [INF] Request finished HTTP/2 GET https://localhost:5001/wp-content/themes/newkala/images/seller-icon-catalog.svg - - - 404 0 - 6.3485ms (791a596a)
+2021-06-02T21:09:32.6339652+04:30 0HM95SJ52RMH3:00000015 [INF] Request starting HTTP/2 GET https://localhost:5001/cart/addToCart/35 - - (ca22a1cb)
+2021-06-02T21:09:32.6359869+04:30 0HM95SJ52RMH3:00000015 [INF] Executing endpoint '"EndPoint.WebSite.Controllers.CartController.AddToCart (EndPoint.WebSite)"' (500cc934)
+2021-06-02T21:09:32.6394951+04:30 0HM95SJ52RMH3:00000015 [INF] Route matched with "{action = \"AddToCart\", controller = \"Cart\", area = \"\"}". Executing controller action with signature "Microsoft.AspNetCore.Mvc.IActionResult AddToCart(Int64)" on controller "EndPoint.WebSite.Controllers.CartController" ("EndPoint.WebSite"). (122b2fdf)
+2021-06-02T21:09:45.4978894+04:30 0HM95SJ52RMH3:00000015 [INF] Entity Framework Core "5.0.6" initialized '"CustomDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2021-06-02T21:09:45.5078901+04:30 0HM95SJ52RMH3:00000015 [INF] Executed DbCommand ("1"ms) [Parameters=["@__BrowserId_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [c].[Id], [c].[BrowserId], [c].[Finished], [c].[InsertTime], [c].[IsRemoved], [c].[RemoveTime], [c].[UpdateTime], [c].[UserId]
+FROM [Carts] AS [c]
+WHERE ([c].[IsRemoved] <> CAST(1 AS bit)) AND (([c].[BrowserId] = @__BrowserId_0) AND ([c].[Finished] <> CAST(1 AS bit)))" (0723d8ff)
+2021-06-02T21:10:06.9862262+04:30 0HM95SJ52RMH3:00000015 [INF] Executed DbCommand ("2"ms) [Parameters=["@p0='?' (DbType = Guid), @p1='?' (DbType = Boolean), @p2='?' (DbType = DateTime2), @p3='?' (DbType = Boolean), @p4='?' (DbType = DateTime2), @p5='?' (DbType = DateTime2), @p6='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SET NOCOUNT ON;
+INSERT INTO [Carts] ([BrowserId], [Finished], [InsertTime], [IsRemoved], [RemoveTime], [UpdateTime], [UserId])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6);
+SELECT [Id]
+FROM [Carts]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();" (0723d8ff)
+2021-06-02T21:10:08.3779825+04:30 0HM95SJ52RMH3:00000015 [ERR] Failed executing DbCommand ("3"ms) [Parameters=["@__productId_0='?' (DbType = Int64)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [p].[Id], [p].[AppType], [p].[FirstRegisterDate], [p].[FirstRegisterDatePersian], [p].[FirstRegisterUserId], [p].[Fpid], [p].[Guid], [p].[InsertTime], [p].[IsRemoved], [p].[LanguageId], [p].[Month1], [p].[OrderView], [p].[PrdAutoCharBarCodeTypeId], [p].[PrdAutoCharBarcode], [p].[PrdAutoNumBarCodeTypeId], [p].[PrdAutoNumBarcode], [p].[PrdBarCode], [p].[PrdBarCodeTypeId], [p].[PrdCode], [p].[PrdColorId], [p].[PrdCommissionDisable], [p].[PrdCommissionPercentRate], [p].[PrdCrmId], [p].[PrdDescription], [p].[PrdDesign], [p].[PrdFirstBarcode], [p].[PrdFirstSerial], [p].[PrdGroupId], [p].[PrdInactiveInBuy], [p].[PrdInactiveInSale], [p].[PrdLatinName], [p].[PrdLinkAccPrdCode], [p].[PrdLinkAccPrdId], [p].[PrdMaxQty], [p].[PrdMinQty], [p].[PrdModel], [p].[PrdName], [p].[PrdPrice], [p].[PrdSecondBarcode], [p].[PrdSecondSerial], [p].[PrdShpcode], [p].[PrdShpdescription], [p].[PrdShpdescriptionIi], [p].[PrdShphiddenPriceInNoStock], [p].[PrdShpisActive], [p].[PrdShpmodel], [p].[PrdShpotherSupplierId], [p].[PrdShpselfSupplier], [p].[PrdShpstockManageTypeId], [p].[PrdShpstockManualyCount], [p].[PrdShptitle], [p].[PrdSize], [p].[PrdSleepDay], [p].[PrdThirdBarcode], [p].[PrdThirdSerial], [p].[PrdType], [p].[PrdUnitId], [p].[RegisterDate], [p].[RegisterDatePersian], [p].[RemoveTime], [p].[UpdateTime], [p].[UserId]
+FROM [Products] AS [p]
+WHERE ([p].[IsRemoved] <> CAST(1 AS bit)) AND ([p].[PrdCrmId] = @__productId_0)" (627a98df)
+2021-06-02T21:10:08.5041646+04:30 0HM95SJ52RMH3:00000015 [ERR] An exception occurred while iterating over the results of a query for context type '"Persistence.Contexts.CustomDbContext"'."
+""Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid object name 'Products'.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean isAsync, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(DbContext _, Boolean result)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+ClientConnectionId:47b57b35-6b99-47f0-b9d3-9a0f554d3604
+Error Number:208,State:1,Class:16" (f5c7ac34)
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid object name 'Products'.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean isAsync, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(DbContext _, Boolean result)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+   at System.Linq.Enumerable.SingleOrDefault[TSource](IEnumerable`1 source)
+   at lambda_method882(Closure , QueryContext )
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.Execute[TResult](Expression query)
+   at Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryProvider.Execute[TResult](Expression expression)
+   at System.Linq.Queryable.FirstOrDefault[TSource](IQueryable`1 source, Expression`1 predicate)
+   at Application.Services.FrontEnd.Carts.CartFrontEndService.AddToCart(Int64 productId, Guid BrowserId) in C:\Users\pc-2\Pictures\.NET\01_MyProject\Application\Services\FrontEnd\Carts\CartFrontEndService.cs:line 39
+   at EndPoint.WebSite.Controllers.CartController.AddToCart(Int64 productId) in C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\Controllers\CartController.cs:line 34
+   at lambda_method782(Closure , Object , Object[] )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutor.Execute(Object target, Object[] parameters)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+ClientConnectionId:47b57b35-6b99-47f0-b9d3-9a0f554d3604
+Error Number:208,State:1,Class:16
+2021-06-02T21:10:08.5673775+04:30 0HM95SJ52RMH3:00000015 [INF] Executed action "EndPoint.WebSite.Controllers.CartController.AddToCart (EndPoint.WebSite)" in 35927.7461ms (afa2e885)
+2021-06-02T21:10:08.5686999+04:30 0HM95SJ52RMH3:00000015 [INF] Executed endpoint '"EndPoint.WebSite.Controllers.CartController.AddToCart (EndPoint.WebSite)"' (99874f2b)
+2021-06-02T21:10:08.6160052+04:30 0HM95SJ52RMH3:00000015 [ERR] An unhandled exception has occurred while executing the request. (48a46595)
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid object name 'Products'.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean isAsync, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(DbContext _, Boolean result)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+   at System.Linq.Enumerable.SingleOrDefault[TSource](IEnumerable`1 source)
+   at lambda_method882(Closure , QueryContext )
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.Execute[TResult](Expression query)
+   at Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryProvider.Execute[TResult](Expression expression)
+   at System.Linq.Queryable.FirstOrDefault[TSource](IQueryable`1 source, Expression`1 predicate)
+   at Application.Services.FrontEnd.Carts.CartFrontEndService.AddToCart(Int64 productId, Guid BrowserId) in C:\Users\pc-2\Pictures\.NET\01_MyProject\Application\Services\FrontEnd\Carts\CartFrontEndService.cs:line 39
+   at EndPoint.WebSite.Controllers.CartController.AddToCart(Int64 productId) in C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\Controllers\CartController.cs:line 34
+   at lambda_method782(Closure , Object , Object[] )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutor.Execute(Object target, Object[] parameters)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+ClientConnectionId:47b57b35-6b99-47f0-b9d3-9a0f554d3604
+Error Number:208,State:1,Class:16
+2021-06-02T21:10:08.6624308+04:30 0HM95SJ52RMH3:00000015 [INF] Request finished HTTP/2 GET https://localhost:5001/cart/addToCart/35 - - - 500 - text/html;+charset=utf-8 36028.4347ms (791a596a)
+2021-06-02T21:10:38.8331247+04:30 0HM95SJ52RMH3:00000017 [INF] Request starting HTTP/2 GET https://localhost:5001/cart/addToCart/35 - - (ca22a1cb)
+2021-06-02T21:10:38.8339011+04:30 0HM95SJ52RMH3:00000017 [INF] Executing endpoint '"EndPoint.WebSite.Controllers.CartController.AddToCart (EndPoint.WebSite)"' (500cc934)
+2021-06-02T21:10:38.8344626+04:30 0HM95SJ52RMH3:00000017 [INF] Route matched with "{action = \"AddToCart\", controller = \"Cart\", area = \"\"}". Executing controller action with signature "Microsoft.AspNetCore.Mvc.IActionResult AddToCart(Int64)" on controller "EndPoint.WebSite.Controllers.CartController" ("EndPoint.WebSite"). (122b2fdf)
+2021-06-02T21:10:41.1931783+04:30 0HM95SJ52RMH3:00000017 [INF] Entity Framework Core "5.0.6" initialized '"CustomDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2021-06-02T21:10:41.1968163+04:30 0HM95SJ52RMH3:00000017 [INF] Executed DbCommand ("1"ms) [Parameters=["@__BrowserId_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [c].[Id], [c].[BrowserId], [c].[Finished], [c].[InsertTime], [c].[IsRemoved], [c].[RemoveTime], [c].[UpdateTime], [c].[UserId]
+FROM [Carts] AS [c]
+WHERE ([c].[IsRemoved] <> CAST(1 AS bit)) AND (([c].[BrowserId] = @__BrowserId_0) AND ([c].[Finished] <> CAST(1 AS bit)))" (0723d8ff)
+2021-06-02T21:10:48.6894043+04:30 0HM95SJ52RMH3:00000017 [INF] Executed DbCommand ("2"ms) [Parameters=["@p0='?' (DbType = Guid), @p1='?' (DbType = Boolean), @p2='?' (DbType = DateTime2), @p3='?' (DbType = Boolean), @p4='?' (DbType = DateTime2), @p5='?' (DbType = DateTime2), @p6='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SET NOCOUNT ON;
+INSERT INTO [Carts] ([BrowserId], [Finished], [InsertTime], [IsRemoved], [RemoveTime], [UpdateTime], [UserId])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6);
+SELECT [Id]
+FROM [Carts]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();" (0723d8ff)
+2021-06-02T21:11:05.0823055+04:30 0HM95SJ52RMH3:00000017 [ERR] Failed executing DbCommand ("8"ms) [Parameters=["@__productId_0='?' (DbType = Int64)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [p].[Id], [p].[AppType], [p].[FirstRegisterDate], [p].[FirstRegisterDatePersian], [p].[FirstRegisterUserId], [p].[Fpid], [p].[Guid], [p].[InsertTime], [p].[IsRemoved], [p].[LanguageId], [p].[Month1], [p].[OrderView], [p].[PrdAutoCharBarCodeTypeId], [p].[PrdAutoCharBarcode], [p].[PrdAutoNumBarCodeTypeId], [p].[PrdAutoNumBarcode], [p].[PrdBarCode], [p].[PrdBarCodeTypeId], [p].[PrdCode], [p].[PrdColorId], [p].[PrdCommissionDisable], [p].[PrdCommissionPercentRate], [p].[PrdCrmId], [p].[PrdDescription], [p].[PrdDesign], [p].[PrdFirstBarcode], [p].[PrdFirstSerial], [p].[PrdGroupId], [p].[PrdInactiveInBuy], [p].[PrdInactiveInSale], [p].[PrdLatinName], [p].[PrdLinkAccPrdCode], [p].[PrdLinkAccPrdId], [p].[PrdMaxQty], [p].[PrdMinQty], [p].[PrdModel], [p].[PrdName], [p].[PrdPrice], [p].[PrdSecondBarcode], [p].[PrdSecondSerial], [p].[PrdShpcode], [p].[PrdShpdescription], [p].[PrdShpdescriptionIi], [p].[PrdShphiddenPriceInNoStock], [p].[PrdShpisActive], [p].[PrdShpmodel], [p].[PrdShpotherSupplierId], [p].[PrdShpselfSupplier], [p].[PrdShpstockManageTypeId], [p].[PrdShpstockManualyCount], [p].[PrdShptitle], [p].[PrdSize], [p].[PrdSleepDay], [p].[PrdThirdBarcode], [p].[PrdThirdSerial], [p].[PrdType], [p].[PrdUnitId], [p].[RegisterDate], [p].[RegisterDatePersian], [p].[RemoveTime], [p].[UpdateTime], [p].[UserId]
+FROM [Products] AS [p]
+WHERE ([p].[IsRemoved] <> CAST(1 AS bit)) AND ([p].[PrdCrmId] = @__productId_0)" (627a98df)
+2021-06-02T21:11:05.0880074+04:30 0HM95SJ52RMH3:00000017 [ERR] An exception occurred while iterating over the results of a query for context type '"Persistence.Contexts.CustomDbContext"'."
+""Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid object name 'Products'.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean isAsync, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(DbContext _, Boolean result)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+ClientConnectionId:47b57b35-6b99-47f0-b9d3-9a0f554d3604
+Error Number:208,State:1,Class:16" (f5c7ac34)
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid object name 'Products'.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean isAsync, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(DbContext _, Boolean result)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+   at System.Linq.Enumerable.SingleOrDefault[TSource](IEnumerable`1 source)
+   at lambda_method882(Closure , QueryContext )
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.Execute[TResult](Expression query)
+   at Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryProvider.Execute[TResult](Expression expression)
+   at System.Linq.Queryable.FirstOrDefault[TSource](IQueryable`1 source, Expression`1 predicate)
+   at Application.Services.FrontEnd.Carts.CartFrontEndService.AddToCart(Int64 productId, Guid BrowserId) in C:\Users\pc-2\Pictures\.NET\01_MyProject\Application\Services\FrontEnd\Carts\CartFrontEndService.cs:line 39
+   at EndPoint.WebSite.Controllers.CartController.AddToCart(Int64 productId) in C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\Controllers\CartController.cs:line 34
+   at lambda_method782(Closure , Object , Object[] )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutor.Execute(Object target, Object[] parameters)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+ClientConnectionId:47b57b35-6b99-47f0-b9d3-9a0f554d3604
+Error Number:208,State:1,Class:16
+2021-06-02T21:11:05.1164481+04:30 0HM95SJ52RMH3:00000017 [INF] Executed action "EndPoint.WebSite.Controllers.CartController.AddToCart (EndPoint.WebSite)" in 26281.7617ms (afa2e885)
+2021-06-02T21:11:05.1166591+04:30 0HM95SJ52RMH3:00000017 [INF] Executed endpoint '"EndPoint.WebSite.Controllers.CartController.AddToCart (EndPoint.WebSite)"' (99874f2b)
+2021-06-02T21:11:05.1244967+04:30 0HM95SJ52RMH3:00000017 [ERR] An unhandled exception has occurred while executing the request. (48a46595)
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid object name 'Products'.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean isAsync, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(DbContext _, Boolean result)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+   at System.Linq.Enumerable.SingleOrDefault[TSource](IEnumerable`1 source)
+   at lambda_method882(Closure , QueryContext )
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.Execute[TResult](Expression query)
+   at Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryProvider.Execute[TResult](Expression expression)
+   at System.Linq.Queryable.FirstOrDefault[TSource](IQueryable`1 source, Expression`1 predicate)
+   at Application.Services.FrontEnd.Carts.CartFrontEndService.AddToCart(Int64 productId, Guid BrowserId) in C:\Users\pc-2\Pictures\.NET\01_MyProject\Application\Services\FrontEnd\Carts\CartFrontEndService.cs:line 39
+   at EndPoint.WebSite.Controllers.CartController.AddToCart(Int64 productId) in C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\Controllers\CartController.cs:line 34
+   at lambda_method782(Closure , Object , Object[] )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutor.Execute(Object target, Object[] parameters)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+ClientConnectionId:47b57b35-6b99-47f0-b9d3-9a0f554d3604
+Error Number:208,State:1,Class:16
+2021-06-02T21:11:05.1305785+04:30 0HM95SJ52RMH3:00000017 [INF] Request finished HTTP/2 GET https://localhost:5001/cart/addToCart/35 - - - 500 - text/html;+charset=utf-8 26297.4704ms (791a596a)

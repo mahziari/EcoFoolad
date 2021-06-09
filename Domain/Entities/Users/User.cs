@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
-using Domain.Entities.Carts;
-using Domain.Entities.Commons;
-using Domain.Entities.IdealCrm;
 using Microsoft.AspNetCore.Identity;
 
 namespace  Domain.Entities.Users

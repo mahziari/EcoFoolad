@@ -1,6 +1,9 @@
 ﻿ 
 
+using System;
+using System.Linq;
 using Application.Interfaces.Contexts;
+using Microsoft.EntityFrameworkCore;
 
 namespace  Application.Services.BackEnd.Admin.Products.Commands.ActiveProducts
 {
@@ -42,7 +45,7 @@ namespace  Application.Services.BackEnd.Admin.Products.Commands.ActiveProducts
             
             
             // Active Product to CustomDbContext Db
-            var productCustomDbContext = _customDbContext.Products.Find(id);
+            var productCustomDbContext = _customDbContext.Products.FirstOrDefault(p=>p.PrdCrmId==Convert.ToInt32(id));
 
             if (productCustomDbContext == null)
             {

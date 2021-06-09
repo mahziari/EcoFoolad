@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Application.Services.FrontEnd.User.Addresses.UserAddressDto>
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "آدرس ها";
+    Layout = "~/Areas/User/Views/Shared/_Layout.cshtml";
+}
+
+
+
+@if (TempData["IsSuccess"] != null)
+{
+    @if (Convert.ToBoolean(TempData["IsSuccess"]))
+    {
+        <div class="alert alert-success">
+            @TempData["Message"]
+        </div>
+    }
+
+    else if (Convert.ToBoolean(TempData["IsSuccess"]) == false)
+    {
+        <div class="alert alert-danger">
+            @TempData["Message"]
+        </div>
+    }
+}
+
+<p>
+    <a asp-area="User" asp-controller="Address" asp-action="Create" type="bottom">
+        ثبت آدرس جدید
+    </a>
+</p>
+<br>
+
+@foreach (var item in Model)
+{
+    <div class="u-column1 col-1 woocommerce-Address">
+        <a asp-area="User" asp-controller="Address" asp-action="Edit" asp-route-id="@item.Id" class="edit">ویرایش</a>
+        <header class="woocommerce-Address-title title">
+            <h3>@item.ReciverName </h3>
+        </header>
+        <address>
+            @item.PostalAddress
+        </address>
+    </div>
+}

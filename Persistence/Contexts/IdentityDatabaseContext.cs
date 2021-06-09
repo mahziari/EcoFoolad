@@ -20,8 +20,6 @@ namespace Persistence.Contexts
             
         }
         
-        
-        
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<IdentityUser<string>>().ToTable("User");

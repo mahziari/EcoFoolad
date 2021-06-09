@@ -157,30 +157,33 @@
                         </li><li>کلاه: بدون کلاه</li>
                     </ul>
                 </div>
-                <div class="newkala_container_custom_price">
-                    <span class="price" lang="fa">
-                        <span class="woocommerce-Price-amount amount">
-                            <bdi>235,000&nbsp;<span class="woocommerce-Price-currencySymbol">تومان</span></bdi>
-                        </span>
-                    </span>
-                    @* <a href="~/cart/addToCart?ProductId=@item.ProductId" *@
-                    @*    data-quantity="1"  *@
-                    @*    class="button product_type_simple add_to_cart_button ajax_add_to_cart newkala_add_to_cart_button_loop select_quantity_on"  *@
-                    @*    data-product_id="3807"  *@
-                    @*    data-product_sku="#12360"  *@
-                    @*    aria-label="" *@
-                    @*    rel="nofollow"  *@
-                    @*    title="افزودن به سبد خرید">+</a> *@
-                    
-                    <a href="~/cart/addToCart/@item.ProductId">
-                        اضافه به سبد خرید
-                    </a>
-
-                    @* <button class="newkala_add_to_cart_button_loop" type="button">+</button> *@
-                    @* <select class="select_quantity"> *@
-                    @*     <option selected="">تعداد</option><option value="1">1 عدد</option><option value="2">2 عدد</option><option value="3">3 عدد</option><option value="4">4 عدد</option><option value="5">5 عدد</option><option value="6">6 عدد</option><option value="7">7 عدد</option><option value="8">8 عدد</option><option value="9">9 عدد</option><option value="10">10 عدد</option> *@
-                    @* </select> *@
-                </div>
+                <form asp-controller="Basket" asp-action="Index" method="post">
+                    <div class="newkala_container_custom_price">
+                       <span class="price" lang="fa">
+                           <span class="woocommerce-Price-amount amount">
+                               <bdi>235,000&nbsp;<span class="woocommerce-Price-currencySymbol">تومان</span></bdi>
+                           </span>
+                       </span>
+                       @* <a href="~/cart/addToCart?ProductId=@item.ProductId" *@
+                       @*    data-quantity="1"  *@
+                       @*    class="button product_type_simple add_to_cart_button ajax_add_to_cart newkala_add_to_cart_button_loop select_quantity_on"  *@
+                       @*    data-product_id="3807"  *@
+                       @*    data-product_sku="#12360"  *@
+                       @*    aria-label="" *@
+                       @*    rel="nofollow"  *@
+                       @*    title="افزودن به سبد خرید">+</a> *@
+                       <input type="hidden" name="productId" value="@item.ProductId">
+                       <input type="text" name="quantity" value="1">
+                       <button type="submit">
+                           اضافه به سبد خرید
+                       </button>
+   
+                       @* <button class="newkala_add_to_cart_button_loop" type="button">+</button> *@
+                       @* <select class="select_quantity"> *@
+                       @*     <option selected="">تعداد</option><option value="1">1 عدد</option><option value="2">2 عدد</option><option value="3">3 عدد</option><option value="4">4 عدد</option><option value="5">5 عدد</option><option value="6">6 عدد</option><option value="7">7 عدد</option><option value="8">8 عدد</option><option value="9">9 عدد</option><option value="10">10 عدد</option> *@
+                       @* </select> *@
+                   </div>
+                </form>
             </div>
         </li>
         }
@@ -238,72 +241,6 @@
 			});
 		
 		</script>
-
-
-    <div id="woocommerce_product_categories-4" class="mian_widg_archive_product woocommerce widget_product_categories">
-        <div class="title-widget-archive-product">
-            <h5>دسته‌بندی نتایج</h5>
-        </div>
-        <ul class="product-categories">
-            <li class="cat-item cat-item-15">
-                <a href="https://newkalatheme.ir/preview/product-category/uncategorized/">دسته بندی نشده</a>
-            </li>
-            <li class="cat-item cat-item-229">
-                <a href="https://newkalatheme.ir/preview/product-category/wrist-watch/">ساعت مچی</a>
-            </li>
-            <li class="cat-item cat-item-20">
-                <a href="https://newkalatheme.ir/preview/product-category/digital-product/">کالای دیجیتال</a>
-            </li>
-            <li class="cat-item cat-item-178">
-                <a href="https://newkalatheme.ir/preview/product-category/book/">کتاب</a>
-            </li>
-            <li class="cat-item cat-item-231">
-                <a href="https://newkalatheme.ir/preview/product-category/shoes/">کفش</a>
-            </li>
-            <li class="cat-item cat-item-230 current-cat">
-                <a href="https://newkalatheme.ir/preview/product-category/cloth/">لباس</a>
-            </li>
-            <li class="cat-item cat-item-179">
-                <a href="https://newkalatheme.ir/preview/product-category/laptop-2/">لپ تاپ</a>
-            </li>
-            <li class="cat-item cat-item-159">
-                <a href="https://newkalatheme.ir/preview/product-category/hyper-market/">هایپر مارکت</a>
-            </li>
-        </ul>
-    </div>
-    <div id="woocommerce_product_search-3" class="mian_widg_archive_product woocommerce widget_product_search">
-        <div class="title-widget-archive-product">
-            <h5>جستجو در نتایج:</h5>
-        </div>
-        <form role="search" method="get" class="woocommerce-product-search" action="">
-
-            <input autocomplete="off" type="search" id="woocommerce-product-search-field-0" class="search-field" placeholder="نام محصول یا برند مورد نظر را بنویسید…" value="" name="s">
-            <button type="submit" value=""></button>
-            <input type="hidden" name="post_type" value="product">
-        </form>
-    </div>
-    <div id="woocommerce_price_filter-7" class="mian_widg_archive_product woocommerce widget_price_filter">
-        <div class="title-widget-archive-product">
-            <h5>فیلتر براساس قیمت : محدوده قیمت</h5>
-        </div>
-        <form method="get" action="https://newkalatheme.ir/preview/product-category/cloth/">
-            <div class="price_slider_wrapper">
-                <div class="price_slider ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content" style="">
-                    <div class="ui-slider-range ui-corner-all ui-widget-header" style="left: 0%; width: 100%;"></div><span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default" style="left: 0%;"></span><span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default" style="left: 100%;"></span>
-                </div>
-                <div class="price_slider_amount" data-step="10">
-                    <input type="text" id="min_price" name="min_price" value="94000" data-min="94000" placeholder="حداقل قیمت" style="display: none;">
-                    <input type="text" id="max_price" name="max_price" value="250000" data-max="250000" placeholder="حداکثر قیمت" style="display: none;">
-                    <button type="submit" class="button">فیلتر</button>
-                    <div class="price_label" style="">
-                        <span class="from">94,000&nbsp;تومان</span> — <span class="to">250,000&nbsp;تومان</span>
-                    </div>
-                    <div class="clear"></div>
-                </div>
-            </div>
-        </form>
-
-    </div>
 </div>
 
 

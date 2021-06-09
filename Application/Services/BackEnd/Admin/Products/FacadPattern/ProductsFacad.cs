@@ -133,7 +133,7 @@ namespace  Application.Services.BackEnd.Admin.Products.FacadPattern
         {
             get
             {
-                return _deleteProductServices ??= new DeleteProductServices(_context);
+                return _deleteProductServices ??= new DeleteProductServices(_context,_customDbContext);
             }
         }
         

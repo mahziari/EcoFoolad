@@ -37,7 +37,7 @@ namespace  Application.Services.FrontEnd.Products.Queries
             
             
             // Paginate Code
-            var resultInEachPage = 1;
+            var resultInEachPage = 50;
             int skip = (pageNumber - 1) * resultInEachPage;
             int count = _context.Wsproducts
                 .Where(p=>p.PrdGroupId==secondGroup.PrdSecondGroupId)
