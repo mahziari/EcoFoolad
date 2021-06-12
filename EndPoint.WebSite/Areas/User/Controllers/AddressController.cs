@@ -11,7 +11,6 @@ namespace EndPoint.WebSite.Areas.User.Controllers
     public class AddressController:Controller
     {
         private readonly IUserAddressServices _userAddressServices;
-
         public AddressController(IUserAddressServices userAddressServices)
         {
             _userAddressServices = userAddressServices;

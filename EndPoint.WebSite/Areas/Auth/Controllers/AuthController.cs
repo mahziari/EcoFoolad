@@ -6,12 +6,10 @@ using Common.Utilities;
 using Domain.Entities.IdealCrm;
 using Domain.Entities.Users;
 using EndPoint.Web.Areas.Auth.Data.Dto;
-using EndPoint.WebSite.Utilities;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Persistence.Contexts;
-using Domain.Entities.Users;
 
 namespace EndPoint.WebSite.Areas.Auth.Controllers
 {

@@ -18,8 +18,11 @@ using Application.Services.FrontEnd.Basket;
 using Application.Services.FrontEnd.Blogs.FacadPattern;
 using Application.Services.FrontEnd.Common.Menus.FacadPattern;
 using Application.Services.FrontEnd.Home.FacadPattern;
+using Application.Services.FrontEnd.Orders;
+using Application.Services.FrontEnd.Payments;
 using Application.Services.FrontEnd.Products.FacadPattern;
 using Application.Services.FrontEnd.User.Addresses;
+using Application.Services.FrontEnd.User.Orders;
 using EndPoint.Web.Areas.Auth.Helpers.Policy;
 using Infrastructure.IdentityConfigs;
 using Infrastructure.MappingProfile;
@@ -48,13 +51,11 @@ namespace EndPoint.WebSite
         {
             //------ DB Context Services
             services.AddScoped<IIdealCrmDataBaseContext, IdealCrmDataBaseContext>();
-            services.AddEntityFrameworkSqlServer()
-                .AddDbContext<IdealCrmDataBaseContext>(options =>
+            services.AddDbContext<IdealCrmDataBaseContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("IdealCrmConnectionString")));
 
             services.AddScoped<ICustomDbContext, CustomDbContext>();
-            services.AddEntityFrameworkSqlServer()
-                .AddDbContext<CustomDbContext>(options =>
+            services.AddDbContext<CustomDbContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("SqlServer")));
 
             services.AddIdentityService(Configuration);
@@ -132,7 +133,8 @@ namespace EndPoint.WebSite
             services.AddScoped<IBlogsFrontEndFacad, BlogsFrontEndFacad>();
             services.AddScoped<IProductsFrontEndFacad, ProductsFrontEndFacad>();
             services.AddTransient<IBasketService,  BasketService>();
-            services.AddTransient<IUserAddressServices,  UserAddressServices>();
+            services.AddTransient<IOrderServices,  OrderServices>();
+            services.AddTransient<IPaymentsServices,  PaymentsServices>();
             //------ Admin Panel Services
             services.AddScoped<IMenusFacad, MenusFacad>();
             services.AddScoped<IProductsFacad, ProductsFacad>();
@@ -146,6 +148,10 @@ namespace EndPoint.WebSite
             services.AddScoped<IOwnerProductsFacad, OwnerProductsFacad>();
             services.AddScoped<IOwnerHomeFacad, OwnerHomeFacad>();
             services.AddScoped<IOwnerProfileFacad, OwnerProfileFacad>();
+            //------ User Panel Services
+            services.AddTransient<IUserAddressServices,  UserAddressServices>();
+            services.AddTransient<IUserOrdersServices,  UserOrdersServices>();
+
             
             //------ Sessions Services
             services.AddDistributedMemoryCache();

@@ -8,7 +8,6 @@ namespace Application.Services.FrontEnd.Basket
     public class BasketService : IBasketService
     {
         private readonly ICustomDbContext _context;
-
         public BasketService(ICustomDbContext context)
         {
             _context = context;

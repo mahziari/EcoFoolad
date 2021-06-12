@@ -23,7 +23,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Services\FrontEnd\User" />
     <Folder Include="Services\FrontEnd\User\Addresses\Command" />
     <Folder Include="Services\FrontEnd\User\Addresses\FacadPattern" />
     <Folder Include="Services\FrontEnd\User\Addresses\Queries" />

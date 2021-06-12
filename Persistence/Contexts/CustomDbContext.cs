@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Linq;
 using Application.Interfaces.Contexts;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Domain.Entities;
 using Domain.Entities.Attributes;
 using Domain.Entities.Baskets;
-using Domain.Entities.IdealCrm;
+using Domain.Entities.Orders;
+using Domain.Entities.Payments;
 using Domain.Entities.Products;
 using Domain.Entities.Users;
 using Persistence.Seeds;
@@ -34,6 +33,9 @@ namespace  Persistence.Contexts
         public DbSet<Basket> Baskets { get; set; }
         public DbSet<BasketItem> BasketItems { get; set; }
         public DbSet<UserAddress> UserAddresses { get; set; }
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<OrderItem> OrderItems { get; set; }
+        public DbSet<Payment> Payments { get; set; }
         
         
         
@@ -54,6 +56,8 @@ namespace  Persistence.Contexts
             builder.Entity<Product>().HasQueryFilter(m => EF.Property<bool>(m, "IsRemoved") == false);
             builder.Entity<BasketItem>().HasQueryFilter(m => EF.Property<bool>(m, "IsRemoved") == false);
             builder.Entity<Basket>().HasQueryFilter(m => EF.Property<bool>(m, "IsRemoved") == false);
+
+            builder.Entity<Order>().OwnsOne(o => o.Address);
             
             builder.ClaimsSeed();
             

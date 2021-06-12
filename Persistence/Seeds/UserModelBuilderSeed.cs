@@ -12,7 +12,7 @@ namespace Persistence.Seeds
                 new User
                 {
                     Id = "6a64e206-d6c0-4386-923f-5104f173e01c",
-                    CrmUsersId = 61,
+                    CrmUsersId = 1082,
                     FirstName = "حسین",
                     LastName = "کرجی",
                     IsActive = true,
@@ -33,7 +33,7 @@ namespace Persistence.Seeds
                 }, new User
                 {
                     Id = "5a64e206-d6c0-4386-923f-5104f173e01c",
-                    CrmUsersId = 61,
+                    CrmUsersId = 1083,
                     FirstName ="پنل" ,
                     LastName = "خریدار",
                     IsActive = true,
@@ -54,9 +54,9 @@ namespace Persistence.Seeds
                 }, new User
                 {
                     Id = "4a64e206-d6c0-4386-923f-5104f173e01c",
-                    CrmUsersId = 61,
+                    CrmUsersId = 1084,
                     FirstName ="پنل" ,
-                    LastName = "خریدار",
+                    LastName = "فروشنده",
                     IsActive = true,
                     Address ="تهران" ,
                     UserName ="09129283404" ,

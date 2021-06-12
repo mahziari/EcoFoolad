@@ -1,0 +1,184 @@
+﻿@using EndPoint.WebSite.Models.ViewModel.Baskets
+@model ShippingPaymentViewModel
+
+@{
+    ViewData["Title"] = "پرداخت";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section BodyAttr{
+    class="rtl page-template-default page page-id-6 theme-newkala woocommerce-cart woocommerce-page woocommerce-js nk_desktop nk_my_account_page newkala-woocommerce-cart-no-empty loggedout dokan-theme-newkala"
+}
+
+<div class="container" style="margin-top: 20px; transform: none;">
+
+
+<section class="content_right_blog" style="width: 100%; transform: none;">
+
+<div class="main_content_post_blog" style="transform: none;">
+
+
+
+<div class="product-content-onliner" style="transform: none;">
+
+<div class="woocommerce" style="transform: none;">
+<div class="woocommerce-notices-wrapper"></div>
+
+
+
+<div class="woocommerce-notices-wrapper"></div>
+<form asp-action="ShippingPayment" method="post" class="checkout woocommerce-checkout" style="transform: none;">
+
+
+<div class="nk_wrapper_checkout" style="transform: none;">
+
+<div class="newkala_content_right_checkout_page nk_main_checkout" style="position: relative; overflow: visible; box-sizing: border-box; min-height: 1px;">
+
+
+    <div class="theiaStickySidebar" style="padding-top: 0px; padding-bottom: 1px; position: static; transform: none;">
+
+        <h3 id="order_review_heading">انتخاب آدرس </h3>
+        <div id="order_review" class="woocommerce-checkout-review-order">
+            <div id="payment" class="woocommerce-checkout-payment">
+                <ul class="wc_payment_methods payment_methods methods">
+                    @foreach (var item in Model.UserAddresses)
+                    {
+                        <li class="wc_payment_method payment_method_cod">
+                            <input id="address-@item.Id" type="radio" class="input-radio" name="address" value="@item.Id" checked="checked" >
+
+                            <label for="address-@item.Id">
+                               @item.ReciverName
+                            </label>
+                            <div class="payment_box payment_method_cod" style="display: none;">
+                                <p>@item.PostalAddress</p>
+                            </div>
+                        </li>
+                    }
+                </ul>
+
+
+            </div>
+
+        </div>
+    </div>
+    
+    <div class="theiaStickySidebar" style="padding-top: 0px; padding-bottom: 1px; position: static; transform: none;">
+    
+    <h3 id="order_review_heading">انتخاب روش پرداخت </h3>
+        <div id="order_review" class="woocommerce-checkout-review-order">
+            <div id="payment" class="woocommerce-checkout-payment">
+                <ul class="wc_payment_methods payment_methods methods">
+
+                    <li class="wc_payment_method payment_method_cod">
+                        <input id="paymentMethod" type="radio" class="input-radio" name="paymentMethod" value="OnlinePayment" checked="checked" data-order_button_text="">
+
+                        <label for="paymentMethod">
+                            پرداخت آنلاین
+                        </label>
+                        <div class="payment_box payment_method_cod" style="display: none;">
+                            <p>پرداخت نقدی از طریق درگاه بانکی.</p>
+                        </div>
+                    </li>
+
+                    <li class="wc_payment_method payment_method_cod">
+                        <input id="PaymentOnTheSpot" type="radio" class="input-radio" name="paymentMethod" value="PaymentOnTheSpot" data-order_button_text="">
+
+                        <label for="PaymentOnTheSpot">
+                            پرداخت چکی
+                        </label>
+                        <div class="payment_box payment_method_cod" style="display: none;">
+                            <p>پرداخت نقدی از طریق چک بانکی.</p>
+                        </div>
+                    </li>
+
+                </ul>
+
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<aside class="newkala_side_checkout_page nk_sidebar_checkout" style="position: relative; overflow: visible; box-sizing: border-box; min-height: 1px;">
+
+
+    <div class="theiaStickySidebar" style="padding-top: 0px; padding-bottom: 1px; position: static; transform: none; top: 0px; left: 113.933px;">
+        <div class="form-row place-order">
+            <noscript>
+                به دلیل اینکه مرورگر شما جاوا اسکریپت را پشتیبانی نمی کند ، یا غیر فعال است ، لطفا کلیک کنید روی <em>بروزرسانی جمع </em> قبل از اینکه سفارش خود را ثبت کنید.در صورتیکه این کار را نکنید ممکن است مبلغ قابل پرداخت شما بیش از چیزی که در بالا مشخص شده است باشد <br/><button type="submit" class="button alt" name="woocommerce_checkout_update_totals" value="به روز رسانی جمع کل">به روز رسانی جمع کل</button>
+            </noscript>
+
+
+            <span class="aside_title aside_title_subtotal">مبلغ کل (@Model.basket.Items.Count کالا)</span>
+            <strong class="aside_value aside_value_subtotal">
+                <span class="woocommerce-Price-amount amount">
+                    <bdi>@Model.basket.Total().ToString("n0")<span class="woocommerce-Price-currencySymbol">تومان</span></bdi>
+                </span>
+            </strong>
+
+            <div style="clear:both"></div>
+
+
+            <span class="aside_title aside_title_tax">مالیات:</span>
+            <strong class="aside_value aside_value_tax">
+                <span class="woocommerce-Price-amount amount">623,700&nbsp;<span class="woocommerce-Price-currencySymbol">تومان</span></span>
+            </strong>
+
+            <div style="clear:both"></div>
+
+
+            <hr><hr>
+
+            <span class="aside_title aside_title_total">مبلغ قابل پرداخت:</span>
+            <strong class="aside_value aside_value_total">
+                <strong>
+                    <span class="woocommerce-Price-amount amount">
+                        <bdi>@Model.basket.Total().ToString("n0")<span class="woocommerce-Price-currencySymbol">تومان</span></bdi>
+                    </span>
+                </strong>
+            </strong>
+
+            <div style="clear:both"></div>
+
+            <div class="woocommerce-terms-and-conditions-wrapper">
+                <div class="woocommerce-privacy-policy-text"></div>
+            </div>
+            <button type="submit" class=" checkout-button button alt wc-forward" name="woocommerce_checkout_place_order" id="place_order" value="پرداخت و ثبت نهایی سفارش" data-value="پرداخت و ثبت نهایی سفارش">پرداخت و ثبت نهایی سفارش</button>
+        </div>
+    </div>
+</aside>
+
+
+<script style="">
+
+		jQuery( document.body ).on( 'updated_checkout', function($){
+		  
+			jQuery('.aside_value_subtotal').html( jQuery('tr.cart-subtotal td.sapce_between_table').next().html() );
+			jQuery('.aside_value_tax').html( jQuery('tr.tax-rate td.sapce_between_table').next().html() );
+			
+			if ( jQuery('input.shipping_method[type="hidden"]').length ) 
+				jQuery('.aside_value_shipping').html( jQuery('input.shipping_method').next().html() );
+			else
+				jQuery('.aside_value_shipping').html( jQuery('input.shipping_method:checked').next().html() );
+		
+			jQuery('.aside_value_total').html( jQuery('tr.order-total td.sapce_between_table').next().html() );
+			if(! jQuery('tr.cart-discount').length ) jQuery('.aside_title_coupon , .aside_value_coupon').hide(0);
+			if( jQuery('tr.cart-discount').length ) jQuery('.aside_title_coupon , .aside_value_coupon').show(0);
+		});
+
+		</script>
+</div>
+</form>
+</div>
+
+
+<div class="clear"></div>
+</div>
+
+</div>
+</section>
+
+
+<div class="clear"></div>
+</div>

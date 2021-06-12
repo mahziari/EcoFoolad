@@ -7,13 +7,13 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Persistence.Contexts;
 
-namespace Persistence.Contexts
+namespace WebApplication.Migrations
 {
     [DbContext(typeof(CustomDbContext))]
-    [Migration("20210608042144_CreateFirstTables")]
-      partial class CustomDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210612083242_CreateOrderOrderItemTables")]
+    partial class CreateOrderOrderItemTables
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -350,8 +350,18 @@ namespace Persistence.Contexts
                     b.HasData(
                         new
                         {
-                            UserId = "5a64e206-d6c0-4386-923f-5104f173e01c",
+                            UserId = "6a64e206-d6c0-4386-923f-5104f173e01c",
                             RoleId = "8ce221cd-1b57-4e0b-8781-79524b05fcc5"
+                        },
+                        new
+                        {
+                            UserId = "5a64e206-d6c0-4386-923f-5104f173e01c",
+                            RoleId = "2bb43ab4-61c4-4435-aa3e-c6ab7b2858d1"
+                        },
+                        new
+                        {
+                            UserId = "4a64e206-d6c0-4386-923f-5104f173e01c",
+                            RoleId = "7990ad8a-92a8-4cda-918c-b71887047e9e"
                         });
                 });
 
@@ -387,7 +397,7 @@ namespace Persistence.Contexts
                     b.Property<DateTime>("InsertTime")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2021, 6, 8, 12, 4, 35, 460, DateTimeKind.Local).AddTicks(5616));
+                        .HasDefaultValue(new DateTime(2021, 6, 12, 13, 2, 42, 213, DateTimeKind.Local).AddTicks(2902));
 
                     b.Property<bool>("IsRemoved")
                         .ValueGeneratedOnAdd()
@@ -418,7 +428,7 @@ namespace Persistence.Contexts
                     b.Property<DateTime>("InsertTime")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2021, 6, 8, 12, 4, 35, 465, DateTimeKind.Local).AddTicks(9112));
+                        .HasDefaultValue(new DateTime(2021, 6, 12, 13, 2, 42, 218, DateTimeKind.Local).AddTicks(8427));
 
                     b.Property<bool>("IsRemoved")
                         .ValueGeneratedOnAdd()
@@ -449,6 +459,94 @@ namespace Persistence.Contexts
                     b.ToTable("BasketItems");
                 });
 
+            modelBuilder.Entity("WebApplication.Models.Orders.Order", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("InsertTime")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValue(new DateTime(2021, 6, 12, 13, 2, 42, 219, DateTimeKind.Local).AddTicks(2161));
+
+                    b.Property<bool>("IsRemoved")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(false);
+
+                    b.Property<DateTime>("OrderDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("OrderStatus")
+                        .HasColumnType("int");
+
+                    b.Property<int>("PaymentMethod")
+                        .HasColumnType("int");
+
+                    b.Property<int>("PaymentStatus")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("RemoveTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("UpdateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Orders");
+                });
+
+            modelBuilder.Entity("WebApplication.Models.Orders.OrderItem", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("InsertTime")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValue(new DateTime(2021, 6, 12, 13, 2, 42, 219, DateTimeKind.Local).AddTicks(4276));
+
+                    b.Property<bool>("IsRemoved")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(false);
+
+                    b.Property<long?>("OrderId")
+                        .HasColumnType("bigint");
+
+                    b.Property<long>("ProductId")
+                        .HasColumnType("bigint");
+
+                    b.Property<string>("ProductName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("RemoveTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("Unit")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UnitPrice")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("UpdateTime")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("OrderId");
+
+                    b.ToTable("OrderItems");
+                });
+
             modelBuilder.Entity("WebApplication.Models.Products.Product", b =>
                 {
                     b.Property<long>("Id")
@@ -473,6 +571,16 @@ namespace Persistence.Contexts
 
                     b.Property<Guid?>("Guid")
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("InsertTime")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValue(new DateTime(2021, 6, 12, 13, 2, 42, 219, DateTimeKind.Local).AddTicks(6048));
+
+                    b.Property<bool>("IsRemoved")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(false);
 
                     b.Property<int?>("LanguageId")
                         .HasColumnType("int");
@@ -623,6 +731,12 @@ namespace Persistence.Contexts
 
                     b.Property<string>("RegisterDatePersian")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("RemoveTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("UpdateTime")
+                        .HasColumnType("datetime2");
 
                     b.Property<int>("UserId")
                         .HasColumnType("int");
@@ -886,6 +1000,52 @@ namespace Persistence.Contexts
                         });
                 });
 
+            modelBuilder.Entity("WebApplication.Models.Users.UserAddress", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("City")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("InsertTime")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValue(new DateTime(2021, 6, 12, 13, 2, 42, 220, DateTimeKind.Local).AddTicks(52));
+
+                    b.Property<bool>("IsRemoved")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(false);
+
+                    b.Property<string>("PostalAddress")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ReciverNAme")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("RemoveTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("State")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("UpdateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ZipCode")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("UserAddresses");
+                });
+
             modelBuilder.Entity("WebApplication.Models.Users.Role", b =>
                 {
                     b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityRole<string>");
@@ -911,6 +1071,14 @@ namespace Persistence.Contexts
                             Name = "User",
                             NormalizedName = "USER",
                             Description = "خریدار"
+                        },
+                        new
+                        {
+                            Id = "7990ad8a-92a8-4cda-918c-b71887047e9e",
+                            ConcurrencyStamp = "2bb43ab4-61c4-4435-aa3e-c6ab7b2858de",
+                            Name = "Owner",
+                            NormalizedName = "OWNER",
+                            Description = "فروشنده"
                         });
                 });
 
@@ -921,8 +1089,8 @@ namespace Persistence.Contexts
                     b.Property<string>("Address")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<decimal?>("Credit")
-                        .HasColumnType("decimal(18,2)");
+                    b.Property<int>("Credit")
+                        .HasColumnType("int");
 
                     b.Property<int>("CrmUsersId")
                         .HasColumnType("int");
@@ -939,7 +1107,7 @@ namespace Persistence.Contexts
                     b.Property<DateTime>("InsertTime")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2021, 6, 8, 12, 4, 35, 466, DateTimeKind.Local).AddTicks(2334));
+                        .HasDefaultValue(new DateTime(2021, 6, 12, 13, 2, 42, 219, DateTimeKind.Local).AddTicks(8870));
 
                     b.Property<bool>("IsActive")
                         .HasColumnType("bit");
@@ -969,24 +1137,71 @@ namespace Persistence.Contexts
                     b.HasData(
                         new
                         {
-                            Id = "5a64e206-d6c0-4386-923f-5104f173e01c",
+                            Id = "6a64e206-d6c0-4386-923f-5104f173e01c",
                             AccessFailedCount = 0,
                             ConcurrencyStamp = "5927a97d-ea14-4449-9efa-7d5ab4b957e5",
                             EmailConfirmed = false,
                             LockoutEnabled = true,
                             NormalizedUserName = "09129283406",
                             PasswordHash = "AQAAAAEAACcQAAAAEPbSX2kOSigd6t402PCkp70rA2gX/1xlFFBZJ8pgJxtwKbY2eZ5Tp2qHOrecBHXCQw==",
-                            PhoneNumber = "09129283405",
+                            PhoneNumber = "09129283406",
                             PhoneNumberConfirmed = true,
                             SecurityStamp = "IXN7VEICHYB72KXHBCULEPXFHNZ5U6FS",
                             TwoFactorEnabled = false,
                             UserName = "09129283406",
                             Address = "تهران",
+                            Credit = 0,
                             CrmUsersId = 61,
-                            DataCreated = new DateTime(2021, 6, 8, 12, 4, 35, 466, DateTimeKind.Local).AddTicks(9058),
+                            DataCreated = new DateTime(2021, 6, 12, 13, 2, 42, 240, DateTimeKind.Local).AddTicks(3519),
                             FirstName = "حسین",
                             IsActive = true,
                             LastName = "کرجی",
+                            RequestToBeOwner = false
+                        },
+                        new
+                        {
+                            Id = "5a64e206-d6c0-4386-923f-5104f173e01c",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "5927a97d-ea14-4449-9efa-7d5ab4b957e5",
+                            EmailConfirmed = false,
+                            LockoutEnabled = true,
+                            NormalizedUserName = "09129283405",
+                            PasswordHash = "AQAAAAEAACcQAAAAEPbSX2kOSigd6t402PCkp70rA2gX/1xlFFBZJ8pgJxtwKbY2eZ5Tp2qHOrecBHXCQw==",
+                            PhoneNumber = "09129283405",
+                            PhoneNumberConfirmed = true,
+                            SecurityStamp = "IXN7VEICHYB72KXHBCULEPXFHNZ5U6FS",
+                            TwoFactorEnabled = false,
+                            UserName = "09129283405",
+                            Address = "تهران",
+                            Credit = 0,
+                            CrmUsersId = 61,
+                            DataCreated = new DateTime(2021, 6, 12, 13, 2, 42, 240, DateTimeKind.Local).AddTicks(4146),
+                            FirstName = "پنل",
+                            IsActive = true,
+                            LastName = "خریدار",
+                            RequestToBeOwner = false
+                        },
+                        new
+                        {
+                            Id = "4a64e206-d6c0-4386-923f-5104f173e01c",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "5927a97d-ea14-4449-9efa-7d5ab4b957e5",
+                            EmailConfirmed = false,
+                            LockoutEnabled = true,
+                            NormalizedUserName = "09129283404",
+                            PasswordHash = "AQAAAAEAACcQAAAAEPbSX2kOSigd6t402PCkp70rA2gX/1xlFFBZJ8pgJxtwKbY2eZ5Tp2qHOrecBHXCQw==",
+                            PhoneNumber = "09129283404",
+                            PhoneNumberConfirmed = true,
+                            SecurityStamp = "IXN7VEICHYB72KXHBCULEPXFHNZ5U6FS",
+                            TwoFactorEnabled = false,
+                            UserName = "09129283404",
+                            Address = "تهران",
+                            Credit = 0,
+                            CrmUsersId = 61,
+                            DataCreated = new DateTime(2021, 6, 12, 13, 2, 42, 240, DateTimeKind.Local).AddTicks(4165),
+                            FirstName = "پنل",
+                            IsActive = true,
+                            LastName = "خریدار",
                             RequestToBeOwner = false
                         });
                 });
@@ -1008,9 +1223,56 @@ namespace Persistence.Contexts
                     b.Navigation("Product");
                 });
 
+            modelBuilder.Entity("WebApplication.Models.Orders.Order", b =>
+                {
+                    b.OwnsOne("WebApplication.Models.Orders.Address", "Address", b1 =>
+                        {
+                            b1.Property<long>("OrderId")
+                                .ValueGeneratedOnAdd()
+                                .HasColumnType("bigint")
+                                .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                            b1.Property<string>("City")
+                                .HasColumnType("nvarchar(max)");
+
+                            b1.Property<string>("PostalAddress")
+                                .HasColumnType("nvarchar(max)");
+
+                            b1.Property<string>("ReciverName")
+                                .HasColumnType("nvarchar(max)");
+
+                            b1.Property<string>("State")
+                                .HasColumnType("nvarchar(max)");
+
+                            b1.Property<string>("ZipCode")
+                                .HasColumnType("nvarchar(max)");
+
+                            b1.HasKey("OrderId");
+
+                            b1.ToTable("Orders");
+
+                            b1.WithOwner()
+                                .HasForeignKey("OrderId");
+                        });
+
+                    b.Navigation("Address");
+                });
+
+            modelBuilder.Entity("WebApplication.Models.Orders.OrderItem", b =>
+                {
+                    b.HasOne("WebApplication.Models.Orders.Order", null)
+                        .WithMany("OrderItems")
+                        .HasForeignKey("OrderId");
+                });
+
             modelBuilder.Entity("WebApplication.Models.Baskets.Basket", b =>
                 {
                     b.Navigation("Items");
+                });
+
+            modelBuilder.Entity("WebApplication.Models.Orders.Order", b =>
+                {
+                    b.Navigation("OrderItems");
                 });
 #pragma warning restore 612, 618
         }

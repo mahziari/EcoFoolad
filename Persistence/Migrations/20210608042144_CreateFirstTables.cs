@@ -5,7 +5,7 @@ namespace Persistence.Migrations
 {
     public partial class CreateFirstTables : Migration
     {
-        protected override void Up(MigrationBuilder migrationBuilder)
+          protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
                 name: "Baskets",
@@ -14,7 +14,7 @@ namespace Persistence.Migrations
                     Id = table.Column<long>(type: "bigint", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     BuyerId = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    InsertTime = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2021, 6, 8, 12, 4, 35, 460, DateTimeKind.Local).AddTicks(5616)),
+                    InsertTime = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2021, 6, 12, 13, 2, 42, 213, DateTimeKind.Local).AddTicks(2902)),
                     IsRemoved = table.Column<bool>(type: "bit", nullable: false, defaultValue: false),
                     RemoveTime = table.Column<DateTime>(type: "datetime2", nullable: true),
                     UpdateTime = table.Column<DateTime>(type: "datetime2", nullable: true)
@@ -39,6 +39,32 @@ namespace Persistence.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Claims", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Orders",
+                columns: table => new
+                {
+                    Id = table.Column<long>(type: "bigint", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    UserId = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    OrderDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Address_State = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Address_City = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Address_ZipCode = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Address_PostalAddress = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Address_ReciverName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    PaymentMethod = table.Column<int>(type: "int", nullable: false),
+                    PaymentStatus = table.Column<int>(type: "int", nullable: false),
+                    OrderStatus = table.Column<int>(type: "int", nullable: false),
+                    InsertTime = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2021, 6, 12, 13, 2, 42, 219, DateTimeKind.Local).AddTicks(2161)),
+                    IsRemoved = table.Column<bool>(type: "bit", nullable: false, defaultValue: false),
+                    RemoveTime = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    UpdateTime = table.Column<DateTime>(type: "datetime2", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Orders", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -103,7 +129,11 @@ namespace Persistence.Migrations
                     PrdLinkAccPrdId = table.Column<int>(type: "int", nullable: true),
                     PrdLinkAccPrdCode = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     OrderView = table.Column<int>(type: "int", nullable: true),
-                    PrdPrice = table.Column<int>(type: "int", nullable: false)
+                    PrdPrice = table.Column<int>(type: "int", nullable: false),
+                    InsertTime = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2021, 6, 12, 13, 2, 42, 219, DateTimeKind.Local).AddTicks(6048)),
+                    IsRemoved = table.Column<bool>(type: "bit", nullable: false, defaultValue: false),
+                    RemoveTime = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    UpdateTime = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -186,11 +216,11 @@ namespace Persistence.Migrations
                     IsActive = table.Column<bool>(type: "bit", nullable: true),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Tel = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Credit = table.Column<decimal>(type: "decimal(18,2)", nullable: true),
+                    Credit = table.Column<int>(type: "int", nullable: true),
                     Address = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     DataCreated = table.Column<DateTime>(type: "datetime2", nullable: true),
                     RequestToBeOwner = table.Column<bool>(type: "bit", nullable: true),
-                    InsertTime = table.Column<DateTime>(type: "datetime2", nullable: true, defaultValue: new DateTime(2021, 6, 8, 12, 4, 35, 466, DateTimeKind.Local).AddTicks(2334)),
+                    InsertTime = table.Column<DateTime>(type: "datetime2", nullable: true, defaultValue: new DateTime(2021, 6, 12, 13, 2, 42, 219, DateTimeKind.Local).AddTicks(8870)),
                     IsRemoved = table.Column<bool>(type: "bit", nullable: true, defaultValue: false),
                     RemoveTime = table.Column<DateTime>(type: "datetime2", nullable: true),
                     UpdateTime = table.Column<DateTime>(type: "datetime2", nullable: true)
@@ -198,6 +228,28 @@ namespace Persistence.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_User", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "UserAddresses",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    State = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    City = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ZipCode = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    PostalAddress = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    UserId = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ReciverNAme = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    InsertTime = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2021, 6, 12, 13, 2, 42, 220, DateTimeKind.Local).AddTicks(52)),
+                    IsRemoved = table.Column<bool>(type: "bit", nullable: false, defaultValue: false),
+                    RemoveTime = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    UpdateTime = table.Column<DateTime>(type: "datetime2", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_UserAddresses", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -256,6 +308,33 @@ namespace Persistence.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "OrderItems",
+                columns: table => new
+                {
+                    Id = table.Column<long>(type: "bigint", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ProductId = table.Column<long>(type: "bigint", nullable: false),
+                    ProductName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    UnitPrice = table.Column<int>(type: "int", nullable: false),
+                    Unit = table.Column<int>(type: "int", nullable: false),
+                    InsertTime = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2021, 6, 12, 13, 2, 42, 219, DateTimeKind.Local).AddTicks(4276)),
+                    IsRemoved = table.Column<bool>(type: "bit", nullable: false, defaultValue: false),
+                    OrderId = table.Column<long>(type: "bigint", nullable: true),
+                    RemoveTime = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    UpdateTime = table.Column<DateTime>(type: "datetime2", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_OrderItems", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_OrderItems_Orders_OrderId",
+                        column: x => x.OrderId,
+                        principalTable: "Orders",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "BasketItems",
                 columns: table => new
                 {
@@ -265,7 +344,7 @@ namespace Persistence.Migrations
                     Quantity = table.Column<int>(type: "int", nullable: false),
                     ProductId = table.Column<long>(type: "bigint", nullable: false),
                     BasketId = table.Column<long>(type: "bigint", nullable: false),
-                    InsertTime = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2021, 6, 8, 12, 4, 35, 465, DateTimeKind.Local).AddTicks(9112)),
+                    InsertTime = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2021, 6, 12, 13, 2, 42, 218, DateTimeKind.Local).AddTicks(8427)),
                     IsRemoved = table.Column<bool>(type: "bit", nullable: false, defaultValue: false),
                     RemoveTime = table.Column<DateTime>(type: "datetime2", nullable: true),
                     UpdateTime = table.Column<DateTime>(type: "datetime2", nullable: true)
@@ -292,8 +371,7 @@ namespace Persistence.Migrations
                 columns: new[] { "Id", "ClaimName", "ClaimType", "ClaimValue", "IsHead", "ParentId" },
                 values: new object[,]
                 {
-                    { 1, "داشبورد", "Home", "Home", true, null },
-                    { 3, "مشاهده دسته بندی بلاگ ها", "BlogCategoriesIndex", "BlogCategoriesIndex", null, 2 },
+                    { 2, "مدیریت دسته بندی بلاگ", "BlogCategories", "BlogCategories", true, null },
                     { 4, "ساخت دسته بندی بلاگ", "BlogCategoriesCreate", "BlogCategoriesCreate", null, 2 },
                     { 5, "ویرایش دسته بندی بلاگ", "BlogCategoriesEdit", "BlogCategoriesEdit", null, 2 },
                     { 6, "حذف دسته بندی بلاگ", "BlogCategoriesDelete", "BlogCategoriesDelete", null, 2 },
@@ -305,8 +383,8 @@ namespace Persistence.Migrations
                     { 12, "غیرفعال کردن بلاگ", "BlogsActive", "BlogsActive", null, 7 },
                     { 13, "مدیریت شرکت ها", "Company", "Company", true, null },
                     { 14, "مدیریت منوها", "Menus", "Menus", true, null },
+                    { 3, "مشاهده دسته بندی بلاگ ها", "BlogCategoriesIndex", "BlogCategoriesIndex", null, 2 },
                     { 15, "مدیریت محصولات", "Products", "Products", true, null },
-                    { 16, "نمایش محصولات", "ProductsIndex", "ProductsIndex", null, 15 },
                     { 17, "ساخت محصول", "ProductsCreate", "ProductsCreate", null, 15 },
                     { 18, "ویرایش محصول", "ProductsEdit", "ProductsEdit", null, 15 },
                     { 19, "حذف محصول", "ProductsDelete", "ProductsDelete", null, 15 },
@@ -315,7 +393,8 @@ namespace Persistence.Migrations
                     { 22, "مدیریت یوزر ها", "Users", "Users", true, null },
                     { 23, "نمایش همه یوزر ها", "UsersIndex", "UsersIndex", null, 22 },
                     { 24, "ویرایش یوزر", "UsersEdit", "UsersEdit", null, 22 },
-                    { 2, "مدیریت دسته بندی بلاگ", "BlogCategories", "BlogCategories", true, null }
+                    { 16, "نمایش محصولات", "ProductsIndex", "ProductsIndex", null, 15 },
+                    { 1, "داشبورد", "Home", "Home", true, null }
                 });
 
             migrationBuilder.InsertData(
@@ -324,7 +403,8 @@ namespace Persistence.Migrations
                 values: new object[,]
                 {
                     { "8ce221cd-1b57-4e0b-8781-79524b05fcc5", "e27bb24c-7f4a-45f7-b35b-bdf0068d9ff4", "برنامه نویس", "Role", "SeniorProgrammer", "SENIORPROGRAMMER" },
-                    { "2bb43ab4-61c4-4435-aa3e-c6ab7b2858d1", "7990ad8a-92a8-4cda-918c-b71887047e9e", "خریدار", "Role", "User", "USER" }
+                    { "2bb43ab4-61c4-4435-aa3e-c6ab7b2858d1", "7990ad8a-92a8-4cda-918c-b71887047e9e", "خریدار", "Role", "User", "USER" },
+                    { "7990ad8a-92a8-4cda-918c-b71887047e9e", "2bb43ab4-61c4-4435-aa3e-c6ab7b2858de", "فروشنده", "Role", "Owner", "OWNER" }
                 });
 
             migrationBuilder.InsertData(
@@ -333,11 +413,7 @@ namespace Persistence.Migrations
                 values: new object[,]
                 {
                     { 1, "Home", "Home", "8ce221cd-1b57-4e0b-8781-79524b05fcc5" },
-                    { 24, "UsersEdit", "UsersEdit", "8ce221cd-1b57-4e0b-8781-79524b05fcc5" },
-                    { 2, "BlogCategories", "BlogCategories", "8ce221cd-1b57-4e0b-8781-79524b05fcc5" },
-                    { 3, "BlogCategoriesIndex", "BlogCategoriesIndex", "8ce221cd-1b57-4e0b-8781-79524b05fcc5" },
-                    { 4, "BlogCategoriesCreate", "BlogCategoriesCreate", "8ce221cd-1b57-4e0b-8781-79524b05fcc5" },
-                    { 5, "BlogCategoriesEdit", "BlogCategoriesEdit", "8ce221cd-1b57-4e0b-8781-79524b05fcc5" },
+                    { 13, "Company", "Company", "8ce221cd-1b57-4e0b-8781-79524b05fcc5" },
                     { 6, "BlogCategoriesDelete", "BlogCategoriesDelete", "8ce221cd-1b57-4e0b-8781-79524b05fcc5" },
                     { 7, "Blogs", "Blogs", "8ce221cd-1b57-4e0b-8781-79524b05fcc5" },
                     { 8, "BlogsIndex", "BlogsIndex", "8ce221cd-1b57-4e0b-8781-79524b05fcc5" },
@@ -345,9 +421,12 @@ namespace Persistence.Migrations
                     { 10, "BlogsEdit", "BlogsEdit", "8ce221cd-1b57-4e0b-8781-79524b05fcc5" },
                     { 11, "BlogsDelete", "BlogsDelete", "8ce221cd-1b57-4e0b-8781-79524b05fcc5" },
                     { 12, "BlogsActive", "BlogsActive", "8ce221cd-1b57-4e0b-8781-79524b05fcc5" },
+                    { 3, "BlogCategoriesIndex", "BlogCategoriesIndex", "8ce221cd-1b57-4e0b-8781-79524b05fcc5" },
                     { 14, "Menus", "Menus", "8ce221cd-1b57-4e0b-8781-79524b05fcc5" },
                     { 15, "Products", "Products", "8ce221cd-1b57-4e0b-8781-79524b05fcc5" },
-                    { 16, "ProductsIndex", "ProductsIndex", "8ce221cd-1b57-4e0b-8781-79524b05fcc5" }
+                    { 16, "ProductsIndex", "ProductsIndex", "8ce221cd-1b57-4e0b-8781-79524b05fcc5" },
+                    { 17, "ProductsCreate", "ProductsCreate", "8ce221cd-1b57-4e0b-8781-79524b05fcc5" },
+                    { 18, "ProductsEdit", "ProductsEdit", "8ce221cd-1b57-4e0b-8781-79524b05fcc5" }
                 });
 
             migrationBuilder.InsertData(
@@ -355,25 +434,36 @@ namespace Persistence.Migrations
                 columns: new[] { "Id", "ClaimType", "ClaimValue", "RoleId" },
                 values: new object[,]
                 {
-                    { 17, "ProductsCreate", "ProductsCreate", "8ce221cd-1b57-4e0b-8781-79524b05fcc5" },
-                    { 18, "ProductsEdit", "ProductsEdit", "8ce221cd-1b57-4e0b-8781-79524b05fcc5" },
                     { 19, "ProductsDelete", "ProductsDelete", "8ce221cd-1b57-4e0b-8781-79524b05fcc5" },
                     { 20, "ProductsActive", "ProductsActive", "8ce221cd-1b57-4e0b-8781-79524b05fcc5" },
                     { 21, "Sliders", "Sliders", "8ce221cd-1b57-4e0b-8781-79524b05fcc5" },
                     { 22, "Users", "Users", "8ce221cd-1b57-4e0b-8781-79524b05fcc5" },
                     { 23, "UsersIndex", "UsersIndex", "8ce221cd-1b57-4e0b-8781-79524b05fcc5" },
-                    { 13, "Company", "Company", "8ce221cd-1b57-4e0b-8781-79524b05fcc5" }
+                    { 24, "UsersEdit", "UsersEdit", "8ce221cd-1b57-4e0b-8781-79524b05fcc5" },
+                    { 2, "BlogCategories", "BlogCategories", "8ce221cd-1b57-4e0b-8781-79524b05fcc5" },
+                    { 5, "BlogCategoriesEdit", "BlogCategoriesEdit", "8ce221cd-1b57-4e0b-8781-79524b05fcc5" },
+                    { 4, "BlogCategoriesCreate", "BlogCategoriesCreate", "8ce221cd-1b57-4e0b-8781-79524b05fcc5" }
                 });
 
             migrationBuilder.InsertData(
                 table: "User",
                 columns: new[] { "Id", "AccessFailedCount", "Address", "ConcurrencyStamp", "Credit", "CrmUsersId", "DataCreated", "Description", "Discriminator", "Email", "EmailConfirmed", "FirstName", "IsActive", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "RemoveTime", "RequestToBeOwner", "SecurityStamp", "Tel", "TwoFactorEnabled", "UpdateTime", "UserName" },
-                values: new object[] { "5a64e206-d6c0-4386-923f-5104f173e01c", 0, "تهران", "5927a97d-ea14-4449-9efa-7d5ab4b957e5", null, 61, new DateTime(2021, 6, 8, 12, 4, 35, 466, DateTimeKind.Local).AddTicks(9058), null, "User", null, false, "حسین", true, "کرجی", true, null, null, "09129283406", "AQAAAAEAACcQAAAAEPbSX2kOSigd6t402PCkp70rA2gX/1xlFFBZJ8pgJxtwKbY2eZ5Tp2qHOrecBHXCQw==", "09129283405", true, null, false, "IXN7VEICHYB72KXHBCULEPXFHNZ5U6FS", null, false, null, "09129283406" });
+                values: new object[,]
+                {
+                    { "6a64e206-d6c0-4386-923f-5104f173e01c", 0, "تهران", "5927a97d-ea14-4449-9efa-7d5ab4b957e5", 0, 61, new DateTime(2021, 6, 12, 13, 2, 42, 240, DateTimeKind.Local).AddTicks(3519), null, "User", null, false, "حسین", true, "کرجی", true, null, null, "09129283406", "AQAAAAEAACcQAAAAEPbSX2kOSigd6t402PCkp70rA2gX/1xlFFBZJ8pgJxtwKbY2eZ5Tp2qHOrecBHXCQw==", "09129283406", true, null, false, "IXN7VEICHYB72KXHBCULEPXFHNZ5U6FS", null, false, null, "09129283406" },
+                    { "5a64e206-d6c0-4386-923f-5104f173e01c", 0, "تهران", "5927a97d-ea14-4449-9efa-7d5ab4b957e5", 0, 61, new DateTime(2021, 6, 12, 13, 2, 42, 240, DateTimeKind.Local).AddTicks(4146), null, "User", null, false, "پنل", true, "خریدار", true, null, null, "09129283405", "AQAAAAEAACcQAAAAEPbSX2kOSigd6t402PCkp70rA2gX/1xlFFBZJ8pgJxtwKbY2eZ5Tp2qHOrecBHXCQw==", "09129283405", true, null, false, "IXN7VEICHYB72KXHBCULEPXFHNZ5U6FS", null, false, null, "09129283405" },
+                    { "4a64e206-d6c0-4386-923f-5104f173e01c", 0, "تهران", "5927a97d-ea14-4449-9efa-7d5ab4b957e5", 0, 61, new DateTime(2021, 6, 12, 13, 2, 42, 240, DateTimeKind.Local).AddTicks(4165), null, "User", null, false, "پنل", true, "خریدار", true, null, null, "09129283404", "AQAAAAEAACcQAAAAEPbSX2kOSigd6t402PCkp70rA2gX/1xlFFBZJ8pgJxtwKbY2eZ5Tp2qHOrecBHXCQw==", "09129283404", true, null, false, "IXN7VEICHYB72KXHBCULEPXFHNZ5U6FS", null, false, null, "09129283404" }
+                });
 
             migrationBuilder.InsertData(
                 table: "UserRoles",
                 columns: new[] { "RoleId", "UserId" },
-                values: new object[] { "8ce221cd-1b57-4e0b-8781-79524b05fcc5", "5a64e206-d6c0-4386-923f-5104f173e01c" });
+                values: new object[,]
+                {
+                    { "8ce221cd-1b57-4e0b-8781-79524b05fcc5", "6a64e206-d6c0-4386-923f-5104f173e01c" },
+                    { "2bb43ab4-61c4-4435-aa3e-c6ab7b2858d1", "5a64e206-d6c0-4386-923f-5104f173e01c" },
+                    { "7990ad8a-92a8-4cda-918c-b71887047e9e", "4a64e206-d6c0-4386-923f-5104f173e01c" }
+                });
 
             migrationBuilder.CreateIndex(
                 name: "IX_BasketItems_BasketId",
@@ -384,6 +474,11 @@ namespace Persistence.Migrations
                 name: "IX_BasketItems_ProductId",
                 table: "BasketItems",
                 column: "ProductId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_OrderItems_OrderId",
+                table: "OrderItems",
+                column: "OrderId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -393,6 +488,9 @@ namespace Persistence.Migrations
 
             migrationBuilder.DropTable(
                 name: "Claims");
+
+            migrationBuilder.DropTable(
+                name: "OrderItems");
 
             migrationBuilder.DropTable(
                 name: "Role");
@@ -405,6 +503,9 @@ namespace Persistence.Migrations
 
             migrationBuilder.DropTable(
                 name: "User");
+
+            migrationBuilder.DropTable(
+                name: "UserAddresses");
 
             migrationBuilder.DropTable(
                 name: "UserClaims");
@@ -423,6 +524,9 @@ namespace Persistence.Migrations
 
             migrationBuilder.DropTable(
                 name: "Products");
+
+            migrationBuilder.DropTable(
+                name: "Orders");
         }
     }
 }

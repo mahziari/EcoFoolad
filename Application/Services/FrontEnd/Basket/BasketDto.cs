@@ -18,7 +18,5 @@ namespace Application.Services.FrontEnd.Basket
             }
             return 0;
         }
-        
-        public List<UserAddressDto> UserAddresses { get; set; }
     }
 }

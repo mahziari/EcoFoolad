@@ -17,8 +17,7 @@ namespace Infrastructure.IdentityConfigs
     {
         public static IServiceCollection AddIdentityService(this IServiceCollection services, IConfiguration configuration)
         {
-            services.AddEntityFrameworkSqlServer()
-                .AddDbContext<IdentityDatabaseContext>(options =>
+            services.AddDbContext<IdentityDatabaseContext>(options =>
                     options.UseSqlServer(configuration.GetConnectionString("SqlServer")));
             
             
