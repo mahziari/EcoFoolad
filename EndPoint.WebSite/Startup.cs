@@ -6,6 +6,7 @@ using Application.Interfaces.FacadPatterns.FrontEnd;
 using Application.Services.BackEnd.Admin.Blogs.FacadPattern;
 using Application.Services.BackEnd.Admin.BlogsCategories.FacadPattern;
 using Application.Services.BackEnd.Admin.Company.FacadPattern;
+using Application.Services.BackEnd.Admin.Factory.FacadPattern;
 using Application.Services.BackEnd.Admin.Menus.FacadPattern;
 using Application.Services.BackEnd.Admin.Products.FacadPattern;
 using Application.Services.BackEnd.Admin.Roles.FacadPattern;
@@ -25,7 +26,7 @@ using Application.Services.FrontEnd.User.Addresses;
 using Application.Services.FrontEnd.User.Orders;
 using EndPoint.Web.Areas.Auth.Helpers.Policy;
 using Infrastructure.IdentityConfigs;
-using Infrastructure.MappingProfile;
+using Infrastructure.Mapping;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
@@ -89,6 +90,7 @@ namespace EndPoint.WebSite
                 options.AddPolicy("BlogsDelete", policy => { policy.RequireClaim("BlogsDelete"); });
                 options.AddPolicy("BlogsActive", policy => { policy.RequireClaim("BlogsActive"); });
                 options.AddPolicy("Company", policy => { policy.RequireClaim("Company"); });
+                options.AddPolicy("Factory", policy => { policy.RequireClaim("Factory"); });
                 options.AddPolicy("Menus", policy => { policy.RequireClaim("Menus"); });
                 options.AddPolicy("Products", policy => { policy.RequireClaim("Products"); });
                 options.AddPolicy("ProductsIndex", policy => { policy.RequireClaim("ProductsIndex"); });
@@ -144,6 +146,7 @@ namespace EndPoint.WebSite
             services.AddScoped<IUsersFacad, UsersFacad>();
             services.AddScoped<ISlidersFacad, SlidersFacad>();
             services.AddScoped<ICompanyFacad, CompanyFacad>();
+            services.AddScoped<IFactoryFacad, FactoryFacad>();
             //------ Owner Panel Services
             services.AddScoped<IOwnerProductsFacad, OwnerProductsFacad>();
             services.AddScoped<IOwnerHomeFacad, OwnerHomeFacad>();

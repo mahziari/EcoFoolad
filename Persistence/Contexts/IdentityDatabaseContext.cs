@@ -7,12 +7,13 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Application.Interfaces.Contexts;
 using Domain.Entities.Users;
 using Persistence.Seeds;
 
 namespace Persistence.Contexts
 {
-    public class IdentityDatabaseContext:IdentityDbContext<User,Role,string>
+    public class IdentityDatabaseContext:IdentityDbContext<User,Role,string>,IIdentityDataBaseContext
     {
         public IdentityDatabaseContext(DbContextOptions<IdentityDatabaseContext> options)
             : base(options)

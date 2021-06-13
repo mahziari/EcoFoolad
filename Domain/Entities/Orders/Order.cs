@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Domain.Entities.Attributes;
 
+
 namespace Domain.Entities.Orders
 {
     [Auditable]

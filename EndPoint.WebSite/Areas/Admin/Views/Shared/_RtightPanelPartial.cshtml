@@ -86,13 +86,11 @@
             </li>
         }
 
-
-
-        @if (AuthorizationService.AuthorizeAsync(User, "Company").Result.Succeeded)
+    @if (AuthorizationService.AuthorizeAsync(User, "Company").Result.Succeeded)
         {
             <li class=" nav-item">
                 <a href="#">
-                    <i class="fa fa-th" aria-hidden="true"></i><span class="menu-title" data-i18n="Invoice">شرکت ها</span>
+                    <i class="fa fa-th" aria-hidden="true"></i><span class="menu-title" data-i18n="Invoice">فروشندگان </span>
                 </a>
                 <ul class="menu-content">
                     @* <li> *@
@@ -110,7 +108,29 @@
         }
 
 
-        @if (AuthorizationService.AuthorizeAsync(User, "Menus").Result.Succeeded)
+    
+       @if (AuthorizationService.AuthorizeAsync(User, "Factory").Result.Succeeded)
+            {
+                <li class=" nav-item">
+                    <a href="#">
+                        <i class="fa fa-th" aria-hidden="true"></i><span class="menu-title" data-i18n="Invoice">تولید کنندگان </span>
+                    </a>
+                    <ul class="menu-content">
+                        <li>
+                            <a asp-area="Admin" asp-controller="Factory" asp-action="Create">
+                                <i class="bx bx-right-arrow-alt"></i><span class="menu-item" data-i18n="Invoice List">ایجاد</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a asp-area="Admin" asp-controller="Factory" asp-action="Index">
+                                <i class="bx bx-right-arrow-alt"></i><span class="menu-item" data-i18n="Invoice">مشاهده همه</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            }
+    
+    @if (AuthorizationService.AuthorizeAsync(User, "Menus").Result.Succeeded)
         {
             <li class=" nav-item">
                 <a asp-area="Admin" asp-controller="Menus" asp-action="Index">

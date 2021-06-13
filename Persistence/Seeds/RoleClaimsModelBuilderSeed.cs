@@ -124,6 +124,11 @@ namespace Persistence.Seeds
                 {
                     Id = 24, RoleId = "8ce221cd-1b57-4e0b-8781-79524b05fcc5", ClaimType = "UsersEdit",
                     ClaimValue = "UsersEdit"
+                },
+                new IdentityRoleClaim<string>
+                {
+                    Id = 25, RoleId = "8ce221cd-1b57-4e0b-8781-79524b05fcc5", ClaimType = "Factory",
+                    ClaimValue = "Factory"
                 }
             );
         }

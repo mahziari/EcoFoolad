@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Diagnostics.CodeAnalysis;
 using System.Numerics;
+using Domain.Entities.Orders;
 
 namespace  Domain.Entities.IdealCrm
 {
@@ -84,6 +85,7 @@ namespace  Domain.Entities.IdealCrm
         public int? PrdLinkAccPrdId { get; set; }
         public string PrdLinkAccPrdCode { get; set; }
         public int? OrderView { get; set; }
+        public int VisitCount { get; set; }
         public decimal? PrdPrice { get; set; }
 
         public virtual Users FirstRegisterUser { get; set; }
@@ -110,5 +112,6 @@ namespace  Domain.Entities.IdealCrm
         public virtual ICollection<WsproductsUserDiscount> WsproductsUserDiscount { get; set; }
         public virtual ICollection<WstmpUserItemCopy> WstmpUserItemCopy { get; set; }
         public virtual ICollection<WsuserFavproductItems> WsuserFavproductItems { get; set; }
+        public ICollection<OrderItem> OrderItems { get; set; }
     }
 }

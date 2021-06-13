@@ -13,7 +13,13 @@ namespace EndPoint.WebSite.Controllers
         }
 
 
-        
+        [HttpGet]
+        [Route("")]
+        public IActionResult Index()
+        {
+            var result = _blogsFrontEndFacad.GetBlogsFrontEndService.Execute();
+            return View(result);
+        }
 
 
         [HttpGet]

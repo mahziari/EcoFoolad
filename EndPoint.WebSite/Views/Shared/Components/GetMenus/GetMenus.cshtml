@@ -26,9 +26,8 @@
                             <li class="menu-item menu-item-type-custom menu-item-object-custom">
                                 <a asp-controller="Products"
                                    asp-action="Category"
-                                   asp-route-category="@item.UrlName"
-                                   asp-route-menuName="@subSunItem.Sgname.Replace(" ","-")"
-                                >
+                                   asp-route-CategoryName="@item.UrlName"
+                                   asp-route-MenuName="@subSunItem.Sgname.Replace(" ","-")">
                                     @subSunItem.Sgname
                                 </a>
                             </li>

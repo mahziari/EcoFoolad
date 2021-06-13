@@ -1,0 +1,142 @@
+﻿@using Application.Services.BackEnd.Admin.Factory.Command.CreateFactory
+@model List<FactoryDto>
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "لیست کارخانه ها";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@section Head{
+    <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/vendors/css/vendors-rtl.min.css">
+    <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/vendors/css/tables/datatable/datatables.min.css">
+    <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/css/bootstrap-extended.min.css">
+    <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/css/colors.min.css">
+    <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/css/components.min.css">
+    <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/css/themes/dark-layout.min.css">
+    <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/css/themes/semi-dark-layout.min.css">
+    <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/css/custom-rtl.min.css">
+    <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/css/core/menu/menu-types/vertical-menu-karaji.min.css">
+    <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/css/pages/page-users.min.css">
+    <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/css/style.css">
+}
+
+@section Foo{
+    <script src="~/BackEnd/Admin/vendors/js/vendors.min.js"></script>
+    <script src="~/BackEnd/Admin/vendors/js/tables/datatable/datatables.min.js"></script>
+    <script src="~/BackEnd/Admin/vendors/js/tables/datatable/dataTables.bootstrap4.min.js"></script>
+    <script src="~/BackEnd/Admin/js/scripts/configs/vertical-menu-dark.min.js"></script>
+    <script src="~/BackEnd/Admin/js/core/app-menu.min.js"></script>
+    <script src="~/BackEnd/Admin/js/core/app.min.js"></script>
+    <script src="~/BackEnd/Admin/js/scripts/components.min.js"></script>
+    <script src="~/BackEnd/Admin/js/scripts/footer.min.js"></script>
+    <script src="~/BackEnd/Admin/js/scripts/customizer.min.js"></script>
+    <script src="~/BackEnd/Admin/js/scripts/pages/page-users.min.js"></script>
+    <script> $('div.alert').delay(3000).slideUp(300); </script>
+}
+
+
+<div class="app-content content">
+    <div class="content-overlay"></div>
+    <div class="content-wrapper">
+        <div class="content-header row">
+        </div>
+        <div class="content-body">
+
+            @if (TempData["IsSuccess"] != null)
+            {
+                @if (Convert.ToBoolean(TempData["IsSuccess"]) == true)
+                {
+                    <div class="alert alert-success">
+                        @TempData["Message"]
+                    </div>
+                }
+
+                else if (Convert.ToBoolean(TempData["IsSuccess"]) == false)
+                {
+                    <div class="alert alert-danger">
+                        @TempData["Message"]
+                    </div>
+                }
+            }
+
+            <section class="users-list-wrapper">
+                <div class="users-list-table">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="card-body">
+
+                                <div class="table-responsive">
+                                    <table id="users-list-datatable" class="table">
+                                        <thead>
+                                        <tr>
+                                            <th style="display:none">None</th>
+                                            <th style="display:none">None</th>
+                                            <th style="display:none">None</th>
+                                            <th style="display:none">None</th>
+                                            <th>شماره</th>
+                                            <th>نام شرکت</th>
+                                            <th>عملیات</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        @{ var counter = 0; }
+                                        @foreach (var item in Model)
+                                        {
+                                            counter++;
+                                            <tr>
+                                                <td style="display:none"> </td>
+                                                <td style="display:none"> </td>
+                                                <td style="display:none"> </td>
+                                                <td style="display:none"> </td>
+
+
+                                                <td> @counter</td>
+
+                                              
+
+                                                <td>
+                                                    @item.Name
+                                                </td>
+                                                
+
+
+                                                @* <td> تکمیل میگردد</td> *@
+
+                                                <td class="tdDisplay">
+                                                    @* <a asp-area="Admin" asp-controller="Company" asp-action="Details" asp-route-id="@item.CompanyId" title="مشاهده جزییات"> *@
+                                                    @*     <span class="badge badge-info d-inline-flex align-items-center mr-1 mb-1"> *@
+                                                    @*         <i class="fa fa-folder-open" aria-hidden="true"></i> *@
+                                                    @*     </span> *@
+                                                    @* </a> *@
+                                                    
+                                                    
+                                                    @* <a asp-area="Admin" asp-controller="Factory" asp-action="Edit" asp-route-id="@item.CompanyId" title="ویرایش"> *@
+                                                    @*     <span class="badge badge-warning d-inline-flex align-items-center mr-1 mb-1"> *@
+                                                    @*         <i class="fa fa-pencil-square-o" aria-hidden="true"></i> *@
+                                                    @*     </span> *@
+                                                    @* </a> *@
+                                                    
+                                                
+                                                    @* <a asp-area="Admin" asp-controller="Company" asp-action="Delete" asp-route-id="@item.CompanyId" title="حذف" onclick="return confirm('ایا از حذف مطمعن هستید؟');"> *@
+                                                    @*     <span class="badge badge-danger d-inline-flex align-items-center mr-1 mb-1"> *@
+                                                    @*         <i class="fa fa-window-close" aria-hidden="true"></i> *@
+                                                    @*     </span> *@
+                                                    @* </a> *@
+                                                </td>
+
+                                            </tr>
+                                        }
+
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>

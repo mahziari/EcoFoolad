@@ -2,12 +2,14 @@
 @model ResultGetProductsFrontEndDto
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 @{
-    ViewData["Title"] = "بلاگ اکوفولاد";
+    ViewData["Title"] = "محصولات";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
 @section BodyAttr{
-    data-rsssl="1" class="rtl archive search search-results post-type-archive post-type-archive-product theme-newkala woocommerce woocommerce-page woocommerce-js nk_desktop nk_my_account_page loggedout elementor-default elementor-kit-3073 dokan-theme-newkala" data-elementor-device-mode="desktop"   
-    }
+    data-rsssl="1" class="rtl archive search search-results post-type-archive post-type-archive-product theme-newkala woocommerce woocommerce-page woocommerce-js nk_desktop nk_my_account_page loggedout elementor-default elementor-kit-3073 dokan-theme-newkala" data-elementor-device-mode="desktop"
+}
+
 <style>
     body.archive .content-area#primary ul.products li {
         -ms-flex: 1 0 25%;
@@ -83,7 +85,7 @@
     <span type_view="listing" class="type_view type_view_listing "></span>
     <span type_view="grid" class="type_view type_view_grid active"></span>
 </div>
-    <style>
+<style>
         .mine_css:hover{
         box-shadow: 0 0 17px 0 rgba(0, 0, 0, .09);
         z-index: 41;
@@ -110,31 +112,33 @@
     </style>
 <div class="opacity_black_cover_for_order_by_product" style=""></div>
 
-    <ul class="products  columns-4">
-        @foreach (var item in Model.Menus)
-        {
-            <li class="mine_css swiper-slide not_in_offer_tax not_in_offer_slider product type-product post-3807 status-publish first instock product_cat-cloth product_tag-234 product_tag-236 has-post-thumbnail taxable shipping-taxable purchasable product-type-simple"
-                data-id="3807"
-                style="display: flex">
-                <div class="col-md-4 product_catalog">
-                    <a asp-controller="Products"
-                       asp-action="Category"
-                       asp-route-category="@item.UrlName">
-                       asp-route-menuName="@item.ParsaPooladMenusId">
-                        <img src="/@item.Image"/>
-                    </a>
-                </div>
-                <div class="col-md-4 product_catalog">
+<ul class="products  columns-4">
+    @foreach (var item in Model.Menus)
+    {
+        <li class="mine_css swiper-slide not_in_offer_tax not_in_offer_slider product type-product post-3807 status-publish first instock product_cat-cloth product_tag-234 product_tag-236 has-post-thumbnail taxable shipping-taxable purchasable product-type-simple"
+            data-id="3807"
+            style="display: flex">
+            <div class="col-md-4 product_catalog">
+                <a asp-controller="Products"
+                   asp-action="Category"
+                   asp-route-category="@item.UrlName">
+                    asp-route-menuName="@item.ParsaPooladMenusId">
                     <img src="/@item.Image"/>
-                </div>
-                <div class="col-md-4 product_catalog">
-                    <img src="/@item.Image"/>
-                </div>
-            </li>
-        }
-      
-    </ul>
-    
+                </a>
+            </div>
+            <div class="col-md-4 product_catalog">
+                <img src="/@item.Image"/>
+            </div>
+            <div class="col-md-4 product_catalog">
+                <img src="/@item.Image"/>
+            </div>
+        </li>
+    }
+</ul>
+
+
+
+
 @* <nav class="woocommerce-pagination" lang="fa"> *@
 @*     <ul class="page-numbers"> *@
 @*         <li> *@

@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using Domain.Entities.Attributes;
+using Domain.Entities.Orders;
 
 namespace Domain.Entities.Products
 {
@@ -64,5 +66,6 @@ namespace Domain.Entities.Products
         public string PrdLinkAccPrdCode { get; set; }
         public int? OrderView { get; set; }
         public int PrdPrice { get; set; }
+        public int VisitCount { get; set; }
     }
 }

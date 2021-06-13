@@ -2,18 +2,21 @@
  
 using  Application.Interfaces.FacadPatterns.FrontEnd;
 using  Application.Services.FrontEnd.Products.Queries;
+using AutoMapper;
 
 namespace  Application.Services.FrontEnd.Products.FacadPattern
 {
     public class ProductsFrontEndFacad: IProductsFrontEndFacad
     {
-        private readonly IIdealCrmDataBaseContext _context;
+        private readonly IIdealCrmDataBaseContext _idealCrmDataBase;
         private readonly ICustomDbContext _parsapooladContext;
+        private readonly IMapper _mapper;
 
-        public ProductsFrontEndFacad(IIdealCrmDataBaseContext context,ICustomDbContext parsapooladContext)
+        public ProductsFrontEndFacad(IIdealCrmDataBaseContext idealCrmDataBase,ICustomDbContext parsapooladContext, IMapper mapper)
         {
-            _context = context;
+            _idealCrmDataBase = idealCrmDataBase;
             _parsapooladContext = parsapooladContext;
+            _mapper = mapper;
         }
         
         private IGetProductsFrontEndService _getProductsFrontEndService;
@@ -21,7 +24,7 @@ namespace  Application.Services.FrontEnd.Products.FacadPattern
         {
             get
             {
-                return _getProductsFrontEndService ??= new GetProductsFrontEndService(_context,_parsapooladContext);
+                return _getProductsFrontEndService ??= new GetProductsFrontEndService(_idealCrmDataBase,_parsapooladContext);
             }
         }
         
@@ -31,7 +34,7 @@ namespace  Application.Services.FrontEnd.Products.FacadPattern
                  {
                      get
                      {
-                         return _getProductsDetailsFrontEndService ??= new GetProductsDetailsFrontEndService(_context);
+                         return _getProductsDetailsFrontEndService ??= new GetProductsDetailsFrontEndService(_idealCrmDataBase);
                      }
                  }
         
@@ -42,7 +45,7 @@ namespace  Application.Services.FrontEnd.Products.FacadPattern
         {
             get
             {
-                return _getProductsCategoryFrontEndService ??= new GetProductsCategoryFrontEndService(_context);
+                return _getProductsCategoryFrontEndService ??= new GetProductsCategoryFrontEndService(_idealCrmDataBase,_parsapooladContext,_mapper);
             }
         }
     }

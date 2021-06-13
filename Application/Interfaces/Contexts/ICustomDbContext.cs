@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using Domain.Entities;
 using Domain.Entities.Baskets;
+using Domain.Entities.Factory;
 using Domain.Entities.Orders;
 using Domain.Entities.Payments;
 using Domain.Entities.Products;
@@ -21,6 +22,7 @@ namespace Application.Interfaces.Contexts
         DbSet<Order> Orders { get; set; } 
         DbSet<OrderItem> OrderItems { get; set; }
         DbSet<Payment> Payments { get; set; }
+        DbSet<Factory> Factories { get; set; }
 
 
         

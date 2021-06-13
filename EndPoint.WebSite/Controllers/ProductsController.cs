@@ -1,4 +1,5 @@
 ﻿using Application.Interfaces.FacadPatterns.FrontEnd;
+using Application.Services.FrontEnd.Products.Queries;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EndPoint.WebSite.Controllers
@@ -22,16 +23,16 @@ namespace EndPoint.WebSite.Controllers
         }
         
         [HttpGet]
-        [Route("{category}/{menuName}/{page?}/{pageNumber?}")]
-        public IActionResult Category(string category,string menuName,string page ,int pageNumber=1)
+        [Route("{CategoryName}/{MenuName}/{PageWordForUrl?}/{PageNum?}")]
+        public IActionResult Category(ProductsFiltersDto productsFiltersDto)
         {
-            var result = _productsFrontEndFacad.GetProductsCategoryFrontEndService.Execute(menuName,pageNumber);
+            var result = _productsFrontEndFacad.GetProductsCategoryFrontEndService.Execute(productsFiltersDto);
             return View(result);
         }
 
 
         [HttpGet]
-        [Route("{category}/{name}/{page?}/{pageNumber?}/{id?}")]
+        [Route("{CategoryName}/{MenuName}/{PageNum?}/{PageSize?}/{id?}")]
         public IActionResult Details(string category,string name,string pageView ,int pageNumber=1)
         {
             var result = _productsFrontEndFacad.GetProductsDetailsFrontEndService.Execute(name,pageNumber);
