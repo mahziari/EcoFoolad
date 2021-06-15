@@ -8,13 +8,13 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Application.Services.FrontEnd.Products.Queries.GetProductsCategory
 {
-    public class GetProductsCategoryFrontEndService : IGetProductsCategoryFrontEndService
+    public class GetProductsCategoryThirdGroupFrontEndService : IGetProductsCategoryFrontEndService
     {
         private readonly IIdealCrmDataBaseContext _idealCrmDataBase;
         private readonly ICustomDbContext _customDbContext;
         private readonly IMapper _mapper;
 
-        public GetProductsCategoryFrontEndService(IIdealCrmDataBaseContext context, ICustomDbContext customDbContext,
+        public GetProductsCategoryThirdGroupFrontEndService(IIdealCrmDataBaseContext context, ICustomDbContext customDbContext,
             IMapper mapper)
         {
             _idealCrmDataBase = context;
@@ -27,17 +27,7 @@ namespace Application.Services.FrontEnd.Products.Queries.GetProductsCategory
             var secondGroup = _idealCrmDataBase.WsproductSecondGroup
                 .FirstOrDefault(s => s.EnSgname == productsFiltersDto.MenuName.Replace("-", " "));
 
-            
-            // var firstGroup = _idealCrmDataBase.WsproductFirstGroup
-            //     .Where(s => s.PrdFirstGroupId == secondGroup.FirstGroupId)
-            //     .Select(s => s.ParsaPooladMenusId)
-            //     .FirstOrDefault();
-
-            //
-            // var parsapooladMenu = _idealCrmDataBase.ParsaPooladMenus
-            //     .FirstOrDefault(s => s.ParsaPooladMenusId == firstGroup);
-            //
-        
+       
 
             // Paginate Code
             var resultInEachPage = 16;

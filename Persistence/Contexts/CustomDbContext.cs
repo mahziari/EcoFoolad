@@ -43,7 +43,9 @@ namespace  Persistence.Contexts
         
         
          protected override void OnModelCreating(ModelBuilder builder)
-        {
+         {
+             builder.HasDefaultSchema("dbo");
+             
             foreach (var entityType in builder.Model.GetEntityTypes())
             {
                 if (entityType.ClrType.GetCustomAttributes(typeof(AuditableAttribute), true).Length > 0)

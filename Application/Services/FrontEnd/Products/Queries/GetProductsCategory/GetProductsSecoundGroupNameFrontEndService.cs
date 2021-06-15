@@ -27,16 +27,17 @@ namespace Application.Services.FrontEnd.Products.Queries.GetProductsCategory
        
             
             var firstGroup = _idealCrmDataBase.WsproductFirstGroup
-                .FirstOrDefault(s => s.EnFgname == productsFiltersDto.SecoundGroupName.Replace("-"," "));
-
+                .SingleOrDefault(s => s.EnFgname == productsFiltersDto.SecoundGroupName
+                    .Replace("-"," "));
             
-        
 
             // Paginate Code
             var resultInEachPage = 16;
             int skip = (productsFiltersDto.PageNum - 1) * resultInEachPage;
             int count = _idealCrmDataBase.Wsproducts
-                // .Where(p => p.PrdGroupId == secondGroup.PrdSecondGroupId)
+                .Include(p => p.PrdGroup)
+                .ThenInclude(p=>p.FirstGroup)
+                .Where(p => p.PrdGroup.FirstGroup.PrdFirstGroupId == firstGroup.PrdFirstGroupId)
                 .Count(p => p.PrdInactiveInSale == true);
             var pageId = productsFiltersDto.PageNum;
             var pageCount = (int) Math.Ceiling(count / (double) resultInEachPage);
@@ -45,9 +46,10 @@ namespace Application.Services.FrontEnd.Products.Queries.GetProductsCategory
 
             var query = _idealCrmDataBase.Wsproducts
                 .Include(p => p.PrdUnit)
-                .Include(p => p.PrdGroup)
                 .Include(p => p.PrdShpotherSupplier)
-                .Where(p => p.PrdGroup.FirstGroupId == firstGroup.PrdFirstGroupId)
+                .Include(p => p.PrdGroup)
+                .ThenInclude(p=>p.FirstGroup)
+                .Where(p => p.PrdGroup.FirstGroup.PrdFirstGroupId == firstGroup.PrdFirstGroupId)
                 .Where(p => p.PrdInactiveInSale == true)
                 .OrderByDescending(p => p.ProductId)
                 .AsQueryable();

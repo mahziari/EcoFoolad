@@ -42,12 +42,12 @@ namespace  Application.Services.FrontEnd.Products.FacadPattern
                  
         
         
-        private IGetProductsCategoryFrontEndService _getProductsCategoryFrontEndService;
-        public IGetProductsCategoryFrontEndService GetProductsCategoryFrontEndService
+        private IGetProductsCategoryFrontEndService _getProductsCategoryThirdGroupFrontEndService;
+        public IGetProductsCategoryFrontEndService GetProductsCategoryThirdGroupFrontEndService
         {
             get
             {
-                return _getProductsCategoryFrontEndService ??= new GetProductsCategoryFrontEndService(_idealCrmDataBase,_customDbContext,_mapper);
+                return _getProductsCategoryThirdGroupFrontEndService ??= new GetProductsCategoryThirdGroupFrontEndService(_idealCrmDataBase,_customDbContext,_mapper);
             }
         }
         

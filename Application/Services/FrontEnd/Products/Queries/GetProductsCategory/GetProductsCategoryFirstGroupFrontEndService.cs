@@ -6,6 +6,7 @@ using Application.Services.FrontEnd.Products.Queries.GetProductsCategory.Dto;
 using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 
+
 namespace Application.Services.FrontEnd.Products.Queries.GetProductsCategory
 {
     public class GetProductsCategoryFirstGroupFrontEndService:IGetProductsCategoryFrontEndService
@@ -23,33 +24,29 @@ namespace Application.Services.FrontEnd.Products.Queries.GetProductsCategory
 
      public ResultGetProductsCategoryFrontEndDto Execute(ProductsFiltersDto productsFiltersDto)
         {
-            
-            
-            var firstGroup = _idealCrmDataBase.WsproductFirstGroup
-                .SingleOrDefault(s => s.EnFgname == productsFiltersDto.FirstGroupName.Replace("-"," "));
-
-            //
-            // var parsapooladMenu = _idealCrmDataBase.ParsaPooladMenus
-            //     .FirstOrDefault(s => s.ParsaPooladMenusId == firstGroup);
-            //
-            //
-
+            var parsapooladMenus = _idealCrmDataBase.ParsaPooladMenus
+                .SingleOrDefault(s => s.UrlName == productsFiltersDto.FirstGroupName.Replace("-"," "));
+  
             // Paginate Code
             var resultInEachPage = 16;
             int skip = (productsFiltersDto.PageNum - 1) * resultInEachPage;
             int count = _idealCrmDataBase.Wsproducts
                 .Include(p => p.PrdGroup)
+                .ThenInclude(p=>p.FirstGroup)
+                .ThenInclude(p=>p.ParsaPooladMenus)
+                .Where(p => p.PrdGroup.FirstGroup.ParsaPooladMenus.ParsaPooladMenusId == parsapooladMenus.ParsaPooladMenusId)
                 .Count(p => p.PrdInactiveInSale == true);
             var pageId = productsFiltersDto.PageNum;
             var pageCount = (int) Math.Ceiling(count / (double) resultInEachPage);
             // Paginate Code
 
-
             var query = _idealCrmDataBase.Wsproducts
-                .Include(p => p.PrdGroup)
                 .Include(p => p.PrdUnit)
                 .Include(p => p.PrdShpotherSupplier)
-                .Where(p => p.PrdGroup.FirstGroupId == firstGroup.PrdFirstGroupId)
+                .Include(p => p.PrdGroup)
+                .ThenInclude(p=>p.FirstGroup)
+                .ThenInclude(p=>p.ParsaPooladMenus)
+                .Where(p => p.PrdGroup.FirstGroup.ParsaPooladMenus.ParsaPooladMenusId == parsapooladMenus.ParsaPooladMenusId)
                 .Where(p => p.PrdInactiveInSale == true)
                 .OrderByDescending(p => p.ProductId)
                 .AsQueryable();

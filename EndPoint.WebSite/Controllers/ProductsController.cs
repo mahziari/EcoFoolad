@@ -28,7 +28,7 @@ namespace EndPoint.WebSite.Controllers
         [Route("search/category-{MenuName}/{PageWordForUrl?}/{PageNum?}/")]
         public IActionResult Category(ProductsFiltersDto productsFiltersDto)
         {
-            var result = _productsFrontEndFacad.GetProductsCategoryFrontEndService.Execute(productsFiltersDto);
+            var result = _productsFrontEndFacad.GetProductsCategoryThirdGroupFrontEndService.Execute(productsFiltersDto);
             return View(result);
         }
         
@@ -41,7 +41,7 @@ namespace EndPoint.WebSite.Controllers
         }
         
         [HttpGet]
-        [Route("main1/{SecoundGroupName}/{PageWordForUrl?}/{PageNum?}/")]
+        [Route("main/category-{SecoundGroupName}/{PageWordForUrl?}/{PageNum?}/")]
         public IActionResult CategorySecoundGroup(ProductsFiltersDto productsFiltersDto)
         {
             var result = _productsFrontEndFacad.GetProductsSecoundGroupNameFrontEndService.Execute(productsFiltersDto);
