@@ -99,5 +99,15 @@ namespace  Application.Services.BackEnd.Admin.Company.FacadPattern
                 return _activeCompanyServices ??= new ActiveCompanyServices(_context);
             }
         }
+        
+        
+        private IConvertToFactoriesCompanyServices _convertToFactoriesCompanyServices;
+        public IConvertToFactoriesCompanyServices ConvertToFactoriesCompanyServices
+        {
+            get
+            {
+                return _convertToFactoriesCompanyServices ??= new ConvertToFactoriesCompanyServices(_context);
+            }
+        }
     }
 }

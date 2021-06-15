@@ -6,7 +6,7 @@ namespace  Application.Services.BackEnd.Admin.Menus.Commands
 {
     public interface IEditSubMenusServices
     {
-        ResultEditSubMenusDto Execute(string name,int id);
+        ResultEditSubMenusDto Execute(string name,string EnName,int id);
     }
     public class EditSubMenusServices : IEditSubMenusServices
     {
@@ -17,7 +17,7 @@ namespace  Application.Services.BackEnd.Admin.Menus.Commands
             _context = context;
         }
 
-        public ResultEditSubMenusDto Execute(string name,int id)
+        public ResultEditSubMenusDto Execute(string name,string EnName,int id)
         {
             var menu = _context.WsproductSecondGroup.Find(id);
 
@@ -31,6 +31,7 @@ namespace  Application.Services.BackEnd.Admin.Menus.Commands
             }
 
             menu.Sgname = name;
+            menu.EnSgname = EnName;
             _context.SaveChanges();
 
             return new ResultEditSubMenusDto()

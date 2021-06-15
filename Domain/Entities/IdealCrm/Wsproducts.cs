@@ -81,12 +81,12 @@ namespace  Domain.Entities.IdealCrm
         public double? PrdShpstockManualyCount { get; set; }
         public bool? PrdShphiddenPriceInNoStock { get; set; }
         public bool? PrdShpselfSupplier { get; set; }
-        public int? PrdShpotherSupplierId { get; set; }
+        public int PrdShpotherSupplierId { get; set; }
         public int? PrdLinkAccPrdId { get; set; }
         public string PrdLinkAccPrdCode { get; set; }
         public int? OrderView { get; set; }
         public int VisitCount { get; set; }
-        public decimal? PrdPrice { get; set; }
+        public decimal PrdPrice { get; set; }
 
         public virtual Users FirstRegisterUser { get; set; }
         public virtual WsfinancialPeriod Fp { get; set; }

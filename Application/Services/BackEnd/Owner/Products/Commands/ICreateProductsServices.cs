@@ -52,7 +52,7 @@ namespace  Application.Services.BackEnd.Owner.Products.Commands
                 PrdSize = createProductsServicesDto.PrdSize,
                 PrdModel = createProductsServicesDto.PrdModel,
                 PrdDescription = createProductsServicesDto.PrdDescription,
-                PrdPrice =createProductsServicesDto.PrdPrice,
+                PrdPrice =Convert.ToDecimal(createProductsServicesDto.PrdPrice),
                 PrdInactiveInSale =true,
                 // UserId= Convert.ToInt32(_httpContext.HttpContext.User?.FindFirstValue(ClaimTypes.NameIdentifier)),
                 UserId=createProductsServicesDto.UserId ,
@@ -119,7 +119,7 @@ namespace  Application.Services.BackEnd.Owner.Products.Commands
         
         [Display(Name = "شرکت سازنده محصول")]
         [Required(ErrorMessage = "پر کردن فیلد {0} اجباری است")]
-        public int? PrdShpotherSupplierId { get; set; }
+        public int PrdShpotherSupplierId { get; set; }
         
         [Display(Name = "قیمت محصول")]
         [Required(ErrorMessage = "پر کردن فیلد {0} اجباری است")]

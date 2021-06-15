@@ -9,15 +9,18 @@
 {
     <li id="menu-item-233"
         class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-has-children megamenu_by_two_level">
-        <a href="#" style="pointer-events: none; cursor: default;">
+        <a asp-controller="Products"
+           asp-action="CategoryFirstGroup"
+           asp-route-FirstGroupName="@item.EnName">
             @item.Name
         </a>
         <ul class="sub-menu nk-level-0">
             @foreach (var subItem in item.Sub)
             {
-                <li id="menu-item-234"
-                    class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-has-children">
-                    <a href="#">
+                <li id="menu-item-234" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-has-children">
+                    <a asp-controller="Products"
+                       asp-action="CategorySecoundGroup"
+                       asp-route-SecoundGroupName="@subItem.EnFgname">
                         @subItem.Fgname
                     </a>
                     <ul class="sub-menu nk-level-1">
@@ -26,8 +29,7 @@
                             <li class="menu-item menu-item-type-custom menu-item-object-custom">
                                 <a asp-controller="Products"
                                    asp-action="Category"
-                                   asp-route-CategoryName="@item.UrlName"
-                                   asp-route-MenuName="@subSunItem.Sgname.Replace(" ","-")">
+                                   asp-route-MenuName="@subSunItem.EnSgname">
                                     @subSunItem.Sgname
                                 </a>
                             </li>

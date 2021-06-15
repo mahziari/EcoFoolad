@@ -108,5 +108,16 @@ namespace EndPoint.WebSite.Areas.Admin.Controllers
             
             return RedirectToAction(nameof(Index));
         }
+        
+        [HttpGet]
+        public IActionResult ConvertToFactories(int id)
+        {
+            var result = _companyFacad.ConvertToFactoriesCompanyServices.Execute(id);
+        
+            TempData["IsSuccess"] = result.IsSuccess;
+            TempData["Message"] = result.Message; 
+            
+            return RedirectToAction(nameof(Index));
+        }
     }
 }

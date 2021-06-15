@@ -1,3 +1,1617 @@
-﻿@* <a href="~/cart/addToCart?ProductId=@Model.id"> *@
-@*     اضافه به سبد خرید *@
-@* </a> *@
+﻿@using Application.Services.FrontEnd.Products.Queries
+@model ResultGetProductsDetailsFrontEndDto
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = Model.Product.PrdName;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section BodyAttr{
+    data-rsssl="1" class="rtl product-template-default single single-product postid-3829 theme-newkala woocommerce woocommerce-page woocommerce-js nk_desktop nk_my_account_page loggedout elementor-default elementor-kit-3073 dokan-theme-newkala e--ua-firefox" style="overflow: auto;" data-elementor-device-mode="desktop"
+}
+
+
+<div class="container main_content_single_product">
+
+<!--<div class="append_related_products"></div>-->
+
+<div id="primary" class="content-area">
+<main id="main" class="site-main" role="main">
+@* <ul class="woocommerce-breadcrumb"> *@
+@*     <li> *@
+@*         <a href="https://product-mirzacode.ir/newkala/preview">نیوکالا المنتور</a> *@
+@*     </li><span>/</span> *@
+@*     <li> *@
+@*         <a href="https://product-mirzacode.ir/newkala/preview/product-category/shoes/">کفش</a> *@
+@*     </li><span>/</span><li>کفش مخصوص پیاده روی مردانه مدل adi-super رنگ طوسی</li> *@
+@* </ul> *@
+
+
+<div class="woocommerce-notices-wrapper"></div>
+<div id="product-3829" class="nk_sale_rolling nk_in_special_offer_tax nk_in_special_offer_slider product type-product post-3829 status-publish first instock product_cat-shoes product_tag-237 product_tag-238 has-post-thumbnail sale taxable shipping-taxable purchasable product-type-simple">
+
+
+<div class="responsive_main_top_content_single_product">
+
+    <div class="main_title_and_rating">
+        <div class="product_title entry-title">@Model.Product.PrdName<span></span></div>
+    </div><script>
+setTimeout(function(){
+	jQuery('.summary.entry-summary.ps-container').addClass('product-content');
+ }, 500);
+</script>
+
+    <div class="swiper-responsive-product-slider swiper-container-initialized swiper-container-horizontal swiper-container-rtl">
+
+
+        <div class="main_icon_details_product main_single_product_thumbnail ">
+
+            <div class="yith-wcwl-add-to-wishlist add-to-wishlist-3829  wishlist-fragment on-first-load" data-fragment-ref="3829" data-fragment-options="{&quot;base_url&quot;:&quot;&quot;,&quot;in_default_wishlist&quot;:false,&quot;is_single&quot;:true,&quot;show_exists&quot;:false,&quot;product_id&quot;:3829,&quot;parent_product_id&quot;:3829,&quot;product_type&quot;:&quot;simple&quot;,&quot;show_view&quot;:true,&quot;browse_wishlist_text&quot;:&quot;&quot;,&quot;already_in_wishslist_text&quot;:&quot;&quot;,&quot;product_added_text&quot;:&quot;&quot;,&quot;heading_icon&quot;:&quot;fa-heart-o&quot;,&quot;available_multi_wishlist&quot;:false,&quot;disable_wishlist&quot;:false,&quot;show_count&quot;:false,&quot;ajax_loading&quot;:false,&quot;loop_position&quot;:&quot;after_add_to_cart&quot;,&quot;item&quot;:&quot;add_to_wishlist&quot;}">
+
+                <!-- ADD TO WISHLIST -->
+
+                <div class="yith-wcwl-add-button">
+                    <a href="?add_to_wishlist=3829" rel="nofollow" data-product-id="3829" data-product-type="simple" data-original-product-id="3829" class="add_to_wishlist single_add_to_wishlist" data-title="">
+                        <i class="yith-wcwl-icon fa fa-heart-o"></i> <span></span>
+                    </a>
+                </div>
+                <!-- COUNT TEXT -->
+
+            </div><span class="product_details_icon share_button_onliner" data-custom-open="modal-share"></span><span onclick="get_price_chart_product(3829);" class="product_details_icon chart_price" data-custom-open="modalchartprice"></span>
+        </div>
+
+
+        <div class="swiper-wrapper" style="transition-duration: 0ms;">
+
+            <div class="swiper-slide newkala_product_image">
+                <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20600%20490'%3E%3C/svg%3E" class="attachment-shop_single size-shop_single wp-post-image" alt="" data-lazy-srcset="https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115304654-600x490.jpg 600w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115304654-300x245.jpg 300w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115304654-1024x837.jpg 1024w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115304654-768x628.jpg 768w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115304654.jpg 1280w" data-lazy-sizes="(max-width: 600px) 100vw, 600px" data-lazy-src="https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115304654-600x490.jpg" width="600" height="490">
+                <noscript>
+                    <img width="600" height="490" src="https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115304654-600x490.jpg" class="attachment-shop_single size-shop_single wp-post-image" alt="" srcset="https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115304654-600x490.jpg 600w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115304654-300x245.jpg 300w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115304654-1024x837.jpg 1024w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115304654-768x628.jpg 768w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115304654.jpg 1280w" sizes="(max-width: 600px) 100vw, 600px"/>
+                </noscript>
+            </div>
+        </div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination swiper-pagination-bullets swiper-pagination-bullets-dynamic"></div>
+
+
+        <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
+    </div>
+
+    <script>
+	  jQuery(document).ready(function(){
+		  
+			var swiper = new Swiper('.swiper-responsive-product-slider', {
+			  pagination: {
+				el: '.responsive_main_top_content_single_product .swiper-pagination',
+				dynamicBullets: true,
+				lazy: true,
+			  },
+			});		  
+	  });
+
+		
+	  </script>
+
+    <div class="product_meta">
+        @* <div class="rating_and_nummbercomment"> *@
+        @*     <div class="rating_product"> *@
+        @*         <i class="fas fa-star"></i> *@
+        @*         <span class="average_rating">4.50</span> *@
+        @*         <span class="rating_count">(2)</span> *@
+        @*     </div> *@
+        @*     <div class="comments_number"> *@
+        @*         <i class="fas fa-circle"></i> *@
+        @*         <p> *@
+        @*             <a href="#tab-reviews"><span>2</span>دیدگاه کاربران</a> *@
+        @*         </p> *@
+        @*     </div> *@
+        @* </div> *@
+
+        <span class="sku_wrapper" nk-sku="#12372">شناسه محصول: <span class="sku">#@Model.Product.PrdCode</span></span>
+
+
+        <span class="posted_in">دسته: <a href="" rel="tag">کفش</a></span>
+
+        <div style="clear:both"></div>
+
+
+        <span class="tagged_as">برچسب: <a href="" rel="tag">کفش</a>, <a href="https://product-mirzacode.ir/newkala/preview/product-tag/%da%a9%d9%81%d8%b4-%d9%85%d8%b1%d8%af%d8%a7%d9%86%d9%87/" rel="tag">کفش مردانه</a></span>
+
+    </div>
+
+    <p class="newkala-out-of-stock-in-mobile">در انبار موجود نمی باشد</p>
+
+</div>
+
+<div class="main_top_content_single_product">
+    <div class="custom_images_by_onliner woocommerce-product-gallery woocommerce-product-gallery--with-images woocommerce-product-gallery--columns-4 images" data-columns="4" style="opacity: 1;">
+
+        <div class="main_single_product_thumbnail ">
+
+            <style>
+
+                    .main_icon_details_product {
+                        top: 90px;
+                    }
+
+                    .main_single_product_thumbnail {
+                        margin: unset;
+                        padding-right: unset;
+                    }
+
+                    .sp_timer_wrapper {
+						display: flex;
+						flex-flow: row-reverse;
+						justify-content: space-between;
+						align-items: center;
+						width: 93%;
+						height: 80px;
+						/* background-color: rgba(251, 52, 72, .04); */
+						margin-bottom: 20px;
+						margin: 0px 20px 15px;
+						border-bottom: 1px solid #f00;
+                    }
+
+                    .sp_timer_wrapper img {
+                        width: 185px !important;
+                    }
+
+                    .sp_timer_wrapper_timer {
+                        display: flex;
+                        align-items: center;
+                        font-size: 14pt;
+                        color: #fb3449;
+                    }
+                    .timer_icon {
+                        padding-right: 10px;
+                    }
+                    .timer_icon:before {
+                        font-family: onliner;
+                        content: "\E024";
+                    }
+                    .timer_nums {
+                        direction: rtl;
+                        letter-spacing: -2px;
+                    }
+                    .main_single_product_thumbnail .video_icon_product {
+                        position: unset;
+                        bottom: 0 !important;
+                    }
+                </style>
+
+
+            <div class="sp_timer_wrapper">
+                @* <div class="amazing_text_box"> *@
+                @*     <span class="amazing_first_text">پیشنهاد</span> <span class="amazing_second_text">شگفت انگیز</span> *@
+                @* </div> *@
+                @* <div class="sp_timer_wrapper_timer"> *@
+                @*     <div class="timer_icon"></div> *@
+                @*     <div class="timer_nums"> *@
+                @*         <span class="num"> 59 </span> <span class="text"> : </span><span class="num"> 33 </span> <span class="text"> : </span><span class="num"> 5 </span> <span class="text"> : </span><span class="num"> 7 </span> *@
+                @*     </div> *@
+                @* </div> *@
+            
+            </div>
+            <script>
+                    jQuery(function ($) {
+                        var endDate = "2022-06-21T23:59:59+04:30";
+                        jQuery('.timer_nums').countdown({
+                            date: endDate,
+                            render: function (data) {
+                                if (!data.sec) {
+                                    data.sec = 0
+                                }
+                                ;
+                                var days = data.days;
+                                var hours = data.hours;
+                                var min = data.min;
+                                var sec = data.sec;
+                                jQuery(this.el).html(
+                                    '<span class="num"> ' + sec + ' </span> <span class="text"> : </span>' +
+                                    '<span class="num"> ' + min + ' </span> <span class="text"> : </span>' +
+                                    '<span class="num"> ' + hours + ' </span> <span class="text"> : </span>' +
+                                    '<span class="num"> ' + days + ' </span>'
+                                );
+                            }
+                        });
+                    });
+                </script>
+
+
+            <figure class="woocommerce-product-gallery__wrapper nk_woocommerce-product-gallery__wrapper">
+                <div class="woocommerce-product-gallery__image">
+                    <img src="~/Images/Menus/1.jpg" class="attachment-shop_single size-shop_single wp-post-image lazyloaded" alt="@Model.Product.PrdName" id="attachment-shop_single" 
+                         data-zoom-image="~/Images/Menus/1.jpg" sizes="(max-width: 600px) 100vw, 600px" 
+                         srcset="~/Images/Menus/1.jpg 600w,
+ https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115304654-300x245.jpg 300w,
+ https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115304654-1024x837.jpg 1024w,
+ https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115304654-768x628.jpg 768w,
+ https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115304654.jpg 1280w" 
+                         data-ll-status="loaded" width="600" height="490">
+                    <noscript>
+                        <img width="600" height="490" src="~/Images/Menus/1.jpg" class="attachment-shop_single size-shop_single wp-post-image" alt="@Model.Product.PrdName" id="attachment-shop_single" 
+                             data-zoom-image="~/Images/Menus/1.jpg" 
+                             srcset="~/Images/Menus/1.jpg 600w, 
+https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115304654-300x245.jpg 300w,
+ https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115304654-1024x837.jpg 1024w,
+ https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115304654-768x628.jpg 768w,
+ https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115304654.jpg 1280w" 
+                             sizes="(max-width: 600px) 100vw, 600px"/>
+                    </noscript>
+                    <div id="show_zoom_container"></div>
+                </div>
+            </figure>
+
+
+            <div class="main_icon_details_product">
+                <div class="yith-wcwl-add-to-wishlist add-to-wishlist-3829  wishlist-fragment on-first-load" data-fragment-ref="3829" data-fragment-options="{&quot;base_url&quot;:&quot;&quot;,&quot;in_default_wishlist&quot;:false,&quot;is_single&quot;:true,&quot;show_exists&quot;:false,&quot;product_id&quot;:3829,&quot;parent_product_id&quot;:3829,&quot;product_type&quot;:&quot;simple&quot;,&quot;show_view&quot;:true,&quot;browse_wishlist_text&quot;:&quot;&quot;,&quot;already_in_wishslist_text&quot;:&quot;&quot;,&quot;product_added_text&quot;:&quot;&quot;,&quot;heading_icon&quot;:&quot;fa-heart-o&quot;,&quot;available_multi_wishlist&quot;:false,&quot;disable_wishlist&quot;:false,&quot;show_count&quot;:false,&quot;ajax_loading&quot;:false,&quot;loop_position&quot;:&quot;after_add_to_cart&quot;,&quot;item&quot;:&quot;add_to_wishlist&quot;}">
+
+                    <!-- ADD TO WISHLIST -->
+
+                    <div class="yith-wcwl-add-button">
+                        <a href="?add_to_wishlist=3829" rel="nofollow" data-product-id="3829" data-product-type="simple" data-original-product-id="3829" class="add_to_wishlist single_add_to_wishlist" data-title="">
+                            <i class="yith-wcwl-icon fa fa-heart-o"></i> <span></span>
+                        </a>
+                    </div>
+                    <!-- COUNT TEXT -->
+
+                </div><span class="product_details_icon share_button_onliner" data-custom-open="modal-share"></span>
+                <a href="https://product-mirzacode.ir/newkala/preview/nk-compare/?products=3829" class="compare  button" rel="nofollow"></a>
+                <span onclick="get_price_chart_product(3829);" class="product_details_icon chart_price" data-custom-open="modalchartprice"></span>
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+    <div class="summary entry-summary">
+
+
+        <div class="main_title_and_rating">
+            <div class="product_title entry-title">
+                <h1>@Model.Product.PrdName<span></span></h1>
+            </div>
+        </div><script>
+setTimeout(function(){
+	jQuery('.summary.entry-summary.ps-container').addClass('product-content');
+ }, 500);
+</script>
+
+
+        <div class="newkala_container_summary" style="min-height:385.833px;">
+
+            <div class="product_meta">
+                <div class="rating_and_nummbercomment">
+                    <div class="rating_product">
+                        <i class="fas fa-star"></i>
+                        <span class="average_rating">4.50</span>
+                        <span class="rating_count">(2)</span>
+                    </div>
+                    <div class="comments_number">
+                        <i class="fas fa-circle"></i>
+                        <p>
+                            <a href="#tab-reviews"><span>2</span>دیدگاه کاربران</a>
+                        </p>
+                    </div>
+                </div>
+
+                <span class="sku_wrapper" nk-sku="#12372">شناسه محصول: <span class="sku">@Model.Product.PrdCode#</span></span>
+
+
+                <span class="posted_in">دسته: <a href="https://product-mirzacode.ir/newkala/preview/product-category/shoes/" rel="tag">کفش</a></span>
+
+                <div style="clear:both"></div>
+
+
+                <span class="tagged_as">برچسب: <a href="https://product-mirzacode.ir/newkala/preview/product-tag/%da%a9%d9%81%d8%b4/" rel="tag">کفش</a>, <a href="https://product-mirzacode.ir/newkala/preview/product-tag/%da%a9%d9%81%d8%b4-%d9%85%d8%b1%d8%af%d8%a7%d9%86%d9%87/" rel="tag">کفش مردانه</a></span>
+
+            </div>
+
+
+            <form class="cart" asp-controller="Basket" asp-action="Index" method="post" enctype="multipart/form-data">
+                <div class="single_product_custom_attributes">
+                    <div class="title_custom_attributes">ویژگی های محصول</div>
+                    <ul>
+                        <li>
+                            جنس: پارچه
+                        </li>
+                        <li>
+                            ویژگی های تخصصی: قابلیت گردش هوا
+                        </li><li>نحوه بسته شدن: بند</li>
+                    </ul>
+                </div>
+                <div class="nk_main_add_to_cart_box">
+                    <div class="nk_add_to_cart_box">
+                        <div class="main_side_details_product">
+                            <ul>
+                                <li class="seller_brand">فروشنده: شهر کفش</li><li class="garrantie">گارانتی اصالت و سلامت فیزیکی کالا</li><li class="stock_name">آماده ارسال از انبار: شهر کفش</li><li class="send_by">بسته بندی و ارسال توسط: شهر کفش</li>
+                            </ul>
+                        </div>
+                        <p class="price">
+                            @* <del> *@
+                            @*     <strong class="nk_discount_label"> *@
+                            @*         <span>٪</span><span>25</span> *@
+                            @*     </strong> *@
+                            @*     <span class="woocommerce-Price-amount amount"> *@
+                            @*         <bdi>100,000&nbsp;<span class="woocommerce-Price-currencySymbol">تومان</span></bdi> *@
+                            @*     </span> *@
+                            @* </del> *@
+                            <ins>
+                                <span class="woocommerce-Price-amount amount">
+                                    <bdi>@Model.Product.PrdPrice.ToString("n0")<span class="woocommerce-Price-currencySymbol">تومان</span></bdi>
+                                </span>
+                            </ins>
+                        </p>
+
+                        <div class="main_add_to_cart_box add_to_cart_box_single_page">
+                        <!--end nk_add_to_cart_box-->
+                        
+                            <div class="quantity">
+                                @* <label class="screen-reader-text" for="quantity_60c70b710341c">کفش مخصوص پیاده روی مردانه مدل adi-super رنگ طوسی عدد</label> *@
+                                <input type="number" class="input-text qty text" step="1" min="1" max="" name="quantity" value="1" title="تعداد" size="1" placeholder="" inputmode="numeric">
+                            </div>
+                                <input type="hidden" name="productId" value="@Model.Product.ProductId">
+                                @* <input type="text" name="quantity" value="1"> *@
+                                <button type="submit" class="single_add_to_cart_button button alt">افزودن به سبد خرید</button>
+                        
+
+                        </div><!--end add_to_cart_box-->
+                    </div><!--end nk_add_to_cart_box-->
+                </div><!--end nk_main_add_to_cart_box-->
+            </form>
+
+
+        </div>
+
+        <script>
+		  jQuery(document).ready(function($){
+			  
+			  if ( $('.nk_add_to_cart_box').length ){
+				  
+					var height_add_to_cart_box = $('.nk_add_to_cart_box').height() + 50;
+					$('.newkala_container_summary').attr('style','min-height:'+ height_add_to_cart_box +'px;');					  
+			  }
+			  
+			  $('.newkala_container_summary').click(function(){
+					var height_add_to_cart_box = $('.nk_add_to_cart_box').height() + 50;
+					$('.newkala_container_summary').attr('style','min-height:'+ height_add_to_cart_box +'px;');					  
+			  });
+			
+		  });
+
+			
+		  </script>
+
+
+        <div class="clear"></div>
+
+
+    </div>
+</div>
+
+
+<div class="woocommerce main_product  nk_product_slider_desktop">
+
+<div class="title_widg_index">
+    <h3 class="title_slider">محصولات مرتبط</h3>
+</div>
+
+
+<ul id="cat_slidertETcKsZWYL" class="owl-carousel owl-rtl owl-loaded owl-drag" style="">
+
+
+<div class="owl-stage-outer">
+<div class="owl-stage" style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s; width: 1819px;">
+<div class="owl-item active" style="width: 249.8px; margin-left: 10px;">
+    <li class="nk-content-product-slider swiper-slide not_in_offer_tax not_in_offer_slider product type-product post-3831 status-publish instock product_cat-shoes product_tag-237 product_tag-238 has-post-thumbnail taxable shipping-taxable purchasable product-type-simple">
+        <a href="https://product-mirzacode.ir/newkala/preview/product/adak-ultra-mens-walking-shoes-model-301/" class="woocommerce-LoopProduct-link woocommerce-loop-product__link">
+            <div class="product_labels">
+                <div class="archive_outofstock_wrapper">
+                    <div class="archive_outofstock_text">ناموجود</div>
+                </div>
+
+                <!--
+                <div class="archive_outofstock_wrapper archive_sale_expired">
+                    <div class="archive_outofstock_text"></div>
+                </div>
+
+
+                <div class="product_is_in_special_offer"><img src=""></div>
+                -->
+
+            </div>
+
+
+            <img src="https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117477576-210x210.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail lazyloaded" alt="" sizes="(max-width: 210px) 100vw, 210px" srcset="https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117477576-210x210.jpg 210w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117477576-300x300.jpg 300w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117477576-1024x1024.jpg 1024w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117477576-180x180.jpg 180w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117477576-768x768.jpg 768w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117477576-20x20.jpg 20w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117477576-30x30.jpg 30w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117477576-40x40.jpg 40w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117477576-600x600.jpg 600w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117477576-100x100.jpg 100w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117477576.jpg 1280w" data-ll-status="loaded" width="210" height="210">
+            <noscript>
+                <img width="210" height="210" src="https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117477576-210x210.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" srcset="https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117477576-210x210.jpg 210w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117477576-300x300.jpg 300w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117477576-1024x1024.jpg 1024w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117477576-180x180.jpg 180w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117477576-768x768.jpg 768w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117477576-20x20.jpg 20w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117477576-30x30.jpg 30w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117477576-40x40.jpg 40w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117477576-600x600.jpg 600w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117477576-100x100.jpg 100w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117477576.jpg 1280w" sizes="(max-width: 210px) 100vw, 210px"/>
+            </noscript>
+            <h2 class="woocommerce-loop-product__title">کفش مخصوص پیاده روی مردانه آداک مدل اولترا کد 301</h2>
+        </a>
+        <div class="newkala_container_custom_price">
+            <span class="price" lang="fa">
+                <span class="woocommerce-Price-amount amount">
+                    <bdi>260,000&nbsp;<span class="woocommerce-Price-currencySymbol">تومان</span></bdi>
+                </span>
+            </span>
+        </div>
+    </li>
+</div>
+<div class="owl-item active" style="width: 249.8px; margin-left: 10px;">
+    <li class="nk-content-product-slider swiper-slide nk_sale_rolling nk_in_special_offer_tax nk_in_special_offer_slider product type-product post-3827 status-publish instock product_cat-shoes product_tag-237 product_tag-238 has-post-thumbnail sale taxable shipping-taxable purchasable product-type-simple">
+        <a href="https://product-mirzacode.ir/newkala/preview/product/mens-walking-shoes-code-101-p/" class="woocommerce-LoopProduct-link woocommerce-loop-product__link">
+            <div class="product_labels">
+                <div class="archive_outofstock_wrapper">
+                    <div class="archive_outofstock_text">ناموجود</div>
+                </div>
+
+                <!--
+                <div class="archive_outofstock_wrapper archive_sale_expired">
+                    <div class="archive_outofstock_text"></div>
+                </div>
+
+
+                <div class="product_is_in_special_offer"><img src=""></div>
+                -->
+
+            </div>
+
+
+            <img src="https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115355593-210x210.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail lazyloaded" alt="" sizes="(max-width: 210px) 100vw, 210px" srcset="https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115355593-210x210.jpg 210w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115355593-300x300.jpg 300w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115355593-1024x1024.jpg 1024w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115355593-180x180.jpg 180w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115355593-768x767.jpg 768w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115355593-20x20.jpg 20w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115355593-30x30.jpg 30w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115355593-40x40.jpg 40w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115355593-600x600.jpg 600w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115355593-100x100.jpg 100w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115355593.jpg 1280w" data-ll-status="loaded" width="210" height="210">
+            <noscript>
+                <img width="210" height="210" src="https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115355593-210x210.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" srcset="https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115355593-210x210.jpg 210w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115355593-300x300.jpg 300w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115355593-1024x1024.jpg 1024w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115355593-180x180.jpg 180w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115355593-768x767.jpg 768w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115355593-20x20.jpg 20w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115355593-30x30.jpg 30w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115355593-40x40.jpg 40w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115355593-600x600.jpg 600w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115355593-100x100.jpg 100w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115355593.jpg 1280w" sizes="(max-width: 210px) 100vw, 210px"/>
+            </noscript>
+            <h2 class="woocommerce-loop-product__title">کفش مخصوص پیاده روی مردانه کد 101 P</h2>
+        </a>
+        <div class="newkala_container_custom_price">
+            <span class="price" lang="fa">
+                <del>
+                    <strong class="nk_discount_label">
+                        <span>٪</span><span>12</span>
+                    </strong>
+                    <span class="woocommerce-Price-amount amount">
+                        <bdi>170,000&nbsp;<span class="woocommerce-Price-currencySymbol">تومان</span></bdi>
+                    </span>
+                </del>
+                <ins>
+                    <span class="woocommerce-Price-amount amount">
+                        <bdi>150,000&nbsp;<span class="woocommerce-Price-currencySymbol">تومان</span></bdi>
+                    </span>
+                </ins>
+            </span>
+        </div>
+    </li>
+</div>
+<div class="owl-item active" style="width: 249.8px; margin-left: 10px;">
+    <li class="nk-content-product-slider swiper-slide nk_sale_rolling not_in_offer_tax not_in_offer_slider product type-product post-3825 status-publish last instock product_cat-shoes product_tag-237 product_tag-238 has-post-thumbnail sale taxable shipping-taxable purchasable product-type-simple">
+        <a href="https://product-mirzacode.ir/newkala/preview/product/mens-walking-shoes-code-4545/" class="woocommerce-LoopProduct-link woocommerce-loop-product__link">
+            <div class="product_labels">
+                <div class="archive_outofstock_wrapper">
+                    <div class="archive_outofstock_text">ناموجود</div>
+                </div>
+
+                <!--
+                <div class="archive_outofstock_wrapper archive_sale_expired">
+                    <div class="archive_outofstock_text"></div>
+                </div>
+
+
+                <div class="product_is_in_special_offer"><img src=""></div>
+                -->
+
+            </div>
+
+
+            <img src="https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115303739-210x210.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail lazyloaded" alt="" sizes="(max-width: 210px) 100vw, 210px" srcset="https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115303739-210x210.jpg 210w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115303739-300x300.jpg 300w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115303739-1024x1024.jpg 1024w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115303739-180x180.jpg 180w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115303739-768x767.jpg 768w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115303739-20x20.jpg 20w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115303739-30x30.jpg 30w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115303739-40x40.jpg 40w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115303739-600x600.jpg 600w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115303739-100x100.jpg 100w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115303739.jpg 1280w" data-ll-status="loaded" width="210" height="210">
+            <noscript>
+                <img width="210" height="210" src="https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115303739-210x210.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" srcset="https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115303739-210x210.jpg 210w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115303739-300x300.jpg 300w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115303739-1024x1024.jpg 1024w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115303739-180x180.jpg 180w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115303739-768x767.jpg 768w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115303739-20x20.jpg 20w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115303739-30x30.jpg 30w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115303739-40x40.jpg 40w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115303739-600x600.jpg 600w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115303739-100x100.jpg 100w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115303739.jpg 1280w" sizes="(max-width: 210px) 100vw, 210px"/>
+            </noscript>
+            <h2 class="woocommerce-loop-product__title">کفش مخصوص پیاده روی مردانه کد ۴۵۴۵</h2>
+        </a>
+        <div class="newkala_container_custom_price">
+            <span class="price" lang="fa">
+                <del>
+                    <strong class="nk_discount_label">
+                        <span>٪</span><span>4</span>
+                    </strong>
+                    <span class="woocommerce-Price-amount amount">
+                        <bdi>180,000&nbsp;<span class="woocommerce-Price-currencySymbol">تومان</span></bdi>
+                    </span>
+                </del>
+                <ins>
+                    <span class="woocommerce-Price-amount amount">
+                        <bdi>172,000&nbsp;<span class="woocommerce-Price-currencySymbol">تومان</span></bdi>
+                    </span>
+                </ins>
+            </span>
+        </div>
+    </li>
+</div>
+<div class="owl-item active" style="width: 249.8px; margin-left: 10px;">
+    <li class="nk-content-product-slider swiper-slide not_in_offer_tax not_in_offer_slider product type-product post-3823 status-publish first instock product_cat-shoes product_tag-237 product_tag-238 has-post-thumbnail taxable shipping-taxable purchasable product-type-simple">
+        <a href="https://product-mirzacode.ir/newkala/preview/product/patricas-mens-hiking-shoes-code-5653/" class="woocommerce-LoopProduct-link woocommerce-loop-product__link">
+            <div class="product_labels">
+                <div class="archive_outofstock_wrapper">
+                    <div class="archive_outofstock_text">ناموجود</div>
+                </div>
+
+                <!--
+                <div class="archive_outofstock_wrapper archive_sale_expired">
+                    <div class="archive_outofstock_text"></div>
+                </div>
+
+
+                <div class="product_is_in_special_offer"><img src=""></div>
+                -->
+
+            </div>
+
+
+            <img src="https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117343745-210x210.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail lazyloaded" alt="" sizes="(max-width: 210px) 100vw, 210px" srcset="https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117343745-210x210.jpg 210w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117343745-300x300.jpg 300w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117343745-1024x1024.jpg 1024w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117343745-180x180.jpg 180w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117343745-768x768.jpg 768w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117343745-20x20.jpg 20w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117343745-30x30.jpg 30w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117343745-40x40.jpg 40w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117343745-600x600.jpg 600w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117343745-100x100.jpg 100w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117343745.jpg 1280w" data-ll-status="loaded" width="210" height="210">
+            <noscript>
+                <img width="210" height="210" src="https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117343745-210x210.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" srcset="https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117343745-210x210.jpg 210w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117343745-300x300.jpg 300w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117343745-1024x1024.jpg 1024w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117343745-180x180.jpg 180w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117343745-768x768.jpg 768w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117343745-20x20.jpg 20w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117343745-30x30.jpg 30w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117343745-40x40.jpg 40w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117343745-600x600.jpg 600w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117343745-100x100.jpg 100w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117343745.jpg 1280w" sizes="(max-width: 210px) 100vw, 210px"/>
+            </noscript>
+            <h2 class="woocommerce-loop-product__title">کفش مخصوص پیاده روی مردانه مدل پاتریکاس کد 5653</h2>
+        </a>
+        <div class="newkala_container_custom_price">
+            <span class="price" lang="fa">
+                <span class="woocommerce-Price-amount amount">
+                    <bdi>135,000&nbsp;<span class="woocommerce-Price-currencySymbol">تومان</span></bdi>
+                </span>
+            </span>
+        </div>
+    </li>
+</div>
+<div class="owl-item active" style="width: 249.8px; margin-left: 10px;">
+    <li class="nk-content-product-slider swiper-slide not_in_offer_tax not_in_offer_slider product type-product post-3821 status-publish instock product_cat-shoes product_tag-237 product_tag-238 has-post-thumbnail taxable shipping-taxable purchasable product-type-simple">
+        <a href="https://product-mirzacode.ir/newkala/preview/product/mens-running-shoes-model-27-d-r-j-e/" class="woocommerce-LoopProduct-link woocommerce-loop-product__link">
+            <div class="product_labels">
+                <div class="archive_outofstock_wrapper">
+                    <div class="archive_outofstock_text">ناموجود</div>
+                </div>
+
+                <!--
+                <div class="archive_outofstock_wrapper archive_sale_expired">
+                    <div class="archive_outofstock_text"></div>
+                </div>
+
+
+                <div class="product_is_in_special_offer"><img src=""></div>
+                -->
+
+            </div>
+
+
+            <img src="https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115227919-210x210.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail lazyloaded" alt="" sizes="(max-width: 210px) 100vw, 210px" srcset="https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115227919-210x210.jpg 210w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115227919-300x300.jpg 300w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115227919-1024x1024.jpg 1024w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115227919-180x180.jpg 180w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115227919-768x767.jpg 768w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115227919-20x20.jpg 20w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115227919-30x30.jpg 30w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115227919-40x40.jpg 40w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115227919-600x600.jpg 600w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115227919-100x100.jpg 100w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115227919.jpg 1280w" data-ll-status="loaded" width="210" height="210">
+            <noscript>
+                <img width="210" height="210" src="https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115227919-210x210.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" srcset="https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115227919-210x210.jpg 210w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115227919-300x300.jpg 300w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115227919-1024x1024.jpg 1024w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115227919-180x180.jpg 180w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115227919-768x767.jpg 768w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115227919-20x20.jpg 20w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115227919-30x30.jpg 30w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115227919-40x40.jpg 40w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115227919-600x600.jpg 600w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115227919-100x100.jpg 100w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115227919.jpg 1280w" sizes="(max-width: 210px) 100vw, 210px"/>
+            </noscript>
+            <h2 class="woocommerce-loop-product__title">کفش مخصوص دویدن مردانه مدل 27ِ.D.r.j.e</h2>
+        </a>
+        <div class="newkala_container_custom_price">
+            <span class="price" lang="fa">
+                <span class="woocommerce-Price-amount amount">
+                    <bdi>120,000&nbsp;<span class="woocommerce-Price-currencySymbol">تومان</span></bdi>
+                </span>
+            </span>
+        </div>
+    </li>
+</div>
+<div class="owl-item" style="width: 249.8px; margin-left: 10px;">
+    <li class="nk-content-product-slider swiper-slide nk_sale_rolling not_in_offer_tax not_in_offer_slider product type-product post-3819 status-publish instock product_cat-shoes product_tag-239 product_tag-237 has-post-thumbnail sale taxable shipping-taxable purchasable product-type-simple">
+        <a href="https://product-mirzacode.ir/newkala/preview/product/mens-sneakers-model-part-so/" class="woocommerce-LoopProduct-link woocommerce-loop-product__link">
+            <div class="product_labels">
+                <div class="archive_outofstock_wrapper">
+                    <div class="archive_outofstock_text">ناموجود</div>
+                </div>
+
+                <!--
+                <div class="archive_outofstock_wrapper archive_sale_expired">
+                    <div class="archive_outofstock_text"></div>
+                </div>
+
+
+                <div class="product_is_in_special_offer"><img src=""></div>
+                -->
+
+            </div>
+
+
+            <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20210%20210'%3E%3C/svg%3E" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" data-lazy-srcset="https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/119128346-210x210.jpg 210w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/119128346-300x300.jpg 300w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/119128346-1024x1024.jpg 1024w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/119128346-180x180.jpg 180w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/119128346-768x768.jpg 768w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/119128346-20x20.jpg 20w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/119128346-30x30.jpg 30w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/119128346-40x40.jpg 40w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/119128346-600x600.jpg 600w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/119128346-100x100.jpg 100w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/119128346.jpg 1280w" data-lazy-sizes="(max-width: 210px) 100vw, 210px" data-lazy-src="https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/119128346-210x210.jpg" width="210" height="210">
+            <noscript>
+                <img width="210" height="210" src="https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/119128346-210x210.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" srcset="https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/119128346-210x210.jpg 210w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/119128346-300x300.jpg 300w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/119128346-1024x1024.jpg 1024w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/119128346-180x180.jpg 180w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/119128346-768x768.jpg 768w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/119128346-20x20.jpg 20w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/119128346-30x30.jpg 30w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/119128346-40x40.jpg 40w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/119128346-600x600.jpg 600w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/119128346-100x100.jpg 100w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/119128346.jpg 1280w" sizes="(max-width: 210px) 100vw, 210px"/>
+            </noscript>
+            <h2 class="woocommerce-loop-product__title">کفش راحتی مردانه مدل PART-SO</h2>
+        </a>
+        <div class="newkala_container_custom_price">
+            <span class="price" lang="fa">
+                <del>
+                    <strong class="nk_discount_label">
+                        <span>٪</span><span>15</span>
+                    </strong>
+                    <span class="woocommerce-Price-amount amount">
+                        <bdi>164,000&nbsp;<span class="woocommerce-Price-currencySymbol">تومان</span></bdi>
+                    </span>
+                </del>
+                <ins>
+                    <span class="woocommerce-Price-amount amount">
+                        <bdi>140,000&nbsp;<span class="woocommerce-Price-currencySymbol">تومان</span></bdi>
+                    </span>
+                </ins>
+            </span>
+        </div>
+    </li>
+</div>
+<div class="owl-item" style="width: 249.8px; margin-left: 10px;">
+    <li class="nk-content-product-slider swiper-slide not_in_offer_tax not_in_offer_slider product type-product post-3817 status-publish last instock product_cat-shoes product_tag-237 product_tag-238 has-post-thumbnail taxable shipping-taxable purchasable product-type-simple">
+        <a href="https://product-mirzacode.ir/newkala/preview/product/mens-mountaineering-shoes-code-a21x/" class="woocommerce-LoopProduct-link woocommerce-loop-product__link">
+            <div class="product_labels">
+                <div class="archive_outofstock_wrapper">
+                    <div class="archive_outofstock_text">ناموجود</div>
+                </div>
+
+                <!--
+                <div class="archive_outofstock_wrapper archive_sale_expired">
+                    <div class="archive_outofstock_text"></div>
+                </div>
+
+
+                <div class="product_is_in_special_offer"><img src=""></div>
+                -->
+
+            </div>
+
+
+            <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20210%20210'%3E%3C/svg%3E" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" data-lazy-srcset="https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115360869-210x210.jpg 210w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115360869-300x300.jpg 300w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115360869-1024x1024.jpg 1024w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115360869-180x180.jpg 180w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115360869-768x767.jpg 768w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115360869-20x20.jpg 20w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115360869-30x30.jpg 30w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115360869-40x40.jpg 40w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115360869-600x600.jpg 600w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115360869-100x100.jpg 100w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115360869.jpg 1280w" data-lazy-sizes="(max-width: 210px) 100vw, 210px" data-lazy-src="https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115360869-210x210.jpg" width="210" height="210">
+            <noscript>
+                <img width="210" height="210" src="https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115360869-210x210.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" srcset="https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115360869-210x210.jpg 210w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115360869-300x300.jpg 300w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115360869-1024x1024.jpg 1024w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115360869-180x180.jpg 180w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115360869-768x767.jpg 768w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115360869-20x20.jpg 20w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115360869-30x30.jpg 30w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115360869-40x40.jpg 40w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115360869-600x600.jpg 600w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115360869-100x100.jpg 100w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115360869.jpg 1280w" sizes="(max-width: 210px) 100vw, 210px"/>
+            </noscript>
+            <h2 class="woocommerce-loop-product__title">کفش کوهنوردی مردانه کد A21X</h2>
+        </a>
+        <div class="newkala_container_custom_price">
+            <span class="price" lang="fa">
+                <span class="woocommerce-Price-amount amount">
+                    <bdi>150,000&nbsp;<span class="woocommerce-Price-currencySymbol">تومان</span></bdi>
+                </span>
+            </span>
+        </div>
+    </li>
+</div>
+</div>
+</div>
+<div class="owl-nav">
+    <button type="button" role="presentation" class="owl-prev disabled"></button><button type="button" role="presentation" class="owl-next"></button>
+</div>
+<div class="owl-dots disabled"></div>
+</ul>
+
+</div>
+
+
+<div class="woocommerce main_product  nk_product_slider_mobile nk_product_slider_mobile_elementor">
+<h3 class="title_slider">
+    <a href="" title="محصولات مرتبط">محصولات مرتبط</a>
+    <a href="" title="محصولات مرتبط" class="nk-archive-product-slider">مشاهده همه</a>
+</h3>
+<div class="swiper-container cat_slider_tETcKsZWYL swiper-container-initialized swiper-container-horizontal swiper-container-free-mode swiper-container-rtl" dir="rtl">
+<ul class="swiper-wrapper" style="transition-duration: 0ms;">
+
+
+<li class="nk-content-product-slider swiper-slide not_in_offer_tax not_in_offer_slider product type-product post-3831 status-publish instock product_cat-shoes product_tag-237 product_tag-238 has-post-thumbnail taxable shipping-taxable purchasable product-type-simple">
+    <a href="https://product-mirzacode.ir/newkala/preview/product/adak-ultra-mens-walking-shoes-model-301/" class="woocommerce-LoopProduct-link woocommerce-loop-product__link">
+        <div class="product_labels">
+            <div class="archive_outofstock_wrapper">
+                <div class="archive_outofstock_text">ناموجود</div>
+            </div>
+
+            <!--
+            <div class="archive_outofstock_wrapper archive_sale_expired">
+                <div class="archive_outofstock_text"></div>
+            </div>
+
+
+            <div class="product_is_in_special_offer"><img src=""></div>
+            -->
+
+        </div>
+
+
+        <img src="https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117477576-210x210.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail lazyloaded" alt="" sizes="(max-width: 210px) 100vw, 210px" srcset="https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117477576-210x210.jpg 210w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117477576-300x300.jpg 300w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117477576-1024x1024.jpg 1024w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117477576-180x180.jpg 180w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117477576-768x768.jpg 768w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117477576-20x20.jpg 20w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117477576-30x30.jpg 30w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117477576-40x40.jpg 40w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117477576-600x600.jpg 600w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117477576-100x100.jpg 100w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117477576.jpg 1280w" data-ll-status="loaded" width="210" height="210">
+        <noscript>
+            <img width="210" height="210" src="https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117477576-210x210.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" srcset="https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117477576-210x210.jpg 210w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117477576-300x300.jpg 300w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117477576-1024x1024.jpg 1024w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117477576-180x180.jpg 180w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117477576-768x768.jpg 768w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117477576-20x20.jpg 20w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117477576-30x30.jpg 30w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117477576-40x40.jpg 40w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117477576-600x600.jpg 600w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117477576-100x100.jpg 100w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117477576.jpg 1280w" sizes="(max-width: 210px) 100vw, 210px"/>
+        </noscript>
+        <h2 class="woocommerce-loop-product__title">کفش مخصوص پیاده روی مردانه آداک مدل اولترا کد 301</h2>
+    </a>
+    <div class="newkala_container_custom_price">
+        <span class="price" lang="fa">
+            <span class="woocommerce-Price-amount amount">
+                <bdi>260,000&nbsp;<span class="woocommerce-Price-currencySymbol">تومان</span></bdi>
+            </span>
+        </span>
+    </div>
+</li>
+<li class="nk-content-product-slider swiper-slide nk_sale_rolling nk_in_special_offer_tax nk_in_special_offer_slider product type-product post-3827 status-publish instock product_cat-shoes product_tag-237 product_tag-238 has-post-thumbnail sale taxable shipping-taxable purchasable product-type-simple">
+    <a href="https://product-mirzacode.ir/newkala/preview/product/mens-walking-shoes-code-101-p/" class="woocommerce-LoopProduct-link woocommerce-loop-product__link">
+        <div class="product_labels">
+            <div class="archive_outofstock_wrapper">
+                <div class="archive_outofstock_text">ناموجود</div>
+            </div>
+
+            <!--
+            <div class="archive_outofstock_wrapper archive_sale_expired">
+                <div class="archive_outofstock_text"></div>
+            </div>
+
+
+            <div class="product_is_in_special_offer"><img src=""></div>
+            -->
+
+        </div>
+
+
+        <img src="https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115355593-210x210.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail lazyloaded" alt="" sizes="(max-width: 210px) 100vw, 210px" srcset="https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115355593-210x210.jpg 210w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115355593-300x300.jpg 300w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115355593-1024x1024.jpg 1024w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115355593-180x180.jpg 180w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115355593-768x767.jpg 768w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115355593-20x20.jpg 20w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115355593-30x30.jpg 30w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115355593-40x40.jpg 40w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115355593-600x600.jpg 600w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115355593-100x100.jpg 100w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115355593.jpg 1280w" data-ll-status="loaded" width="210" height="210">
+        <noscript>
+            <img width="210" height="210" src="https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115355593-210x210.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" srcset="https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115355593-210x210.jpg 210w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115355593-300x300.jpg 300w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115355593-1024x1024.jpg 1024w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115355593-180x180.jpg 180w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115355593-768x767.jpg 768w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115355593-20x20.jpg 20w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115355593-30x30.jpg 30w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115355593-40x40.jpg 40w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115355593-600x600.jpg 600w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115355593-100x100.jpg 100w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115355593.jpg 1280w" sizes="(max-width: 210px) 100vw, 210px"/>
+        </noscript>
+        <h2 class="woocommerce-loop-product__title">کفش مخصوص پیاده روی مردانه کد 101 P</h2>
+    </a>
+    <div class="newkala_container_custom_price">
+        <span class="price" lang="fa">
+            <del>
+                <strong class="nk_discount_label">
+                    <span>٪</span><span>12</span>
+                </strong>
+                <span class="woocommerce-Price-amount amount">
+                    <bdi>170,000&nbsp;<span class="woocommerce-Price-currencySymbol">تومان</span></bdi>
+                </span>
+            </del>
+            <ins>
+                <span class="woocommerce-Price-amount amount">
+                    <bdi>150,000&nbsp;<span class="woocommerce-Price-currencySymbol">تومان</span></bdi>
+                </span>
+            </ins>
+        </span>
+    </div>
+</li>
+<li class="nk-content-product-slider swiper-slide nk_sale_rolling not_in_offer_tax not_in_offer_slider product type-product post-3825 status-publish last instock product_cat-shoes product_tag-237 product_tag-238 has-post-thumbnail sale taxable shipping-taxable purchasable product-type-simple">
+    <a href="https://product-mirzacode.ir/newkala/preview/product/mens-walking-shoes-code-4545/" class="woocommerce-LoopProduct-link woocommerce-loop-product__link">
+        <div class="product_labels">
+            <div class="archive_outofstock_wrapper">
+                <div class="archive_outofstock_text">ناموجود</div>
+            </div>
+
+            <!--
+            <div class="archive_outofstock_wrapper archive_sale_expired">
+                <div class="archive_outofstock_text"></div>
+            </div>
+
+
+            <div class="product_is_in_special_offer"><img src=""></div>
+            -->
+
+        </div>
+
+
+        <img src="https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115303739-210x210.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail lazyloading" alt="" data-lazy-srcset="https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115303739-210x210.jpg 210w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115303739-300x300.jpg 300w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115303739-1024x1024.jpg 1024w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115303739-180x180.jpg 180w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115303739-768x767.jpg 768w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115303739-20x20.jpg 20w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115303739-30x30.jpg 30w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115303739-40x40.jpg 40w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115303739-600x600.jpg 600w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115303739-100x100.jpg 100w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115303739.jpg 1280w" data-lazy-sizes="(max-width: 210px) 100vw, 210px" data-lazy-src="https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115303739-210x210.jpg" sizes="(max-width: 210px) 100vw, 210px" srcset="https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115303739-210x210.jpg 210w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115303739-300x300.jpg 300w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115303739-1024x1024.jpg 1024w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115303739-180x180.jpg 180w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115303739-768x767.jpg 768w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115303739-20x20.jpg 20w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115303739-30x30.jpg 30w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115303739-40x40.jpg 40w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115303739-600x600.jpg 600w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115303739-100x100.jpg 100w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115303739.jpg 1280w" data-ll-status="loading" width="210" height="210">
+        <noscript>
+            <img width="210" height="210" src="https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115303739-210x210.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" srcset="https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115303739-210x210.jpg 210w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115303739-300x300.jpg 300w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115303739-1024x1024.jpg 1024w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115303739-180x180.jpg 180w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115303739-768x767.jpg 768w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115303739-20x20.jpg 20w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115303739-30x30.jpg 30w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115303739-40x40.jpg 40w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115303739-600x600.jpg 600w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115303739-100x100.jpg 100w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115303739.jpg 1280w" sizes="(max-width: 210px) 100vw, 210px"/>
+        </noscript>
+        <h2 class="woocommerce-loop-product__title">کفش مخصوص پیاده روی مردانه کد ۴۵۴۵</h2>
+    </a>
+    <div class="newkala_container_custom_price">
+        <span class="price" lang="fa">
+            <del>
+                <strong class="nk_discount_label">
+                    <span>٪</span><span>4</span>
+                </strong>
+                <span class="woocommerce-Price-amount amount">
+                    <bdi>180,000&nbsp;<span class="woocommerce-Price-currencySymbol">تومان</span></bdi>
+                </span>
+            </del>
+            <ins>
+                <span class="woocommerce-Price-amount amount">
+                    <bdi>172,000&nbsp;<span class="woocommerce-Price-currencySymbol">تومان</span></bdi>
+                </span>
+            </ins>
+        </span>
+    </div>
+</li>
+<li class="nk-content-product-slider swiper-slide not_in_offer_tax not_in_offer_slider product type-product post-3823 status-publish first instock product_cat-shoes product_tag-237 product_tag-238 has-post-thumbnail taxable shipping-taxable purchasable product-type-simple">
+    <a href="https://product-mirzacode.ir/newkala/preview/product/patricas-mens-hiking-shoes-code-5653/" class="woocommerce-LoopProduct-link woocommerce-loop-product__link">
+        <div class="product_labels">
+            <div class="archive_outofstock_wrapper">
+                <div class="archive_outofstock_text">ناموجود</div>
+            </div>
+
+            <!--
+            <div class="archive_outofstock_wrapper archive_sale_expired">
+                <div class="archive_outofstock_text"></div>
+            </div>
+
+
+            <div class="product_is_in_special_offer"><img src=""></div>
+            -->
+
+        </div>
+
+
+        <img src="https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117343745-210x210.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail lazyloading" alt="" data-lazy-srcset="https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117343745-210x210.jpg 210w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117343745-300x300.jpg 300w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117343745-1024x1024.jpg 1024w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117343745-180x180.jpg 180w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117343745-768x768.jpg 768w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117343745-20x20.jpg 20w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117343745-30x30.jpg 30w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117343745-40x40.jpg 40w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117343745-600x600.jpg 600w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117343745-100x100.jpg 100w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117343745.jpg 1280w" data-lazy-sizes="(max-width: 210px) 100vw, 210px" data-lazy-src="https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117343745-210x210.jpg" sizes="(max-width: 210px) 100vw, 210px" srcset="https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117343745-210x210.jpg 210w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117343745-300x300.jpg 300w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117343745-1024x1024.jpg 1024w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117343745-180x180.jpg 180w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117343745-768x768.jpg 768w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117343745-20x20.jpg 20w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117343745-30x30.jpg 30w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117343745-40x40.jpg 40w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117343745-600x600.jpg 600w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117343745-100x100.jpg 100w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117343745.jpg 1280w" data-ll-status="loading" width="210" height="210">
+        <noscript>
+            <img width="210" height="210" src="https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117343745-210x210.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" srcset="https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117343745-210x210.jpg 210w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117343745-300x300.jpg 300w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117343745-1024x1024.jpg 1024w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117343745-180x180.jpg 180w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117343745-768x768.jpg 768w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117343745-20x20.jpg 20w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117343745-30x30.jpg 30w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117343745-40x40.jpg 40w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117343745-600x600.jpg 600w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117343745-100x100.jpg 100w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117343745.jpg 1280w" sizes="(max-width: 210px) 100vw, 210px"/>
+        </noscript>
+        <h2 class="woocommerce-loop-product__title">کفش مخصوص پیاده روی مردانه مدل پاتریکاس کد 5653</h2>
+    </a>
+    <div class="newkala_container_custom_price">
+        <span class="price" lang="fa">
+            <span class="woocommerce-Price-amount amount">
+                <bdi>135,000&nbsp;<span class="woocommerce-Price-currencySymbol">تومان</span></bdi>
+            </span>
+        </span>
+    </div>
+</li>
+<li class="nk-content-product-slider swiper-slide not_in_offer_tax not_in_offer_slider product type-product post-3821 status-publish instock product_cat-shoes product_tag-237 product_tag-238 has-post-thumbnail taxable shipping-taxable purchasable product-type-simple">
+    <a href="https://product-mirzacode.ir/newkala/preview/product/mens-running-shoes-model-27-d-r-j-e/" class="woocommerce-LoopProduct-link woocommerce-loop-product__link">
+        <div class="product_labels">
+            <div class="archive_outofstock_wrapper">
+                <div class="archive_outofstock_text">ناموجود</div>
+            </div>
+
+            <!--
+            <div class="archive_outofstock_wrapper archive_sale_expired">
+                <div class="archive_outofstock_text"></div>
+            </div>
+
+
+            <div class="product_is_in_special_offer"><img src=""></div>
+            -->
+
+        </div>
+
+
+        <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20210%20210'%3E%3C/svg%3E" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" data-lazy-srcset="https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115227919-210x210.jpg 210w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115227919-300x300.jpg 300w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115227919-1024x1024.jpg 1024w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115227919-180x180.jpg 180w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115227919-768x767.jpg 768w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115227919-20x20.jpg 20w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115227919-30x30.jpg 30w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115227919-40x40.jpg 40w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115227919-600x600.jpg 600w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115227919-100x100.jpg 100w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115227919.jpg 1280w" data-lazy-sizes="(max-width: 210px) 100vw, 210px" data-lazy-src="https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115227919-210x210.jpg" width="210" height="210">
+        <noscript>
+            <img width="210" height="210" src="https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115227919-210x210.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" srcset="https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115227919-210x210.jpg 210w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115227919-300x300.jpg 300w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115227919-1024x1024.jpg 1024w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115227919-180x180.jpg 180w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115227919-768x767.jpg 768w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115227919-20x20.jpg 20w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115227919-30x30.jpg 30w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115227919-40x40.jpg 40w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115227919-600x600.jpg 600w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115227919-100x100.jpg 100w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115227919.jpg 1280w" sizes="(max-width: 210px) 100vw, 210px"/>
+        </noscript>
+        <h2 class="woocommerce-loop-product__title">کفش مخصوص دویدن مردانه مدل 27ِ.D.r.j.e</h2>
+    </a>
+    <div class="newkala_container_custom_price">
+        <span class="price" lang="fa">
+            <span class="woocommerce-Price-amount amount">
+                <bdi>120,000&nbsp;<span class="woocommerce-Price-currencySymbol">تومان</span></bdi>
+            </span>
+        </span>
+    </div>
+</li>
+<li class="nk-content-product-slider swiper-slide nk_sale_rolling not_in_offer_tax not_in_offer_slider product type-product post-3819 status-publish instock product_cat-shoes product_tag-239 product_tag-237 has-post-thumbnail sale taxable shipping-taxable purchasable product-type-simple">
+    <a href="https://product-mirzacode.ir/newkala/preview/product/mens-sneakers-model-part-so/" class="woocommerce-LoopProduct-link woocommerce-loop-product__link">
+        <div class="product_labels">
+            <div class="archive_outofstock_wrapper">
+                <div class="archive_outofstock_text">ناموجود</div>
+            </div>
+
+            <!--
+            <div class="archive_outofstock_wrapper archive_sale_expired">
+                <div class="archive_outofstock_text"></div>
+            </div>
+
+
+            <div class="product_is_in_special_offer"><img src=""></div>
+            -->
+
+        </div>
+
+
+        <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20210%20210'%3E%3C/svg%3E" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" data-lazy-srcset="https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/119128346-210x210.jpg 210w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/119128346-300x300.jpg 300w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/119128346-1024x1024.jpg 1024w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/119128346-180x180.jpg 180w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/119128346-768x768.jpg 768w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/119128346-20x20.jpg 20w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/119128346-30x30.jpg 30w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/119128346-40x40.jpg 40w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/119128346-600x600.jpg 600w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/119128346-100x100.jpg 100w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/119128346.jpg 1280w" data-lazy-sizes="(max-width: 210px) 100vw, 210px" data-lazy-src="https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/119128346-210x210.jpg" width="210" height="210">
+        <noscript>
+            <img width="210" height="210" src="https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/119128346-210x210.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" srcset="https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/119128346-210x210.jpg 210w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/119128346-300x300.jpg 300w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/119128346-1024x1024.jpg 1024w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/119128346-180x180.jpg 180w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/119128346-768x768.jpg 768w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/119128346-20x20.jpg 20w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/119128346-30x30.jpg 30w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/119128346-40x40.jpg 40w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/119128346-600x600.jpg 600w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/119128346-100x100.jpg 100w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/119128346.jpg 1280w" sizes="(max-width: 210px) 100vw, 210px"/>
+        </noscript>
+        <h2 class="woocommerce-loop-product__title">کفش راحتی مردانه مدل PART-SO</h2>
+    </a>
+    <div class="newkala_container_custom_price">
+        <span class="price" lang="fa">
+            <del>
+                <strong class="nk_discount_label">
+                    <span>٪</span><span>15</span>
+                </strong>
+                <span class="woocommerce-Price-amount amount">
+                    <bdi>164,000&nbsp;<span class="woocommerce-Price-currencySymbol">تومان</span></bdi>
+                </span>
+            </del>
+            <ins>
+                <span class="woocommerce-Price-amount amount">
+                    <bdi>140,000&nbsp;<span class="woocommerce-Price-currencySymbol">تومان</span></bdi>
+                </span>
+            </ins>
+        </span>
+    </div>
+</li>
+<li class="nk-content-product-slider swiper-slide not_in_offer_tax not_in_offer_slider product type-product post-3817 status-publish last instock product_cat-shoes product_tag-237 product_tag-238 has-post-thumbnail taxable shipping-taxable purchasable product-type-simple">
+    <a href="https://product-mirzacode.ir/newkala/preview/product/mens-mountaineering-shoes-code-a21x/" class="woocommerce-LoopProduct-link woocommerce-loop-product__link">
+        <div class="product_labels">
+            <div class="archive_outofstock_wrapper">
+                <div class="archive_outofstock_text">ناموجود</div>
+            </div>
+
+            <!--
+            <div class="archive_outofstock_wrapper archive_sale_expired">
+                <div class="archive_outofstock_text"></div>
+            </div>
+
+
+            <div class="product_is_in_special_offer"><img src=""></div>
+            -->
+
+        </div>
+
+
+        <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20210%20210'%3E%3C/svg%3E" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" data-lazy-srcset="https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115360869-210x210.jpg 210w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115360869-300x300.jpg 300w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115360869-1024x1024.jpg 1024w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115360869-180x180.jpg 180w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115360869-768x767.jpg 768w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115360869-20x20.jpg 20w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115360869-30x30.jpg 30w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115360869-40x40.jpg 40w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115360869-600x600.jpg 600w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115360869-100x100.jpg 100w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115360869.jpg 1280w" data-lazy-sizes="(max-width: 210px) 100vw, 210px" data-lazy-src="https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115360869-210x210.jpg" width="210" height="210">
+        <noscript>
+            <img width="210" height="210" src="https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115360869-210x210.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" srcset="https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115360869-210x210.jpg 210w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115360869-300x300.jpg 300w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115360869-1024x1024.jpg 1024w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115360869-180x180.jpg 180w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115360869-768x767.jpg 768w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115360869-20x20.jpg 20w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115360869-30x30.jpg 30w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115360869-40x40.jpg 40w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115360869-600x600.jpg 600w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115360869-100x100.jpg 100w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115360869.jpg 1280w" sizes="(max-width: 210px) 100vw, 210px"/>
+        </noscript>
+        <h2 class="woocommerce-loop-product__title">کفش کوهنوردی مردانه کد A21X</h2>
+    </a>
+    <div class="newkala_container_custom_price">
+        <span class="price" lang="fa">
+            <span class="woocommerce-Price-amount amount">
+                <bdi>150,000&nbsp;<span class="woocommerce-Price-currencySymbol">تومان</span></bdi>
+            </span>
+        </span>
+    </div>
+</li>
+</ul>
+<span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
+</div>
+</div>
+
+<script>
+jQuery(document).ready(function($) {
+
+	// حذف کلاس در صفحه محصول و صفحه سبد خرید
+	$('body.single-product ul.swiper-wrapper, body.single-product ul.owl-carousel' ).removeClass('products');
+	$('body.woocommerce-cart ul.swiper-wrapper, body.woocommerce-cart ul.owl-carousel' ).removeClass('products');
+
+	$('.cat_slider_tETcKsZWYL .swiper-wrapper' ).append( $('#cat_slidertETcKsZWYL').html() );
+
+	var swiper = new Swiper('.cat_slider_tETcKsZWYL', {
+		  slidesPerView: 'auto',
+		  spaceBetween: 10,
+		  freeMode: true,
+		  loop: false,
+		  	});
+
+	jQuery("#cat_slidertETcKsZWYL").owlCarousel({
+		margin:10,
+		start: 1,
+		lazyLoad : true,
+		rtl: true,
+		dots: false,
+				nav: true,
+				navText: ["",""],
+		loop: false,
+		autoplay:false,
+		autoplayTimeout: 5000,
+		responsiveClass:true,
+		responsiveBaseElement:"#cat_slidertETcKsZWYL",
+		autoWidth:false,
+		responsive:{
+			0:{
+				items:1,
+			},
+			480:{
+				items: 3,
+			},
+			800:{
+				items: 4,
+			},
+			1200:{
+				items: 5,
+			},
+			1366:{
+				items: 6,
+			},
+		}
+
+	});
+
+
+
+
+});
+</script>
+<div style="margin-bottom:15px;clear:both;"></div>
+<style>
+/*
+body, html{overflow:visible;}
+#sticky_product_tabs{
+position: -webkit-sticky;
+position: sticky;
+top: 0;
+z-index: 999;
+}
+*/
+</style>
+<div class="woocommerce-tabs wc-tabs-wrapper ">
+
+<div id="sticky_product_tabs">
+
+    <div class="swiper-container-tab-menu swiper-container-initialized swiper-container-horizontal swiper-container-free-mode swiper-container-rtl">
+        <ul class="wc-tabs swiper-wrapper" role="tablist">
+            <li class="swiper-slide description_tab active swiper-slide-active" id="tab-title-description" role="tab" aria-controls="tab-description">
+                <a href="#tab-description">توضیحات</a>
+            </li>
+            <li class="swiper-slide reviews_tab swiper-slide-next" id="tab-title-reviews" role="tab" aria-controls="tab-reviews">
+                <a href="#tab-reviews">نظرات (2)</a>
+            </li>
+            <li class="swiper-slide seller_tab" id="tab-title-seller" role="tab" aria-controls="tab-seller">
+                <a href="#tab-seller">اطلاعات فروشنده</a>
+            </li>
+            <li class="swiper-slide more_seller_product_tab" id="tab-title-more_seller_product" role="tab" aria-controls="tab-more_seller_product">
+                <a href="#tab-more_seller_product">محصولات بیشتر</a>
+            </li>
+            <div class="clear"></div>
+        </ul>
+        <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
+    </div>
+
+</div>
+
+<script>
+
+			  jQuery(document).ready(function($){
+
+					var swiper = new Swiper('.swiper-container-tab-menu', {
+					      slidesPerView: 'auto',
+						  spaceBetween: 0,
+						  freeMode: true,
+					});
+			  });
+
+		</script>
+
+<div class="woocommerce-Tabs-panel woocommerce-Tabs-panel--description panel entry-content wc-tab" id="tab-description" role="tabpanel" aria-labelledby="tab-title-description" style="">
+
+    <p class="before_title_product">نقد و بررسی</p>
+
+    <h2 class="second_title_product">کفش مخصوص پیاده روی مردانه مدل adi-super رنگ طوسی</h2>
+
+
+    <div class="woocommerce-product-details__short-description">
+
+        <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" class="icon_excerpt_product" data-lazy-src="https://product-mirzacode.ir/newkala/preview/wp-content/themes/newkala/images/short_description.svg">
+        <noscript>
+            <img src="https://product-mirzacode.ir/newkala/preview/wp-content/themes/newkala/images/short_description.svg" class="icon_excerpt_product">
+        </noscript>
+
+
+        <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.</p>
+    </div>
+
+
+    <div class="product-content-onliner">
+        <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.</p>
+    </div>
+    <div style="clear:both;"></div>
+
+
+    <span class="show_more_content">ادامه مطلب</span>
+
+
+    <script>
+		
+			jQuery(document).ready(function($){
+				
+				if( $('.woocommerce-Tabs-panel--description').length ){
+					
+					var height_content = $('.woocommerce-Tabs-panel--description .product-content-onliner').height();
+					
+					if( height_content > 300 ){
+						
+						$('.woocommerce-Tabs-panel--description, .woocommerce-Tabs-panel--description .product-content-onliner').addClass('close');
+						$('.woocommerce-Tabs-panel--description .show_more_content').show(0);
+					}
+				}
+				
+				$('.woocommerce-Tabs-panel--description .show_more_content').on('click', function(){
+					
+					$('.woocommerce-Tabs-panel--description, .woocommerce-Tabs-panel--description .product-content-onliner').toggleClass('close');
+					    var text = $(this).text();
+						$(this).text( text == "ادامه مطلب" ? "بستن" : "ادامه مطلب");
+				});
+			});
+		
+		</script>
+</div>
+<div class="woocommerce-Tabs-panel woocommerce-Tabs-panel--reviews panel entry-content wc-tab" id="tab-reviews" role="tabpanel" aria-labelledby="tab-title-reviews" style="display: none;">
+    <div id="reviews" class="woocommerce-Reviews">
+
+
+        <div id="review_form_wrapper">
+            <div id="review_form">
+                <div id="respond" class="comment-respond">
+                    <span id="reply-title" class="comment-reply-title">
+                        دیدگاه خود را بنویسید
+                        <small>
+                            <a rel="nofollow" id="cancel-comment-reply-link" href="/newkala/preview/product/adi-super-mens-walking-shoes-gray-color/#respond" style="display:none;">لغو پاسخ</a>
+                        </small>
+                    </span>
+                    <form action="https://product-mirzacode.ir/newkala/preview/wp-comments-post.php" method="post" id="commentform" class="comment-form" novalidate="">
+                        <p class="comment-notes"><span id="email-notes">نشانی ایمیل شما منتشر نخواهد شد.</span> بخش‌های موردنیاز علامت‌گذاری شده‌اند <span class="required">*</span></p>
+                        <p class="newkala-input-comment-form comment-form-title">
+                            <label for="comment-form-title">عنوان نظر شما (اجباری)&nbsp;<span class="required">*</span></label><input id="comment-form-title" name="comment-form-title" type="text" value="" size="30" required="">
+                        </p>
+                        <div class="newkala-half-input">
+                            <p class="newkala-input-comment-form comment-form-advantages">
+                                <span class="add_text_to_field add_text_to_field_advantages" style="display: none;">+</span><label for="comment-form-advantages">نقاط قوت</label><input id="comment-form-advantages" type="text" value="" size="30">
+                            </p>
+                            <p class="newkala-input-comment-form comment-form-disadvantage">
+                                <span class="add_text_to_field add_text_to_field_disadvantage" style="display: none;">+</span><label for="comment-form-disadvantage">نقاط ضعف</label><input id="comment-form-disadvantage" type="text" value="" size="30">
+                            </p>
+                        </div>
+                        <div class="comment-form-rating">
+                            <label for="rating">امتیاز شما</label>
+                            <p class="stars">
+                                <span>
+                                    <a class="star-1" href="#">1</a> <a class="star-2" href="#">2</a> <a class="star-3" href="#">3</a> <a class="star-4" href="#">4</a> <a class="star-5" href="#">5</a>
+                                </span>
+                            </p>
+                            <select name="rating" id="rating" required="" style="display: none;">
+                                <option value="">رای دهید</option>
+                                <option value="5">عالی</option>
+                                <option value="4">خوب</option>
+                                <option value="3">متوسط</option>
+                                <option value="2">نه خیلی بد</option>
+                                <option value="1">خیلی ضعیف</option>
+                            </select>
+                        </div>
+                        <p class="newkala-input-comment-form comment-form-comment">
+                            <label for="comment">دیدگاه شما&nbsp;<span class="required">*</span></label><textarea id="comment" name="comment" cols="45" rows="8" required=""></textarea>
+                        </p>
+                        <div class="newkala-recommend-product-reveiw">
+                            <span>آیا خرید این محصول را به دوستانتان پیشنهاد می کنید؟</span><label for="recommended"><input id="recommended" type="radio" value="recommended" name="recommend"> پیشنهاد می‌کنم</label><label for="not_recommended"><input id="not_recommended" type="radio" value="not_recommended" name="recommend"> خیر ، پیشنهاد نمی‌کنم</label><label for="no_idea"><input id="no_idea" type="radio" value="no_idea" name="recommend"> نظری ندارم</label>
+                        </div>
+                        <div class="newkala-half-input">
+                            <p class="newkala-input-comment-form comment-form-author">
+                                <label for="author">نام&nbsp;<span class="required">*</span></label><input id="author" name="author" type="text" value="" size="30" required="">
+                            </p>
+                            <p class="newkala-input-comment-form comment-form-email">
+                                <label for="email">ایمیل&nbsp;<span class="required">*</span></label><input id="email" name="email" type="email" value="" size="30" required="">
+                            </p>
+                        </div>
+                        <p class="form-submit">
+                            <input name="submit" type="submit" id="submit" class="submit" value="ثبت"> <input type="hidden" name="comment_post_ID" value="3829" id="comment_post_ID">
+                            <input type="hidden" name="comment_parent" id="comment_parent" value="0">
+                        </p>
+                    </form>
+                </div><!-- #respond -->
+            </div>
+        </div>
+
+
+        <div id="comments">
+            <h2 class="woocommerce-Reviews-title">
+                2 دیدگاه برای <span>کفش مخصوص پیاده روی مردانه مدل adi-super رنگ طوسی</span>
+            </h2>
+
+            <ol class="commentlist">
+                <li class="review byuser comment-author-newkala even thread-even depth-1 review" id="li-comment-636">
+
+                    <div id="comment-636" class="comment_container">
+
+
+                        <div class="comment-text">
+
+                            <div class="star-rating" role="img" aria-label="نمره 5 از 5">
+                                <span style="width:100%">نمره <strong class="rating">5</strong> از 5</span>
+                            </div>
+
+                            <h5 class="title_comment">کیفیت</h5>
+                            <p class="meta">
+                                <strong class="woocommerce-review__author"> توسط سید حسن حسینی </strong>
+                                <span class="woocommerce-review__dash"> در تاریخ </span> <time class="woocommerce-review__published-date" datetime="1399-08-26T13:43:02+03:30">26 آبان 1399</time>
+
+
+                            </p>
+
+                            <div class="description">
+                                <p>کیفیتش خوبه</p>
+                            </div>
+                        </div>
+                    </div>
+                </li><!-- #comment-## -->
+                <li class="review byuser comment-author-newkala odd alt thread-odd thread-alt depth-1 review" id="li-comment-637">
+
+                    <div id="comment-637" class="comment_container">
+
+
+                        <div class="comment-text">
+
+                            <div class="star-rating" role="img" aria-label="نمره 4 از 5">
+                                <span style="width:80%">نمره <strong class="rating">4</strong> از 5</span>
+                            </div>
+
+                            <h5 class="title_comment">قیمت</h5>
+                            <p class="meta">
+                                <strong class="woocommerce-review__author"> توسط سید حسن حسینی </strong>
+                                <span class="woocommerce-review__dash"> در تاریخ </span> <time class="woocommerce-review__published-date" datetime="1399-08-26T13:43:30+03:30">26 آبان 1399</time>
+
+
+                            </p>
+
+                            <div class="description">
+                                <p>قیمتش مناسبه</p>
+                            </div>
+                        </div>
+                    </div>
+                </li><!-- #comment-## -->
+            </ol>
+
+        </div>
+
+
+        <div class="clear"></div>
+    </div>
+
+    <script>
+
+	jQuery(document).ready(function($){
+
+		var inputs = $('input#comment-form-advantages, input#comment-form-disadvantage');
+		var inputChangeCallback = function () {
+            var self = $(this);
+            if (self.val().trim().length > 0) {
+                self.siblings('.add_text_to_field').show();
+            } else {
+                self.siblings('.add_text_to_field').hide();
+            }
+        } ;
+        inputs.each(function () {
+           inputChangeCallback.bind(this)();
+           $(this).on('change keyup', inputChangeCallback.bind(this));
+        });
+
+
+
+
+
+
+
+		$('.add_text_to_field_advantages').on('click', function(){
+
+			var val_item = $(this).parent().find('input#comment-form-advantages').val();
+			if( val_item.trim().length < 3 ){
+
+				return;
+			}
+
+			$(this).parent().append(' <span class="item_added_advantages" > <input type="hidden" name="advantages[]" value="' + val_item.trim() + '" > ' + val_item.trim() + ' <span class="remove_item">x</span></span> ');
+			$(this).parent().find('input#comment-form-advantages').val('');
+
+			$(this).hide(0);
+		});
+
+
+
+
+		$('.add_text_to_field_disadvantage').on('click', function(){
+
+			var val_item = $(this).parent().find('input#comment-form-disadvantage').val();
+			if( val_item.trim().length < 3 ){
+
+				return;
+			}
+
+			$(this).parent().append(' <span class="item_added_disadvantage" > <input type="hidden" name="disadvantage[]" value="' + val_item.trim() + '" > ' + val_item.trim() + ' <span class="remove_item">x</span></span> ');
+			$(this).parent().find('input#comment-form-disadvantage').val('');
+
+			$(this).hide(0);
+		});
+
+
+
+
+
+		$('body').on('click', 'span.remove_item', function(){
+
+			$(this).parent().remove();
+		});
+
+
+
+
+	});
+
+
+</script>
+</div>
+<div class="woocommerce-Tabs-panel woocommerce-Tabs-panel--seller panel entry-content wc-tab" id="tab-seller" role="tabpanel" aria-labelledby="tab-title-seller" style="display: none;">
+    <div class="nk-store-avatar">
+
+        <div class="nk-logo-seller">
+            <img alt="" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2090%2090'%3E%3C/svg%3E" data-lazy-srcset="https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/cropped-kisspng-adidas-yeezy-shoe-sneaker-collecting-air-jordan-cartoon-shoes-5ac1c4682e3cc4.5916292715226481681894-1.jpg 2x" class="avatar avatar-90 photo" data-lazy-src="https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/cropped-kisspng-adidas-yeezy-shoe-sneaker-collecting-air-jordan-cartoon-shoes-5ac1c4682e3cc4.5916292715226481681894-1.jpg" width="90" height="90">
+            <noscript>
+                <img alt='' src='https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/cropped-kisspng-adidas-yeezy-shoe-sneaker-collecting-air-jordan-cartoon-shoes-5ac1c4682e3cc4.5916292715226481681894-1.jpg' srcset='https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/cropped-kisspng-adidas-yeezy-shoe-sneaker-collecting-air-jordan-cartoon-shoes-5ac1c4682e3cc4.5916292715226481681894-1.jpg 2x' class='avatar avatar-90 photo' height='90' width='90'/>
+            </noscript>
+        </div>
+
+        <strong class="nk-store-name">شهر کفش</strong>
+
+        <p class="human-time-diff-register-seller">
+            عضویت از 7 ماه قبل
+        </p>
+
+        <div class="nk-text-reating-seller">
+            <span class="nk-percent-customer">80٪ رضایت مشتریان</span> | <span class="nk-count-reviews">16 رای</span>
+        </div>
+        <div class="nk-rating-seller">
+
+            <span class="nk-rating-back"></span>
+            <span class="nk-rating-front" style="width:80%;"></span>
+
+        </div>
+
+
+        <span dir="ltr" class="nk-share-seller-url" url="https://product-mirzacode.ir/newkala/preview/store/shahrkafsh/">https://product-mirzacode.ir/newkala/preview/store/shahrkafsh/</span>
+    </div>
+</div>
+<div class="woocommerce-Tabs-panel woocommerce-Tabs-panel--more_seller_product panel entry-content wc-tab" id="tab-more_seller_product" role="tabpanel" aria-labelledby="tab-title-more_seller_product" style="display: none;">
+<ul class="products  columns-4">
+<li class="swiper-slide not_in_offer_tax not_in_offer_slider product type-product post-3831 status-publish first instock product_cat-shoes product_tag-237 product_tag-238 has-post-thumbnail taxable shipping-taxable purchasable product-type-simple" data-id="3831">
+
+    <a href="https://product-mirzacode.ir/newkala/preview/product/adak-ultra-mens-walking-shoes-model-301/" class="woocommerce-LoopProduct-link woocommerce-loop-product__link">
+        <div class="product_labels">
+            <div class="archive_outofstock_wrapper">
+                <div class="archive_outofstock_text">ناموجود</div>
+            </div>
+
+            <!--
+            <div class="archive_outofstock_wrapper archive_sale_expired">
+                <div class="archive_outofstock_text"></div>
+            </div>
+
+
+            <div class="product_is_in_special_offer"><img src=""></div>
+            -->
+
+        </div>
+
+
+        <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20210%20210'%3E%3C/svg%3E" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" data-lazy-srcset="https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117477576-210x210.jpg 210w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117477576-300x300.jpg 300w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117477576-1024x1024.jpg 1024w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117477576-180x180.jpg 180w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117477576-768x768.jpg 768w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117477576-20x20.jpg 20w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117477576-30x30.jpg 30w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117477576-40x40.jpg 40w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117477576-600x600.jpg 600w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117477576-100x100.jpg 100w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117477576.jpg 1280w" data-lazy-sizes="(max-width: 210px) 100vw, 210px" data-lazy-src="https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117477576-210x210.jpg" width="210" height="210">
+        <noscript>
+            <img width="210" height="210" src="https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117477576-210x210.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" srcset="https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117477576-210x210.jpg 210w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117477576-300x300.jpg 300w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117477576-1024x1024.jpg 1024w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117477576-180x180.jpg 180w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117477576-768x768.jpg 768w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117477576-20x20.jpg 20w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117477576-30x30.jpg 30w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117477576-40x40.jpg 40w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117477576-600x600.jpg 600w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117477576-100x100.jpg 100w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117477576.jpg 1280w" sizes="(max-width: 210px) 100vw, 210px"/>
+        </noscript>
+        <h2 class="woocommerce-loop-product__title">کفش مخصوص پیاده روی مردانه آداک مدل اولترا کد 301</h2>
+    </a>
+    <div class="newkala_container_custom_price">
+        <span class="price" lang="fa">
+            <span class="woocommerce-Price-amount amount">
+                <bdi>260,000&nbsp;<span class="woocommerce-Price-currencySymbol">تومان</span></bdi>
+            </span>
+        </span>
+    </div>
+</li>
+<li class="swiper-slide nk_sale_rolling nk_in_special_offer_tax nk_in_special_offer_slider product type-product post-3827 status-publish instock product_cat-shoes product_tag-237 product_tag-238 has-post-thumbnail sale taxable shipping-taxable purchasable product-type-simple" data-id="3827">
+
+
+    <span class="onsale">
+        <strong>حراج !</strong>
+    </span>
+    <a href="https://product-mirzacode.ir/newkala/preview/product/mens-walking-shoes-code-101-p/" class="woocommerce-LoopProduct-link woocommerce-loop-product__link">
+        <div class="product_labels">
+            <div class="archive_outofstock_wrapper">
+                <div class="archive_outofstock_text">ناموجود</div>
+            </div>
+
+            <!--
+            <div class="archive_outofstock_wrapper archive_sale_expired">
+                <div class="archive_outofstock_text"></div>
+            </div>
+
+
+            <div class="product_is_in_special_offer"><img src=""></div>
+            -->
+
+        </div>
+
+
+        <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20210%20210'%3E%3C/svg%3E" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" data-lazy-srcset="https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115355593-210x210.jpg 210w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115355593-300x300.jpg 300w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115355593-1024x1024.jpg 1024w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115355593-180x180.jpg 180w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115355593-768x767.jpg 768w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115355593-20x20.jpg 20w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115355593-30x30.jpg 30w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115355593-40x40.jpg 40w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115355593-600x600.jpg 600w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115355593-100x100.jpg 100w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115355593.jpg 1280w" data-lazy-sizes="(max-width: 210px) 100vw, 210px" data-lazy-src="https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115355593-210x210.jpg" width="210" height="210">
+        <noscript>
+            <img width="210" height="210" src="https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115355593-210x210.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" srcset="https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115355593-210x210.jpg 210w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115355593-300x300.jpg 300w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115355593-1024x1024.jpg 1024w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115355593-180x180.jpg 180w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115355593-768x767.jpg 768w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115355593-20x20.jpg 20w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115355593-30x30.jpg 30w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115355593-40x40.jpg 40w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115355593-600x600.jpg 600w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115355593-100x100.jpg 100w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115355593.jpg 1280w" sizes="(max-width: 210px) 100vw, 210px"/>
+        </noscript>
+        <h2 class="woocommerce-loop-product__title">کفش مخصوص پیاده روی مردانه کد 101 P</h2>
+    </a>
+    <div class="newkala_container_custom_price">
+        <span class="price" lang="fa">
+            <del>
+                <strong class="nk_discount_label">
+                    <span>٪</span><span>12</span>
+                </strong>
+                <span class="woocommerce-Price-amount amount">
+                    <bdi>170,000&nbsp;<span class="woocommerce-Price-currencySymbol">تومان</span></bdi>
+                </span>
+            </del>
+            <ins>
+                <span class="woocommerce-Price-amount amount">
+                    <bdi>150,000&nbsp;<span class="woocommerce-Price-currencySymbol">تومان</span></bdi>
+                </span>
+            </ins>
+        </span>
+    </div>
+</li>
+<li class="swiper-slide nk_sale_rolling not_in_offer_tax not_in_offer_slider product type-product post-3825 status-publish instock product_cat-shoes product_tag-237 product_tag-238 has-post-thumbnail sale taxable shipping-taxable purchasable product-type-simple" data-id="3825">
+
+
+    <span class="onsale">
+        <strong>حراج !</strong>
+    </span>
+    <a href="https://product-mirzacode.ir/newkala/preview/product/mens-walking-shoes-code-4545/" class="woocommerce-LoopProduct-link woocommerce-loop-product__link">
+        <div class="product_labels">
+            <div class="archive_outofstock_wrapper">
+                <div class="archive_outofstock_text">ناموجود</div>
+            </div>
+
+            <!--
+            <div class="archive_outofstock_wrapper archive_sale_expired">
+                <div class="archive_outofstock_text"></div>
+            </div>
+
+
+            <div class="product_is_in_special_offer"><img src=""></div>
+            -->
+
+        </div>
+
+
+        <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20210%20210'%3E%3C/svg%3E" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" data-lazy-srcset="https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115303739-210x210.jpg 210w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115303739-300x300.jpg 300w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115303739-1024x1024.jpg 1024w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115303739-180x180.jpg 180w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115303739-768x767.jpg 768w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115303739-20x20.jpg 20w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115303739-30x30.jpg 30w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115303739-40x40.jpg 40w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115303739-600x600.jpg 600w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115303739-100x100.jpg 100w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115303739.jpg 1280w" data-lazy-sizes="(max-width: 210px) 100vw, 210px" data-lazy-src="https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115303739-210x210.jpg" width="210" height="210">
+        <noscript>
+            <img width="210" height="210" src="https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115303739-210x210.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" srcset="https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115303739-210x210.jpg 210w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115303739-300x300.jpg 300w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115303739-1024x1024.jpg 1024w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115303739-180x180.jpg 180w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115303739-768x767.jpg 768w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115303739-20x20.jpg 20w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115303739-30x30.jpg 30w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115303739-40x40.jpg 40w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115303739-600x600.jpg 600w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115303739-100x100.jpg 100w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115303739.jpg 1280w" sizes="(max-width: 210px) 100vw, 210px"/>
+        </noscript>
+        <h2 class="woocommerce-loop-product__title">کفش مخصوص پیاده روی مردانه کد ۴۵۴۵</h2>
+    </a>
+    <div class="newkala_container_custom_price">
+        <span class="price" lang="fa">
+            <del>
+                <strong class="nk_discount_label">
+                    <span>٪</span><span>4</span>
+                </strong>
+                <span class="woocommerce-Price-amount amount">
+                    <bdi>180,000&nbsp;<span class="woocommerce-Price-currencySymbol">تومان</span></bdi>
+                </span>
+            </del>
+            <ins>
+                <span class="woocommerce-Price-amount amount">
+                    <bdi>172,000&nbsp;<span class="woocommerce-Price-currencySymbol">تومان</span></bdi>
+                </span>
+            </ins>
+        </span>
+    </div>
+</li>
+<li class="swiper-slide not_in_offer_tax not_in_offer_slider product type-product post-3817 status-publish last instock product_cat-shoes product_tag-237 product_tag-238 has-post-thumbnail taxable shipping-taxable purchasable product-type-simple" data-id="3817">
+
+    <a href="https://product-mirzacode.ir/newkala/preview/product/mens-mountaineering-shoes-code-a21x/" class="woocommerce-LoopProduct-link woocommerce-loop-product__link">
+        <div class="product_labels">
+            <div class="archive_outofstock_wrapper">
+                <div class="archive_outofstock_text">ناموجود</div>
+            </div>
+
+            <!--
+            <div class="archive_outofstock_wrapper archive_sale_expired">
+                <div class="archive_outofstock_text"></div>
+            </div>
+
+
+            <div class="product_is_in_special_offer"><img src=""></div>
+            -->
+
+        </div>
+
+
+        <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20210%20210'%3E%3C/svg%3E" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" data-lazy-srcset="https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115360869-210x210.jpg 210w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115360869-300x300.jpg 300w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115360869-1024x1024.jpg 1024w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115360869-180x180.jpg 180w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115360869-768x767.jpg 768w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115360869-20x20.jpg 20w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115360869-30x30.jpg 30w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115360869-40x40.jpg 40w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115360869-600x600.jpg 600w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115360869-100x100.jpg 100w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115360869.jpg 1280w" data-lazy-sizes="(max-width: 210px) 100vw, 210px" data-lazy-src="https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115360869-210x210.jpg" width="210" height="210">
+        <noscript>
+            <img width="210" height="210" src="https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115360869-210x210.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" srcset="https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115360869-210x210.jpg 210w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115360869-300x300.jpg 300w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115360869-1024x1024.jpg 1024w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115360869-180x180.jpg 180w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115360869-768x767.jpg 768w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115360869-20x20.jpg 20w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115360869-30x30.jpg 30w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115360869-40x40.jpg 40w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115360869-600x600.jpg 600w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115360869-100x100.jpg 100w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/115360869.jpg 1280w" sizes="(max-width: 210px) 100vw, 210px"/>
+        </noscript>
+        <h2 class="woocommerce-loop-product__title">کفش کوهنوردی مردانه کد A21X</h2>
+    </a>
+    <div class="newkala_container_custom_price">
+        <span class="price" lang="fa">
+            <span class="woocommerce-Price-amount amount">
+                <bdi>150,000&nbsp;<span class="woocommerce-Price-currencySymbol">تومان</span></bdi>
+            </span>
+        </span>
+    </div>
+</li>
+<li class="swiper-slide nk_sale_rolling not_in_offer_tax not_in_offer_slider product type-product post-3819 status-publish first instock product_cat-shoes product_tag-239 product_tag-237 has-post-thumbnail sale taxable shipping-taxable purchasable product-type-simple" data-id="3819">
+
+
+    <span class="onsale">
+        <strong>حراج !</strong>
+    </span>
+    <a href="https://product-mirzacode.ir/newkala/preview/product/mens-sneakers-model-part-so/" class="woocommerce-LoopProduct-link woocommerce-loop-product__link">
+        <div class="product_labels">
+            <div class="archive_outofstock_wrapper">
+                <div class="archive_outofstock_text">ناموجود</div>
+            </div>
+
+            <!--
+            <div class="archive_outofstock_wrapper archive_sale_expired">
+                <div class="archive_outofstock_text"></div>
+            </div>
+
+
+            <div class="product_is_in_special_offer"><img src=""></div>
+            -->
+
+        </div>
+
+
+        <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20210%20210'%3E%3C/svg%3E" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" data-lazy-srcset="https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/119128346-210x210.jpg 210w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/119128346-300x300.jpg 300w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/119128346-1024x1024.jpg 1024w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/119128346-180x180.jpg 180w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/119128346-768x768.jpg 768w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/119128346-20x20.jpg 20w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/119128346-30x30.jpg 30w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/119128346-40x40.jpg 40w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/119128346-600x600.jpg 600w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/119128346-100x100.jpg 100w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/119128346.jpg 1280w" data-lazy-sizes="(max-width: 210px) 100vw, 210px" data-lazy-src="https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/119128346-210x210.jpg" width="210" height="210">
+        <noscript>
+            <img width="210" height="210" src="https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/119128346-210x210.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" srcset="https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/119128346-210x210.jpg 210w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/119128346-300x300.jpg 300w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/119128346-1024x1024.jpg 1024w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/119128346-180x180.jpg 180w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/119128346-768x768.jpg 768w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/119128346-20x20.jpg 20w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/119128346-30x30.jpg 30w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/119128346-40x40.jpg 40w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/119128346-600x600.jpg 600w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/119128346-100x100.jpg 100w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/119128346.jpg 1280w" sizes="(max-width: 210px) 100vw, 210px"/>
+        </noscript>
+        <h2 class="woocommerce-loop-product__title">کفش راحتی مردانه مدل PART-SO</h2>
+    </a>
+    <div class="newkala_container_custom_price">
+        <span class="price" lang="fa">
+            <del>
+                <strong class="nk_discount_label">
+                    <span>٪</span><span>15</span>
+                </strong>
+                <span class="woocommerce-Price-amount amount">
+                    <bdi>164,000&nbsp;<span class="woocommerce-Price-currencySymbol">تومان</span></bdi>
+                </span>
+            </del>
+            <ins>
+                <span class="woocommerce-Price-amount amount">
+                    <bdi>140,000&nbsp;<span class="woocommerce-Price-currencySymbol">تومان</span></bdi>
+                </span>
+            </ins>
+        </span>
+    </div>
+</li>
+<li class="swiper-slide not_in_offer_tax not_in_offer_slider product type-product post-3823 status-publish instock product_cat-shoes product_tag-237 product_tag-238 has-post-thumbnail taxable shipping-taxable purchasable product-type-simple" data-id="3823">
+
+    <a href="https://product-mirzacode.ir/newkala/preview/product/patricas-mens-hiking-shoes-code-5653/" class="woocommerce-LoopProduct-link woocommerce-loop-product__link">
+        <div class="product_labels">
+            <div class="archive_outofstock_wrapper">
+                <div class="archive_outofstock_text">ناموجود</div>
+            </div>
+
+            <!--
+            <div class="archive_outofstock_wrapper archive_sale_expired">
+                <div class="archive_outofstock_text"></div>
+            </div>
+
+
+            <div class="product_is_in_special_offer"><img src=""></div>
+            -->
+
+        </div>
+
+
+        <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20210%20210'%3E%3C/svg%3E" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" data-lazy-srcset="https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117343745-210x210.jpg 210w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117343745-300x300.jpg 300w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117343745-1024x1024.jpg 1024w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117343745-180x180.jpg 180w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117343745-768x768.jpg 768w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117343745-20x20.jpg 20w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117343745-30x30.jpg 30w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117343745-40x40.jpg 40w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117343745-600x600.jpg 600w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117343745-100x100.jpg 100w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117343745.jpg 1280w" data-lazy-sizes="(max-width: 210px) 100vw, 210px" data-lazy-src="https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117343745-210x210.jpg" width="210" height="210">
+        <noscript>
+            <img width="210" height="210" src="https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117343745-210x210.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" srcset="https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117343745-210x210.jpg 210w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117343745-300x300.jpg 300w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117343745-1024x1024.jpg 1024w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117343745-180x180.jpg 180w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117343745-768x768.jpg 768w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117343745-20x20.jpg 20w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117343745-30x30.jpg 30w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117343745-40x40.jpg 40w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117343745-600x600.jpg 600w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117343745-100x100.jpg 100w, https://product-mirzacode.ir/newkala/preview/wp-content/uploads/2020/11/117343745.jpg 1280w" sizes="(max-width: 210px) 100vw, 210px"/>
+        </noscript>
+        <h2 class="woocommerce-loop-product__title">کفش مخصوص پیاده روی مردانه مدل پاتریکاس کد 5653</h2>
+    </a>
+    <div class="newkala_container_custom_price">
+        <span class="price" lang="fa">
+            <span class="woocommerce-Price-amount amount">
+                <bdi>135,000&nbsp;<span class="woocommerce-Price-currencySymbol">تومان</span></bdi>
+            </span>
+        </span>
+    </div>
+</li>
+</ul>
+</div>
+</div>
+
+</div>
+
+
+</main>
+</div>
+<div class="clear"></div>
+</div>

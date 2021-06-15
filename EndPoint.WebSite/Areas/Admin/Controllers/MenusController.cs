@@ -97,9 +97,9 @@ namespace EndPoint.WebSite.Areas.Admin.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult EditSubMenu(string name, int id)
+        public IActionResult EditSubMenu(string name,string EnName, int id)
         {
-            var result = _menusFacad.EditSubMenusServices.Execute(name, id);
+            var result = _menusFacad.EditSubMenusServices.Execute(name, EnName,id);
 
             TempData["IsSuccess"] = result.IsSuccess;
             TempData["Message"] = result.Message;

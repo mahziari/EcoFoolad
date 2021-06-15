@@ -124,10 +124,9 @@
     </div>
 
 
-    <form id="" class="frm_search " action="">
-        <input class="nk_input_serach_product" autocomplete="off" oninput="ajax_search()" value="" type="text"
-               name="s" id="txt_search" placeholder="جستجو در محصولات ....">
-        <input type="hidden" value="product" name="post_type">
+    <form class="frm_search"  asp-controller="Products" asp-action="Category" method="get">
+        <input class="nk_input_serach_product" autocomplete="off" value="" type="text"
+               name="SearchKey" id="txt_search" placeholder="جستجو در محصولات ....">
         <button type="submit" id="submit_search" value=""></button>
         <div class="clear"></div>
         <div class="main_top_word_search main_result_ajax_search" style="display: none;">

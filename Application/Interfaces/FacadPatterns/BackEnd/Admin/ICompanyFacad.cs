@@ -13,6 +13,7 @@ namespace  Application.Interfaces.FacadPatterns.BackEnd.Admin
         IEditCompanyServices EditCompanyServices { get; }
         IDeleteCompanyServices DeleteCompanyServices { get; }
         IActiveCompanyServices ActiveCompanyServices { get; }
+        IConvertToFactoriesCompanyServices ConvertToFactoriesCompanyServices { get; }
 
     }
 }

@@ -39,19 +39,21 @@ namespace  Application.Services.FrontEnd.Common.Menus.Queries
                     {
                         ParsaPooladMenusId = f.ParsaPooladMenusId,
                         Name = f.Name,
-                        UrlName = f.UrlName,
+                        EnName = f.UrlName,
                         Sub = f.WsproductFirstGroup
                             .Where(first => first.IsRemoved == null)
                             .Select(first => new GetMenu2Dto
                             {
                                 PrdFirstGroupId = first.PrdFirstGroupId,
                                 Fgname = first.Fgname,
+                                EnFgname = first.EnFgname,
                                 SubSub = first.WsproductSecondGroup
                                     .Where(seconds => seconds.IsRemoved == null)
                                     .Select(seconds => new GetMenu3Dto
                                     {
                                         WsproductSecondGroupId = seconds.PrdSecondGroupId,
                                         Sgname = seconds.Sgname,
+                                        EnSgname = seconds.EnSgname.Replace(" ","-"),
                                     }).ToList()
                             }).ToList()
                     }).ToList();
@@ -88,7 +90,7 @@ namespace  Application.Services.FrontEnd.Common.Menus.Queries
     {
         public int ParsaPooladMenusId { get; set; }
         public string Name { get; set; }
-        public string UrlName { get; set; }
+        public string EnName { get; set; }
         public List<GetMenu2Dto> Sub { get; set; }
     }
 
@@ -96,6 +98,7 @@ namespace  Application.Services.FrontEnd.Common.Menus.Queries
     {
         public int PrdFirstGroupId { get; set; }
         public string Fgname { get; set; }
+        public string EnFgname { get; set; }
         public List<GetMenu3Dto> SubSub { get; set; }
     }
 
@@ -103,5 +106,6 @@ namespace  Application.Services.FrontEnd.Common.Menus.Queries
     {
         public int WsproductSecondGroupId { get; set; }
         public string Sgname { get; set; }
+        public string EnSgname { get; set; }
     }
 }

@@ -26,13 +26,13 @@ namespace  Application.Services.BackEnd.Admin.Company.Queries
         public ResultGetIndexCompanyDto Execute()
         {
             var company = _context.CrmCompany
-                .Where(c=>c.ParsaPooladMenusId!=null)
                 .OrderByDescending(c=>c.CompanyId)
                 .Select(c=>new GetIndexCompanyDto
                 {
                     CompanyId=c.CompanyId,
                     CmpName=c.CmpName,
                     MenuName=c.ParsaPooladMenus.Name,
+                    IsFactory= c.IsFactory,
                 }).ToList();
             
             
@@ -53,6 +53,7 @@ namespace  Application.Services.BackEnd.Admin.Company.Queries
         public int CompanyId { get; set; }
         public string CmpName { get; set; }
         public string MenuName { get; set; }
+        public bool IsFactory { get; set; }
     }
 
 }

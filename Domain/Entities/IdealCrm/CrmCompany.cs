@@ -129,6 +129,7 @@ namespace  Domain.Entities.IdealCrm
         public int? CmpMainPersonId { get; set; }
         public int? ParsaPooladMenusId { get; set; }
         public int? CrmUsersId { get; set; }
+        public bool IsFactory { get; set; }
 
         public virtual City CmpCity { get; set; }
         public virtual Country CmpCountry { get; set; }

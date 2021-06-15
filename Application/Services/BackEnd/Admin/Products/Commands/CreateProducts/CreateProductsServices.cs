@@ -51,7 +51,7 @@ namespace  Application.Services.BackEnd.Admin.Products.Commands.CreateProducts
                 PrdSize = createProductsServicesDto.PrdSize,
                 PrdModel = createProductsServicesDto.PrdModel,
                 PrdDescription = createProductsServicesDto.PrdDescription,
-                PrdPrice =createProductsServicesDto.PrdPrice,
+                PrdPrice =Convert.ToDecimal(createProductsServicesDto.PrdPrice),
                 PrdInactiveInSale =true,
                 UserId= userLoged.CrmUsersId,
                 Month1=6,

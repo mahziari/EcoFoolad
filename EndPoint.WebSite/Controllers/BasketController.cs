@@ -34,18 +34,17 @@ namespace EndPoint.WebSite.Controllers
 
         [HttpGet]
         [AllowAnonymous]
-
+        [Route("/basket")]
         public IActionResult Index()
         {
             var model = GetOrSetBasket();
-
             return View(model);
         }
 
 
         [HttpPost]
         [AllowAnonymous]
-
+        [Route("/basket")]
         public IActionResult Index(long productId, int quantity = 1)
         {
             var basket = GetOrSetBasket();
@@ -53,6 +52,7 @@ namespace EndPoint.WebSite.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        
         [AllowAnonymous]
         [HttpGet]
         [Route("/basket/RemoveItemFromBasket/{itemId}")]

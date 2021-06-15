@@ -42,49 +42,49 @@
 @* </p> *@
 
 
-<div class="main_custom_order_by_sort">
-
-    <form class="woocommerce-ordering" method="get" style="display:none">
-        <select name="orderby" class="orderby" aria-label="سفارش خرید">
-            <option value="menu_order" selected="selected">مرتب‌سازی پیش‌فرض</option>
-            <option value="popularity">مرتب‌سازی بر اساس محبوبیت</option>
-            <option value="rating">مرتب‌سازی بر اساس امتیاز</option>
-            <option value="date">مرتب‌سازی بر اساس آخرین</option>
-            <option value="price">مرتب‌سازی بر اساس ارزانترین</option>
-            <option value="price-desc">مرتب‌سازی بر اساس گرانترین</option>
-            <option value="featured">محصولات ویژه</option>
-            <option value="incredible_offer">شگفت انگیزها</option>
-        </select>
-        <input type="hidden" name="paged" value="1">
-    </form>
-    <span class="title_order_by">مرتب سازی بر اساس: </span>
-    <span style="display:none"> selected='selected'</span> <strong sortby="menu_order" href="" class="custom_order_by_sort selected" rel="nofollow"><span></span> پیش‌فرض</strong>
-    <span style="display:none"></span> <strong sortby="popularity" href="" class="custom_order_by_sort " rel="nofollow"><span></span> محبوبیت</strong>
-    <span style="display:none"></span> <strong sortby="rating" href="" class="custom_order_by_sort " rel="nofollow"><span></span> امتیاز</strong>
-    <span style="display:none"></span> <strong sortby="date" href="" class="custom_order_by_sort " rel="nofollow"><span></span> آخرین</strong>
-    <span style="display:none"></span> <strong sortby="price" href="" class="custom_order_by_sort " rel="nofollow"><span></span> ارزانترین</strong>
-    <span style="display:none"></span> <strong sortby="price-desc" href="" class="custom_order_by_sort " rel="nofollow"><span></span> گرانترین</strong>
-    <span style="display:none"></span> <strong sortby="featured" href="" class="custom_order_by_sort " rel="nofollow"><span></span>محصولات ویژه</strong>
-    <span style="display:none"></span> <strong sortby="incredible_offer" href="" class="custom_order_by_sort " rel="nofollow"><span></span>شگفت انگیزها</strong>
-
-
-    <script>
-
-			jQuery('.custom_order_by_sort').on('click', function(){
-				
-				var data_sort = jQuery(this).attr('sortby');
-						
-				jQuery('.orderby').val(data_sort);
-						
-				jQuery('.woocommerce-ordering').submit();
-			});
-
-		</script>
-
-
-    <span type_view="listing" class="type_view type_view_listing "></span>
-    <span type_view="grid" class="type_view type_view_grid active"></span>
-</div>
+@* <div class="main_custom_order_by_sort"> *@
+@* *@
+@*     <form class="woocommerce-ordering" method="get" style="display:none"> *@
+@*         <select name="orderby" class="orderby" aria-label="سفارش خرید"> *@
+@*             <option value="menu_order" selected="selected">مرتب‌سازی پیش‌فرض</option> *@
+@*             <option value="popularity">مرتب‌سازی بر اساس محبوبیت</option> *@
+@*             <option value="rating">مرتب‌سازی بر اساس امتیاز</option> *@
+@*             <option value="date">مرتب‌سازی بر اساس آخرین</option> *@
+@*             <option value="price">مرتب‌سازی بر اساس ارزانترین</option> *@
+@*             <option value="price-desc">مرتب‌سازی بر اساس گرانترین</option> *@
+@*             <option value="featured">محصولات ویژه</option> *@
+@*             <option value="incredible_offer">شگفت انگیزها</option> *@
+@*         </select> *@
+@*         <input type="hidden" name="paged" value="1"> *@
+@*     </form> *@
+@*     <span class="title_order_by">مرتب سازی بر اساس: </span> *@
+@*     <span style="display:none"> selected='selected'</span> <strong sortby="menu_order" href="" class="custom_order_by_sort selected" rel="nofollow"><span></span> پیش‌فرض</strong> *@
+@*     <span style="display:none"></span> <strong sortby="popularity" href="" class="custom_order_by_sort " rel="nofollow"><span></span> محبوبیت</strong> *@
+@*     <span style="display:none"></span> <strong sortby="rating" href="" class="custom_order_by_sort " rel="nofollow"><span></span> امتیاز</strong> *@
+@*     <span style="display:none"></span> <strong sortby="date" href="" class="custom_order_by_sort " rel="nofollow"><span></span> آخرین</strong> *@
+@*     <span style="display:none"></span> <strong sortby="price" href="" class="custom_order_by_sort " rel="nofollow"><span></span> ارزانترین</strong> *@
+@*     <span style="display:none"></span> <strong sortby="price-desc" href="" class="custom_order_by_sort " rel="nofollow"><span></span> گرانترین</strong> *@
+@*     <span style="display:none"></span> <strong sortby="featured" href="" class="custom_order_by_sort " rel="nofollow"><span></span>محصولات ویژه</strong> *@
+@*     <span style="display:none"></span> <strong sortby="incredible_offer" href="" class="custom_order_by_sort " rel="nofollow"><span></span>شگفت انگیزها</strong> *@
+@* *@
+@* *@
+@*     <script> *@
+@* *@
+@* 			jQuery('.custom_order_by_sort').on('click', function(){ *@
+@* 				 *@
+@* 				var data_sort = jQuery(this).attr('sortby'); *@
+@* 						 *@
+@* 				jQuery('.orderby').val(data_sort); *@
+@* 						 *@
+@* 				jQuery('.woocommerce-ordering').submit(); *@
+@* 			}); *@
+@* *@
+@* 		</script> *@
+@* *@
+@* *@
+@*     <span type_view="listing" class="type_view type_view_listing "></span> *@
+@*     <span type_view="grid" class="type_view type_view_grid active"></span> *@
+@* </div> *@
 <style>
         .mine_css:hover{
         box-shadow: 0 0 17px 0 rgba(0, 0, 0, .09);
@@ -122,7 +122,6 @@
                 <a asp-controller="Products"
                    asp-action="Category"
                    asp-route-category="@item.UrlName">
-                    asp-route-menuName="@item.ParsaPooladMenusId">
                     <img src="/@item.Image"/>
                 </a>
             </div>

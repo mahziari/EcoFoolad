@@ -46,7 +46,7 @@ namespace  Application.Services.BackEnd.Admin.Products.Commands.EditProducts
             product.PrdSize = editProductsServicesDto.PrdSize;
             product.PrdModel = editProductsServicesDto.PrdModel;
             product.PrdDescription = editProductsServicesDto.PrdDescription;
-            product.PrdPrice = editProductsServicesDto.PrdPrice;
+            product.PrdPrice =Convert.ToDecimal(editProductsServicesDto.PrdPrice);
             _context.SaveChanges();
             
             

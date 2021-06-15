@@ -47,7 +47,7 @@ namespace  Application.Services.BackEnd.Admin.Products.Commands.CreateProducts
         
         [Display(Name = "شرکت سازنده محصول")]
         [Required(ErrorMessage = "پر کردن فیلد {0} اجباری است")]
-        public int? PrdShpotherSupplierId { get; set; }
+        public int PrdShpotherSupplierId { get; set; }
         
         [Display(Name = "قیمت محصول")]
         [Required(ErrorMessage = "پر کردن فیلد {0} اجباری است")]

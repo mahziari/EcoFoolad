@@ -32,7 +32,7 @@ namespace  Application.Services.BackEnd.Owner.Products.Commands
             product.PrdSize = editProductsServicesDto.PrdSize;
             product.PrdModel = editProductsServicesDto.PrdModel;
             product.PrdDescription = editProductsServicesDto.PrdDescription;
-            product.PrdPrice = editProductsServicesDto.PrdPrice;
+            product.PrdPrice =Convert.ToDecimal(editProductsServicesDto.PrdPrice);
             _context.SaveChanges();
 
             return new ResultEditProductsDto
@@ -94,7 +94,7 @@ namespace  Application.Services.BackEnd.Owner.Products.Commands
         
         [Display(Name = "شرکت سازنده محصول")]
         [Required(ErrorMessage = "پر کردن فیلد {0} اجباری است")]
-        public int? PrdShpotherSupplierId { get; set; }
+        public int PrdShpotherSupplierId { get; set; }
 
         [Display(Name = "قیمت محصول")]
         [Required(ErrorMessage = "پر کردن فیلد {0} اجباری است")]

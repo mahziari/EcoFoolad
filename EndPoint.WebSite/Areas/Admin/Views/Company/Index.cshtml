@@ -77,6 +77,7 @@
                                             <th>شماره</th>
                                             <th>نام شرکت</th>
                                             <th>محصول تولیدی </th>
+                                            <th>تبدیل به کارخانه تولیدی </th>
                                             <th>عملیات</th>
                                         </tr>
                                         </thead>
@@ -102,6 +103,21 @@
 
                                                 <td>
                                                     @item.MenuName
+                                                </td>
+                                                
+                                                
+                                                
+                                                <td>
+                                                    <form asp-area="Admin" asp-controller="Company" asp-action="ConvertToFactories" asp-route-id="@item.CompanyId" method="get">
+                                                        @if (item.IsFactory)
+                                                        {
+                                                            <input type="checkbox" checked name="id" onclick="submit();">
+                                                        }
+                                                        else
+                                                        {
+                                                            <input type="checkbox" name="id" onclick="submit();">
+                                                        }
+                                                    </form>
                                                 </td>
 
 

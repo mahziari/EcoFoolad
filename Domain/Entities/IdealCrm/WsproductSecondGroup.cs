@@ -17,6 +17,7 @@ namespace  Domain.Entities.IdealCrm
         public int FirstGroupId { get; set; }
         public string Sgcode { get; set; }
         public string Sgname { get; set; }
+        public string EnSgname { get; set; }
         public string Sgdescription { get; set; }
         public int UserId { get; set; }
         public short Month1 { get; set; }
