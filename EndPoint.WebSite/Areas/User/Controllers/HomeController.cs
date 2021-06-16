@@ -8,6 +8,8 @@ namespace EndPoint.WebSite.Areas.User.Controllers
     [Route("panel/user/home/[action]")]
     public class HomeController : Controller
     {
+
+
         [HttpGet]
         public IActionResult Index()
         {

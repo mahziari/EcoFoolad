@@ -20,9 +20,9 @@ namespace  Application.Services.BackEnd.Owner.Products.Commands
     public class CreateProductsServices:ICreateProductsServices {
         private readonly IIdealCrmDataBaseContext _context;
         private readonly IHttpContextAccessor _httpContext;
-        private readonly UserManager<User> _userManager;
+        private readonly UserManager<Domain.Entities.Users.User> _userManager;
 
-        public CreateProductsServices(IIdealCrmDataBaseContext context , IHttpContextAccessor httpContext, UserManager<User> userManager)
+        public CreateProductsServices(IIdealCrmDataBaseContext context , IHttpContextAccessor httpContext, UserManager<Domain.Entities.Users.User> userManager)
         {
             _context = context;
             _httpContext = httpContext;

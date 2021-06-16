@@ -1,0 +1,47 @@
+﻿@model Application.Services.BackEnd.User.Home.UserHomeInformationPanelDto;
+@{
+    Layout = null;
+}  
+
+
+
+<div class="sp_Possibilities">
+                    <ul class="sp_Information_panel">
+                        <li class="wallet">
+                            <div class="sp_paragraph">
+                                <span>کامنت</span>
+                                <span>0</span>
+                            </div>
+                            <div class="sp_icons_Information_panel">
+                                <i class="fas fa-wallet"></i>
+                            </div>
+                        </li>
+                        <li class="order">
+                            <div class="sp_paragraph">
+                                <span>سفارشات شما</span>
+                                <span> @Model.OrderCount</span>
+                            </div>
+                            <div class="sp_icons_Information_panel">
+                                <i class="fas fa-shopping-bag"></i>
+                            </div>
+                        </li>
+                        <li class="number_of_registration_day">
+                            <div class="sp_paragraph">
+                                @Model.WithMe
+                                <span>روز است که همراه ما هستید</span>
+                            </div>
+                            <div class="sp_icons_Information_panel">
+                                <i class="fas fa-smile"></i>
+                            </div>
+                        </li>
+                        <li class="discount_code">
+                            <div class="sp_paragraph">
+                                <span>اعلان ها</span>
+                                <span>1</span>
+                            </div>
+                            <div class="sp_icons_Information_panel">
+                                <i class="fas fa-scroll"></i>
+                            </div>
+                        </li>
+                    </ul>
+                </div>

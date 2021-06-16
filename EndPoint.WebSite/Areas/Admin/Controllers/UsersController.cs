@@ -102,5 +102,26 @@ namespace EndPoint.WebSite.Areas.Admin.Controllers
         //
         //     return Redirect("~/Admin/Users/Index");
         // }
+        
+        [HttpGet]
+        public IActionResult RequestToBeOwner()
+        {
+            var result = _usersFacad.GetIndexUserOwnerServices.Execute();
+            return View(result);
+        }
+        
+        
+        [HttpPost]
+        public IActionResult RequestToBeOwner(string id)
+        {
+            var result = _usersFacad.ActiveRequestToBeOwnerServices.Execute(id);
+            
+            TempData["IsSuccess"] = result.IsSuccess;
+            TempData["Message"] = result.Message[0];
+
+            return RedirectToAction(nameof(RequestToBeOwner));
+        }
+        
+        
     }
 }

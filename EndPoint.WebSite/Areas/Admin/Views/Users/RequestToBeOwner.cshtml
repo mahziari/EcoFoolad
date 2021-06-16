@@ -1,0 +1,160 @@
+﻿@using Microsoft.AspNetCore.Authorization
+@using Microsoft.AspNetCore.Identity
+@using   Application.Services.BackEnd.Admin.Users.Queries.GetIndexUser
+@using Domain.Entities.Users
+@model ResultGetIndexUsersDto
+@inject SignInManager<User> SignInManager
+@inject UserManager<Domain.Entities.Users.User> UserManager
+@inject IAuthorizationService AuthorizationService;
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "لیست درخواست های فروشندگان";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@section Head{
+    <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/vendors/css/vendors-rtl.min.css">
+    <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/vendors/css/tables/datatable/datatables.min.css">
+    <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/css/bootstrap-extended.min.css">
+    <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/css/colors.min.css">
+    <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/css/components.min.css">
+    <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/css/themes/dark-layout.min.css">
+    <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/css/themes/semi-dark-layout.min.css">
+    <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/css/custom-rtl.min.css">
+    <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/css/core/menu/menu-types/vertical-menu-karaji.min.css">
+    <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/css/pages/page-users.min.css">
+    <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/css/style.css">
+}
+
+@section Foo{
+    <script src="~/BackEnd/Admin/vendors/js/vendors.min.js"></script>
+    <script src="~/BackEnd/Admin/vendors/js/tables/datatable/datatables.min.js"></script>
+    <script src="~/BackEnd/Admin/vendors/js/tables/datatable/dataTables.bootstrap4.min.js"></script>
+    <script src="~/BackEnd/Admin/js/scripts/configs/vertical-menu-dark.min.js"></script>
+    <script src="~/BackEnd/Admin/js/core/app-menu.min.js"></script>
+    <script src="~/BackEnd/Admin/js/core/app.min.js"></script>
+    <script src="~/BackEnd/Admin/js/scripts/components.min.js"></script>
+    <script src="~/BackEnd/Admin/js/scripts/footer.min.js"></script>
+    <script src="~/BackEnd/Admin/js/scripts/customizer.min.js"></script>
+    <script src="~/BackEnd/Admin/js/scripts/pages/page-users.min.js"></script>
+    <script> $('div.alert').delay(3000).slideUp(300); </script>
+}
+
+
+<div class="app-content content">
+    <div class="content-overlay"></div>
+    <div class="content-wrapper">
+        <div class="content-header row">
+        </div>
+        <div class="content-body">
+
+            @if (TempData["IsSuccess"] != null)
+            {
+                @if (Convert.ToBoolean(TempData["IsSuccess"]) == true)
+                {
+                    <div class="alert alert-success">
+                        @TempData["Message"]
+                    </div>
+                }
+
+                else if (Convert.ToBoolean(TempData["IsSuccess"]) == false)
+                {
+                    <div class="alert alert-danger">
+                        @TempData["Message"]
+                    </div>
+                }
+            }
+
+            <section class="users-list-wrapper">
+                <div class="users-list-table">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="card-body">
+
+                                <div class="table-responsive">
+                                    <table id="users-list-datatable" class="table">
+                                        <thead>
+                                        <tr>
+                                            <th style="display:none">None</th>
+                                            <th style="display:none">None</th>
+                                            <th style="display:none">None</th>
+                                            <th>شماره</th>
+                                            <th>نام کاربر</th>
+                                            @* <th>نقش کاربر</th> *@
+                                            @* <th>Claim</th> *@
+                                            <th>تلفن</th>
+                                            <th>عملیات</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        @{ var counter = 0; }
+                                        @foreach (var item in Model.Users)
+                                        {
+                                            counter++;
+                                            <tr>
+
+                                                <td style="display:none"> </td>
+                                                <td style="display:none"> </td>
+                                                <td style="display:none"> </td>
+                                                <td> @counter</td>
+
+                                                <td>
+                                                    @item.FirstName @item.LastName
+                                                </td>
+
+                                                @* <td> *@
+                                                @*     @foreach (var userRoles in UserManager.GetRolesAsync(UserManager.FindByIdAsync(item.Id.ToString()).Result).Result) *@
+                                                @*     { *@
+                                                @*         @userRoles *@
+                                                @*     } *@
+                                                @* </td> *@
+
+                                                <td>
+                                                    @item.PhoneNumber
+                                                </td>
+
+
+                                                <td class="tdDisplay">
+                                                    @{
+                                                        var user = await UserManager.FindByIdAsync(item.Id);
+                                                    }
+                                                    @if (UserManager.IsInRoleAsync(user,"Owner").Result)
+                                                    {
+                                                        <a >
+                                                            <span class="badge badge-light-warning d-inline-flex align-items-center mr-1 mb-1">
+                                                                پنل کاربر به فروشنده ارتقا پیدا کرده است&nbsp;&nbsp;&nbsp;
+                                                                <i class="fa fa-plus-square" aria-hidden="true"></i>
+                                                            </span>
+                                                        </a>
+                                                    }
+                                                    else
+                                                    {
+                                                        <form id="RequestToBeOwner" asp-area="Admin" asp-controller="Users" asp-action="RequestToBeOwner" asp-route-id="@item.Id" method="post">
+                                                            <a onclick="document.getElementById('RequestToBeOwner').submit()" style="cursor:pointer">
+                                                                <span class="badge badge-light-success d-inline-flex align-items-center mr-1 mb-1">
+
+                                                                    تایید و ارتقا پنل کاربر به فروشنده&nbsp;&nbsp;&nbsp;
+                                                                    <i class="fa fa-plus-square" aria-hidden="true"></i>
+                                                                </span>
+                                                            </a>
+                                                        </form>  
+                                                    }
+                                                   
+                                                </td>
+
+                                            </tr>
+                                        }
+
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>

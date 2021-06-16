@@ -1,4 +1,6 @@
 using System;
+using System.Text.Encodings.Web;
+using System.Text.Unicode;
 using Application.Interfaces.Contexts;
 using Application.Interfaces.FacadPatterns.BackEnd.Admin;
 using Application.Interfaces.FacadPatterns.BackEnd.Owner;
@@ -7,6 +9,7 @@ using Application.Services.BackEnd.Admin.Blogs.FacadPattern;
 using Application.Services.BackEnd.Admin.BlogsCategories.FacadPattern;
 using Application.Services.BackEnd.Admin.Company.FacadPattern;
 using Application.Services.BackEnd.Admin.Factory.FacadPattern;
+using Application.Services.BackEnd.Admin.Home.FacadPattern;
 using Application.Services.BackEnd.Admin.Menus.FacadPattern;
 using Application.Services.BackEnd.Admin.Products.FacadPattern;
 using Application.Services.BackEnd.Admin.Roles.FacadPattern;
@@ -15,6 +18,9 @@ using Application.Services.BackEnd.Admin.Users.FacadPattern;
 using Application.Services.BackEnd.Owner.Home.FacadPattern;
 using Application.Services.BackEnd.Owner.Products.FacadPattern;
 using Application.Services.BackEnd.Owner.Profile.FacadPattern;
+using Application.Services.BackEnd.User.Addresses;
+using Application.Services.BackEnd.User.Home;
+using Application.Services.BackEnd.User.Orders;
 using Application.Services.FrontEnd.Basket;
 using Application.Services.FrontEnd.Blogs.FacadPattern;
 using Application.Services.FrontEnd.Common.Menus.FacadPattern;
@@ -22,8 +28,6 @@ using Application.Services.FrontEnd.Home.FacadPattern;
 using Application.Services.FrontEnd.Orders;
 using Application.Services.FrontEnd.Payments;
 using Application.Services.FrontEnd.Products.FacadPattern;
-using Application.Services.FrontEnd.User.Addresses;
-using Application.Services.FrontEnd.User.Orders;
 using EndPoint.Web.Areas.Auth.Helpers.Policy;
 using Infrastructure.IdentityConfigs;
 using Infrastructure.Mapping;
@@ -147,6 +151,7 @@ namespace EndPoint.WebSite
             services.AddScoped<ISlidersFacad, SlidersFacad>();
             services.AddScoped<ICompanyFacad, CompanyFacad>();
             services.AddScoped<IFactoryFacad, FactoryFacad>();
+            services.AddScoped<IHomeFacad, HomeFacad>();
             //------ Owner Panel Services
             services.AddScoped<IOwnerProductsFacad, OwnerProductsFacad>();
             services.AddScoped<IOwnerHomeFacad, OwnerHomeFacad>();
@@ -154,6 +159,7 @@ namespace EndPoint.WebSite
             //------ User Panel Services
             services.AddTransient<IUserAddressServices,  UserAddressServices>();
             services.AddTransient<IUserOrdersServices,  UserOrdersServices>();
+            services.AddTransient<IUserHomeServices,  UserHomeServices>();
 
             
             //------ Sessions Services
@@ -181,6 +187,8 @@ namespace EndPoint.WebSite
             mvcBuilder.AddRazorRuntimeCompilation();
             #endif
             services.AddControllersWithViews();
+            services.AddSingleton<HtmlEncoder>(HtmlEncoder.Create(allowedRanges: new[] {
+                UnicodeRanges.BasicLatin, UnicodeRanges.Arabic }));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

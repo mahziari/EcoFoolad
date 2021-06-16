@@ -12,10 +12,10 @@ namespace  Application.Services.BackEnd.Admin.Products.Commands.EditProducts
         
         private readonly IIdealCrmDataBaseContext _context;
         private readonly IHttpContextAccessor _httpContext;
-        private readonly UserManager<User> _userManager;
+        private readonly UserManager<Domain.Entities.Users.User> _userManager;
         private readonly ICustomDbContext _customDbContext;
 
-        public EditProductsServices(IIdealCrmDataBaseContext context,IHttpContextAccessor httpContext,UserManager<User> userManager, ICustomDbContext customDbContext)
+        public EditProductsServices(IIdealCrmDataBaseContext context,IHttpContextAccessor httpContext,UserManager<Domain.Entities.Users.User> userManager, ICustomDbContext customDbContext)
         {
             _context = context;
             _httpContext = httpContext;

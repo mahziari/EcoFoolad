@@ -15,9 +15,9 @@ namespace  Application.Services.BackEnd.Owner.Products.FacadPattern
     {
         private readonly IIdealCrmDataBaseContext _context;
         private readonly IHttpContextAccessor _httpContext;
-        private readonly UserManager<User> _userManager;
+        private readonly UserManager<Domain.Entities.Users.User> _userManager;
 
-        public OwnerProductsFacad(IIdealCrmDataBaseContext context, IHttpContextAccessor httpContext, UserManager<User> userManager)
+        public OwnerProductsFacad(IIdealCrmDataBaseContext context, IHttpContextAccessor httpContext, UserManager<Domain.Entities.Users.User> userManager)
         {
             _context = context;
             _httpContext = httpContext;

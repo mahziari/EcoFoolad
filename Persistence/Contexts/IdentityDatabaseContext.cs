@@ -23,13 +23,13 @@ namespace Persistence.Contexts
         
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<IdentityUser<string>>().ToTable("User","identity");
-            modelBuilder.Entity<IdentityRole<string>>().ToTable("Role","identity");
-            modelBuilder.Entity<IdentityRoleClaim<string>>().ToTable("RoleClaims","identity");
-            modelBuilder.Entity<IdentityUserClaim<string>>().ToTable("UserClaims","identity");
-            modelBuilder.Entity<IdentityUserLogin<string>>().ToTable("UserLogins","identity");
-            modelBuilder.Entity<IdentityUserRole<string>>().ToTable("UserRoles","identity");
-            modelBuilder.Entity<IdentityUserToken<string>>().ToTable("UserTokens","identity");
+            modelBuilder.Entity<IdentityUser<string>>().ToTable("User","dbo");
+            modelBuilder.Entity<IdentityRole<string>>().ToTable("Role","dbo");
+            modelBuilder.Entity<IdentityRoleClaim<string>>().ToTable("RoleClaims","dbo");
+            modelBuilder.Entity<IdentityUserClaim<string>>().ToTable("UserClaims","dbo");
+            modelBuilder.Entity<IdentityUserLogin<string>>().ToTable("UserLogins","dbo");
+            modelBuilder.Entity<IdentityUserRole<string>>().ToTable("UserRoles","dbo");
+            modelBuilder.Entity<IdentityUserToken<string>>().ToTable("UserTokens","dbo");
             
             modelBuilder.Entity<IdentityUserLogin<string>>().HasKey(p => new { p.ProviderKey, p.LoginProvider });
             modelBuilder.Entity<IdentityUserRole<string>>().HasKey(p => new { p.UserId, p.RoleId });

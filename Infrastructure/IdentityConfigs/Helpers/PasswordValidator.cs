@@ -17,7 +17,7 @@ namespace Infrastructure.IdentityConfigs.Helpers{
         }
 
 
-        public Task<IdentityResult> ValidateAsync(UserManager<User> manager, User user, string password)
+        public Task<IdentityResult> ValidateAsync(UserManager<Domain.Entities.Users.User> manager, User user, string password)
         {
             string filePath = @"PasswordList.txt";
             var folderPath = Path.Combine(_environment.WebRootPath, filePath);

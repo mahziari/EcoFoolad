@@ -14,10 +14,10 @@ namespace  Application.Services.BackEnd.Admin.Users.Commands
     }
     public class EditUsersServices : IEditUsersServices
     {
-        private readonly UserManager<User> _userManager;
+        private readonly UserManager<Domain.Entities.Users.User> _userManager;
         private readonly RoleManager<Role> _roleManager;
        
-        public EditUsersServices(UserManager<User> userManager, RoleManager<Role> roleManager)
+        public EditUsersServices(UserManager<Domain.Entities.Users.User> userManager, RoleManager<Role> roleManager)
         {
             _userManager = userManager;
             _roleManager = roleManager;

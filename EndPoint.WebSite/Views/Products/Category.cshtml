@@ -1,10 +1,13 @@
 ﻿@using Application.Services.FrontEnd.Products.Queries
+@using Microsoft.AspNetCore.Http.Extensions
 @model Application.Services.FrontEnd.Products.Queries.GetProductsCategory.Dto.ResultGetProductsCategoryFrontEndDto
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 @{
     ViewData["Title"] = "محصولات";
     Layout = "~/Views/Shared/_Layout.cshtml";
-    var Companies = Context.Request.Query["CompanyId"];
+    var companies = Context.Request.Query["CompanyId"];
+    // var sortType = Context.Request.Query["SortType"];
+    var currentUrl = Context.Request.GetDisplayUrl();
 }
 
 @section BodyAttr{
@@ -44,41 +47,52 @@
 
 
         <div class="main_custom_order_by_sort">
-
-            <form class="woocommerce-ordering" method="get" style="display:none">
-                <select name="orderby" class="orderby" aria-label="سفارش خرید">
-                    <option value="menu_order" selected="selected">مرتب‌سازی پیش‌فرض</option>
-                    <option value="popularity">مرتب‌سازی بر اساس محبوبیت</option>
-                    <option value="rating">مرتب‌سازی بر اساس امتیاز</option>
-                    <option value="date">مرتب‌سازی بر اساس آخرین</option>
-                    <option value="price">مرتب‌سازی بر اساس ارزانترین</option>
-                    <option value="price-desc">مرتب‌سازی بر اساس گرانترین</option>
-                    <option value="featured">محصولات ویژه</option>
-                    <option value="incredible_offer">شگفت انگیزها</option>
-                </select>
-                <input type="hidden" name="paged" value="1">
-            </form>
             <span class="title_order_by">مرتب سازی بر اساس: </span>
-            <span style="display:none"> selected='selected'</span> <strong sortby="menu_order"  class="custom_order_by_sort " rel="nofollow"><span></span><a asp-action="Category" asp-route-SortType="0">پیش‌فرض</a> </strong>
-            <span style="display:none"></span> <strong sortby="date" class="custom_order_by_sort " rel="nofollow"><span></span> <a asp-action="Category" asp-route-SortType="1">پربازدیدترین</a></strong>
-            <span style="display:none"></span> <strong sortby="date" class="custom_order_by_sort " rel="nofollow"><span></span> <a asp-action="Category" asp-route-SortType="4">جدیدترین</a></strong>
-            <span style="display:none"></span> <strong sortby="price" class="custom_order_by_sort " rel="nofollow"><span></span><a asp-action="Category" asp-route-SortType="5">ارزانترین</a> </strong>
-            <span style="display:none"></span> <strong sortby="price-desc" class="custom_order_by_sort " rel="nofollow"><span></span><a asp-action="Category" asp-route-SortType="6">گرانترین</a> </strong>
+            <span style="display:none"> selected='selected'</span> <strong sortby="menu_order"  class="custom_order_by_sort" rel="nofollow"><span></span><a asp-action="Category" asp-route-SortType="0">پیش‌فرض</a> </strong>
+            <span style="display:none"></span> <strong class="custom_order_by_sort sortType" rel="nofollow"><span></span> <a value="1">پربازدیدترین</a></strong>
+            <span style="display:none"></span> <strong class="custom_order_by_sort" rel="nofollow"><span></span> <a asp-action="Category" asp-route-SortType="4">جدیدترین</a></strong>
+            <span style="display:none"></span> <strong class="custom_order_by_sort" rel="nofollow"><span></span><a asp-action="Category" asp-route-SortType="5">ارزانترین</a> </strong>
+            <span style="display:none"></span> <strong class="custom_order_by_sort" rel="nofollow"><span></span><a asp-action="Category" asp-route-SortType="6">گرانترین</a> </strong>
 
 
             <script>
+            $(".sortType").click(function(){
+              $.ajax({url: "demo_test.txt", success: function(result){
+                $("#div1").html(result);
+              }});
+            });
+            
+               $(document).ready(function () {
+                        $(".sortType").on('click',function () {
+                            $sortType = $(".sortType").val();
+                            $.ajax({
+                                  type: 'get',
+                                  headers:{'RequestVerificationToken' :token},
+                                  url: currentUrl+'?SortType='+sortType,
+                                success: function (data) {
+                                    $('#result-sortType').html(data);
+                                }
+                            });
+                        });
+                    });
 
-			jQuery('.custom_order_by_sort').on('click', function(){
-				
-				var data_sort = jQuery(this).attr('sortby');
-						
-				jQuery('.orderby').val(data_sort);
-						
-				jQuery('.woocommerce-ordering').submit();
+			jQuery('.sortType').on('click', function(){
+
+				var data_sort = jQuery(this).attr('sortType');
+
+				jQuery('.sortType').val(data_sort);
+
+				   jQuery.ajax({
+                      type: 'get',
+                      headers:{'RequestVerificationToken' :token},
+                      url: currentUrl.url+'?SortType='+sortType,
+                    success: function (data) {
+                        $('#result-sortType').html(data);
+                    }
+                });
 			});
 
 		</script>
-
 
             <span type_view="listing" class="type_view type_view_listing "></span>
             <span type_view="grid" class="type_view type_view_grid active"></span>
@@ -86,7 +100,7 @@
 
         <div class="opacity_black_cover_for_order_by_product" style=""></div>
 
-        <ul class="products  columns-4">
+        <ul class="products  columns-4" id="result-sortType">
             @foreach (var item in Model.Products)
             {
                 <li class="swiper-slide not_in_offer_tax not_in_offer_slider product type-product post-3807 status-publish first instock product_cat-cloth product_tag-234 product_tag-236 has-post-thumbnail taxable shipping-taxable purchasable product-type-simple" data-id="3807">
@@ -207,7 +221,6 @@
         <label style="padding-right: 0px !important;">
             <img src="~/Images/Blogs/6374762326606459894.jpg">
         </label>
-        <span class="result_ajax_instock"></span>
     </div>
 
 
@@ -219,7 +232,7 @@
               <form asp-controller="Products" asp-action="Category" method="get">
             @foreach (var items in Model.Companies.Take(5))
             {
-                @if (Companies.ToList().Any(p => p == items.CompanyId.ToString()))
+                @if (companies.ToList().Any(p => p == items.CompanyId.ToString()))
                 {
                     <li class="cat-item cat-item-15">
                         <input type="checkbox" value="@items.CompanyId" checked name="CompanyId" onclick="submit();">@items.CmpName 
@@ -256,7 +269,7 @@
             <form asp-controller="Products" asp-action="Category" method="get">
                  @foreach (var items in Model.Companies)
                     {
-                        @if (Companies.ToList().Any(p => p == items.CompanyId.ToString()))
+                        @if (companies.ToList().Any(p => p == items.CompanyId.ToString()))
                         {
                             <li class="woocommerce-widget-layered-nav-list__item wc-layered-nav-term ">
                                 <input type="checkbox" value="@items.CompanyId" rel="nofollow"  checked name="CompanyId" onclick="submit();">@items.CmpName 
@@ -306,3 +319,5 @@
 </div>
 
 <div class="clear"></div>
+
+

@@ -3,7 +3,7 @@
 @using Domain.Entities.Users
 @inject IAuthorizationService AuthorizationService;
 @inject SignInManager<User> SignInManager
-@inject UserManager<User> UserManager
+@inject UserManager<Domain.Entities.Users.User> UserManager
 
 <header id="header_newkala" class="newkala_main_header_tag">
 
@@ -132,48 +132,6 @@
         <div class="main_top_word_search main_result_ajax_search" style="display: none;">
         </div>
     </form>
-
-    <script>
-
-                var access_do_ajax = true;
-
-                function ajax_search() {
-
-                    var length_text = jQuery('#txt_search').val().length;
-                    if (length_text >= 4 && access_do_ajax) {
-
-                        access_do_ajax = false;
-
-                        //jQuery('.main_result_ajax_search').show(0);
-                        //jQuery('.main_result_ajax_search').html('<p style="color:green;">در حال جستجو...</p>');
-
-                        jQuery.ajax({
-                            type: "GET",
-                            url: ajax_url,
-                            data: {
-                                action: 'ajax_search_onliner',
-                                s: jQuery('#txt_search').val(),
-                                post_type: 'product'
-                            },
-                            success: function (msg) {
-
-                                jQuery('.main_result_ajax_search').show(0);
-                                jQuery('.main_result_ajax_search').html(msg);
-
-                                access_do_ajax = true;
-                                console.log('SEARCH SUCCESS!');
-                            }
-                        });
-
-                    } else {
-
-                        jQuery('.main_result_ajax_search').hide(0);
-                        jQuery('.main_result_ajax_search').html('');
-                    }
-
-                }
-            </script>
-
 
 </div>
 

@@ -2,6 +2,8 @@
 using  Application.Interfaces.FacadPatterns.BackEnd.Admin;
 using  Application.Services.BackEnd.Admin.Users.Queries;
 using  Application.Services.BackEnd.Admin.Users.Commands;
+using Application.Services.BackEnd.Admin.Users.Commands.ActiveRequestToBeOwner;
+using Application.Services.BackEnd.Admin.Users.Queries.GetIndexUser;
 using  Domain.Entities;
 using Domain.Entities.Users;
 
@@ -9,9 +11,9 @@ namespace  Application.Services.BackEnd.Admin.Users.FacadPattern
 {
     public class UsersFacad : IUsersFacad
     {
-        private readonly UserManager<User> _userManager;
+        private readonly UserManager<Domain.Entities.Users.User> _userManager;
         private readonly RoleManager<Role> _roleManager;
-        public UsersFacad(UserManager<User> userManager,RoleManager<Role> roleManager)
+        public UsersFacad(UserManager<Domain.Entities.Users.User> userManager,RoleManager<Role> roleManager)
         {
             _userManager = userManager;
             _roleManager = roleManager;
@@ -23,7 +25,26 @@ namespace  Application.Services.BackEnd.Admin.Users.FacadPattern
         {
             get
             {
-                return _getIndexUsersServices ??= new GetIndexUsersServices(_userManager,_roleManager);
+                return _getIndexUsersServices ??= new GetIndexUsersServices(_userManager);
+            }
+        }
+        
+        
+        private IGetIndexUsersServices _getIndexUserOwnerServices;
+        public IGetIndexUsersServices GetIndexUserOwnerServices
+        {
+            get
+            {
+                return _getIndexUserOwnerServices ??= new GetIndexUserOwnerServices(_userManager);
+            }
+        }
+        
+        private IActiveRequestToBeOwnerServices _activeRequestToBeOwnerServices;
+        public IActiveRequestToBeOwnerServices ActiveRequestToBeOwnerServices
+        {
+            get
+            {
+                return _activeRequestToBeOwnerServices ??= new ActiveRequestToBeOwnerServices(_userManager,_roleManager);
             }
         }
 

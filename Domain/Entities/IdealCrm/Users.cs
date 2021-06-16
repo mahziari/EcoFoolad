@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Identity;
 
 namespace  Domain.Entities.IdealCrm
 {
-    public partial class Users
+    public class Users
     {
         public Users()
         {

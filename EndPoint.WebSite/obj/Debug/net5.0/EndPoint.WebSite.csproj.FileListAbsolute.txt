@@ -485,6 +485,10 @@ C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\obj\Debug\net5.0\Razor
 C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\obj\Debug\net5.0\Razor\Areas\Admin\Views\Company\Details.cshtml.g.cs
 C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\obj\Debug\net5.0\Razor\Areas\Admin\Views\Company\Edit.cshtml.g.cs
 C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\obj\Debug\net5.0\Razor\Areas\Admin\Views\Company\Index.cshtml.g.cs
+C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\obj\Debug\net5.0\Razor\Areas\Admin\Views\Factory\Create.cshtml.g.cs
+C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\obj\Debug\net5.0\Razor\Areas\Admin\Views\Factory\Details.cshtml.g.cs
+C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\obj\Debug\net5.0\Razor\Areas\Admin\Views\Factory\Edit.cshtml.g.cs
+C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\obj\Debug\net5.0\Razor\Areas\Admin\Views\Factory\Index.cshtml.g.cs
 C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\obj\Debug\net5.0\Razor\Areas\Admin\Views\Home\Index.cshtml.g.cs
 C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\obj\Debug\net5.0\Razor\Areas\Admin\Views\Menus\GetEditMenu.cshtml.g.cs
 C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\obj\Debug\net5.0\Razor\Areas\Admin\Views\Menus\GetEditSubMenu.cshtml.g.cs
@@ -506,6 +510,7 @@ C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\obj\Debug\net5.0\Razor
 C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\obj\Debug\net5.0\Razor\Areas\Admin\Views\Users\Details.cshtml.g.cs
 C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\obj\Debug\net5.0\Razor\Areas\Admin\Views\Users\Edit.cshtml.g.cs
 C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\obj\Debug\net5.0\Razor\Areas\Admin\Views\Users\Index.cshtml.g.cs
+C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\obj\Debug\net5.0\Razor\Areas\Admin\Views\Users\RequestToBeOwner.cshtml.g.cs
 C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\obj\Debug\net5.0\Razor\Areas\Auth\Views\Auth\CheckOut.cshtml.g.cs
 C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\obj\Debug\net5.0\Razor\Areas\Auth\Views\Auth\Confirm.cshtml.g.cs
 C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\obj\Debug\net5.0\Razor\Areas\Auth\Views\Auth\ForgotPassword.cshtml.g.cs
@@ -530,7 +535,9 @@ C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\obj\Debug\net5.0\Razor
 C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\obj\Debug\net5.0\Razor\Areas\User\Views\Address\Index.cshtml.g.cs
 C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\obj\Debug\net5.0\Razor\Areas\User\Views\Home\Index.cshtml.g.cs
 C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\obj\Debug\net5.0\Razor\Areas\User\Views\Orders\Details.cshtml.g.cs
+C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\obj\Debug\net5.0\Razor\Areas\User\Views\Orders\Factor.cshtml.g.cs
 C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\obj\Debug\net5.0\Razor\Areas\User\Views\Orders\Index.cshtml.g.cs
+C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\obj\Debug\net5.0\Razor\Areas\User\Views\Shared\Components\LayoutComponent\LayoutComponent.cshtml.g.cs
 C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\obj\Debug\net5.0\Razor\Areas\User\Views\Shared\_HeadPartial.cshtml.g.cs
 C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\obj\Debug\net5.0\Razor\Areas\User\Views\Shared\_Layout.cshtml.g.cs
 C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\obj\Debug\net5.0\Razor\Areas\User\Views\Shared\_RtightPanelPartial.cshtml.g.cs
@@ -548,6 +555,7 @@ C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\obj\Debug\net5.0\Razor
 C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\obj\Debug\net5.0\Razor\Views\Shared\Components\ResponsiveGetMenus\ResponsiveGetMenus.cshtml.g.cs
 C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\obj\Debug\net5.0\Razor\Views\Shared\Errors\AccessDenied.cshtml.g.cs
 C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\obj\Debug\net5.0\Razor\Views\Shared\Errors\Error.cshtml.g.cs
+C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\obj\Debug\net5.0\Razor\Views\Shared\_BlogPagination.cshtml.g.cs
 C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\obj\Debug\net5.0\Razor\Views\Shared\_CkEditorScriptsPartial.cshtml.g.cs
 C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\obj\Debug\net5.0\Razor\Views\Shared\_FooPartial.cshtml.g.cs
 C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\obj\Debug\net5.0\Razor\Views\Shared\_FooterPartial.cshtml.g.cs
@@ -555,6 +563,7 @@ C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\obj\Debug\net5.0\Razor
 C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\obj\Debug\net5.0\Razor\Views\Shared\_HeadPartial.cshtml.g.cs
 C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\obj\Debug\net5.0\Razor\Views\Shared\_Layout.cshtml.g.cs
 C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\obj\Debug\net5.0\Razor\Views\Shared\_MenusPartial.cshtml.g.cs
+C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\obj\Debug\net5.0\Razor\Views\Shared\_ProductsPagination.cshtml.g.cs
 C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\obj\Debug\net5.0\Razor\Views\Shared\_ResponsiveMenusPartial.cshtml.g.cs
 C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\obj\Debug\net5.0\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
 C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\obj\Debug\net5.0\Razor\Views\_ViewImports.cshtml.g.cs
@@ -567,9 +576,3 @@ C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\obj\Debug\net5.0\EndPo
 C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\obj\Debug\net5.0\ref\EndPoint.WebSite.dll
 C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\obj\Debug\net5.0\EndPoint.WebSite.pdb
 C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\obj\Debug\net5.0\EndPoint.WebSite.genruntimeconfig.cache
-C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\obj\Debug\net5.0\Razor\Areas\Admin\Views\Factory\Create.cshtml.g.cs
-C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\obj\Debug\net5.0\Razor\Areas\Admin\Views\Factory\Details.cshtml.g.cs
-C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\obj\Debug\net5.0\Razor\Areas\Admin\Views\Factory\Edit.cshtml.g.cs
-C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\obj\Debug\net5.0\Razor\Areas\Admin\Views\Factory\Index.cshtml.g.cs
-C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\obj\Debug\net5.0\Razor\Views\Shared\_BlogPagination.cshtml.g.cs
-C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\obj\Debug\net5.0\Razor\Views\Shared\_ProductsPagination.cshtml.g.cs

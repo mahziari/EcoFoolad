@@ -12,11 +12,11 @@ namespace  Application.Services.BackEnd.Owner.Home.FacadPattern
     public class OwnerHomeFacad : IOwnerHomeFacad
     {
         private readonly IIdealCrmDataBaseContext _context;
-        private readonly UserManager<User> _userManager;
+        private readonly UserManager<Domain.Entities.Users.User> _userManager;
         private readonly IHttpContextAccessor _httpContext;
 
 
-        public OwnerHomeFacad(IIdealCrmDataBaseContext context, IHttpContextAccessor httpContext, UserManager<User> userManager)
+        public OwnerHomeFacad(IIdealCrmDataBaseContext context, IHttpContextAccessor httpContext, UserManager<Domain.Entities.Users.User> userManager)
         {
             _context = context;
             _userManager = userManager;

@@ -19,8 +19,8 @@ namespace  Application.Services.BackEnd.Owner.Profile.Queries
     {
         private readonly IIdealCrmDataBaseContext _context;
         private readonly IHttpContextAccessor _httpContext;
-        private readonly UserManager<User> _userManager;
-        public GetIndexOwnerProfileServices(IIdealCrmDataBaseContext context, IHttpContextAccessor httpContext, UserManager<User> userManager)
+        private readonly UserManager<Domain.Entities.Users.User> _userManager;
+        public GetIndexOwnerProfileServices(IIdealCrmDataBaseContext context, IHttpContextAccessor httpContext, UserManager<Domain.Entities.Users.User> userManager)
         {
             _context = context;
             _httpContext = httpContext;
@@ -41,6 +41,6 @@ namespace  Application.Services.BackEnd.Owner.Profile.Queries
 
     public class ResultGetIndexOwnerProfileDto
     {
-        public User User { get; set; }
+        public Domain.Entities.Users.User User { get; set; }
     }
 }

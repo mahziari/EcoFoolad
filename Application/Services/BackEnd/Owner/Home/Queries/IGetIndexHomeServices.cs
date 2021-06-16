@@ -21,10 +21,10 @@ namespace  Application.Services.BackEnd.Owner.Home.Queries
     public class GetIndexHomeServices : IGetIndexHomeServices
     {
         private readonly IIdealCrmDataBaseContext _context;
-        private readonly UserManager<User> _userManager;
+        private readonly UserManager<Domain.Entities.Users.User> _userManager;
         private readonly IHttpContextAccessor _httpContext;
 
-        public GetIndexHomeServices(IIdealCrmDataBaseContext context, UserManager<User> userManager, IHttpContextAccessor httpContext)
+        public GetIndexHomeServices(IIdealCrmDataBaseContext context, UserManager<Domain.Entities.Users.User> userManager, IHttpContextAccessor httpContext)
         {
             _context = context;
             _userManager = userManager;
@@ -46,7 +46,7 @@ namespace  Application.Services.BackEnd.Owner.Home.Queries
 
     public class ResultGetIndexHomeDto
     {
-        public User User { get; set; }
+        public Domain.Entities.Users.User User { get; set; }
         public string UserRegisteryDate { get; set; }
     }
 }

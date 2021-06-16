@@ -12,9 +12,9 @@
 //     public class ClaimsController:Controller
 //     {
 //         
-//         private readonly UserManager<User> _userManager;
+//         private readonly UserManager<Domain.Entities.Users.User> _userManager;
 //
-//         public ClaimsController(UserManager<User> userManager)
+//         public ClaimsController(UserManager<Domain.Entities.Users.User> userManager)
 //         {
 //             _userManager = userManager;
 //         }

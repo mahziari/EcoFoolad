@@ -1,6 +1,6 @@
 ﻿using System.Security.Claims;
 using Application.Services.FrontEnd.Basket;
-using EndPoint.WebSite.Utilities;
+using Common.Utilities;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EndPoint.WebSite.ViewComponents

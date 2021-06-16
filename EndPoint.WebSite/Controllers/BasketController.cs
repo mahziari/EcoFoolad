@@ -1,13 +1,13 @@
 ﻿using System;
+using Application.Services.BackEnd.User.Addresses;
 using Application.Services.FrontEnd.Basket;
 using Application.Services.FrontEnd.Orders;
 using Application.Services.FrontEnd.Payments;
-using Application.Services.FrontEnd.User.Addresses;
+using Common.Utilities;
 using Domain.Entities.Orders;
 using Domain.Entities.Payments;
 using Domain.Entities.Users;
 using EndPoint.WebSite.Models.ViewModel.Baskets;
-using EndPoint.WebSite.Utilities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;

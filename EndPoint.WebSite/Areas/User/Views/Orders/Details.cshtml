@@ -1,6 +1,5 @@
-﻿@using Application.Services.FrontEnd.User.Orders
-@using Domain.Entities.Orders
-@model UserOrdersDto
+﻿@using Domain.Entities.Orders
+@model Application.Services.BackEnd.User.Orders.UserOrdersDto
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 @{
     ViewData["Title"] = "جزیات سفارش";
@@ -39,131 +38,265 @@
 
 
 <section class="woocommerce-order-details">
-	
-	<h2 class="woocommerce-order-details__title">جزییات سفارش </h2>
 
-	<table class="woocommerce-table woocommerce-table--order-details shop_table order_details">
+    <h2 class="woocommerce-order-details__title">جزییات سفارش </h2>
 
-		<thead>
-			<tr>
-				<th class="woocommerce-table__product-name product-name">محصول</th>
-				<th class="woocommerce-table__product-table product-total">مجموع</th>
-			</tr>
-		</thead>
+    <table class="woocommerce-table woocommerce-table--order-details shop_table order_details">
 
-		<tbody>
-			<tr class="woocommerce-table__line-item order_item">
-
-	<td class="woocommerce-table__product-name product-name">
-		<a href=""></a> 
-		<strong class="product-quantity">×&nbsp;1</strong><br>فروشنده: <a href="https://product-mirzacode.ir/newkala/preview/store/fanavazeh/">آوازه</a>	</td>
-
-	<td class="woocommerce-table__product-total product-total">
-		<span class="woocommerce-Price-amount amount"><bdi>71,700&nbsp;<span class="woocommerce-Price-currencySymbol">تومان</span></bdi></span>	</td>
-
-</tr>
-
-<tr class="woocommerce-table__line-item order_item">
-
-	<td class="woocommerce-table__product-name product-name">
-		<a href="https://product-mirzacode.ir/newkala/preview/product/%d8%aa%d8%a8%d9%84%d8%aa-%d8%a7%d9%be%d9%84-%d9%85%d8%af%d9%84-ipad-9-7-inch-2018-4g-%d8%b8%d8%b1%d9%81%d9%8a%d8%aa-128-%da%af%d9%8a%da%af%d8%a7%d8%a8%d8%a7%d9%8a%d8%aa/?attribute_pa_memory-internal=128-%DA%AF%DB%8C%DA%AF%D8%A7%D8%A8%D8%A7%DB%8C%D8%AA&amp;attribute_pa_color=gray">تبلت اپل مدل iPad 9.7 inch (2018) 4G ظرفيت 128 گيگابايت</a> <strong class="product-quantity">×&nbsp;1</strong><br>فروشنده: <a href="https://product-mirzacode.ir/newkala/preview/store/noveinpradazesh/">نوین پردازش</a><ul class="wc-item-meta"><li><strong class="wc-item-meta-label">حافظه داخلي:</strong> <p>128 گیگابایت</p></li><li><strong class="wc-item-meta-label">انتخاب رنگ:</strong> <p>خاکستری</p></li></ul>	</td>
-
-	<td class="woocommerce-table__product-total product-total">
-		<span class="woocommerce-Price-amount amount"><bdi>16,382,000&nbsp;<span class="woocommerce-Price-currencySymbol">تومان</span></bdi></span>	</td>
-
-</tr>
-
-		</tbody>
-
-		<tfoot>
-								<tr>
-						<th scope="row">مجموع:</th>
-						<td><span class="woocommerce-Price-amount amount">16,453,700&nbsp;<span class="woocommerce-Price-currencySymbol">تومان</span></span></td>
-					</tr>
-										<tr>
-						<th scope="row">مالیات:</th>
-						<td><span class="woocommerce-Price-amount amount">1,480,833&nbsp;<span class="woocommerce-Price-currencySymbol">تومان</span></span></td>
-					</tr>
-										<tr>
-						<th scope="row">روش پرداخت:</th>
-						<td>پرداخت هنگام دریافت</td>
-					</tr>
-										<tr>
-						<th scope="row">قیمت نهایی:</th>
-						<td><span class="woocommerce-Price-amount amount">17,934,533&nbsp;<span class="woocommerce-Price-currencySymbol">تومان</span></span></td>
-					</tr>
-										</tfoot>
-	</table>
-
-	
-<header>
-    <h2>زیرسفارشات</h2>
-</header>
-
-<div class="dokan-info">
-    <strong>یادداشت:</strong>
-    این سفارش محصولی از چندین فروشنده است. بنابراین این سفارش را به سفارشات چند فروشنده تقسیم کردیم.
-     هر سفارش توسط فروشنده مربوطه به طور مستقل انجام می شود.</div>
-
-<table class="shop_table my_account_orders table table-striped">
-
-    <thead>
+        <thead>
         <tr>
-            <th class="order-number"><span class="nobr">سفارش</span></th>
-            <th class="order-date"><span class="nobr">تاریخ</span></th>
-            <th class="order-status"><span class="nobr">وضعیت</span></th>
-            <th class="order-total"><span class="nobr">مجموع</span></th>
-            <th class="order-actions">&nbsp;</th>
+            <th class="woocommerce-table__product-name product-name">مشخصات فروشنده</th>
         </tr>
-    </thead>
-    <tbody>
-                <tr class="order">
-                <td class="order-number">
-                    <a href="https://product-mirzacode.ir/newkala/preview/my-account/view-order/4700/">
-                        4700                    </a>
-                </td>
-                <td class="order-date">
-                    <time datetime="1970-01-01" title="">22 خرداد 1400</time>
-                </td>
-                <td class="order-status" style="text-align:left; white-space:nowrap;">
-                    در حال انجام                </td>
-                <td class="order-total">
-                    <span class="woocommerce-Price-amount amount">78,153&nbsp;<span class="woocommerce-Price-currencySymbol">تومان</span></span> برای 1 آیتم                </td>
-                <td class="order-actions">
-                    <a href="https://product-mirzacode.ir/newkala/preview/my-account/view-order/4700/" class="button view">مشاهده</a>                </td>
-            </tr>
-                    <tr class="order">
-                <td class="order-number">
-                    <a href="https://product-mirzacode.ir/newkala/preview/my-account/view-order/4701/">
-                        4701                    </a>
-                </td>
-                <td class="order-date">
-                    <time datetime="1970-01-01" title="">22 خرداد 1400</time>
-                </td>
-                <td class="order-status" style="text-align:left; white-space:nowrap;">
-                    در حال انجام                </td>
-                <td class="order-total">
-                    <span class="woocommerce-Price-amount amount">17,856,380&nbsp;<span class="woocommerce-Price-currencySymbol">تومان</span></span> برای 1 آیتم                </td>
-                <td class="order-actions">
-                    <a href="https://product-mirzacode.ir/newkala/preview/my-account/view-order/4701/" class="button view">مشاهده</a>                </td>
-            </tr>
-            </tbody>
-</table>
-</section>
+        </thead>
 
-<section class="woocommerce-customer-details">
+        <tbody>
+        <tr class="woocommerce-table__line-item order_item">
 
-	
-	<h2 class="woocommerce-column__title">آدرس صورتحساب</h2>
+            <td class="woocommerce-table__product-name product-name">
+                <a href=""></a>
+                نام شخص حقیقی/حقوقی:
+            </td>
 
-	<address>
-		خسرو باقری<br>تهران<br>آب باریک<br>تهران، محله حر، خیابان امام خمینی<br>99999999
-					<p class="woocommerce-customer-details--phone">09334905766</p>
-		
-					<p class="woocommerce-customer-details--email">customer@customer.com</p>
-			</address>
+            <td class="woocommerce-table__product-total product-total">
+                <span class="woocommerce-Price-amount amount">
+                    <bdi><span class="woocommerce-Price-currencySymbol">شرکت فلان</span></bdi>
+                </span>
+            </td>
+            
+            <td class="woocommerce-table__product-name product-name">
+                <a href=""></a>
+                شماره اقتصادی : 
+            </td>
+            
+            <td class="woocommerce-table__product-total product-total">
+                <span class="woocommerce-Price-amount amount">
+                    <bdi><span class="woocommerce-Price-currencySymbol">-------</span></bdi>
+                </span>
+            </td>
+            
+            <td class="woocommerce-table__product-name product-name">
+                <a href=""></a>
+                شماره ثبت/شماره ملی : 
+            </td>
+                        
+            <td class="woocommerce-table__product-total product-total">
+                <span class="woocommerce-Price-amount amount">
+                    <bdi><span class="woocommerce-Price-currencySymbol">-------</span></bdi>
+                </span>
+            </td>
+            
+            <td class="woocommerce-table__product-name product-name">
+                <a href=""></a>
+                شناسه ملی : 
+            </td>
+                                    
+            <td class="woocommerce-table__product-total product-total">
+                <span class="woocommerce-Price-amount amount">
+                    <bdi><span class="woocommerce-Price-currencySymbol">-------</span></bdi>
+                </span>
+            </td>
 
-	
-	
-</section>
+        </tr>
+        
+        
+        
+        
+        <tr class="woocommerce-table__line-item order_item">
+        
+                    <td class="woocommerce-table__product-name product-name">
+                        <a href=""></a>
+                        نام شخص حقیقی/حقوقی:
+                        <br>
+                    </td>
+        
+                    <td class="woocommerce-table__product-total product-total">
+                        <span class="woocommerce-Price-amount amount">
+                            <bdi><span class="woocommerce-Price-currencySymbol">شرکت فلان</span></bdi>
+                        </span>
+                    </td>
+                    
+                     <td class="woocommerce-table__product-name product-name ">
+                        <a href=""></a>
+                        شماره اقتصادی : 
+                        <br>
+                    </td>
+                    
+                    <td class="woocommerce-table__product-total product-total ">
+                        <span class="woocommerce-Price-amount amount">
+                            <bdi><span class="woocommerce-Price-currencySymbol">-------</span></bdi>
+                        </span>
+                    </td>
+                    
+                     <td class="woocommerce-table__product-name product-name">
+                        <a href=""></a>
+                        شماره ثبت/شماره ملی : 
+                        <br>
+                    </td>
+                                
+                    <td class="woocommerce-table__product-total product-total">
+                        <span class="woocommerce-Price-amount amount">
+                            <bdi><span class="woocommerce-Price-currencySymbol">-------</span></bdi>
+                        </span>
+                    </td>
+                    
+                    <td class="woocommerce-table__product-name product-name">
+                        <a href=""></a>
+                        شناسه ملی : 
+                        <br>
+                    </td>
+                                            
+                    <td class="woocommerce-table__product-total product-total">
+                        <span class="woocommerce-Price-amount amount">
+                            <bdi><span class="woocommerce-Price-currencySymbol">-------</span></bdi>
+                        </span>
+                    </td>
+        
+                </tr>
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <tr class="woocommerce-table__line-item order_item">
+
+            <td class="woocommerce-table__product-name product-name">
+                <a href=""></a>
+                نام شخص حقیقی/حقوقی:
+                <br>
+            </td>
+
+            <td class="woocommerce-table__product-total product-total">
+                <span class="woocommerce-Price-amount amount">
+                    <bdi><span class="woocommerce-Price-currencySymbol">شرکت فلان</span></bdi>
+                </span>
+            </td>
+            
+             <td class="woocommerce-table__product-name product-name">
+                <a href=""></a>
+                شماره اقتصادی : 
+                <br>
+            </td>
+            
+            <td class="woocommerce-table__product-total product-total">
+                <span class="woocommerce-Price-amount amount">
+                    <bdi><span class="woocommerce-Price-currencySymbol">-------</span></bdi>
+                </span>
+            </td>
+            
+             <td class="woocommerce-table__product-name product-name">
+                <a href=""></a>
+                شماره ثبت/شماره ملی : 
+                <br>
+            </td>
+                        
+            <td class="woocommerce-table__product-total product-total">
+                <span class="woocommerce-Price-amount amount">
+                    <bdi><span class="woocommerce-Price-currencySymbol">-------</span></bdi>
+                </span>
+            </td>
+            
+            <td class="woocommerce-table__product-name product-name">
+                <a href=""></a>
+                شناسه ملی : 
+                <br>
+            </td>
+                                    
+            <td class="woocommerce-table__product-total product-total">
+                <span class="woocommerce-Price-amount amount">
+                    <bdi><span class="woocommerce-Price-currencySymbol">-------</span></bdi>
+                </span>
+            </td>
+
+        </tr>
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <tr class="woocommerce-table__line-item order_item">
+
+            <td class="woocommerce-table__product-name product-name">
+                <a href="https://product-mirzacode.ir/newkala/preview/product/%d8%aa%d8%a8%d9%84%d8%aa-%d8%a7%d9%be%d9%84-%d9%85%d8%af%d9%84-ipad-9-7-inch-2018-4g-%d8%b8%d8%b1%d9%81%d9%8a%d8%aa-128-%da%af%d9%8a%da%af%d8%a7%d8%a8%d8%a7%d9%8a%d8%aa/?attribute_pa_memory-internal=128-%DA%AF%DB%8C%DA%AF%D8%A7%D8%A8%D8%A7%DB%8C%D8%AA&amp;attribute_pa_color=gray">تبلت اپل مدل iPad 9.7 inch (2018) 4G ظرفيت 128 گيگابايت</a> <strong class="product-quantity">×&nbsp;1</strong><br>فروشنده: <a href="https://product-mirzacode.ir/newkala/preview/store/noveinpradazesh/">نوین پردازش</a>
+                <ul class="wc-item-meta">
+                    <li>
+                        <strong class="wc-item-meta-label">حافظه داخلي:</strong>
+                        <p>128 گیگابایت</p>
+                    </li>
+                    <li>
+                        <strong class="wc-item-meta-label">انتخاب رنگ:</strong>
+                        <p>خاکستری</p>
+                    </li>
+                </ul>
+            </td>
+
+            <td class="woocommerce-table__product-total product-total">
+                <span class="woocommerce-Price-amount amount">
+                    <bdi>16,382,000&nbsp;<span class="woocommerce-Price-currencySymbol">تومان</span></bdi>
+                </span>
+            </td>
+
+        </tr>
+
+        </tbody>
+
+        <tfoot>
+        <tr>
+            <th scope="row">مجموع:</th>
+            <td>
+                <span class="woocommerce-Price-amount amount">16,453,700&nbsp;<span class="woocommerce-Price-currencySymbol">تومان</span></span>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">مالیات:</th>
+            <td>
+                <span class="woocommerce-Price-amount amount">1,480,833&nbsp;<span class="woocommerce-Price-currencySymbol">تومان</span></span>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">روش پرداخت:</th>
+            <td>پرداخت هنگام دریافت</td>
+        </tr>
+        <tr>
+            <th scope="row">قیمت نهایی:</th>
+            <td>
+                <span class="woocommerce-Price-amount amount">17,934,533&nbsp;<span class="woocommerce-Price-currencySymbol">تومان</span></span>
+            </td>
+        </tr>
+        </tfoot>
+    </table>
+
+
+    <header>
+        <h2>زیرسفارشات</h2>
+    </header>
+
+
+</section>	
 </div>

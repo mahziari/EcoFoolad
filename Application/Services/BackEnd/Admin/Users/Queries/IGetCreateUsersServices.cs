@@ -13,8 +13,8 @@ namespace  Application.Services.BackEnd.Admin.Users.Queries
 
     public class GetCreateUsersServices : IGetCreateUsersServices
     {
-        private readonly UserManager<User> _userManager;
-        public GetCreateUsersServices(UserManager<User> userManager)
+        private readonly UserManager<Domain.Entities.Users.User> _userManager;
+        public GetCreateUsersServices(UserManager<Domain.Entities.Users.User> userManager)
         {
             _userManager = userManager;
         }

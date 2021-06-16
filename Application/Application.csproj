@@ -23,9 +23,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Services\FrontEnd\User\Addresses\Command" />
-    <Folder Include="Services\FrontEnd\User\Addresses\FacadPattern" />
-    <Folder Include="Services\FrontEnd\User\Addresses\Queries" />
+    <Folder Include="Interfaces\FacadPatterns\BackEnd\User" />
+    <Folder Include="Services\BackEnd\Admin\Home\Commands" />
+    <Folder Include="Services\BackEnd\Admin\Home\Queries" />
+    <Folder Include="Services\BackEnd\User" />
+    <Folder Include="Services\FrontEnd\User" />
   </ItemGroup>
 
 </Project>

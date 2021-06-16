@@ -23,10 +23,10 @@ namespace  Application.Services.BackEnd.Admin.Products.FacadPattern
     {
         private readonly IIdealCrmDataBaseContext _context;
         private readonly IHttpContextAccessor _httpContext;
-        private readonly UserManager<User> _userManager;
+        private readonly UserManager<Domain.Entities.Users.User> _userManager;
         private readonly ICustomDbContext _customDbContext;
 
-        public ProductsFacad(IIdealCrmDataBaseContext context, IHttpContextAccessor httpContext, UserManager<User> userManager, ICustomDbContext customDbContext)
+        public ProductsFacad(IIdealCrmDataBaseContext context, IHttpContextAccessor httpContext, UserManager<Domain.Entities.Users.User> userManager, ICustomDbContext customDbContext)
         {
             _context = context;
             _httpContext = httpContext;

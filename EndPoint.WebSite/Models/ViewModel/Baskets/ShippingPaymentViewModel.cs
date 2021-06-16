@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
+using Application.Services.BackEnd.User.Addresses;
 using Application.Services.FrontEnd.Basket;
-using Application.Services.FrontEnd.User.Addresses;
 
 namespace EndPoint.WebSite.Models.ViewModel.Baskets
 {

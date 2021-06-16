@@ -20,10 +20,10 @@ namespace  Application.Services.BackEnd.Owner.Profile.Commands
         
         private readonly IIdealCrmDataBaseContext _context;
         private readonly IHttpContextAccessor _httpContext;
-        private readonly UserManager<User> _userManager;
-        private readonly SignInManager<User> _signInManager;
+        private readonly UserManager<Domain.Entities.Users.User> _userManager;
+        private readonly SignInManager<Domain.Entities.Users.User> _signInManager;
 
-        public ChangePasswordOwnerProfileServices(IIdealCrmDataBaseContext context, IHttpContextAccessor httpContext, UserManager<User> userManager, SignInManager<User> signInManager)
+        public ChangePasswordOwnerProfileServices(IIdealCrmDataBaseContext context, IHttpContextAccessor httpContext, UserManager<Domain.Entities.Users.User> userManager, SignInManager<Domain.Entities.Users.User> signInManager)
         {
             _context = context;
             _httpContext = httpContext;

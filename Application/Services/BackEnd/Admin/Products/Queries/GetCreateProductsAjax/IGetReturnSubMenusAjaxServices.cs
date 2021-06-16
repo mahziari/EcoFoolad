@@ -52,8 +52,5 @@ namespace  Application.Services.BackEnd.Admin.Products.Queries.GetCreateProducts
         public int PrdFirstGroupId { get; set; }
         public string Fgname { get; set; }
     }
- 
-  
-  
 
 }

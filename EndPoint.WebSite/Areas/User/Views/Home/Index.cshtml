@@ -1,9 +1,10 @@
-﻿@using Domain.Entities.Users
+﻿@model Application.Services.BackEnd.User.Home.UserHomeInformationPanelDto
+@using Domain.Entities.Users
 @using Microsoft.AspNetCore.Authorization
 @using Microsoft.AspNetCore.Identity
 @inject IAuthorizationService AuthorizationService;
 @inject SignInManager<User> SignInManager
-@inject UserManager<User> UserManager
+@inject UserManager<Domain.Entities.Users.User> UserManager
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 @{
     ViewData["Title"] = "پیشخوان";

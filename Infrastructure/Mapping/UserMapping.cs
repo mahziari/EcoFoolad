@@ -1,5 +1,5 @@
-﻿using Application.Services.FrontEnd.User.Addresses;
-using Application.Services.FrontEnd.User.Orders;
+﻿using Application.Services.BackEnd.User.Addresses;
+using Application.Services.BackEnd.User.Orders;
 using AutoMapper;
 using Domain.Entities.Orders;
 using Domain.Entities.Users;

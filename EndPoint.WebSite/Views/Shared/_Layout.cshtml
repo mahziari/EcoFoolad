@@ -3,12 +3,10 @@
 <meta http-equiv="content-type" content="text/html;charset=UTF-8"/>
 <head>
     <meta charset="utf-8"/>
-    <title>@ViewData["Title"] | اکوفولاد</title>
+    <title>@ViewData["Title"].ToString() | اکوفولاد</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
     <meta name="theme-color" content="#dd3333"/>
-    
-        @await RenderSectionAsync("Head", false)
-
+    @await RenderSectionAsync("Head", false)
     <partial name="_HeadPartial"/>
 </head>
 
@@ -22,7 +20,6 @@
 <partial name="_FooPartial"/>
 @await RenderSectionAsync("Foo", false)
 @await RenderSectionAsync("Scripts", false)
-
 
 @* @await RenderSectionAsync("Scripts", required: false) *@
 </!body>

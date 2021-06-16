@@ -13,10 +13,10 @@ namespace  Application.Services.BackEnd.Admin.Users.Queries
 
     public class GetEditUsersServices : IGetEditUsersServices
     {
-        private readonly UserManager<User> _userManager;
+        private readonly UserManager<Domain.Entities.Users.User> _userManager;
         private readonly RoleManager<Role> _roleManager;
 
-        public GetEditUsersServices(UserManager<User> userManager, RoleManager<Role> roleManager )
+        public GetEditUsersServices(UserManager<Domain.Entities.Users.User> userManager, RoleManager<Role> roleManager )
         {
             _userManager = userManager;
             _roleManager = roleManager;
@@ -40,7 +40,7 @@ namespace  Application.Services.BackEnd.Admin.Users.Queries
 
     public class ResultGetEditUsersDto
     {
-        public User User { get; set; }
+        public Domain.Entities.Users.User User { get; set; }
         public IList<string> Role { get; set; }
         public List<Role> Roles { get; set; }
         

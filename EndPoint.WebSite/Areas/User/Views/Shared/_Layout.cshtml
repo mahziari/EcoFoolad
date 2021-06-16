@@ -3,7 +3,7 @@
 @using Microsoft.AspNetCore.Identity
 @inject IAuthorizationService AuthorizationService;
 @inject SignInManager<User> SignInManager
-@inject UserManager<User> UserManager
+@inject UserManager<Domain.Entities.Users.User> UserManager
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 @{
     Layout = null;
@@ -41,23 +41,23 @@
                 <ul>
                     <li>
                         <i class="fas fa-home"></i>
-                        <a href="https://newkalatheme.ir/preview">صفحه اصلی</a>
+                        <a href="‍‍‍‍‍~/panel/user/home/index">صفحه اصلی سایت</a>
                     </li>
                     <li>
                         <i class="fas fa-question-circle"></i>
-                        <a href="https://newkalatheme.ir/preview/my-account/">پاسخ به پرسش‌های متداول</a>
+                        <a href="~/faq">پاسخ به پرسش‌های متداول</a>
                     </li>
                     <li>
                         <i class="fab fa-first-order"></i>
-                        <a href="https://newkalatheme.ir/preview/my-account/">نحوه ثبت سفارش</a>
+                        <a href="~/faq/question/22">نحوه ثبت سفارش</a>
                     </li>
                     <li>
                         <i class="fas fa-phone"></i>
-                        <a href="https://newkalatheme.ir/preview/my-account/">تماس با ما</a>
+                        <a href="~/aboutus">تماس با ما</a>
                     </li>
                     <li>
                         <i class="fas fa-blog"></i>
-                        <a href="https://newkalatheme.ir/preview/blog/">بلاگ</a>
+                        <a href="~/blog/">بلاگ</a>
                     </li>
                 </ul>
             </div>
@@ -67,7 +67,7 @@
         </svg>
         <div class="sp_header_Support">
             <div class="sp_phone_support">
-                <p class="wc_phone_nummber">پشتیبانی : 09123456569</p>
+                <p class="wc_phone_nummber">پشتیبانی : 02100000000</p>
             </div>
             <div class="sp_bell">
                 <i class="fas fa-bell"></i>
@@ -157,45 +157,7 @@
                 </p>
             </div>
             <div class="sp_bottom_panel">
-                <div class="sp_Possibilities">
-                    <ul class="sp_Information_panel">
-                        <li class="wallet">
-                            <div class="sp_paragraph">
-                                <span>کامنت</span>
-                                <span>0</span>
-                            </div>
-                            <div class="sp_icons_Information_panel">
-                                <i class="fas fa-wallet"></i>
-                            </div>
-                        </li>
-                        <li class="order">
-                            <div class="sp_paragraph">
-                                <span>سفارشات شما</span>
-                                <span> 0</span>
-                            </div>
-                            <div class="sp_icons_Information_panel">
-                                <i class="fas fa-shopping-bag"></i>
-                            </div>
-                        </li>
-                        <li class="number_of_registration_day">
-                            <div class="sp_paragraph">
-                                136 <span>روز است که همراه ما هستید</span>
-                            </div>
-                            <div class="sp_icons_Information_panel">
-                                <i class="fas fa-smile"></i>
-                            </div>
-                        </li>
-                        <li class="discount_code">
-                            <div class="sp_paragraph">
-                                <span>اعلان ها</span>
-                                <span>1</span>
-                            </div>
-                            <div class="sp_icons_Information_panel">
-                                <i class="fas fa-scroll"></i>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
+               @await Component.InvokeAsync("LayoutComponent")
                 <div class="sp_Ports">
                 </div>
                 @RenderBody()
