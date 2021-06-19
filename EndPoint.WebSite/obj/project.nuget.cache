@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "Wg2G9fyHPDzP2/LTePOJ1sOhe0o+KKsKW/bgAXmti6Vgyx7TwFOgVnY5X9KLmNAJzQKc1RES9YGji21cfDJYlA==",
+  "dgSpecHash": "C43SUmiIPYL1WKGLiAmESVEE2vITQ29npKeWM9YZHRDBrhYzGl6SwQ0j86lmY4qp0Nocq1HyUItPIpPjYeX54Q==",
   "success": true,
   "projectFilePath": "C:\\Users\\pc-2\\Pictures\\.NET\\01_MyProject\\EndPoint.WebSite\\EndPoint.WebSite.csproj",
   "expectedPackageFiles": [
@@ -96,6 +96,7 @@
     "C:\\Users\\pc-2\\.nuget\\packages\\newtonsoft.json\\11.0.2\\newtonsoft.json.11.0.2.nupkg.sha512",
     "C:\\Users\\pc-2\\.nuget\\packages\\persiandatetime.core\\1.0.8\\persiandatetime.core.1.0.8.nupkg.sha512",
     "C:\\Users\\pc-2\\.nuget\\packages\\pipelines.sockets.unofficial\\2.2.0\\pipelines.sockets.unofficial.2.2.0.nupkg.sha512",
+    "C:\\Users\\pc-2\\.nuget\\packages\\restsharp\\106.11.7\\restsharp.106.11.7.nupkg.sha512",
     "C:\\Users\\pc-2\\.nuget\\packages\\runtime.native.system\\4.3.0\\runtime.native.system.4.3.0.nupkg.sha512",
     "C:\\Users\\pc-2\\.nuget\\packages\\serilog\\2.5.0\\serilog.2.5.0.nupkg.sha512",
     "C:\\Users\\pc-2\\.nuget\\packages\\serilog.extensions.logging\\2.0.2\\serilog.extensions.logging.2.0.2.nupkg.sha512",

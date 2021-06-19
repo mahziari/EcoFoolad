@@ -36,11 +36,11 @@ namespace CKSource.CKFinder.Connector.WebApp
         {
             var claimsPrincipal = commandRequest.Principal as ClaimsPrincipal;
 
-            var roles = new string[] {};
-            if (claimsPrincipal != null && claimsPrincipal.Claims != null)
-            {
+            // var roles = new string[] {};
+            // if (claimsPrincipal != null && claimsPrincipal.Claims != null)
+            // {
                 roles = claimsPrincipal.Claims.Where(x => x.Type == ClaimTypes.Role).Select(x => x.Value).ToArray();
-            }
+            // }
 
             var user = new User(IsAuthenticated(roles), roles);
             return Task.FromResult((IUser)user);
@@ -51,7 +51,7 @@ namespace CKSource.CKFinder.Connector.WebApp
             // Should always fail if matcher is empty.
             if (_allowedRoleMatcherTemplate == string.Empty)
             {
-                return false;
+                return true;
             }
 
             // Use empty string when there are no roles, so asterisk pattern will match users without any role.

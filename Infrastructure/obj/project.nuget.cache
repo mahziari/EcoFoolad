@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "zIVeLikT4t1yyXz+0MhftwE22sik5ZqwsLMxLwQJ9VNG1rh8+PnZlSYDgM+cpVQ+Fk0exhivVCcJW8agIKMN6w==",
+  "dgSpecHash": "IVEykpXRkPUzD6nc/Q8t8JjCsBgxT7BiQkoHYN4kLjGwsWbwn3rXtE/rMT7djXdXqAYhKaJ/ouchit7C1ejTWQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\pc-2\\Pictures\\.NET\\01_MyProject\\Infrastructure\\Infrastructure.csproj",
   "expectedPackageFiles": [
@@ -90,6 +90,7 @@
     "C:\\Users\\pc-2\\.nuget\\packages\\newtonsoft.json\\11.0.2\\newtonsoft.json.11.0.2.nupkg.sha512",
     "C:\\Users\\pc-2\\.nuget\\packages\\persiandatetime.core\\1.0.8\\persiandatetime.core.1.0.8.nupkg.sha512",
     "C:\\Users\\pc-2\\.nuget\\packages\\pipelines.sockets.unofficial\\2.2.0\\pipelines.sockets.unofficial.2.2.0.nupkg.sha512",
+    "C:\\Users\\pc-2\\.nuget\\packages\\restsharp\\106.11.7\\restsharp.106.11.7.nupkg.sha512",
     "C:\\Users\\pc-2\\.nuget\\packages\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
     "C:\\Users\\pc-2\\.nuget\\packages\\runtime.fedora.23-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.fedora.23-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
     "C:\\Users\\pc-2\\.nuget\\packages\\runtime.fedora.24-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.fedora.24-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",

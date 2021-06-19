@@ -576,3 +576,6 @@ C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\obj\Debug\net5.0\EndPo
 C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\obj\Debug\net5.0\ref\EndPoint.WebSite.dll
 C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\obj\Debug\net5.0\EndPoint.WebSite.pdb
 C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\obj\Debug\net5.0\EndPoint.WebSite.genruntimeconfig.cache
+C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\bin\Debug\net5.0\RestSharp.dll
+C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\obj\Debug\net5.0\Razor\Areas\Admin\Views\FileManager\Create.cshtml.g.cs
+C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\obj\Debug\net5.0\Razor\Areas\Admin\Views\FileManager\Index.cshtml.g.cs

@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
  
 using  Domain.Entities.IdealCrm;
+using Microsoft.AspNetCore.Mvc;
 
 namespace  Application.Services.BackEnd.Admin.Blogs.Command.CreateBlogs
 {
@@ -66,6 +67,8 @@ namespace  Application.Services.BackEnd.Admin.Blogs.Command.CreateBlogs
 
         }
 
+        [HttpPost]
+        [Route("/Images/CkEditor")]
         private UploadDto UploadFile(IFormFile file)
         {
             if (file == null || file.Length <= 0)

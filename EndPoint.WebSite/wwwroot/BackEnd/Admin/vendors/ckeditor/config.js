@@ -7,9 +7,13 @@ CKEDITOR.editorConfig = function( config ) {
     config.language = 'fa';
     config.extraPlugins = 'image';
     config.contentsLangDirection = 'rtl';
-    config.filebrowserImageUploadUrl = '/file-upload';
+    config.filebrowserImageUploadUrl = '~/Images/CkEditor';
     // config.uiColor = '#AADC6E';
     config.toolbar = 'MyToolbar';
+
+    // config.codeSnippet_theme = 'atelier-seaside.light';
+    // CKEDITOR.config.allowedContent = true;
+    // config.extraPlugins = 'codesnippet';
 
     config.toolbar_MyToolbar =
         [
@@ -27,9 +31,8 @@ CKEDITOR.editorConfig = function( config ) {
 
         ];
 
-    config.filebrowserBrowseUrl= '/BackEnd/Admin/vendors/ckfinder/ckfinder.html';
-    config.filebrowserUploadUrl= '/BackEnd/Admin/vendors/ckfinder/connector?command=QuickUpload&type=Files';
-
+    // config.filebrowserBrowseUrl= '~/BackEnd/Admin/vendors/ckfinder/ckfinder.html?type=Images';
+    // config.filebrowserUploadUrl= '~/BackEnd/Admin/vendors/ckfinder/connector?command=QuickUpload&type=Files';
     // config.filebrowserImageBrowseUrl= '/BackEnd/Admin/vendors/ckfinder/ckfinder.html?type=Images';
     // config.filebrowserFlashBrowseUrl= '/BackEnd/Admin/vendors/ckfinder/ckfinder.html?type=Flash';
     // config.filebrowserImageUploadUrl= '/BackEnd/Admin/vendors/ckfinder/connector?command=QuickUpload&type=Images';
