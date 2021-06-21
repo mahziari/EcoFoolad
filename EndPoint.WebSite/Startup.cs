@@ -9,6 +9,7 @@ using Application.Services.BackEnd.Admin.Blogs.FacadPattern;
 using Application.Services.BackEnd.Admin.BlogsCategories.FacadPattern;
 using Application.Services.BackEnd.Admin.Company.FacadPattern;
 using Application.Services.BackEnd.Admin.Factory.FacadPattern;
+using Application.Services.BackEnd.Admin.FileManager.FacadPattern;
 using Application.Services.BackEnd.Admin.Home.FacadPattern;
 using Application.Services.BackEnd.Admin.Menus.FacadPattern;
 using Application.Services.BackEnd.Admin.Products.FacadPattern;
@@ -152,6 +153,7 @@ namespace EndPoint.WebSite
             services.AddScoped<ICompanyFacad, CompanyFacad>();
             services.AddScoped<IFactoryFacad, FactoryFacad>();
             services.AddScoped<IHomeFacad, HomeFacad>();
+            services.AddScoped<IFileManagerFacad, FileManagerFacad>();
             //------ Owner Panel Services
             services.AddScoped<IOwnerProductsFacad, OwnerProductsFacad>();
             services.AddScoped<IOwnerHomeFacad, OwnerHomeFacad>();

@@ -6,6 +6,7 @@ using Domain.Entities;
 using Domain.Entities.Attributes;
 using Domain.Entities.Baskets;
 using Domain.Entities.Factory;
+using Domain.Entities.FileManager;
 using Domain.Entities.Orders;
 using Domain.Entities.Payments;
 using Domain.Entities.Products;
@@ -38,6 +39,7 @@ namespace  Persistence.Contexts
         public DbSet<OrderItem> OrderItems { get; set; }
         public DbSet<Payment> Payments { get; set; }
         public DbSet<Factory> Factories { get; set; }
+        public DbSet<FileManager> FileManagers { get; set; }
         
         
         

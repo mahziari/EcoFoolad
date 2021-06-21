@@ -1,4 +1,13 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using Application.Interfaces.Contexts;
+using Application.Interfaces.FacadPatterns.BackEnd.Admin;
+using Application.Services.BackEnd.Admin.FileManager;
+using Domain.Entities;
+using Domain.Entities.FileManager;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EndPoint.WebSite.Areas.Admin.Controllers
@@ -8,18 +17,62 @@ namespace EndPoint.WebSite.Areas.Admin.Controllers
     [Route("panel/admin/file-manager/[action]/{id?}")]
     public class FileManagerController:Controller
     {
+
+        private readonly IFileManagerFacad _fileManagerFacad;
+        private readonly ICustomDbContext _customDbContext;
+
+        public FileManagerController(IFileManagerFacad fileManagerFacad, ICustomDbContext customDbContext)
+        {
+            _fileManagerFacad = fileManagerFacad;
+            _customDbContext = customDbContext;
+        }
+
         public IActionResult Index()
         {
-            return View();
+            var data = _fileManagerFacad.ImageUploadService.GetAllFileManager();
+            return View(data);
         }
-        public IActionResult Create()
-        {
-            return View();
-        }
-    
+
+
+        // public IActionResult Create()
+        // {
+        //     return View();
+        // }
         
+        [HttpPost]
+        public IActionResult Create(MultiImageDto multiImageDto)
+        {
+            if (!ModelState.IsValid)
+            {
+                var allErrors = ModelState.Values.SelectMany(v => v.Errors);
+                return new JsonResult(new BaseDto<int>(false, allErrors.Select(p => p.ErrorMessage).ToList(), 0));
+            }
+            
+            // var files = Request.Form.multiImageDto;
+            if (multiImageDto.files != null)
+            {
+                //upload
+                var uploadRtesult = _fileManagerFacad.ImageUploadService.Upload(multiImageDto);
+                foreach (var item in uploadRtesult.FileNameAddress)
+                {
+                    var data = new FileManager
+                    {
+                        Address = item,
+                     
+                        Title = Path.GetExtension(multiImageDto.files.ToString())
+                    };
+                    
+                    _customDbContext.FileManagers.Add(data);
+                    _customDbContext.SaveChanges();
+                }
+                
+                TempData["IsSuccess"] = uploadRtesult.IsSuccess;
+                TempData["Message"] = uploadRtesult.Message;
+
+                return RedirectToAction(nameof(Index));
+            }
+
+            return RedirectToAction(nameof(Index));
+        }
     }
-    
-    
-    
 }
