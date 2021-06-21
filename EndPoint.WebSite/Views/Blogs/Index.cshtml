@@ -97,7 +97,8 @@
                     <h2>@Model.BlogsFav.Where(b => b.Position == 3).Select(b => b.Title).FirstOrDefault()</h2>
                 </div>
 
-                <div class="post-70 post type-post status-publish format-standard has-post-thumbnail hentry category-148 category-147 category-uncategorized category-152 category-151 category-150 category-149 tag-71 rocket-lazyload lazyloaded" style="background-image: url(@Model.BlogsFav.Where(b => b.Position == 4).Select(b => b.HeadLine).FirstOrDefault());" data-ll-status="loaded">
+                <div class="post-70 post type-post status-publish format-standard has-post-thumbnail hentry category-148 category-147 category-uncategorized category-152 category-151 category-150 category-149 tag-71 rocket-lazyload lazyloaded" 
+                     style="background-image: url(@Model.BlogsFav.Where(b => b.Position == 4).Select(b => b.HeadLine).FirstOrDefault());" data-ll-status="loaded">
 
 
                     <a asp-controller="Blogs"

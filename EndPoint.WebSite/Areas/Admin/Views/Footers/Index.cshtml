@@ -1,0 +1,265 @@
+﻿@using Application.Services.BackEnd.Admin.Footers
+@model FooterDto
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "ویرایش فوتر";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@section Head{
+    <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/vendors/css/vendors-rtl.min.css">
+    <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/vendors/css/extensions/bootstrap-treeview.min.css">
+    <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/css/bootstrap-extended.min.css">
+    <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/css/colors.min.css">
+    <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/css/components.min.css">
+    <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/css/themes/dark-layout.min.css">
+    <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/css/themes/semi-dark-layout.min.css">
+    <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/css/custom-rtl.min.css">
+    <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/css/core/menu/menu-types/vertical-menu-karaji.min.css">
+    <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/css/plugins/extensions/ext-component-treeview.min.css">
+    <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/css/style.css">
+}
+
+@section Foo{
+    <script src="~/BackEnd/Admin/vendors/js/vendors.min.js"></script>
+    <script src="~/BackEnd/Admin/vendors/js/extensions/bootstrap-treeview.min.js"></script>
+    <script src="~/BackEnd/Admin/js/scripts/configs/vertical-menu-dark.min.js"></script>
+    <script src="~/BackEnd/Admin/js/core/app-menu.min.js"></script>
+    <script src="~/BackEnd/Admin/js/core/app.min.js"></script>
+    <script src="~/BackEnd/Admin/js/scripts/components.min.js"></script>
+    <script src="~/BackEnd/Admin/js/scripts/footer.min.js"></script>
+    <script src="~/BackEnd/Admin/js/scripts/customizer.min.js"></script>
+    <script src="~/BackEnd/Admin/js/scripts/extensions/ext-component-treeview.min.js"></script>
+    <script> $('div.alert').delay(3000).slideUp(300); </script>
+}
+
+
+<div class="app-content content">
+<div class="content-overlay"></div>
+<div class="content-wrapper">
+<div class="content-header row">
+</div>
+<div class="content-body">
+ @if (TempData["IsSuccess"] != null)
+            {
+                @if (Convert.ToBoolean(TempData["IsSuccess"]) == true)
+                {
+                    <div class="alert alert-success">
+                        @TempData["Message"]
+                    </div>
+                }
+
+                else if (Convert.ToBoolean(TempData["IsSuccess"]) == false)
+                {
+                    <div class="alert alert-danger">
+                        @TempData["Message"]
+                    </div>
+                }
+            }
+<!-- users edit start -->
+<section class="users-edit">
+<div class="card">
+<div class="card-content">
+<div class="card-body">
+<div class="tab-content">
+<div class="tab-pane active fade show" id="account" aria-labelledby="account-tab" role="tabpanel">
+    <!-- users edit media object start -->
+    <div class="media mb-2">
+        <div class="media-body">
+            <h4 class="media-heading">ویرایش فوتر </h4>
+        </div>
+    </div>
+    <!-- users edit media object ends -->
+    <!-- users edit account form start -->
+    <form asp-area="Admin" asp-controller="Footers" asp-action="Edit" asp-route-id="@Model.Id" method="post">
+        <div class="row">
+            <div class="col-12 col-sm-12">
+                <div class="form-group">
+                    <div class="controls">
+                        <label asp-for="OfficeAddress"></label>
+                        <input type="text" asp-for="OfficeAddress" class="form-control" placeholder=""  >
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-12">
+                <div class="form-group">
+                    <div class="controls">
+                        <label asp-for="FactoryAddress"></label>
+                        <input type="text" asp-for="FactoryAddress" class="form-control" placeholder=""  >
+                    </div>
+                </div>
+            </div>
+            
+
+            <div class="col-12 col-sm-12">
+                <div class="form-group">
+                    <div class="controls">
+                        <label asp-for="PhoneNumber1"></label>
+                        <input type="text" asp-for="PhoneNumber1" class="form-control" placeholder=""  >
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-12">
+                <div class="form-group">
+                    <div class="controls">
+                        <label asp-for="PhoneNumber2"></label>
+                        <input type="text" asp-for="PhoneNumber2" class="form-control" placeholder=""  >
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-12">
+                <div class="form-group">
+                    <div class="controls">
+                        <label asp-for="Description"></label>
+                        <input type="text" asp-for="Description" class="form-control" placeholder=""  >
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-12">
+                <div class="form-group">
+                    <div class="controls">
+                        <label asp-for="Copyright"></label>
+                        <input type="text" asp-for="Copyright" class="form-control" placeholder=""  >
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-12">
+                <div class="form-group">
+                    <div class="controls">
+                        <label asp-for="Photo1"></label>
+                        <input type="text" asp-for="Photo1" class="form-control" placeholder=""  >
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-12">
+                <div class="form-group">
+                    <div class="controls">
+                        <label asp-for="Photo2"></label>
+                        <input type="text" asp-for="Photo2" class="form-control" placeholder=""  >
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-12">
+                <div class="form-group">
+                    <div class="controls">
+                        <label asp-for="Photo3"></label>
+                        <input type="text" asp-for="Photo3" class="form-control" placeholder=""  >
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-12">
+                <div class="form-group">
+                    <div class="controls">
+                        <label asp-for="Photo4"></label>
+                        <input type="text" asp-for="Photo4" class="form-control" placeholder=""  >
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-12">
+                <div class="form-group">
+                    <div class="controls">
+                        <label asp-for="Photo5"></label>
+                        <input type="text" asp-for="Photo5" class="form-control" placeholder=""  >
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-12">
+                <div class="form-group">
+                    <div class="controls">
+                        <label asp-for="Photo6"></label>
+                        <input type="text" asp-for="Photo6" class="form-control" placeholder=""  >
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-12">
+                <div class="form-group">
+                    <div class="controls">
+                        <label asp-for="Photo7"></label>
+                        <input type="text" asp-for="Photo7" class="form-control" placeholder=""  >
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-12">
+                <div class="form-group">
+                    <div class="controls">
+                        <label asp-for="Photo8"></label>
+                        <input type="text" asp-for="Photo8" class="form-control" placeholder=""  >
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-12">
+                <div class="form-group">
+                    <div class="controls">
+                        <label asp-for="Photo9"></label>
+                        <input type="text" asp-for="Photo9" class="form-control" placeholder=""  >
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-12 col-sm-12">
+                <div class="form-group">
+                    <div class="controls">
+                        <label asp-for="Photo10"></label>
+                        <input type="text" asp-for="Photo10" class="form-control" placeholder=""  >
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-12">
+                <div class="form-group">
+                    <div class="controls">
+                        <label asp-for="Photo11"></label>
+                        <input type="text" asp-for="Photo11" class="form-control" placeholder=""  >
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-12">
+                <div class="form-group">
+                    <div class="controls">
+                        <label asp-for="LogoImage"></label>
+                        <input type="text" asp-for="LogoImage" class="form-control" placeholder=""  >
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-12">
+                <div class="form-group">
+                    <div class="controls">
+                        <label asp-for="ThumbnailLogoImage"></label>
+                        <input type="text" asp-for="ThumbnailLogoImage" class="form-control" placeholder=""  >
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-12 d-flex flex-sm-row flex-column justify-content-end mt-1">
+                <button type="submit" class="btn btn-primary glow mb-1 mb-sm-0 mr-0 mr-sm-1">ویرایش</button>
+            </div>
+        </div>
+    </form>
+    <!-- users edit account form ends -->
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- users edit ends -->
+</div>
+</div>
+</div>

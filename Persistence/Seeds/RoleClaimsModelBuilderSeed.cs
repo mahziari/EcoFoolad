@@ -113,7 +113,8 @@ namespace Persistence.Seeds
                 },
                 new IdentityRoleClaim<string>
                 {
-                    Id = 22, RoleId = "8ce221cd-1b57-4e0b-8781-79524b05fcc5", ClaimType = "Users", ClaimValue = "Users"
+                    Id = 22, RoleId = "8ce221cd-1b57-4e0b-8781-79524b05fcc5", ClaimType = "Users",
+                    ClaimValue = "Users"
                 },
                 new IdentityRoleClaim<string>
                 {
@@ -129,6 +130,16 @@ namespace Persistence.Seeds
                 {
                     Id = 25, RoleId = "8ce221cd-1b57-4e0b-8781-79524b05fcc5", ClaimType = "Factory",
                     ClaimValue = "Factory"
+                },
+                new IdentityRoleClaim<string>
+                {
+                    Id = 26, RoleId = "8ce221cd-1b57-4e0b-8781-79524b05fcc5", ClaimType = "FileManagers",
+                    ClaimValue = "FileManagers"
+                },
+                new IdentityRoleClaim<string>
+                {
+                    Id = 27, RoleId = "8ce221cd-1b57-4e0b-8781-79524b05fcc5", ClaimType = "Footers",
+                    ClaimValue = "Footers"
                 }
             );
         }

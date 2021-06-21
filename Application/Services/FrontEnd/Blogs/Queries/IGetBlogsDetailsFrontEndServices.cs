@@ -27,6 +27,7 @@ namespace  Application.Services.FrontEnd.Blogs.Queries
             var blog = _context.CrmCmsNews
                 .Where(b => b.Title == title.Replace("-"," "))
                 .Include(b=>b.NewsGroup)
+                .OrderByDescending(p=>p.NewsId)
                 .Select(b => new GetBlogsDetailsDto
                 {
                     NewsId=b.NewsId,

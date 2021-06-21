@@ -4,6 +4,7 @@ using Domain.Entities;
 using Domain.Entities.Baskets;
 using Domain.Entities.Factory;
 using Domain.Entities.FileManager;
+using Domain.Entities.Footer;
 using Domain.Entities.Orders;
 using Domain.Entities.Payments;
 using Domain.Entities.Products;
@@ -25,6 +26,7 @@ namespace Application.Interfaces.Contexts
         DbSet<Payment> Payments { get; set; }
         DbSet<Factory> Factories { get; set; }
         DbSet<FileManager> FileManagers { get; set; }
+        DbSet<Footer> Footers { get; set; }
 
 
         

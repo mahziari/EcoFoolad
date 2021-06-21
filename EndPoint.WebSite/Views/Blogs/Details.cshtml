@@ -2,7 +2,7 @@
 @model ResultGetBlogsDetailsFrontEndDto
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 @{
-    ViewData["Title"] = "بلاگ اکوفولاد";
+    ViewData["Title"] =Model.Blog.Title;
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @section BodyAttr{

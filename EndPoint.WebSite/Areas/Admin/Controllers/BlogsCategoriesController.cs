@@ -64,7 +64,6 @@ namespace EndPoint.WebSite.Areas.Admin.Controllers
 
         [Authorize(Policy = "BlogCategoriesEdit")]
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public IActionResult Edit(CreateBlogsCategoriesServicesDto createBlogsCategoriesServicesDto,
             CrmCmsNewsGroups crmCmsNewsGroups, int id)
         {
@@ -85,7 +84,6 @@ namespace EndPoint.WebSite.Areas.Admin.Controllers
 
         [Authorize(Policy = "BlogCategoriesDelete")]
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public IActionResult Delete(int id)
         {
             var result = _blogsCategoriesFacad.DeleteBlogsCategoriesServices.Execute(id);

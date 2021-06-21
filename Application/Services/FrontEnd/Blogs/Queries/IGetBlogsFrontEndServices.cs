@@ -32,6 +32,7 @@ namespace  Application.Services.FrontEnd.Blogs.Queries
                 .Include(s=>s.NewsGroup)
                 .Where(s=>s.IsVerified)
                 .Where(s => s.Position == 0)
+                .OrderByDescending(s=>s.NewsId)
                 .Select(s=> new GetBlogsDto
                 {
                     NewsId =s.NewsId,
@@ -57,6 +58,7 @@ namespace  Application.Services.FrontEnd.Blogs.Queries
                 .Include(s=>s.NewsGroup)
                 .Where(s=>s.IsVerified)
                 .Where(s => s.Position != 0)
+                .OrderByDescending(s=>s.NewsId)
                 .Select(s=> new GetBlogsDto
                 {
                     NewsId =s.NewsId,

@@ -10,6 +10,7 @@ using Application.Services.BackEnd.Admin.BlogsCategories.FacadPattern;
 using Application.Services.BackEnd.Admin.Company.FacadPattern;
 using Application.Services.BackEnd.Admin.Factory.FacadPattern;
 using Application.Services.BackEnd.Admin.FileManager.FacadPattern;
+using Application.Services.BackEnd.Admin.Footers;
 using Application.Services.BackEnd.Admin.Home.FacadPattern;
 using Application.Services.BackEnd.Admin.Menus.FacadPattern;
 using Application.Services.BackEnd.Admin.Products.FacadPattern;
@@ -95,7 +96,6 @@ namespace EndPoint.WebSite
                 options.AddPolicy("BlogsDelete", policy => { policy.RequireClaim("BlogsDelete"); });
                 options.AddPolicy("BlogsActive", policy => { policy.RequireClaim("BlogsActive"); });
                 options.AddPolicy("Company", policy => { policy.RequireClaim("Company"); });
-                options.AddPolicy("Factory", policy => { policy.RequireClaim("Factory"); });
                 options.AddPolicy("Menus", policy => { policy.RequireClaim("Menus"); });
                 options.AddPolicy("Products", policy => { policy.RequireClaim("Products"); });
                 options.AddPolicy("ProductsIndex", policy => { policy.RequireClaim("ProductsIndex"); });
@@ -107,6 +107,12 @@ namespace EndPoint.WebSite
                 options.AddPolicy("Users", policy => { policy.RequireClaim("Users"); });
                 options.AddPolicy("UsersIndex", policy => { policy.RequireClaim("UsersIndex"); });
                 options.AddPolicy("UsersEdit", policy => { policy.RequireClaim("UsersEdit"); });
+                options.AddPolicy("Factory", policy => { policy.RequireClaim("Factory"); });
+                options.AddPolicy("FileManagers", policy => { policy.RequireClaim("FileManagers"); });
+                options.AddPolicy("Footers", policy => { policy.RequireClaim("Footers"); });
+
+                
+
 
                 // ???????? ?? ????????? ???? ?? ??? ?????? ????? ????? ???
                 // ???? ????? ???? ???? ????? ????? ??? ? ???? ?????? ??? ????? ?? ?????? ?????? ????? ???
@@ -154,6 +160,7 @@ namespace EndPoint.WebSite
             services.AddScoped<IFactoryFacad, FactoryFacad>();
             services.AddScoped<IHomeFacad, HomeFacad>();
             services.AddScoped<IFileManagerFacad, FileManagerFacad>();
+            services.AddScoped<IFootersServices, FootersServices>();
             //------ Owner Panel Services
             services.AddScoped<IOwnerProductsFacad, OwnerProductsFacad>();
             services.AddScoped<IOwnerHomeFacad, OwnerHomeFacad>();

@@ -13,7 +13,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace EndPoint.WebSite.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Authorize]
+    [Authorize(Policy = "FileManagers")]
     [Route("panel/admin/file-manager/[action]/{id?}")]
     public class FileManagerController:Controller
     {
@@ -30,7 +30,7 @@ namespace EndPoint.WebSite.Areas.Admin.Controllers
         public IActionResult Index()
         {
             var data = _fileManagerFacad.ImageUploadService.GetAllFileManager();
-            return View(data);
+            return View(data.Data);
         }
 
 
@@ -45,7 +45,12 @@ namespace EndPoint.WebSite.Areas.Admin.Controllers
             if (!ModelState.IsValid)
             {
                 var allErrors = ModelState.Values.SelectMany(v => v.Errors);
-                return new JsonResult(new BaseDto<int>(false, allErrors.Select(p => p.ErrorMessage).ToList(), 0));
+                // return new JsonResult(new BaseDto<int>(false, allErrors.Select(p => p.ErrorMessage).ToList(), 0));
+                
+                TempData["IsSuccess"] = false;
+                TempData["Message"] = allErrors.Select(p => p.ErrorMessage).FirstOrDefault();
+
+                return RedirectToAction(nameof(Index));
             }
             
             // var files = Request.Form.multiImageDto;

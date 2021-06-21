@@ -91,7 +91,6 @@ namespace EndPoint.WebSite.Areas.Admin.Controllers
 
         [Authorize(Policy = "BlogsDelete")]
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public IActionResult Delete(int id)
         {
             var result = _blogsFacad.DeleteBlogsServices.Execute(id);
@@ -104,7 +103,6 @@ namespace EndPoint.WebSite.Areas.Admin.Controllers
 
         [Authorize(Policy = "BlogsActive")]
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public IActionResult Active(int id)
         {
             var result = _blogsFacad.ActiveBlogsServices.Execute(id);

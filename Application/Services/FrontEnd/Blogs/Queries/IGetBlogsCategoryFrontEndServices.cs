@@ -55,17 +55,20 @@ namespace  Application.Services.FrontEnd.Blogs.Queries
                     RegisterDatePersian =b.RegisterDate.ToPersianDigitalDateTimeString(),
                     IsVerified = b.IsVerified,
                     Position=b.Position,
-                    HeadLine=b.HeadLine
+                    HeadLine=b.HeadLine,
                 }).Skip(skip).Take(resultInEachPage).ToList();
 
-            
-            
+
+            var categoryName = _context.CrmCmsNewsGroups
+                .Where(b => b.en_GroupName == category)
+                .Select(b => b.GroupName).SingleOrDefault();
             
             return new ResultGetBlogsCategoryFrontEndDto
             {
                 BlogsCatrgory =blogsCatrgory,
                 PageId =pageId,
                 PageCount =pageCount,
+                CategoryName =categoryName,
             };
         }
     }
@@ -75,6 +78,7 @@ namespace  Application.Services.FrontEnd.Blogs.Queries
         public List<GetBlogsCatrgoryDto> BlogsCatrgory { get; set; }
         public int PageId { get; set; }
         public int PageCount { get; set; }
+        public string CategoryName { get; set; }
     }
 
 

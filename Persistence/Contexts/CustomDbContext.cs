@@ -7,6 +7,7 @@ using Domain.Entities.Attributes;
 using Domain.Entities.Baskets;
 using Domain.Entities.Factory;
 using Domain.Entities.FileManager;
+using Domain.Entities.Footer;
 using Domain.Entities.Orders;
 using Domain.Entities.Payments;
 using Domain.Entities.Products;
@@ -40,6 +41,7 @@ namespace  Persistence.Contexts
         public DbSet<Payment> Payments { get; set; }
         public DbSet<Factory> Factories { get; set; }
         public DbSet<FileManager> FileManagers { get; set; }
+        public DbSet<Footer> Footers { get; set; }
         
         
         
@@ -66,6 +68,7 @@ namespace  Persistence.Contexts
             builder.Entity<Order>().OwnsOne(o => o.Address);
             
             builder.ClaimsSeed();
+            builder.FootersSeed();
             
             base.OnModelCreating(builder);
         }
