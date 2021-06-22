@@ -1,10 +1,11 @@
 ﻿@using Application.Services.FrontEnd.Blogs.Queries
-@using Common.Extentions
 @model ResultGetBlogsFrontEndDto
+@using Application.Services.FrontEnd.Common
+@inject ISiteSetting _siteSetting;
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 @addTagHelper *, LazZiya.TagHelpers
 @{
-    ViewData["Title"] = "بلاگ اکوفولاد";
+    ViewData["Title"] = "بلاگ";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @section BodyAttr{
@@ -24,7 +25,7 @@
                    onmouseover="this.style.color='#666'"
                    onmouseout="this.style.color='#666'"
                    style="color: rgb(102, 102, 102);">
-                    <i class="fas fa-blog"></i> آخرین مطالب
+                    <i class="fa fa-files-o"></i> آخرین مطالب
                 </a>
             </li>
             @foreach (var item in Model.BlogsGroup)
@@ -48,7 +49,7 @@
         <a asp-controller="Blogs"
            asp-action="Details"
            asp-route-category="@Model.BlogsFav.Where(b => b.Position == 8).Select(b => b.en_NewsGroupName).FirstOrDefault()"
-           asp-route-title="@Model.BlogsFav.Where(b => b.Position == 8).Select(b => b.Title).FirstOrDefault().Replace(" ", "-")"
+           asp-route-title="@Model.BlogsFav.Where(b => b.Position == 8).Select(b => b.Title).FirstOrDefault()?.Replace(" ", "-")"
            >
             <div id="media_image-4" class="main-blog-widget main-top-blog-widget  widget_media_image">
                 <img width="280" height="154" src="@Model.BlogsFav.Where(b => b.Position == 8).Select(b => b.HeadLine).FirstOrDefault()" class="image wp-image-2223 attachment-full size-full lazyloaded" alt="@Model.BlogsFav.Where(b => b.Position == 8).Select(b => b.Title).FirstOrDefault()" style="max-width: 100%; height: auto;" data-ll-status="loaded">
@@ -79,7 +80,7 @@
                     <a asp-controller="Blogs"
                        asp-action="Details"
                        asp-route-category="@Model.BlogsFav.Where(b => b.Position == 2).Select(b => b.en_NewsGroupName).FirstOrDefault()"
-                       asp-route-title="@Model.BlogsFav.Where(b => b.Position == 2).Select(b => b.Title).FirstOrDefault().Replace(" ", "-")"
+                       asp-route-title="@Model.BlogsFav.Where(b => b.Position == 2).Select(b => b.Title).FirstOrDefault()?.Replace(" ", "-")"
                        >
                     </a>
                     <h2>@Model.BlogsFav.Where(b => b.Position == 2).Select(b => b.Title).FirstOrDefault()</h2>
@@ -91,7 +92,7 @@
                     <a asp-controller="Blogs"
                        asp-action="Details"
                        asp-route-category="@Model.BlogsFav.Where(b => b.Position == 3).Select(b => b.en_NewsGroupName).FirstOrDefault()"
-                       asp-route-title="@Model.BlogsFav.Where(b => b.Position == 3).Select(b => b.Title).FirstOrDefault().Replace(" ", "-")"
+                       asp-route-title="@Model.BlogsFav.Where(b => b.Position == 3).Select(b => b.Title).FirstOrDefault()?.Replace(" ", "-")"
                        >
                     </a>
                     <h2>@Model.BlogsFav.Where(b => b.Position == 3).Select(b => b.Title).FirstOrDefault()</h2>
@@ -104,7 +105,7 @@
                     <a asp-controller="Blogs"
                        asp-action="Details"
                        asp-route-category="@Model.BlogsFav.Where(b => b.Position == 4).Select(b => b.en_NewsGroupName).FirstOrDefault()"
-                       asp-route-title="@Model.BlogsFav.Where(b => b.Position == 4).Select(b => b.Title).FirstOrDefault().Replace(" ", "-")"
+                       asp-route-title="@Model.BlogsFav.Where(b => b.Position == 4).Select(b => b.Title).FirstOrDefault()?.Replace(" ", "-")"
                        >
                     </a>
                     <h2> @Model.BlogsFav.Where(b => b.Position == 4).Select(b => b.Title).FirstOrDefault()</h2>
@@ -116,7 +117,7 @@
                     <a asp-controller="Blogs"
                        asp-action="Details"
                        asp-route-category="@Model.BlogsFav.Where(b => b.Position == 5).Select(b => b.en_NewsGroupName).FirstOrDefault()"
-                       asp-route-title="@Model.BlogsFav.Where(b => b.Position == 5).Select(b => b.Title).FirstOrDefault().Replace(" ", "-")"
+                       asp-route-title="@Model.BlogsFav.Where(b => b.Position == 5).Select(b => b.Title).FirstOrDefault()?.Replace(" ", "-")"
                        >
                     </a>
                     <h2>@Model.BlogsFav.Where(b => b.Position == 5).Select(b => b.Title).FirstOrDefault()</h2>
@@ -128,7 +129,7 @@
                     <a asp-controller="Blogs"
                        asp-action="Details"
                        asp-route-category="@Model.BlogsFav.Where(b => b.Position == 6).Select(b => b.en_NewsGroupName).FirstOrDefault()"
-                       asp-route-title="@Model.BlogsFav.Where(b => b.Position == 6).Select(b => b.Title).FirstOrDefault().Replace(" ", "-")"
+                       asp-route-title="@Model.BlogsFav.Where(b => b.Position == 6).Select(b => b.Title).FirstOrDefault()?.Replace(" ", "-")"
                        >
                     </a>
                     <h2> @Model.BlogsFav.Where(b => b.Position == 6).Select(b => b.Title).FirstOrDefault()</h2>
@@ -138,7 +139,7 @@
             <a class="right_banner_side" asp-controller="Blogs"
                asp-action="Details"
                asp-route-category="@Model.BlogsFav.Where(b => b.Position == 7).Select(b => b.en_NewsGroupName).FirstOrDefault()"
-               asp-route-title="@Model.BlogsFav.Where(b => b.Position == 7).Select(b => b.Title).FirstOrDefault().Replace(" ", "-")"
+               asp-route-title="@Model.BlogsFav.Where(b => b.Position == 7).Select(b => b.Title).FirstOrDefault()?.Replace(" ", "-")"
                >
                 <img class="side_banner_wide_blog lazyloaded" src="@Model.BlogsFav.Where(b => b.Position == 7).Select(b => b.HeadLine).FirstOrDefault()" data-ll-status="loaded" alt="@Model.BlogsFav.Where(b => b.Position == 7).Select(b => b.Title).FirstOrDefault()">
                 <noscript>
@@ -429,14 +430,14 @@
                         <a asp-controller="Blogs"
                            asp-action="Details"
                            asp-route-category="@item.en_NewsGroupName"
-                           asp-route-title="@item.Title.Replace(" ", "-")"
+                           asp-route-title="@item.Title"
                            title="@item.Title" class="cat_of_post">
                             @item.NewsGroupName
                         </a>
                         <a asp-controller="Blogs"
                            asp-action="Details"
                            asp-route-category="@item.en_NewsGroupName"
-                           asp-route-title="@item.Title.Replace(" ", "-")"
+                           asp-route-title="@item.Title"
                            >
                             <img width="300" height="191"
                                  src="/@item.HeadLine"
@@ -457,7 +458,7 @@
                         <a asp-controller="Blogs"
                            asp-action="Details"
                            asp-route-category="@item.en_NewsGroupName"
-                           asp-route-title="@item.Title.Replace(" ", "-")"
+                           asp-route-title="@item.Title"
                            rel="bookmark">
                             @item.Title
                         </a>
@@ -468,16 +469,16 @@
 
                     <div class="author">
 
-                        <img alt="@item.Title" src="/Images/Favicon/favicon-16x16.png" data-lazy-srcset="/Images/Favicon/favicon-16x16.png" class="avatar avatar-30 photo" height="30" width="30"
-                             data-lazy-src="/Images/Favicon/favicon-16x16.png">
+                        <img alt="@item.Title" src="@Model.Footers.ThumbnailLogoImage" data-lazy-srcset="@Model.Footers.ThumbnailLogoImage" class="avatar avatar-30 photo" height="30" width="30"
+                             data-lazy-src="@Model.Footers.ThumbnailLogoImage">
                         <noscript>
-                            <img alt='@item.Title' src='/Images/Favicon/favicon-16x16.png' srcset='/Images/Favicon/favicon-16x16.png' class='avatar avatar-30 photo' height='30' width='30'/>
+                            <img alt='@item.Title' src='@Model.Footers.ThumbnailLogoImage' srcset='@Model.Footers.ThumbnailLogoImage' class='avatar avatar-30 photo' height='30' width='30'/>
                         </noscript>
                         @* <a href="https://newkalatheme.ir/preview/author/newkala/">سید حسن حسینی</a> *@
                     </div>
 
 
-                    <div class="human_time_diff">@item.RegisterDatePersian</div>
+                    <div class="human_time_diff">@item.DateTime</div>
 
                 </article>
                 <!-- #post-## -->

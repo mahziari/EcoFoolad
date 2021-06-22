@@ -736,6 +736,21 @@
     <_ContentIncludedByDefault Remove="wwwroot\wp-content\uploads\2020\12\4.png" />
     <_ContentIncludedByDefault Remove="wwwroot\wp-content\uploads\2020\12\4a98eff51fd9a61f1fb0704ece641e46d883d4e6_1606883925.png" />
     <_ContentIncludedByDefault Remove="Views\Cart\Index.cshtml" />
+    <_ContentIncludedByDefault Remove="wwwroot\BackEnd\Admin\images\fileManager\2021\2021-6\03ba7e8c-5e4c-477b-acfe-9860757a997b6374588633748517591-1.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\BackEnd\Admin\images\fileManager\2021\2021-6\03ba7e8c-5e4c-477b-acfe-9860757a997b637536538086183705637471027127917650Web 1920 – 2.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\BackEnd\Admin\images\fileManager\2021\2021-6\1990508a-bb39-4316-89b9-e4336557ae6c6374719533335611669.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\BackEnd\Admin\images\fileManager\2021\2021-6\35bd1ab6-eca1-4b6b-8e23-ce9037521369637536538086183705637471027127917650Web 1920 – 2.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\BackEnd\Admin\images\fileManager\2021\2021-6\525cb830-8611-4987-aa3d-0bba63df8cdc637536538086183705637471027127917650Web 1920 – 2.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\BackEnd\Admin\images\fileManager\2021\2021-6\5a939cd2-6b71-4fd5-915c-ca4c210832ce63753653853633402463747102645924188010.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\BackEnd\Admin\images\fileManager\2021\2021-6\60821226-0b64-41c8-b7b6-ad31961c436f637536538086183705637471027127917650Web 1920 – 2.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\BackEnd\Admin\images\fileManager\2021\2021-6\6c10384b-2210-41a8-aed3-e8f41b8398a3637471027127917650Web 1920 – 2.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\BackEnd\Admin\images\fileManager\2021\2021-6\729235d6-88d0-4d91-8dac-c660103d26e36374588633748517591-1.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\BackEnd\Admin\images\fileManager\2021\2021-6\924f545d-0003-453d-beed-5e50206a4213637471027127917650Web 1920 – 2.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\BackEnd\Admin\images\fileManager\2021\2021-6\9d0763a6-b294-46c8-8a1f-a342bdf32566pdf.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\BackEnd\Admin\images\fileManager\2021\2021-6\b742ce91-925c-4c90-8813-7063c63a13ff637536538086183705637471027127917650Web 1920 – 2.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\BackEnd\Admin\images\fileManager\2021\2021-6\c33b87a7-5375-49a6-97ab-902519f6635a63753653853633402463747102645924188010.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\BackEnd\Admin\images\fileManager\2021\2021-6\f5e21980-8671-4d69-b3be-cbd2aceb9bed6374719533335611669.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\BackEnd\Admin\images\fileManager\2021\2021-6\fdfd2b14-731d-490b-ba66-fe1ae8283b5763753653853633402463747102645924188010.jpg" />
   </ItemGroup>
 
 </Project>

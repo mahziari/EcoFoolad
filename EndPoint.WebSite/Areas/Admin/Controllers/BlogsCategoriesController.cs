@@ -83,7 +83,6 @@ namespace EndPoint.WebSite.Areas.Admin.Controllers
         }
 
         [Authorize(Policy = "BlogCategoriesDelete")]
-        [HttpPost]
         public IActionResult Delete(int id)
         {
             var result = _blogsCategoriesFacad.DeleteBlogsCategoriesServices.Execute(id);

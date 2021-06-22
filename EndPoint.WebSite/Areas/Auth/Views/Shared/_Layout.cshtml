@@ -1,9 +1,12 @@
-﻿<!DOCTYPE html>
+﻿@using Application.Services.FrontEnd.Common
+@inject ISiteSetting _siteSetting;
+
+<!DOCTYPE html>
 <html dir="rtl" lang="fa-IR">
 <meta http-equiv="content-type" content="text/html;charset=UTF-8"/>
 <head>
     <meta charset="utf-8"/>
-    <title>اکوفولاد | @ViewData["Title"]</title>
+    <title>@ViewData["Title"].ToString() | @_siteSetting.GetSiteSetting().SiteName</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
     <meta name="theme-color" content="#dd3333"/>
 

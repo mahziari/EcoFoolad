@@ -67,5 +67,6 @@ namespace Domain.Entities.Products
         public int? OrderView { get; set; }
         public int PrdPrice { get; set; }
         public int VisitCount { get; set; }
+        public string LocalTime { get; set; }
     }
 }

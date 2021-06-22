@@ -580,3 +580,4 @@ C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\bin\Debug\net5.0\RestS
 C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\obj\Debug\net5.0\Razor\Areas\Admin\Views\FileManager\Create.cshtml.g.cs
 C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\obj\Debug\net5.0\Razor\Areas\Admin\Views\FileManager\Index.cshtml.g.cs
 C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\obj\Debug\net5.0\Razor\Areas\Admin\Views\Footers\Index.cshtml.g.cs
+C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\obj\Debug\net5.0\Razor\Views\Shared\Components\GetFooters\GetFooters.cshtml.g.cs

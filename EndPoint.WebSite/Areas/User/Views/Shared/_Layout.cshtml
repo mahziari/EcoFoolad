@@ -1,9 +1,11 @@
 ﻿@using Domain.Entities.Users
 @using Microsoft.AspNetCore.Authorization
 @using Microsoft.AspNetCore.Identity
-@inject IAuthorizationService AuthorizationService;
-@inject SignInManager<User> SignInManager
-@inject UserManager<Domain.Entities.Users.User> UserManager
+@inject IAuthorizationService _authorizationService;
+@inject SignInManager<User> _signInManager
+@inject UserManager<User> _userManager
+@using Application.Services.FrontEnd.Common
+@inject ISiteSetting _siteSetting;
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 @{
     Layout = null;
@@ -13,7 +15,7 @@
 <html dir="rtl" lang="fa-IR">
 <head>
     <meta charset="utf-8"/>
-    <title>اکوفولاد | @ViewData["Title"]</title>
+     <title>@ViewData["Title"].ToString() | @_siteSetting.GetSiteSetting().SiteName</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
     <meta name="theme-color" content="#dd3333"/>
     @await RenderSectionAsync("Head", false)
@@ -97,7 +99,7 @@
                 </svg>
             </div>
             <div class="sp_paragraph_avatar">
-                <h1> @UserManager.GetUserAsync(User).Result.FirstName @UserManager.GetUserAsync(User).Result.LastName</h1>
+                <h1> @_userManager.GetUserAsync(User).Result.FirstName @_userManager.GetUserAsync(User).Result.LastName</h1>
                 <p>
                     <p>تاریخ عضویت : 28-08-1399</p>
                 </p>
@@ -153,7 +155,7 @@
                 @* <h1>پنل کاربران</h1> *@
                 <p>
                     <i class="far fa-user"></i>
-                    کاربر گرامی @UserManager.GetUserAsync(User).Result.FirstName @UserManager.GetUserAsync(User).Result.LastName عزیز خوش آمدید
+                    کاربر گرامی @_userManager.GetUserAsync(User).Result.FirstName @_userManager.GetUserAsync(User).Result.LastName عزیز خوش آمدید
                 </p>
             </div>
             <div class="sp_bottom_panel">

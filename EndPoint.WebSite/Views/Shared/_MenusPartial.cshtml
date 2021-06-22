@@ -1,4 +1,7 @@
-﻿<div class="full_width_main_menu nk-menu-shop-pages">
+﻿@using Application.Services.FrontEnd.Common
+@inject ISiteSetting _siteSetting;
+
+<div class="full_width_main_menu nk-menu-shop-pages">
     <div class="main_menu container">
 
 
@@ -23,7 +26,7 @@
             
             <li id="menu-item-90"
                 class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu_absahri">
-                <a asp-controller="Blogs" asp-action="Index">بلاگ اکوفولاد </a>
+                <a asp-controller="Blogs" asp-action="Index">بلاگ @_siteSetting.GetSiteSetting().SiteName </a>
             </li>
             
        

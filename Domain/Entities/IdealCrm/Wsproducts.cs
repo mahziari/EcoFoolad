@@ -87,6 +87,7 @@ namespace  Domain.Entities.IdealCrm
         public int? OrderView { get; set; }
         public int VisitCount { get; set; }
         public decimal PrdPrice { get; set; }
+        public string LocalTime { get; set; }
 
         public virtual Users FirstRegisterUser { get; set; }
         public virtual WsfinancialPeriod Fp { get; set; }

@@ -1,5 +1,7 @@
 ﻿@using EndPoint.Web.Areas.Auth.Data.Dto
 @model EndPoint.Web.Areas.Auth.Data.Dto.ConfirmDto
+@using Application.Services.FrontEnd.Common
+@inject ISiteSetting _siteSetting;
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 
 @{
@@ -32,7 +34,7 @@
         <div class="woocommerce">
             <div class="main_login_form">
                 <a href="https://newkalatheme.ir/preview">
-                    <img style="display:block;margin:20px auto;" src="~/Images/Settings/Logo-Header.jpg" title="اکوفولاد ">
+                    <img style="display:block;margin:20px auto;" src="@_siteSetting.GetSiteSetting().LogoImage" title="@_siteSetting.GetSiteSetting().SiteName">
                 </a>
                 <div class="woocommerce-notices-wrapper"></div>
                 

@@ -1,9 +1,11 @@
 ﻿@using Microsoft.AspNetCore.Authorization;
 @using Microsoft.AspNetCore.Identity
 @using Domain.Entities.Users
-@inject IAuthorizationService AuthorizationService;
-@inject SignInManager<User> SignInManager
-@inject UserManager<Domain.Entities.Users.User> UserManager
+@using Application.Services.FrontEnd.Common
+@inject ISiteSetting _siteSetting;
+@inject IAuthorizationService _authorizationService;
+@inject SignInManager<User> _signInManager
+@inject UserManager<User> _userManager
 
 <header id="header_newkala" class="newkala_main_header_tag">
 
@@ -41,13 +43,13 @@
 <div class="main_newkala_responsive_menu">
 
 <div class="logo_responsive_menu">
-    <a href="https://newkalatheme.ir/preview">
-        <img
-            src="~/Images/Settings/Logo-Header.jpg"
-            data-lazy-src="~/Images/Settings/Logo-Header.jpg">
+    <a href="/">
+        <img src="@_siteSetting.GetSiteSetting().LogoImage" 
+             data-lazy-src="@_siteSetting.GetSiteSetting().LogoImage"
+             alt="@_siteSetting.GetSiteSetting().SiteName">
         <noscript>
             <img
-                src="~/Images/Settings/Logo-Header.jpg">
+                src="@_siteSetting.GetSiteSetting().LogoImage" alt="@_siteSetting.GetSiteSetting().SiteName">
         </noscript>
     </a>
 
@@ -92,12 +94,13 @@
     <div class="nk-logo-mobile ">
 
         <a href="/" target="_blank">
-            <img src="/Images/Settings/Logo-Header.jpg"
-                 data-lazy-src="/Images/Settings/Logo-Header.jpg"/>
-            <noscript>
-                <img
-                    src="/Images/Settings/Logo-Header.jpg"/>
-            </noscript>
+              <img src="@_siteSetting.GetSiteSetting().LogoImage" 
+                     data-lazy-src="@_siteSetting.GetSiteSetting().LogoImage"
+                     alt="@_siteSetting.GetSiteSetting().SiteName">
+                <noscript>
+                    <img
+                        src="@_siteSetting.GetSiteSetting().LogoImage" alt="@_siteSetting.GetSiteSetting().SiteName">
+                </noscript>
         </a>
     </div>
 
@@ -114,12 +117,12 @@
 
 
     <div class="logo ">
-        <h1> پارسا پولاد هور </h1>
-        <a title="اکوفولاد - فروشگاه آنلاین محصولات فولادی" href="/">
+        <h1> @_siteSetting.GetSiteSetting().SiteName </h1>
+        <a title="@_siteSetting.GetSiteSetting().SiteName | فروشگاه آنلاین محصولات فولادی" href="/">
             <img data-skip-lazy="" class="skip-lazy"
-                 src="~/Images/Settings/Logo-Header.jpg"
-                 alt="اکوفولاد - فروشگاه آنلاین محصولات فولادی">
-            <span class="main-site-title">پارسا پولاد</span>
+                 src="@_siteSetting.GetSiteSetting().LogoImage"
+                 alt="@_siteSetting.GetSiteSetting().SiteName | فروشگاه آنلاین محصولات فولادی">
+            <span class="main-site-title">@_siteSetting.GetSiteSetting().SiteName</span>
         </a>
     </div>
 
@@ -140,11 +143,11 @@
 
     @if (User.Identity.IsAuthenticated)
     {
-        @if (AuthorizationService.AuthorizeAsync(User, "SeniorProgrammer").Result.Succeeded)
+        @if (_authorizationService.AuthorizeAsync(User, "SeniorProgrammer").Result.Succeeded)
         {
             <div class="main_login_register ">
                 <div class="title_login_register">
-                    <strong>@UserManager.GetUserAsync(User).Result.FirstName @UserManager.GetUserAsync(User).Result.LastName</strong>
+                    <strong>@_userManager.GetUserAsync(User).Result.FirstName @_userManager.GetUserAsync(User).Result.LastName</strong>
                 </div>
                 <div class="main_content_login_register" style="display: none;">
                     <div class="content_login_register">
@@ -168,11 +171,11 @@
                 </div>
             </div>
         }
-        else if (AuthorizationService.AuthorizeAsync(User, "AdminRole").Result.Succeeded)
+        else if (_authorizationService.AuthorizeAsync(User, "AdminRole").Result.Succeeded)
         {
             <div class="main_login_register ">
                 <div class="title_login_register">
-                    <strong>@UserManager.GetUserAsync(User).Result.FirstName @UserManager.GetUserAsync(User).Result.LastName</strong>
+                    <strong>@_userManager.GetUserAsync(User).Result.FirstName @_userManager.GetUserAsync(User).Result.LastName</strong>
                 </div>
                 <div class="main_content_login_register" style="display: none;">
                     <div class="content_login_register">
@@ -196,11 +199,11 @@
                 </div>
             </div>
         }
-        else if (AuthorizationService.AuthorizeAsync(User, "OwnerRole").Result.Succeeded)
+        else if (_authorizationService.AuthorizeAsync(User, "OwnerRole").Result.Succeeded)
         {
             <div class="main_login_register ">
                 <div class="title_login_register">
-                    <strong>@UserManager.GetUserAsync(User).Result.FirstName @UserManager.GetUserAsync(User).Result.LastName</strong>
+                    <strong>@_userManager.GetUserAsync(User).Result.FirstName @_userManager.GetUserAsync(User).Result.LastName</strong>
                 </div>
                 <div class="main_content_login_register" style="display: none;">
                     <div class="content_login_register">
@@ -224,11 +227,11 @@
                 </div>
             </div>
         }
-        else if (AuthorizationService.AuthorizeAsync(User, "UserRole").Result.Succeeded)
+        else if (_authorizationService.AuthorizeAsync(User, "UserRole").Result.Succeeded)
         {
             <div class="main_login_register ">
                 <div class="title_login_register">
-                    <strong>@UserManager.GetUserAsync(User).Result.FirstName @UserManager.GetUserAsync(User).Result.LastName</strong>
+                    <strong>@_userManager.GetUserAsync(User).Result.FirstName @_userManager.GetUserAsync(User).Result.LastName</strong>
                 </div>
                 <div class="main_content_login_register" style="display: none;">
                     <div class="content_login_register">

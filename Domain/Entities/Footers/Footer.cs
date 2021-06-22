@@ -3,6 +3,7 @@
     public class Footer
     {
         public int Id { get; set; }
+        public string SiteName { get; set; }
         public string OfficeAddress { get; set; }
         public string FactoryAddress { get; set; }
         public string PhoneNumber1 { get; set; }

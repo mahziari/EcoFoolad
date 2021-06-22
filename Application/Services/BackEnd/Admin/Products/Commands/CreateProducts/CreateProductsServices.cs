@@ -57,6 +57,7 @@ namespace  Application.Services.BackEnd.Admin.Products.Commands.CreateProducts
                 Month1=6,
                 Fpid = 1,
                 RegisterDatePersian = PersianDateTime.Now.ToString("yyyyMMdd"),
+                LocalTime = DateTime.Now.ToString("s")+"+"+"03:30",
             };
             _context.Wsproducts.Add(product);
             _context.SaveChanges();

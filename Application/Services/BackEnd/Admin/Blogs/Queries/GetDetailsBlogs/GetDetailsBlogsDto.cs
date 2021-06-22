@@ -1,4 +1,6 @@
-﻿namespace  Application.Services.BackEnd.Admin.Blogs.Queries.GetDetailsBlogs
+﻿using System;
+
+namespace  Application.Services.BackEnd.Admin.Blogs.Queries.GetDetailsBlogs
 {
     public class GetDetailsBlogsDto
     {
@@ -10,6 +12,7 @@
         public string NewsBody { get; set; }
         public string HeadLine { get; set; }
         public int Position { get; set; }
+        public int VisitCount { get; set; }
 
     }
 }

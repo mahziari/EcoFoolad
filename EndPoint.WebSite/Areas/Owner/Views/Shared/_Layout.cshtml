@@ -2,9 +2,11 @@
 @using Microsoft.AspNetCore.Identity
 @using Domain.Entities
 @using Domain.Entities.Users
-@inject IAuthorizationService AuthorizationService;
-@inject SignInManager<User> SignInManager
-@inject UserManager<Domain.Entities.Users.User> UserManager
+@inject IAuthorizationService _authorizationService;
+@inject SignInManager<User> _signInManager
+@inject UserManager<User> _userManager
+@using Application.Services.FrontEnd.Common
+@inject ISiteSetting _siteSetting;
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 @{
     Layout = null;
@@ -16,7 +18,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <script>document.documentElement.className = document.documentElement.className + ' yes-js js_active js'</script>
-    <title>اکوفولاد | @ViewData["Title"]</title>
+    <title>@ViewData["Title"].ToString() | @_siteSetting.GetSiteSetting().SiteName</title>
     <meta name="robots" content="max-image-preview:large">
     <style type="text/css">
 img.wp-smiley,
@@ -352,7 +354,7 @@ var userSettings = {"url":"\/newkala\/preview\/","uid":"91","time":"1617430587",
             <ul class="sp_List_members1">
                 <li class="sp_right_product">
                     <a href="#">
-                        فروشگاه @UserManager.GetUserAsync(User).Result.FirstName @UserManager.GetUserAsync(User).Result.LastName خوش آمدید
+                        فروشگاه @_userManager.GetUserAsync(User).Result.FirstName @_userManager.GetUserAsync(User).Result.LastName خوش آمدید
                         <i class="fa fa-angle-down" aria-hidden="true"></i>
                     </a>
                     <div class="sp_Products_list1">
@@ -457,7 +459,7 @@ var userSettings = {"url":"\/newkala\/preview\/","uid":"91","time":"1617430587",
     <div class="sp_body_menu_bar">
         <div class="sp_top_body_menu_bar">
             <div class="sp_stars">
-                <a>فروشگاه @UserManager.GetUserAsync(User).Result.FirstName @UserManager.GetUserAsync(User).Result.LastName</a>
+                <a>فروشگاه @_userManager.GetUserAsync(User).Result.FirstName @_userManager.GetUserAsync(User).Result.LastName</a>
 
                 @* <div class="nk-text-reating-seller"> *@
                 @*     <span class="nk-not-reat">امتیازی ثبت نشده</span> *@
@@ -1684,7 +1686,7 @@ jQuery( document ).ready( function($){
         <div class="favicon">
             <img id="preview-favicon" src="{{ data.url }}" alt="پیش‌نمایش به‌عنوان نمادک مرورگر"/>
         </div>
-        <span class="browser-title" aria-hidden="true">اکوفولاد</span>
+        <span class="browser-title" aria-hidden="true"> @_siteSetting.GetSiteSetting().SiteName</span>
     </div>
 
     <strong aria-hidden="true">به عنوان نمادک یک اپلیکیشن</strong>

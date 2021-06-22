@@ -1,4 +1,5 @@
 ﻿using Application.Interfaces.FacadPatterns.FrontEnd;
+using Application.Services.FrontEnd.Common;
 using Common.Utilities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -27,9 +28,9 @@ namespace EndPoint.WebSite.Controllers
             _logger.LogInformation(LogEvents.LogInformationComplete,"info");
             _logger.LogWarning(LogEvents.LogWarningComplete,"war");
             _logger.LogError(LogEvents.LogErrorComplete,"err");
-            _logger.LogDebug(LogEvents.LogDebugSomeErrorOccurred,"bebug");
+            _logger.LogDebug(LogEvents.LogDebugSomeErrorOccurred,"debug");
             _logger.LogCritical(LogEvents.LogCriticalSomeErrorOccurred,"critical");
-            
+
             return View(result); 
         }
 

@@ -1,7 +1,9 @@
 ﻿@using Application.Services.FrontEnd.Home.Queries
 @model ResultGetHomeFrontEndDto
+@using Application.Services.FrontEnd.Common
+@inject ISiteSetting _siteSetting;
 @{
-    ViewData["Title"] = "فروشگاه اینترنتی اکوفولاد";
+    ViewData["Title"] = "فروشگاه آنلاین محصولات فولادی";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @section BodyAttr{

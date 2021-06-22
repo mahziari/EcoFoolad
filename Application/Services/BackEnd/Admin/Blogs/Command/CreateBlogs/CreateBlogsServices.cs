@@ -52,6 +52,7 @@ namespace  Application.Services.BackEnd.Admin.Blogs.Command.CreateBlogs
                 FirstRegisterDatePersian = PersianDateTime.Now.ToString("yyyyMMdd"),
                 RegisterDate = DateTime.Now,
                 RegisterDatePersian = PersianDateTime.Now.ToString("yyyyMMdd"),
+                LocalTime = DateTime.Now.ToString("s")+"+"+"03:30",
                 AppType = "web",
                 LanguageId = 1065
             };

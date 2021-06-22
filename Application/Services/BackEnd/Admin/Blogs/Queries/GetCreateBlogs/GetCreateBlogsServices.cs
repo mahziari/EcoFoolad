@@ -23,7 +23,7 @@ namespace  Application.Services.BackEnd.Admin.Blogs.Queries.GetCreateBlogs
                     GroupName = g.GroupName
                 }).ToList();
             
-            var blogs = _context.CrmCmsNews.ToList();
+            var blogs = _context.CrmCmsNews.Where(p=>p.Position==0).ToList();
 
             return new ResultGetCreateBlogsDto
             {

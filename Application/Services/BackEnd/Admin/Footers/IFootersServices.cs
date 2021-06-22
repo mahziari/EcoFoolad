@@ -52,34 +52,51 @@ namespace Application.Services.BackEnd.Admin.Footers
     public class FooterDto
     {
         public int Id { get; set; }
+        
+        [Display(Name = "نام سایت")]
+        public string SiteName { get; set; }
 
-        [Display(Name = "آدرس دفتر")] public string OfficeAddress { get; set; }
+        [Display(Name = "آدرس دفتر")] 
+        public string OfficeAddress { get; set; }
 
-        [Display(Name = "آدرس کارخانه")] public string FactoryAddress { get; set; }
+        [Display(Name = "آدرس کارخانه")]
+        public string FactoryAddress { get; set; }
 
-        [Display(Name = "شماره دفتر")] public string PhoneNumber1 { get; set; }
+        [Display(Name = "شماره دفتر")]
+        public string PhoneNumber1 { get; set; }
 
-        [Display(Name = "شماره انبار")] public string PhoneNumber2 { get; set; }
+        [Display(Name = "شماره انبار")]
+        public string PhoneNumber2 { get; set; }
 
-        [Display(Name = "")] public string PhoneNumber3 { get; set; }
+        [Display(Name = "")] 
+        public string PhoneNumber3 { get; set; }
 
-        [Display(Name = "توضیحات")] public string Description { get; set; }
+        [Display(Name = "توضیحات")]
+        public string Description { get; set; }
 
-        [Display(Name = "کپی رایت")] public string Copyright { get; set; }
+        [Display(Name = "کپی رایت")] 
+        public string Copyright { get; set; }
 
-        [Display(Name = "")] public string Photo1 { get; set; }
+        [Display(Name = "لوگو اینماد")] 
+        public string Photo1 { get; set; }
 
-        [Display(Name = "")] public string Photo2 { get; set; }
+        [Display(Name = "لوگو ساماندهی")]
+        public string Photo2 { get; set; }
 
-        [Display(Name = "")] public string Photo3 { get; set; }
+        [Display(Name = "لوگو همکار 1")] 
+        public string Photo3 { get; set; }
 
-        [Display(Name = "")] public string Photo4 { get; set; }
+        [Display(Name = "لوگو همکار 1")]
+        public string Photo4 { get; set; }
 
-        [Display(Name = "")] public string Photo5 { get; set; }
+        [Display(Name = "لوگو همکار 1")] 
+        public string Photo5 { get; set; }
 
-        [Display(Name = "")] public string Photo6 { get; set; }
+        [Display(Name = "لوگو همکار 1")] 
+        public string Photo6 { get; set; }
 
-        [Display(Name = "")] public string Photo7 { get; set; }
+        [Display(Name = "لوگو همکار 1")]
+        public string Photo7 { get; set; }
 
         [Display(Name = "")] public string Photo8 { get; set; }
 
@@ -97,8 +114,10 @@ namespace Application.Services.BackEnd.Admin.Footers
 
         [Display(Name = "")] public string Photo15 { get; set; }
 
-        [Display(Name = "عکس لوگو بزرگ")] public string LogoImage { get; set; }
+        [Display(Name = "عکس لوگو بزرگ")]
+        public string LogoImage { get; set; }
 
-        [Display(Name = "عکس لوگو کوچک")] public string ThumbnailLogoImage { get; set; }
+        [Display(Name = "عکس لوگو کوچک")] 
+        public string ThumbnailLogoImage { get; set; }
     }
 }

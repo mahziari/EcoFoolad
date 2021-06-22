@@ -25,6 +25,8 @@ using Application.Services.BackEnd.User.Home;
 using Application.Services.BackEnd.User.Orders;
 using Application.Services.FrontEnd.Basket;
 using Application.Services.FrontEnd.Blogs.FacadPattern;
+using Application.Services.FrontEnd.Common;
+using Application.Services.FrontEnd.Common.Footers.FacadPattern;
 using Application.Services.FrontEnd.Common.Menus.FacadPattern;
 using Application.Services.FrontEnd.Home.FacadPattern;
 using Application.Services.FrontEnd.Orders;
@@ -148,6 +150,8 @@ namespace EndPoint.WebSite
             services.AddTransient<IBasketService,  BasketService>();
             services.AddTransient<IOrderServices,  OrderServices>();
             services.AddTransient<IPaymentsServices,  PaymentsServices>();
+            services.AddTransient<IFootersFrontEndFacad,  FootersFrontEndFacad>();
+            services.AddScoped<ISiteSetting,  SiteSetting>();
             //------ Admin Panel Services
             services.AddScoped<IMenusFacad, MenusFacad>();
             services.AddScoped<IProductsFacad, ProductsFacad>();

@@ -33,7 +33,7 @@
                         <a asp-controller="Blogs"
                            asp-action="Details"
                            asp-route-category="@item.en_NewsGroupName"
-                           asp-route-title="@item.Title.Replace(" ", "-")"
+                           asp-route-title="@item.Title"
                            title="@item.Title" class="cat_of_post">
                             @item.NewsGroupName
                         </a>
@@ -42,7 +42,7 @@
                         <a asp-controller="Blogs"
                            asp-action="Details"
                            asp-route-category="@item.en_NewsGroupName"
-                           asp-route-title="@item.Title.Replace(" ", "-")">
+                           asp-route-title="@item.Title">
                             <img width="300" height="191"
                                  src="/@item.HeadLine"
                                  data-lazy-srcset="/@item.HeadLine" data-lazy-sizes="(max-width: 300px) 100vw, 300px"
@@ -62,7 +62,7 @@
                         <a asp-controller="Blogs"
                            asp-action="Details"
                            asp-route-category="@item.en_NewsGroupName"
-                           asp-route-title="@item.Title.Replace(" ", "-")"
+                           asp-route-title="@item.Title"
                            rel="bookmark">
                             @item.Title
                         </a>
@@ -73,16 +73,16 @@
 
                     <div class="author">
 
-                        <img alt="@item.Title" src="/Images/Favicon/favicon-16x16.png" data-lazy-srcset="/Images/Favicon/favicon-16x16.png" class="avatar avatar-30 photo" height="30" width="30"
-                             data-lazy-src="/Images/Favicon/favicon-16x16.png">
+                        <img alt="@item.Title" src="@Model.Footers.ThumbnailLogoImage" data-lazy-srcset="@Model.Footers.ThumbnailLogoImage" class="avatar avatar-30 photo" height="30" width="30"
+                             data-lazy-src="@Model.Footers.ThumbnailLogoImage">
                         <noscript>
-                            <img alt='@item.Title' src='/Images/Favicon/favicon-16x16.png' srcset='/Images/Favicon/favicon-16x16.png' class='avatar avatar-30 photo' height='30' width='30'/>
+                            <img alt='@item.Title' src='@Model.Footers.ThumbnailLogoImage' srcset='@Model.Footers.ThumbnailLogoImage' class='avatar avatar-30 photo' height='30' width='30'/>
                         </noscript>
                         @* <a href="https://newkalatheme.ir/preview/author/newkala/">سید حسن حسینی</a> *@
                     </div>
 
 
-                    <div class="human_time_diff">@item.RegisterDatePersian</div>
+                    <div class="human_time_diff">@item.DateTime</div>
 
                 </article>
                 <!-- #post-## -->

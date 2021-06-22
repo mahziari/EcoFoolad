@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using Application.Interfaces.Contexts;
+using Domain.Entities.Footer;
 using Microsoft.EntityFrameworkCore;
  
 
@@ -14,10 +15,12 @@ namespace  Application.Services.FrontEnd.Blogs.Queries
     public class GetBlogsDetailsFrontEndService: IGetBlogsDetailsFrontEndService
     {
         private readonly IIdealCrmDataBaseContext _context;
+        private readonly ICustomDbContext _customDbContext;
 
-        public GetBlogsDetailsFrontEndService(IIdealCrmDataBaseContext context)
+        public GetBlogsDetailsFrontEndService(IIdealCrmDataBaseContext context, ICustomDbContext customDbContext)
         {
             _context = context;
+            _customDbContext = customDbContext;
         }
 
 
@@ -37,15 +40,19 @@ namespace  Application.Services.FrontEnd.Blogs.Queries
                     Title = b.Title,
                     NewsBody=b.NewsBody,
                     NewsSummery=b.NewsSummery,
-                    RegisterDatePersian =b.RegisterDate.ToPersianDigitalDateTimeString(),
+                    DateTime =b.RegisterDate.ToPersianDateTime().ToString("yyyy/MM/d hh:mm"),
+                    LocalTime=b.LocalTime,
                     IsVerified = b.IsVerified,
                     Position=b.Position,
                     HeadLine=b.HeadLine
                 }).FirstOrDefault();
+            
+            var footers = _customDbContext.Footers.FirstOrDefault();
 
             return new ResultGetBlogsDetailsFrontEndDto
             {
                 Blog = blog,
+                Footers = footers,
             };
         }
     }
@@ -53,6 +60,7 @@ namespace  Application.Services.FrontEnd.Blogs.Queries
     public class ResultGetBlogsDetailsFrontEndDto
     {
         public GetBlogsDetailsDto Blog { get; set; }
+        public Footer Footers { get; set; }
     }
 
 
@@ -66,7 +74,8 @@ namespace  Application.Services.FrontEnd.Blogs.Queries
         public string NewsSummery { get; set; }
         public string NewsBody { get; set; }
         public string HeadLine { get; set; }
-        public string RegisterDatePersian { get; set; }
+        public string DateTime { get; set; }
+        public string LocalTime { get; set; }
         public bool IsVerified { get; set; }
         public int Position { get; set; }
     }

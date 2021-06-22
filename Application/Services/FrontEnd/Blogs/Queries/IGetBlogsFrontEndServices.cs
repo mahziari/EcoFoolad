@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Application.Interfaces.Contexts;
+using Domain.Entities.Footer;
 using Microsoft.EntityFrameworkCore;
  
 using  Domain.Entities.IdealCrm;
@@ -16,12 +17,12 @@ namespace  Application.Services.FrontEnd.Blogs.Queries
     public class GetBlogsFrontEndService : IGetBlogsFrontEndService
     {
         private readonly IIdealCrmDataBaseContext _context;
-        private readonly ICustomDbContext _parsapooladContext;
+        private readonly ICustomDbContext _customDbContext;
 
-        public GetBlogsFrontEndService(IIdealCrmDataBaseContext context,ICustomDbContext parsapooladContext)
+        public GetBlogsFrontEndService(IIdealCrmDataBaseContext context, ICustomDbContext customDbContext)
         {
             _context = context;
-            _parsapooladContext = parsapooladContext;
+            _customDbContext = customDbContext;
         }
 
 
@@ -46,9 +47,9 @@ namespace  Application.Services.FrontEnd.Blogs.Queries
                         .Select(g=>g.en_GroupName)
                         .FirstOrDefault(),
                     HeadLine=s.HeadLine,
-                    Title = s.Title,
+                    Title = s.Title.Replace(" ", "-"),
                     NewsSummery = s.NewsSummery,
-                    RegisterDatePersian =s.RegisterDate.ToPersianDigitalDateTimeString(),
+                    DateTime = s.RegisterDate.ToPersianDateTime().ToString("yyyy/MM/d hh:mm"),
                     IsVerified = s.IsVerified,
                     Position=s.Position,
                 }).Take(16)
@@ -72,22 +73,23 @@ namespace  Application.Services.FrontEnd.Blogs.Queries
                         .Select(g=>g.en_GroupName)
                         .FirstOrDefault(),
                     HeadLine=s.HeadLine,
-                    Title = s.Title,
+                    Title = s.Title.Replace(" ", "-"),
                     NewsSummery = s.NewsSummery,
-                    RegisterDatePersian =s.RegisterDate.ToPersianDigitalDateTimeString(),
+                    DateTime = s.RegisterDate.ToPersianDateTime().ToString("yyyy/MM/d hh:mm"),
                     IsVerified = s.IsVerified,
                     Position=s.Position,
                 }).ToList();
 
             var blogsGroup = _context.CrmCmsNewsGroups.ToList();
 
-
+            var footers = _customDbContext.Footers.FirstOrDefault();
 
             return new ResultGetBlogsFrontEndDto
             {
                 Blogs = blogs,
                 BlogsFav = blogsFav,
                 BlogsGroup = blogsGroup,
+                Footers = footers,
             };
         }
     }
@@ -97,6 +99,7 @@ namespace  Application.Services.FrontEnd.Blogs.Queries
         public List<GetBlogsDto> Blogs { get; set; }
         public List<GetBlogsDto> BlogsFav { get; set; }
         public List<CrmCmsNewsGroups> BlogsGroup { get; set; }
+        public Footer Footers { get; set; }
     }
 
 
@@ -109,7 +112,7 @@ namespace  Application.Services.FrontEnd.Blogs.Queries
         public string en_NewsGroupName { get; set; }
         public string NewsSummery { get; set; }
         public string HeadLine { get; set; }
-        public string RegisterDatePersian { get; set; }
+        public string DateTime { get; set; }
         public bool IsVerified { get; set; }
         public int Position { get; set; }
     }

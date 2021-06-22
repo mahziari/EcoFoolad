@@ -1,4 +1,6 @@
 ﻿@model   Application.Services.BackEnd.Admin.Products.Queries.GetDetailsProducts.ResultGetDetailsProductDto
+@using Application.Services.FrontEnd.Common
+@inject ISiteSetting _siteSetting;
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 @{
     ViewData["Title"] = "نمایش محصول جدید ";
@@ -79,7 +81,7 @@
                                         </div>
 
                                         <div class="col-4 d-flex justify-content-end">
-                                            <img src="~/BackEnd/Admin/images/logo/logo.png" alt="logo" height="46" width="164">
+                                            <img src="@_siteSetting.GetSiteSetting().LogoImage" alt="@_siteSetting.GetSiteSetting().SiteName" height="46" width="164">
                                         </div>
                                     </div>
                                     <hr>
