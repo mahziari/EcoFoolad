@@ -177,5 +177,11 @@ body.woocommerce-checkout footer.loginform-footer {
     justify-content: center;
     font-size: 10px;
 }
-
+.field-icon {
+    float: left;
+    margin-left: 9px;
+    margin-top: -30px;
+    position: relative;
+    cursor: pointer;
+}
 /*End timer*/

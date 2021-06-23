@@ -24,12 +24,25 @@
     <link rel="stylesheet" type="text/css"
           href="~/wp-content/themes/newkala/inHead.css">
     
-  <link rel="stylesheet" type="text/css"
-            href="~/css/Auth.css">
+    <link rel="stylesheet" type="text/css"
+          href="~/css/Auth.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous"/> 
 }
 @section Foo{
     <partial name="_ValidationScriptsPartial"/>
-        <script>$('.alertSlideUp').delay(3000).slideUp(300); </script>
+    <script>$('.alertSlideUp').delay(3000).slideUp(300); </script>
+     <script>
+        $(".toggle-password").click(function() {
+        
+          $(this).toggleClass("fa-eye fa-eye-slash");
+          var input =$(".Password");
+          if (input.attr("type") === "password") {
+            input.attr("type", "text");
+          } else {
+            input.attr("type", "password");
+          }
+        });
+        </script>
 }
 
 
@@ -66,14 +79,15 @@
 
                     <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
                         <label>برای ورود رمز حساب کاربری خود را وارد نمایید<span class="required">*</span></label>
-                        <input  asp-for="Password" type="password" class="woocommerce-Input woocommerce-Input--text input-text"/>
+                        <input asp-for="Password" type="password" class="woocommerce-Input woocommerce-Input--text input-text Password"/>
                         <span asp-validation-for="Password" class="text-danger"></span>
-                        
+                         <span toggle="#password-field" class="fa fa-lg fa-eye field-icon toggle-password"></span>
                     </p>
+                   
 
                     <div class="woocommerce-privacy-policy-text"></div>
-                        <input  asp-for="ReturnUrl" type="hidden"/>
-                        <input  asp-for="UserName" type="hidden"/>
+                        <input asp-for="ReturnUrl" type="hidden"/>
+                        <input asp-for="UserName" type="hidden"/>
 
                     <p class="woocommerce-FormRow form-row">
                         <button type="submit" class="woocommerce-Button button go_to_all_products_offer" name="register" value="ورود">ورود به  @_siteSetting.GetSiteSetting().SiteName</button>

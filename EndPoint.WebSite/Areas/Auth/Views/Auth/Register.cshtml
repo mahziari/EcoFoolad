@@ -17,10 +17,6 @@
     <link rel='stylesheet' id='woocommerce-general-rtl-css'
           href='~/wp-content/plugins/woocommerce/assets/css/woocommerce-rtl.css?ver=4.7.0'
           type='text/css' media='all'/>
-
-    @* <script type='text/javascript' src='~/wp-includes/js/jquery.min.js?ver=3.5.1' *@
-    @*         id='jquery-core-js'></script> *@
-
     <link rel="stylesheet" type="text/css"
           href="~/wp-content/themes/newkala/css/woocommerce_dashboard.css">
 
@@ -29,16 +25,25 @@
 
     <link rel="stylesheet" type="text/css"
           href="~/css/Auth.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous"/>
 
 }
 
 @section Foo{
     <partial name="_ValidationScriptsPartial"/>
       <script>$('.alertSlideUp').delay(10000).slideUp(300); </script>
-
-    @* <script type='text/javascript' *@
-    @*           src='~/wp-content/plugins/dokan-lite/assets/js/vendor-registration.js?ver=1605545320' *@
-    @*           id='dokan-vendor-registration-js'></script> *@
+ <script>
+        $(".toggle-password").click(function() {
+        
+          $(this).toggleClass("fa-eye fa-eye-slash");
+          var input =$(".Password");
+          if (input.attr("type") === "password") {
+            input.attr("type", "text");
+          } else {
+            input.attr("type", "password");
+          }
+        });
+        </script>
 }
 
 <main>
@@ -89,8 +94,9 @@
                     
                     <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
                         <label asp-for="Password"></label><span class="required">*</span>
-                        <input asp-for="Password" type="password" class="woocommerce-Input woocommerce-Input--text input-text"/>
+                        <input asp-for="Password" type="password" class="woocommerce-Input woocommerce-Input--text input-text Password"/>
                         <span asp-validation-for="Password" class="text-danger"></span>
+                        <span toggle="#password-field" class="fa fa-lg fa-eye field-icon toggle-password"></span>
                     </p>
 
                     

@@ -36,9 +36,9 @@ namespace Infrastructure.IdentityConfigs
                 option.User.RequireUniqueEmail = false;
                 //Password Setting
                 option.Password.RequireDigit = true;
-                option.Password.RequireLowercase = true;
+                option.Password.RequireLowercase = false;
                 option.Password.RequireNonAlphanumeric = false; //!@#$%^&*()_+
-                option.Password.RequireUppercase = true;
+                option.Password.RequireUppercase = false;
                 option.Password.RequiredLength = 8;
                 option.Password.RequiredUniqueChars = 1;
                 //Lockout Setting

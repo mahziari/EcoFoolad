@@ -20,7 +20,8 @@
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "5.0.2",
           "PersianDateTime.Core": "1.0.8",
           "RestSharp": "106.11.7",
-          "StackExchange.Redis": "2.2.4"
+          "StackExchange.Redis": "2.2.4",
+          "System.Configuration.ConfigurationManager.Reference": "5.0.0.0"
         },
         "runtime": {
           "Application.dll": {}
@@ -2116,6 +2117,22 @@
         "runtime": {
           "Domain.dll": {}
         }
+      },
+      "System.Configuration.ConfigurationManager.Reference/5.0.0.0": {
+        "runtime": {
+          "System.Configuration.ConfigurationManager.dll": {
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.0.20.51904"
+          }
+        }
+      },
+      "System.Security.Cryptography.ProtectedData.Reference/5.0.0.0": {
+        "runtime": {
+          "System.Security.Cryptography.ProtectedData.dll": {
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.0.20.51904"
+          }
+        }
       }
     }
   },
@@ -3406,6 +3423,16 @@
     },
     "Domain/1.0.0": {
       "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "System.Configuration.ConfigurationManager.Reference/5.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "System.Security.Cryptography.ProtectedData.Reference/5.0.0.0": {
+      "type": "reference",
       "serviceable": false,
       "sha512": ""
     }

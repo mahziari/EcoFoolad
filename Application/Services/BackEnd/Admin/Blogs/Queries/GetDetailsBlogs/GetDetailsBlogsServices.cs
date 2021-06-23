@@ -31,8 +31,6 @@ namespace  Application.Services.BackEnd.Admin.Blogs.Queries.GetDetailsBlogs
                     NewsBody = n.NewsBody,
                     Position=n.Position,
                 }).FirstOrDefault();
-            blog.VisitCount += 1;
-            _context.SaveChanges();
 
             return new ResultGetDetailsBlogsDto
             {

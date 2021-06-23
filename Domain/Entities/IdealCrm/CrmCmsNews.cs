@@ -42,6 +42,7 @@ namespace  Domain.Entities.IdealCrm
         public int LanguageId { get; set; }
         public int Position { get; set; }
         public string LocalTime { get; set; }
+        public int VisitCount { get; set; }
 
         public virtual Users FirstRegisterUser { get; set; }
         public virtual Languages Language { get; set; }

@@ -32,6 +32,7 @@ using Application.Services.FrontEnd.Home.FacadPattern;
 using Application.Services.FrontEnd.Orders;
 using Application.Services.FrontEnd.Payments;
 using Application.Services.FrontEnd.Products.FacadPattern;
+using Application.Services.FrontEnd.SiteMaps.FacadPattern;
 using EndPoint.Web.Areas.Auth.Helpers.Policy;
 using Infrastructure.IdentityConfigs;
 using Infrastructure.Mapping;
@@ -66,7 +67,7 @@ namespace EndPoint.WebSite
             services.AddScoped<ICustomDbContext, CustomDbContext>();
             services.AddDbContext<CustomDbContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("SqlServer")));
-
+            services.AddSingleton(Configuration);
             services.AddIdentityService(Configuration);
 
             //------ Redis Services
@@ -147,11 +148,12 @@ namespace EndPoint.WebSite
             services.AddScoped<IHomeFrontEndFacad, HomeFrontEndFacad>();
             services.AddScoped<IBlogsFrontEndFacad, BlogsFrontEndFacad>();
             services.AddScoped<IProductsFrontEndFacad, ProductsFrontEndFacad>();
-            services.AddTransient<IBasketService,  BasketService>();
-            services.AddTransient<IOrderServices,  OrderServices>();
-            services.AddTransient<IPaymentsServices,  PaymentsServices>();
-            services.AddTransient<IFootersFrontEndFacad,  FootersFrontEndFacad>();
-            services.AddScoped<ISiteSetting,  SiteSetting>();
+            services.AddTransient<IBasketService, BasketService>();
+            services.AddTransient<IOrderServices, OrderServices>();
+            services.AddTransient<IPaymentsServices, PaymentsServices>();
+            services.AddTransient<IFootersFrontEndFacad, FootersFrontEndFacad>();
+            services.AddScoped<ISiteSetting, SiteSetting>();
+            services.AddScoped<ISiteMapFacad, SiteMapFacad>();
             //------ Admin Panel Services
             services.AddScoped<IMenusFacad, MenusFacad>();
             services.AddScoped<IProductsFacad, ProductsFacad>();
@@ -170,9 +172,9 @@ namespace EndPoint.WebSite
             services.AddScoped<IOwnerHomeFacad, OwnerHomeFacad>();
             services.AddScoped<IOwnerProfileFacad, OwnerProfileFacad>();
             //------ User Panel Services
-            services.AddTransient<IUserAddressServices,  UserAddressServices>();
-            services.AddTransient<IUserOrdersServices,  UserOrdersServices>();
-            services.AddTransient<IUserHomeServices,  UserHomeServices>();
+            services.AddTransient<IUserAddressServices, UserAddressServices>();
+            services.AddTransient<IUserOrdersServices, UserOrdersServices>();
+            services.AddTransient<IUserHomeServices, UserHomeServices>();
 
             
             //------ Sessions Services

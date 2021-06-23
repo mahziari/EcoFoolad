@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Web;
 using Application.Interfaces.Contexts;
 using Domain.Entities.Footer;
 using Microsoft.EntityFrameworkCore;
@@ -46,6 +47,8 @@ namespace  Application.Services.FrontEnd.Blogs.Queries
                     Position=b.Position,
                     HeadLine=b.HeadLine
                 }).FirstOrDefault();
+            blog.VisitCount ++;
+            _context.SaveChanges();
             
             var footers = _customDbContext.Footers.FirstOrDefault();
 
@@ -78,5 +81,6 @@ namespace  Application.Services.FrontEnd.Blogs.Queries
         public string LocalTime { get; set; }
         public bool IsVerified { get; set; }
         public int Position { get; set; }
+        public int VisitCount { get; set; }
     }
 }

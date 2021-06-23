@@ -63,7 +63,7 @@
         <a asp-controller="Blogs"
            asp-action="Details"
            asp-route-category="@Model.BlogsFav.Where(b => b.Position == 1).Select(b => b.en_NewsGroupName).FirstOrDefault()"
-           asp-route-title="@Model.BlogsFav.Where(b => b.Position == 1).Select(b => b.Title).FirstOrDefault().Replace(" ", "-")"
+           asp-route-title="@Model.BlogsFav.Where(b => b.Position == 1).Select(b => b.Title).FirstOrDefault()?.Replace(" ", "-")"
            >
             <img class="top_banner_wide_blog lazyloaded" src="@Model.BlogsFav.Where(b => b.Position == 1).Select(b => b.HeadLine).FirstOrDefault()" data-ll-status="loaded" alt="@Model.BlogsFav.Where(b => b.Position == 1).Select(b => b.Title).FirstOrDefault()">
             <noscript>

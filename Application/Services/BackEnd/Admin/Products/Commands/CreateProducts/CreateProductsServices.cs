@@ -57,7 +57,7 @@ namespace  Application.Services.BackEnd.Admin.Products.Commands.CreateProducts
                 Month1=6,
                 Fpid = 1,
                 RegisterDatePersian = PersianDateTime.Now.ToString("yyyyMMdd"),
-                LocalTime = DateTime.Now.ToString("s")+"+"+"03:30",
+                LocalTime = DateTime.Now.ToString("s")+"+"+TimeZoneInfo.Local.BaseUtcOffset.ToHHMM(),
             };
             _context.Wsproducts.Add(product);
             _context.SaveChanges();
@@ -82,6 +82,7 @@ namespace  Application.Services.BackEnd.Admin.Products.Commands.CreateProducts
                 Month1=6,
                 Fpid = 1,
                 RegisterDatePersian = PersianDateTime.Now.ToString("yyyyMMdd"),
+                LocalTime = DateTime.Now.ToString("s")+"+"+TimeZoneInfo.Local.BaseUtcOffset.ToHHMM(),
             };
             _customDbContext.Products.Add(product2);
             _customDbContext.SaveChanges();
