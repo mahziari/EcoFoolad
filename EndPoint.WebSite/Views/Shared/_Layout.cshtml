@@ -12,16 +12,16 @@
 </head>
 
 <!body @await RenderSectionAsync("BodyAttr", true)>
-<partial name="_HeaderPartial"/>
-<partial name="_MenusPartial"/>
+    <partial name="_HeaderPartial"/>
+    <partial name="_MenusPartial"/>
 
-@RenderBody()
+    @RenderBody()
 
-<partial name="_FooterPartial"/>
-<partial name="_FooPartial"/>
-@await RenderSectionAsync("Foo", false)
-@await RenderSectionAsync("Scripts", false)
+    <partial name="_FooterPartial"/>
+    <partial name="_FooPartial"/>
+    @await RenderSectionAsync("Foo", false)
+    @await RenderSectionAsync("Scripts", false)
 
-@* @await RenderSectionAsync("Scripts", required: false) *@
+    @* @await RenderSectionAsync("Scripts", required: false) *@
 </!body>
 </html>

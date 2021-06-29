@@ -47,7 +47,7 @@ namespace  Application.Services.FrontEnd.Blogs.Queries
                         .Select(g=>g.en_GroupName)
                         .FirstOrDefault(),
                     HeadLine=s.HeadLine,
-                    Title = s.Title.Replace(" ", "-"),
+                    Title = s.Title,
                     NewsSummery = s.NewsSummery,
                     DateTime = s.RegisterDate.ToPersianDateTime().ToString("yyyy/MM/d hh:mm"),
                     IsVerified = s.IsVerified,
@@ -73,7 +73,7 @@ namespace  Application.Services.FrontEnd.Blogs.Queries
                         .Select(g=>g.en_GroupName)
                         .FirstOrDefault(),
                     HeadLine=s.HeadLine,
-                    Title = s.Title.Replace(" ", "-"),
+                    Title = s.Title,
                     NewsSummery = s.NewsSummery,
                     DateTime = s.RegisterDate.ToPersianDateTime().ToString("yyyy/MM/d hh:mm"),
                     IsVerified = s.IsVerified,

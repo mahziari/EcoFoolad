@@ -53,7 +53,7 @@
 
                                         <!-- header section -->
                                         <div class="row my-2 py-50">
-                                            <div class="col-sm-4 col-12 order-2 order-sm-1">
+                                            <div class="col-sm-6 col-12 order-2 order-sm-1">
                                                 <h6 asp-for="Title" class="text-primary">عنوان دسته بندی بلاگ: <b class="text-danger h3">*</b></h6>
                                                 <input asp-for="GroupName" value="@Model.BlogsCategory.GroupName" type="text" class="form-control" placeholder="عنوان را وارد کنید">
                                                 <span asp-validation-for="GroupName" class="text-danger"></span>
@@ -61,7 +61,7 @@
                                             
                                             <div class="col-sm-6 col-12 order-2 order-sm-1">
                                                 <h6 asp-for="Title" class="text-primary">عنوان دسته بندی انگلیسی: <b class="text-danger h3">*</b></h6>
-                                                <input asp-for="en_GroupName" type="text" class="form-control" placeholder="عنوان انگلیسی را وارد کنید">
+                                                <input asp-for="en_GroupName" value="@Model.BlogsCategory.en_GroupName" type="text" class="form-control" placeholder="عنوان انگلیسی را وارد کنید">
                                                 <span asp-validation-for="en_GroupName" class="text-danger"></span>
                                             </div>
                                             
@@ -71,13 +71,13 @@
                                         <div class="row my-2 py-50">
                                             <div class="col-sm-6 col-12 order-2 order-sm-1">
                                                 <h6 asp-for="Title" class="text-primary">رنگ دسته بندی بلاگ: <b class="text-danger h3">*</b></h6>
-                                                <input asp-for="Color" value="@Model.BlogsCategory.Color" type="text" class="form-control" placeholder="عنوان را وارد کنید">
+                                                <input asp-for="Color" value="@Model.BlogsCategory.Color" type="text" class="form-control" placeholder="#99FF66">
                                                 <span asp-validation-for="Color" class="text-danger"></span>
                                             </div>
                                                                                 
                                             <div class="col-sm-6 col-12 order-2 order-sm-1">
                                                 <h6 asp-for="Title" class="text-primary">آیکن دسته بندی بلاگ: <b class="text-danger h3">*</b></h6>
-                                                <input asp-for="FaIcon" value="@Model.BlogsCategory.FaIcon" type="text" class="form-control" placeholder="عنوان را وارد کنید">
+                                                <input asp-for="FaIcon" value="@Model.BlogsCategory.FaIcon" type="text" class="form-control" placeholder="fa fa-XXX">
                                                 <span asp-validation-for="FaIcon" class="text-danger"></span>
                                             </div>
                                         </div>

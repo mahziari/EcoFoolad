@@ -3,11 +3,88 @@
 @using Application.Services.FrontEnd.Common
 @inject ISiteSetting _siteSetting;
 @{
-    ViewData["Title"] = "فروشگاه آنلاین محصولات فولادی";
+    ViewData["Title"] = "فروشگاه آنلاین محصولات آهن و و فولاد";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @section BodyAttr{
 data-rsssl="1" class="rtl home page-template page-template-home-page page-template-home-page-php page page-id-1211 theme-newkala woocommerce-js nk_desktop nk_my_account_page loggedout elementor-default dokan-theme-newkala"
+}
+
+@section Head{
+    <meta name="description" content="">
+    <meta name="keyword" content="">
+    <link rel="canonical" href="@Context.Request.Scheme://@Context.Request.Host@Context.Request.Path.Value">
+    <meta property="og:locale" content="fa_IR">
+    <meta property="og:type" content="اکوفولاد">
+    <meta property="og:title" content="صفحه اصلی - @_siteSetting.GetSiteSetting().SiteName">
+    <meta property="og:description" content="">
+    <meta property="og:url" content="@Context.Request.Scheme://@Context.Request.Host@Context.Request.Path.Value">
+    <meta property="og:site_name" content="@_siteSetting.GetSiteSetting().SiteName">
+    <meta property="article:section" content="اکو فولاد">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@_siteSetting.GetSiteSetting().SiteName">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:title" content="EcoFoolad - @_siteSetting.GetSiteSetting().SiteName">
+}
+
+@section Foo{
+    <script type="application/ld+json">
+                    {
+        "@@context": "https://schema.org",
+        "@@type": "LocalBusiness",
+        "name": "EcoFoolad - @_siteSetting.GetSiteSetting().SiteName",
+        "image": "@_siteSetting.GetSiteSetting().LogoImage",
+        "@@id": "https://www.ecofoolad.com",
+        "url": "https://www.ecofoolad.com",
+        "telephone": "+982143000550",
+        "priceRange": "IRR",
+        "address": {
+            "@@type": "PostalAddress",
+            "streetAddress": "یوسف آباد - خیاب سید جمال الدین - بعد از خیابان ۶۵ - پلاک ۴۸۵ - واحد ۴۳ - دفتر اکو فولاد ",
+            "addressLocality": "تهران",
+            "postalCode": "1434964737",
+            "addressCountry": "IR"
+        },
+        "geo": {
+            "@@type": "GeoCoordinates",
+            "latitude": 35.748168,
+            "longitude": 51.405510
+        },
+        "openingHoursSpecification": {
+            "@@type": "OpeningHoursSpecification",
+            "dayOfWeek": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Saturday",
+                "Sunday"
+            ],
+            "opens": "08:00",
+            "closes": "17:00"
+        },
+        "sameAs": [
+            "https://www.facebook.com/ecofoolad",
+            "https://www.twitter.com/ecofoolad",
+            "https://plus.google.com/+ecofoolad",
+            "https://www.instagram.com/ecofoolad",
+            "https://www.youtube.com/channel/",
+            "https://www.linkedin.com/company/ecofoolad"
+        ]
+    }
+    </script>
+    <script type="application/ld+json">
+                            {
+        "@@context": "https://schema.org",
+        "@@type": "WebSite",
+        "url": "https://www.ecofoolad.com",
+        "potentialAction": {
+            "@@type": "SearchAction",
+            "target": "https://www.ecofoolad.com/search/?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+        }
+        }
+    </script>
 }
 
 <div style="max-width: 1366px" class="container main_content_curren_page">

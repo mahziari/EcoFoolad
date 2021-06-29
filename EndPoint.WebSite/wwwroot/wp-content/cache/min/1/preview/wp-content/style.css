@@ -13391,7 +13391,8 @@ body.rtl.woocommerce-account ul.dokan-account-migration-lists li .left-content, 
 }
 
 .top_content_page_blog aside.sidebar_top_blog {
-    width: 280px
+    width: 280px;
+    padding-top: 20px;
 }
 
 .top_content_page_blog section.content_top_blog {

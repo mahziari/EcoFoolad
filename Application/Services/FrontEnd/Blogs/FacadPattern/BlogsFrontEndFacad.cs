@@ -2,6 +2,7 @@
  
 using  Application.Interfaces.FacadPatterns.FrontEnd;
 using  Application.Services.FrontEnd.Blogs.Queries;
+using AutoMapper;
 
 namespace  Application.Services.FrontEnd.Blogs.FacadPattern
 {
@@ -9,11 +10,13 @@ namespace  Application.Services.FrontEnd.Blogs.FacadPattern
     {
         private readonly IIdealCrmDataBaseContext _context;
         private readonly ICustomDbContext _customDbContext;
+        private readonly IMapper _mapper;
 
-        public BlogsFrontEndFacad(IIdealCrmDataBaseContext context, ICustomDbContext customDbContext)
+        public BlogsFrontEndFacad(IIdealCrmDataBaseContext context, ICustomDbContext customDbContext, IMapper mapper)
         {
             _context = context;
             _customDbContext = customDbContext;
+            _mapper = mapper;
         }
         
         private IGetBlogsFrontEndService _getBlogsFrontEndService;
@@ -42,7 +45,7 @@ namespace  Application.Services.FrontEnd.Blogs.FacadPattern
         {
             get
             {
-                return _getBlogsCategoryFrontEndService ??= new GetBlogsCategoryFrontEndService(_context,_customDbContext);
+                return _getBlogsCategoryFrontEndService ??= new GetBlogsCategoryFrontEndService(_context,_customDbContext,_mapper);
             }
         }
     }

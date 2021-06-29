@@ -45,10 +45,13 @@ namespace  Application.Services.FrontEnd.Blogs.Queries
                     LocalTime=b.LocalTime,
                     IsVerified = b.IsVerified,
                     Position=b.Position,
-                    HeadLine=b.HeadLine
-                }).FirstOrDefault();
-            blog.VisitCount ++;
+                    HeadLine=b.HeadLine,
+                    VisitCount=b.VisitCount,
+                }).SingleOrDefault();
+
+            _context.CrmCmsNews.Single(b => b.Title == title.Replace("-", " ")).VisitCount+=1;
             _context.SaveChanges();
+
             
             var footers = _customDbContext.Footers.FirstOrDefault();
 

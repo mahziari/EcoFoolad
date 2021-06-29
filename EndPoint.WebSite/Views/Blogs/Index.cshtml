@@ -8,11 +8,89 @@
     ViewData["Title"] = "بلاگ";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
 @section BodyAttr{
     data-rsssl="1" class="rtl home page-template page-template-home-page page-template-home-page-php page page-id-1211 theme-newkala woocommerce-js nk_desktop nk_my_account_page loggedout elementor-default dokan-theme-newkala"
 }
 
- 
+
+@section Head{
+    <meta name="description" content="">
+    <link rel="canonical" href="@Context.Request.Scheme://@Context.Request.Host@Context.Request.Path.Value">
+    <meta property="og:locale" content="fa_IR">
+    <meta property="og:type" content="بلاگ">
+    <meta property="og:title" content="بلاگ - @_siteSetting.GetSiteSetting().SiteName">
+    <meta property="og:description" content="">
+    <meta property="og:url" content="@Context.Request.Scheme://@Context.Request.Host@Context.Request.Path.Value">
+    <meta property="og:site_name" content="@_siteSetting.GetSiteSetting().SiteName">
+    <meta property="article:section" content="بلاگ">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@Model.Footers.SiteName">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:title" content="بلاگ - @_siteSetting.GetSiteSetting().SiteName">
+}
+
+@section Foo{
+    <script type="application/ld+json">
+                    {
+        "@@context": "https://schema.org",
+        "@@type": "LocalBusiness",
+        "name": "بلاگ - @_siteSetting.GetSiteSetting().SiteName",
+        "image": "@_siteSetting.GetSiteSetting().LogoImage",
+        "@@id": "https://www.ecofoolad.com",
+        "url": "https://www.ecofoolad.com",
+        "telephone": "+982143000550",
+        "priceRange": "IRR",
+        "address": {
+            "@@type": "PostalAddress",
+            "streetAddress": "یوسف آباد - خیاب سید جمال الدین - بعد از خیابان ۶۵ - پلاک ۴۸۵ - واحد ۴۳ - دفتر اکو فولاد ",
+            "addressLocality": "تهران",
+            "postalCode": "1434964737",
+            "addressCountry": "IR"
+        },
+        "geo": {
+            "@@type": "GeoCoordinates",
+            "latitude": 35.748168,
+            "longitude": 51.405510
+        },
+        "openingHoursSpecification": {
+            "@@type": "OpeningHoursSpecification",
+            "dayOfWeek": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Saturday",
+                "Sunday"
+            ],
+            "opens": "08:00",
+            "closes": "17:00"
+        },
+        "sameAs": [
+            "https://www.facebook.com/ecofoolad",
+            "https://www.twitter.com/ecofoolad",
+            "https://plus.google.com/+ecofoolad",
+            "https://www.instagram.com/ecofoolad",
+            "https://www.youtube.com/channel/",
+            "https://www.linkedin.com/company/ecofoolad"
+        ]
+    }
+    </script>
+    <script type="application/ld+json">
+        {
+        "@@context": "https://schema.org",
+        "@@type": "WebSite",
+        "url": "https://www.ecofoolad.com",
+        "potentialAction": {
+            "@@type": "SearchAction",
+            "target": "https://www.ecofoolad.com/search/?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+        }
+        }
+    </script>
+}
+
+
 <div class="container top_content_page_blog">
     <aside class="sidebar_top_blog" style="">
         <ul id="menu-10" class="nk-blog-menu menu">
@@ -36,8 +114,8 @@
                     onmouseout="this.style.background='#fff'"
                     style="background: rgb(255, 255, 255);">
                     <a asp-controller="Blogs"
-                        asp-action="Category"
-                        asp-route-category="@item.en_GroupName"
+                       asp-action="Category"
+                       asp-route-category="@item.en_GroupName"
                        onmouseover="this.style.color='#ffffff'"
                        onmouseout="this.style.color='#666'"
                        style="color: rgb(102, 102, 102);">
@@ -49,8 +127,7 @@
         <a asp-controller="Blogs"
            asp-action="Details"
            asp-route-category="@Model.BlogsFav.Where(b => b.Position == 8).Select(b => b.en_NewsGroupName).FirstOrDefault()"
-           asp-route-title="@Model.BlogsFav.Where(b => b.Position == 8).Select(b => b.Title).FirstOrDefault()?.Replace(" ", "-")"
-           >
+           asp-route-title="@Model.BlogsFav.Where(b => b.Position == 8).Select(b => b.Title).FirstOrDefault()?.Replace(" ", "-")">
             <div id="media_image-4" class="main-blog-widget main-top-blog-widget  widget_media_image">
                 <img width="280" height="154" src="@Model.BlogsFav.Where(b => b.Position == 8).Select(b => b.HeadLine).FirstOrDefault()" class="image wp-image-2223 attachment-full size-full lazyloaded" alt="@Model.BlogsFav.Where(b => b.Position == 8).Select(b => b.Title).FirstOrDefault()" style="max-width: 100%; height: auto;" data-ll-status="loaded">
                 <noscript>
@@ -63,8 +140,7 @@
         <a asp-controller="Blogs"
            asp-action="Details"
            asp-route-category="@Model.BlogsFav.Where(b => b.Position == 1).Select(b => b.en_NewsGroupName).FirstOrDefault()"
-           asp-route-title="@Model.BlogsFav.Where(b => b.Position == 1).Select(b => b.Title).FirstOrDefault()?.Replace(" ", "-")"
-           >
+           asp-route-title="@Model.BlogsFav.Where(b => b.Position == 1).Select(b => b.Title).FirstOrDefault()?.Replace(" ", "-")">
             <img class="top_banner_wide_blog lazyloaded" src="@Model.BlogsFav.Where(b => b.Position == 1).Select(b => b.HeadLine).FirstOrDefault()" data-ll-status="loaded" alt="@Model.BlogsFav.Where(b => b.Position == 1).Select(b => b.Title).FirstOrDefault()">
             <noscript>
                 <img class="top_banner_wide_blog" src="@Model.BlogsFav.Where(b => b.Position == 1).Select(b => b.HeadLine).FirstOrDefault()" alt="@Model.BlogsFav.Where(b => b.Position == 1).Select(b => b.Title).FirstOrDefault()"/>
@@ -80,8 +156,7 @@
                     <a asp-controller="Blogs"
                        asp-action="Details"
                        asp-route-category="@Model.BlogsFav.Where(b => b.Position == 2).Select(b => b.en_NewsGroupName).FirstOrDefault()"
-                       asp-route-title="@Model.BlogsFav.Where(b => b.Position == 2).Select(b => b.Title).FirstOrDefault()?.Replace(" ", "-")"
-                       >
+                       asp-route-title="@Model.BlogsFav.Where(b => b.Position == 2).Select(b => b.Title).FirstOrDefault()?.Replace(" ", "-")">
                     </a>
                     <h2>@Model.BlogsFav.Where(b => b.Position == 2).Select(b => b.Title).FirstOrDefault()</h2>
                 </div>
@@ -92,21 +167,19 @@
                     <a asp-controller="Blogs"
                        asp-action="Details"
                        asp-route-category="@Model.BlogsFav.Where(b => b.Position == 3).Select(b => b.en_NewsGroupName).FirstOrDefault()"
-                       asp-route-title="@Model.BlogsFav.Where(b => b.Position == 3).Select(b => b.Title).FirstOrDefault()?.Replace(" ", "-")"
-                       >
+                       asp-route-title="@Model.BlogsFav.Where(b => b.Position == 3).Select(b => b.Title).FirstOrDefault()?.Replace(" ", "-")">
                     </a>
                     <h2>@Model.BlogsFav.Where(b => b.Position == 3).Select(b => b.Title).FirstOrDefault()</h2>
                 </div>
 
-                <div class="post-70 post type-post status-publish format-standard has-post-thumbnail hentry category-148 category-147 category-uncategorized category-152 category-151 category-150 category-149 tag-71 rocket-lazyload lazyloaded" 
+                <div class="post-70 post type-post status-publish format-standard has-post-thumbnail hentry category-148 category-147 category-uncategorized category-152 category-151 category-150 category-149 tag-71 rocket-lazyload lazyloaded"
                      style="background-image: url(@Model.BlogsFav.Where(b => b.Position == 4).Select(b => b.HeadLine).FirstOrDefault());" data-ll-status="loaded">
 
 
                     <a asp-controller="Blogs"
                        asp-action="Details"
                        asp-route-category="@Model.BlogsFav.Where(b => b.Position == 4).Select(b => b.en_NewsGroupName).FirstOrDefault()"
-                       asp-route-title="@Model.BlogsFav.Where(b => b.Position == 4).Select(b => b.Title).FirstOrDefault()?.Replace(" ", "-")"
-                       >
+                       asp-route-title="@Model.BlogsFav.Where(b => b.Position == 4).Select(b => b.Title).FirstOrDefault()?.Replace(" ", "-")">
                     </a>
                     <h2> @Model.BlogsFav.Where(b => b.Position == 4).Select(b => b.Title).FirstOrDefault()</h2>
                 </div>
@@ -117,8 +190,7 @@
                     <a asp-controller="Blogs"
                        asp-action="Details"
                        asp-route-category="@Model.BlogsFav.Where(b => b.Position == 5).Select(b => b.en_NewsGroupName).FirstOrDefault()"
-                       asp-route-title="@Model.BlogsFav.Where(b => b.Position == 5).Select(b => b.Title).FirstOrDefault()?.Replace(" ", "-")"
-                       >
+                       asp-route-title="@Model.BlogsFav.Where(b => b.Position == 5).Select(b => b.Title).FirstOrDefault()?.Replace(" ", "-")">
                     </a>
                     <h2>@Model.BlogsFav.Where(b => b.Position == 5).Select(b => b.Title).FirstOrDefault()</h2>
                 </div>
@@ -129,8 +201,7 @@
                     <a asp-controller="Blogs"
                        asp-action="Details"
                        asp-route-category="@Model.BlogsFav.Where(b => b.Position == 6).Select(b => b.en_NewsGroupName).FirstOrDefault()"
-                       asp-route-title="@Model.BlogsFav.Where(b => b.Position == 6).Select(b => b.Title).FirstOrDefault()?.Replace(" ", "-")"
-                       >
+                       asp-route-title="@Model.BlogsFav.Where(b => b.Position == 6).Select(b => b.Title).FirstOrDefault()?.Replace(" ", "-")">
                     </a>
                     <h2> @Model.BlogsFav.Where(b => b.Position == 6).Select(b => b.Title).FirstOrDefault()</h2>
                 </div>
@@ -139,8 +210,7 @@
             <a class="right_banner_side" asp-controller="Blogs"
                asp-action="Details"
                asp-route-category="@Model.BlogsFav.Where(b => b.Position == 7).Select(b => b.en_NewsGroupName).FirstOrDefault()"
-               asp-route-title="@Model.BlogsFav.Where(b => b.Position == 7).Select(b => b.Title).FirstOrDefault()?.Replace(" ", "-")"
-               >
+               asp-route-title="@Model.BlogsFav.Where(b => b.Position == 7).Select(b => b.Title).FirstOrDefault()?.Replace(" ", "-")">
                 <img class="side_banner_wide_blog lazyloaded" src="@Model.BlogsFav.Where(b => b.Position == 7).Select(b => b.HeadLine).FirstOrDefault()" data-ll-status="loaded" alt="@Model.BlogsFav.Where(b => b.Position == 7).Select(b => b.Title).FirstOrDefault()">
                 <noscript>
                     <img class="side_banner_wide_blog" src="@Model.BlogsFav.Where(b => b.Position == 7).Select(b => b.HeadLine).FirstOrDefault()" alt="@Model.BlogsFav.Where(b => b.Position == 7).Select(b => b.Title).FirstOrDefault()"/>
@@ -437,8 +507,7 @@
                         <a asp-controller="Blogs"
                            asp-action="Details"
                            asp-route-category="@item.en_NewsGroupName"
-                           asp-route-title="@item.Title"
-                           >
+                           asp-route-title="@item.Title">
                             <img width="300" height="191"
                                  src="/@item.HeadLine"
                                  data-lazy-srcset="/@item.HeadLine" data-lazy-sizes="(max-width: 300px) 100vw, 300px"
@@ -490,7 +559,7 @@
 
         </div>
     </section>
-   
+
     @* <aside class="main_blog_sidebar"> *@
     @*     <div id="media_image-5" class="main-blog-widget widget_media_image"> *@
     @*         <img width="345" height="283" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20345%20283'%3E%3C/svg%3E" class="image wp-image-2608  attachment-full size-full" alt="" style="max-width: 100%; height: auto;" data-lazy-srcset="https://newkalatheme.ir/preview/wp-content/uploads/2019/10/mag-1-1.jpg 345w, https://newkalatheme.ir/preview/wp-content/uploads/2019/10/mag-1-1-300x246.jpg 300w" data-lazy-sizes="(max-width: 345px) 100vw, 345px" data-lazy-src="https://newkalatheme.ir/preview/wp-content/uploads/2019/10/mag-1-1.jpg"> *@

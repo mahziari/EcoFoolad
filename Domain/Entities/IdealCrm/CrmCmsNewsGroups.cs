@@ -14,6 +14,7 @@ namespace  Domain.Entities.IdealCrm
         public int NewsGroupId { get; set; }
         public string GroupName { get; set; }
         public string en_GroupName { get; set; }
+        public string Description { get; set; }
         public bool? IsActive { get; set; }
         public int? OrderView { get; set; }
         public int FirstRegisterUserId { get; set; }
@@ -29,6 +30,7 @@ namespace  Domain.Entities.IdealCrm
         public int LanguageId { get; set; }
         public string Color { get; set; }
         public string FaIcon { get; set; }
+        public string LocalTime { get; set; }
 
         public virtual Users FirstRegisterUser { get; set; }
         public virtual Languages Language { get; set; }

@@ -113,10 +113,6 @@ namespace EndPoint.WebSite
                 options.AddPolicy("Factory", policy => { policy.RequireClaim("Factory"); });
                 options.AddPolicy("FileManagers", policy => { policy.RequireClaim("FileManagers"); });
                 options.AddPolicy("Footers", policy => { policy.RequireClaim("Footers"); });
-
-                
-
-
                 // ???????? ?? ????????? ???? ?? ??? ?????? ????? ????? ???
                 // ???? ????? ???? ???? ????? ????? ??? ? ???? ?????? ??? ????? ?? ?????? ?????? ????? ???
                 options.AddPolicy("Cradit", policy => { policy.Requirements.Add(new UserCreditRequerment(10000)); });
@@ -216,7 +212,7 @@ namespace EndPoint.WebSite
             else
             {
                 app.UseStatusCodePagesWithReExecute("/Error/{0}");
-                app.UseHsts();
+                // app.UseHsts();
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
@@ -228,7 +224,7 @@ namespace EndPoint.WebSite
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}").RequireAuthorization();
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
             });
         }
     }

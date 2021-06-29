@@ -41,9 +41,12 @@
     <Folder Include="Areas\Owner\Models" />
     <Folder Include="Areas\User\Data" />
     <Folder Include="Areas\User\Models" />
+    <Folder Include="wwwroot\BackEnd\Admin\images\banner" />
+    <Folder Include="wwwroot\BackEnd\Admin\images\cards" />
     <Folder Include="wwwroot\BackEnd\Admin\images\fileManager" />
-    <Folder Include="wwwroot\FrontEnd" />
+    <Folder Include="wwwroot\Images\Blogs" />
     <Folder Include="wwwroot\Images\CkEditor" />
+    <Folder Include="wwwroot\Images\Sliders" />
   </ItemGroup>
 
   <ItemGroup>
@@ -751,6 +754,48 @@
     <_ContentIncludedByDefault Remove="wwwroot\BackEnd\Admin\images\fileManager\2021\2021-6\c33b87a7-5375-49a6-97ab-902519f6635a63753653853633402463747102645924188010.jpg" />
     <_ContentIncludedByDefault Remove="wwwroot\BackEnd\Admin\images\fileManager\2021\2021-6\f5e21980-8671-4d69-b3be-cbd2aceb9bed6374719533335611669.jpg" />
     <_ContentIncludedByDefault Remove="wwwroot\BackEnd\Admin\images\fileManager\2021\2021-6\fdfd2b14-731d-490b-ba66-fe1ae8283b5763753653853633402463747102645924188010.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\BackEnd\Admin\images\portrait\small\avatar-s-1.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\BackEnd\Admin\images\portrait\small\avatar-s-10.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\BackEnd\Admin\images\portrait\small\avatar-s-11.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\BackEnd\Admin\images\portrait\small\avatar-s-12.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\BackEnd\Admin\images\portrait\small\avatar-s-13.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\BackEnd\Admin\images\portrait\small\avatar-s-14.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\BackEnd\Admin\images\portrait\small\avatar-s-15.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\BackEnd\Admin\images\portrait\small\avatar-s-16.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\BackEnd\Admin\images\portrait\small\avatar-s-17.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\BackEnd\Admin\images\portrait\small\avatar-s-18.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\BackEnd\Admin\images\portrait\small\avatar-s-19.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\BackEnd\Admin\images\portrait\small\avatar-s-2.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\BackEnd\Admin\images\portrait\small\avatar-s-20.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\BackEnd\Admin\images\portrait\small\avatar-s-21.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\BackEnd\Admin\images\portrait\small\avatar-s-22.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\BackEnd\Admin\images\portrait\small\avatar-s-23.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\BackEnd\Admin\images\portrait\small\avatar-s-24.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\BackEnd\Admin\images\portrait\small\avatar-s-25.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\BackEnd\Admin\images\portrait\small\avatar-s-26.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\BackEnd\Admin\images\portrait\small\avatar-s-3.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\BackEnd\Admin\images\portrait\small\avatar-s-4.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\BackEnd\Admin\images\portrait\small\avatar-s-5.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\BackEnd\Admin\images\portrait\small\avatar-s-6.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\BackEnd\Admin\images\portrait\small\avatar-s-7.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\BackEnd\Admin\images\portrait\small\avatar-s-8.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\BackEnd\Admin\images\portrait\small\avatar-s-9.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\BackEnd\Admin\images\sliders\01.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\BackEnd\Admin\images\sliders\02.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\BackEnd\Admin\images\sliders\03.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\BackEnd\Admin\images\sliders\04.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\BackEnd\Admin\images\sliders\05.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\BackEnd\Admin\images\sliders\06.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\BackEnd\Admin\images\sliders\07.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\BackEnd\Admin\images\sliders\08.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\BackEnd\Admin\images\sliders\09.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\BackEnd\Admin\images\sliders\10.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\BackEnd\Admin\images\sliders\11.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\BackEnd\Admin\images\sliders\apex.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\BackEnd\Admin\images\sliders\materialize.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\BackEnd\Admin\images\sliders\modern.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\BackEnd\Admin\images\sliders\stack.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\BackEnd\Admin\images\sliders\vuesax.jpg" />
   </ItemGroup>
 
 </Project>

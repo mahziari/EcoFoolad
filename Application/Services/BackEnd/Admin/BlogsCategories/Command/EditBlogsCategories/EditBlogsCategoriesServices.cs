@@ -20,6 +20,8 @@ namespace  Application.Services.BackEnd.Admin.BlogsCategories.Command.EditBlogsC
             var blogCategory = _context.CrmCmsNewsGroups.Find(id);
             
             blogCategory.GroupName = createBlogsCategoriesServicesDto.GroupName;
+            blogCategory.en_GroupName = createBlogsCategoriesServicesDto.en_GroupName;
+            blogCategory.Description = createBlogsCategoriesServicesDto.Description;
             blogCategory.Color = createBlogsCategoriesServicesDto.Color;
             blogCategory.FaIcon = createBlogsCategoriesServicesDto.FaIcon;
             _context.SaveChanges();

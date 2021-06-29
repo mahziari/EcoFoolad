@@ -334,6 +334,7 @@ C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\bin\Debug\net5.0\Micro
 C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\bin\Debug\net5.0\Newtonsoft.Json.dll
 C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\bin\Debug\net5.0\PersianDateTime.Core.dll
 C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\bin\Debug\net5.0\Pipelines.Sockets.Unofficial.dll
+C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\bin\Debug\net5.0\RestSharp.dll
 C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\bin\Debug\net5.0\Serilog.dll
 C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\bin\Debug\net5.0\Serilog.Extensions.Logging.dll
 C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\bin\Debug\net5.0\Serilog.Extensions.Logging.File.dll
@@ -489,6 +490,9 @@ C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\obj\Debug\net5.0\Razor
 C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\obj\Debug\net5.0\Razor\Areas\Admin\Views\Factory\Details.cshtml.g.cs
 C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\obj\Debug\net5.0\Razor\Areas\Admin\Views\Factory\Edit.cshtml.g.cs
 C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\obj\Debug\net5.0\Razor\Areas\Admin\Views\Factory\Index.cshtml.g.cs
+C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\obj\Debug\net5.0\Razor\Areas\Admin\Views\FileManager\Create.cshtml.g.cs
+C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\obj\Debug\net5.0\Razor\Areas\Admin\Views\FileManager\Index.cshtml.g.cs
+C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\obj\Debug\net5.0\Razor\Areas\Admin\Views\Footers\Index.cshtml.g.cs
 C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\obj\Debug\net5.0\Razor\Areas\Admin\Views\Home\Index.cshtml.g.cs
 C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\obj\Debug\net5.0\Razor\Areas\Admin\Views\Menus\GetEditMenu.cshtml.g.cs
 C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\obj\Debug\net5.0\Razor\Areas\Admin\Views\Menus\GetEditSubMenu.cshtml.g.cs
@@ -551,6 +555,7 @@ C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\obj\Debug\net5.0\Razor
 C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\obj\Debug\net5.0\Razor\Views\Products\Details.cshtml.g.cs
 C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\obj\Debug\net5.0\Razor\Views\Products\Index.cshtml.g.cs
 C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\obj\Debug\net5.0\Razor\Views\Shared\Components\BasketComponent\BasketComponent.cshtml.g.cs
+C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\obj\Debug\net5.0\Razor\Views\Shared\Components\GetFooters\GetFooters.cshtml.g.cs
 C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\obj\Debug\net5.0\Razor\Views\Shared\Components\GetMenus\GetMenus.cshtml.g.cs
 C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\obj\Debug\net5.0\Razor\Views\Shared\Components\ResponsiveGetMenus\ResponsiveGetMenus.cshtml.g.cs
 C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\obj\Debug\net5.0\Razor\Views\Shared\Errors\AccessDenied.cshtml.g.cs
@@ -576,8 +581,3 @@ C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\obj\Debug\net5.0\EndPo
 C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\obj\Debug\net5.0\ref\EndPoint.WebSite.dll
 C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\obj\Debug\net5.0\EndPoint.WebSite.pdb
 C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\obj\Debug\net5.0\EndPoint.WebSite.genruntimeconfig.cache
-C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\bin\Debug\net5.0\RestSharp.dll
-C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\obj\Debug\net5.0\Razor\Areas\Admin\Views\FileManager\Create.cshtml.g.cs
-C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\obj\Debug\net5.0\Razor\Areas\Admin\Views\FileManager\Index.cshtml.g.cs
-C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\obj\Debug\net5.0\Razor\Areas\Admin\Views\Footers\Index.cshtml.g.cs
-C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\obj\Debug\net5.0\Razor\Views\Shared\Components\GetFooters\GetFooters.cshtml.g.cs

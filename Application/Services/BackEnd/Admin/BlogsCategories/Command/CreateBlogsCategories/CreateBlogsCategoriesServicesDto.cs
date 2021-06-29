@@ -14,6 +14,10 @@ namespace  Application.Services.BackEnd.Admin.BlogsCategories.Command.CreateBlog
         [Required(AllowEmptyStrings = false,ErrorMessage = "پر کردن فیلد {0} اجباری است")]
         public string en_GroupName { get; set; }
         
+        [Display(Name = "نوضیح برای دسته بندی فارسی بلاگ")]
+        [Required(AllowEmptyStrings = false,ErrorMessage = "پر کردن فیلد {0} اجباری است")]
+        public string Description { get; set; }
+        
         [Display(Name = "رنگ دسته بندی بلاگ")]
         [Required(ErrorMessage = "پر کردن فیلد {0} اجباری است")]
         public string Color { get; set; }

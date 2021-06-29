@@ -70,14 +70,23 @@
                                         <div class="row my-2 py-50">
                                             <div class="col-sm-6 col-12 order-2 order-sm-1">
                                                 <h6 asp-for="Title" class="text-primary">رنگ دسته بندی بلاگ: <b class="text-danger h3">*</b></h6>
-                                                <input asp-for="Color" type="text" class="form-control" placeholder="عنوان را وارد کنید">
+                                                <input asp-for="Color" type="text" class="form-control" placeholder="#99FF66">
                                                 <span asp-validation-for="Color" class="text-danger"></span>
                                             </div>
                                                                                 
                                             <div class="col-sm-6 col-12 order-2 order-sm-1">
                                                 <h6 asp-for="Title" class="text-primary">آیکن دسته بندی بلاگ: <b class="text-danger h3">*</b></h6>
-                                                <input asp-for="FaIcon" type="text" class="form-control" placeholder="عنوان را وارد کنید">
+                                                <input asp-for="FaIcon" type="text" class="form-control" placeholder="fa fa-XXX">
                                                 <span asp-validation-for="FaIcon" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                        
+                                        
+                                        <div class="row my-2 py-50">
+                                            <div class="col-sm-12 col-12 order-2 order-sm-1">
+                                                <h6 asp-for="Title" class="text-primary">رنگ دسته بندی بلاگ: <b class="text-danger h3">*</b></h6>
+                                                <input asp-for="Description" type="text" class="form-control" placeholder="#99FF66" height="300px">
+                                                <span asp-validation-for="Description" class="text-danger"></span>
                                             </div>
                                         </div>
                                         

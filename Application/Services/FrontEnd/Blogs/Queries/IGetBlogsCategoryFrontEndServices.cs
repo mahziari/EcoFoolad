@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using Application.Interfaces.Contexts;
+using AutoMapper;
 using Domain.Entities.Footer;
+using Domain.Entities.IdealCrm;
 using Microsoft.EntityFrameworkCore;
  
 
@@ -17,11 +19,13 @@ namespace  Application.Services.FrontEnd.Blogs.Queries
     {
         private readonly IIdealCrmDataBaseContext _context;
         private readonly ICustomDbContext _customDbContext;
+        private readonly IMapper _mapper;
 
-        public GetBlogsCategoryFrontEndService(IIdealCrmDataBaseContext context, ICustomDbContext customDbContext)
+        public GetBlogsCategoryFrontEndService(IIdealCrmDataBaseContext context, ICustomDbContext customDbContext, IMapper mapper)
         {
             _context = context;
             _customDbContext = customDbContext;
+            _mapper = mapper;
         }
 
 
@@ -29,7 +33,7 @@ namespace  Application.Services.FrontEnd.Blogs.Queries
         public ResultGetBlogsCategoryFrontEndDto Execute(string category, int page)
         {
 
-            var resultInEachPage = 1;
+            var resultInEachPage = 12;
             int skip = (page - 1) * resultInEachPage;
             int count = _context.CrmCmsNews
                 .Where(b=>b.NewsGroup.en_GroupName == category)
@@ -61,9 +65,9 @@ namespace  Application.Services.FrontEnd.Blogs.Queries
                 }).Skip(skip).Take(resultInEachPage).ToList();
 
 
-            var categoryName = _context.CrmCmsNewsGroups
-                .Where(b => b.en_GroupName == category)
-                .Select(b => b.GroupName).SingleOrDefault();
+            var model = _context.CrmCmsNewsGroups
+                .Single(b => b.en_GroupName == category);
+            var categoryItem = _mapper.Map<CategoryItemDto>(model);
 
 
 
@@ -74,7 +78,7 @@ namespace  Application.Services.FrontEnd.Blogs.Queries
                 BlogsCatrgory =blogsCatrgory,
                 PageId =pageId,
                 PageCount =pageCount,
-                CategoryName =categoryName,
+                CategoryItem =categoryItem,
                 Footers =footers,
             };
         }
@@ -84,10 +88,9 @@ namespace  Application.Services.FrontEnd.Blogs.Queries
     {
         public List<GetBlogsCatrgoryDto> BlogsCatrgory { get; set; }
         public Footer Footers { get; set; }
-
+        public CategoryItemDto CategoryItem { get; set; }
         public int PageId { get; set; }
         public int PageCount { get; set; }
-        public string CategoryName { get; set; }
     }
 
 
@@ -104,5 +107,13 @@ namespace  Application.Services.FrontEnd.Blogs.Queries
         public string DateTime { get; set; }
         public bool IsVerified { get; set; }
         public int Position { get; set; }
+    }
+
+    public class CategoryItemDto
+    {
+        public string GroupName { get; set; }
+        public string en_GroupName { get; set; }
+        public string Description { get; set; }
+        public string LocalTime { get; set; }
     }
 }

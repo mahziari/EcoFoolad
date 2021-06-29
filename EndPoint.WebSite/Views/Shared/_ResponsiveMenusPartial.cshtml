@@ -1,42 +1,38 @@
-﻿<ul class="responsive_main_menu">
+﻿@using Application.Services.FrontEnd.Common
+@inject ISiteSetting _siteSetting;
+
+
+<ul class="responsive_main_menu">
     <li class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-90">
         <a href="/" aria-current="page">صفحه اصلی</a>
     </li>
     @await Component.InvokeAsync("GetMenus")
+    
+    <li id="menu-item-90"
+        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu_absahri">
+        <a asp-controller="Products" asp-action="Index">محصولات</a>
+    </li>
+
+    <li id="menu-item-90"
+        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu_absahri">
+        <a asp-controller="Blogs" asp-action="Index">بلاگ @_siteSetting.GetSiteSetting().SiteName </a>
+    </li>
+    
 
     <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-3396">
         <a
             href="#">
-            منوی کلاسیک
+            ارتباط با ما 
         </a>
         <ul class="sub-menu">
             <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3397">
                 <a href="#">
-                    سطح
-                    اول
+                    درباره ما
                 </a>
-            </li>
-            <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-3398">
-                <a href="#">سطح اول</a>
-                <ul class="sub-menu">
-                    <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3400">
-                        <a href="#">
-                            سطح
-                            دوم
-                        </a>
-                    </li>
-                    <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3401">
-                        <a href="#">
-                            سطح
-                            دوم
-                        </a>
-                    </li>
-                </ul>
             </li>
             <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3399">
                 <a href="#">
-                    سطح
-                    اول
+                   تماس با ما
                 </a>
             </li>
         </ul>

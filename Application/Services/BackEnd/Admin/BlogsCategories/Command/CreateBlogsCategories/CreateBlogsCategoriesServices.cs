@@ -20,6 +20,7 @@ namespace  Application.Services.BackEnd.Admin.BlogsCategories.Command.CreateBlog
             {
                 GroupName=createBlogsCategoriesServicesDto.GroupName,
                 en_GroupName=createBlogsCategoriesServicesDto.en_GroupName,
+                Description= createBlogsCategoriesServicesDto.Description,
                 Color = createBlogsCategoriesServicesDto.Color,
                 FaIcon = createBlogsCategoriesServicesDto.FaIcon,
                 IsActive = true,
@@ -30,6 +31,7 @@ namespace  Application.Services.BackEnd.Admin.BlogsCategories.Command.CreateBlog
                 FirstRegisterDatePersian = PersianDateTime.Now.ToString("yyyyMMdd"),
                 RegisterDate = DateTime.Now,
                 RegisterDatePersian = PersianDateTime.Now.ToString("yyyyMMdd"),
+                LocalTime = DateTime.Now.ToString("s")+"+"+TimeZoneInfo.Local.BaseUtcOffset.ToHHMM(),
                 AppType = "web",
                 LanguageId = 1065
             };

@@ -1,0 +1,146 @@
+2021-06-28T09:07:31.7515396+04:30 0HM9P9MBPL80M:0000000F [INF] Request starting HTTP/2 GET https://localhost:5001/ - - (ca22a1cb)
+2021-06-28T09:07:31.7643644+04:30 0HM9P9MBPL80M:0000000F [INF] "Identity.Application" was not authenticated. Failure message: "Ticket expired" (48071232)
+2021-06-28T09:07:31.7651318+04:30 0HM9P9MBPL80M:0000000F [INF] Executing endpoint '"EndPoint.WebSite.Controllers.HomeController.Index (EndPoint.WebSite)"' (500cc934)
+2021-06-28T09:07:31.7796024+04:30 0HM9P9MBPL80M:0000000F [INF] Route matched with "{action = \"Index\", controller = \"Home\", area = \"\"}". Executing controller action with signature "Microsoft.AspNetCore.Mvc.IActionResult Index()" on controller "EndPoint.WebSite.Controllers.HomeController" ("EndPoint.WebSite"). (122b2fdf)
+2021-06-28T09:07:31.8120483+04:30 0HM9P9MBPL80M:0000000F [INF] Entity Framework Core "5.0.6" initialized '"CustomDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2021-06-28T09:07:31.8355596+04:30 0HM9P9MBPL80M:0000000F [INF] Executed DbCommand ("3"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [s].[Id], [s].[Type], [s].[Active], [s].[Position], [s].[Url]
+FROM [dbo].[Sliders] AS [s]" (0723d8ff)
+2021-06-28T09:07:31.8424758+04:30 0HM9P9MBPL80M:0000000F [INF] Entity Framework Core "5.0.6" initialized '"IdealCrmDataBaseContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2021-06-28T09:07:31.9111829+04:30 0HM9P9MBPL80M:0000000F [INF] Executed DbCommand ("62"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [c].[NewsGroupId] AS [Id], [c].[GroupName] AS [Name]
+FROM [CrmCmsNewsGroups] AS [c]" (0723d8ff)
+2021-06-28T09:07:31.9220056+04:30 0HM9P9MBPL80M:0000000F [INF] info (680db0b0)
+2021-06-28T09:07:31.9245471+04:30 0HM9P9MBPL80M:0000000F [WRN] war (fa24b367)
+2021-06-28T09:07:31.9263322+04:30 0HM9P9MBPL80M:0000000F [ERR] err (42240f44)
+2021-06-28T09:07:31.9280117+04:30 0HM9P9MBPL80M:0000000F [FTL] critical (18f63ac8)
+2021-06-28T09:07:31.9854961+04:30 0HM9P9MBPL80M:0000000F [INF] Executing ViewResult, running view "Index". (c83d0e25)
+2021-06-28T09:07:33.2342554+04:30 0HM9P9MBPL80M:0000000F [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [f].[Id], [f].[Copyright], [f].[Description], [f].[FactoryAddress], [f].[LogoImage], [f].[OfficeAddress], [f].[PhoneNumber1], [f].[PhoneNumber2], [f].[PhoneNumber3], [f].[Photo1], [f].[Photo10], [f].[Photo11], [f].[Photo12], [f].[Photo13], [f].[Photo14], [f].[Photo15], [f].[Photo2], [f].[Photo3], [f].[Photo4], [f].[Photo5], [f].[Photo6], [f].[Photo7], [f].[Photo8], [f].[Photo9], [f].[SiteName], [f].[ThumbnailLogoImage]
+FROM [dbo].[Footers] AS [f]" (0723d8ff)
+2021-06-28T09:07:33.6544655+04:30 0HM9P9MBPL80M:0000000F [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [f].[Id], [f].[Copyright], [f].[Description], [f].[FactoryAddress], [f].[LogoImage], [f].[OfficeAddress], [f].[PhoneNumber1], [f].[PhoneNumber2], [f].[PhoneNumber3], [f].[Photo1], [f].[Photo10], [f].[Photo11], [f].[Photo12], [f].[Photo13], [f].[Photo14], [f].[Photo15], [f].[Photo2], [f].[Photo3], [f].[Photo4], [f].[Photo5], [f].[Photo6], [f].[Photo7], [f].[Photo8], [f].[Photo9], [f].[SiteName], [f].[ThumbnailLogoImage]
+FROM [dbo].[Footers] AS [f]" (0723d8ff)
+2021-06-28T09:07:33.6552973+04:30 0HM9P9MBPL80M:0000000F [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [f].[Id], [f].[Copyright], [f].[Description], [f].[FactoryAddress], [f].[LogoImage], [f].[OfficeAddress], [f].[PhoneNumber1], [f].[PhoneNumber2], [f].[PhoneNumber3], [f].[Photo1], [f].[Photo10], [f].[Photo11], [f].[Photo12], [f].[Photo13], [f].[Photo14], [f].[Photo15], [f].[Photo2], [f].[Photo3], [f].[Photo4], [f].[Photo5], [f].[Photo6], [f].[Photo7], [f].[Photo8], [f].[Photo9], [f].[SiteName], [f].[ThumbnailLogoImage]
+FROM [dbo].[Footers] AS [f]" (0723d8ff)
+2021-06-28T09:07:33.6559371+04:30 0HM9P9MBPL80M:0000000F [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [f].[Id], [f].[Copyright], [f].[Description], [f].[FactoryAddress], [f].[LogoImage], [f].[OfficeAddress], [f].[PhoneNumber1], [f].[PhoneNumber2], [f].[PhoneNumber3], [f].[Photo1], [f].[Photo10], [f].[Photo11], [f].[Photo12], [f].[Photo13], [f].[Photo14], [f].[Photo15], [f].[Photo2], [f].[Photo3], [f].[Photo4], [f].[Photo5], [f].[Photo6], [f].[Photo7], [f].[Photo8], [f].[Photo9], [f].[SiteName], [f].[ThumbnailLogoImage]
+FROM [dbo].[Footers] AS [f]" (0723d8ff)
+2021-06-28T09:07:33.6565298+04:30 0HM9P9MBPL80M:0000000F [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [f].[Id], [f].[Copyright], [f].[Description], [f].[FactoryAddress], [f].[LogoImage], [f].[OfficeAddress], [f].[PhoneNumber1], [f].[PhoneNumber2], [f].[PhoneNumber3], [f].[Photo1], [f].[Photo10], [f].[Photo11], [f].[Photo12], [f].[Photo13], [f].[Photo14], [f].[Photo15], [f].[Photo2], [f].[Photo3], [f].[Photo4], [f].[Photo5], [f].[Photo6], [f].[Photo7], [f].[Photo8], [f].[Photo9], [f].[SiteName], [f].[ThumbnailLogoImage]
+FROM [dbo].[Footers] AS [f]" (0723d8ff)
+2021-06-28T09:07:33.6570072+04:30 0HM9P9MBPL80M:0000000F [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [f].[Id], [f].[Copyright], [f].[Description], [f].[FactoryAddress], [f].[LogoImage], [f].[OfficeAddress], [f].[PhoneNumber1], [f].[PhoneNumber2], [f].[PhoneNumber3], [f].[Photo1], [f].[Photo10], [f].[Photo11], [f].[Photo12], [f].[Photo13], [f].[Photo14], [f].[Photo15], [f].[Photo2], [f].[Photo3], [f].[Photo4], [f].[Photo5], [f].[Photo6], [f].[Photo7], [f].[Photo8], [f].[Photo9], [f].[SiteName], [f].[ThumbnailLogoImage]
+FROM [dbo].[Footers] AS [f]" (0723d8ff)
+2021-06-28T09:07:33.6573928+04:30 0HM9P9MBPL80M:0000000F [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [f].[Id], [f].[Copyright], [f].[Description], [f].[FactoryAddress], [f].[LogoImage], [f].[OfficeAddress], [f].[PhoneNumber1], [f].[PhoneNumber2], [f].[PhoneNumber3], [f].[Photo1], [f].[Photo10], [f].[Photo11], [f].[Photo12], [f].[Photo13], [f].[Photo14], [f].[Photo15], [f].[Photo2], [f].[Photo3], [f].[Photo4], [f].[Photo5], [f].[Photo6], [f].[Photo7], [f].[Photo8], [f].[Photo9], [f].[SiteName], [f].[ThumbnailLogoImage]
+FROM [dbo].[Footers] AS [f]" (0723d8ff)
+2021-06-28T09:07:33.6578080+04:30 0HM9P9MBPL80M:0000000F [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [f].[Id], [f].[Copyright], [f].[Description], [f].[FactoryAddress], [f].[LogoImage], [f].[OfficeAddress], [f].[PhoneNumber1], [f].[PhoneNumber2], [f].[PhoneNumber3], [f].[Photo1], [f].[Photo10], [f].[Photo11], [f].[Photo12], [f].[Photo13], [f].[Photo14], [f].[Photo15], [f].[Photo2], [f].[Photo3], [f].[Photo4], [f].[Photo5], [f].[Photo6], [f].[Photo7], [f].[Photo8], [f].[Photo9], [f].[SiteName], [f].[ThumbnailLogoImage]
+FROM [dbo].[Footers] AS [f]" (0723d8ff)
+2021-06-28T09:07:33.6581927+04:30 0HM9P9MBPL80M:0000000F [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [f].[Id], [f].[Copyright], [f].[Description], [f].[FactoryAddress], [f].[LogoImage], [f].[OfficeAddress], [f].[PhoneNumber1], [f].[PhoneNumber2], [f].[PhoneNumber3], [f].[Photo1], [f].[Photo10], [f].[Photo11], [f].[Photo12], [f].[Photo13], [f].[Photo14], [f].[Photo15], [f].[Photo2], [f].[Photo3], [f].[Photo4], [f].[Photo5], [f].[Photo6], [f].[Photo7], [f].[Photo8], [f].[Photo9], [f].[SiteName], [f].[ThumbnailLogoImage]
+FROM [dbo].[Footers] AS [f]" (0723d8ff)
+2021-06-28T09:07:33.6586032+04:30 0HM9P9MBPL80M:0000000F [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [f].[Id], [f].[Copyright], [f].[Description], [f].[FactoryAddress], [f].[LogoImage], [f].[OfficeAddress], [f].[PhoneNumber1], [f].[PhoneNumber2], [f].[PhoneNumber3], [f].[Photo1], [f].[Photo10], [f].[Photo11], [f].[Photo12], [f].[Photo13], [f].[Photo14], [f].[Photo15], [f].[Photo2], [f].[Photo3], [f].[Photo4], [f].[Photo5], [f].[Photo6], [f].[Photo7], [f].[Photo8], [f].[Photo9], [f].[SiteName], [f].[ThumbnailLogoImage]
+FROM [dbo].[Footers] AS [f]" (0723d8ff)
+2021-06-28T09:07:33.6589840+04:30 0HM9P9MBPL80M:0000000F [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [f].[Id], [f].[Copyright], [f].[Description], [f].[FactoryAddress], [f].[LogoImage], [f].[OfficeAddress], [f].[PhoneNumber1], [f].[PhoneNumber2], [f].[PhoneNumber3], [f].[Photo1], [f].[Photo10], [f].[Photo11], [f].[Photo12], [f].[Photo13], [f].[Photo14], [f].[Photo15], [f].[Photo2], [f].[Photo3], [f].[Photo4], [f].[Photo5], [f].[Photo6], [f].[Photo7], [f].[Photo8], [f].[Photo9], [f].[SiteName], [f].[ThumbnailLogoImage]
+FROM [dbo].[Footers] AS [f]" (0723d8ff)
+2021-06-28T09:07:33.6593949+04:30 0HM9P9MBPL80M:0000000F [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [f].[Id], [f].[Copyright], [f].[Description], [f].[FactoryAddress], [f].[LogoImage], [f].[OfficeAddress], [f].[PhoneNumber1], [f].[PhoneNumber2], [f].[PhoneNumber3], [f].[Photo1], [f].[Photo10], [f].[Photo11], [f].[Photo12], [f].[Photo13], [f].[Photo14], [f].[Photo15], [f].[Photo2], [f].[Photo3], [f].[Photo4], [f].[Photo5], [f].[Photo6], [f].[Photo7], [f].[Photo8], [f].[Photo9], [f].[SiteName], [f].[ThumbnailLogoImage]
+FROM [dbo].[Footers] AS [f]" (0723d8ff)
+2021-06-28T09:07:33.6597946+04:30 0HM9P9MBPL80M:0000000F [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [f].[Id], [f].[Copyright], [f].[Description], [f].[FactoryAddress], [f].[LogoImage], [f].[OfficeAddress], [f].[PhoneNumber1], [f].[PhoneNumber2], [f].[PhoneNumber3], [f].[Photo1], [f].[Photo10], [f].[Photo11], [f].[Photo12], [f].[Photo13], [f].[Photo14], [f].[Photo15], [f].[Photo2], [f].[Photo3], [f].[Photo4], [f].[Photo5], [f].[Photo6], [f].[Photo7], [f].[Photo8], [f].[Photo9], [f].[SiteName], [f].[ThumbnailLogoImage]
+FROM [dbo].[Footers] AS [f]" (0723d8ff)
+2021-06-28T09:07:33.6601960+04:30 0HM9P9MBPL80M:0000000F [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [f].[Id], [f].[Copyright], [f].[Description], [f].[FactoryAddress], [f].[LogoImage], [f].[OfficeAddress], [f].[PhoneNumber1], [f].[PhoneNumber2], [f].[PhoneNumber3], [f].[Photo1], [f].[Photo10], [f].[Photo11], [f].[Photo12], [f].[Photo13], [f].[Photo14], [f].[Photo15], [f].[Photo2], [f].[Photo3], [f].[Photo4], [f].[Photo5], [f].[Photo6], [f].[Photo7], [f].[Photo8], [f].[Photo9], [f].[SiteName], [f].[ThumbnailLogoImage]
+FROM [dbo].[Footers] AS [f]" (0723d8ff)
+2021-06-28T09:07:33.6606045+04:30 0HM9P9MBPL80M:0000000F [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [f].[Id], [f].[Copyright], [f].[Description], [f].[FactoryAddress], [f].[LogoImage], [f].[OfficeAddress], [f].[PhoneNumber1], [f].[PhoneNumber2], [f].[PhoneNumber3], [f].[Photo1], [f].[Photo10], [f].[Photo11], [f].[Photo12], [f].[Photo13], [f].[Photo14], [f].[Photo15], [f].[Photo2], [f].[Photo3], [f].[Photo4], [f].[Photo5], [f].[Photo6], [f].[Photo7], [f].[Photo8], [f].[Photo9], [f].[SiteName], [f].[ThumbnailLogoImage]
+FROM [dbo].[Footers] AS [f]" (0723d8ff)
+2021-06-28T09:07:33.6610087+04:30 0HM9P9MBPL80M:0000000F [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [f].[Id], [f].[Copyright], [f].[Description], [f].[FactoryAddress], [f].[LogoImage], [f].[OfficeAddress], [f].[PhoneNumber1], [f].[PhoneNumber2], [f].[PhoneNumber3], [f].[Photo1], [f].[Photo10], [f].[Photo11], [f].[Photo12], [f].[Photo13], [f].[Photo14], [f].[Photo15], [f].[Photo2], [f].[Photo3], [f].[Photo4], [f].[Photo5], [f].[Photo6], [f].[Photo7], [f].[Photo8], [f].[Photo9], [f].[SiteName], [f].[ThumbnailLogoImage]
+FROM [dbo].[Footers] AS [f]" (0723d8ff)
+2021-06-28T09:07:34.0376687+04:30 0HM9P9MBPL80M:0000000F [INF] Executed DbCommand ("355"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [p].[ParsaPooladMenusId], [p].[Name], [p].[UrlName], [t0].[PrdFirstGroupID], [t0].[FGName], [t0].[EnFgname], [t0].[WsproductSecondGroupId], [t0].[Sgname], [t0].[EnSgname]
+FROM [ParsaPooladMenus] AS [p]
+LEFT JOIN (
+    SELECT [w].[PrdFirstGroupID], [w].[FGName], [w].[EnFgname], [t].[WsproductSecondGroupId], [t].[Sgname], [t].[EnSgname], [w].[ParsaPooladMenusId]
+    FROM [WSProductFirstGroup] AS [w]
+    LEFT JOIN (
+        SELECT [w0].[PrdSecondGroupID] AS [WsproductSecondGroupId], [w0].[SGName] AS [Sgname], REPLACE([w0].[EnSgname], N' ', N'-') AS [EnSgname], [w0].[FirstGroupId]
+        FROM [WSProductSecondGroup] AS [w0]
+        WHERE [w0].[IsRemoved] IS NULL
+    ) AS [t] ON [w].[PrdFirstGroupID] = [t].[FirstGroupId]
+    WHERE [w].[IsRemoved] IS NULL
+) AS [t0] ON [p].[ParsaPooladMenusId] = [t0].[ParsaPooladMenusId]
+ORDER BY [p].[ParsaPooladMenusId], [t0].[PrdFirstGroupID], [t0].[WsproductSecondGroupId]" (0723d8ff)
+2021-06-28T09:07:34.0436305+04:30 0HM9P9MBPL80M:0000000F [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [f].[Id], [f].[Copyright], [f].[Description], [f].[FactoryAddress], [f].[LogoImage], [f].[OfficeAddress], [f].[PhoneNumber1], [f].[PhoneNumber2], [f].[PhoneNumber3], [f].[Photo1], [f].[Photo10], [f].[Photo11], [f].[Photo12], [f].[Photo13], [f].[Photo14], [f].[Photo15], [f].[Photo2], [f].[Photo3], [f].[Photo4], [f].[Photo5], [f].[Photo6], [f].[Photo7], [f].[Photo8], [f].[Photo9], [f].[SiteName], [f].[ThumbnailLogoImage]
+FROM [dbo].[Footers] AS [f]" (0723d8ff)
+2021-06-28T09:07:34.0468210+04:30 0HM9P9MBPL80M:0000000F [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [f].[Id], [f].[Copyright], [f].[Description], [f].[FactoryAddress], [f].[LogoImage], [f].[OfficeAddress], [f].[PhoneNumber1], [f].[PhoneNumber2], [f].[PhoneNumber3], [f].[Photo1], [f].[Photo10], [f].[Photo11], [f].[Photo12], [f].[Photo13], [f].[Photo14], [f].[Photo15], [f].[Photo2], [f].[Photo3], [f].[Photo4], [f].[Photo5], [f].[Photo6], [f].[Photo7], [f].[Photo8], [f].[Photo9], [f].[SiteName], [f].[ThumbnailLogoImage]
+FROM [dbo].[Footers] AS [f]" (0723d8ff)
+2021-06-28T09:07:34.0508750+04:30 0HM9P9MBPL80M:0000000F [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [f].[Id], [f].[Copyright], [f].[Description], [f].[FactoryAddress], [f].[LogoImage], [f].[OfficeAddress], [f].[PhoneNumber1], [f].[PhoneNumber2], [f].[PhoneNumber3], [f].[Photo1], [f].[Photo10], [f].[Photo11], [f].[Photo12], [f].[Photo13], [f].[Photo14], [f].[Photo15], [f].[Photo2], [f].[Photo3], [f].[Photo4], [f].[Photo5], [f].[Photo6], [f].[Photo7], [f].[Photo8], [f].[Photo9], [f].[SiteName], [f].[ThumbnailLogoImage]
+FROM [dbo].[Footers] AS [f]" (0723d8ff)
+2021-06-28T09:07:34.0521393+04:30 0HM9P9MBPL80M:0000000F [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [f].[Id], [f].[Copyright], [f].[Description], [f].[FactoryAddress], [f].[LogoImage], [f].[OfficeAddress], [f].[PhoneNumber1], [f].[PhoneNumber2], [f].[PhoneNumber3], [f].[Photo1], [f].[Photo10], [f].[Photo11], [f].[Photo12], [f].[Photo13], [f].[Photo14], [f].[Photo15], [f].[Photo2], [f].[Photo3], [f].[Photo4], [f].[Photo5], [f].[Photo6], [f].[Photo7], [f].[Photo8], [f].[Photo9], [f].[SiteName], [f].[ThumbnailLogoImage]
+FROM [dbo].[Footers] AS [f]" (0723d8ff)
+2021-06-28T09:07:34.0525183+04:30 0HM9P9MBPL80M:0000000F [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [f].[Id], [f].[Copyright], [f].[Description], [f].[FactoryAddress], [f].[LogoImage], [f].[OfficeAddress], [f].[PhoneNumber1], [f].[PhoneNumber2], [f].[PhoneNumber3], [f].[Photo1], [f].[Photo10], [f].[Photo11], [f].[Photo12], [f].[Photo13], [f].[Photo14], [f].[Photo15], [f].[Photo2], [f].[Photo3], [f].[Photo4], [f].[Photo5], [f].[Photo6], [f].[Photo7], [f].[Photo8], [f].[Photo9], [f].[SiteName], [f].[ThumbnailLogoImage]
+FROM [dbo].[Footers] AS [f]" (0723d8ff)
+2021-06-28T09:07:34.0528698+04:30 0HM9P9MBPL80M:0000000F [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [f].[Id], [f].[Copyright], [f].[Description], [f].[FactoryAddress], [f].[LogoImage], [f].[OfficeAddress], [f].[PhoneNumber1], [f].[PhoneNumber2], [f].[PhoneNumber3], [f].[Photo1], [f].[Photo10], [f].[Photo11], [f].[Photo12], [f].[Photo13], [f].[Photo14], [f].[Photo15], [f].[Photo2], [f].[Photo3], [f].[Photo4], [f].[Photo5], [f].[Photo6], [f].[Photo7], [f].[Photo8], [f].[Photo9], [f].[SiteName], [f].[ThumbnailLogoImage]
+FROM [dbo].[Footers] AS [f]" (0723d8ff)
+2021-06-28T09:07:34.0608791+04:30 0HM9P9MBPL80M:0000000F [INF] Executed ViewResult - view "Index" executed in 2132.5128ms. (f66409e9)
+2021-06-28T09:07:34.0610553+04:30 0HM9P9MBPL80M:0000000F [INF] Executed action "EndPoint.WebSite.Controllers.HomeController.Index (EndPoint.WebSite)" in 2281.3665ms (afa2e885)
+2021-06-28T09:07:34.0611369+04:30 0HM9P9MBPL80M:0000000F [INF] Executed endpoint '"EndPoint.WebSite.Controllers.HomeController.Index (EndPoint.WebSite)"' (99874f2b)
+2021-06-28T09:07:34.0634990+04:30 0HM9P9MBPL80M:0000000F [INF] Request finished HTTP/2 GET https://localhost:5001/ - - - 200 - text/html;+charset=utf-8 2312.0146ms (791a596a)
+2021-06-28T09:07:34.1365472+04:30 0HM9P9MBPL80M:00000015 [INF] Request starting HTTP/2 GET https://localhost:5001/BackEnd/Admin/images/fileManager/2021/2021-6/44e30ca7-3c3e-4343-9049-7c2fafa14e7eLogo-Header.jpg - - (ca22a1cb)
+2021-06-28T09:07:34.1362532+04:30 0HM9P9MBPL80M:00000011 [INF] Request starting HTTP/2 GET https://localhost:5001/wp-content/cache/min/1/preview/wp-content/style.css - - (ca22a1cb)
+2021-06-28T09:07:34.1379529+04:30 0HM9P9MBPL80M:00000017 [INF] Request starting HTTP/2 GET https://localhost:5001/Images/Sliders/63760300604125817910.jpg - - (ca22a1cb)
+2021-06-28T09:07:34.1379870+04:30 0HM9P9MBPL80M:00000013 [INF] Request starting HTTP/2 GET https://localhost:5001/wp-content/themes/newkala/public-style.css - - (ca22a1cb)
+2021-06-28T09:07:34.1420157+04:30 0HM9P9MBPL80M:00000011 [INF] The file "/wp-content/cache/min/1/preview/wp-content/style.css" was not modified (f1f8d725)
+2021-06-28T09:07:34.1428771+04:30 0HM9P9MBPL80M:00000019 [INF] Request starting HTTP/2 GET https://localhost:5001/BackEnd/Admin/images/fileManager/2021/2021-6/20b29a58-7996-467d-ad32-94607c2150b0enamad.jpg - - (ca22a1cb)
+2021-06-28T09:07:34.1429085+04:30 0HM9P9MBPL80M:00000011 [INF] Request finished HTTP/2 GET https://localhost:5001/wp-content/cache/min/1/preview/wp-content/style.css - - - 304 - text/css 6.8370ms (791a596a)
+2021-06-28T09:07:34.1430567+04:30 0HM9P9MBPL80M:0000001B [INF] Request starting HTTP/2 GET https://localhost:5001/BackEnd/Admin/images/fileManager/2021/2021-6/d15647d6-02f3-4301-9700-e1f631611446shamedGold.jpg - - (ca22a1cb)
+2021-06-28T09:07:34.1430930+04:30 0HM9P9MBPL80M:0000001D [INF] Request starting HTTP/2 GET https://localhost:5001/BackEnd/Admin/images/fileManager/2021/2021-6/8fc5610c-74cc-4993-8425-89821e2272a4964edb61.svg - - (ca22a1cb)
+2021-06-28T09:07:34.1694950+04:30 0HM9P9MBPL80M:0000001B [INF] Sending file. Request path: '"/BackEnd/Admin/images/fileManager/2021/2021-6/d15647d6-02f3-4301-9700-e1f631611446shamedGold.jpg"'. Physical path: '"C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\wwwroot\BackEnd\Admin\images\fileManager\2021\2021-6\d15647d6-02f3-4301-9700-e1f631611446shamedGold.jpg"' (27b0a520)
+2021-06-28T09:07:34.1695714+04:30 0HM9P9MBPL80M:00000019 [INF] Sending file. Request path: '"/BackEnd/Admin/images/fileManager/2021/2021-6/20b29a58-7996-467d-ad32-94607c2150b0enamad.jpg"'. Physical path: '"C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\wwwroot\BackEnd\Admin\images\fileManager\2021\2021-6\20b29a58-7996-467d-ad32-94607c2150b0enamad.jpg"' (27b0a520)
+2021-06-28T09:07:34.1697114+04:30 0HM9P9MBPL80M:00000019 [INF] Request finished HTTP/2 GET https://localhost:5001/BackEnd/Admin/images/fileManager/2021/2021-6/20b29a58-7996-467d-ad32-94607c2150b0enamad.jpg - - - 200 14875 image/jpeg 26.8539ms (791a596a)
+2021-06-28T09:07:34.1697075+04:30 0HM9P9MBPL80M:0000001B [INF] Request finished HTTP/2 GET https://localhost:5001/BackEnd/Admin/images/fileManager/2021/2021-6/d15647d6-02f3-4301-9700-e1f631611446shamedGold.jpg - - - 200 10220 image/jpeg 26.6013ms (791a596a)
+2021-06-28T09:07:34.1699789+04:30 0HM9P9MBPL80M:0000001F [INF] Request starting HTTP/2 GET https://localhost:5001/Images/Settings/Logo-Header.jpg - - (ca22a1cb)
+2021-06-28T09:07:34.1702039+04:30 0HM9P9MBPL80M:0000001D [INF] Sending file. Request path: '"/BackEnd/Admin/images/fileManager/2021/2021-6/8fc5610c-74cc-4993-8425-89821e2272a4964edb61.svg"'. Physical path: '"C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\wwwroot\BackEnd\Admin\images\fileManager\2021\2021-6\8fc5610c-74cc-4993-8425-89821e2272a4964edb61.svg"' (27b0a520)
+2021-06-28T09:07:34.1706712+04:30 0HM9P9MBPL80M:00000013 [INF] Sending file. Request path: '"/wp-content/themes/newkala/public-style.css"'. Physical path: '"C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\wwwroot\wp-content\themes\newkala\public-style.css"' (27b0a520)
+2021-06-28T09:07:34.1709475+04:30 0HM9P9MBPL80M:00000015 [INF] Sending file. Request path: '"/BackEnd/Admin/images/fileManager/2021/2021-6/44e30ca7-3c3e-4343-9049-7c2fafa14e7eLogo-Header.jpg"'. Physical path: '"C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\wwwroot\BackEnd\Admin\images\fileManager\2021\2021-6\44e30ca7-3c3e-4343-9049-7c2fafa14e7eLogo-Header.jpg"' (27b0a520)
+2021-06-28T09:07:34.1711397+04:30 0HM9P9MBPL80M:00000013 [INF] Request finished HTTP/2 GET https://localhost:5001/wp-content/themes/newkala/public-style.css - - - 200 19485 text/css 33.0958ms (791a596a)
+2021-06-28T09:07:34.1703918+04:30 0HM9P9MBPL80M:0000001D [INF] Request finished HTTP/2 GET https://localhost:5001/BackEnd/Admin/images/fileManager/2021/2021-6/8fc5610c-74cc-4993-8425-89821e2272a4964edb61.svg - - - 200 4338 image/svg+xml 27.2568ms (791a596a)
+2021-06-28T09:07:34.1712156+04:30 0HM9P9MBPL80M:00000015 [INF] Request finished HTTP/2 GET https://localhost:5001/BackEnd/Admin/images/fileManager/2021/2021-6/44e30ca7-3c3e-4343-9049-7c2fafa14e7eLogo-Header.jpg - - - 200 3318 image/jpeg 34.6900ms (791a596a)
+2021-06-28T09:07:34.1712685+04:30 0HM9P9MBPL80M:00000021 [INF] Request starting HTTP/2 GET https://localhost:5001/Images/Sliders/63760300591563977912.jpg - - (ca22a1cb)
+2021-06-28T09:07:34.1715572+04:30 0HM9P9MBPL80M:00000021 [INF] The file "/Images/Sliders/63760300591563977912.jpg" was not modified (f1f8d725)
+2021-06-28T09:07:34.1716766+04:30 0HM9P9MBPL80M:00000025 [INF] Request starting HTTP/2 GET https://localhost:5001/Images/Sliders/63760300702383216611.jpg - - (ca22a1cb)
+2021-06-28T09:07:34.1716903+04:30 0HM9P9MBPL80M:00000021 [INF] Request finished HTTP/2 GET https://localhost:5001/Images/Sliders/63760300591563977912.jpg - - - 304 - image/jpeg 0.4127ms (791a596a)
+2021-06-28T09:07:34.1721499+04:30 0HM9P9MBPL80M:0000001F [INF] Sending file. Request path: '"/Images/Settings/Logo-Header.jpg"'. Physical path: '"C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\wwwroot\Images\Settings\Logo-Header.jpg"' (27b0a520)
+2021-06-28T09:07:34.1722534+04:30 0HM9P9MBPL80M:0000001F [INF] Request finished HTTP/2 GET https://localhost:5001/Images/Settings/Logo-Header.jpg - - - 200 3318 image/jpeg 2.2595ms (791a596a)
+2021-06-28T09:07:34.1728507+04:30 0HM9P9MBPL80M:00000025 [INF] The file "/Images/Sliders/63760300702383216611.jpg" was not modified (f1f8d725)
+2021-06-28T09:07:34.1731861+04:30 0HM9P9MBPL80M:00000025 [INF] Request finished HTTP/2 GET https://localhost:5001/Images/Sliders/63760300702383216611.jpg - - - 304 - image/jpeg 1.6499ms (791a596a)
+2021-06-28T09:07:34.1944784+04:30 0HM9P9MBPL80M:00000023 [INF] Request starting HTTP/2 GET https://localhost:5001/Images/Sliders/637603006819674190637471027127917650Web 1920 – 2.jpg - - (ca22a1cb)
+2021-06-28T09:07:34.1948423+04:30 0HM9P9MBPL80M:00000023 [INF] The file "/Images/Sliders/637603006819674190637471027127917650Web 1920 – 2.jpg" was not modified (f1f8d725)
+2021-06-28T09:07:34.1950856+04:30 0HM9P9MBPL80M:00000023 [INF] Request finished HTTP/2 GET https://localhost:5001/Images/Sliders/637603006819674190637471027127917650Web 1920 – 2.jpg - - - 304 - image/jpeg 0.6695ms (791a596a)
+2021-06-28T09:07:34.2208722+04:30 0HM9P9MBPL80M:00000017 [INF] Sending file. Request path: '"/Images/Sliders/63760300604125817910.jpg"'. Physical path: '"C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\wwwroot\Images\Sliders\63760300604125817910.jpg"' (27b0a520)
+2021-06-28T09:07:34.2210696+04:30 0HM9P9MBPL80M:00000017 [INF] Request finished HTTP/2 GET https://localhost:5001/Images/Sliders/63760300604125817910.jpg - - - 200 86893 image/jpeg 83.1354ms (791a596a)
+2021-06-28T09:07:34.2849772+04:30 0HM9P9MBPL80M:00000027 [INF] Request starting HTTP/2 GET https://localhost:5001/wp-content/themes/newkala/fonts/woff2/iranyekanwebregular(fanum).woff2 - - (ca22a1cb)
+2021-06-28T09:07:34.2852779+04:30 0HM9P9MBPL80M:00000029 [INF] Request starting HTTP/2 GET https://localhost:5001/wp-content/themes/newkala/font/newkala.woff2 - - (ca22a1cb)
+2021-06-28T09:07:34.2890418+04:30 0HM9P9MBPL80M:00000029 [INF] Sending file. Request path: '"/wp-content/themes/newkala/font/newkala.woff2"'. Physical path: '"C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\wwwroot\wp-content\themes\newkala\font\newkala.woff2"' (27b0a520)
+2021-06-28T09:07:34.2892766+04:30 0HM9P9MBPL80M:00000029 [INF] Request finished HTTP/2 GET https://localhost:5001/wp-content/themes/newkala/font/newkala.woff2 - - - 0 43680 font/woff2 3.9509ms (791a596a)
+2021-06-28T09:07:34.2892350+04:30 0HM9P9MBPL80M:00000027 [INF] Sending file. Request path: '"/wp-content/themes/newkala/fonts/woff2/iranyekanwebregular(fanum).woff2"'. Physical path: '"C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\wwwroot\wp-content\themes\newkala\fonts\woff2\iranyekanwebregular(fanum).woff2"' (27b0a520)
+2021-06-28T09:07:34.2893744+04:30 0HM9P9MBPL80M:00000027 [INF] Request finished HTTP/2 GET https://localhost:5001/wp-content/themes/newkala/fonts/woff2/iranyekanwebregular(fanum).woff2 - - - 0 24328 font/woff2 4.4133ms (791a596a)
+2021-06-28T09:07:34.3862233+04:30 0HM9P9MBPL80M:0000002B [INF] Request starting HTTP/2 GET https://localhost:5001/Images/Settings/FavIcon/android-icon-192x192.png - - (ca22a1cb)
+2021-06-28T09:07:34.3865644+04:30 0HM9P9MBPL80M:0000002D [INF] Request starting HTTP/2 GET https://localhost:5001/Images/Settings/FavIcon/favicon-16x16.png - - (ca22a1cb)
+2021-06-28T09:07:34.3946343+04:30 0HM9P9MBPL80M:0000002D [INF] Sending file. Request path: '"/Images/Settings/FavIcon/favicon-16x16.png"'. Physical path: '"C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\wwwroot\Images\Settings\FavIcon\favicon-16x16.png"' (27b0a520)
+2021-06-28T09:07:34.3948696+04:30 0HM9P9MBPL80M:0000002D [INF] Request finished HTTP/2 GET https://localhost:5001/Images/Settings/FavIcon/favicon-16x16.png - - - 200 1466 image/png 8.4752ms (791a596a)
+2021-06-28T09:07:34.3949378+04:30 0HM9P9MBPL80M:0000002B [INF] Sending file. Request path: '"/Images/Settings/FavIcon/android-icon-192x192.png"'. Physical path: '"C:\Users\pc-2\Pictures\.NET\01_MyProject\EndPoint.WebSite\wwwroot\Images\Settings\FavIcon\android-icon-192x192.png"' (27b0a520)
+2021-06-28T09:07:34.3950944+04:30 0HM9P9MBPL80M:0000002B [INF] Request finished HTTP/2 GET https://localhost:5001/Images/Settings/FavIcon/android-icon-192x192.png - - - 200 31399 image/png 8.9435ms (791a596a)

@@ -54,8 +54,7 @@ namespace EndPoint.WebSite.Areas.Admin.Controllers
 
 
         [Authorize(Policy = "BlogCategoriesEdit")]
-        [HttpPost]
-        [ValidateAntiForgeryToken]
+        [HttpGet]
         public IActionResult Edit(int id)
         {
             var result = _blogsCategoriesFacad.GetEditBlogsCategoriesServices.Execute(id);
@@ -64,6 +63,7 @@ namespace EndPoint.WebSite.Areas.Admin.Controllers
 
         [Authorize(Policy = "BlogCategoriesEdit")]
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult Edit(CreateBlogsCategoriesServicesDto createBlogsCategoriesServicesDto,
             CrmCmsNewsGroups crmCmsNewsGroups, int id)
         {
