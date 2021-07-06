@@ -1,8 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
-using System.Threading.Tasks;
 
-namespace EndPoint.Web.Areas.Auth.Data.Dto
+namespace EndPoint.WebSite.Areas.Auth.Data.Dto
 {
     public class ForgotPasswordDto
     {

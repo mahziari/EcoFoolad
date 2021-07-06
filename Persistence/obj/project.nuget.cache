@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Om0Eml3+do/Zv8azyW/PFJjjUgwbWqmYq0pb/DwiLMsHRpkKBRNFXLHoit1CREaj3wYjIrxLFAiH+KxXffeiWw==",
+  "dgSpecHash": "cx+l2VX8RydzmyCmffJg1UWfyofdh0o+9LfurC9d/n+EHoQOubwSNQ/zQnwkOamAAqv4m1/5ze10eEa80GWMQg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\pc-2\\Pictures\\.NET\\01_MyProject\\Persistence\\Persistence.csproj",
+  "projectFilePath": "C:\\Users\\pc-2\\Pictures\\.NET\\01_NewMyProject\\Persistence\\Persistence.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\pc-2\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
     "C:\\Users\\pc-2\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
@@ -40,6 +40,7 @@
     "C:\\Users\\pc-2\\.nuget\\packages\\microsoft.entityframeworkcore.tools\\5.0.6\\microsoft.entityframeworkcore.tools.5.0.6.nupkg.sha512",
     "C:\\Users\\pc-2\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\5.0.0\\microsoft.extensions.caching.abstractions.5.0.0.nupkg.sha512",
     "C:\\Users\\pc-2\\.nuget\\packages\\microsoft.extensions.caching.memory\\5.0.0\\microsoft.extensions.caching.memory.5.0.0.nupkg.sha512",
+    "C:\\Users\\pc-2\\.nuget\\packages\\microsoft.extensions.caching.sqlserver\\5.0.1\\microsoft.extensions.caching.sqlserver.5.0.1.nupkg.sha512",
     "C:\\Users\\pc-2\\.nuget\\packages\\microsoft.extensions.caching.stackexchangeredis\\5.0.1\\microsoft.extensions.caching.stackexchangeredis.5.0.1.nupkg.sha512",
     "C:\\Users\\pc-2\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\5.0.0\\microsoft.extensions.configuration.abstractions.5.0.0.nupkg.sha512",
     "C:\\Users\\pc-2\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\5.0.1\\microsoft.extensions.dependencyinjection.5.0.1.nupkg.sha512",

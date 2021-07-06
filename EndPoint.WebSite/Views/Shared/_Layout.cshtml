@@ -2,26 +2,47 @@
 @inject ISiteSetting _siteSetting;
 
 <!DOCTYPE html>
-<html dir="rtl" lang="fa-IR">
-<meta http-equiv="content-type" content="text/html;charset=UTF-8"/>
+<html lang="fa">
 <head>
     <title>@ViewData["Title"].ToString() | @_siteSetting.GetSiteSetting().SiteName</title>
     @await RenderSectionAsync("Head", false)
     <partial name="_HeadPartial"/>
-    <script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="0ec81915-0ce1-4019-bcc0-4edb1983d017";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-M88FWR8');</script>
+    <!-- End Google Tag Manager -->
+
+
+    <!-- AMP Analytics -->
+    <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
 </head>
 
-<!body @await RenderSectionAsync("BodyAttr", true)>
-    <partial name="_HeaderPartial"/>
-    <partial name="_MenusPartial"/>
+<body>
 
-    @RenderBody()
 
-    <partial name="_FooterPartial"/>
-    <partial name="_FooPartial"/>
-    @await RenderSectionAsync("Foo", false)
-    @await RenderSectionAsync("Scripts", false)
+<!-- Google Tag Manager (noscript) -->
+<noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M88FWR8"
+            height="0" width="0" style="display:none;visibility:hidden">
+    </iframe>
+</noscript>
+<!-- End Google Tag Manager (noscript) -->
 
-    @* @await RenderSectionAsync("Scripts", required: false) *@
-</!body>
+<!-- Google Tag Manager -->
+<amp-analytics config="https://www.googletagmanager.com/amp.json?id=GTM-5LWFZWM&gtm.url=SOURCE_URL" data-credentials="include"></amp-analytics>
+
+<partial name="_HeaderPartial"/>
+
+@RenderBody()
+
+<partial name="_FooterPartial"/>
+<partial name="_FooPartial"/>
+@await RenderSectionAsync("Foo", false)
+@await RenderSectionAsync("Scripts", false)
+</body>
+
 </html>

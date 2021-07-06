@@ -1,0 +1,37 @@
+[
+  {
+    "outputFileName": "wwwroot/assets/css/bundle.css",
+    "inputFiles": [
+      "wwwroot/assets/css/bootstrap.css",
+      "wwwroot/assets/css/bootstrap-slider.min.css",
+      "wwwroot/assets/css/font-awesome.min.css",
+      "wwwroot/assets/css/materialdesignicons.css",
+      "wwwroot/assets/css/nice-select.css",
+      "wwwroot/assets/css/owl.carousel.min.css",
+      "wwwroot/assets/css/style.css"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/assets/js/bundle.js",
+    "inputFiles": [
+      "wwwroot/assets/js/Auth.js",
+      "wwwroot/assets/js/bootstrap.js",
+      "wwwroot/assets/js/bootstrap-slider.min.js",
+      "wwwroot/assets/js/countdown.min.js",
+      "wwwroot/assets/js/jquery.countdown.min.js",
+      "wwwroot/assets/js/jquery.ez-plus.js",
+      "wwwroot/assets/js/jquery.nice-select.min.js",
+      "wwwroot/assets/js/jquery-3.2.1.min.js",
+      "wwwroot/assets/js/main.js",
+      "wwwroot/assets/js/owl.carousel.min.js",
+      "wwwroot/assets/js/popper.min.js",
+      "wwwroot/assets/js/theia-sticky-sidebar.min.js"
+    ]
+  },
+  {
+    "outputFileName": "gulpfile.min.js",
+    "inputFiles": [
+      "gulpfile.js"
+    ]
+  }
+]

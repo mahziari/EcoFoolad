@@ -1,8 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
-using Microsoft.AspNetCore.Mvc;
 
-namespace EndPoint.Web.Areas.Auth.Data.Dto
+namespace EndPoint.WebSite.Areas.Auth.Data.Dto
 {
     public class RegisterDto
     {
@@ -22,14 +21,7 @@ namespace EndPoint.Web.Areas.Auth.Data.Dto
         [Required(ErrorMessage = "پر کردن فیلد {0} اجباری است")]
         [StringLength(11, ErrorMessage = "تعداد کاراکتر بیش از حد مجاز")]
         public String PhoneNumber { get; set; }
-
-        // [EmailAddress]
-        // [Display(Name = "ایمیل ")]
-        // [Required(ErrorMessage = "پر کردن فیلد {0} اجباری است")]
-        // [StringLength(40, ErrorMessage = "تعداد کاراکتر بیش از حد مجاز")]
-        // public String Email { get; set; }
-
-
+        
         [Display(Name = "آدرس ")]
         [Required(ErrorMessage = "پر کردن فیلد {0} اجباری است")]
         [StringLength(1000, ErrorMessage = "تعداد کاراکتر بیش از حد مجاز")]
@@ -50,10 +42,5 @@ namespace EndPoint.Web.Areas.Auth.Data.Dto
         [MinLength(8, ErrorMessage = "تعداد رمز شما حداقل 8 کاراکتر باید باشد")]
         public String ConfirmPassword { get; set; }
         public bool RequestToBeOwner { get; set; }
-
-        // [Display(Name = " کد ارسال شده")]
-        // [Required(ErrorMessage = "پر کردن فیلد {0} اجباری است")]
-        // [StringLength(5, ErrorMessage = "تعداد کاراکتر بیش از حد مجاز")]
-        // public String ConfirmSMS { get; set; }
     }
 }

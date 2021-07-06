@@ -5,11 +5,12 @@ using Common.Extentions;
 using Common.Utilities;
 using Domain.Entities.IdealCrm;
 using Domain.Entities.Users;
-using EndPoint.Web.Areas.Auth.Data.Dto;
+using EndPoint.WebSite.Areas.Auth.Data.Dto;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Persistence.Contexts;
+using WebMarkupMin.Core.Resources;
 
 namespace EndPoint.WebSite.Areas.Auth.Controllers
 {
@@ -130,8 +131,6 @@ namespace EndPoint.WebSite.Areas.Auth.Controllers
             var result = _userManager.CreateAsync(newUser, registerDto.Password).Result;
             if (result.Succeeded)
             {
-                
-               
                 // This Code, Add User To IdealCrm Users table DataBase
                 Users nweUsers = new Users()
                 {
@@ -213,6 +212,7 @@ namespace EndPoint.WebSite.Areas.Auth.Controllers
                 message += item.Description + Environment.NewLine;
             }
             TempData["AuthErrors"] = message;
+            
             return View(registerDto);
         }
 

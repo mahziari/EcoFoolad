@@ -7,36 +7,55 @@
 
 @foreach (var item in Model.Menus)
 {
-    <li id="menu-item-233"
-        class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-has-children megamenu_by_two_level">
+   <li class="item-list-menu megamenu-1 nav-overlay">
         <a asp-controller="Products"
            asp-action="CategoryFirstGroup"
-           asp-route-FirstGroupName="@item.EnName">
-            @item.Name
+            asp-route-FirstGroupName="@item.EnName" class="list-category first after"
+           style="font-weight: bold;">
+            <i class="mdi mdi-sale text-danger"></i>
+             @item.Name
         </a>
-        <ul class="sub-menu nk-level-0">
-            @foreach (var subItem in item.Sub)
-            {
-                <li id="menu-item-234" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-has-children">
-                    <a asp-controller="Products"
-                       asp-action="CategorySecoundGroup"
-                       asp-route-SecoundGroupName="@subItem.EnFgname">
-                        @subItem.Fgname
-                    </a>
-                    <ul class="sub-menu nk-level-1">
-                        @foreach (var subSunItem in subItem.SubSub)
-                        {
-                            <li class="menu-item menu-item-type-custom menu-item-object-custom">
-                                <a asp-controller="Products"
-                                   asp-action="Category"
-                                   asp-route-MenuName="@subSunItem.EnSgname">
-                                    @subSunItem.Sgname
-                                </a>
-                            </li>
-                        }
-                    </ul>
-                </li>
-            }
-        </ul>
+       <ul class="list-menu-level-2 list-menu-discounts-offers">
+              @foreach (var subItem in item.Sub)
+                       {
+           <div class="menu-level-3">
+               <li class="discounts-offers-item">
+                   <a asp-controller="Products"
+                      asp-action="CategorySecoundGroup"
+                      asp-route-SecoundGroupName="@subItem.EnFgname" class="list-category-megamenu-3">
+                       <span>
+                           @subItem.Fgname
+                           <i
+                               class="fa fa-angle-left">
+                           </i>
+                       </span>
+                   </a>
+               </li>
+                 @foreach (var subSunItem in subItem.SubSub)
+                   {
+                       <li class="discounts-offers-item">
+                           <a asp-controller="Products"
+                              asp-action="Category"
+                              asp-route-MenuName="@subSunItem.EnSgname" class="list-category-megamenu-3 list-category-megamenu-3-medium">
+                               <span
+                                   class="medium-display-title">
+                                 @subSunItem.Sgname
+                               </span>
+                           </a>
+                       </li>
+                       }
+           </div>
+                           }
+
+           <div class="main-banner">
+               <a href="#">
+                   <img src="assets/images/banner.jpg">
+               </a>
+           </div>
+       </ul>
     </li>
+
 }
+
+
+    

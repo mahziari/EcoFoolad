@@ -1,12 +1,11 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
-using Microsoft.AspNetCore.Mvc;
 
-namespace EndPoint.Web.Areas.Auth.Data.Dto
+namespace EndPoint.WebSite.Areas.Auth.Data.Dto
 {
     public class CheckOutDto
     {
-        [Display(Name = "شماره تلفن")]
+        [Display(Name = "شماره موبایل")]
         [Required(ErrorMessage = "پر کردن فیلد {0} اجباری است")]
         [StringLength(11, ErrorMessage = "تعداد کاراکتر بیش از حد مجاز")]
         [MinLength(11, ErrorMessage = "حداقل تعداد شماره تلفن 11 کاراکتر")]

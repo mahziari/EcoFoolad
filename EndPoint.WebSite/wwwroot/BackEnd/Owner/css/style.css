@@ -62,7 +62,7 @@ header#header_newkala {
     cursor: pointer
 }
 
-.woocommerce-error, .woocommerce-info, .woocommerce-message {
+.auth-error, .woocommerce-info, .woocommerce-message {
     background-color: #fdfdfd
 }
 

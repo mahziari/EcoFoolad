@@ -2,14 +2,20 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
+    <UserSecretsId>661aa2f0-69d7-4707-a7c2-e434ade36fb7</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.1" />
+    <Content Remove="bundleconfig.json" />
+    <Content Remove="package.json" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="LazZiya.TagHelpers" Version="5.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Http.Features" Version="5.0.6" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="5.0.6" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="5.0.6" />
+    <PackageReference Include="Microsoft.AspNetCore.ResponseCompression" Version="2.2.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.6" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.6">
       <PrivateAssets>all</PrivateAssets>
@@ -23,6 +29,7 @@
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="5.0.2" />
     <PackageReference Include="Serilog.Extensions.Logging.File" Version="2.0.0" />
+    <PackageReference Include="WebMarkupMin.AspNetCore5" Version="2.10.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -50,6 +57,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <_ContentIncludedByDefault Remove="bundleconfig.json" />
     <_ContentIncludedByDefault Remove="Views\Blogs\Category.cshtml" />
     <_ContentIncludedByDefault Remove="Views\Blogs\Details.cshtml" />
     <_ContentIncludedByDefault Remove="Views\Blogs\Index.cshtml" />
@@ -796,6 +804,10 @@
     <_ContentIncludedByDefault Remove="wwwroot\BackEnd\Admin\images\sliders\modern.jpg" />
     <_ContentIncludedByDefault Remove="wwwroot\BackEnd\Admin\images\sliders\stack.jpg" />
     <_ContentIncludedByDefault Remove="wwwroot\BackEnd\Admin\images\sliders\vuesax.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="bundleconfig.json" />
   </ItemGroup>
 
 </Project>

@@ -130,7 +130,7 @@ namespace Application.Services.FrontEnd.Products.Queries.GetProductsCategory
                 PrdPrice = p.PrdPrice,
                 PrdDescription = p.PrdDescription,
                 DateTime = p.RegisterDate,
-                subMenu = new GetIndexMenuDto{ EnSgname = productsFiltersDto.MenuName,},
+                subMenu = new GetIndexMenuDto{ EnSgname = productsFiltersDto.SecoundGroupName,},
             }).Skip(skip).Take(resultInEachPage).ToList();
 
 

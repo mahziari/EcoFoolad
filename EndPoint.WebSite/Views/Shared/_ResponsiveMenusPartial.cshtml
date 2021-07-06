@@ -1,40 +1,20 @@
 ﻿@using Application.Services.FrontEnd.Common
 @inject ISiteSetting _siteSetting;
 
-
-<ul class="responsive_main_menu">
-    <li class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-90">
-        <a href="/" aria-current="page">صفحه اصلی</a>
-    </li>
-    @await Component.InvokeAsync("GetMenus")
-    
-    <li id="menu-item-90"
-        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu_absahri">
-        <a asp-controller="Products" asp-action="Index">محصولات</a>
-    </li>
-
-    <li id="menu-item-90"
-        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu_absahri">
-        <a asp-controller="Blogs" asp-action="Index">بلاگ @_siteSetting.GetSiteSetting().SiteName </a>
-    </li>
-    
-
-    <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-3396">
-        <a
-            href="#">
-            ارتباط با ما 
-        </a>
-        <ul class="sub-menu">
-            <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3397">
-                <a href="#">
-                    درباره ما
-                </a>
-            </li>
-            <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3399">
-                <a href="#">
-                   تماس با ما
-                </a>
-            </li>
-        </ul>
-    </li>
-</ul>
+ <!--    responsive-megamenu-mobile----------------->
+        <nav class="sidebar">
+            <div class="nav-header">
+                <div class="header-cover"></div>
+                <div class="logo-wrap">
+                    <a class="logo-icon" href="/"><img alt="logo-icon" src="@_siteSetting.GetSiteSetting().LogoImage" width="40"></a>
+                </div>
+            </div>
+            @await Component.InvokeAsync("ResponsiveGetMenus")
+        </nav>
+        <div class="nav-btn">
+            <span class="linee1"></span>
+            <span class="linee2"></span>
+            <span class="linee3"></span>
+        </div>
+        <div class="overlay"></div>
+        <!--    responsive-megamenu-mobile----------------->

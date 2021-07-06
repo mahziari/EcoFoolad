@@ -2,6 +2,15 @@
   "version": 3,
   "targets": {
     "net5.0": {
+      "AdvancedStringBuilder/0.1.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/AdvancedStringBuilder.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/AdvancedStringBuilder.dll": {}
+        }
+      },
       "AutoMapper/10.1.1": {
         "type": "package",
         "dependencies": {
@@ -399,6 +408,20 @@
         },
         "runtime": {
           "lib/netstandard2.0/Microsoft.AspNetCore.Razor.Runtime.dll": {}
+        }
+      },
+      "Microsoft.AspNetCore.ResponseCompression/2.2.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Http.Extensions": "2.2.0",
+          "Microsoft.Extensions.Logging.Abstractions": "2.2.0",
+          "Microsoft.Extensions.Options": "2.2.0"
+        },
+        "compile": {
+          "lib/netcoreapp2.1/Microsoft.AspNetCore.ResponseCompression.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp2.1/Microsoft.AspNetCore.ResponseCompression.dll": {}
         }
       },
       "Microsoft.AspNetCore.Server.Kestrel.Transport.Libuv/5.0.6": {
@@ -928,6 +951,20 @@
         },
         "runtime": {
           "lib/netstandard2.0/Microsoft.Extensions.Caching.Memory.dll": {}
+        }
+      },
+      "Microsoft.Extensions.Caching.SqlServer/5.0.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Data.SqlClient": "1.0.19239.1",
+          "Microsoft.Extensions.Caching.Abstractions": "5.0.0",
+          "Microsoft.Extensions.Options": "5.0.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.Extensions.Caching.SqlServer.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Extensions.Caching.SqlServer.dll": {}
         }
       },
       "Microsoft.Extensions.Caching.StackExchangeRedis/5.0.1": {
@@ -2926,6 +2963,46 @@
           "lib/netstandard1.3/System.Xml.XmlSerializer.dll": {}
         }
       },
+      "WebMarkupMin.AspNet.Common/2.10.0": {
+        "type": "package",
+        "dependencies": {
+          "WebMarkupMin.Core": "2.9.0"
+        },
+        "compile": {
+          "lib/netcoreapp2.1/WebMarkupMin.AspNet.Common.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp2.1/WebMarkupMin.AspNet.Common.dll": {}
+        }
+      },
+      "WebMarkupMin.AspNetCore5/2.10.0": {
+        "type": "package",
+        "dependencies": {
+          "AdvancedStringBuilder": "0.1.0",
+          "WebMarkupMin.AspNet.Common": "2.10.0"
+        },
+        "compile": {
+          "lib/net5.0/WebMarkupMin.AspNetCore5.dll": {}
+        },
+        "runtime": {
+          "lib/net5.0/WebMarkupMin.AspNetCore5.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
+      },
+      "WebMarkupMin.Core/2.9.0": {
+        "type": "package",
+        "dependencies": {
+          "AdvancedStringBuilder": "0.1.0"
+        },
+        "compile": {
+          "lib/netstandard2.1/WebMarkupMin.Core.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.1/WebMarkupMin.Core.dll": {}
+        }
+      },
       "Application/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
@@ -2937,6 +3014,7 @@
           "Microsoft.EntityFrameworkCore": "5.0.6",
           "Microsoft.EntityFrameworkCore.SqlServer": "5.0.6",
           "Microsoft.EntityFrameworkCore.Sqlite": "5.0.6",
+          "Microsoft.Extensions.Caching.SqlServer": "5.0.1",
           "Microsoft.Extensions.Caching.StackExchangeRedis": "5.0.1",
           "Microsoft.Extensions.Hosting.Abstractions": "5.0.0",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "5.0.2",
@@ -2990,11 +3068,13 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
         "dependencies": {
+          "AutoMapper.Extensions.Microsoft.DependencyInjection": "8.1.1",
           "Microsoft.AspNetCore.Identity": "2.2.0",
           "Microsoft.Extensions.Configuration.Abstractions": "5.0.0",
           "Microsoft.Extensions.DependencyInjection.Abstractions": "5.0.0",
           "Persistence": "1.0.0",
-          "RestSharp": "106.11.7"
+          "RestSharp": "106.11.7",
+          "WebMarkupMin.AspNetCore5": "2.10.0"
         },
         "compile": {
           "bin/placeholder/Infrastructure.dll": {}
@@ -3031,6 +3111,25 @@
     }
   },
   "libraries": {
+    "AdvancedStringBuilder/0.1.0": {
+      "sha512": "IbN3r5whlJvi8MhCDPVpIb+NVScyUcKSdcJZrnoXFDyzPDISl3AbWouNBYIHRdZdfGuzqCQEhM1vkxbIKqQVaQ==",
+      "type": "package",
+      "path": "advancedstringbuilder/0.1.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "advancedstringbuilder.0.1.0.nupkg.sha512",
+        "advancedstringbuilder.nuspec",
+        "lib/net40-client/AdvancedStringBuilder.dll",
+        "lib/net40-client/AdvancedStringBuilder.xml",
+        "lib/net45/AdvancedStringBuilder.dll",
+        "lib/net45/AdvancedStringBuilder.xml",
+        "lib/netstandard1.0/AdvancedStringBuilder.dll",
+        "lib/netstandard1.0/AdvancedStringBuilder.xml",
+        "lib/netstandard2.0/AdvancedStringBuilder.dll",
+        "lib/netstandard2.0/AdvancedStringBuilder.xml"
+      ]
+    },
     "AutoMapper/10.1.1": {
       "sha512": "uMgbqOdu9ZG5cIOty0C85hzzayBH2i9BthnS5FlMqKtMSHDv4ts81a2jS1VFaDBVhlBeIqJ/kQKjQY95BZde9w==",
       "type": "package",
@@ -3454,6 +3553,23 @@
         "lib/netstandard2.0/Microsoft.AspNetCore.Razor.Runtime.xml",
         "microsoft.aspnetcore.razor.runtime.2.2.0.nupkg.sha512",
         "microsoft.aspnetcore.razor.runtime.nuspec"
+      ]
+    },
+    "Microsoft.AspNetCore.ResponseCompression/2.2.0": {
+      "sha512": "RvSstOhebIMDdRLd4iWjA6z2o2kGGwEYGPajvTXwndOA3TZpWH3FOIV4L7mehN/HoKrbTbX5vZ54ZFDwWoAFKA==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.responsecompression/2.2.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net461/Microsoft.AspNetCore.ResponseCompression.dll",
+        "lib/net461/Microsoft.AspNetCore.ResponseCompression.xml",
+        "lib/netcoreapp2.1/Microsoft.AspNetCore.ResponseCompression.dll",
+        "lib/netcoreapp2.1/Microsoft.AspNetCore.ResponseCompression.xml",
+        "lib/netstandard2.0/Microsoft.AspNetCore.ResponseCompression.dll",
+        "lib/netstandard2.0/Microsoft.AspNetCore.ResponseCompression.xml",
+        "microsoft.aspnetcore.responsecompression.2.2.0.nupkg.sha512",
+        "microsoft.aspnetcore.responsecompression.nuspec"
       ]
     },
     "Microsoft.AspNetCore.Server.Kestrel.Transport.Libuv/5.0.6": {
@@ -4162,6 +4278,20 @@
         "microsoft.extensions.caching.memory.nuspec",
         "useSharedDesignerContext.txt",
         "version.txt"
+      ]
+    },
+    "Microsoft.Extensions.Caching.SqlServer/5.0.1": {
+      "sha512": "JQgH2x7U94InnzGdqcaz0Ebj7Ohl98rbzbcSZj09TxkpoBjouCDTlK2iirfGLfT8ne2rQngVTb/VJEIq26Nt0g==",
+      "type": "package",
+      "path": "microsoft.extensions.caching.sqlserver/5.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "lib/netstandard2.0/Microsoft.Extensions.Caching.SqlServer.dll",
+        "lib/netstandard2.0/Microsoft.Extensions.Caching.SqlServer.xml",
+        "microsoft.extensions.caching.sqlserver.5.0.1.nupkg.sha512",
+        "microsoft.extensions.caching.sqlserver.nuspec"
       ]
     },
     "Microsoft.Extensions.Caching.StackExchangeRedis/5.0.1": {
@@ -9348,6 +9478,72 @@
         "system.xml.xmlserializer.nuspec"
       ]
     },
+    "WebMarkupMin.AspNet.Common/2.10.0": {
+      "sha512": "QmsjcOQkUQ7kEqzMEXuvVrcBu90B7tfPe177PdoAroakgvAhu/kJf96Pn0OSwVWXx4d8gNjFNYhMbg1ghYYPzw==",
+      "type": "package",
+      "path": "webmarkupmin.aspnet.common/2.10.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.txt",
+        "icon.png",
+        "lib/net40/WebMarkupMin.AspNet.Common.dll",
+        "lib/net40/WebMarkupMin.AspNet.Common.xml",
+        "lib/net45/WebMarkupMin.AspNet.Common.dll",
+        "lib/net45/WebMarkupMin.AspNet.Common.xml",
+        "lib/netcoreapp2.1/WebMarkupMin.AspNet.Common.dll",
+        "lib/netcoreapp2.1/WebMarkupMin.AspNet.Common.xml",
+        "lib/netstandard1.3/WebMarkupMin.AspNet.Common.dll",
+        "lib/netstandard1.3/WebMarkupMin.AspNet.Common.xml",
+        "lib/netstandard2.0/WebMarkupMin.AspNet.Common.dll",
+        "lib/netstandard2.0/WebMarkupMin.AspNet.Common.xml",
+        "lib/netstandard2.1/WebMarkupMin.AspNet.Common.dll",
+        "lib/netstandard2.1/WebMarkupMin.AspNet.Common.xml",
+        "readme.txt",
+        "webmarkupmin.aspnet.common.2.10.0.nupkg.sha512",
+        "webmarkupmin.aspnet.common.nuspec"
+      ]
+    },
+    "WebMarkupMin.AspNetCore5/2.10.0": {
+      "sha512": "ELWugsxPqAgkQQLj5whDfgHaUin7cLnTnbfMMS+EDs8iWpezArNUWLMCtZ5bDlf4Gl5SBN5G1uFwH0BYXsFKDg==",
+      "type": "package",
+      "path": "webmarkupmin.aspnetcore5/2.10.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.txt",
+        "icon.png",
+        "lib/net5.0/WebMarkupMin.AspNetCore5.dll",
+        "lib/net5.0/WebMarkupMin.AspNetCore5.xml",
+        "readme.txt",
+        "webmarkupmin.aspnetcore5.2.10.0.nupkg.sha512",
+        "webmarkupmin.aspnetcore5.nuspec"
+      ]
+    },
+    "WebMarkupMin.Core/2.9.0": {
+      "sha512": "FlEMQbamh/L6nYa4A7coH0X3G6IynOM7q+/3Wub7Y4DVGyOEXHQbUHkvJ61RXtFnT9tagfzsn1iiSm3VoOumzw==",
+      "type": "package",
+      "path": "webmarkupmin.core/2.9.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.txt",
+        "icon.png",
+        "lib/net40-client/WebMarkupMin.Core.dll",
+        "lib/net40-client/WebMarkupMin.Core.xml",
+        "lib/net45/WebMarkupMin.Core.dll",
+        "lib/net45/WebMarkupMin.Core.xml",
+        "lib/netstandard1.3/WebMarkupMin.Core.dll",
+        "lib/netstandard1.3/WebMarkupMin.Core.xml",
+        "lib/netstandard2.0/WebMarkupMin.Core.dll",
+        "lib/netstandard2.0/WebMarkupMin.Core.xml",
+        "lib/netstandard2.1/WebMarkupMin.Core.dll",
+        "lib/netstandard2.1/WebMarkupMin.Core.xml",
+        "readme.txt",
+        "webmarkupmin.core.2.9.0.nupkg.sha512",
+        "webmarkupmin.core.nuspec"
+      ]
+    },
     "Application/1.0.0": {
       "type": "project",
       "path": "../Application/Application.csproj",
@@ -9377,13 +9573,13 @@
   "projectFileDependencyGroups": {
     "net5.0": [
       "Application >= 1.0.0",
-      "AutoMapper.Extensions.Microsoft.DependencyInjection >= 8.1.1",
       "Common >= 1.0.0",
       "Infrastructure >= 1.0.0",
       "LazZiya.TagHelpers >= 5.0.0",
       "Microsoft.AspNetCore.Http.Features >= 5.0.6",
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 5.0.6",
       "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation >= 5.0.6",
+      "Microsoft.AspNetCore.ResponseCompression >= 2.2.0",
       "Microsoft.EntityFrameworkCore >= 5.0.6",
       "Microsoft.EntityFrameworkCore.Design >= 5.0.6",
       "Microsoft.EntityFrameworkCore.SqlServer >= 5.0.6",
@@ -9391,7 +9587,8 @@
       "Microsoft.EntityFrameworkCore.Tools >= 5.0.6",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 5.0.2",
       "Persistence >= 1.0.0",
-      "Serilog.Extensions.Logging.File >= 2.0.0"
+      "Serilog.Extensions.Logging.File >= 2.0.0",
+      "WebMarkupMin.AspNetCore5 >= 2.10.0"
     ]
   },
   "packageFolders": {
@@ -9401,11 +9598,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\pc-2\\Pictures\\.NET\\01_MyProject\\EndPoint.WebSite\\EndPoint.WebSite.csproj",
+      "projectUniqueName": "C:\\Users\\pc-2\\Pictures\\.NET\\01_NewMyProject\\EndPoint.WebSite\\EndPoint.WebSite.csproj",
       "projectName": "EndPoint.WebSite",
-      "projectPath": "C:\\Users\\pc-2\\Pictures\\.NET\\01_MyProject\\EndPoint.WebSite\\EndPoint.WebSite.csproj",
+      "projectPath": "C:\\Users\\pc-2\\Pictures\\.NET\\01_NewMyProject\\EndPoint.WebSite\\EndPoint.WebSite.csproj",
       "packagesPath": "C:\\Users\\pc-2\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\pc-2\\Pictures\\.NET\\01_MyProject\\EndPoint.WebSite\\obj\\",
+      "outputPath": "C:\\Users\\pc-2\\Pictures\\.NET\\01_NewMyProject\\EndPoint.WebSite\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -9426,17 +9623,17 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\Users\\pc-2\\Pictures\\.NET\\01_MyProject\\Application\\Application.csproj": {
-              "projectPath": "C:\\Users\\pc-2\\Pictures\\.NET\\01_MyProject\\Application\\Application.csproj"
+            "C:\\Users\\pc-2\\Pictures\\.NET\\01_NewMyProject\\Application\\Application.csproj": {
+              "projectPath": "C:\\Users\\pc-2\\Pictures\\.NET\\01_NewMyProject\\Application\\Application.csproj"
             },
-            "C:\\Users\\pc-2\\Pictures\\.NET\\01_MyProject\\Common\\Common.csproj": {
-              "projectPath": "C:\\Users\\pc-2\\Pictures\\.NET\\01_MyProject\\Common\\Common.csproj"
+            "C:\\Users\\pc-2\\Pictures\\.NET\\01_NewMyProject\\Common\\Common.csproj": {
+              "projectPath": "C:\\Users\\pc-2\\Pictures\\.NET\\01_NewMyProject\\Common\\Common.csproj"
             },
-            "C:\\Users\\pc-2\\Pictures\\.NET\\01_MyProject\\Infrastructure\\Infrastructure.csproj": {
-              "projectPath": "C:\\Users\\pc-2\\Pictures\\.NET\\01_MyProject\\Infrastructure\\Infrastructure.csproj"
+            "C:\\Users\\pc-2\\Pictures\\.NET\\01_NewMyProject\\Infrastructure\\Infrastructure.csproj": {
+              "projectPath": "C:\\Users\\pc-2\\Pictures\\.NET\\01_NewMyProject\\Infrastructure\\Infrastructure.csproj"
             },
-            "C:\\Users\\pc-2\\Pictures\\.NET\\01_MyProject\\Persistence\\Persistence.csproj": {
-              "projectPath": "C:\\Users\\pc-2\\Pictures\\.NET\\01_MyProject\\Persistence\\Persistence.csproj"
+            "C:\\Users\\pc-2\\Pictures\\.NET\\01_NewMyProject\\Persistence\\Persistence.csproj": {
+              "projectPath": "C:\\Users\\pc-2\\Pictures\\.NET\\01_NewMyProject\\Persistence\\Persistence.csproj"
             }
           }
         }
@@ -9451,10 +9648,6 @@
       "net5.0": {
         "targetAlias": "net5.0",
         "dependencies": {
-          "AutoMapper.Extensions.Microsoft.DependencyInjection": {
-            "target": "Package",
-            "version": "[8.1.1, )"
-          },
           "LazZiya.TagHelpers": {
             "target": "Package",
             "version": "[5.0.0, )"
@@ -9470,6 +9663,10 @@
           "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation": {
             "target": "Package",
             "version": "[5.0.6, )"
+          },
+          "Microsoft.AspNetCore.ResponseCompression": {
+            "target": "Package",
+            "version": "[2.2.0, )"
           },
           "Microsoft.EntityFrameworkCore": {
             "target": "Package",
@@ -9502,6 +9699,10 @@
           "Serilog.Extensions.Logging.File": {
             "target": "Package",
             "version": "[2.0.0, )"
+          },
+          "WebMarkupMin.AspNetCore5": {
+            "target": "Package",
+            "version": "[2.10.0, )"
           }
         },
         "imports": [
@@ -9522,7 +9723,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.203\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.204\\RuntimeIdentifierGraph.json"
       }
     }
   }

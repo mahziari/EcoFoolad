@@ -1,7 +1,4 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using Application.Interfaces.Contexts;
-using AutoMapper;
 using Domain.Entities;
 
 namespace Application.Services.FrontEnd.Common.Footers.Queries
@@ -11,33 +8,7 @@ namespace Application.Services.FrontEnd.Common.Footers.Queries
         BaseDto<FooterFrontEndDto> GetFootersFrontEnd();
     }
 
-    public class GetFootersFrontEndService:IGetFootersFrontEndService
-    {
-        private readonly ICustomDbContext _customDbContext;
-        private readonly IMapper _mapper;
 
-        public GetFootersFrontEndService(ICustomDbContext customDbContext, IMapper mapper)
-        {
-            _customDbContext = customDbContext;
-            _mapper = mapper;
-        }
-        
-        
-
-        public BaseDto<FooterFrontEndDto> GetFootersFrontEnd()
-        {
-            var model = _customDbContext.Footers.FirstOrDefault();
-            var data = _mapper.Map<FooterFrontEndDto>(model);
-            return new BaseDto<FooterFrontEndDto>
-            (
-                true,
-                null,
-                _mapper.Map<FooterFrontEndDto>(data)
-            );
-        }
-    }
-    
-    
     public class FooterFrontEndDto
     {
         public int Id { get; set; }

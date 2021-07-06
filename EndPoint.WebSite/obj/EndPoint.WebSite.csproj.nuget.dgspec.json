@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\pc-2\\Pictures\\.NET\\01_MyProject\\EndPoint.WebSite\\EndPoint.WebSite.csproj": {}
+    "C:\\Users\\pc-2\\Pictures\\.NET\\01_NewMyProject\\EndPoint.WebSite\\EndPoint.WebSite.csproj": {}
   },
   "projects": {
-    "C:\\Users\\pc-2\\Pictures\\.NET\\01_MyProject\\Application\\Application.csproj": {
+    "C:\\Users\\pc-2\\Pictures\\.NET\\01_NewMyProject\\Application\\Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\pc-2\\Pictures\\.NET\\01_MyProject\\Application\\Application.csproj",
+        "projectUniqueName": "C:\\Users\\pc-2\\Pictures\\.NET\\01_NewMyProject\\Application\\Application.csproj",
         "projectName": "Application",
-        "projectPath": "C:\\Users\\pc-2\\Pictures\\.NET\\01_MyProject\\Application\\Application.csproj",
+        "projectPath": "C:\\Users\\pc-2\\Pictures\\.NET\\01_NewMyProject\\Application\\Application.csproj",
         "packagesPath": "C:\\Users\\pc-2\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\pc-2\\Pictures\\.NET\\01_MyProject\\Application\\obj\\",
+        "outputPath": "C:\\Users\\pc-2\\Pictures\\.NET\\01_NewMyProject\\Application\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -32,11 +32,11 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\pc-2\\Pictures\\.NET\\01_MyProject\\Common\\Common.csproj": {
-                "projectPath": "C:\\Users\\pc-2\\Pictures\\.NET\\01_MyProject\\Common\\Common.csproj"
+              "C:\\Users\\pc-2\\Pictures\\.NET\\01_NewMyProject\\Common\\Common.csproj": {
+                "projectPath": "C:\\Users\\pc-2\\Pictures\\.NET\\01_NewMyProject\\Common\\Common.csproj"
               },
-              "C:\\Users\\pc-2\\Pictures\\.NET\\01_MyProject\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Users\\pc-2\\Pictures\\.NET\\01_MyProject\\Domain\\Domain.csproj"
+              "C:\\Users\\pc-2\\Pictures\\.NET\\01_NewMyProject\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\pc-2\\Pictures\\.NET\\01_NewMyProject\\Domain\\Domain.csproj"
               }
             }
           }
@@ -70,6 +70,10 @@
             "Microsoft.EntityFrameworkCore.Sqlite": {
               "target": "Package",
               "version": "[5.0.6, )"
+            },
+            "Microsoft.Extensions.Caching.SqlServer": {
+              "target": "Package",
+              "version": "[5.0.1, )"
             },
             "Microsoft.Extensions.Caching.StackExchangeRedis": {
               "target": "Package",
@@ -114,18 +118,18 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.204\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\pc-2\\Pictures\\.NET\\01_MyProject\\Common\\Common.csproj": {
+    "C:\\Users\\pc-2\\Pictures\\.NET\\01_NewMyProject\\Common\\Common.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\pc-2\\Pictures\\.NET\\01_MyProject\\Common\\Common.csproj",
+        "projectUniqueName": "C:\\Users\\pc-2\\Pictures\\.NET\\01_NewMyProject\\Common\\Common.csproj",
         "projectName": "Common",
-        "projectPath": "C:\\Users\\pc-2\\Pictures\\.NET\\01_MyProject\\Common\\Common.csproj",
+        "projectPath": "C:\\Users\\pc-2\\Pictures\\.NET\\01_NewMyProject\\Common\\Common.csproj",
         "packagesPath": "C:\\Users\\pc-2\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\pc-2\\Pictures\\.NET\\01_MyProject\\Common\\obj\\",
+        "outputPath": "C:\\Users\\pc-2\\Pictures\\.NET\\01_NewMyProject\\Common\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -186,18 +190,18 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.204\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\pc-2\\Pictures\\.NET\\01_MyProject\\Domain\\Domain.csproj": {
+    "C:\\Users\\pc-2\\Pictures\\.NET\\01_NewMyProject\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\pc-2\\Pictures\\.NET\\01_MyProject\\Domain\\Domain.csproj",
+        "projectUniqueName": "C:\\Users\\pc-2\\Pictures\\.NET\\01_NewMyProject\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "C:\\Users\\pc-2\\Pictures\\.NET\\01_MyProject\\Domain\\Domain.csproj",
+        "projectPath": "C:\\Users\\pc-2\\Pictures\\.NET\\01_NewMyProject\\Domain\\Domain.csproj",
         "packagesPath": "C:\\Users\\pc-2\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\pc-2\\Pictures\\.NET\\01_MyProject\\Domain\\obj\\",
+        "outputPath": "C:\\Users\\pc-2\\Pictures\\.NET\\01_NewMyProject\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -266,18 +270,18 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.204\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\pc-2\\Pictures\\.NET\\01_MyProject\\EndPoint.WebSite\\EndPoint.WebSite.csproj": {
+    "C:\\Users\\pc-2\\Pictures\\.NET\\01_NewMyProject\\EndPoint.WebSite\\EndPoint.WebSite.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\pc-2\\Pictures\\.NET\\01_MyProject\\EndPoint.WebSite\\EndPoint.WebSite.csproj",
+        "projectUniqueName": "C:\\Users\\pc-2\\Pictures\\.NET\\01_NewMyProject\\EndPoint.WebSite\\EndPoint.WebSite.csproj",
         "projectName": "EndPoint.WebSite",
-        "projectPath": "C:\\Users\\pc-2\\Pictures\\.NET\\01_MyProject\\EndPoint.WebSite\\EndPoint.WebSite.csproj",
+        "projectPath": "C:\\Users\\pc-2\\Pictures\\.NET\\01_NewMyProject\\EndPoint.WebSite\\EndPoint.WebSite.csproj",
         "packagesPath": "C:\\Users\\pc-2\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\pc-2\\Pictures\\.NET\\01_MyProject\\EndPoint.WebSite\\obj\\",
+        "outputPath": "C:\\Users\\pc-2\\Pictures\\.NET\\01_NewMyProject\\EndPoint.WebSite\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -298,17 +302,17 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\pc-2\\Pictures\\.NET\\01_MyProject\\Application\\Application.csproj": {
-                "projectPath": "C:\\Users\\pc-2\\Pictures\\.NET\\01_MyProject\\Application\\Application.csproj"
+              "C:\\Users\\pc-2\\Pictures\\.NET\\01_NewMyProject\\Application\\Application.csproj": {
+                "projectPath": "C:\\Users\\pc-2\\Pictures\\.NET\\01_NewMyProject\\Application\\Application.csproj"
               },
-              "C:\\Users\\pc-2\\Pictures\\.NET\\01_MyProject\\Common\\Common.csproj": {
-                "projectPath": "C:\\Users\\pc-2\\Pictures\\.NET\\01_MyProject\\Common\\Common.csproj"
+              "C:\\Users\\pc-2\\Pictures\\.NET\\01_NewMyProject\\Common\\Common.csproj": {
+                "projectPath": "C:\\Users\\pc-2\\Pictures\\.NET\\01_NewMyProject\\Common\\Common.csproj"
               },
-              "C:\\Users\\pc-2\\Pictures\\.NET\\01_MyProject\\Infrastructure\\Infrastructure.csproj": {
-                "projectPath": "C:\\Users\\pc-2\\Pictures\\.NET\\01_MyProject\\Infrastructure\\Infrastructure.csproj"
+              "C:\\Users\\pc-2\\Pictures\\.NET\\01_NewMyProject\\Infrastructure\\Infrastructure.csproj": {
+                "projectPath": "C:\\Users\\pc-2\\Pictures\\.NET\\01_NewMyProject\\Infrastructure\\Infrastructure.csproj"
               },
-              "C:\\Users\\pc-2\\Pictures\\.NET\\01_MyProject\\Persistence\\Persistence.csproj": {
-                "projectPath": "C:\\Users\\pc-2\\Pictures\\.NET\\01_MyProject\\Persistence\\Persistence.csproj"
+              "C:\\Users\\pc-2\\Pictures\\.NET\\01_NewMyProject\\Persistence\\Persistence.csproj": {
+                "projectPath": "C:\\Users\\pc-2\\Pictures\\.NET\\01_NewMyProject\\Persistence\\Persistence.csproj"
               }
             }
           }
@@ -323,10 +327,6 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
-            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
-              "target": "Package",
-              "version": "[8.1.1, )"
-            },
             "LazZiya.TagHelpers": {
               "target": "Package",
               "version": "[5.0.0, )"
@@ -342,6 +342,10 @@
             "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation": {
               "target": "Package",
               "version": "[5.0.6, )"
+            },
+            "Microsoft.AspNetCore.ResponseCompression": {
+              "target": "Package",
+              "version": "[2.2.0, )"
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
@@ -374,6 +378,10 @@
             "Serilog.Extensions.Logging.File": {
               "target": "Package",
               "version": "[2.0.0, )"
+            },
+            "WebMarkupMin.AspNetCore5": {
+              "target": "Package",
+              "version": "[2.10.0, )"
             }
           },
           "imports": [
@@ -394,18 +402,18 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.204\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\pc-2\\Pictures\\.NET\\01_MyProject\\Infrastructure\\Infrastructure.csproj": {
+    "C:\\Users\\pc-2\\Pictures\\.NET\\01_NewMyProject\\Infrastructure\\Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\pc-2\\Pictures\\.NET\\01_MyProject\\Infrastructure\\Infrastructure.csproj",
+        "projectUniqueName": "C:\\Users\\pc-2\\Pictures\\.NET\\01_NewMyProject\\Infrastructure\\Infrastructure.csproj",
         "projectName": "Infrastructure",
-        "projectPath": "C:\\Users\\pc-2\\Pictures\\.NET\\01_MyProject\\Infrastructure\\Infrastructure.csproj",
+        "projectPath": "C:\\Users\\pc-2\\Pictures\\.NET\\01_NewMyProject\\Infrastructure\\Infrastructure.csproj",
         "packagesPath": "C:\\Users\\pc-2\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\pc-2\\Pictures\\.NET\\01_MyProject\\Infrastructure\\obj\\",
+        "outputPath": "C:\\Users\\pc-2\\Pictures\\.NET\\01_NewMyProject\\Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -426,8 +434,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\pc-2\\Pictures\\.NET\\01_MyProject\\Persistence\\Persistence.csproj": {
-                "projectPath": "C:\\Users\\pc-2\\Pictures\\.NET\\01_MyProject\\Persistence\\Persistence.csproj"
+              "C:\\Users\\pc-2\\Pictures\\.NET\\01_NewMyProject\\Persistence\\Persistence.csproj": {
+                "projectPath": "C:\\Users\\pc-2\\Pictures\\.NET\\01_NewMyProject\\Persistence\\Persistence.csproj"
               }
             }
           }
@@ -442,6 +450,10 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[8.1.1, )"
+            },
             "Microsoft.AspNetCore.Identity": {
               "target": "Package",
               "version": "[2.2.0, )"
@@ -457,6 +469,10 @@
             "RestSharp": {
               "target": "Package",
               "version": "[106.11.7, )"
+            },
+            "WebMarkupMin.AspNetCore5": {
+              "target": "Package",
+              "version": "[2.10.0, )"
             }
           },
           "imports": [
@@ -477,18 +493,18 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.204\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\pc-2\\Pictures\\.NET\\01_MyProject\\Persistence\\Persistence.csproj": {
+    "C:\\Users\\pc-2\\Pictures\\.NET\\01_NewMyProject\\Persistence\\Persistence.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\pc-2\\Pictures\\.NET\\01_MyProject\\Persistence\\Persistence.csproj",
+        "projectUniqueName": "C:\\Users\\pc-2\\Pictures\\.NET\\01_NewMyProject\\Persistence\\Persistence.csproj",
         "projectName": "Persistence",
-        "projectPath": "C:\\Users\\pc-2\\Pictures\\.NET\\01_MyProject\\Persistence\\Persistence.csproj",
+        "projectPath": "C:\\Users\\pc-2\\Pictures\\.NET\\01_NewMyProject\\Persistence\\Persistence.csproj",
         "packagesPath": "C:\\Users\\pc-2\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\pc-2\\Pictures\\.NET\\01_MyProject\\Persistence\\obj\\",
+        "outputPath": "C:\\Users\\pc-2\\Pictures\\.NET\\01_NewMyProject\\Persistence\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -509,11 +525,11 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\pc-2\\Pictures\\.NET\\01_MyProject\\Application\\Application.csproj": {
-                "projectPath": "C:\\Users\\pc-2\\Pictures\\.NET\\01_MyProject\\Application\\Application.csproj"
+              "C:\\Users\\pc-2\\Pictures\\.NET\\01_NewMyProject\\Application\\Application.csproj": {
+                "projectPath": "C:\\Users\\pc-2\\Pictures\\.NET\\01_NewMyProject\\Application\\Application.csproj"
               },
-              "C:\\Users\\pc-2\\Pictures\\.NET\\01_MyProject\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Users\\pc-2\\Pictures\\.NET\\01_MyProject\\Domain\\Domain.csproj"
+              "C:\\Users\\pc-2\\Pictures\\.NET\\01_NewMyProject\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\pc-2\\Pictures\\.NET\\01_NewMyProject\\Domain\\Domain.csproj"
               }
             }
           }
@@ -579,7 +595,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.204\\RuntimeIdentifierGraph.json"
         }
       }
     }

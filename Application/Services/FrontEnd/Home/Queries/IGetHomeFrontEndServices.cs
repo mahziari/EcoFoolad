@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using Application.Interfaces.Contexts;
 using Microsoft.Extensions.Caching.Distributed;
 using Newtonsoft.Json;
@@ -29,9 +30,9 @@ namespace  Application.Services.FrontEnd.Home.Queries
 
         public ResultGetHomeFrontEndDto Execute()
         {
-            // TODO Redis Cache
             List<GetSlidersDto> sliders;
-            if (string.IsNullOrEmpty(_cache.GetString("IGetHomeFrontEndService_Sliders")))
+            var slidersCachedValue=_cache.Get("IGetHomeFrontEndService_Sliders");
+            if (slidersCachedValue==null)
             {
                 sliders = _context.Sliders.Select(s => new GetSlidersDto
                 {
@@ -42,18 +43,19 @@ namespace  Application.Services.FrontEnd.Home.Queries
                     Url = s.Url,
                 }).ToList();
 
-                var options = new DistributedCacheEntryOptions
-                {
-                    AbsoluteExpirationRelativeToNow = TimeSpan.FromMinutes(15)
-                };
+                var options = new DistributedCacheEntryOptions()
+                    .SetSlidingExpiration(TimeSpan.FromMinutes(3));
+
 
                 var jsonData = JsonConvert.SerializeObject(sliders);
+                byte[] jsonMenusEncoded = Encoding.UTF8.GetBytes(jsonData);
                 _cache.SetString("IGetHomeFrontEndService_Sliders", jsonData, options);
             }
             else
             {
-                var slidersFromRedis = _cache.GetString("IGetHomeFrontEndService_Sliders");
-                sliders = JsonConvert.DeserializeObject<List<GetSlidersDto>>(slidersFromRedis);
+                var slidersCached = _cache.Get("IGetHomeFrontEndService_Sliders");
+                var slidersCachedEncoded = Encoding.UTF8.GetString(slidersCached);
+                sliders = JsonConvert.DeserializeObject<List<GetSlidersDto>>(slidersCachedEncoded);
             }
 
 

@@ -1,0 +1,97 @@
+﻿@using Application.Services.FrontEnd.Basket;
+@using Application.Services.FrontEnd.Common
+@model BasketDto;
+@inject ISiteSetting _siteSetting;
+@{
+    Layout = null;
+}
+
+@if (Model == null)
+{
+
+        <div class="mini-cart-header-responsive">
+            <span class="mdi mdi-basket"></span>
+            <span class="cart-count">0</span>
+            <div class="mini-cart-dropdown">
+                <div class="header-cart-info-header">
+                    <div class="header-cart-info-count">0 کالا</div>
+                    <a href="~/basket" class="header-cart-info-link">
+                        <span>سبد خرید شما خالی است</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    
+}
+
+else
+{
+    <div class="mini-cart-header-responsive">
+        <span class="mdi mdi-basket"></span>
+        <div class="mini-cart-dropdown">
+            <div class="header-cart-info-header">
+                <div class="header-cart-info-count">@Model.Items.Count کالا</div>
+                <a href="~/basket" class="header-cart-info-link">
+                    <span>مشاهده سبد خرید</span>
+                </a>
+            </div>
+            <div class="wrapper">
+                <div class="scrollbar" id="style-1">
+                    <div class="force-overflow">
+                        <ul class="header-basket-list">
+                            @foreach (var item in Model.Items)
+                            {
+                                <li class="js-mini-cart-item">
+                                    <a href="#" class="header-basket-list-item">
+                                        <div class="header-basket-list-item-image">
+                                            <img src="assets/images/product-slider-2/GalaxyS20Ultra.jpg">
+                                        </div>
+                                        <div class="header-basket-list-item-content">
+                                            <h1 class="header-basket-list-item-title">
+                                                @item.ProductName
+                                            </h1>
+                                            <span class="header-basket-list-item-shipping-type">
+                                                موجود در
+                                                انبار
+                                                @_siteSetting.GetSiteSetting().SiteName
+                                            </span>
+                                            <div class="header-basket-list-item-footer">
+                                                <div class="header-basket-list-item-props">
+                                                    <span class="header-basket-list-item-props-item">
+                                                        @item.Quantity
+                                                        عدد
+                                                    </span>
+                                                    <span class="header-basket-list-item-props-item">
+                                                        <div class="header-basket-list-item-color-badge"
+                                                             style="background: #9E9E9E">
+                                                        </div>
+                                                        خاکستری
+                                                    </span>
+                                                    <a href="~/basket/RemoveItemFromBasket/@item.Id" class="header-basket-list-item-remove"type="submit">
+                                                        <i class="mdi mdi-delete"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="header-cart-info-footer">
+                <div class="header-cart-info-total">
+                    <span class="header-cart-info-total-text">مبلغ قابل پرداخت</span>
+                    <p class="header-cart-info-total-amount">
+                        <span class="header-cart-info-total-amount-number"> @Model.Total().ToString("n0")</span>
+                        <span> تومان</span>
+                    </p>
+                </div>
+                <div>
+                    <a href="~/basket" class="header-cart-info-submit btn btn-danger">ثبت سفارش</a>
+                </div>
+            </div>
+        </div>
+    </div>
+}

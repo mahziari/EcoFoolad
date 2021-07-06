@@ -1,8 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
-using Microsoft.AspNetCore.Mvc;
 
-namespace EndPoint.Web.Areas.Auth.Data.Dto
+namespace EndPoint.WebSite.Areas.Auth.Data.Dto
 {
     public class LoginDto
     {

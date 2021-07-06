@@ -1,110 +1,50 @@
 ﻿@using Application.Services.FrontEnd.Common
 @inject ISiteSetting _siteSetting;
 
-<div class="full_width_main_menu nk-menu-shop-pages">
-    <div class="main_menu container">
+<nav class="main-menu">
+<ul class="new-list-menu">
 
-
-        <ul class="nk_mega_menu">
-
-            <li id="menu-item-90"
-                class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu_absahri">
-                <a asp-controller="Home" asp-action="Index">صفحه اصلی</a>
-            </li>
-            
-            
-          
-            @await Component.InvokeAsync("GetMenus")
-            
-            
-            
-            <li id="menu-item-90"
-                class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu_absahri">
-                <a asp-controller="Products" asp-action="Index">محصولات</a>
-            </li>
-            
-            
-            <li id="menu-item-90"
-                class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu_absahri">
-                <a asp-controller="Blogs" asp-action="Index">بلاگ @_siteSetting.GetSiteSetting().SiteName </a>
-            </li>
-            
-       
-            <li id="menu-item-3396"class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu_absahri">
-                            <a href="#">
-                                ارتباط با ما
-                            </a>
-                            <ul class="sub-menu nk-level-0">
-                                <li id="menu-item-3397" class="menu-item menu-item-type-custom menu-item-object-custom">
-                                    <a href="#">
-                                        درباره ما
-                                    </a>
-                                </li>
-            
-                                <li id="menu-item-3397" class="menu-item menu-item-type-custom menu-item-object-custom">
-                                    <a href="#">
-                                        تماس با ما
-                                    </a>
-                                </li>
-                                @* <li id="menu-item-3398" *@
-                                @*     class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"> *@
-                                @*     <a href="#"> *@
-                                @*          تماس با ما *@
-                                @*     </a> *@
-                                @* <ul class="sub-menu nk-level-1"> *@
-                                @*     <li id="menu-item-3400" class="menu-item menu-item-type-custom menu-item-object-custom"> *@
-                                @*         <a *@
-                                @*             href="#"> *@
-                                @*             سطح دوم *@
-                                @*         </a> *@
-                                @*     </li> *@
-                                @*     <li id="menu-item-3401" class="menu-item menu-item-type-custom menu-item-object-custom"> *@
-                                @*         <a *@
-                                @*             href="#"> *@
-                                @*             سطح دوم *@
-                                @*         </a> *@
-                                @*     </li> *@
-                                @* </ul> *@
-                                @* </li> *@
-                            </ul>
-                        </li>
-
-        </ul>
-        <script>
-            jQuery(document).ready(function ($) {
-
-                $('li.megamenu_by_tree_level.nk-side-tab.menu-item-has-children > ul').wrap("<div class='nk-tab-menu-items'></div>");
-
-
-                var maxHeight = 0;
-
-                $(".megamenu_by_tree_level.nk-side-tab .sub-menu.nk-level-1").each(function () {
-                    if ($(this).height() > maxHeight) {
-                        maxHeight = $(this).height();
-                    }
-                });
-
-                $(".nk-tab-menu-items").height(maxHeight + 30);
-                $(".nk-tab-menu-items").css("display", "none");
-
-                $('li.megamenu_by_tree_level ul.nk-level-0 > li:first-child').addClass("active");
-
-                $('li.megamenu_by_tree_level ul.nk-level-0 > li').mouseenter(function () {
-                    $(this).parent().find('li').removeClass("active");
-                    $(this).addClass("active");
-                });
-                
-			$('.nk_mega_menu > li.menu-item-has-children').mouseover(function(){
-				  $('.nk_mega_menu').css("overflow" , "visible");
-				  $(this).css("overflow" , "visible");
-			});
-			$('.nk_mega_menu > li.menu-item-has-children').mouseleave(function(){
-				  $('.nk_mega_menu').css("overflow" , "hidden");
-				  $(this).css("overflow" , "hidden");
-			});
-
-            });
-        </script>
-
-    </div>
-</div>
+ @await Component.InvokeAsync("GetMenus")
+    
+ 
+    
+    <li class="item-list-menu megamenu-1">
+        <a asp-controller="Products" asp-action="Index" class="list-category first after">
+            <i class="mdi mdi-plus-outline text-primary"></i>
+            محصولات 
+        </a>
+    </li>
+    
+    
+    <li class="item-list-menu megamenu-1">
+        <a asp-controller="Blogs" asp-action="Index" class="list-category first after">
+            <i class="mdi mdi-plus-outline text-primary"></i>
+            بلاگ @_siteSetting.GetSiteSetting().SiteName  
+        </a>
+    </li>
+    
+    <li class="item-list-menu megamenu-1">
+        <a asp-controller="Blogs" asp-action="Index" class="list-category first after">
+            <i class="mdi mdi-plus-outline text-primary"></i>
+            ارتباط با ما
+        </a>
+    </li>
+    
+    <li class="item-list-menu megamenu-1">
+        <a asp-controller="Blogs" asp-action="Index" class="list-category first after">
+            <i class="mdi mdi-plus-outline text-primary"></i>
+            درباره  ما
+        </a>
+    </li>
+    
+    
+    
+@* <li class="map-city-item"> *@
+@*     <a href="#" class="map-city"> *@
+@*         لطفا شهر و استان *@
+@*         خود را انتخاب کنید *@
+@*         <span class="mdi mdi-map-marker-outline"></span> *@
+@*     </a> *@
+@* </li> *@
+</ul>
+</nav>

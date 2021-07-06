@@ -5,38 +5,41 @@
     Layout = null;
 }
 
-
 @foreach (var item in Model.Menus)
 {
-    <li class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-has-children menu-item-233">
-        <a asp-controller="Products"
-           asp-action="CategoryFirstGroup"
-           asp-route-FirstGroupName="@item.EnName" style="pointer-events: none; cursor: default;">
-            @item.Name
-        </a>
-        <ul class="sub-menu">
-            @foreach (var subItem in item.Sub)
-            {
-                <li class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-has-children menu-item-234">
-                    <a asp-controller="Products"
-                       asp-action="CategorySecoundGroup"
-                       asp-route-SecoundGroupName="@subItem.EnFgname">
-                        @subItem.Fgname
-                    </a>
-                    <ul class="sub-menu">
-                        @foreach (var subSunItem in subItem.SubSub)
-                        {
-                            <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-240">
-                                <a asp-controller="Products"
-                                   asp-action="Category"
-                                   asp-route-MenuName="@subSunItem.EnSgname">
-                                    @subSunItem.Sgname
-                                </a>
-                            </li>
-                        }
-                    </ul>
-                </li>
-            }
-        </ul>
-    </li>
+    <ul class="nav-categories ul-base">
+        <li class="has-sub">
+            <a asp-controller="Products"
+               asp-action="CategoryFirstGroup"
+               asp-route-FirstGroupName="@item.EnName">
+                @item.Name
+            </a>
+            <ul>
+               @foreach (var subItem in item.Sub)
+                {
+                    <li class="has-sub">
+                        <a asp-controller="Products"
+                           asp-action="CategorySecoundGroup"
+                           asp-route-SecoundGroupName="@subItem.EnFgname"
+                           class="category-level-2">
+                            @subItem.Fgname
+                        </a>
+                        <ul>
+                             @foreach (var subSunItem in subItem.SubSub)
+                             {
+                                 <li>
+                                     <a asp-controller="Products"
+                                        asp-action="Category"
+                                        asp-route-MenuName="@subSunItem.EnSgname"
+                                        class="category-level-3">
+                                        @subSunItem.Sgname
+                                     </a>
+                                 </li>
+                             }
+                        </ul>
+                    </li>
+                  }
+            </ul>
+        </li>
+    </ul>
 }

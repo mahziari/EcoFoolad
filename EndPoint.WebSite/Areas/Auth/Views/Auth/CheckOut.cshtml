@@ -1,5 +1,4 @@
-﻿@using EndPoint.Web.Areas.Auth.Data.Dto
-@model CheckOutDto
+﻿@model EndPoint.WebSite.Areas.Auth.Data.Dto.CheckOutDto
 @using Application.Services.FrontEnd.Common
 @inject ISiteSetting _siteSetting;
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
@@ -9,41 +8,17 @@
     Layout = "~/Areas/Auth/Views/Shared/_Layout.cshtml";
 }
 
-
-@section Head{
-    <link rel='stylesheet' id='main-theme-style-css-css'
-          href='~/wp-content/themes/newkala/style.css?ver=5.1.4' type='text/css'
-          media='all'/>
-    <link rel='stylesheet' id='woocommerce-general-rtl-css'
-          href='~/wp-content/plugins/woocommerce/assets/css/woocommerce-rtl.css?ver=4.7.0'
-          type='text/css' media='all'/>
-
-    <link rel="stylesheet" type="text/css"
-          href="~/wp-content/themes/newkala/css/woocommerce_dashboard.css">
-
-    <link rel="stylesheet" type="text/css"
-          href="~/wp-content/themes/newkala/inHead.css">
-
-    <link rel="stylesheet" type="text/css"
-          href="~/css/Auth.css">
-
-}
-
-@section Foo{
-    <partial name="_ValidationScriptsPartial"/>
-    <script>$('.alertSlideUp').delay(3000).slideUp(300); </script>
-}
-<main>
-    <div class="sp_body_panel">
-        <div class="woocommerce">
-            <div class="main_login_form">
-                <a href="https://newkalatheme.ir/preview">
-                    <img style="display:block;margin:20px auto;" src="@_siteSetting.GetSiteSetting().LogoImage" title="@_siteSetting.GetSiteSetting().SiteName">
-                </a>
-
-                @if (TempData["AuthErrors"] != null)
+<div id="main">
+    <div class="col-lg-4 col-md-6 col-xs-12 mx-auto">
+        <div class="account-box">
+            <a href="/" class="logo-account">
+                <img src="@_siteSetting.GetSiteSetting().LogoImage">
+            </a>
+            
+            
+               @if (TempData["AuthErrors"] != null)
                 {
-                    <ul class="woocommerce-error alertSlideUp">
+                    <ul class="auth-error alertSlideUp">
                         <li>
                             <strong>خطا:</strong>
                             @TempData["AuthErrors"]
@@ -67,47 +42,54 @@
                         </li>
                     </ul>
                 }
+            
+            
+            
+               <span class="account-head-line">ورود / ثبت نام</span>
+               
+            <form asp-controller="Auth" asp-action="CheckOut" method="post">
 
+                <div class="content-account">
+                    <label>شماره موبایل خود را وارد کنید</label>
+                    <input asp-for="PhoneNumber" type="text" class="input-email-account" placeholder="">
+                    <div class="clear"></div>
+                    <span asp-validation-for="PhoneNumber" class="text-danger"></span>
 
-                <div class="woocommerce-notices-wrapper"></div>
-
-
-                <h2>ورود/ثبت نام</h2>
-
-                <form asp-controller="Auth" asp-action="CheckOut" method="post" class="woocommerce-form woocommerce-form-register register">
-
-                    <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
-                        <label>شماره موبایل خود را وارد کنید &nbsp;<span class="required">*</span></label>
-                        <input asp-for="PhoneNumber" type="text" class="woocommerce-Input woocommerce-Input--text input-text"/>
-                        <span asp-validation-for="PhoneNumber" class="text-danger"></span>
-                    </p>
-                 
-                    <div class="woocommerce-privacy-policy-text"></div>
-
-                    <p class="woocommerce-FormRow form-row">
-                        <button type="submit" class="woocommerce-Button button go_to_all_products_offer" name="register" value="ورود">ورود به  @_siteSetting.GetSiteSetting().SiteName</button>
-                    </p>
-
-                    <input asp-for="ReturnUrl" type="hidden"/>
-                </form>
-
-                @* <div class="go_to_register_form">قبلا ثبت نام کرده اید؟<a href="" > وارد شوید</a></div> *@
-                <div class="go_to_register_form">
-                    با ورود و یا ثبت نام در  @_siteSetting.GetSiteSetting().SiteName شما
-                    <a href="/page/terms/" target="_blank">
-                        شرایط و قوانین
-                    </a>
-                    <br/>
-                    استفاده از سرویس های سایت و
-                    <a href="/page/privacy/" target="_blank">
-                        قوانین حریم خصوصی
-                    </a>
-                    <br/>
-                    آن را می پذیرید.
+                    <div class="parent-btn">
+                        <button class="dk-btn dk-btn-info">
+                            ورود به @_siteSetting.GetSiteSetting().SiteName 
+                            <i class="fa fa-sign-in sign-in"></i>
+                        </button>
+                    </div>
+                    @* <div class="form-auth-row"> *@
+                    @*     <label for="#" class="ui-checkbox"> *@
+                    @*         <input type="checkbox" value="1" name="login" checked="" id="remember"> *@
+                    @*         <span class="ui-checkbox-check"></span> *@
+                    @*     </label> *@
+                    @*     <label for="remember" class="remember-me">مرا به خاطر داشته باش</label> *@
+                    @* </div> *@
                 </div>
-
-            </div>
-
+                
+                <div class="account-footer">
+                    @* <span>کاربر جدید هستید؟</span> *@
+                    @* <a href="register.html" class="btn-link-register">ثبت‌نام در دیجی‌استور</a> *@
+                    
+                    
+                    با ورود و یا ثبت نام در  @_siteSetting.GetSiteSetting().SiteName شما
+                        <a href="/page/terms/" class="btn-link-register" target="_blank">
+                            شرایط و قوانین
+                        </a>
+                        <br/>
+                        استفاده از سرویس های سایت و
+                        <a href="/page/privacy/" class="btn-link-register" target="_blank">
+                            قوانین حریم خصوصی
+                        </a>
+                        <br/>
+                        آن را می پذیرید.
+                </div>
+                
+                <input asp-for="ReturnUrl" type="hidden"/>
+            </form>
         </div>
     </div>
-</main>
+</div>

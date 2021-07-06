@@ -10,9 +10,6 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@section BodyAttr{
-    data-rsssl="1" class="rtl home page-template page-template-home-page page-template-home-page-php page page-id-1211 theme-newkala woocommerce-js nk_desktop nk_my_account_page loggedout elementor-default dokan-theme-newkala"
-}
 
 @section Head{
     <meta name="description" content="@Model.Blog.NewsSummery">
@@ -28,16 +25,18 @@
     <meta property="og:updated_time" content="@Model.Blog.LocalTime">
     <meta property="og:image" content="@Context.Request.Scheme://@Context.Request.Host/@Model.Blog.HeadLine">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@Model.Footers.SiteName">
+    <meta name="twitter:site" content="@@ecofoolad">
+    <meta name="twitter:url" content="@Context.Request.Scheme://@Context.Request.Host@Context.Request.Path.Value">
     <meta name="twitter:description" content="@Model.Blog.NewsSummery">
     <meta name="twitter:title" content="@Model.Blog.Title - @_siteSetting.GetSiteSetting().SiteName">
     <meta name="twitter:image" content="@Context.Request.Scheme://@Context.Request.Host/@Model.Blog.HeadLine">
+    <meta name="twitter:creator" content="@@ecofoolad"/>
 }
 
 @section Foo{
     <script type="application/ld+json">
     {
-    "@@context":"http://schema.org",
+    "@@context":"https://schema.org",
     "@@type":"@Model.Blog.en_NewsGroupName",
     "headline":"@Model.Blog.Title",
     "image":{

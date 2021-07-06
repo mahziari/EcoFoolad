@@ -1,25 +1,32 @@
 ﻿@using Application.Services.FrontEnd.Common
 @inject ISiteSetting _siteSetting;
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 
 <!DOCTYPE html>
-<html dir="rtl" lang="fa-IR">
-<meta http-equiv="content-type" content="text/html;charset=UTF-8"/>
+<html lang="fa">
+
 <head>
-    <meta charset="utf-8"/>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'name='viewport'/>
+    <link rel="icon" type="image/png" href="/Images/Settings/FavIcon/android-icon-192x192.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/Images/Settings/FavIcon/android-icon-192x192.png">
     <title>@ViewData["Title"].ToString() | @_siteSetting.GetSiteSetting().SiteName</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-    <meta name="theme-color" content="#dd3333"/>
-
-    @await RenderSectionAsync("Head", false)
-
+    <!--    font--------------------------------------------->
+    <link rel="stylesheet" href="~/assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/assets/css/materialdesignicons.css">
+    <link rel="stylesheet" href="~/assets/css/materialdesignicons.css.map">
+    <!--    font--------------------------------------------->
+    <link rel="stylesheet" href="~/assets/css/bootstrap.css">
+    <link rel="stylesheet" href="~/assets/css/style.css">
 </head>
 
-<body data-rsssl="1" class="rtl page-template page-template-woocommerce-dashboard-template page-template-woocommerce-dashboard-template-php page page-id-7 theme-newkala woocommerce-account woocommerce-page woocommerce-js nk_desktop nk_my_account_page loggedout elementor-default dokan-theme-newkala" id="body">
-
+<body>
 @RenderBody()
-
-
+<partial name="_ValidationScriptsPartial"/>
+@* <script src="~/assets/js/jquery-3.2.1.min.js"></script> *@
+<script src="~/assets/js/bootstrap.js"></script>
+<script>$('.alertSlideUp').delay(5000).slideUp(300); </script>
 @await RenderSectionAsync("Foo", false)
-
 </body>
 </html>

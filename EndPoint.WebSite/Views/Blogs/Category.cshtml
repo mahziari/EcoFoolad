@@ -7,9 +7,6 @@
     ViewData["Title"] = Model.CategoryItem.GroupName;
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-@section BodyAttr{
-    data-rsssl="1" class="rtl home page-template page-template-home-page page-template-home-page-php page page-id-1211 theme-newkala woocommerce-js nk_desktop nk_my_account_page loggedout elementor-default dokan-theme-newkala"
-}
 
 
 @section Head{
@@ -25,15 +22,18 @@
     <meta property="article:published_time" content="@Model.CategoryItem.LocalTime">
     <meta property="og:updated_time" content="@Model.CategoryItem.LocalTime">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@Model.Footers.SiteName">
+    <meta name="twitter:site" content="@@ecofoolad">
+    <meta name="twitter:url" content="@Context.Request.Scheme://@Context.Request.Host@Context.Request.Path.Value">
     <meta name="twitter:description" content="@Model.CategoryItem.Description">
     <meta name="twitter:title" content="@Model.CategoryItem.GroupName - @_siteSetting.GetSiteSetting().SiteName">
+    <meta name="twitter:image" content="/Images/Settings/FavIcon/android-icon-192x192.png"/>
+    <meta name="twitter:creator" content="@@ecofoolad"/>
 }
 
 @section Foo{
     <script type="application/ld+json">
     {
-    "@@context":"http://schema.org",
+    "@@context":"https://schema.org",
     "@@type":"@Model.CategoryItem.GroupName",
     "headline":"@Model.CategoryItem.Description",
     "publisher":{
@@ -51,6 +51,15 @@
     "dateModified":"@Model.CategoryItem.LocalTime",
     "description":"@Model.CategoryItem.Description"
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
     </script>
 }
 

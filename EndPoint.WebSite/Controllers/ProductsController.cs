@@ -23,15 +23,7 @@ namespace EndPoint.WebSite.Controllers
             var result = _productsFrontEndFacad.GetProductsFrontEndService.Execute();
             return View(result);
         }
-        
-        [HttpGet]
-        [Route("search/category-{MenuName}/{PageWordForUrl?}/{PageNum?}/")]
-        public IActionResult Category(ProductsFiltersDto productsFiltersDto)
-        {
-            var result = _productsFrontEndFacad.GetProductsCategoryThirdGroupFrontEndService.Execute(productsFiltersDto);
-            return View(result);
-        }
-        
+
         [HttpGet]
         [Route("main/{FirstGroupName}/{PageWordForUrl?}/{PageNum?}/")]
         public IActionResult CategoryFirstGroup(ProductsFiltersDto productsFiltersDto)
@@ -40,12 +32,22 @@ namespace EndPoint.WebSite.Controllers
             return View("Category",result);
         }
         
+        
         [HttpGet]
         [Route("main/category-{SecoundGroupName}/{PageWordForUrl?}/{PageNum?}/")]
         public IActionResult CategorySecoundGroup(ProductsFiltersDto productsFiltersDto)
         {
             var result = _productsFrontEndFacad.GetProductsSecoundGroupNameFrontEndService.Execute(productsFiltersDto);
             return View("Category",result);
+        }
+        
+        
+        [HttpGet]
+        [Route("search/category-{MenuName}/{PageWordForUrl?}/{PageNum?}/")]
+        public IActionResult Category(ProductsFiltersDto productsFiltersDto)
+        {
+            var result = _productsFrontEndFacad.GetProductsCategoryThirdGroupFrontEndService.Execute(productsFiltersDto);
+            return View(result);
         }
 
 

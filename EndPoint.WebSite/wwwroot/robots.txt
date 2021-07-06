@@ -1,7 +1,7 @@
 ﻿User-agent: *
-Disallow: /panel/admin/
-Disallow: /panel/owner/
-Disallow: /panel/user/
-Sitemap: https://example.com/sitemap.xml
-Sitemap: https://example.com/sitemap-blog.xml
-Sitemap: https://example.com/sitemap-product.xml
+Disallow:
+
+
+Sitemap: https://ecofoolad.com/sitemap.xml
+Sitemap: https://ecofoolad.com/sitemap-blog.xml
+Sitemap: https://ecofoolad.com/sitemap-product.xml

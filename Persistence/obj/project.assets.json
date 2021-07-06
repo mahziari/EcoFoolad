@@ -685,6 +685,20 @@
           "lib/netstandard2.0/Microsoft.Extensions.Caching.Memory.dll": {}
         }
       },
+      "Microsoft.Extensions.Caching.SqlServer/5.0.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Data.SqlClient": "1.0.19239.1",
+          "Microsoft.Extensions.Caching.Abstractions": "5.0.0",
+          "Microsoft.Extensions.Options": "5.0.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.Extensions.Caching.SqlServer.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Extensions.Caching.SqlServer.dll": {}
+        }
+      },
       "Microsoft.Extensions.Caching.StackExchangeRedis/5.0.1": {
         "type": "package",
         "dependencies": {
@@ -2442,6 +2456,7 @@
           "Microsoft.EntityFrameworkCore": "5.0.6",
           "Microsoft.EntityFrameworkCore.SqlServer": "5.0.6",
           "Microsoft.EntityFrameworkCore.Sqlite": "5.0.6",
+          "Microsoft.Extensions.Caching.SqlServer": "5.0.1",
           "Microsoft.Extensions.Caching.StackExchangeRedis": "5.0.1",
           "Microsoft.Extensions.Hosting.Abstractions": "5.0.0",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "5.0.2",
@@ -3387,6 +3402,20 @@
         "microsoft.extensions.caching.memory.nuspec",
         "useSharedDesignerContext.txt",
         "version.txt"
+      ]
+    },
+    "Microsoft.Extensions.Caching.SqlServer/5.0.1": {
+      "sha512": "JQgH2x7U94InnzGdqcaz0Ebj7Ohl98rbzbcSZj09TxkpoBjouCDTlK2iirfGLfT8ne2rQngVTb/VJEIq26Nt0g==",
+      "type": "package",
+      "path": "microsoft.extensions.caching.sqlserver/5.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "lib/netstandard2.0/Microsoft.Extensions.Caching.SqlServer.dll",
+        "lib/netstandard2.0/Microsoft.Extensions.Caching.SqlServer.xml",
+        "microsoft.extensions.caching.sqlserver.5.0.1.nupkg.sha512",
+        "microsoft.extensions.caching.sqlserver.nuspec"
       ]
     },
     "Microsoft.Extensions.Caching.StackExchangeRedis/5.0.1": {
@@ -8220,11 +8249,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\pc-2\\Pictures\\.NET\\01_MyProject\\Persistence\\Persistence.csproj",
+      "projectUniqueName": "C:\\Users\\pc-2\\Pictures\\.NET\\01_NewMyProject\\Persistence\\Persistence.csproj",
       "projectName": "Persistence",
-      "projectPath": "C:\\Users\\pc-2\\Pictures\\.NET\\01_MyProject\\Persistence\\Persistence.csproj",
+      "projectPath": "C:\\Users\\pc-2\\Pictures\\.NET\\01_NewMyProject\\Persistence\\Persistence.csproj",
       "packagesPath": "C:\\Users\\pc-2\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\pc-2\\Pictures\\.NET\\01_MyProject\\Persistence\\obj\\",
+      "outputPath": "C:\\Users\\pc-2\\Pictures\\.NET\\01_NewMyProject\\Persistence\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -8245,11 +8274,11 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\Users\\pc-2\\Pictures\\.NET\\01_MyProject\\Application\\Application.csproj": {
-              "projectPath": "C:\\Users\\pc-2\\Pictures\\.NET\\01_MyProject\\Application\\Application.csproj"
+            "C:\\Users\\pc-2\\Pictures\\.NET\\01_NewMyProject\\Application\\Application.csproj": {
+              "projectPath": "C:\\Users\\pc-2\\Pictures\\.NET\\01_NewMyProject\\Application\\Application.csproj"
             },
-            "C:\\Users\\pc-2\\Pictures\\.NET\\01_MyProject\\Domain\\Domain.csproj": {
-              "projectPath": "C:\\Users\\pc-2\\Pictures\\.NET\\01_MyProject\\Domain\\Domain.csproj"
+            "C:\\Users\\pc-2\\Pictures\\.NET\\01_NewMyProject\\Domain\\Domain.csproj": {
+              "projectPath": "C:\\Users\\pc-2\\Pictures\\.NET\\01_NewMyProject\\Domain\\Domain.csproj"
             }
           }
         }
@@ -8315,7 +8344,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.203\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.204\\RuntimeIdentifierGraph.json"
       }
     }
   }

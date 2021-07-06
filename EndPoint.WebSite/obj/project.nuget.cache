@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "gBuJS5V/LS9+HuKKMNELHzSFV65DG9Va+KsU781ru2Oi/3+sR7Nei86jW6/WpEkbodC35TpnfUajwpBQGhQ08w==",
+  "dgSpecHash": "J6y0DzyfSwRpJ9e04r9BAUUJaIz72OEsTs50T0EMsv3EGlRc+5nfs7xrQfnGjDKNljKUG88DzVJ+jPuosToIPA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\pc-2\\Pictures\\.NET\\01_MyProject\\EndPoint.WebSite\\EndPoint.WebSite.csproj",
+  "projectFilePath": "C:\\Users\\pc-2\\Pictures\\.NET\\01_NewMyProject\\EndPoint.WebSite\\EndPoint.WebSite.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\pc-2\\.nuget\\packages\\advancedstringbuilder\\0.1.0\\advancedstringbuilder.0.1.0.nupkg.sha512",
     "C:\\Users\\pc-2\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
     "C:\\Users\\pc-2\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\8.1.1\\automapper.extensions.microsoft.dependencyinjection.8.1.1.nupkg.sha512",
     "C:\\Users\\pc-2\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
@@ -32,6 +33,7 @@
     "C:\\Users\\pc-2\\.nuget\\packages\\microsoft.aspnetcore.razor\\2.2.0\\microsoft.aspnetcore.razor.2.2.0.nupkg.sha512",
     "C:\\Users\\pc-2\\.nuget\\packages\\microsoft.aspnetcore.razor.language\\5.0.6\\microsoft.aspnetcore.razor.language.5.0.6.nupkg.sha512",
     "C:\\Users\\pc-2\\.nuget\\packages\\microsoft.aspnetcore.razor.runtime\\2.2.0\\microsoft.aspnetcore.razor.runtime.2.2.0.nupkg.sha512",
+    "C:\\Users\\pc-2\\.nuget\\packages\\microsoft.aspnetcore.responsecompression\\2.2.0\\microsoft.aspnetcore.responsecompression.2.2.0.nupkg.sha512",
     "C:\\Users\\pc-2\\.nuget\\packages\\microsoft.aspnetcore.server.kestrel.transport.libuv\\5.0.6\\microsoft.aspnetcore.server.kestrel.transport.libuv.5.0.6.nupkg.sha512",
     "C:\\Users\\pc-2\\.nuget\\packages\\microsoft.aspnetcore.webutilities\\2.2.0\\microsoft.aspnetcore.webutilities.2.2.0.nupkg.sha512",
     "C:\\Users\\pc-2\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
@@ -57,6 +59,7 @@
     "C:\\Users\\pc-2\\.nuget\\packages\\microsoft.entityframeworkcore.tools\\5.0.6\\microsoft.entityframeworkcore.tools.5.0.6.nupkg.sha512",
     "C:\\Users\\pc-2\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\5.0.0\\microsoft.extensions.caching.abstractions.5.0.0.nupkg.sha512",
     "C:\\Users\\pc-2\\.nuget\\packages\\microsoft.extensions.caching.memory\\5.0.0\\microsoft.extensions.caching.memory.5.0.0.nupkg.sha512",
+    "C:\\Users\\pc-2\\.nuget\\packages\\microsoft.extensions.caching.sqlserver\\5.0.1\\microsoft.extensions.caching.sqlserver.5.0.1.nupkg.sha512",
     "C:\\Users\\pc-2\\.nuget\\packages\\microsoft.extensions.caching.stackexchangeredis\\5.0.1\\microsoft.extensions.caching.stackexchangeredis.5.0.1.nupkg.sha512",
     "C:\\Users\\pc-2\\.nuget\\packages\\microsoft.extensions.configuration\\2.0.0\\microsoft.extensions.configuration.2.0.0.nupkg.sha512",
     "C:\\Users\\pc-2\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\5.0.0\\microsoft.extensions.configuration.abstractions.5.0.0.nupkg.sha512",
@@ -189,7 +192,10 @@
     "C:\\Users\\pc-2\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
     "C:\\Users\\pc-2\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
     "C:\\Users\\pc-2\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
-    "C:\\Users\\pc-2\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512"
+    "C:\\Users\\pc-2\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512",
+    "C:\\Users\\pc-2\\.nuget\\packages\\webmarkupmin.aspnet.common\\2.10.0\\webmarkupmin.aspnet.common.2.10.0.nupkg.sha512",
+    "C:\\Users\\pc-2\\.nuget\\packages\\webmarkupmin.aspnetcore5\\2.10.0\\webmarkupmin.aspnetcore5.2.10.0.nupkg.sha512",
+    "C:\\Users\\pc-2\\.nuget\\packages\\webmarkupmin.core\\2.9.0\\webmarkupmin.core.2.9.0.nupkg.sha512"
   ],
   "logs": []
 }

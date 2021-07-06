@@ -7,297 +7,455 @@
 @inject SignInManager<User> _signInManager
 @inject UserManager<User> _userManager
 
-<header id="header_newkala" class="newkala_main_header_tag">
-
-<script>
-        jQuery(document).ready(function () {
-            jQuery(".top_header_section button").click(function () {
-                jQuery(".top_header_section").hide();
-                var top = jQuery('header#header_newkala').height();
-                jQuery('.full_width_main_menu').css({'top': top});
-            });
-        });
-</script>
-<style>
-    .main_login_register .title_login_register:before {
-        color: #47ff0b !important;
-    }
-    .title_login_register:after {
-        content: "\E00E";
-        font-family: onliner;
-        float: left;
-        margin: 5px 5px 0 0;
-        font-size: 13px;
-    }
-</style>
-
-<div class="container main_header ">
-
-
-<div class="newkala-header-mobile">
-<div class="nk-header-part-item-mobile nk-header-part-item-mobile-right">
-<i
-    class="fa fa-bars newkala_menu_icon_shop " aria-hidden="true">
-</i>
-<div class="black_opacity_responsive_menu"></div>
-<div class="main_newkala_responsive_menu">
-
-<div class="logo_responsive_menu">
-    <a href="/">
-        <img src="@_siteSetting.GetSiteSetting().LogoImage" 
-             data-lazy-src="@_siteSetting.GetSiteSetting().LogoImage"
-             alt="@_siteSetting.GetSiteSetting().SiteName">
-        <noscript>
-            <img
-                src="@_siteSetting.GetSiteSetting().LogoImage" alt="@_siteSetting.GetSiteSetting().SiteName">
-        </noscript>
-    </a>
-
-
-</div>
-@* <ul class="responsive_main_menu"> *@
-@* *@
-@* <li id="menu-item-90" *@
-@*     class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-90"> *@
-@*     <a href="https://newkalatheme.ir/preview/" aria-current="page">صفحه اصلی</a> *@
-@* </li> *@
-@* *@
-@* <li id="menu-item-233" *@
-@*     class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-has-children menu-item-233"> *@
-@*     <a href="https://newkalatheme.ir/preview/product-category/digital-product/">1</a> *@
-@*     <ul class="sub-menu"> *@
-@*         <li id="menu-item-234" *@
-@*             class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-has-children menu-item-234"> *@
-@*             <a href="https://newkalatheme.ir/preview/product-category/digital-product/mobile/">2</a> *@
-@*             <ul class="sub-menu"> *@
-@*                 <li id="menu-item-240" *@
-@*                     class="menu-item menu-item-type-custom menu-item-object-custom menu-item-240"> *@
-@*                     <a href="#">3 </a> *@
-@*                 </li> *@
-@*             </ul> *@
-@*         </li> *@
-@*     </ul> *@
-@* </li> *@
-@* </ul> *@
-    <script>
-        jQuery('.responsive_main_menu li.menu-item-has-children').append('<span class="toggle_menu"></span>');
-        jQuery('.responsive_main_menu li.menu-item-has-children span.toggle_menu').click(function () {
-            jQuery(this).parent().find('ul:first').toggleClass('show');
-            jQuery(this).toggleClass("opened");
-        });
-    </script>
-    
-</div>
-
-</div>
-<div class="nk-header-part-item-mobile nk-header-part-item-mobile-middle">
-    <div class="nk-logo-mobile ">
-
-        <a href="/" target="_blank">
-              <img src="@_siteSetting.GetSiteSetting().LogoImage" 
-                     data-lazy-src="@_siteSetting.GetSiteSetting().LogoImage"
-                     alt="@_siteSetting.GetSiteSetting().SiteName">
-                <noscript>
-                    <img
-                        src="@_siteSetting.GetSiteSetting().LogoImage" alt="@_siteSetting.GetSiteSetting().SiteName">
-                </noscript>
-        </a>
-    </div>
-
-</div>
-<div class="nk-header-part-item-mobile nk-header-part-item-mobile-left">
-    <a href="https://www.instagram.com/?hl=en" class="newkala_icon_faq">
-        <i class="fa fa-heartbeat" aria-hidden="true"></i>
-    </a>
-</div>
-</div>
-
-
-<div class="nk_first_content_header">
-
-
-    <div class="logo ">
-        <h1> @_siteSetting.GetSiteSetting().SiteName </h1>
-        <a title="@_siteSetting.GetSiteSetting().SiteName | فروشگاه آنلاین محصولات فولادی" href="/">
-            <img data-skip-lazy="" class="skip-lazy"
-                 src="@_siteSetting.GetSiteSetting().LogoImage"
-                 alt="@_siteSetting.GetSiteSetting().SiteName | فروشگاه آنلاین محصولات فولادی">
-            <span class="main-site-title">@_siteSetting.GetSiteSetting().SiteName</span>
-        </a>
-    </div>
-
-
-    <form class="frm_search"  asp-controller="Products" asp-action="Category" method="get">
-        <input class="nk_input_serach_product" autocomplete="off" value="" type="text"
-               name="SearchKey" id="txt_search" placeholder="جستجو در محصولات ....">
-        <button type="submit" id="submit_search" value=""></button>
-        <div class="clear"></div>
-        <div class="main_top_word_search main_result_ajax_search" style="display: none;">
-        </div>
-    </form>
-
-</div>
-
-<div class="nk_second_content_header">
-
-
-    @if (User.Identity.IsAuthenticated)
-    {
-        @if (_authorizationService.AuthorizeAsync(User, "SeniorProgrammer").Result.Succeeded)
-        {
-            <div class="main_login_register ">
-                <div class="title_login_register">
-                    <strong>@_userManager.GetUserAsync(User).Result.FirstName @_userManager.GetUserAsync(User).Result.LastName</strong>
-                </div>
-                <div class="main_content_login_register" style="display: none;">
-                    <div class="content_login_register">
-                    @* <strong> @_userManager.GetUserAsync(User).Result.FirstName</strong> *@
-                        <div class="nk_main_avatar_header">
-                            <img src="~/BackEnd/Admin/images/avatars/AdminAvatar.png" srcset="~/BackEnd/Admin/images/avatars/AdminAvatar.png" class="avatar avatar-65 photo" height="200" width="200">
-                            <div class="nk_main_link_panels_header">
-                                <a class="nk_go_to_dashboard" target="_blank" asp-area="Admin" asp-controller="Home" asp-action="Index">
-                                    پنل برنامه نویس ارشد
-                                </a>
-                            </div>
-                        </div>
-                        <a class="nk_go_to_my_orders"  asp-area="Admin" asp-controller="Home" asp-action="Index">
-                            <i class="fa fa-file-text-o"></i>
-                            ورود به پنل مدیریت
-                        </a>
-                        <a class="nk_logout_my_account" asp-area="Auth" asp-controller="Auth" asp-action="LogOut">
-                            <i class="fa fa-sign-out"></i>خروج از حساب کاربری
-                        </a>
-                    </div>
-                </div>
-            </div>
-        }
-        else if (_authorizationService.AuthorizeAsync(User, "AdminRole").Result.Succeeded)
-        {
-            <div class="main_login_register ">
-                <div class="title_login_register">
-                    <strong>@_userManager.GetUserAsync(User).Result.FirstName @_userManager.GetUserAsync(User).Result.LastName</strong>
-                </div>
-                <div class="main_content_login_register" style="display: none;">
-                    <div class="content_login_register">
-                        @* <strong>عزیز @_userManager.GetUserAsync(User).Result.FirstName</strong> *@
-                        <div class="nk_main_avatar_header">
-                            <img src="~/BackEnd/Admin/images/avatars/AdminAvatar.png" srcset="~/BackEnd/Admin/images/avatars/AdminAvatar.png" class="avatar avatar-65 photo" height="200" width="200">
-                            <div class="nk_main_link_panels_header">
-                                <a class="nk_go_to_dashboard" target="_blank" asp-area="Admin" asp-controller="Home" asp-action="Index">
-                                    پنل مدیر ارشد 
-                                </a>
-                            </div>
-                        </div>
-                        <a class="nk_go_to_my_orders"  asp-area="Admin" asp-controller="Home" asp-action="Index">
-                            <i class="fa fa-file-text-o"></i>
-                            ورود به پنل مدیریت
-                        </a>
-                        <a class="nk_logout_my_account" asp-area="Auth" asp-controller="Auth" asp-action="LogOut">
-                            <i class="fa fa-sign-out"></i>خروج از حساب کاربری
-                        </a>
-                    </div>
-                </div>
-            </div>
-        }
-        else if (_authorizationService.AuthorizeAsync(User, "OwnerRole").Result.Succeeded)
-        {
-            <div class="main_login_register ">
-                <div class="title_login_register">
-                    <strong>@_userManager.GetUserAsync(User).Result.FirstName @_userManager.GetUserAsync(User).Result.LastName</strong>
-                </div>
-                <div class="main_content_login_register" style="display: none;">
-                    <div class="content_login_register">
-                        @* <strong>عزیز @_userManager.GetUserAsync(User).Result.FirstName</strong> *@
-                        <div class="nk_main_avatar_header">
-                            <img src="~/BackEnd/Owner/images/avatars/SellerAvatar.jpg" srcset="~/BackEnd/Owner/images/avatars/SellerAvatar.jpg" class="avatar avatar-65 photo" height="200" width="200">
-                            <div class="nk_main_link_panels_header">
-                                <a class="nk_go_to_dashboard" target="_blank" asp-area="Owner" asp-controller="Home" asp-action="Index">
-                                    پنل فروشندگان
-                                </a>
-                            </div>
-                        </div>
-                        <a class="nk_go_to_my_orders"  asp-area="Admin" asp-controller="Home" asp-action="Index">
-                            <i class="fa fa-file-text-o"></i>
-                            ورود به پنل مدیریت
-                        </a>
-                        <a class="nk_logout_my_account" asp-area="Auth" asp-controller="Auth" asp-action="LogOut">
-                            <i class="fa fa-sign-out"></i>خروج از حساب کاربری
-                        </a>
-                    </div>
-                </div>
-            </div>
-        }
-        else if (_authorizationService.AuthorizeAsync(User, "UserRole").Result.Succeeded)
-        {
-            <div class="main_login_register ">
-                <div class="title_login_register">
-                    <strong>@_userManager.GetUserAsync(User).Result.FirstName @_userManager.GetUserAsync(User).Result.LastName</strong>
-                </div>
-                <div class="main_content_login_register" style="display: none;">
-                    <div class="content_login_register">
-                        @* <strong>عزیز @_userManager.GetUserAsync(User).Result.FirstName</strong> *@
-                        <div class="nk_main_avatar_header">
-                            <img src="~/BackEnd/User/images/avatars/UserAvatar.jpg" srcset="~/BackEnd/User/images/avatars/UserAvatar.jpg" class="avatar avatar-65 photo" height="200" width="200">
-                            <div class="nk_main_link_panels_header">
-                                <a class="nk_go_to_dashboard" target="_blank" asp-area="User" asp-controller="Home" asp-action="Index">
-                                    پنل خریدار
-                                </a>
-                            </div>
-                        </div>
-                        <a class="nk_go_to_my_orders"  asp-area="Admin" asp-controller="Home" asp-action="Index">
-                            <i class="fa fa-file-text-o"></i>
-                            ورود به پنل مدیریت
-                        </a>
-                        <a class="nk_logout_my_account" asp-area="Auth" asp-controller="Auth" asp-action="LogOut">
-                            <i class="fa fa-sign-out"></i>خروج از حساب کاربری
-                        </a>
-                    </div>
-                </div>
-            </div>
-        }
-    }
-    else
-    {
-        <div class="main_login_register ">
-            <a asp-area="Auth"
-               asp-controller="Auth" 
-               asp-action="CheckOut"
-               class="title_login_register">
-                <strong>
-                    ورود /
-                    ثبت‌نام
-                </strong>
+<header class="header-main-page">
+<div class="d-block">
+<div>
+<div class="col-lg-8 col-md-8 col-xs-12 pull-right">
+    <div class="header-right">
+        <div class="logo">
+            <a href="/">
+                <img src="@_siteSetting.GetSiteSetting().LogoImage">
             </a>
         </div>
+
+        <div class="col-lg-8 col-md-12 col-xs-12 pull-right">
+            <div class="search-header search-box">
+                <form action="#">
+                    <input type="text" class="header-search-input" placeholder="جستجو در @_siteSetting.GetSiteSetting().SiteName...">
+                    <button class="btn-search" type="submit">
+                        <img src="assets/images/search.png">
+                    </button>
+                </form>
+                <div class="search-result">
+                    <ul class="search-result-list">
+                        <li>
+                            <a href="#">
+                                موبایل
+                                <button class="btn btn-light btn-remove-search" type="submit">
+                                    <i class="mdi mdi-close"></i>
+                                </button>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                لپ تاپ
+                                <button class="btn btn-light btn-remove-search" type="submit">
+                                    <i class="mdi mdi-close"></i>
+                                </button>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                مودم
+                                <button class="btn btn-light btn-remove-search" type="submit">
+                                    <i class="mdi mdi-close"></i>
+                                </button>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                شیائومی
+                                <button class="btn btn-light btn-remove-search" type="submit">
+                                    <i class="mdi mdi-close"></i>
+                                </button>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                دوربین
+                                <button class="btn btn-light btn-remove-search" type="submit">
+                                    <i class="mdi mdi-close"></i>
+                                </button>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="search-result-most-view">
+                        <li>
+                            <a href="#">موبایل <i class="fa fa-angle-left"></i></a>
+                        </li>
+                        <li>
+                            <a href="#">لپ تاپ <i class="fa fa-angle-left"></i></a>
+                        </li>
+                        <li>
+                            <a href="#">مودم <i class="fa fa-angle-left"></i></a>
+                        </li>
+                        <li>
+                            <a href="#">شیائومی <i class="fa fa-angle-left"></i></a>
+                        </li>
+                        <li>
+                            <a href="#">دوربین <i class="fa fa-angle-left"></i></a>
+                        </li>
+                    </ul>
+                    <div class="search-results-list js-search-ad-banner">
+                        <a href="#">
+                            <img src="assets/images/banner-search.jpg" alt="banner-search">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="col-lg-4 col-md-4 col-xs-12 pull-left">
+<div class="header-left">
+
+@await Component.InvokeAsync("BasketComponent")
+
+
+@if (User.Identity.IsAuthenticated)
+{
+    @if (_authorizationService.AuthorizeAsync(User, "SeniorProgrammer").Result.Succeeded)
+    {
+        <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="login-link" target="_blank">
+            <button class="btn-login">
+                <span class="mdi mdi-account"></span>
+                        پنل برنامه نویس ارشد
+                        <div class="dropdown-menu-login">
+                    <div class="header-profile-dropdown-account">
+                        <div class="header-profile-dropdown-user">
+                            <div class="header-profile-dropdown-user-img">
+                                <img src="assets/images/svg/user-profile.svg">
+                            </div>
+                            <div class="header-profile-dropdown-user-info">
+                                <p class="header-profile-dropdown-user-name">
+                                    @_userManager.GetUserAsync(User).Result.FirstName @_userManager.GetUserAsync(User).Result.LastName
+                                    <span class="header-profile-dropdown-user-profile-link">
+                                        مشاهده حساب
+                                        کاربری
+                                    </span>
+                                </p>
+                            </div>
+                            <div class="header-profile-dropdown-account">
+                                <div class="header-profile-dropdown-account-item">
+                                    <span class="header-profile-dropdown-account-item-title">
+                                      کل خرید شما
+                                    </span>
+                                    <div class="header-profile-dropdown-account-item-amount">
+                                        <span
+                                            class="header-profile-dropdown-account-item-amount-number">
+                                            ۰
+                                        </span>
+                                        تومان
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header-profile-dropdown-actions">
+                        <div class="header-profile-dropdown-action-container">
+                            <a asp-area="Admin" asp-controller="Home" asp-action="Index"
+                               class="header-profile-dropdown-action-link">
+                                سفارش‌های من
+                            </a>
+                        </div>
+                        @* <div class="header-profile-dropdown-action-container"> *@
+                        @*     <a asp-area="Admin" asp-controller="Home" asp-action="Index" *@
+                        @*        class="header-profile-dropdown-action-link"> *@
+                        @*         جوایز دیجی‌کلاب *@
+                        @*     </a> *@
+                        @* </div> *@
+                        <div class="header-profile-dropdown-action-container">
+                            <a asp-area="Auth" asp-controller="Auth" asp-action="LogOut" class="header-profile-dropdown-action-link">
+                                خروج از حساب
+                                کاربری
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </button>
+        </a>
     }
+    else if (_authorizationService.AuthorizeAsync(User, "AdminRole").Result.Succeeded)
+    {
+          <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="login-link" target="_blank">
+            <button class="btn-login">
+                <span class="mdi mdi-account"></span>
+                پنل ادمین ارشد 
+                <div class="dropdown-menu-login">
+                    <div class="header-profile-dropdown-account">
+                        <div class="header-profile-dropdown-user">
+                            <div class="header-profile-dropdown-user-img">
+                                <img src="assets/images/svg/user-profile.svg">
+                            </div>
+                            <div class="header-profile-dropdown-user-info">
+                                <p class="header-profile-dropdown-user-name">
+                                    @_userManager.GetUserAsync(User).Result.FirstName @_userManager.GetUserAsync(User).Result.LastName
+                                    <span class="header-profile-dropdown-user-profile-link">
+                                        مشاهده حساب
+                                        کاربری
+                                    </span>
+                                </p>
+                            </div>
+                            <div class="header-profile-dropdown-account">
+                                <div class="header-profile-dropdown-account-item">
+                                    <span class="header-profile-dropdown-account-item-title">
+                                        کل خرید شما
+                                    </span>
+                                    <div class="header-profile-dropdown-account-item-amount">
+                                        <span
+                                            class="header-profile-dropdown-account-item-amount-number">
+                                            ۰
+                                        </span>
+                                        تومان
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header-profile-dropdown-actions">
+                        <div class="header-profile-dropdown-action-container">
+                            <a asp-area="Admin" asp-controller="Home" asp-action="Index"
+                               class="header-profile-dropdown-action-link">
+                                سفارش‌های من
+                            </a>
+                        </div>
+                        <div class="header-profile-dropdown-action-container">
+                            <a asp-area="Admin" asp-controller="Home" asp-action="Index"
+                               class="header-profile-dropdown-action-link">
+                                جوایز دیجی‌کلاب
+                            </a>
+                        </div>
+                        <div class="header-profile-dropdown-action-container">
+                            <a asp-area="Auth" asp-controller="Auth" asp-action="LogOut" class="header-profile-dropdown-action-link">
+                                خروج از حساب
+                                کاربری
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </button>
+        </a>
+    }
+    else if (_authorizationService.AuthorizeAsync(User, "OwnerRole").Result.Succeeded)
+    {
+          <a asp-area="Owner" asp-controller="Home" asp-action="Index" class="login-link" target="_blank">
+            <button class="btn-login">
+                <span class="mdi mdi-account"></span>
+                مشاهده پروفایل
+                <div class="dropdown-menu-login">
+                    <div class="header-profile-dropdown-account">
+                        <div class="header-profile-dropdown-user">
+                            <div class="header-profile-dropdown-user-img">
+                                <img src="assets/images/svg/user-profile.svg">
+                            </div>
+                            <div class="header-profile-dropdown-user-info">
+                                <p class="header-profile-dropdown-user-name">
+                                    @_userManager.GetUserAsync(User).Result.FirstName @_userManager.GetUserAsync(User).Result.LastName
+                                    <span class="header-profile-dropdown-user-profile-link">
+                                        مشاهده حساب
+                                        کاربری
+                                    </span>
+                                </p>
+                            </div>
+                            <div class="header-profile-dropdown-account">
+                                <div class="header-profile-dropdown-account-item">
+                                    <span class="header-profile-dropdown-account-item-title">
+                                      کل خرید شما
+                                    </span>
+                                    <div class="header-profile-dropdown-account-item-amount">
+                                        <span
+                                            class="header-profile-dropdown-account-item-amount-number">
+                                            ۰
+                                        </span>
+                                        تومان
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header-profile-dropdown-actions">
+                        <div class="header-profile-dropdown-action-container">
+                            <a asp-area="Admin" asp-controller="Home" asp-action="Index"
+                               class="header-profile-dropdown-action-link">
+                                سفارش‌های من
+                            </a>
+                        </div>
+                        <div class="header-profile-dropdown-action-container">
+                            <a asp-area="Admin" asp-controller="Home" asp-action="Index"
+                               class="header-profile-dropdown-action-link">
+                                جوایز دیجی‌کلاب
+                            </a>
+                        </div>
+                        <div class="header-profile-dropdown-action-container">
+                            <a asp-area="Auth" asp-controller="Auth" asp-action="LogOut" class="header-profile-dropdown-action-link">
+                                خروج از حساب
+                                کاربری
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </button>
+        </a>
+    }
+    else if (_authorizationService.AuthorizeAsync(User, "UserRole").Result.Succeeded)
+    {
+          <a asp-area="User" asp-controller="Home" asp-action="Index" class="login-link" target="_blank">
+            <button class="btn-login">
+                <span class="mdi mdi-account"></span>
+                مشاهده پروفایل
+                <div class="dropdown-menu-login">
+                    <div class="header-profile-dropdown-account">
+                        <div class="header-profile-dropdown-user">
+                            <div class="header-profile-dropdown-user-img">
+                                <img src="assets/images/svg/user-profile.svg">
+                            </div>
+                            <div class="header-profile-dropdown-user-info">
+                                <p class="header-profile-dropdown-user-name">
+                                    @_userManager.GetUserAsync(User).Result.FirstName @_userManager.GetUserAsync(User).Result.LastName
+                                    <span class="header-profile-dropdown-user-profile-link">
+                                        مشاهده حساب
+                                        کاربری
+                                    </span>
+                                </p>
+                            </div>
+                            <div class="header-profile-dropdown-account">
+                                <div class="header-profile-dropdown-account-item">
+                                    <span class="header-profile-dropdown-account-item-title">
+                                      کل خرید شما
+                                    </span>
+                                    <div class="header-profile-dropdown-account-item-amount">
+                                        <span
+                                            class="header-profile-dropdown-account-item-amount-number">
+                                            ۰
+                                        </span>
+                                        تومان
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header-profile-dropdown-actions">
+                        <div class="header-profile-dropdown-action-container">
+                            <a asp-area="Admin" asp-controller="Home" asp-action="Index"
+                               class="header-profile-dropdown-action-link">
+                                سفارش‌های من
+                            </a>
+                        </div>
+                        <div class="header-profile-dropdown-action-container">
+                            <a asp-area="Admin" asp-controller="Home" asp-action="Index"
+                               class="header-profile-dropdown-action-link">
+                                جوایز دیجی‌کلاب
+                            </a>
+                        </div>
+                        <div class="header-profile-dropdown-action-container">
+                            <a asp-area="Auth" asp-controller="Auth" asp-action="LogOut" class="header-profile-dropdown-action-link">
+                                خروج از حساب
+                                کاربری
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </button>
+        </a>
+    }
+}
+else
+{
+    <a asp-area="Auth"
+       asp-controller="Auth"
+       asp-action="CheckOut"
+       class="login-link">
+        <button class="btn-login">
+            <span class="mdi mdi-account"></span>
+            ورود / ثبت نام
+        </button>
+    </a>
+}
 
 
-    <div class="between_border "></div>
-    @* <div class="header_cart_button " rel="nofollow"> *@
-    @*     <a rel="nofollow" class="cart_page_url" *@
-    @*        href="~/cart"> *@
-    @*         <strong *@
-    @*             class="title_cart_mini_newkala"> *@
-    @*             سبد خرید *@
-    @*         </strong> <span class="header-icons-noti">0</span> *@
-    @*     </a> *@
-    @* *@
-    @* *@
-    @*     <div class="nk_mini_cart_wrapper" style="display: none;"> *@
-    @*         <div class="mini_cart_arrow"></div> *@
-    @* *@
-    @* *@
-    @*         <p class="woocommerce-mini-cart__empty-message">هیچ محصولی در سبد خرید نیست.</p> *@
-    @* *@
-    @* *@
-    @*     </div> *@
-    @* *@
-    @* </div> *@
+<!-- responsive basket header------------------->
+<div class="responsive-header-left">
+    <a href="#">
+        <button class="btn-login-responsive">
+            <span class="mdi mdi-account"></span>
+            @* <span class="cart-count">3</span> *@
+            <div class="dropdown-menu-login">
+                <div class="header-profile-dropdown-account">
+                    <div class="header-profile-dropdown-user">
+                        <div class="header-profile-dropdown-user-img">
+                            <img src="assets/images/svg/user-profile.svg">
+                        </div>
+                        <div class="header-profile-dropdown-user-info">
+                            <p class="header-profile-dropdown-user-name">
+                                حسن شجاعی
+                                <span class="header-profile-dropdown-user-profile-link">
+                                    مشاهده
+                                    حساب کاربری
+                                </span>
+                            </p>
+                        </div>
+                        <div class="header-profile-dropdown-account">
+                            <div class="header-profile-dropdown-account-item">
+                                <span class="header-profile-dropdown-account-item-title">
+                                    کیف
+                                    پول
+                                </span>
+                                <div class="header-profile-dropdown-account-item-amount">
+                                    <span
+                                        class="header-profile-dropdown-account-item-amount-number">
+                                        ۰
+                                    </span>
+                                    تومان
+                                </div>
+                            </div>
+                            <div class="header-profile-dropdown-account-item">
+                                <span
+                                    class="header-profile-dropdown-account-item-title">
+                                    دیجی‌کلاب
+                                </span>
+                                <div class="header-profile-dropdown-account-item-amount">
+                                    <span
+                                        class="header-profile-dropdown-account-item-amount-number">
+                                        ۰
+                                    </span>
+                                    تومان
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="header-profile-dropdown-actions">
+                    <div class="header-profile-dropdown-action-container">
+                        <a href="#" class="header-profile-dropdown-action-link">سفارش‌های من</a>
+                    </div>
+                    <div class="header-profile-dropdown-action-container">
+                        <a href="#" class="header-profile-dropdown-action-link">
+                            جوایز
+                            دیجی‌کلاب
+                        </a>
+                    </div>
+                    <div class="header-profile-dropdown-action-container">
+                        <a href="#" class="header-profile-dropdown-action-link">
+                            خروج از حساب
+                            کاربری
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </button>
+    </a>
     
-    @await Component.InvokeAsync("BasketComponent")
-
-
+    
+    
+    @await Component.InvokeAsync("ResponsiveBasketComponent")
+    <button class="question-faq">
+    <span class="fa fa-question-circle-o"></span>
+</button>
+</div>
+<!-- responsive basket header------------------->
+</div>
+</div>
 </div>
 
+
+<!--        Start megamenu----------------->
+<partial name="_MenusPartial"/>
 </div>
+<!--        End megamenu------------------->
+
+<partial name="_ResponsiveMenusPartial"/>
+
+
 </header>
