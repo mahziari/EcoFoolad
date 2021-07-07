@@ -20,6 +20,7 @@ namespace  Application.Services.FrontEnd.Common.Menus.Queries
         public int ParsaPooladMenusId { get; set; }
         public string Name { get; set; }
         public string EnName { get; set; }
+        public string Icon { get; set; }
         public List<GetMenu2Dto> Sub { get; set; }
     }
 

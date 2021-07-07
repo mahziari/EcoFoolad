@@ -4,15 +4,16 @@
 @{
     Layout = null;
 }
-
+@{ var i = 0;}
 @foreach (var item in Model.Menus)
 {
+    i++;
    <li class="item-list-menu megamenu-1 nav-overlay">
         <a asp-controller="Products"
            asp-action="CategoryFirstGroup"
             asp-route-FirstGroupName="@item.EnName" class="list-category first after"
            style="font-weight: bold;">
-            <i class="mdi mdi-sale text-danger"></i>
+            <i class="@item.Icon text-office-@i"></i>
              @item.Name
         </a>
        <ul class="list-menu-level-2 list-menu-discounts-offers">
@@ -49,7 +50,7 @@
 
            <div class="main-banner">
                <a href="#">
-                   <img src="assets/images/banner.jpg">
+                   <img src="~/assets/images/banner.jpg">
                </a>
            </div>
        </ul>

@@ -98,13 +98,17 @@ namespace Application.Services.BackEnd.Admin.Footers
         [Display(Name = "لوگو همکار 1")]
         public string Photo7 { get; set; }
 
-        [Display(Name = "")] public string Photo8 { get; set; }
+        [Display(Name = "لوگو اتحادیه کشوری کسب و کار مجازی")] 
+        public string Photo8 { get; set; }
 
-        [Display(Name = "")] public string Photo9 { get; set; }
+        [Display(Name = "لوگو نظام صنفی رایانه ای کشور")]
+        public string Photo9 { get; set; }
 
-        [Display(Name = "")] public string Photo10 { get; set; }
+        [Display(Name = "لوگو انجمن انفورماتیک ایران")] 
+        public string Photo10 { get; set; }
 
-        [Display(Name = "")] public string Photo11 { get; set; }
+        [Display(Name = "لوگو شرکت های ارایه دهنده خدمات وب و موبایل")]
+        public string Photo11 { get; set; }
 
         [Display(Name = "")] public string Photo12 { get; set; }
 

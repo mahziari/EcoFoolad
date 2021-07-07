@@ -35,6 +35,7 @@ namespace Application.Services.FrontEnd.Common.Menus.Queries
                         ParsaPooladMenusId = f.ParsaPooladMenusId,
                         Name = f.Name,
                         EnName = f.UrlName,
+                        Icon = f.Icon,
                         Sub = f.WsproductFirstGroup
                             .Where(first => first.IsRemoved == null)
                             .Select(first => new GetMenu2Dto

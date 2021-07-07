@@ -18,27 +18,27 @@
         <div class="container">
             <div class="footer-inner-box">
                 <a href="#" class="footer-badge">
-                    <img src="assets/images/footer-svg/delivery.svg">
+                    <img src="/assets/images/footer-svg/delivery.svg">
                     <span class="item-feature">تحویل اکسپرس</span>
                 </a>
 
                 <a href="#" class="footer-badge">
-                    <img src="assets/images/footer-svg/contact-us.svg">
+                    <img src="/assets/images/footer-svg/contact-us.svg">
                     <span class="item-feature">پشتیبانی 24 ساعته</span>
                 </a>
 
                 <a href="#" class="footer-badge">
-                    <img src="assets/images/footer-svg/payment-terms.svg">
+                    <img src="/assets/images/footer-svg/payment-terms.svg">
                     <span class="item-feature">پرداخت در منزل</span>
                 </a>
 
                 <a href="#" class="footer-badge">
-                    <img src="assets/images/footer-svg/return-policy.svg">
+                    <img src="/assets/images/footer-svg/return-policy.svg">
                     <span class="item-feature">7 روز ضمانت برگشت</span>
                 </a>
 
                 <a href="#" class="footer-badge">
-                    <img src="assets/images/footer-svg/origin-guarantee.svg">
+                    <img src="/assets/images/footer-svg/origin-guarantee.svg">
                     <span class="item-feature">ضمانت اصل بودن کالا</span>
                 </a>
             </div>
@@ -109,19 +109,21 @@
 
         <div class="col-12">
             <div class="footer-address">
-                <div class="footer-contact">
-                    <ul>
-                        <li>هفت روز هفته ، ۲۴ ساعت شبانه‌روز پاسخگوی شما هستیم</li>
-                        <li style="float:right">شماره تماس : <a href="#" class="phone-contact">@Model.PhoneNumber1</a></li>
-                        <li class="email-title">آدرس دفتر : <a href="#">@Model.OfficeAddress</a></li>
-                        <li class="email-title">آدرس انبار : <a href="#">@Model.FactoryAddress</a></li>
-                    </ul>
-                </div>
+                @* <div class="footer-contact"> *@
+                @*     <ul> *@
+                @*         <li style="float:right">شماره تماس : <a href="tel:@Model.PhoneNumber1" class="phone-contact">@Model.PhoneNumber1</a></li> *@
+                @*         <li class="email-title">آدرس دفتر : <a href="#">@Model.OfficeAddress</a></li> *@
+                @*         <li class="email-title">آدرس انبار : <a href="#">@Model.FactoryAddress</a></li> *@
+                @*     </ul> *@
+                @* </div> *@
 
                 <div class="address-images">
                     <a href="#">
-                        <img src="@Model.Photo1">
-                        <img src="@Model.Photo2">
+                        <img src="@Model.Photo3">
+                        <img src="@Model.Photo4" >
+                        <img src="@Model.Photo5" >
+                        <img src="@Model.Photo6" >
+                        <img src="@Model.Photo7" >
                     </a>
                 </div>
             </div>
@@ -129,39 +131,53 @@
 
         <div class="more-info">
             <div class="col-12">
+                <div class="address-site">
+                      <div class="footer-contact">
+                           <ul>
+                               <li class="email-title">شماره تماس : <a href="tel:@Model.PhoneNumber1" class="phone-contact">@Model.PhoneNumber1</a></li>
+                               <li class="email-title mt-3">ایمیل  : <a href="#" class="phone-contact">info@ecofoolad.com</a></li>
+                               <li class="email-title mt-3">آدرس دفتر : <a href="#">@Model.OfficeAddress</a></li>
+                               <li class="email-title mt-3">آدرس انبار : <a href="#">@Model.FactoryAddress</a></li>
+                           </ul>
+                       </div>
+                </div>
+                
                 <div class="about-site">
-                    <h1>فروشگاه آنلاین محصولات آهن و و فولاد درباره فروشگاه اینترنتی  @_siteSetting.GetSiteSetting().SiteName</h1>
+                    <h1>فروشگاه آنلاین محصولات آهن و و فولاد @_siteSetting.GetSiteSetting().SiteName</h1>
                     <p>
                         @Html.Raw(Model.Description)
                     </p>
 
                     <div class="footer-inner-box">
                         <a href="#" class="footer-badge">
-                            <img src="@Model.Photo3" style="width: 130px !important;">
+                            <img src="@Model.Photo1" alt="اینماد" style="width: 85px !important;">
                         </a>
 
                         <a href="#" class="footer-badge">
-                            <img src="@Model.Photo4" style="width: 130px !important;">
+                            <img src="@Model.Photo2" alt="ساماندهی" style="width: 85px !important;">
                         </a>
 
                         <a href="#" class="footer-badge">
-                            <img src="@Model.Photo5" style="width: 130px !important;">
+                            <img src="@Model.Photo8" alt="اتحادیه کشوری کسب و کار مجازی" style="width: 85px !important;">
                         </a>
 
                         <a href="#" class="footer-badge">
-                            <img src="@Model.Photo6" style="width: 130px !important;">
+                            <img src="@Model.Photo9" alt="نظام صنفی رایانه ای کشور" style="width: 85px !important;">
                         </a>
                         <a href="#" class="footer-badge">
-                            <img src="@Model.Photo7" style="width: 130px !important;">
+                            <img src="@Model.Photo10" alt="انجمن انفورماتیک ایران" style="width: 85px !important;">
+                        </a>
+                        
+                        <a href="#" class="footer-badge">
+                            <img src="@Model.Photo11" alt="شرکت های ارایه دهنده خدمات وب و موبایل" style="width: 85px !important;">
                         </a>
                     </div>
                 </div>
 
                 <div class="copy-right-footer">
                     <p>
-                  استفاده از مطالب  @_siteSetting.GetSiteSetting().SiteName  برای مقاصد غیرتجاری با ذکر نام @_siteSetting.GetSiteSetting().SiteName  و لینک
-                                   به منبع بلامانع است. حقوق این سایت به <span class="white fontIran">شرکت  @_siteSetting.GetSiteSetting().SiteName</span> تعلق
-                                   دارد. Copyright © 2010 &#8211; 2021
+                        استفاده از مطالب @_siteSetting.GetSiteSetting().SiteName برای مقاصد غیرتجاری با ذکر نام @_siteSetting.GetSiteSetting().SiteName و لینک
+                        به منبع بلامانع است. تمامی حقوق این سایت به <a href="/"><span class="white fontIran">شرکت @_siteSetting.GetSiteSetting().SiteName</span></a> تعلق دارد. Copyright © 2010-2021
                     </p>
                 </div>
             </div>

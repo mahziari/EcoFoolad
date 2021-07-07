@@ -78,6 +78,62 @@ a:hover {
     url('../fonts/iranyekan/ttf/iranyekanwebregular(fanum).ttf') format('truetype');
 }
 
+
+@font-face {
+    font-family: "icomoon";
+    font-display: swap;
+    src: url("../fonts/icomon/icomoon.eot?fo8ogl");
+    src: url("../fonts/icomon/icomoon.eot?fo8ogl#iefix")
+    format("embedded-opentype"),
+    url("../fonts/icomon/icomoon.ttf?fo8ogl") format("truetype"),
+    url("../fonts/icomon/icomoon.woff?fo8ogl") format("woff"),
+    url("../fonts/icomon/icomoon.svg?fo8ogl#icomoon") format("svg");
+    font-weight: normal;
+    font-style: normal;
+}
+
+[class^="icon-"],
+[class*=" icon-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: "icomoon" !important;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-nabshi:before {
+    content: "\e919";
+}
+
+.icon-lole:before {
+    content: "\e94d";
+}
+
+.icon-tajhizat:before {
+    content: "\e94e";
+}
+
+.icon-milgerd:before {
+    content: "\e94f";
+}
+
+.icon-varagh:before {
+    content: "\e950";
+}
+
+.icon-tirahan:before {
+    content: "\e951";
+}
+
+.icon-profil:before {
+    content: "\e952";
+}
+
 .pull-right {
     float: right !important;
 }
@@ -2707,18 +2763,19 @@ footer .footer-jump a .footer-jump-angle i {
     margin-top: 10px;
     text-align: center;
     display: block;
+    border-bottom: 1px solid #c5c4c4;
 }
 
 .footer-inner-box a {
     margin-bottom: 10px;
     text-decoration: none;
-    width: 215px;
+    width: 150px;
     display: inline-block;
 }
 
 .footer-inner-box a img {
     width: 70px;
-    height: 70px;
+    height: auto;
 }
 
 .footer-inner-box a .item-feature {
@@ -2919,14 +2976,14 @@ footer .footer-address .footer-contact ul li.email-title {
 }
 
 footer .footer-address .address-images {
-    width: 31%;
-    height: 65px;
+    width: 100%;
+    height: auto;
     float: left;
     line-height: 63px;
 }
 
 footer .footer-address .address-images img {
-    width: 150px;
+    width: 90px;
 }
 
 footer .more-info {
@@ -2941,6 +2998,12 @@ footer .more-info .about-site {
     width: 100%;
     height: auto;
     margin-top: 15px;
+    border-bottom: 1px solid #c5c4c4;
+}
+
+footer .address-site {
+    width: 100%;
+    height: auto;
     border-bottom: 1px solid #c5c4c4;
 }
 
@@ -11741,4 +11804,39 @@ ul.faq-list li .footer em {
 
 .auth-error li{
     color: #ff0000;
+}
+.text-orange {
+    color: #00ff64  !important;
+}
+
+.text-office-1 {
+    color: #000000 !important;
+}
+
+.text-office-2 {
+    color: #ff4b14 !important;
+}
+
+.text-office-3 {
+    color: #7a00ff !important;
+}
+
+.text-office-4 {
+    color: #00cbff !important;
+}
+
+.text-office-5 {
+    color: #00ffde !important;
+}
+
+.text-office-6 {
+    color: #61ff09 !important;
+}
+
+.text-office-7 {
+    color: #3417ff !important;
+}
+
+.text-office-8 {
+    color: #000000 !important;
 }
