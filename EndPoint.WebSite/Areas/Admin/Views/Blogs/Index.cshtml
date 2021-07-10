@@ -105,9 +105,14 @@
 
                                                 <td>
                                                     @item.NewsGroup.GroupName 
+                                                    <br>
                                                     @if (item.Position != 0)
                                                     {
-                                                        <span style="color: #0bb90b">(IsFav(@item.Position))</span>
+                                                        <span style="color: #0bb90b">(موقعیت منتخب(@item.Position))</span>
+                                                    }
+                                                    @if (item.RequestToAuthorFav)
+                                                    {
+                                                        <span style="color: #00a5ff">منخب سردبیر</span>
                                                     }
                                                 </td>
 

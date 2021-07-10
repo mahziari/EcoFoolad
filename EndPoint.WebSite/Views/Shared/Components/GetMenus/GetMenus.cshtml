@@ -11,9 +11,10 @@
    <li class="item-list-menu megamenu-1 nav-overlay">
         <a asp-controller="Products"
            asp-action="CategoryFirstGroup"
-            asp-route-FirstGroupName="@item.EnName" class="list-category first after"
+           asp-route-FirstGroupName="@item.EnName" 
+           class="list-category first after"
            style="font-weight: bold;">
-            <i class="@item.Icon text-office-@i"></i>
+            <i class="ico @item.Icon text-office-@i"></i>
              @item.Name
         </a>
        <ul class="list-menu-level-2 list-menu-discounts-offers">

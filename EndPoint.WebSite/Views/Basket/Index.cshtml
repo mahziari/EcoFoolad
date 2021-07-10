@@ -8,187 +8,167 @@
 
 @if (Model.Items.Count != 0)
 {
-    <div class="container" style="margin-top:20px;">
-    
-        <section class="content_right_blog" style="width:100%;">
-
-            <div class="main_content_post_blog">
-
-                @* <ul class="woocommerce-breadcrumb"><li> *@
-                @* 	<a href="https://product-mirzacode.ir/newkala/preview/nonelementor">نیوکالا</a> *@
-                @* </li><span>/</span><li>سبد خرید</li></ul>			 *@
-                @* <h1 class="title_single_post">سبد خرید</h1> *@
-
-
-                <div class="product-content-onliner">
-
-                    <div class="woocommerce">
-                        <div class="woocommerce-notices-wrapper"></div>
-                        <form asp-controller="Basket" asp-action="" method="post" class="woocommerce-cart-form">
-
-                            <table class="shop_table shop_table_responsive cart woocommerce-cart-form__contents" cellspacing="0">
-                                <thead>
-                                <tr>
-                                    <th class="product-remove">&nbsp;</th>
-                                    <th class="product-thumbnail">&nbsp;</th>
-                                    <th class="product-name">محصول</th>
-                                    <th class="product-price">قیمت</th>
-                                    <th class="product-quantity">تعداد</th>
-                                    <th class="product-subtotal"> قیمت کل </th>
-                                </tr>
-                                </thead>
-                                <tbody>
-
-                                @foreach (var item in Model.Items)
-                                {
-                                    <tr class="woocommerce-cart-form__cart-item cart_item">
-
-                                        <td class="product-remove">
-                                            <a href="~/basket/RemoveItemFromBasket/@item.Id" class="remove" aria-label="پاک کردن این آیتم">×</a>
-                                        </td>
-
-                                        <td class="product-thumbnail">
-                                            <a href="#">
-                                                <img src="~/Images/Menus/1.jpg" class="attachment-thumbnail size-thumbnail" alt="@item.ProductName" loading="lazy" width="150" height="150">
-                                            </a>
-                                        </td>
-
-                                        <td class="product-name" data-title="محصول">
-                                            <a href="#">@item.ProductName</a>
-                                            @* <dl class="variation"> *@
-                                            @*     <dt class="variation-">فروشنده:</dt> *@
-                                            @*     <dd class="variation-"></dd> *@
-                                            @* </dl> *@
-                                        </td>
-
-                                        <td class="product-price" data-title="قیمت">
-                                            <span class="woocommerce-Price-amount amount">
-                                                <bdi>
-                                                    @item.UnitPrice
-                                                    <span class="woocommerce-Price-currencySymbol">تومان</span>
-                                                </bdi>
-                                            </span>
-                                        </td>
-
-                                        <td class="product-quantity" data-title="تعداد">
-                                            <div class="quantity">
-                                                <label class="screen-reader-text" for="quantity-@item.Id">@item.Quantity</label>
-                                                <input type="number" class="input-text qty text" onchange="SetQuantity('@item.Id')" id="quantity-@item.Id" value="@item.Quantity" step="1" min="0" max="" title="تعداد" size="4" placeholder="" inputmode="numeric">
-                                            </div>
-                                        </td>
-
-                                        <td class="product-subtotal" data-title="مجموع">
-                                            <span class="woocommerce-Price-amount amount">
-                                                <bdi>
-                                                    @{
-                                                        var price = (item.UnitPrice * item.Quantity);
-                                                        @price.ToString("n0")
-                                                    }
-                                                    <span class="woocommerce-Price-currencySymbol">تومان</span>
-                                                </bdi>
-                                            </span>
-                                        </td>
-                                    </tr>
-                                }
-                         
-
-                                </tbody>
-                            </table>
-                        </form>
-
-
-                        <div class="cart-collaterals">
-                            <div class="cart_totals ">
-
-
-                                <h2>مجموع کل سبد خرید</h2>
-
-                                <table class="shop_table shop_table_responsive" cellspacing="0">
-
-                                    <tbody>
-                                    <tr class="cart-subtotal">
-                                        <th> قیمت کل(@Model.Items.Count) </th>
-                                        <td data-title=" قیمت کل ">
-                                            <span class="woocommerce-Price-amount amount">
-                                                <bdi>
-                                                    @Model.Items.Sum(p => p.UnitPrice * p.Quantity).ToString("n0")
-                                                    <span class="woocommerce-Price-currencySymbol">تومان</span>
-                                                </bdi>
-                                            </span>
-                                        </td>
-                                    </tr>
-
-
-                                    <tr class="order-total">
-                                        <th>مجموع</th>
-                                        <td data-title="مجموع">
-                                            <strong>
-                                                <span class="woocommerce-Price-amount amount">
-                                                    <bdi>
-                                                        @Model.Items.Sum(p => p.UnitPrice * p.Quantity).ToString("n0")
-                                                        <span class="woocommerce-Price-currencySymbol">تومان</span>
-                                                    </bdi>
-                                                </span>
-                                            </strong>
-                                        </td>
-                                    </tr>
-
-
-                                    </tbody>
-                                </table>
-
-                                <div class="wc-proceed-to-checkout">
-
-                                    <a href="~/basket/shipping-payment"  class="checkout-button button alt wc-forward">
-                                        اقدام به پرداخت
-                                    </a>
-
-                                    <p class="newkala_cart-notice_after_checkout_button">کالاهای موجود در سبد شما ثبت و رزرو نشده‌اند، برای ثبت سفارش مراحل بعدی را تکمیل کنید.</p>
-
-                                </div>
-
-
-                            </div>
-                            <style>
-				.wpb_wrapper .main_short_link_by_icon a{
-					-ms-flex: 0 0 20% !Important;
-					flex: 0 0 20% !Important;
-					max-width: 20% !Important;
-				}
-			</style>
-
-                            <div class="main_short_link_by_icon 20" id="newkala_short_link_by_icon">
-                                <a title="یک ماه ضمانت بازگشت">
-                                    <img src="https://product-mirzacode.ir/newkala/preview/nonelementor/wp-content/uploads/sites/2/2021/03/22414818.svg" width="55" height="55">یک ماه ضمانت بازگشت
-                                </a>
-                                <a title="تحویل اکسپرس">
-                                    <img src="https://product-mirzacode.ir/newkala/preview/nonelementor/wp-content/uploads/sites/2/2021/03/8f570b58.svg" width="55" height="55">تحویل اکسپرس
-                                </a><a title="ضمانت اصلی بودن">
-                                    <img src="https://product-mirzacode.ir/newkala/preview/nonelementor/wp-content/uploads/sites/2/2021/03/514926b1.svg" width="55" height="55">ضمانت اصلی بودن
-                                </a><a title="پرداخت در محل">
-                                    <img src="https://product-mirzacode.ir/newkala/preview/nonelementor/wp-content/uploads/sites/2/2021/03/fdb293e6.svg" width="55" height="55">پرداخت در محل
-                                </a><a title="پشتیبانی 24 ساعته">
-                                    <img src="https://product-mirzacode.ir/newkala/preview/nonelementor/wp-content/uploads/sites/2/2021/03/a9286d2f.svg" width="55" height="55">پشتیبانی 24 ساعته
-                                </a>
-                            </div>
-
-                        </div>
-
-                        <div class="clear"></div>
-
+    <!--  cart------------------>
+    <div class="col-12">
+        <div class="page-content">
+            <div class="col-lg-4 col-md-4 col-xs-12 pull-right">
+                <div class="checkout-tab">
+                    <div class="checkout-tab-pill listing-active-cart">
+                        سبد خرید
+                        <span class="checkout-tab-counter">@Model.Items.Count</span>
                     </div>
+                    @* <div class="checkout-tab-pill">لیست خرید بعدی</div> *@
                 </div>
 
-
-                <div class="clear"></div>
             </div>
+        </div>
+        <div class="cart-tab-main">
 
-        </section>
+            <div class="col-lg-9 col-md-9 col-xs-12 pull-right">
+                @foreach (var item in Model.Items)
+                {
+                    <div class="page-content-cart">
+                        <form asp-controller="Basket" asp-action="" method="post">
+                            <div class="header-express">
+                                @* <span class="checkout-header-title"><i class="fa fa-truck"></i>ارسال عادی</span> *@
+                                @* <span class="header-extra-info">(۱ *@
+                                @*     کالا)</span> *@
+                                @* <span class="checkout-header-delivery-cost">هزینه ارسال:رایگان</span> *@
+                            </div>
+
+                            <div class="checkout-body">
+                                <a href="~/basket/RemoveItemFromBasket/@item.Id" class="remove-from-cart">
+                                    <i class="fa fa-close"></i>
+                                </a>
+                                <a asp-controller="Products"
+                                   asp-action="Details"
+                                   asp-route-MenuName="@item.subMenuEnSgname.Replace(" ", "-")"
+                                   asp-route-PrdName="@item.ProductName.Replace(" ", "-")"
+                                   class="col-thumb">
+                                    <img src="~/Images/Menus/1.jpg" alt="@item.ProductName">
+                                </a>
+
+                                <div class="checkout-col-desc">
+                                    <a href="#">
+                                        <h3>
+                                            @item.ProductName
+                                        </h3>
+                                    </a>
+                                    <div class="checkout-variant-color">
+                                        @* <span class="checkout-variant-title">سفید</span> *@
+                                        @* <div class="checkout-variant-shape"></div> *@
+                                        <div class="checkout-guarantee">
+                                            <i class="fa fa-check"></i>
+                                            @item.UnitPrice
+                                        </div>
+                                        @* <div class="checkout-dealer"><i class="fa fa-check"></i>کالا پلاس</div> *@
+                                    </div>
+
+                                    <div class="quantity">
+                                        @* <label for="quantity-@item.Id">@item.Quantity</label> *@
+                                        <input type="number"
+                                               onchange="SetQuantity('@item.Id')"
+                                               id="quantity-@item.Id"
+                                               value="@item.Quantity"
+                                               step="1"
+                                               min="1"
+                                               max="">
+                                    </div>
 
 
-        <div class="clear"></div>
+                                    <a href="#" class="add-to-sfl">
+                                        @* ذخیره در لیست خرید بعدی *@
+                                        <div class="cart-item-product-price">
+
+                                            @{
+                                                var price = (item.UnitPrice * item.Quantity);
+                                                @price.ToString("n0")
+                                            }
+                                            <span>
+                                                تومان
+                                            </span>
+                                        </div>
+
+                                    </a>
+
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                }
+
+
+                <div class="checkout-to-shipping-sticky">
+                    <a href="~/basket/shipping-payment" class="selenium-next-step-shipping">ادامه فرآیند خرید</a>
+                    <div class="checkout-to-shipping-price-report">
+                        <p>مبلغ قابل پرداخت</p>
+                        <div class="cart-item-product-price">
+                            @{
+                                var totalPrice = Model.Items.Sum(p => p.UnitPrice * p.Quantity);
+                                var tax = Math.Round((decimal) (totalPrice * 0.09));
+                                var totalPay = tax + totalPrice;
+                            }
+                            <span>
+                                @totalPay.ToString("n0") تومان
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-xs-12 pull-left">
+                <div class="page-aside">
+                    <div class="checkout-summary">
+                        <ul class="checkout-summary-summary">
+                            <li>
+                                <span>مبلغ کل (@Model.Items.Count کالا)</span>
+                                <span>
+                                    @*  @Model.Items.Sum(p => p.UnitPrice * p.Quantity).ToString("n0") *@
+                                </span>
+                            </li>
+                            <li>
+                                <span>جمع</span>
+                                <span>
+                                    @Model.Items.Sum(p => p.UnitPrice * p.Quantity).ToString("n0") تومان
+                                </span>
+                            </li>
+                            <li>
+                                <span style="color: #424750; font-size:14px;">هزینه مالیات</span>
+                                <span></span>
+                            </li>
+                            <li>
+                                <span><i class="fa fa-percent"></i>ارزش افزوده %9</span>
+                                <span>
+                                    @tax.ToString("n0") تومان
+                                </span>
+                            </li>
+                            <li>
+                                <span>مبلغ قابل پرداخت</span>
+                                <span>@totalPay.ToString("n0") تومان</span>
+                            </li>
+                            @* <li class="checkout-digiclub-container"> *@
+                            @*     <span class="checkout-digiclub-row"> *@
+                            @*         <img src="assets/images/digiclub.png"> *@
+                            @*         <span class="checkout-digiclub-points"> *@
+                            @*             امتیاز دیجی‌کلاب *@
+                            @*         </span> *@
+                            @*     </span> *@
+                            @*     <span class="checkout-digiclub-row">150 *@
+                            @*         <span class="checkout-bill-currency"> *@
+                            @*             امتیاز *@
+                            @*         </span> *@
+                            @*     </span> *@
+                            @* </li> *@
+                        </ul>
+                    </div>
+                    <div class="checkout-summary-content">
+                        <p>کالاهای موجود در سبد شما ثبت نهایی و رزرو نشده‌اند، برای ثبت سفارش مراحل بعدی را تکمیل کنید.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    
+    <!--  cart------------------>
+
     <script>
     function SetQuantity(itemId) {
         var quantity = $("#quantity-"+itemId).val();
@@ -200,36 +180,34 @@
             }
         })
     }
-</script>  
+</script>
 }
 else
 {
-    <section class="content_right_blog" style="width:100%;">
-		
-        <div class="main_content_post_blog">
+    <div class="col-12">
+        <div class="cart-page">
+            <div class="container">
+                <div class="checkout-empty">
+                    <div class="checkout-empty-empty-cart-icon"></div>
+                    <div class="checkout-empty-title">سبد خرید شما خالی است!</div>
+                    <div class="col-lg-6 col-md-6!important col-xs-12 mx-auto">
+                        <div class="checkout-empty-links">
 
-            <div class="product-content-onliner">
-				
-                <div class="woocommerce"><div class="woocommerce-notices-wrapper"></div>
-                    <span class="cart_is_empty_icon"></span>
-
-
-                    <strong class="title_cart_is_empty">سبد خرید شما خالیست!</strong>
-
-
-
-                    <p class="des_cart_is_empty">برای مشاهده تمامی محصولات به فروشگاه بروید:</p>
-
-
-                    <p class="return-to-shop">
-                        <a class="button wc-backward" asp-controller="Products" asp-action="Index">
-                            بازگشت به فروشگاه	
-                        </a>
-                    </p>
+                            <p>
+                                می‌توانید برای مشاهده محصولات بیشتر به صفحات زیر بروید
+                            </p>
+                            <div class="checkout-empty-link-urls">
+                                <a href="/product">
+                                    محصولات
+                                </a>
+                                <a href="/blog">
+                                    بلاگ
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="clear"></div>
         </div>
-    </section> 
-    <div class="clear"></div>
+    </div>
 }

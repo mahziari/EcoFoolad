@@ -29,5 +29,6 @@ namespace  Application.Services.BackEnd.Admin.Blogs.Command.EditBlogs
         [DataType(DataType.Upload)]
         public IFormFile Images { get; set; }
         public int Position { get; set; }
+        public bool RequestToAuthorFav { get; set; }
     }
 }

@@ -65,6 +65,7 @@ namespace  Application.Services.BackEnd.Admin.Blogs.Command.EditBlogs
             blog.NewsGroupId = editBlogsServicesDto.NewsGroupId;
             blog.Title = editBlogsServicesDto.Title;
             blog.NewsSummery = editBlogsServicesDto.NewsSummery;
+            blog.RequestToAuthorFav = editBlogsServicesDto.RequestToAuthorFav;
             if (uploadedResult.FileNameAddress != "ImageNotChange")
             {
                 blog.HeadLine = uploadedResult.FileNameAddress;

@@ -18,4 +18,9 @@ namespace Application.Services.FrontEnd.Basket
             return 0;
         }
     }
+
+    public class ProductDetailsBasketDto
+    {
+        public string productGroupId { get; set; }
+    }
 }

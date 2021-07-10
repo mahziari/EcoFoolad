@@ -30,5 +30,6 @@ namespace  Application.Services.BackEnd.Admin.Blogs.Command.CreateBlogs
         // [FileExtensions(Extensions = ".png,.jpg,.jpeg,.gif", ErrorMessage = "فرمت عکس نامعتبر است")]
         public IFormFile Images { get; set; }
         public int Position { get; set; }
+        public bool RequestToAuthorFav { get; set; }
     }
 }

@@ -25,5 +25,9 @@ namespace  Application.Services.BackEnd.Admin.BlogsCategories.Command.CreateBlog
         [Display(Name = "آیکن دسته بندی بلاگ")]
         [Required(ErrorMessage = "پر کردن فیلد {0} اجباری است")]
         public string FaIcon { get; set; }
+        
+        [Display(Name = "عکس دسته بندی بلاگ")]
+        [Required(ErrorMessage = "پر کردن فیلد {0} اجباری است")]
+        public string Image { get; set; }
     }
 }

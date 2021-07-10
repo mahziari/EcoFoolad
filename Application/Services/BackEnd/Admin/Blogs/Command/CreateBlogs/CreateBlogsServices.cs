@@ -55,7 +55,8 @@ namespace  Application.Services.BackEnd.Admin.Blogs.Command.CreateBlogs
                 RegisterDatePersian = PersianDateTime.Now.ToString("yyyyMMdd"),
                 LocalTime = DateTime.Now.ToString("s")+"+"+TimeZoneInfo.Local.BaseUtcOffset.ToHHMM(),
                 AppType = "web",
-                LanguageId = 1065
+                LanguageId = 1065,
+                RequestToAuthorFav = createBlogsServicesDto.RequestToAuthorFav
             };
 
             _context.CrmCmsNews.Add(blogs);

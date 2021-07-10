@@ -1,170 +1,230 @@
 ﻿@using EndPoint.WebSite.Models.ViewModel.Baskets
+@using Application.Services.FrontEnd.Common
 @model ShippingPaymentViewModel
+@inject ISiteSetting _siteSetting;
 
 @{
     ViewData["Title"] = "پرداخت";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<!--shopping--------------------->
 
-<div class="container" style="margin-top: 20px; transform: none;">
-
-
-<section class="content_right_blog" style="width: 100%; transform: none;">
-
-<div class="main_content_post_blog" style="transform: none;">
-
-
-
-<div class="product-content-onliner" style="transform: none;">
-
-<div class="woocommerce" style="transform: none;">
-<div class="woocommerce-notices-wrapper"></div>
-
-
-
-<div class="woocommerce-notices-wrapper"></div>
-<form asp-action="ShippingPayment" method="post" class="checkout woocommerce-checkout" style="transform: none;">
-
-
-<div class="nk_wrapper_checkout" style="transform: none;">
-
-<div class="newkala_content_right_checkout_page nk_main_checkout" style="position: relative; overflow: visible; box-sizing: border-box; min-height: 1px;">
-
-
-    <div class="theiaStickySidebar" style="padding-top: 0px; padding-bottom: 1px; position: static; transform: none;">
-
-        <h3 id="order_review_heading">انتخاب آدرس </h3>
-        <div id="order_review" class="woocommerce-checkout-review-order">
-            <div id="payment" class="woocommerce-checkout-payment">
-                <ul class="wc_payment_methods payment_methods methods">
-                    @foreach (var item in Model.UserAddresses)
-                    {
-                        <li class="wc_payment_method payment_method_cod">
-                            <input id="address-@item.Id" type="radio" class="input-radio" name="address" value="@item.Id" checked="checked" >
-
-                            <label for="address-@item.Id">
-                               @item.ReciverName : @item.City-@item.State-@item.PostalAddress-@item.ZipCode
-                            </label>
-                            <div class="payment_box payment_method_cod" style="display: none;">
-                                <p>@item.PostalAddress</p>
-                            </div>
-                        </li>
-                    }
-                </ul>
-
-
+    <section class="shopping-page">
+        <div class="container">
+            <div class="header-shopping-logo">
+                <a href="#">
+                    <img src="@_siteSetting.GetSiteSetting().LogoImage" alt="Logo"></a>
             </div>
-
         </div>
-    </div>
-    
-    <div class="theiaStickySidebar" style="padding-top: 0px; padding-bottom: 1px; position: static; transform: none;">
-    
-    <h3 id="order_review_heading">انتخاب روش پرداخت </h3>
-        <div id="order_review" class="woocommerce-checkout-review-order">
-            <div id="payment" class="woocommerce-checkout-payment">
-                <ul class="wc_payment_methods payment_methods methods">
 
-                    <li class="wc_payment_method payment_method_cod">
-                        <input id="paymentMethod" type="radio" class="input-radio" name="paymentMethod" value="OnlinePayment" checked="checked" data-order_button_text="">
-
-                        <label for="paymentMethod">
-                            پرداخت آنلاین
-                        </label>
-                        <div class="payment_box payment_method_cod" style="display: none;">
-                            <p>پرداخت نقدی از طریق درگاه بانکی.</p>
-                        </div>
+        <div class="container">
+            <div class="row">
+                <ul class="checkout-steps">
+                    <li class="is-completed is-completed-active">
+                        <a href="shopping.html" class="checkout-steps-item-link active-link-shopping">
+                            <span>اطلاعات ارسال</span>
+                        </a>
+                    </li>
+                    <li class="is-completed">
+                        <a href="shopping-payment.html" class="checkout-steps-item-link active-link-shopping">
+                            <span>پرداخت</span>
+                        </a>
+                    </li>
+                    <li class="is-active">
+                        <a href="shopping-complate-buy.html" class="checkout-steps-item active-link">
+                            <span>اتمام خرید و ارسال</span>
+                        </a>
                     </li>
                 </ul>
-
-
             </div>
-
         </div>
-    </div>
-</div>
-
-<aside class="newkala_side_checkout_page nk_sidebar_checkout" style="position: relative; overflow: visible; box-sizing: border-box; min-height: 1px;">
-
-
-    <div class="theiaStickySidebar" style="padding-top: 0px; padding-bottom: 1px; position: static; transform: none; top: 0px; left: 113.933px;">
-        <div class="form-row place-order">
-            <noscript>
-                به دلیل اینکه مرورگر شما جاوا اسکریپت را پشتیبانی نمی کند ، یا غیر فعال است ، لطفا کلیک کنید روی <em>بروزرسانی جمع </em> قبل از اینکه سفارش خود را ثبت کنید.در صورتیکه این کار را نکنید ممکن است مبلغ قابل پرداخت شما بیش از چیزی که در بالا مشخص شده است باشد <br/>
-                <button type="submit" class="button alt" name="woocommerce_checkout_update_totals" value="به روز رسانی جمع کل">به روز رسانی جمع کل</button>
-            </noscript>
-
-
-            <span class="aside_title aside_title_subtotal">مبلغ کل (@Model.basket.Items.Count کالا)</span>
-            <strong class="aside_value aside_value_subtotal">
-                <span class="woocommerce-Price-amount amount">
-                    <bdi>@Model.basket.Total().ToString("n0")<span class="woocommerce-Price-currencySymbol">تومان</span></bdi>
-                </span>
-            </strong>
-
-            <div style="clear:both"></div>
-
-
-            <span class="aside_title aside_title_tax">مالیات:</span>
-            <strong class="aside_value aside_value_tax">
-                <span class="woocommerce-Price-amount amount">623,700&nbsp;<span class="woocommerce-Price-currencySymbol">تومان</span></span>
-            </strong>
-
-            <div style="clear:both"></div>
-
-
-            <hr><hr>
-
-            <span class="aside_title aside_title_total">مبلغ قابل پرداخت:</span>
-            <strong class="aside_value aside_value_total">
-                <strong>
-                    <span class="woocommerce-Price-amount amount">
-                        <bdi>@Model.basket.Total().ToString("n0")<span class="woocommerce-Price-currencySymbol">تومان</span></bdi>
-                    </span>
-                </strong>
-            </strong>
-
-            <div style="clear:both"></div>
-
-            <div class="woocommerce-terms-and-conditions-wrapper">
-                <div class="woocommerce-privacy-policy-text"></div>
+    </section>
+<form  asp-action="ShippingPayment" method="post">
+    <div class="main-shopping">
+            <div class="content-shopping">
+                <div class="col-lg-9 col-md-9 col-xs-12 pull-right">
+                    <div class="shipment-page-container">
+                        <div class="headline-checkout-shopping">
+                            <span>انتخاب آدرس</span>
+                        </div>
+                        <div class="payment">
+                            <ul class="checkout-paymethod">
+                                @{ var i = 0;}
+                                @foreach (var item in Model.UserAddresses)
+                                {
+                                    i++;
+                                    <li class="wallet-container">
+                                        <div class="checkout-paymethod-item">
+                                            <span class="mdi mdi-card-text-outline"></span>
+                                            <label for="address-@item.Id" class="radio-primary">
+                                                <input id="address-@item.Id" type="radio" name="address" value="@item.Id" checked="@(i == 0 ? "checked" : "")">
+                                                <span class="ui-radio-check"></span>
+                                            </label>
+                                            <h4 class="checkout-paymethod-title">
+                                                <p class="checkout-paymethod-title-label">انبار: @item.PostalAddress</p>
+                                                <div class="paymethod-wallet-amount">
+                                                    <span>نام گیرنده:</span>
+                                                    @* <span class="wallet-amount">0</span> *@
+                                                    <span class="checkout-paymethod-currency">@item.ReciverName</span>
+                                                </div>
+                                            </h4>
+                                            <div class="wallet-extra-info">
+                                                <span class="wallet-needed-money"></span>
+                                                @item.City-@item.State-@item.PostalAddress-@item.ZipCode
+                                            </div>
+                                            <div class="checkout-paymethod-by-digipay">
+                                                <img src="@_siteSetting.GetSiteSetting().ThumbnailLogoImage">
+                                            </div>
+                                        </div>
+                                    </li>
+                                }
+                            </ul>
+                        </div>
+                        @* <div class="headline-checkout-shopping"> *@
+                        @*     <span>خلاصه سفارش</span> *@
+                        @* </div> *@
+                        <div class="checkout-order-summary">
+                            @* <div class="checkout-order-summary-item"> *@
+                            @*     <button class="btn btn-light btn-checkout" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"> *@
+                            @*         <header class="checkout-order-summary-header"> *@
+                            @*             <i class="fa fa-chevron-down arrow"></i> *@
+                            @*             <div class="checkout-order-summary-row"> *@
+                            @*                 <div class="checkout-order-summary-col-post-time">مرسوله 1 از 1 *@
+                            @*                     <span>(۱ کالا)</span> *@
+                            @*                 </div> *@
+                            @*                 <div class="checkout-order-summary-col-post-time">زمان ارسال *@
+                            @*                     <span>بازه جمعه ۸ آذر - سه‌شنبه ۱۲ آذر</span> *@
+                            @*                 </div> *@
+                            @*                 <div class="checkout-order-summary-col-shipping-cost"> *@
+                            @*                     مبلغ مرسوله *@
+                            @*                     <span>423,000,0 تومان</span> *@
+                            @*                 </div> *@
+                            @*             </div> *@
+                            @*         </header> *@
+                            @*     </button> *@
+                            @*     <div class="collapse float-right" id="collapseExample"> *@
+                            @*         <div class="checkout-order-summary-content"> *@
+                            @*             <section class="swiper-order-summary"> *@
+                            @*                 <div class="swiper-container"> *@
+                            @*                     <div class="col-lg-5 col-md-6 col-xs-12"> *@
+                            @*                         <div class="product-box-container"> *@
+                            @*                             <div class="product-box-compact"> *@
+                            @*                                 <a href="#"> *@
+                            @*                                     <img src="assets/images/product-slider-2/111460776.jpg"> *@
+                            @*                                 </a> *@
+                            @*                                 <div class="product-box-title"> *@
+                            @*                                     گوشی موبایل سامسونگ مدل Galaxy A50 SM-A505F/DS دو ... *@
+                            @*                                 </div> *@
+                            @*                                 <div class="checkout-order-summary-tagline"> *@
+                            @*                                     <span>تعداد : 1 عدد</span> *@
+                            @*                                 </div> *@
+                            @*                             </div> *@
+                            @*                         </div> *@
+                            @*                     </div> *@
+                            @*                 </div> *@
+                            @*             </section> *@
+                            @*         </div> *@
+                            @*     </div> *@
+                            @* </div> *@
+                            <div class="checkout-to-shipping-sticky">
+                                <button type="submit" class="selenium-next-step-shipping">ادامه فرآیند خرید</button>
+                                <div class="checkout-to-shipping-price-report">
+                                    <p>مبلغ قابل پرداخت</p>
+                                      @{
+                                        var totalPrice = Model.basket.Items.Sum(p => p.UnitPrice * p.Quantity);
+                                        var tax = Math.Round((decimal) (totalPrice * 0.09));
+                                        var totalPay = (tax + totalPrice).ToString("n0");
+                                    }
+                                    <div class="cart-item-product-price">
+                                        @totalPay
+                                        <span>تومان</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
+    
+                    @* <div class="grid"> *@
+                    @*     <div class="checkout-price-options"> *@
+                    @*         <section class="checkout-price-options-container"> *@
+                    @*             <div class="checkout-price-options-header"> *@
+                    @*                 <span>استفاده از کد تخفیف دیجی‌استور</span> *@
+                    @*             </div> *@
+                    @*             <div class="checkout-price-options-content"> *@
+                    @*                 <p>با ثبت کد تخفیف، مبلغ کد تخفیف از “مبلغ قابل پرداخت” کسر می‌شود.</p> *@
+                    @*             </div> *@
+                    @*             <div class="checkout-price-options-row"> *@
+                    @*                 <div class="checkout-price-options-form-field"> *@
+                    @*                     <input type="text" name="gift-card-serial" class="input-field" *@
+                    @*                         placeholder="مثلا 837A2CS"> *@
+                    @*                 </div> *@
+                    @*                 <button class="checkout-price-options-form-button"><a href="#" class="gift">ثبت کد *@
+                    @*                         هدیه</a></button> *@
+                    @*             </div> *@
+                    @*         </section> *@
+                    @*     </div> *@
+                    @* </div> *@
+    
+    
+    
+                    <div class="checkout-actions">
+                        <a href="/basket" class="btn-link-spoiler">
+                            « بازگشت به سبد خرید
+                        </a>
+                        @* <a href="#" class="save-shipping-data"> *@
+                        @*     تایید و ادامه ثبت سفارش » *@
+                        @* </a> *@
+                    </div>
+                </div>
+    
+                <div class="col-lg-3 col-md-3 col-xs-12 pull-left">
+                    <div class="page-aside" style="margin-top: 95px;">
+                        <div class="checkout-summary">
+                            <ul class="checkout-summary-summary">
+                                <li>
+                                    <span>مبلغ کل (@Model.basket.Items.Count)</span>
+                                    <span>@totalPay تومان</span>
+                                </li>
+                                @* <li> *@
+                                @*     <span>جمع</span> *@
+                                @*     <span>۳,۴۲۰,۰۰۰ تومان</span> *@
+                                @* </li> *@
+                                @* <li> *@
+                                @*     <span style="color: #424750; font-size:14px;">هزینه ارسال</span> *@
+                                @*     <span></span> *@
+                                @* </li> *@
+                                @* <li> *@
+                                @*     <span><i class="fa fa-truck"></i>ارسال عادی</span> *@
+                                @*     <span>رایگان</span> *@
+                                @* </li> *@
+                                <li>
+                                    <span>مبلغ قابل پرداخت</span>
+                                    <span>@totalPay تومان</span>
+                                </li>
+                                @* <li class="checkout-digiclub-container"> *@
+                                @*     <span class="checkout-digiclub-row"> *@
+                                @*         <img src="assets/images/digiclub.png"> *@
+                                @*         <span class="checkout-digiclub-points"> *@
+                                @*             امتیاز دیجی‌کلاب *@
+                                @*         </span> *@
+                                @*     </span> *@
+                                @*     <span class="checkout-digiclub-row">150 *@
+                                @*         <span class="checkout-bill-currency"> *@
+                                @*             امتیاز *@
+                                @*         </span> *@
+                                @*     </span> *@
+                                @* </li> *@
+                            </ul>
+                        </div>
+                        <div class="checkout-summary-content">
+                            <p>کالاهای موجود در سبد شما ثبت و رزرو نشده‌اند، برای ثبت سفارش مراحل بعدی را تکمیل کنید.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <button type="submit" class=" checkout-button button alt wc-forward" name="woocommerce_checkout_place_order" id="place_order" value="پرداخت و ثبت نهایی سفارش" data-value="پرداخت و ثبت نهایی سفارش">پرداخت و ثبت نهایی سفارش</button>
         </div>
-    </div>
-</aside>
-
-
-<script style="">
-
-		jQuery( document.body ).on( 'updated_checkout', function($){
-		  
-			jQuery('.aside_value_subtotal').html( jQuery('tr.cart-subtotal td.sapce_between_table').next().html() );
-			jQuery('.aside_value_tax').html( jQuery('tr.tax-rate td.sapce_between_table').next().html() );
-			
-			if ( jQuery('input.shipping_method[type="hidden"]').length ) 
-				jQuery('.aside_value_shipping').html( jQuery('input.shipping_method').next().html() );
-			else
-				jQuery('.aside_value_shipping').html( jQuery('input.shipping_method:checked').next().html() );
-		
-			jQuery('.aside_value_total').html( jQuery('tr.order-total td.sapce_between_table').next().html() );
-			if(! jQuery('tr.cart-discount').length ) jQuery('.aside_title_coupon , .aside_value_coupon').hide(0);
-			if( jQuery('tr.cart-discount').length ) jQuery('.aside_title_coupon , .aside_value_coupon').show(0);
-		});
-
-		</script>
-</div>
 </form>
-</div>
-
-
-<div class="clear"></div>
-</div>
-
-</div>
-</section>
-
-
-<div class="clear"></div>
-</div>
+    
+    <!--shopping--------------------->

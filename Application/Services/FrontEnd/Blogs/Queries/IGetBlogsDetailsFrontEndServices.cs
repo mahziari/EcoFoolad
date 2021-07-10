@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using Application.Interfaces.Contexts;
 using Domain.Entities.Footer;
+using Domain.Entities.IdealCrm;
 using Microsoft.EntityFrameworkCore;
  
 
@@ -41,7 +43,7 @@ namespace  Application.Services.FrontEnd.Blogs.Queries
                     Title = b.Title,
                     NewsBody=b.NewsBody,
                     NewsSummery=b.NewsSummery,
-                    DateTime =b.RegisterDate.ToPersianDateTime().ToString("yyyy/MM/d hh:mm"),
+                    DateTime =b.RegisterDate.ToPersianDateTime().ToString("yyyy/MM/d"),
                     LocalTime=b.LocalTime,
                     IsVerified = b.IsVerified,
                     Position=b.Position,
@@ -52,12 +54,32 @@ namespace  Application.Services.FrontEnd.Blogs.Queries
             _context.CrmCmsNews.Single(b => b.Title == title.Replace("-", " ")).VisitCount+=1;
             _context.SaveChanges();
 
-            
+
+            var relatedBlog = _context.CrmCmsNews
+                .OrderByDescending(p => p.NewsId)
+                .Select(s => new GetBlogsDto
+                {
+                    NewsId = s.NewsId,
+                    NewsGroupId = s.NewsGroupId,
+                    NewsGroupName = s.NewsGroup.GroupName,
+                    en_NewsGroupName = s.NewsGroup.en_GroupName,
+                    HeadLine = s.HeadLine,
+                    Title = s.Title,
+                    NewsSummery = s.NewsSummery,
+                    DateTime = s.RegisterDate.ToPersianDateTime().ToString("yyyy/MM/d"),
+                    IsVerified = s.IsVerified,
+                    Position = s.Position,
+                }).Take(5).ToList();
+
+            var blogsGroup = _context.CrmCmsNewsGroups.Take(3).ToList();
             var footers = _customDbContext.Footers.FirstOrDefault();
+            
 
             return new ResultGetBlogsDetailsFrontEndDto
             {
                 Blog = blog,
+                RelatedBlog = relatedBlog,
+                BlogsGroup = blogsGroup,
                 Footers = footers,
             };
         }
@@ -66,6 +88,8 @@ namespace  Application.Services.FrontEnd.Blogs.Queries
     public class ResultGetBlogsDetailsFrontEndDto
     {
         public GetBlogsDetailsDto Blog { get; set; }
+        public List<GetBlogsDto> RelatedBlog { get; set; }
+        public List<CrmCmsNewsGroups> BlogsGroup { get; set; }
         public Footer Footers { get; set; }
     }
 

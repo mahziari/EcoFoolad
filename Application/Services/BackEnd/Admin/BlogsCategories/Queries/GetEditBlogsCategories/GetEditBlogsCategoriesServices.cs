@@ -24,7 +24,9 @@ namespace  Application.Services.BackEnd.Admin.BlogsCategories.Queries.GetEditBlo
                     GroupName=n.GroupName,
                     en_GroupName=n.en_GroupName,
                     Color=n.Color,
-                    FaIcon = n.FaIcon
+                    Description=n.Description,
+                    FaIcon = n.FaIcon,
+                    Image = n.Image
                 }).FirstOrDefault();
             
             return new ResultGetEditBlogsCategoriesDto

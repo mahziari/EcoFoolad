@@ -106,7 +106,7 @@
                     <div class="before_content_product_catalog">
                         <a asp-controller="Products"
                            asp-action="Details"
-                           asp-route-MenuName="@item.subMenu.EnSgname"
+                           asp-route-MenuName="@item.subMenu.EnSgname.Replace(" ", "-")"
                            asp-route-PrdName="@item.PrdName.Replace(" ", "-")"
                            class="woocommerce-LoopProduct-link woocommerce-loop-product__link">
 

@@ -12,5 +12,6 @@
         public string NewsBody { get; set; }
         public int NewsGroupId { get; set; }
         public int Position { get; set; }
+        public bool RequestToAuthorFav { get; set; }
     }
 }

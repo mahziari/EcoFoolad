@@ -31,6 +31,7 @@ namespace  Domain.Entities.IdealCrm
         public string Color { get; set; }
         public string FaIcon { get; set; }
         public string LocalTime { get; set; }
+        public string Image { get; set; }
 
         public virtual Users FirstRegisterUser { get; set; }
         public virtual Languages Language { get; set; }

@@ -95,48 +95,41 @@
 }
 
 
-<div class="col-lg-3 col-md-3 col-xs-12 pull-right">
+<div class="col-lg-3 col-md-3 col-xs-12 pull-right" style="margin-top: 20px">
     <nav class="homepage-header-aside">
         <ul class="mega-menu-ul">
-            <li class="menu-item menu-item-type-custom menu-item-object-custom">
-                <a href="#" class="menu-item-anchor"><img src="assets/images/manu/square.png">
-                    جدیدترین مطالب
-                </a>
-            </li>
-            <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-hover-1">
-                <a href="#" class="menu-item-anchor"><img src="assets/images/manu/shape.png">
-                    علم و تکنولوژی
-                </a>
-            </li>
-            <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-hover-2">
-                <a href="#" class="menu-item-anchor"><img src="assets/images/manu/game.png">
-                    بازی ویدیویی
-                </a>
-            </li>
-            <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-hover-3">
-                <a href="#" class="menu-item-anchor"><img src="assets/images/manu/square.png">
-                    کتاب و ادبیات
-                </a>
-            </li>
-            <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-hover-4">
-                <a href="#" class="menu-item-anchor"><img src="assets/images/manu/film.png">
-                    هنر و سینما
-                </a>
-            </li>
-            <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-hover-5">
-                <a href="#" class="menu-item-anchor"><img src="assets/images/manu/gesture.png">
-                    سلامت و زیبایی
-                </a>
-            </li>
-            <li class="menu-footer">
-                <a href="#" class="menu-footer-link">فروشگاه اینترنتی دیجی استور</a>
-            </li>
+         @foreach (var item in Model.BlogsGroup)
+         {
+             <li class="menu-item menu-item-type-custom menu-item-object-custom"
+                    onmouseover="this.style.background='@item.Color'"
+                    onmouseout="this.style.background='#fff'">
+                 <a asp-controller="Blogs"
+                   asp-action="Category"
+                   asp-route-category="@item.en_GroupName.Replace(" ", "-")"
+                   class="menu-item-anchor">
+                     @* <img src="assets/images/manu/shape.png"> *@
+                      <i class="@item.FaIcon"></i>
+                     @item.GroupName
+                 </a>
+             </li>
+    
+         }
+            @* <li class="menu-footer"> *@
+            @*     <a href="#" class="menu-footer-link">فروشگاه اینترنتی دیجی استور</a> *@
+            @* </li> *@
         </ul>
     </nav>
     <div id="home-menu-bottom-sidebar" class="sidebar-digimag">
         <div class="home-menu-bottom-widget">
-            <a href="#" class="promotion">
-                <img src="assets/images/sidebar/buying-guide-under-menu-tile-2.jpg" class="promotion-img">
+            <a asp-controller="Blogs"
+               asp-action="Details"
+               asp-route-category="@Model.BlogsFav.Where(b => b.Position == 8).Select(b => b.en_NewsGroupName).FirstOrDefault()?.Replace(" ", "-")"
+               asp-route-title="@Model.BlogsFav.Where(b => b.Position == 8).Select(b => b.Title).FirstOrDefault()?.Replace(" ", "-")"
+               class="promotion">
+                
+                <img src="@Model.BlogsFav.Where(b => b.Position == 8).Select(b => b.HeadLine).FirstOrDefault()"
+                     alt="@Model.BlogsFav.Where(b => b.Position == 8).Select(b => b.Title).FirstOrDefault()" 
+                     class="promotion-img">
             </a>
         </div>
     </div>
@@ -145,7 +138,8 @@
 
 <!-- content-------------------------->
 <div class="col-lg-9 col-md-9 col-xs-12 pull-right res-div">
-    <!-- slider-responsive -->
+    
+    <!-- slider-responsive Author Fav -->
     <div class="slider-main mt-4 mb-4 fr">
         <div class="widget widget-product card mb-0">
             <div class="product-carousel-main owl-carousel owl-theme owl-rtl owl-loaded owl-drag">
@@ -153,7 +147,7 @@
                     <div class="owl-stage" style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s; width: 1207px;">
                         <div class="owl-item active" style="width: 231.313px; margin-left: 10px;">
                             <div class="item">
-                                <a href="#" class="d-block hover-img-link" data-toggle="modal" data-target="#exampleModal"> 
+                                <a href="#" class="d-block hover-img-link" data-toggle="modal" data-target="#exampleModal">
                                     <img src="assets/images/slider-responsive/4-6.jpg" class="img-fluid" alt="">
                                 </a>
                             </div>
@@ -192,55 +186,96 @@
         </div>
     </div>
     <!-- slider-responsive -->
+
+
     <div class="homepage-header-content">
         <div class="home-top-tile-banner-single">
             <div class="home-hover-widget">
-                <a href="#">
-                    <img src="assets/images/banner/corona-top-banner-4.jpg">
+                <a asp-controller="Blogs"
+                      asp-action="Details"
+                      asp-route-category="@Model.BlogsFav.Where(b => b.Position == 1).Select(b => b.en_NewsGroupName).FirstOrDefault()?.Replace(" ", "-")"
+                      asp-route-title="@Model.BlogsFav.Where(b => b.Position == 1).Select(b => b.Title).FirstOrDefault()?.Replace(" ", "-")">
+        <img src="@Model.BlogsFav.Where(b => b.Position == 1).Select(b => b.HeadLine).FirstOrDefault()"
+                                  alt="@Model.BlogsFav.Where(b => b.Position == 1).Select(b => b.Title).FirstOrDefault()">
                 </a>
             </div>
         </div>
         <div class="tiles">
             <div class="tiles-wrapper">
                 <div class="col-6 col-lg-4 pull-right pr-0 pl-0">
-                    <a href="#" class="tiles-item d-block mt-3">
-                        <img src="assets/images/banner/recipes-tile-2.jpg">
+                    <a asp-controller="Blogs"
+                         asp-action="Details"
+                         asp-route-category="@Model.BlogsFav.Where(b => b.Position == 2).Select(b => b.en_NewsGroupName).FirstOrDefault()?.Replace(" ", "-")"
+                         asp-route-title="@Model.BlogsFav.Where(b => b.Position == 2).Select(b => b.Title).FirstOrDefault()?.Replace(" ", "-")"
+                        class="tiles-item d-block mt-3">
+                          <img src="@Model.BlogsFav.Where(b => b.Position == 2).Select(b => b.HeadLine).FirstOrDefault()"
+                        alt="@Model.BlogsFav.Where(b => b.Position == 2).Select(b => b.Title).FirstOrDefault()">
                         <span class="tiles-item-txt">
-                            <span>آموزش تصویری پخت انواع غذاهای ایرانی و فرنگی</span>
+                      <span>
+                                                    @Model.BlogsFav.Where(b => b.Position == 2).Select(b => b.Title).FirstOrDefault()
+                                                </span>
                         </span>
                     </a>
                 </div>
                 <div class="col-6 col-lg-4 pull-right pr-0 pl-0">
-                    <a href="#" class="tiles-item d-block mt-3">
-                        <img src="assets/images/banner/najaf-daryabandari-tile.jpg">
-                        <span class="tiles-item-txt">
-                            <span>نجف دریابندری و آنچه برایمان به یادگار گذاشت</span>
-                        </span>
-                    </a>
+                    <a asp-controller="Blogs"
+                                            asp-action="Details"
+                                            asp-route-category="@Model.BlogsFav.Where(b => b.Position == 3).Select(b => b.en_NewsGroupName).FirstOrDefault()?.Replace(" ", "-")"
+                                            asp-route-title="@Model.BlogsFav.Where(b => b.Position == 3).Select(b => b.Title).FirstOrDefault()?.Replace(" ", "-")"
+                                           class="tiles-item d-block mt-3">
+                                             <img src="@Model.BlogsFav.Where(b => b.Position == 3).Select(b => b.HeadLine).FirstOrDefault()"
+                                           alt="@Model.BlogsFav.Where(b => b.Position == 3).Select(b => b.Title).FirstOrDefault()">
+                                           <span class="tiles-item-txt">
+                                             <span>
+                                                                           @Model.BlogsFav.Where(b => b.Position == 3).Select(b => b.Title).FirstOrDefault()
+                                                                       </span>
+                                           </span>
+                                       </a>
                 </div>
                 <div class="col-6 col-lg-4 pull-right pr-0 pl-0">
-                    <a href="#" class="tiles-item d-block mt-3 ml-0">
-                        <img src="assets/images/banner/best-smartphone-camera-tile.jpg">
-                        <span class="tiles-item-txt">
-                            <span>مهم‌ترین نکات برای خرید گوشی با دوربین عالی</span>
-                        </span>
-                    </a>
+                  <a asp-controller="Blogs"
+                                          asp-action="Details"
+                                          asp-route-category="@Model.BlogsFav.Where(b => b.Position == 4).Select(b => b.en_NewsGroupName).FirstOrDefault()?.Replace(" ", "-")"
+                                          asp-route-title="@Model.BlogsFav.Where(b => b.Position == 4).Select(b => b.Title).FirstOrDefault()?.Replace(" ", "-")"
+                                         class="tiles-item d-block mt-3">
+                                           <img src="@Model.BlogsFav.Where(b => b.Position == 4).Select(b => b.HeadLine).FirstOrDefault()"
+                                         alt="@Model.BlogsFav.Where(b => b.Position == 4).Select(b => b.Title).FirstOrDefault()">
+                                         <span class="tiles-item-txt">
+                                    <span>
+                                                                  @Model.BlogsFav.Where(b => b.Position == 4).Select(b => b.Title).FirstOrDefault()
+                                                              </span>
+                                         </span>
+                                     </a>
                 </div>
                 <div class="col-6 col-lg-8 pull-right pr-0 pl-0">
-                    <a href="#" class="tiles-item d-block mt-3">
-                        <img src="assets/images/banner/galaxy-note-20-expectations-tile.jpg">
-                        <span class="tiles-item-txt">
-                            <span>از گلکسی نوت ۲۰ چه انتظاراتی داریم؟</span>
-                        </span>
-                    </a>
+                  <a asp-controller="Blogs"
+                          asp-action="Details"
+                          asp-route-category="@Model.BlogsFav.Where(b => b.Position == 5).Select(b => b.en_NewsGroupName).FirstOrDefault()?.Replace(" ", "-")"
+                          asp-route-title="@Model.BlogsFav.Where(b => b.Position == 5).Select(b => b.Title).FirstOrDefault()?.Replace(" ", "-")"
+                         class="tiles-item d-block mt-3">
+                           <img src="@Model.BlogsFav.Where(b => b.Position == 5).Select(b => b.HeadLine).FirstOrDefault()"
+                         alt="@Model.BlogsFav.Where(b => b.Position == 5).Select(b => b.Title).FirstOrDefault()">
+                         <span class="tiles-item-txt">
+                          <span>
+                                                        @Model.BlogsFav.Where(b => b.Position == 5).Select(b => b.Title).FirstOrDefault()
+                                                    </span>
+                         </span>
+                     </a>
                 </div>
                 <div class="col-6 col-lg-4 pull-right pr-0 pl-0">
-                    <a href="#" class="tiles-item d-block mt-3 ml-0">
-                        <img src="assets/images/banner/smartphone-battery-tile-2.jpg">
-                        <span class="tiles-item-txt">
-                            <span>همه چیز درباره‌ی باتری گوشی</span>
-                        </span>
-                    </a>
+                   <a asp-controller="Blogs"
+                       asp-action="Details"
+                       asp-route-category="@Model.BlogsFav.Where(b => b.Position == 6).Select(b => b.en_NewsGroupName).FirstOrDefault()?.Replace(" ", "-")"
+                       asp-route-title="@Model.BlogsFav.Where(b => b.Position == 6).Select(b => b.Title).FirstOrDefault()?.Replace(" ", "-")"
+                      class="tiles-item d-block mt-3">
+                        <img src="@Model.BlogsFav.Where(b => b.Position == 6).Select(b => b.HeadLine).FirstOrDefault()"
+                      alt="@Model.BlogsFav.Where(b => b.Position == 6).Select(b => b.Title).FirstOrDefault()">
+                      <span class="tiles-item-txt">
+                          <span>
+                              @Model.BlogsFav.Where(b => b.Position == 6).Select(b => b.Title).FirstOrDefault()
+                          </span>
+                      </span>
+                  </a>
                 </div>
             </div>
         </div>
@@ -253,204 +288,44 @@
                 <header class="card-header">
                     <span class="module-title-txt">منتخب سر دبیر</span>
                     <div class="module-title-sep"></div>
-                    <a href="#" class="module-title-btn">مشاهده عناوین بیشتر</a>
+                    @* <a href="#" class="module-title-btn">مشاهده عناوین بیشتر</a> *@
                 </header>
                 <div class="product-carousel owl-carousel owl-theme owl-rtl owl-loaded owl-drag">
                 <div class="owl-stage-outer">
                     <div class="owl-stage" style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s; width: 2234px;">
-                        <div class="owl-item active" style="width: 309.083px; margin-left: 10px;">
-                            <div class="item">
-                        <a href="#">
-                            <img src="assets/images/slider-product/Kenzax-KPS-102-Sprayer-284x180.png" class="img-fluid" alt="">
-                        </a>
-                        <h2 class="post-title">
-                            <a href="#">
-                                جعبه‌گشایی سمپاش کنزاکس مدل KPS-102
-                            </a>
-                        </h2>
-                        <div class="item-details">
-                            <div class="user-profile-stat-wrapper">
-                                <img src="assets/images/slider-product/profile/Default_Profile_Picture1.jpg" class="avatar">
-                                <span class="item-details-author">
-                                    حسن شجاعی
-                                </span>
+                        @{ var i = 0;}
+                        @foreach (var item in Model.BlogsAuthorFav)
+                        {
+                            i++;
+                            <div class="owl-item @(i==1 || i==2 || i==3 || i==4 ? "active": "")" style="width: 309.083px; margin-left: 10px;">
+                                <div class="item">
+                                    <a asp-controller="Blogs"
+                                      asp-action="Details"
+                                      asp-route-category="@item.en_NewsGroupName.Replace(" ", "-")"
+                                      asp-route-title="@item.Title.Replace(" ", "-")">
+                                        <img src="@item.HeadLine" class="img-fluid" alt="@item.Title">
+                                    </a>
+                                    <h2 class="post-title">
+                                        <a href="#">
+                                            @item.Title
+                                        </a>
+                                    </h2>
+                                    <div class="item-details">
+                                        <div class="user-profile-stat-wrapper">
+                                            <img src="@Model.Footers.ThumbnailLogoImage" class="avatar">
+                                            @* <span class="item-details-author"> *@
+                                            @*     حسن شجاعی *@
+                                            @* </span> *@
+                                        </div>
+                                        <time class="item-details-date">
+                                            @item.DateTime
+                                                                                        <i class="fa fa-clock-o"></i>
+                                        </time>
+                                    </div>
+                                </div>
                             </div>
-                            <time class="item-details-date">
-                                <i class="fa fa-clock-o"></i>
-                                ۳ خرداد ۱۳۹۹
-                            </time>
-                        </div>
+                        }
                     </div>
-                </div>
-                <div class="owl-item active" style="width: 309.083px; margin-left: 10px;">
-                    <div class="item">
-                        <a href="#">
-                            <img src="assets/images/slider-product/unbox-100-logitech-mouse-G502-284x180.jpg" class="img-fluid" alt="">
-                        </a>
-                        <h2 class="post-title">
-                            <a href="#">
-                                جعبه‌گشایی ماوس مخصوص بازی لاجیتک مدل G502
-                            </a>
-                        </h2>
-                        <div class="item-details">
-                            <div class="user-profile-stat-wrapper">
-                                <img src="assets/images/slider-product/profile/Default_Profile_Picture1.jpg" class="avatar">
-                                <span class="item-details-author">
-                                    حسن شجاعی
-                                </span>
-                            </div>
-                            <time class="item-details-date">
-                                <i class="fa fa-clock-o"></i>
-                                ۳ خرداد ۱۳۹۹
-                            </time>
-                        </div>
-                    </div>
-                </div>
-                <div class="owl-item active" style="width: 309.083px; margin-left: 10px;">
-                    <div class="item">
-                        <a href="#">
-                            <img src="assets/images/slider-product/dalgona-coffee-1-284x180.jpg" class="img-fluid" alt="">
-                        </a>
-                        <h2 class="post-title">
-                            <a href="#">
-                                چطور دالگونا کافی درست کنیم؟
-                            </a>
-                        </h2>
-                        <div class="item-details">
-                            <div class="user-profile-stat-wrapper">
-                                <img src="assets/images/slider-product/profile/Default_Profile_Picture1.jpg" class="avatar">
-                                <span class="item-details-author">
-                                    حسن شجاعی
-                                </span>
-                            </div>
-                            <time class="item-details-date">
-                                <i class="fa fa-clock-o"></i>
-                                ۳ خرداد ۱۳۹۹
-                            </time>
-                        </div>
-                    </div>
-                </div>
-                <div class="owl-item active" style="width: 309.083px; margin-left: 10px;">
-                    <div class="item">
-                        <a href="#">
-                            <img src="assets/images/slider-product/YI-dome-284x180.png" class="img-fluid" alt="">
-                        </a>
-                        <h2 class="post-title">
-                            <a href="#">
-                                جعبه‌گشایی دوربین تحت شبکه‌ی YI Dome
-                            </a>
-                        </h2>
-                        <div class="item-details">
-                            <div class="user-profile-stat-wrapper">
-                                <img src="assets/images/slider-product/profile/Default_Profile_Picture1.jpg" class="avatar">
-                                <span class="item-details-author">
-                                    حسن شجاعی
-                                </span>
-                            </div>
-                            <time class="item-details-date">
-                                <i class="fa fa-clock-o"></i>
-                                ۳ خرداد ۱۳۹۹
-                            </time>
-                        </div>
-                    </div>
-                </div>
-                <div class="owl-item" style="width: 309.083px; margin-left: 10px;">
-                    <div class="item">
-                        <a href="#">
-                            <img src="assets/images/slider-product/oscar-2021-284x180.jpg" class="img-fluid" alt="">
-                        </a>
-                        <h2 class="post-title">
-                            <a href="#">
-                                اسکار ۲۰۲۱ احتمالا به تعویق می‌افتد
-                            </a>
-                        </h2>
-                        <div class="item-details">
-                            <div class="user-profile-stat-wrapper">
-                                <img src="assets/images/slider-product/profile/Default_Profile_Picture1.jpg" class="avatar">
-                                <span class="item-details-author">
-                                    حسن شجاعی
-                                </span>
-                            </div>
-                            <time class="item-details-date">
-                                <i class="fa fa-clock-o"></i>
-                                ۳ خرداد ۱۳۹۹
-                            </time>
-                        </div>
-                    </div>
-                </div>
-                <div class="owl-item" style="width: 309.083px; margin-left: 10px;">
-                    <div class="item">
-                        <a href="#">
-                            <img src="assets/images/slider-product/unbox-100-A-284x180.png" class="img-fluid" alt="">
-                        </a>
-                        <h2 class="post-title">
-                            <a href="#">
-                                جعبه‌گشایی هارد اکسترنال ADATA HD770G
-                            </a>
-                        </h2>
-                        <div class="item-details">
-                            <div class="user-profile-stat-wrapper">
-                                <img src="assets/images/slider-product/profile/Default_Profile_Picture1.jpg" class="avatar">
-                                <span class="item-details-author">
-                                    حسن شجاعی
-                                </span>
-                            </div>
-                            <time class="item-details-date">
-                                <i class="fa fa-clock-o"></i>
-                                ۳ خرداد ۱۳۹۹
-                            </time>
-                        </div>
-                    </div>
-                </div>
-                <div class="owl-item" style="width: 309.083px; margin-left: 10px;">
-                    <div class="item">
-                        <a href="#">
-                            <img src="assets/images/slider-product/heavy-sweating-284x180.jpg" class="img-fluid" alt="">
-                        </a>
-                        <h2 class="post-title">
-                            <a href="#">
-                                ۱۱ علت تعریق زیاد و ۱۵ روش برای درمان آن
-                            </a>
-                        </h2>
-                        <div class="item-details">
-                            <div class="user-profile-stat-wrapper">
-                                <img src="assets/images/slider-product/profile/Default_Profile_Picture1.jpg" class="avatar">
-                                <span class="item-details-author">
-                                    حسن شجاعی
-                                </span>
-                            </div>
-                            <time class="item-details-date">
-                                <i class="fa fa-clock-o"></i>
-                                ۳ خرداد ۱۳۹۹
-                            </time>
-                        </div>
-                    </div>
-                </div>
-                <div class="owl-item" style="width: 309.083px; margin-left: 10px;">
-                    <div class="item">
-                        <a href="#">
-                            <img src="assets/images/slider-product/Untitled-1-41-284x180.jpg" class="img-fluid" alt="">
-                        </a>
-                        <h2 class="post-title">
-                            <a href="#">
-                                تشخیص ویروس کرونا با گوشی هوشمند؛ اختراع جدید محقق ایرانی
-                            </a>
-                        </h2>
-                        <div class="item-details">
-                            <div class="user-profile-stat-wrapper">
-                                <img src="assets/images/slider-product/profile/Default_Profile_Picture1.jpg" class="avatar">
-                                <span class="item-details-author">
-                                    حسن شجاعی
-                                </span>
-                            </div>
-                            <time class="item-details-date">
-                                <i class="fa fa-clock-o"></i>
-                                ۳ خرداد ۱۳۹۹
-                            </time>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
         <div class="owl-nav">
             <button type="button" role="presentation" class="owl-prev disabled">
@@ -473,18 +348,18 @@
             <nav>
                 <ul class="stick-menu">
                     <li class="stick-menu-item stick-logo">
-                        <a href="#" title="دیجی استور مگ">MAG</a>
+                        <a href="#" title="بلاگ اکوفولاد">Blog</a>
                     </li>
-                    <li class="stick-menu-item search-btn">
-                        <a href="#">
-                            <img src="assets/images/header/search-menu.png" alt="search">
-                        </a>
-                    </li>
-                    <li class="stick-menu-item login-popup-btn">
-                        <a href="#">
-                            <img src="assets/images/header/user.png" alt="user">
-                        </a>
-                    </li>
+                    @* <li class="stick-menu-item search-btn"> *@
+                    @*     <a href="#"> *@
+                    @*         <img src="assets/images/header/search-menu.png" alt="search"> *@
+                    @*     </a> *@
+                    @* </li> *@
+                    @* <li class="stick-menu-item login-popup-btn"> *@
+                    @*     <a href="#"> *@
+                    @*         <img src="assets/images/header/user.png" alt="user"> *@
+                    @*     </a> *@
+                    @* </li> *@
                 </ul>
             </nav>
         </div>
@@ -501,872 +376,118 @@
                     <div class="col-lg-9 col-md-12 col-xs-12 pr-0 pl-0 pull-right">
                         <div class="topics-content">
                             <section class="masonry-gallery">
-                                <div class="col-lg-4 col-md-4 col-xs-12 pull-right">
+                                @foreach (var item in Model.Blogs)
+                                {
+                                    <div class="col-lg-4 col-md-4 col-xs-12 pull-right">
                                     <div class="masonry-gallery-item">
                                         <div class="image">
-                                            <a href="#" class="image-linker">
+                                            <a asp-controller="Blogs"
+                                                                          asp-action="Details"
+                                                                          asp-route-category="@item.en_NewsGroupName.Replace(" ", "-")"
+                                                                          asp-route-title="@item.Title.Replace(" ","-")" class="image-linker">
                                                 <span class="image-mask"></span>
-                                                <img src="assets/images/topics/unbox-100-xiaomi-Earbuds-Basic-S-unboxing-284x180.jpg" alt="" class="image-img wp-post-image">
+                                                <img src="@item.HeadLine" alt="" class="image-img wp-post-image">
                                             </a>
-                                            <a href="#" class="image-badge">جعبه‌گشایی</a>
+                                            <a asp-controller="Blogs"
+                                                                          asp-action="Details"
+                                                                          asp-route-category="@item.en_NewsGroupName.Replace(" ", "-")"
+                                                                          asp-route-title="@item.Title.Replace(" ","-")" class="image-badge">@item.NewsGroupName</a>
                                             <div class="image-fav">
-                                                <span class="popularity">
-                                                    <span class="popularity-likes">
-                                                        <i class="fa fa-heart"></i>
-                                                        <span class="popularity-likes-num">2</span>
-                                                    </span>
-                                                    <span class="popularity-time-to-read">
-                                                        <i class="fa fa-clock-o"></i>
-                                                        <span class="popularity-minutes-read">مدت ۱:۳۷</span>
-                                                    </span>
-                                                </span>
+                                                @* <span class="popularity"> *@
+                                                @*     <span class="popularity-likes"> *@
+                                                @*         <i class="fa fa-heart"></i> *@
+                                                @*         <span class="popularity-likes-num">2</span> *@
+                                                @*     </span> *@
+                                                @*     <span class="popularity-time-to-read"> *@
+                                                @*         <i class="fa fa-clock-o"></i> *@
+                                                @*         <span class="popularity-minutes-read">مدت ۱:۳۷</span> *@
+                                                @*     </span> *@
+                                                @* </span> *@
                                             </div>
                                         </div>
-                                        <a href="#" class="masonry-gallery-item-title">جعبه‌گشایی هدفون بی سیم شیائومی مدل Basic S</a>
+                                        <a asp-controller="Blogs"
+                                                                      asp-action="Details"
+                                                                      asp-route-category="@item.en_NewsGroupName.Replace(" ", "-")"
+                                                                      asp-route-title="@item.Title.Replace(" ","-")" class="masonry-gallery-item-title">@item.Title</a>
                                         <div class="masonry-gallery-item-description">
-                                            در این ویدیو که توسط آقای علی نجفی برای شرکت در مسابقه‌ی آنباکس در ۱۰۰ ثانیه (مسابقه‌ی هفتگی جعبه‌گش ...                        
+                                            @item.NewsSummery
                                         </div>
                                         <div class="masonry-gallery-item-detail">
                                             <div class="user-profile-stat-wrapper mr-0">
-                                                <img src="assets/images/slider-product/profile/Default_Profile_Picture1.jpg" class="avatar">
-                                                <span class="item-details-author">
-                                                    حسن شجاعی
-                                                </span>
+                                                <img src="@Model.Footers.ThumbnailLogoImage" class="avatar">
+                                                @* <span class="item-details-author"> *@
+                                                @*     حسن شجاعی *@
+                                                @* </span> *@
                                             </div>
                                             <span class="popularity-time-to-read pull-left">
-                                                <i class="fa fa-clock-o"></i>
-                                                <span class="popularity-minutes-read">1 ساعت قبل</span>
+                                                <span class="popularity-minutes-read">@item.DateTime</span>
+                                                                                                <i class="fa fa-clock-o"></i>
                                             </span>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-lg-4 col-md-4 col-xs-12 pull-right">
-                                    <div class="masonry-gallery-item">
-                                        <div class="image">
-                                            <a href="#" class="image-linker">
-                                                <span class="image-mask"></span>
-                                                <img src="assets/images/topics/unbox-100-xiaomi-Earbuds-Basic-S-unboxing-284x180.jpg" alt="" class="image-img wp-post-image">
-                                            </a>
-                                            <a href="#" class="image-badge">جعبه‌گشایی</a>
-                                            <div class="image-fav">
-                                                <span class="popularity">
-                                                    <span class="popularity-likes">
-                                                        <i class="fa fa-heart"></i>
-                                                        <span class="popularity-likes-num">2</span>
-                                                    </span>
-                                                    <span class="popularity-time-to-read">
-                                                        <i class="fa fa-clock-o"></i>
-                                                        <span class="popularity-minutes-read">مدت ۱:۳۷</span>
-                                                    </span>
-                                                </span>
-                                            </div>
-                                        </div>
-                                        <a href="#" class="masonry-gallery-item-title">جعبه‌گشایی هدفون بی سیم شیائومی مدل Basic S</a>
-                                        <div class="masonry-gallery-item-description">
-                                            در این ویدیو که توسط آقای علی نجفی برای شرکت در مسابقه‌ی آنباکس در ۱۰۰ ثانیه (مسابقه‌ی هفتگی جعبه‌گش ...                        
-                                        </div>
-                                        <div class="masonry-gallery-item-detail">
-                                            <div class="user-profile-stat-wrapper mr-0">
-                                                <img src="assets/images/slider-product/profile/Default_Profile_Picture1.jpg" class="avatar">
-                                                <span class="item-details-author">
-                                                    حسن شجاعی
-                                                </span>
-                                            </div>
-                                            <span class="popularity-time-to-read pull-left">
-                                                <i class="fa fa-clock-o"></i>
-                                                <span class="popularity-minutes-read">1 ساعت قبل</span>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-md-4 col-xs-12 pull-right">
-                                    <div class="masonry-gallery-item">
-                                        <div class="image">
-                                            <a href="#" class="image-linker">
-                                                <span class="image-mask"></span>
-                                                <img src="assets/images/topics/unbox-100-xiaomi-Earbuds-Basic-S-unboxing-284x180.jpg" alt="" class="image-img wp-post-image">
-                                            </a>
-                                            <a href="#" class="image-badge">جعبه‌گشایی</a>
-                                            <div class="image-fav">
-                                                <span class="popularity">
-                                                    <span class="popularity-likes">
-                                                        <i class="fa fa-heart"></i>
-                                                        <span class="popularity-likes-num">2</span>
-                                                    </span>
-                                                    <span class="popularity-time-to-read">
-                                                        <i class="fa fa-clock-o"></i>
-                                                        <span class="popularity-minutes-read">مدت ۱:۳۷</span>
-                                                    </span>
-                                                </span>
-                                            </div>
-                                        </div>
-                                        <a href="#" class="masonry-gallery-item-title">جعبه‌گشایی هدفون بی سیم شیائومی مدل Basic S</a>
-                                        <div class="masonry-gallery-item-description">
-                                            در این ویدیو که توسط آقای علی نجفی برای شرکت در مسابقه‌ی آنباکس در ۱۰۰ ثانیه (مسابقه‌ی هفتگی جعبه‌گش ...                        
-                                        </div>
-                                        <div class="masonry-gallery-item-detail">
-                                            <div class="user-profile-stat-wrapper mr-0">
-                                                <img src="assets/images/slider-product/profile/Default_Profile_Picture1.jpg" class="avatar">
-                                                <span class="item-details-author">
-                                                    حسن شجاعی
-                                                </span>
-                                            </div>
-                                            <span class="popularity-time-to-read pull-left">
-                                                <i class="fa fa-clock-o"></i>
-                                                <span class="popularity-minutes-read">1 ساعت قبل</span>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-md-4 col-xs-12 pull-right">
-                                    <div class="masonry-gallery-item">
-                                        <div class="image">
-                                            <a href="#" class="image-linker">
-                                                <span class="image-mask"></span>
-                                                <img src="assets/images/topics/unbox-100-xiaomi-Earbuds-Basic-S-unboxing-284x180.jpg" alt="" class="image-img wp-post-image">
-                                            </a>
-                                            <a href="#" class="image-badge">جعبه‌گشایی</a>
-                                            <div class="image-fav">
-                                                <span class="popularity">
-                                                    <span class="popularity-likes">
-                                                        <i class="fa fa-heart"></i>
-                                                        <span class="popularity-likes-num">2</span>
-                                                    </span>
-                                                    <span class="popularity-time-to-read">
-                                                        <i class="fa fa-clock-o"></i>
-                                                        <span class="popularity-minutes-read">مدت ۱:۳۷</span>
-                                                    </span>
-                                                </span>
-                                            </div>
-                                        </div>
-                                        <a href="#" class="masonry-gallery-item-title">جعبه‌گشایی هدفون بی سیم شیائومی مدل Basic S</a>
-                                        <div class="masonry-gallery-item-description">
-                                            در این ویدیو که توسط آقای علی نجفی برای شرکت در مسابقه‌ی آنباکس در ۱۰۰ ثانیه (مسابقه‌ی هفتگی جعبه‌گش ...                        
-                                        </div>
-                                        <div class="masonry-gallery-item-detail">
-                                            <div class="user-profile-stat-wrapper mr-0">
-                                                <img src="assets/images/slider-product/profile/Default_Profile_Picture1.jpg" class="avatar">
-                                                <span class="item-details-author">
-                                                    حسن شجاعی
-                                                </span>
-                                            </div>
-                                            <span class="popularity-time-to-read pull-left">
-                                                <i class="fa fa-clock-o"></i>
-                                                <span class="popularity-minutes-read">1 ساعت قبل</span>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-md-4 col-xs-12 pull-right">
-                                    <div class="masonry-gallery-item">
-                                        <div class="image">
-                                            <a href="#" class="image-linker">
-                                                <span class="image-mask"></span>
-                                                <img src="assets/images/topics/unbox-100-xiaomi-Earbuds-Basic-S-unboxing-284x180.jpg" alt="" class="image-img wp-post-image">
-                                            </a>
-                                            <a href="#" class="image-badge">جعبه‌گشایی</a>
-                                            <div class="image-fav">
-                                                <span class="popularity">
-                                                    <span class="popularity-likes">
-                                                        <i class="fa fa-heart"></i>
-                                                        <span class="popularity-likes-num">2</span>
-                                                    </span>
-                                                    <span class="popularity-time-to-read">
-                                                        <i class="fa fa-clock-o"></i>
-                                                        <span class="popularity-minutes-read">مدت ۱:۳۷</span>
-                                                    </span>
-                                                </span>
-                                            </div>
-                                        </div>
-                                        <a href="#" class="masonry-gallery-item-title">جعبه‌گشایی هدفون بی سیم شیائومی مدل Basic S</a>
-                                        <div class="masonry-gallery-item-description">
-                                            در این ویدیو که توسط آقای علی نجفی برای شرکت در مسابقه‌ی آنباکس در ۱۰۰ ثانیه (مسابقه‌ی هفتگی جعبه‌گش ...                        
-                                        </div>
-                                        <div class="masonry-gallery-item-detail">
-                                            <div class="user-profile-stat-wrapper mr-0">
-                                                <img src="assets/images/slider-product/profile/Default_Profile_Picture1.jpg" class="avatar">
-                                                <span class="item-details-author">
-                                                    حسن شجاعی
-                                                </span>
-                                            </div>
-                                            <span class="popularity-time-to-read pull-left">
-                                                <i class="fa fa-clock-o"></i>
-                                                <span class="popularity-minutes-read">1 ساعت قبل</span>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-md-4 col-xs-12 pull-right">
-                                    <div class="masonry-gallery-item">
-                                        <div class="image">
-                                            <a href="#" class="image-linker">
-                                                <span class="image-mask"></span>
-                                                <img src="assets/images/topics/unbox-100-xiaomi-Earbuds-Basic-S-unboxing-284x180.jpg" alt="" class="image-img wp-post-image">
-                                            </a>
-                                            <a href="#" class="image-badge">جعبه‌گشایی</a>
-                                            <div class="image-fav">
-                                                <span class="popularity">
-                                                    <span class="popularity-likes">
-                                                        <i class="fa fa-heart"></i>
-                                                        <span class="popularity-likes-num">2</span>
-                                                    </span>
-                                                    <span class="popularity-time-to-read">
-                                                        <i class="fa fa-clock-o"></i>
-                                                        <span class="popularity-minutes-read">مدت ۱:۳۷</span>
-                                                    </span>
-                                                </span>
-                                            </div>
-                                        </div>
-                                        <a href="#" class="masonry-gallery-item-title">جعبه‌گشایی هدفون بی سیم شیائومی مدل Basic S</a>
-                                        <div class="masonry-gallery-item-description">
-                                            در این ویدیو که توسط آقای علی نجفی برای شرکت در مسابقه‌ی آنباکس در ۱۰۰ ثانیه (مسابقه‌ی هفتگی جعبه‌گش ...                        
-                                        </div>
-                                        <div class="masonry-gallery-item-detail">
-                                            <div class="user-profile-stat-wrapper mr-0">
-                                                <img src="assets/images/slider-product/profile/Default_Profile_Picture1.jpg" class="avatar">
-                                                <span class="item-details-author">
-                                                    حسن شجاعی
-                                                </span>
-                                            </div>
-                                            <span class="popularity-time-to-read pull-left">
-                                                <i class="fa fa-clock-o"></i>
-                                                <span class="popularity-minutes-read">1 ساعت قبل</span>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-md-4 col-xs-12 pull-right">
-                                    <div class="masonry-gallery-item">
-                                        <div class="image">
-                                            <a href="#" class="image-linker">
-                                                <span class="image-mask"></span>
-                                                <img src="assets/images/topics/unbox-100-xiaomi-Earbuds-Basic-S-unboxing-284x180.jpg" alt="" class="image-img wp-post-image">
-                                            </a>
-                                            <a href="#" class="image-badge">جعبه‌گشایی</a>
-                                            <div class="image-fav">
-                                                <span class="popularity">
-                                                    <span class="popularity-likes">
-                                                        <i class="fa fa-heart"></i>
-                                                        <span class="popularity-likes-num">2</span>
-                                                    </span>
-                                                    <span class="popularity-time-to-read">
-                                                        <i class="fa fa-clock-o"></i>
-                                                        <span class="popularity-minutes-read">مدت ۱:۳۷</span>
-                                                    </span>
-                                                </span>
-                                            </div>
-                                        </div>
-                                        <a href="#" class="masonry-gallery-item-title">جعبه‌گشایی هدفون بی سیم شیائومی مدل Basic S</a>
-                                        <div class="masonry-gallery-item-description">
-                                            در این ویدیو که توسط آقای علی نجفی برای شرکت در مسابقه‌ی آنباکس در ۱۰۰ ثانیه (مسابقه‌ی هفتگی جعبه‌گش ...                        
-                                        </div>
-                                        <div class="masonry-gallery-item-detail">
-                                            <div class="user-profile-stat-wrapper mr-0">
-                                                <img src="assets/images/slider-product/profile/Default_Profile_Picture1.jpg" class="avatar">
-                                                <span class="item-details-author">
-                                                    حسن شجاعی
-                                                </span>
-                                            </div>
-                                            <span class="popularity-time-to-read pull-left">
-                                                <i class="fa fa-clock-o"></i>
-                                                <span class="popularity-minutes-read">1 ساعت قبل</span>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-md-4 col-xs-12 pull-right">
-                                    <div class="masonry-gallery-item">
-                                        <div class="image">
-                                            <a href="#" class="image-linker">
-                                                <span class="image-mask"></span>
-                                                <img src="assets/images/topics/unbox-100-xiaomi-Earbuds-Basic-S-unboxing-284x180.jpg" alt="" class="image-img wp-post-image">
-                                            </a>
-                                            <a href="#" class="image-badge">جعبه‌گشایی</a>
-                                            <div class="image-fav">
-                                                <span class="popularity">
-                                                    <span class="popularity-likes">
-                                                        <i class="fa fa-heart"></i>
-                                                        <span class="popularity-likes-num">2</span>
-                                                    </span>
-                                                    <span class="popularity-time-to-read">
-                                                        <i class="fa fa-clock-o"></i>
-                                                        <span class="popularity-minutes-read">مدت ۱:۳۷</span>
-                                                    </span>
-                                                </span>
-                                            </div>
-                                        </div>
-                                        <a href="#" class="masonry-gallery-item-title">جعبه‌گشایی هدفون بی سیم شیائومی مدل Basic S</a>
-                                        <div class="masonry-gallery-item-description">
-                                            در این ویدیو که توسط آقای علی نجفی برای شرکت در مسابقه‌ی آنباکس در ۱۰۰ ثانیه (مسابقه‌ی هفتگی جعبه‌گش ...                        
-                                        </div>
-                                        <div class="masonry-gallery-item-detail">
-                                            <div class="user-profile-stat-wrapper mr-0">
-                                                <img src="assets/images/slider-product/profile/Default_Profile_Picture1.jpg" class="avatar">
-                                                <span class="item-details-author">
-                                                    حسن شجاعی
-                                                </span>
-                                            </div>
-                                            <span class="popularity-time-to-read pull-left">
-                                                <i class="fa fa-clock-o"></i>
-                                                <span class="popularity-minutes-read">1 ساعت قبل</span>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-md-4 col-xs-12 pull-right">
-                                    <div class="masonry-gallery-item">
-                                        <div class="image">
-                                            <a href="#" class="image-linker">
-                                                <span class="image-mask"></span>
-                                                <img src="assets/images/topics/unbox-100-xiaomi-Earbuds-Basic-S-unboxing-284x180.jpg" alt="" class="image-img wp-post-image">
-                                            </a>
-                                            <a href="#" class="image-badge">جعبه‌گشایی</a>
-                                            <div class="image-fav">
-                                                <span class="popularity">
-                                                    <span class="popularity-likes">
-                                                        <i class="fa fa-heart"></i>
-                                                        <span class="popularity-likes-num">2</span>
-                                                    </span>
-                                                    <span class="popularity-time-to-read">
-                                                        <i class="fa fa-clock-o"></i>
-                                                        <span class="popularity-minutes-read">مدت ۱:۳۷</span>
-                                                    </span>
-                                                </span>
-                                            </div>
-                                        </div>
-                                        <a href="#" class="masonry-gallery-item-title">جعبه‌گشایی هدفون بی سیم شیائومی مدل Basic S</a>
-                                        <div class="masonry-gallery-item-description">
-                                            در این ویدیو که توسط آقای علی نجفی برای شرکت در مسابقه‌ی آنباکس در ۱۰۰ ثانیه (مسابقه‌ی هفتگی جعبه‌گش ...                        
-                                        </div>
-                                        <div class="masonry-gallery-item-detail">
-                                            <div class="user-profile-stat-wrapper mr-0">
-                                                <img src="assets/images/slider-product/profile/Default_Profile_Picture1.jpg" class="avatar">
-                                                <span class="item-details-author">
-                                                    حسن شجاعی
-                                                </span>
-                                            </div>
-                                            <span class="popularity-time-to-read pull-left">
-                                                <i class="fa fa-clock-o"></i>
-                                                <span class="popularity-minutes-read">1 ساعت قبل</span>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-md-4 col-xs-12 pull-right">
-                                    <div class="masonry-gallery-item">
-                                        <div class="image">
-                                            <a href="#" class="image-linker">
-                                                <span class="image-mask"></span>
-                                                <img src="assets/images/topics/unbox-100-xiaomi-Earbuds-Basic-S-unboxing-284x180.jpg" alt="" class="image-img wp-post-image">
-                                            </a>
-                                            <a href="#" class="image-badge">جعبه‌گشایی</a>
-                                            <div class="image-fav">
-                                                <span class="popularity">
-                                                    <span class="popularity-likes">
-                                                        <i class="fa fa-heart"></i>
-                                                        <span class="popularity-likes-num">2</span>
-                                                    </span>
-                                                    <span class="popularity-time-to-read">
-                                                        <i class="fa fa-clock-o"></i>
-                                                        <span class="popularity-minutes-read">مدت ۱:۳۷</span>
-                                                    </span>
-                                                </span>
-                                            </div>
-                                        </div>
-                                        <a href="#" class="masonry-gallery-item-title">جعبه‌گشایی هدفون بی سیم شیائومی مدل Basic S</a>
-                                        <div class="masonry-gallery-item-description">
-                                            در این ویدیو که توسط آقای علی نجفی برای شرکت در مسابقه‌ی آنباکس در ۱۰۰ ثانیه (مسابقه‌ی هفتگی جعبه‌گش ...                        
-                                        </div>
-                                        <div class="masonry-gallery-item-detail">
-                                            <div class="user-profile-stat-wrapper mr-0">
-                                                <img src="assets/images/slider-product/profile/Default_Profile_Picture1.jpg" class="avatar">
-                                                <span class="item-details-author">
-                                                    حسن شجاعی
-                                                </span>
-                                            </div>
-                                            <span class="popularity-time-to-read pull-left">
-                                                <i class="fa fa-clock-o"></i>
-                                                <span class="popularity-minutes-read">1 ساعت قبل</span>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-md-4 col-xs-12 pull-right">
-                                    <div class="masonry-gallery-item">
-                                        <div class="image">
-                                            <a href="#" class="image-linker">
-                                                <span class="image-mask"></span>
-                                                <img src="assets/images/topics/unbox-100-xiaomi-Earbuds-Basic-S-unboxing-284x180.jpg" alt="" class="image-img wp-post-image">
-                                            </a>
-                                            <a href="#" class="image-badge">جعبه‌گشایی</a>
-                                            <div class="image-fav">
-                                                <span class="popularity">
-                                                    <span class="popularity-likes">
-                                                        <i class="fa fa-heart"></i>
-                                                        <span class="popularity-likes-num">2</span>
-                                                    </span>
-                                                    <span class="popularity-time-to-read">
-                                                        <i class="fa fa-clock-o"></i>
-                                                        <span class="popularity-minutes-read">مدت ۱:۳۷</span>
-                                                    </span>
-                                                </span>
-                                            </div>
-                                        </div>
-                                        <a href="#" class="masonry-gallery-item-title">جعبه‌گشایی هدفون بی سیم شیائومی مدل Basic S</a>
-                                        <div class="masonry-gallery-item-description">
-                                            در این ویدیو که توسط آقای علی نجفی برای شرکت در مسابقه‌ی آنباکس در ۱۰۰ ثانیه (مسابقه‌ی هفتگی جعبه‌گش ...                        
-                                        </div>
-                                        <div class="masonry-gallery-item-detail">
-                                            <div class="user-profile-stat-wrapper mr-0">
-                                                <img src="assets/images/slider-product/profile/Default_Profile_Picture1.jpg" class="avatar">
-                                                <span class="item-details-author">
-                                                    حسن شجاعی
-                                                </span>
-                                            </div>
-                                            <span class="popularity-time-to-read pull-left">
-                                                <i class="fa fa-clock-o"></i>
-                                                <span class="popularity-minutes-read">1 ساعت قبل</span>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-md-4 col-xs-12 pull-right">
-                                    <div class="masonry-gallery-item">
-                                        <div class="image">
-                                            <a href="#" class="image-linker">
-                                                <span class="image-mask"></span>
-                                                <img src="assets/images/topics/unbox-100-xiaomi-Earbuds-Basic-S-unboxing-284x180.jpg" alt="" class="image-img wp-post-image">
-                                            </a>
-                                            <a href="#" class="image-badge">جعبه‌گشایی</a>
-                                            <div class="image-fav">
-                                                <span class="popularity">
-                                                    <span class="popularity-likes">
-                                                        <i class="fa fa-heart"></i>
-                                                        <span class="popularity-likes-num">2</span>
-                                                    </span>
-                                                    <span class="popularity-time-to-read">
-                                                        <i class="fa fa-clock-o"></i>
-                                                        <span class="popularity-minutes-read">مدت ۱:۳۷</span>
-                                                    </span>
-                                                </span>
-                                            </div>
-                                        </div>
-                                        <a href="#" class="masonry-gallery-item-title">جعبه‌گشایی هدفون بی سیم شیائومی مدل Basic S</a>
-                                        <div class="masonry-gallery-item-description">
-                                            در این ویدیو که توسط آقای علی نجفی برای شرکت در مسابقه‌ی آنباکس در ۱۰۰ ثانیه (مسابقه‌ی هفتگی جعبه‌گش ...                        
-                                        </div>
-                                        <div class="masonry-gallery-item-detail">
-                                            <div class="user-profile-stat-wrapper mr-0">
-                                                <img src="assets/images/slider-product/profile/Default_Profile_Picture1.jpg" class="avatar">
-                                                <span class="item-details-author">
-                                                    حسن شجاعی
-                                                </span>
-                                            </div>
-                                            <span class="popularity-time-to-read pull-left">
-                                                <i class="fa fa-clock-o"></i>
-                                                <span class="popularity-minutes-read">1 ساعت قبل</span>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-md-4 col-xs-12 pull-right">
-                                    <div class="masonry-gallery-item">
-                                        <div class="image">
-                                            <a href="#" class="image-linker">
-                                                <span class="image-mask"></span>
-                                                <img src="assets/images/topics/unbox-100-xiaomi-Earbuds-Basic-S-unboxing-284x180.jpg" alt="" class="image-img wp-post-image">
-                                            </a>
-                                            <a href="#" class="image-badge">جعبه‌گشایی</a>
-                                            <div class="image-fav">
-                                                <span class="popularity">
-                                                    <span class="popularity-likes">
-                                                        <i class="fa fa-heart"></i>
-                                                        <span class="popularity-likes-num">2</span>
-                                                    </span>
-                                                    <span class="popularity-time-to-read">
-                                                        <i class="fa fa-clock-o"></i>
-                                                        <span class="popularity-minutes-read">مدت ۱:۳۷</span>
-                                                    </span>
-                                                </span>
-                                            </div>
-                                        </div>
-                                        <a href="#" class="masonry-gallery-item-title">جعبه‌گشایی هدفون بی سیم شیائومی مدل Basic S</a>
-                                        <div class="masonry-gallery-item-description">
-                                            در این ویدیو که توسط آقای علی نجفی برای شرکت در مسابقه‌ی آنباکس در ۱۰۰ ثانیه (مسابقه‌ی هفتگی جعبه‌گش ...                        
-                                        </div>
-                                        <div class="masonry-gallery-item-detail">
-                                            <div class="user-profile-stat-wrapper mr-0">
-                                                <img src="assets/images/slider-product/profile/Default_Profile_Picture1.jpg" class="avatar">
-                                                <span class="item-details-author">
-                                                    حسن شجاعی
-                                                </span>
-                                            </div>
-                                            <span class="popularity-time-to-read pull-left">
-                                                <i class="fa fa-clock-o"></i>
-                                                <span class="popularity-minutes-read">1 ساعت قبل</span>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-md-4 col-xs-12 pull-right">
-                                    <div class="masonry-gallery-item">
-                                        <div class="image">
-                                            <a href="#" class="image-linker">
-                                                <span class="image-mask"></span>
-                                                <img src="assets/images/topics/unbox-100-xiaomi-Earbuds-Basic-S-unboxing-284x180.jpg" alt="" class="image-img wp-post-image">
-                                            </a>
-                                            <a href="#" class="image-badge">جعبه‌گشایی</a>
-                                            <div class="image-fav">
-                                                <span class="popularity">
-                                                    <span class="popularity-likes">
-                                                        <i class="fa fa-heart"></i>
-                                                        <span class="popularity-likes-num">2</span>
-                                                    </span>
-                                                    <span class="popularity-time-to-read">
-                                                        <i class="fa fa-clock-o"></i>
-                                                        <span class="popularity-minutes-read">مدت ۱:۳۷</span>
-                                                    </span>
-                                                </span>
-                                            </div>
-                                        </div>
-                                        <a href="#" class="masonry-gallery-item-title">جعبه‌گشایی هدفون بی سیم شیائومی مدل Basic S</a>
-                                        <div class="masonry-gallery-item-description">
-                                            در این ویدیو که توسط آقای علی نجفی برای شرکت در مسابقه‌ی آنباکس در ۱۰۰ ثانیه (مسابقه‌ی هفتگی جعبه‌گش ...                        
-                                        </div>
-                                        <div class="masonry-gallery-item-detail">
-                                            <div class="user-profile-stat-wrapper mr-0">
-                                                <img src="assets/images/slider-product/profile/Default_Profile_Picture1.jpg" class="avatar">
-                                                <span class="item-details-author">
-                                                    حسن شجاعی
-                                                </span>
-                                            </div>
-                                            <span class="popularity-time-to-read pull-left">
-                                                <i class="fa fa-clock-o"></i>
-                                                <span class="popularity-minutes-read">1 ساعت قبل</span>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-md-4 col-xs-12 pull-right">
-                                    <div class="masonry-gallery-item">
-                                        <div class="image">
-                                            <a href="#" class="image-linker">
-                                                <span class="image-mask"></span>
-                                                <img src="assets/images/topics/unbox-100-xiaomi-Earbuds-Basic-S-unboxing-284x180.jpg" alt="" class="image-img wp-post-image">
-                                            </a>
-                                            <a href="#" class="image-badge">جعبه‌گشایی</a>
-                                            <div class="image-fav">
-                                                <span class="popularity">
-                                                    <span class="popularity-likes">
-                                                        <i class="fa fa-heart"></i>
-                                                        <span class="popularity-likes-num">2</span>
-                                                    </span>
-                                                    <span class="popularity-time-to-read">
-                                                        <i class="fa fa-clock-o"></i>
-                                                        <span class="popularity-minutes-read">مدت ۱:۳۷</span>
-                                                    </span>
-                                                </span>
-                                            </div>
-                                        </div>
-                                        <a href="#" class="masonry-gallery-item-title">جعبه‌گشایی هدفون بی سیم شیائومی مدل Basic S</a>
-                                        <div class="masonry-gallery-item-description">
-                                            در این ویدیو که توسط آقای علی نجفی برای شرکت در مسابقه‌ی آنباکس در ۱۰۰ ثانیه (مسابقه‌ی هفتگی جعبه‌گش ...                        
-                                        </div>
-                                        <div class="masonry-gallery-item-detail">
-                                            <div class="user-profile-stat-wrapper mr-0">
-                                                <img src="assets/images/slider-product/profile/Default_Profile_Picture1.jpg" class="avatar">
-                                                <span class="item-details-author">
-                                                    حسن شجاعی
-                                                </span>
-                                            </div>
-                                            <span class="popularity-time-to-read pull-left">
-                                                <i class="fa fa-clock-o"></i>
-                                                <span class="popularity-minutes-read">1 ساعت قبل</span>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-md-4 col-xs-12 pull-right">
-                                    <div class="masonry-gallery-item">
-                                        <div class="image">
-                                            <a href="#" class="image-linker">
-                                                <span class="image-mask"></span>
-                                                <img src="assets/images/topics/unbox-100-xiaomi-Earbuds-Basic-S-unboxing-284x180.jpg" alt="" class="image-img wp-post-image">
-                                            </a>
-                                            <a href="#" class="image-badge">جعبه‌گشایی</a>
-                                            <div class="image-fav">
-                                                <span class="popularity">
-                                                    <span class="popularity-likes">
-                                                        <i class="fa fa-heart"></i>
-                                                        <span class="popularity-likes-num">2</span>
-                                                    </span>
-                                                    <span class="popularity-time-to-read">
-                                                        <i class="fa fa-clock-o"></i>
-                                                        <span class="popularity-minutes-read">مدت ۱:۳۷</span>
-                                                    </span>
-                                                </span>
-                                            </div>
-                                        </div>
-                                        <a href="#" class="masonry-gallery-item-title">جعبه‌گشایی هدفون بی سیم شیائومی مدل Basic S</a>
-                                        <div class="masonry-gallery-item-description">
-                                            در این ویدیو که توسط آقای علی نجفی برای شرکت در مسابقه‌ی آنباکس در ۱۰۰ ثانیه (مسابقه‌ی هفتگی جعبه‌گش ...                        
-                                        </div>
-                                        <div class="masonry-gallery-item-detail">
-                                            <div class="user-profile-stat-wrapper mr-0">
-                                                <img src="assets/images/slider-product/profile/Default_Profile_Picture1.jpg" class="avatar">
-                                                <span class="item-details-author">
-                                                    حسن شجاعی
-                                                </span>
-                                            </div>
-                                            <span class="popularity-time-to-read pull-left">
-                                                <i class="fa fa-clock-o"></i>
-                                                <span class="popularity-minutes-read">1 ساعت قبل</span>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-md-4 col-xs-12 pull-right">
-                                    <div class="masonry-gallery-item">
-                                        <div class="image">
-                                            <a href="#" class="image-linker">
-                                                <span class="image-mask"></span>
-                                                <img src="assets/images/topics/unbox-100-xiaomi-Earbuds-Basic-S-unboxing-284x180.jpg" alt="" class="image-img wp-post-image">
-                                            </a>
-                                            <a href="#" class="image-badge">جعبه‌گشایی</a>
-                                            <div class="image-fav">
-                                                <span class="popularity">
-                                                    <span class="popularity-likes">
-                                                        <i class="fa fa-heart"></i>
-                                                        <span class="popularity-likes-num">2</span>
-                                                    </span>
-                                                    <span class="popularity-time-to-read">
-                                                        <i class="fa fa-clock-o"></i>
-                                                        <span class="popularity-minutes-read">مدت ۱:۳۷</span>
-                                                    </span>
-                                                </span>
-                                            </div>
-                                        </div>
-                                        <a href="#" class="masonry-gallery-item-title">جعبه‌گشایی هدفون بی سیم شیائومی مدل Basic S</a>
-                                        <div class="masonry-gallery-item-description">
-                                            در این ویدیو که توسط آقای علی نجفی برای شرکت در مسابقه‌ی آنباکس در ۱۰۰ ثانیه (مسابقه‌ی هفتگی جعبه‌گش ...                        
-                                        </div>
-                                        <div class="masonry-gallery-item-detail">
-                                            <div class="user-profile-stat-wrapper mr-0">
-                                                <img src="assets/images/slider-product/profile/Default_Profile_Picture1.jpg" class="avatar">
-                                                <span class="item-details-author">
-                                                    حسن شجاعی
-                                                </span>
-                                            </div>
-                                            <span class="popularity-time-to-read pull-left">
-                                                <i class="fa fa-clock-o"></i>
-                                                <span class="popularity-minutes-read">1 ساعت قبل</span>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-md-4 col-xs-12 pull-right">
-                                    <div class="masonry-gallery-item">
-                                        <div class="image">
-                                            <a href="#" class="image-linker">
-                                                <span class="image-mask"></span>
-                                                <img src="assets/images/topics/unbox-100-xiaomi-Earbuds-Basic-S-unboxing-284x180.jpg" alt="" class="image-img wp-post-image">
-                                            </a>
-                                            <a href="#" class="image-badge">جعبه‌گشایی</a>
-                                            <div class="image-fav">
-                                                <span class="popularity">
-                                                    <span class="popularity-likes">
-                                                        <i class="fa fa-heart"></i>
-                                                        <span class="popularity-likes-num">2</span>
-                                                    </span>
-                                                    <span class="popularity-time-to-read">
-                                                        <i class="fa fa-clock-o"></i>
-                                                        <span class="popularity-minutes-read">مدت ۱:۳۷</span>
-                                                    </span>
-                                                </span>
-                                            </div>
-                                        </div>
-                                        <a href="#" class="masonry-gallery-item-title">جعبه‌گشایی هدفون بی سیم شیائومی مدل Basic S</a>
-                                        <div class="masonry-gallery-item-description">
-                                            در این ویدیو که توسط آقای علی نجفی برای شرکت در مسابقه‌ی آنباکس در ۱۰۰ ثانیه (مسابقه‌ی هفتگی جعبه‌گش ...                        
-                                        </div>
-                                        <div class="masonry-gallery-item-detail">
-                                            <div class="user-profile-stat-wrapper mr-0">
-                                                <img src="assets/images/slider-product/profile/Default_Profile_Picture1.jpg" class="avatar">
-                                                <span class="item-details-author">
-                                                    حسن شجاعی
-                                                </span>
-                                            </div>
-                                            <span class="popularity-time-to-read pull-left">
-                                                <i class="fa fa-clock-o"></i>
-                                                <span class="popularity-minutes-read">1 ساعت قبل</span>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
+                                }
                             </section>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-12 col-xs-12 pull-left">
                         <aside class="sidebar-topics-aside">
-                            <div class="post-list-widget">
-                                <div class="widget-title">
-                                    <span>ویدیوهای دیجی استور مگ</span>
-                                </div>
-                                <a href="#" class="favourites-title">
-                                    <img src="assets/images/topics/sidebar/profile/yi-dome-1080p-cctv-unboxing-150x150.jpg" class="favourites-img">
-                                    جعبه‌گشایی و بررسی دوربین تحت شبکه YI مدل Dome 1080P    
-                                </a>
-                                <ul class="favourites-list">
-                                    <li class="favourites-list video">
-                                        <a href="#" class="item-image d-inline-block">
-                                            <img src="assets/images/topics/sidebar/X.Vision-55XTU745-Smart-LED-TV-unboxing-60x60.jpg" class="item-image-img">
+                            @foreach (var item in @Model.BlogsLeftPanelMostVisited)
+                            {
+                                <div class="post-list-widget">
+                                    <div class="widget-title">
+                                        <span>@item.GroupName @_siteSetting.GetSiteSetting().SiteName</span>
+                                    </div>
+                                    @foreach (var itemBlog in @item.MostVisitedBlogs.Take(1))
+                                    {
+                                        <a asp-controller="Blogs"
+                                           asp-action="Details"
+                                           asp-route-category="@itemBlog.en_NewsGroupName.Replace(" ","-")"
+                                           asp-route-title="@itemBlog.Title.Replace(" ","-")" 
+                                           class="favourites-title">
+                                            <img src="@itemBlog.HeadLine" class="favourites-img">
+                                            @itemBlog.Title
                                         </a>
-                                        <div class="item-detail">
-                                            <a href="#" title="جعبه‌گشایی و بررسی تلویزیون هوشمند ایکس ویژن مدل ۵۵XTU745" class="item-detail-txt">جعبه‌گشایی و بررسی تلویزیون هوشمند ایکس ویژن مدل ۵۵XTU745</a>
-                                            <div class="item-detail-time">
-                                                <i class="fa fa-clock-o"></i>
-                                                <span class="past">دیروز</span>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="favourites-list video">
-                                        <a href="#" class="item-image d-inline-block">
-                                            <img src="assets/images/topics/sidebar/Bosch-MCM3201B-Food-Processor-unboxing-60x60.jpg" class="item-image-img">
-                                        </a>
-                                        <div class="item-detail">
-                                            <a href="#" title="جعبه‌گشایی و بررسی غذاساز بوش مدل MCM3201B" class="item-detail-txt">جعبه‌گشایی و بررسی غذاساز بوش مدل MCM3201B</a>
-                                            <div class="item-detail-time">
-                                                <i class="fa fa-clock-o"></i>
-                                                <span class="past">۲ روز قبل</span>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="favourites-list video">
-                                        <a href="#" class="item-image d-inline-block">
-                                            <img src="assets/images/topics/sidebar/case-60x60.jpg" class="item-image-img">
-                                        </a>
-                                        <div class="item-detail">
-                                            <a href="#" title="جعبه‌گشایی و بررسی کیف دوربین ونگارد مدل Supreme 37F" class="item-detail-txt">جعبه‌گشایی و بررسی کیف دوربین ونگارد مدل Supreme 37F</a>
-                                            <div class="item-detail-time">
-                                                <i class="fa fa-clock-o"></i>
-                                                <span class="past">۳ روز قبل</span>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>
+                                    }
+                               
+                                    <ul class="favourites-list">
+                                        @foreach (var itemBlog in @item.MostVisitedBlogs.Skip(1))
+                                        {
+                                            <li class="favourites-list video">
+                                                <a asp-controller="Blogs"
+                                                    asp-action="Details"
+                                                    asp-route-category="@itemBlog.en_NewsGroupName.Replace(" ","-")"
+                                                    asp-route-title="@itemBlog.Title.Replace(" ","-")"
+                                                    class="item-image d-inline-block">
+                                                    <img src="@itemBlog.HeadLine" alt="@itemBlog.Title" class="item-image-img" width="60" height="60" >
+                                                </a>
+                                                <div class="item-detail">
+                                                    <a asp-controller="Blogs"
+                                                       asp-action="Details"
+                                                       asp-route-category="@itemBlog.en_NewsGroupName.Replace(" ","-")"
+                                                       asp-route-title="@itemBlog.Title.Replace(" ","-")"
+                                                       title="@itemBlog.Title"
+                                                       class="item-detail-txt"> 
+                                                    @itemBlog.Title
+                                                        </a>
+                                                    <div class="item-detail-time">
+                                                        <i class="fa fa-clock-o"></i>
+                                                        <span class="past">@itemBlog.DateTime</span>
+                                                    </div>
+                                                </div>
+                                            </li>  
+                                        }
+                                    </ul>
                                 <div class="favourites-btn">
-                                    <a href="#">
-                                        مشاهده  عناوین بیشتر
+                                    <a asp-controller="Blogs"
+                                      asp-action="Category"
+                                      asp-route-category="@item.en_GroupName.Replace(" ", "-")">
+                                        مشاهده عناوین بیشتر
                                     </a>
                                 </div>
                             </div>
-
-                            <div class="post-list-widget">
-                                <div class="widget-title">
-                                    <span>ویدیوهای دیجی استور مگ</span>
-                                </div>
-                                <a href="#" class="favourites-title">
-                                    <img src="assets/images/topics/sidebar/profile/yi-dome-1080p-cctv-unboxing-150x150.jpg" class="favourites-img">
-                                    جعبه‌گشایی و بررسی دوربین تحت شبکه YI مدل Dome 1080P    
-                                </a>
-                                <ul class="favourites-list">
-                                    <li class="favourites-list video">
-                                        <a href="#" class="item-image d-inline-block">
-                                            <img src="assets/images/topics/sidebar/X.Vision-55XTU745-Smart-LED-TV-unboxing-60x60.jpg" class="item-image-img">
-                                        </a>
-                                        <div class="item-detail">
-                                            <a href="#" title="جعبه‌گشایی و بررسی تلویزیون هوشمند ایکس ویژن مدل ۵۵XTU745" class="item-detail-txt">جعبه‌گشایی و بررسی تلویزیون هوشمند ایکس ویژن مدل ۵۵XTU745</a>
-                                            <div class="item-detail-time">
-                                                <i class="fa fa-clock-o"></i>
-                                                <span class="past">دیروز</span>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="favourites-list video">
-                                        <a href="#" class="item-image d-inline-block">
-                                            <img src="assets/images/topics/sidebar/Bosch-MCM3201B-Food-Processor-unboxing-60x60.jpg" class="item-image-img">
-                                        </a>
-                                        <div class="item-detail">
-                                            <a href="#" title="جعبه‌گشایی و بررسی غذاساز بوش مدل MCM3201B" class="item-detail-txt">جعبه‌گشایی و بررسی غذاساز بوش مدل MCM3201B</a>
-                                            <div class="item-detail-time">
-                                                <i class="fa fa-clock-o"></i>
-                                                <span class="past">۲ روز قبل</span>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="favourites-list video">
-                                        <a href="#" class="item-image d-inline-block">
-                                            <img src="assets/images/topics/sidebar/case-60x60.jpg" class="item-image-img">
-                                        </a>
-                                        <div class="item-detail">
-                                            <a href="#" title="جعبه‌گشایی و بررسی کیف دوربین ونگارد مدل Supreme 37F" class="item-detail-txt">جعبه‌گشایی و بررسی کیف دوربین ونگارد مدل Supreme 37F</a>
-                                            <div class="item-detail-time">
-                                                <i class="fa fa-clock-o"></i>
-                                                <span class="past">۳ روز قبل</span>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>
-                                <div class="favourites-btn">
-                                    <a href="#">
-                                        مشاهده  عناوین بیشتر
-                                    </a>
-                                </div>
-                            </div>
-
-                            <div class="post-list-widget">
-                                <div class="widget-title">
-                                    <span>ویدیوهای دیجی استور مگ</span>
-                                </div>
-                                <a href="#" class="favourites-title">
-                                    <img src="assets/images/topics/sidebar/profile/yi-dome-1080p-cctv-unboxing-150x150.jpg" class="favourites-img">
-                                    جعبه‌گشایی و بررسی دوربین تحت شبکه YI مدل Dome 1080P    
-                                </a>
-                                <ul class="favourites-list">
-                                    <li class="favourites-list video">
-                                        <a href="#" class="item-image d-inline-block">
-                                            <img src="assets/images/topics/sidebar/X.Vision-55XTU745-Smart-LED-TV-unboxing-60x60.jpg" class="item-image-img">
-                                        </a>
-                                        <div class="item-detail">
-                                            <a href="#" title="جعبه‌گشایی و بررسی تلویزیون هوشمند ایکس ویژن مدل ۵۵XTU745" class="item-detail-txt">جعبه‌گشایی و بررسی تلویزیون هوشمند ایکس ویژن مدل ۵۵XTU745</a>
-                                            <div class="item-detail-time">
-                                                <i class="fa fa-clock-o"></i>
-                                                <span class="past">دیروز</span>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="favourites-list video">
-                                        <a href="#" class="item-image d-inline-block">
-                                            <img src="assets/images/topics/sidebar/Bosch-MCM3201B-Food-Processor-unboxing-60x60.jpg" class="item-image-img">
-                                        </a>
-                                        <div class="item-detail">
-                                            <a href="#" title="جعبه‌گشایی و بررسی غذاساز بوش مدل MCM3201B" class="item-detail-txt">جعبه‌گشایی و بررسی غذاساز بوش مدل MCM3201B</a>
-                                            <div class="item-detail-time">
-                                                <i class="fa fa-clock-o"></i>
-                                                <span class="past">۲ روز قبل</span>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="favourites-list video">
-                                        <a href="#" class="item-image d-inline-block">
-                                            <img src="assets/images/topics/sidebar/case-60x60.jpg" class="item-image-img">
-                                        </a>
-                                        <div class="item-detail">
-                                            <a href="#" title="جعبه‌گشایی و بررسی کیف دوربین ونگارد مدل Supreme 37F" class="item-detail-txt">جعبه‌گشایی و بررسی کیف دوربین ونگارد مدل Supreme 37F</a>
-                                            <div class="item-detail-time">
-                                                <i class="fa fa-clock-o"></i>
-                                                <span class="past">۳ روز قبل</span>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>
-                                <div class="favourites-btn">
-                                    <a href="#">
-                                        مشاهده  عناوین بیشتر
-                                    </a>
-                                </div>
-                            </div>
-
+                            }
+                            
                         </aside>
                     </div>
                 </div>

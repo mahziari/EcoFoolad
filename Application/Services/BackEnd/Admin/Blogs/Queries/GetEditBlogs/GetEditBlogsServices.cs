@@ -17,6 +17,7 @@ namespace  Application.Services.BackEnd.Admin.Blogs.Queries.GetEditBlogs
 
         public ResultGetEditBlogsDto Execute(int id)
         {
+
             var blog = _context.CrmCmsNews
                 .Where(n => n.NewsId == id)
                 .Include(n=>n.NewsGroup)
@@ -30,9 +31,10 @@ namespace  Application.Services.BackEnd.Admin.Blogs.Queries.GetEditBlogs
                     NewsSummery=n.NewsSummery,
                     RegisterDatePersian = n.FirstRegisterDatePersian,
                     IsVerified = n.IsVerified,
-                    Position=n.Position
+                    Position=n.Position,
+                    RequestToAuthorFav=n.RequestToAuthorFav
                 }).FirstOrDefault();
-            
+
             var blogsGroup = _context.CrmCmsNewsGroups.ToList();
 
             return new ResultGetEditBlogsDto

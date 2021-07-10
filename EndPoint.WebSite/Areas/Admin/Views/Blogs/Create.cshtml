@@ -97,7 +97,7 @@
                                                 </div>
                                             </div>
 
-                                            <div class="col-sm-8 col-8 order-2 order-sm-1">
+                                            <div class="col-sm-12 col-12 order-2 order-sm-1">
                                                 <h6 asp-for="NewsSummery" class="text-primary">توضیح کوتاه بلاگ: <b class="text-danger h3">*</b></h6>
                                                 <input asp-for="NewsSummery" type="text" class="form-control" placeholder="عنوان را وارد کنید">
                                                 <span asp-validation-for="NewsSummery" class="text-danger"></span>
@@ -195,6 +195,16 @@
                                                         }
                                                         
                                                     </select>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-md-4 col-4 order-2 order-sm-1">
+                                                <h6 class="text-primary"> بخش منتخب سردبیر :<b class="text-danger h3"></b></h6>
+                                                <div class="form-group">
+                                                    <label  class="ui-checkbox">
+                                                        <input asp-for="RequestToAuthorFav" type="checkbox" value="true">
+                                                        <span class="ui-checkbox-check"></span>
+                                                    </label>
                                                 </div>
                                             </div>
                                             

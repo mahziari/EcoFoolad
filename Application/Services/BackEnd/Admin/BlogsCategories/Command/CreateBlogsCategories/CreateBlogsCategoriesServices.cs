@@ -33,7 +33,8 @@ namespace  Application.Services.BackEnd.Admin.BlogsCategories.Command.CreateBlog
                 RegisterDatePersian = PersianDateTime.Now.ToString("yyyyMMdd"),
                 LocalTime = DateTime.Now.ToString("s")+"+"+TimeZoneInfo.Local.BaseUtcOffset.ToHHMM(),
                 AppType = "web",
-                LanguageId = 1065
+                LanguageId = 1065,
+                Image = createBlogsCategoriesServicesDto.Image,
             };
 
             _context.CrmCmsNewsGroups.Add(blogs);

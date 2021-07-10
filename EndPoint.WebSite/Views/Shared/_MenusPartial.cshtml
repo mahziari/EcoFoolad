@@ -2,49 +2,57 @@
 @inject ISiteSetting _siteSetting;
 
 <nav class="main-menu">
-<ul class="new-list-menu">
+    <ul class="new-list-menu">
+        
+        
+          <li class="item-list-menu megamenu-1">
+                <a href="/" class="list-category first after">
+                    <i class="mdi mdi-home text-office-home"></i>
+                    صفحه اصلی 
+                </a>
+            </li>
 
- @await Component.InvokeAsync("GetMenus")
-    
- 
-    
-    <li class="item-list-menu megamenu-1">
-        <a asp-controller="Products" asp-action="Index" class="list-category first after">
-            <i class="icon-tajhizat text-office-8"></i>
-            محصولات 
-        </a>
-    </li>
-    
-    
-    <li class="item-list-menu megamenu-1">
-        <a asp-controller="Blogs" asp-action="Index" class="list-category first after">
-            <i class="mdi mdi-newspaper-variant-multiple-outline text-orange"></i>
-            بلاگ @_siteSetting.GetSiteSetting().SiteName  
-        </a>
-    </li>
-    
-    <li class="item-list-menu megamenu-1">
-        <a asp-controller="Blogs" asp-action="Index" class="list-category first after">
-            <i class="mdi mdi-contacts text-primary"></i>
-            ارتباط با ما
-        </a>
-    </li>
-    
-    <li class="item-list-menu megamenu-1">
-        <a asp-controller="Blogs" asp-action="Index" class="list-category first after">
-            <i class="mdi mdi-collage text-primary"></i>
-            درباره  ما
-        </a>
-    </li>
-    
-    
-    
-@* <li class="map-city-item"> *@
-@*     <a href="#" class="map-city"> *@
-@*         لطفا شهر و استان *@
-@*         خود را انتخاب کنید *@
-@*         <span class="mdi mdi-map-marker-outline"></span> *@
-@*     </a> *@
-@* </li> *@
-</ul>
+        @await Component.InvokeAsync("GetMenus")
+
+
+
+        <li class="item-list-menu megamenu-1">
+            <a asp-controller="Products" asp-action="Index" class="list-category first after">
+                <i class="mdi mdi-album text-office-8"></i>
+                محصولات
+            </a>
+        </li>
+
+
+        <li class="item-list-menu megamenu-1">
+            <a asp-controller="Blogs" asp-action="Index" class="list-category first after">
+                <i class="mdi mdi-newspaper-variant-multiple-outline text-office-9"></i>
+                بلاگ @_siteSetting.GetSiteSetting().SiteName
+            </a>
+        </li>
+
+        <li class="item-list-menu megamenu-1">
+            <a asp-controller="Blogs" asp-action="Index" class="list-category first after">
+                <i class="mdi mdi-contacts text-primary"></i>
+                ارتباط با ما
+            </a>
+        </li>
+
+        <li class="item-list-menu megamenu-1">
+            <a asp-controller="Blogs" asp-action="Index" class="list-category first after">
+                <i class="mdi mdi-collage text-primary"></i>
+                درباره ما
+            </a>
+        </li>
+
+
+
+        @* <li class="map-city-item"> *@
+        @*     <a href="#" class="map-city"> *@
+        @*         لطفا شهر و استان *@
+        @*         خود را انتخاب کنید *@
+        @*         <span class="mdi mdi-map-marker-outline"></span> *@
+        @*     </a> *@
+        @* </li> *@
+    </ul>
 </nav>

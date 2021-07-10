@@ -24,6 +24,7 @@ namespace  Application.Services.BackEnd.Admin.BlogsCategories.Command.EditBlogsC
             blogCategory.Description = createBlogsCategoriesServicesDto.Description;
             blogCategory.Color = createBlogsCategoriesServicesDto.Color;
             blogCategory.FaIcon = createBlogsCategoriesServicesDto.FaIcon;
+            blogCategory.Image = createBlogsCategoriesServicesDto.Image;
             _context.SaveChanges();
 
             return new ResultEditBlogsCategoriesDto

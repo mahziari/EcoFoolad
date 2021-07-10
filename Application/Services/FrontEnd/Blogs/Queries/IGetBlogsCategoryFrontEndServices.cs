@@ -58,7 +58,7 @@ namespace  Application.Services.FrontEnd.Blogs.Queries
                     Title = b.Title.Replace(" ", "-"),
                     NewsBody=b.NewsBody,
                     NewsSummery=b.NewsSummery,
-                    DateTime= b.RegisterDate.ToPersianDateTime().ToString("yyyy/MM/d hh:mm"),
+                    DateTime= b.RegisterDate.ToPersianDateTime().ToString("yyyy/MM/d"),
                     IsVerified = b.IsVerified,
                     Position=b.Position,
                     HeadLine=b.HeadLine,

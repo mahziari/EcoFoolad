@@ -27,7 +27,7 @@ namespace Application.Services.FrontEnd.Products.Queries.GetProductsCategory
             var secondGroup = _idealCrmDataBase.WsproductSecondGroup
                 .FirstOrDefault(s => s.EnSgname == productsFiltersDto.MenuName.Replace("-", " "));
 
-       
+        
 
             // Paginate Code
             var resultInEachPage = 16;

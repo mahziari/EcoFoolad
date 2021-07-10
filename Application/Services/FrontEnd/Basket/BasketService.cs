@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Application.Interfaces.Contexts;
+using Application.Services.BackEnd.Owner.Products.Queries;
 using Microsoft.EntityFrameworkCore;
 
 namespace Application.Services.FrontEnd.Basket
@@ -8,9 +10,11 @@ namespace Application.Services.FrontEnd.Basket
     public class BasketService : IBasketService
     {
         private readonly ICustomDbContext _context;
-        public BasketService(ICustomDbContext context)
+        private readonly IIdealCrmDataBaseContext _idealCrmDataBaseContext;
+        public BasketService(ICustomDbContext context, IIdealCrmDataBaseContext idealCrmDataBaseContext)
         {
             _context = context;
+            _idealCrmDataBaseContext = idealCrmDataBaseContext;
         }
 
         public void AddItemToBasket(long basketId, long productId, int quantity = 1)
@@ -71,6 +75,7 @@ namespace Application.Services.FrontEnd.Basket
                     ProductId = item.ProductId,
                     Id = item.Id,
                     ProductName = item.Product.PrdName,
+                    subMenuEnSgname =GetFirstMenu(item.Product.PrdGroupId),
                     Quantity = item.Quantity,
                     UnitPrice = item.UnitPrice,
                     // ImageUrl = uriComposerService.ComposeImageUri(item?.CatalogItem?.CatalogItemImages?.FirstOrDefault()?.Src ?? ""),
@@ -126,6 +131,20 @@ namespace Application.Services.FrontEnd.Basket
                 BuyerId = basket.BuyerId,
                 Id = basket.Id,
             };
+        }
+
+
+
+        private string GetFirstMenu(int productGroupId)
+        {
+            var secondGroup = _idealCrmDataBaseContext.WsproductSecondGroup
+                .Include(s => s.FirstGroup)
+                .ThenInclude(s => s.ParsaPooladMenus)
+                .Where(s => s.PrdSecondGroupId == productGroupId)
+                .Select(s=>s.FirstGroup.ParsaPooladMenus.UrlName)
+                .First();
+            
+            return secondGroup;
         }
     }
 }

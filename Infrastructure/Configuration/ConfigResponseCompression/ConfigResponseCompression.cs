@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.IO.Compression;
+using System.Linq;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.Extensions.Configuration;
@@ -12,8 +13,9 @@ namespace Infrastructure.Configuration.ConfigResponseCompression
         {
 
             services.Configure<GzipCompressionProviderOptions>(options =>
+            // services.Configure<BrotliCompressionProviderOptions>(options =>
             {
-                options.Level = System.IO.Compression.CompressionLevel.Optimal;
+                options.Level = CompressionLevel.Optimal;
             });
 
             services.AddResponseCompression(options =>
@@ -27,7 +29,11 @@ namespace Infrastructure.Configuration.ConfigResponseCompression
                     "image/jpg",
                     "image/png",
                     "application/font-woff2",
+                    "application/font-woff",
+                    "application/x-font-ttf",
                     "application/atom+xml",
+                    "application/xaml+xml",
+                    "application/octet-strea",
                     // General
                     "text/plain",
                     // Static files
@@ -35,15 +41,15 @@ namespace Infrastructure.Configuration.ConfigResponseCompression
                     "application/javascript",
                     // MVC
                     "text/html",
-                    "application/xml",
                     "text/xml",
-                    "application/json",
                     "text/json",
+                    "application/xml",
+                    "application/json",
                     // WebAssembly
                     "application/wasm",
                 });
             });
-            
+
             return services;
         }
     }

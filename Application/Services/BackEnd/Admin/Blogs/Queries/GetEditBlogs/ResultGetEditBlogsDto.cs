@@ -15,5 +15,6 @@ namespace  Application.Services.BackEnd.Admin.Blogs.Queries.GetEditBlogs
         // public IFormFile Images { get; set; }
         
         public int Position { get; set; }
+        public bool RequestToAuthorFav { get; set; }
     }
 }

@@ -14,5 +14,6 @@ namespace  Application.Services.BackEnd.Admin.Blogs.Queries.GetCreateBlogs
         public string NewsBody { get; set; }
         public IFormFile Images { get; set; }
         public int Position { get; set; }
+        public bool RequestToAuthorFav { get; set; }
     }
 }
