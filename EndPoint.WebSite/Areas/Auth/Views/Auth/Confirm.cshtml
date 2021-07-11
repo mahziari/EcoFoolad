@@ -9,7 +9,7 @@
 }
 
 @section Foo{
-     <script src="~/assets/js/Auth.js"></script>
+    <script src="~/assets/js/countdown.js"></script>
 }
 
 
@@ -19,55 +19,63 @@
             <a href="/" class="logo-account">
                 <img src="@_siteSetting.GetSiteSetting().LogoImage">
             </a>
-               @if (TempData["ErrorVerifyPhoneNumber"] != null)
-                {
-                    <ul class="auth-error alertSlideUp">
-                        <li>
-                        <strong>خطا:</strong>
+            @if (TempData["ErrorVerifyPhoneNumber"] != null)
+            {
+                <ul class="auth-error alertSlideUp">
+                    <li>
+                    <strong>خطا:</strong>
 
-                        @TempData["ErrorVerifyPhoneNumber"]
-                    </ul>
-                }
+                    @TempData["ErrorVerifyPhoneNumber"]
+                </ul>
+            }
           
-               <span class="account-head-line">کد تایید را وارد نمایید</span>
+            <span class="account-head-line">کد تایید را وارد نمایید</span>
                
-               <form asp-controller="Auth" asp-action="Confirm" method="post">
+            <form asp-controller="Auth" asp-action="Confirm" method="post">
 
-                   <div class="content-account">
-                        <label>
-                           برای ساخت حساب جدید برای @TempData["PhoneNumber"] ، کد تایید برای این شماره ارسال گردید.
-                       </label>
-                       <input asp-for="Code" type="password" class="input-email-account Password" placeholder="">
-                       <div class="clear"></div>
-                       <span asp-validation-for="Code" class="text-danger"></span>
+                <div class="content-account">
+                    <div class="massege-light">
+                        برای شماره همراه @TempData["PhoneNumber"] کد تایید ارسال گردید
+                        <br>
+                        <a href="/users/auth/checkout" class="form-edit-number">
+                            ویرایش شماره
+                        </a>
+                    </div>
+                    @* <label>کد تایید را وارد نمایید</label> *@
+                    <input asp-for="Code" type="password" class="input-email-account Password" placeholder="">
+                    <div class="clear"></div>
+                    <span asp-validation-for="Code" class="text-danger"></span>
 
-                       <div class="parent-btn">
-                           <button class="dk-btn dk-btn-info">
-                               تایید
-                               <i class="fa fa-sign-in sign-in"></i>
-                           </button>
-                       </div>
-                       @* <div class="form-auth-row"> *@
-                       @*     <label for="#" class="ui-checkbox"> *@
-                       @*         <input type="checkbox" value="1" name="login" checked="" id="remember"> *@
-                       @*         <span class="ui-checkbox-check"></span> *@
-                       @*     </label> *@
-                       @*     <label for="remember" class="remember-me">مرا به خاطر داشته باش</label> *@
-                       @* </div> *@
-                   </div>
-                  <input type="hidden" asp-for="PhoneNumber">
-               </form>
-                <form asp-controller="Auth" asp-action="AgainSmsSend" method="post">
-                    <div class="account-footer">
-                        <button type="submit" id="againsendSms" disabled class="btn-link-register forgotPass">
-                            کد تایید دریافت نشد؟
-                            <a class="btn-link-register">
-                                بازیابی رمز عبور
-                            </a>
+                    <div class="parent-btn">
+                        <button class="dk-btn dk-btn-info">
+                            تایید
+                            <i class="fa fa-sign-in sign-in"></i>
                         </button>
                     </div>
-                    <input  asp-for="PhoneNumber" type="hidden"/>
-                </form>
+                    @* <div class="form-auth-row"> *@
+                    @*     <label for="#" class="ui-checkbox"> *@
+                    @*         <input type="checkbox" value="1" name="login" checked="" id="remember"> *@
+                    @*         <span class="ui-checkbox-check"></span> *@
+                    @*     </label> *@
+                    @*     <label for="remember" class="remember-me">مرا به خاطر داشته باش</label> *@
+                    @* </div> *@
+                </div>
+                <input type="hidden" asp-for="PhoneNumber">
+            </form>
+            
+            
+            <form asp-controller="Auth" asp-action="AgainSmsSend" method="post">
+                <div class="account-footer">
+                    کد تایید دریافت نشد؟
+                    <button type="submit" id="againsendSms" disabled class="btn-link-">
+                        <a class="btn-link-register" id="againCodeShow" style="background-color: #f5fdf0;">
+                            دریافت مجدد
+                        </a>
+                    </button>
+                  <div id="app" style="margin-right: 47%"></div>
+                </div>
+                <input asp-for="PhoneNumber" type="hidden"/>
+            </form>
         </div>
     </div>
 </div>

@@ -3426,7 +3426,7 @@ button, input, optgroup, select, textarea {
 .account-footer .btn-link-register {
     font: 14px iranyekan;
     text-decoration: none;
-    color: #1ca2bd;
+    color: #1ca2bd !important;
     border-bottom: 1px dashed #1ca2bd;
     font-weight: 700;
 }
@@ -11781,4 +11781,9 @@ ul.faq-list li .footer em {
 
 .text-office-home{
     color: #0f7bff !important;
+}
+
+.againCode{
+    background-color: #f5fdf0;
+    cursor: pointer;
 }

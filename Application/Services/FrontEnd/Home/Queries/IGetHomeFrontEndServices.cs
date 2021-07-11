@@ -49,7 +49,7 @@ namespace  Application.Services.FrontEnd.Home.Queries
 
                 var jsonData = JsonConvert.SerializeObject(sliders);
                 byte[] jsonMenusEncoded = Encoding.UTF8.GetBytes(jsonData);
-                _cache.SetString("IGetHomeFrontEndService_Sliders", jsonData, options);
+                _cache.Set("IGetHomeFrontEndService_Sliders", jsonMenusEncoded, options);
             }
             else
             {

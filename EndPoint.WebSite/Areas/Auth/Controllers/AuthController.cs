@@ -1,16 +1,20 @@
 ﻿using System;
 using System.Linq;
+using System.Text;
+using Application.Interfaces.Contexts;
 using Application.Services.FrontEnd.Basket;
 using Common.Extentions;
 using Common.Utilities;
 using Domain.Entities.IdealCrm;
 using Domain.Entities.Users;
 using EndPoint.WebSite.Areas.Auth.Data.Dto;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Caching.Distributed;
 using Microsoft.Extensions.Logging;
 using Persistence.Contexts;
-using WebMarkupMin.Core.Resources;
 
 namespace EndPoint.WebSite.Areas.Auth.Controllers
 {
@@ -23,11 +27,15 @@ namespace EndPoint.WebSite.Areas.Auth.Controllers
         private readonly IdealCrmDataBaseContext _idealCrmDataBaseContext;
         private readonly ILogger _logger;
         private readonly IBasketService _basketService;
+        private readonly IDistributedCache _cache;
+        private readonly ICustomDbContext _customDbContext;
+        private string _userId = null;
 
 
         public AuthController(UserManager<Domain.Entities.Users.User> userManager, RoleManager<Role> roleManager,
             SignInManager<Domain.Entities.Users.User> signInManager,
-            ILoggerFactory logger, IdealCrmDataBaseContext idealCrmDataBaseContext, IBasketService basketService)
+            ILoggerFactory logger, IdealCrmDataBaseContext idealCrmDataBaseContext,
+            IBasketService basketService, IDistributedCache cache, ICustomDbContext customDbContext)
         {
             _userManager = userManager;
             _roleManager = roleManager;
@@ -35,12 +43,16 @@ namespace EndPoint.WebSite.Areas.Auth.Controllers
             _idealCrmDataBaseContext = idealCrmDataBaseContext;
             _logger = logger.CreateLogger("Account");
             _basketService = basketService;
+            _cache = cache;
+            _customDbContext = customDbContext;
         }
 
         [HttpGet]
         [Route("users/auth/checkout", Name = "checkout")]
         public IActionResult CheckOut(string returnUrl = "/")
         {
+            SetCookiesForPhoneNumber();
+
             return View(new CheckOutDto
             {
                 ReturnUrl = Request.Headers["Referer"].ToString()
@@ -56,7 +68,9 @@ namespace EndPoint.WebSite.Areas.Auth.Controllers
             {
                 return View(checkOutDto);
             }
-
+            SetCacheForPhoneNumber(checkOutDto.PhoneNumber);
+            SetCacheForReturnUrl(checkOutDto.ReturnUrl);
+            
             TempData["PhoneNumber"] = checkOutDto.PhoneNumber;
             TempData["ReturnUrl"] = checkOutDto.ReturnUrl;
             var user = _userManager.FindByNameAsync(checkOutDto.PhoneNumber).Result;
@@ -83,7 +97,8 @@ namespace EndPoint.WebSite.Areas.Auth.Controllers
         {
             return View(new RegisterDto
             {
-                PhoneNumber = TempData["PhoneNumber"].ToString(),
+                // PhoneNumber = TempData["PhoneNumber"].ToString(),
+                PhoneNumber =GetPhoneNumberFromCache()
             });
         }
 
@@ -99,8 +114,7 @@ namespace EndPoint.WebSite.Areas.Auth.Controllers
 
             if (registerDto.PhoneNumber == registerDto.Password)
             {
-                TempData["ErrorChangePhoneNumberInRegister"] =
-                    "استفاده از شماره موبایل به عنوان رمز عبور غیر مجاز میباشد";
+                TempData["ErrorChangePhoneNumberInRegister"] = "استفاده از شماره موبایل به عنوان رمز عبور غیر مجاز میباشد";
                 RedirectToAction(nameof(Register));
             }
 
@@ -222,7 +236,8 @@ namespace EndPoint.WebSite.Areas.Auth.Controllers
         {
             return View(new ConfirmDto
             {
-                PhoneNumber = TempData["PhoneNumber"].ToString(),
+                // PhoneNumber = TempData["PhoneNumber"].ToString(),
+                PhoneNumber = GetPhoneNumberFromCache()
             });
         }
 
@@ -269,10 +284,12 @@ namespace EndPoint.WebSite.Areas.Auth.Controllers
         [Route("users/auth/login", Name = "login")]
         public IActionResult Login()
         {
+           
             return View(new LoginDto
             {
-                ReturnUrl = TempData["ReturnUrl"].ToString(),
-                UserName = TempData["PhoneNumber"].ToString()
+                ReturnUrl = GetReturnUrlFromCache(),
+                // UserName = TempData["PhoneNumber"].ToString(),
+                UserName = GetPhoneNumberFromCache(),
             });
         }
 
@@ -364,13 +381,15 @@ namespace EndPoint.WebSite.Areas.Auth.Controllers
         [Route("users/auth/forgot-password", Name = "forgotPassword")]
         public IActionResult ForgotPassword()
         {
-            var phoneNumber = TempData["PhoneNumber"].ToString();
+            // var phoneNumber = TempData["PhoneNumber"].ToString();
+            var phoneNumber = GetPhoneNumberFromCache();
             var user = _userManager.FindByNameAsync(phoneNumber).Result;
             string token = _userManager.GeneratePasswordResetTokenAsync(user).Result;
 
             return View(new ForgotPasswordDto
             {
-                PhoneNumber = TempData["PhoneNumber"].ToString(),
+                // PhoneNumber = TempData["PhoneNumber"].ToString(),
+                PhoneNumber = GetPhoneNumberFromCache(),
                 token = token
             });
         }
@@ -442,6 +461,7 @@ namespace EndPoint.WebSite.Areas.Auth.Controllers
             return RedirectToAction(nameof(Confirm));
         }
         
+        
         private void TransferBasketForuser(string userId)
         {
             string cookieName = "BasketId";
@@ -452,5 +472,73 @@ namespace EndPoint.WebSite.Areas.Auth.Controllers
                 Response.Cookies.Delete(cookieName);
             }
         }
+        
+        
+        
+        [AllowAnonymous]
+        private void SetCookiesForPhoneNumber()
+        {
+            string basketCookieName = "UserIdAuth";
+            if (Request.Cookies.ContainsKey(basketCookieName))
+            {
+                _userId = Request.Cookies[basketCookieName];
+            }
+            if (_userId != null) return;
+            _userId = Guid.NewGuid().ToString();
+            var cookieOptions = new CookieOptions { IsEssential = true };
+            cookieOptions.Expires = DateTime.Today.AddYears(2);
+            Response.Cookies.Append(basketCookieName, _userId, cookieOptions);
+        }
+        
+        
+        private void SetCacheForPhoneNumber(string phoneNumber)
+        {
+            _userId = Request.Cookies["UserIdAuth"];
+            var userPhoneNumberCacheName = "userPhoneNumberAuthController"+_userId;
+            var userPhoneNumberCached = _cache.Get(userPhoneNumberCacheName);
+
+            if (userPhoneNumberCached==null)
+            {
+                var options = new DistributedCacheEntryOptions()
+                    .SetSlidingExpiration(TimeSpan.FromHours(1));
+            
+                var userPhoneNumberEncoded = Encoding.UTF8.GetBytes(phoneNumber);
+                _cache.Set("userPhoneNumberAuthController"+_userId, userPhoneNumberEncoded, options);
+            }
+        }
+
+        private string GetPhoneNumberFromCache()
+        {
+            _userId = Request.Cookies["UserIdAuth"];
+            var userPhoneNumberCached = _cache.Get("userPhoneNumberAuthController"+_userId);
+            var userPhoneNumber = Encoding.UTF8.GetString(userPhoneNumberCached);
+            return userPhoneNumber;
+        }
+        
+        
+        private void SetCacheForReturnUrl(string returnUrl)
+        {
+            _userId = Request.Cookies["UserIdAuth"];
+            var userPhoneNumberCacheName = "userReturnUrlAuthController"+_userId;
+            var userPhoneNumberCached = _cache.Get(userPhoneNumberCacheName);
+
+            if (userPhoneNumberCached==null)
+            {
+                var options = new DistributedCacheEntryOptions()
+                    .SetSlidingExpiration(TimeSpan.FromHours(1));
+            
+                var userPhoneNumberEncoded = Encoding.UTF8.GetBytes(returnUrl);
+                _cache.Set("userReturnUrlAuthController"+_userId, userPhoneNumberEncoded, options);
+            }
+        }
+        
+        private string GetReturnUrlFromCache()
+        {
+            _userId = Request.Cookies["UserIdAuth"];
+            var userReturnUrlCached = _cache.Get("userReturnUrlAuthController"+_userId);
+            var userReturnUrl = Encoding.UTF8.GetString(userReturnUrlCached);
+            return userReturnUrl;
+        }
+        
     }
 }
