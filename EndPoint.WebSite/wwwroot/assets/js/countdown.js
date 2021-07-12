@@ -1,7 +1,7 @@
-﻿var TimeToCountDown=180;
+﻿var TimeToCountDown = $("#TimeToCountDown").val();
 const FULL_DASH_ARRAY = 283;
-const WARNING_THRESHOLD = TimeToCountDown/4;
-const ALERT_THRESHOLD = TimeToCountDown/6;
+const WARNING_THRESHOLD = TimeToCountDown / 4;
+const ALERT_THRESHOLD = TimeToCountDown / 6;
 
 const COLOR_CODES = {
     info: {
@@ -81,7 +81,7 @@ function formatTime(time) {
 }
 
 function setRemainingPathColor(timeLeft) {
-    const { alert, warning, info } = COLOR_CODES;
+    const {alert, warning, info} = COLOR_CODES;
     if (timeLeft <= alert.threshold) {
         document
             .getElementById("base-timer-path-remaining")
@@ -113,8 +113,7 @@ function setCircleDasharray() {
         .setAttribute("stroke-dasharray", circleDasharray);
 }
 
-    setTimeout(function() {
-        document.getElementById('againsendSms').disabled = false;
-        document.getElementById('againCodeShow').classList.add("againCode");
-      
-        }, TimeToCountDown*1000);
+setTimeout(function () {
+    document.getElementById('againsendSms').disabled = false;
+    document.getElementById('againCodeShow').classList.add("againCodeBefor");
+}, TimeToCountDown * 1000);

@@ -32,7 +32,12 @@ namespace  Application.Services.FrontEnd.Home.Queries
         {
             List<GetSlidersDto> sliders;
             var slidersCachedValue=_cache.Get("IGetHomeFrontEndService_Sliders");
-            if (slidersCachedValue==null)
+            if (slidersCachedValue!=null)
+            {
+                var slidersCachedEncoded = Encoding.UTF8.GetString(slidersCachedValue);
+                sliders = JsonConvert.DeserializeObject<List<GetSlidersDto>>(slidersCachedEncoded);
+            }
+            else
             {
                 sliders = _context.Sliders.Select(s => new GetSlidersDto
                 {
@@ -43,19 +48,12 @@ namespace  Application.Services.FrontEnd.Home.Queries
                     Url = s.Url,
                 }).ToList();
 
-                var options = new DistributedCacheEntryOptions()
-                    .SetSlidingExpiration(TimeSpan.FromMinutes(3));
-
+                
+                var options = new DistributedCacheEntryOptions().SetSlidingExpiration(TimeSpan.FromSeconds(180));
 
                 var jsonData = JsonConvert.SerializeObject(sliders);
                 byte[] jsonMenusEncoded = Encoding.UTF8.GetBytes(jsonData);
                 _cache.Set("IGetHomeFrontEndService_Sliders", jsonMenusEncoded, options);
-            }
-            else
-            {
-                var slidersCached = _cache.Get("IGetHomeFrontEndService_Sliders");
-                var slidersCachedEncoded = Encoding.UTF8.GetString(slidersCached);
-                sliders = JsonConvert.DeserializeObject<List<GetSlidersDto>>(slidersCachedEncoded);
             }
 
 

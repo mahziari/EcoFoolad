@@ -32,5 +32,6 @@ namespace EndPoint.WebSite.Areas.Auth.Data.Dto
         public String ConfirmPassword { get; set; }
 
         public string token { get; set; }
+        public int CounterTime { get; set; }
     }
 }

@@ -19,7 +19,7 @@ namespace Infrastructure.Configuration.CookieConfig
                 options.ConnectionString = configuration.GetConnectionString("SqlServer");
                   options.SchemaName = "dbo";
                   options.TableName = "Cache";
-              });
+            });
             
             // services.AddStackExchangeRedisCache(options =>
             // {

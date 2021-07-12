@@ -234,10 +234,12 @@ namespace EndPoint.WebSite.Areas.Auth.Controllers
         [Route("users/auth/confirm-phone-number", Name = "confirm-phone-number")]
         public IActionResult Confirm()
         {
+            
             return View(new ConfirmDto
             {
                 // PhoneNumber = TempData["PhoneNumber"].ToString(),
-                PhoneNumber = GetPhoneNumberFromCache()
+                PhoneNumber = GetPhoneNumberFromCache(),
+                CounterTime = SetOrGetCounterTime()
             });
         }
 
@@ -267,10 +269,10 @@ namespace EndPoint.WebSite.Areas.Auth.Controllers
 
             user.PhoneNumberConfirmed=true;
             var identityResult = _userManager.UpdateAsync(user).Result;
-            if (identityResult.Succeeded)
-            {
-                TempData["AuthSuccess"] = "ثبت نام شما با موفقیت انجام شد";
-            }
+            // if (identityResult.Succeeded)
+            // {
+            //     TempData["AuthSuccess"] = "ثبت نام شما با موفقیت انجام شد";
+            // }
             //Send Success Sms
             var firstName = user.FirstName.FixPersianChars();
             var lastName = user.LastName.FixPersianChars();
@@ -385,12 +387,14 @@ namespace EndPoint.WebSite.Areas.Auth.Controllers
             var phoneNumber = GetPhoneNumberFromCache();
             var user = _userManager.FindByNameAsync(phoneNumber).Result;
             string token = _userManager.GeneratePasswordResetTokenAsync(user).Result;
+            int counterTime = SetOrGetCounterTime();
 
             return View(new ForgotPasswordDto
             {
                 // PhoneNumber = TempData["PhoneNumber"].ToString(),
                 PhoneNumber = GetPhoneNumberFromCache(),
-                token = token
+                token = token,
+                CounterTime = counterTime
             });
         }
 
@@ -459,6 +463,19 @@ namespace EndPoint.WebSite.Areas.Auth.Controllers
 
             TempData["PhoneNumber"] = confirmDto.PhoneNumber;
             return RedirectToAction(nameof(Confirm));
+        }
+        
+        
+        [HttpPost]
+        [Route("users/auth/again-sms-send-forgot-password", Name = "AgainSmsSendForgotPassword")]
+        public IActionResult AgainSmsSendForgotPassword(ConfirmDto confirmDto)
+        {
+            var user = _userManager.FindByNameAsync(confirmDto.PhoneNumber).Result;
+            var code = _userManager.GenerateChangePhoneNumberTokenAsync(user, confirmDto.PhoneNumber).Result;
+            SendSms.VerifySmsSend(confirmDto.PhoneNumber, "ForgotPasswordSmsSend", code);
+
+            TempData["PhoneNumber"] = confirmDto.PhoneNumber;
+            return RedirectToAction(nameof(ForgotPassword));
         }
         
         
@@ -538,6 +555,35 @@ namespace EndPoint.WebSite.Areas.Auth.Controllers
             var userReturnUrlCached = _cache.Get("userReturnUrlAuthController"+_userId);
             var userReturnUrl = Encoding.UTF8.GetString(userReturnUrlCached);
             return userReturnUrl;
+        }
+        
+        
+        private int SetOrGetCounterTime()
+        {
+            string userCunterTime;
+            _userId = Request.Cookies["UserIdAuth"];
+            var userCunterTimeCacheName = "userCunterTimeAuthController"+_userId;
+            var userCunterTimeCached = _cache.Get(userCunterTimeCacheName);
+            
+            if (userCunterTimeCached!=null)
+            {
+                 userCunterTime = Encoding.UTF8.GetString(userCunterTimeCached);
+                var userCunterTimeRemaining =180-Convert.ToInt32((DateTime.Now - Convert.ToDateTime(userCunterTime)).TotalSeconds);
+                if (userCunterTimeRemaining<0) { return 1; }
+                
+                return userCunterTimeRemaining ;
+            }
+
+            userCunterTime = DateTime.Now.ToString("T");
+            byte[] userPhoneNumberEncoded = Encoding.UTF8.GetBytes(userCunterTime);
+            
+            var options = new DistributedCacheEntryOptions
+            {
+                AbsoluteExpiration = DateTime.Now.AddMinutes(3)
+            };
+
+            _cache.Set("userCunterTimeAuthController"+_userId, userPhoneNumberEncoded, options);
+            return 180;
         }
         
     }

@@ -3023,8 +3023,8 @@ footer .copy-right-footer p {
     padding: 45px 30px 0px;
     font: 1.3rem iranyekan;
     width: 100%;
-    float: right;
-    text-align: right;
+    /*float: right;*/
+    text-align: center;
     color: #232933;
     font-weight: 700;
 }
@@ -3426,7 +3426,7 @@ button, input, optgroup, select, textarea {
 .account-footer .btn-link-register {
     font: 14px iranyekan;
     text-decoration: none;
-    color: #1ca2bd !important;
+    color: #1ca2bd;
     border-bottom: 1px dashed #1ca2bd;
     font-weight: 700;
 }
@@ -11783,7 +11783,14 @@ ul.faq-list li .footer em {
     color: #0f7bff !important;
 }
 
-.againCode{
+.againCodeAfter{
     background-color: #f5fdf0;
+    color: #888888 !important;
+    cursor: not-allowed;
+}
+
+.againCodeBefor{
+    background-color: #f5fdf0;
+    color: #1ca2bd !important;
     cursor: pointer;
 }

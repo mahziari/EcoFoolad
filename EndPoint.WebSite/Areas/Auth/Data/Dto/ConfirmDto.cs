@@ -12,5 +12,6 @@ namespace EndPoint.WebSite.Areas.Auth.Data.Dto
         public string Code { get; set; }
 
         public String PhoneNumber { get; set; }
+        public int CounterTime { get; set; }
     }
 }

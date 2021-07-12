@@ -9,7 +9,11 @@
 }
 
 @section Foo{
-    <script src="~/assets/js/countdown.js"></script>
+        <script>
+           var TimeToCountDown = @Model.CounterTime;  
+        </script>
+        <input type="hidden" value="@Model.CounterTime" id="TimeToCountDown"/> 
+        <script src="~/assets/js/countdown.js"></script>
 }
 
 
