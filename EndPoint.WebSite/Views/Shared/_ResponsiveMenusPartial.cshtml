@@ -1,20 +1,56 @@
 ﻿@using Application.Services.FrontEnd.Common
 @inject ISiteSetting _siteSetting;
 
- <!--    responsive-megamenu-mobile----------------->
-        <nav class="sidebar">
-            <div class="nav-header">
-                <div class="header-cover"></div>
-                <div class="logo-wrap">
-                    <a class="logo-icon" href="/"><img alt="logo-icon" src="@_siteSetting.GetSiteSetting().LogoImage" width="40"></a>
-                </div>
-            </div>
-            @await Component.InvokeAsync("ResponsiveGetMenus")
-        </nav>
-        <div class="nav-btn">
-            <span class="linee1"></span>
-            <span class="linee2"></span>
-            <span class="linee3"></span>
+<!--    responsive-megamenu-mobile----------------->
+<nav class="sidebar">
+    <div class="nav-header">
+        <div class="header-cover"></div>
+        <div class="logo-wrap">
+            <a class="logo-icon" href="/">
+                <img alt="logo-icon" src="@_siteSetting.GetSiteSetting().LogoImage" width="40">
+            </a>
         </div>
-        <div class="overlay"></div>
-        <!--    responsive-megamenu-mobile----------------->
+    </div>
+
+
+    <ul class="nav-categories ul-base">
+        <li>
+            <a href="/">
+                صفحه اصلی
+            </a>
+        </li>
+    </ul>
+
+    @await Component.InvokeAsync("ResponsiveGetMenus")
+    <ul class="nav-categories ul-base">
+        <li>
+            <a asp-controller="Products" asp-action="Index">
+                همه محصولات
+            </a>
+        </li>
+    </ul>
+
+    <ul class="nav-categories ul-base">
+        <li>
+            <a asp-controller="Blogs" asp-action="Index">
+                ارتباط با ما
+            </a>
+        </li>
+    </ul>
+
+    <ul class="nav-categories ul-base">
+        <li>
+            <a asp-controller="Blogs" asp-action="Index">
+                درباره ما
+            </a>
+        </li>
+    </ul>
+
+</nav>
+<div class="nav-btn">
+    <span class="linee1"></span>
+    <span class="linee2"></span>
+    <span class="linee3"></span>
+</div>
+<div class="overlay"></div>
+<!--    responsive-megamenu-mobile----------------->

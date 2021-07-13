@@ -1,9 +1,36 @@
 ﻿@using Application.Services.FrontEnd.Common.Menus.Queries
+@using Application.Services.FrontEnd.Common
 @model ResultGetMenusFrontEndDto
+@inject ISiteSetting _siteSetting;
 
 @{
     Layout = null;
 }
+
+<ul class="nav-categories ul-base">
+    <li class="has-sub" style="background-color: #f0b9ff;">
+        <a href="/blog" class="font-weight-bold">
+            بلاگ @_siteSetting.GetSiteSetting().SiteName
+        </a>
+        
+        <a href="#" class="sub"></a>
+        
+        <ul>
+            @foreach (var item in Model.BlogsGroup)
+            {
+                <li class="">
+                    <a asp-controller="Blogs"
+                       asp-action="Category"
+                       asp-route-category="@item.en_GroupName.Replace(" ", "-")"
+                       class="category-level-2">
+                        <i class="@item.FaIcon"></i>
+                        @item.GroupName
+                    </a>
+                </li>
+            }
+        </ul>
+    </li>
+</ul>
 
 @foreach (var item in Model.Menus)
 {
@@ -14,8 +41,10 @@
                asp-route-FirstGroupName="@item.EnName">
                 @item.Name
             </a>
+            <a href="#" class="sub"></a>
+
             <ul>
-               @foreach (var subItem in item.Sub)
+                @foreach (var subItem in item.Sub)
                 {
                     <li class="has-sub">
                         <a asp-controller="Products"
@@ -24,21 +53,22 @@
                            class="category-level-2">
                             @subItem.Fgname
                         </a>
+                        <a href="#" class="sub"></a>
                         <ul>
-                             @foreach (var subSunItem in subItem.SubSub)
-                             {
-                                 <li>
-                                     <a asp-controller="Products"
-                                        asp-action="Category"
-                                        asp-route-MenuName="@subSunItem.EnSgname"
-                                        class="category-level-3">
+                            @foreach (var subSunItem in subItem.SubSub)
+                            {
+                                <li>
+                                    <a asp-controller="Products"
+                                       asp-action="Category"
+                                       asp-route-MenuName="@subSunItem.EnSgname"
+                                       class="category-level-3">
                                         @subSunItem.Sgname
-                                     </a>
-                                 </li>
-                             }
+                                    </a>
+                                </li>
+                            }
                         </ul>
                     </li>
-                  }
+                }
             </ul>
         </li>
     </ul>

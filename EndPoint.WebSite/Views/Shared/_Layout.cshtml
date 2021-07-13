@@ -5,8 +5,9 @@
 <html lang="fa">
 <head>
     <title>@ViewData["Title"].ToString() | @_siteSetting.GetSiteSetting().SiteName</title>
+     <partial name="_HeadPartial"/>
     @await RenderSectionAsync("Head", false)
-    <partial name="_HeadPartial"/>
+   
 
     <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':

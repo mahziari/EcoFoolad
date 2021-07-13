@@ -69,9 +69,12 @@ namespace Application.Services.FrontEnd.Common.Menus.Queries
                 menus = JsonConvert.DeserializeObject<List<GetMenu1Dto>>(menusCachedEncoded);
             }
 
+            var blogsGroup = _context.CrmCmsNewsGroups.ToList();
+
             return new ResultGetMenusFrontEndDto
             {
                 Menus = menus,
+                BlogsGroup = blogsGroup,
             };
         }
     }

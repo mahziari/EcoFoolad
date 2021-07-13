@@ -8,8 +8,11 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-
 @section Head{
+    <link rel="stylesheet" href="~/assets/css/nice-select.css">
+    <link rel="stylesheet" href="~/assets/css/blog-style.css">
+    <link rel="stylesheet" href="~/blog-assets/css/responsive.css">
+
     <meta name="description" content="@Model.CategoryItem.Description">
     <link rel="canonical" href="@Context.Request.Scheme://@Context.Request.Host@Context.Request.Path.Value">
     <meta property="og:locale" content="fa_IR">
@@ -28,10 +31,11 @@
     <meta name="twitter:title" content="@Model.CategoryItem.GroupName - @_siteSetting.GetSiteSetting().SiteName">
     <meta name="twitter:image" content="/Images/Settings/FavIcon/android-icon-192x192.png"/>
     <meta name="twitter:creator" content="@@ecofoolad"/>
-    <link rel="stylesheet" href="~/assets/css/blog-style.css">
 }
 
 @section Foo{
+    <script src="~/assets/js/blog-theia-sticky-sidebar.min.js"></script>
+    <script src="~/assets/js/jquery.nice-select.min.js"></script>
     <script src="~/assets/js/blog-main.js"></script>
     <script type="application/ld+json">
     {
@@ -53,116 +57,90 @@
     "dateModified":"@Model.CategoryItem.LocalTime",
     "description":"@Model.CategoryItem.Description"
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
     </script>
 }
 
-
-<div class="container">
-    <div class="module-title">
-        <div class="module-title__txt">
-            <span class="bold"></span>
-            <span>
-                <strong>آخرین مطالب </strong>
-            </span>
+<div class="main mt-0 bg-search">
+    <div class="col-12 pull-right">
+        <div class="main-aside pull-right sticky-sidebar sticky-sidebar-distant">
+            <nav>
+                <ul class="stick-menu">
+                    <li class="stick-menu-item stick-logo">
+                        <a href="#" title="بلاگ @_siteSetting.GetSiteSetting().SiteName">Blog</a>
+                    </li>
+                    <li class="stick-menu-item login-popup-btn">
+                        <a href="#">
+                            <img src="assets/images/header/user.png" alt="user">
+                        </a>
+                    </li>
+                </ul>
+            </nav>
         </div>
+        <div class="container">
+            <div class="main-content">
+                <div class="topics">
+                    <div class="col-lg-12 col-xs-12 pr-0 pl-0 pull-right">
+                        <div class="topics-content">
+                            <section class="masonry-gallery">
+                                @foreach (var item in Model.BlogsCatrgory)
+                                {
+                                    <div class="col-lg-3 col-md-3 col-xs-12 pull-right">
+                                        <div class="masonry-gallery-item">
+                                            <div class="image">
+                                                <a asp-controller="Blogs"
+                                                   asp-action="Details"
+                                                   asp-route-category="@item.en_NewsGroupName"
+                                                   asp-route-title="@item.Title" class="image-linker">
+                                                    <span class="image-mask"></span>
+                                                    <img src="/@item.HeadLine" alt="/@item.Title" class="image-img wp-post-image">
+                                                </a>
+                                                <a href="#" class="image-badge">@item.NewsGroupName</a>
+                                                @* <div class="image-fav"> *@
+                                                @*     <span class="popularity"> *@
+                                                @*         <span class="popularity-likes"> *@
+                                                @*             <i class="fa fa-heart"></i> *@
+                                                @*             <span class="popularity-likes-num">2</span> *@
+                                                @*         </span> *@
+                                                @*         <span class="popularity-time-to-read"> *@
+                                                @*             <i class="fa fa-clock-o"></i> *@
+                                                @*             <span class="popularity-minutes-read">مدت ۱:۳۷</span> *@
+                                                @*         </span> *@
+                                                @*     </span> *@
+                                                @* </div> *@
+                                            </div>
+                                            <a asp-controller="Blogs"
+                                               asp-action="Details"
+                                               asp-route-category="@item.en_NewsGroupName"
+                                               asp-route-title="@item.Title"
+                                               class="masonry-gallery-item-title">
+                                                @item.Title
+                                            </a>
+                                            <div class="masonry-gallery-item-description">
+                                                @item.NewsSummery
+                                            </div>
+                                            <div class="masonry-gallery-item-detail">
+                                                <div class="user-profile-stat-wrapper mr-0">
+                                                    <img src="@Model.Footers.ThumbnailLogoImage" class="avatar">
+                                                    <span class="item-details-author">
 
-        <div class="module-title__sep"></div>
-    </div>
-
-    <section class="content_right_blog" style="width: 100%;">
-        <div class="posts_blog">
-
-            @foreach (var item in Model.BlogsCatrgory)
-            {
-                <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-148 category-147 category-uncategorized category-152 category-151 category-150 category-149">
-                    <div class="main-wp-post-image">
-                        <a asp-controller="Blogs"
-                           asp-action="Details"
-                           asp-route-category="@item.en_NewsGroupName"
-                           asp-route-title="@item.Title"
-                           title="@item.Title" class="cat_of_post">
-                            @item.NewsGroupName
-                        </a>
-
-
-                        <a asp-controller="Blogs"
-                           asp-action="Details"
-                           asp-route-category="@item.en_NewsGroupName"
-                           asp-route-title="@item.Title">
-                            <img width="300" height="191"
-                                 src="/@item.HeadLine"
-                                 data-lazy-srcset="/@item.HeadLine" data-lazy-sizes="(max-width: 300px) 100vw, 300px"
-                                 data-lazy-src="/@item.HeadLine"
-                                 class="attachment-medium size-medium wp-post-image" alt="@item.Title">
-                            <noscript>
-                                <img width="300" height="191" src="/@item.HeadLine" class="attachment-medium size-medium wp-post-image" alt="@item.Title"
-                                     srcset="/@item.HeadLine" sizes="(max-width: 300px) 100vw, 300px"/>
-                            </noscript>
-                        </a>
-                        @* <div class="main_post_meta"> *@
-                        @*     <span class="comment_number" lang="fa">3</span> *@
-                        @* </div> *@
+                                                    </span>
+                                                </div>
+                                                <span class="popularity-time-to-read pull-left">
+                                                    <span class="popularity-minutes-read">@item.DateTime</span>
+                                                    <i class="fa fa-clock-o"></i>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            </section>
+                      
+                        </div>
                     </div>
-
-                    <h3 class="entry-title">
-                        <a asp-controller="Blogs"
-                           asp-action="Details"
-                           asp-route-category="@item.en_NewsGroupName"
-                           asp-route-title="@item.Title"
-                           rel="bookmark">
-                            @item.Title
-                        </a>
-                    </h3>
-                    <div class="entry-summary">
-                        <p>@item.NewsSummery</p>
-                    </div><!-- .entry-summary -->
-
-                    <div class="author">
-
-                        <img alt="@item.Title" src="@Model.Footers.ThumbnailLogoImage" data-lazy-srcset="@Model.Footers.ThumbnailLogoImage" class="avatar avatar-30 photo" height="30" width="30"
-                             data-lazy-src="@Model.Footers.ThumbnailLogoImage">
-                        <noscript>
-                            <img alt='@item.Title' src='@Model.Footers.ThumbnailLogoImage' srcset='@Model.Footers.ThumbnailLogoImage' class='avatar avatar-30 photo' height='30' width='30'/>
-                        </noscript>
-                        @* <a href="https://newkalatheme.ir/preview/author/newkala/">سید حسن حسینی</a> *@
-                    </div>
-
-
-                    <div class="human_time_diff">@item.DateTime</div>
-
-                </article>
-                <!-- #post-## -->
-            }
-
-
-            <div class="archive_pagination" lang="fa">
+                </div>
+                <div class="clear"></div>
+                    <partial name="_BlogPagination"/>
             </div>
-
         </div>
-    </section>
-
-
-<partial name="_BlogPagination"/>
-
-
-
-    @* <aside class="main_blog_sidebar"> *@
-    @*     <div id="media_image-5" class="main-blog-widget widget_media_image"> *@
-    @*         <img width="345" height="283" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20345%20283'%3E%3C/svg%3E" class="image wp-image-2608  attachment-full size-full" alt="" style="max-width: 100%; height: auto;" data-lazy-srcset="https://newkalatheme.ir/preview/wp-content/uploads/2019/10/mag-1-1.jpg 345w, https://newkalatheme.ir/preview/wp-content/uploads/2019/10/mag-1-1-300x246.jpg 300w" data-lazy-sizes="(max-width: 345px) 100vw, 345px" data-lazy-src="https://newkalatheme.ir/preview/wp-content/uploads/2019/10/mag-1-1.jpg"> *@
-    @*         <noscript> *@
-    @*             <img width="345" height="283" src="https://newkalatheme.ir/preview/wp-content/uploads/2019/10/mag-1-1.jpg" class="image wp-image-2608  attachment-full size-full" alt="" style="max-width: 100%; height: auto;" srcset="https://newkalatheme.ir/preview/wp-content/uploads/2019/10/mag-1-1.jpg 345w, https://newkalatheme.ir/preview/wp-content/uploads/2019/10/mag-1-1-300x246.jpg 300w" sizes="(max-width: 345px) 100vw, 345px"/> *@
-    @*         </noscript> *@
-    @*     </div> *@
-    @* </aside> *@
-    <div class="clear"></div>
+    </div>
 </div>
-<div class="clear"></div>

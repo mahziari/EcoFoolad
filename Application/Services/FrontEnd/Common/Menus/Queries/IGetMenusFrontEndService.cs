@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using Domain.Entities.IdealCrm;
 
 
 namespace  Application.Services.FrontEnd.Common.Menus.Queries
@@ -12,6 +13,7 @@ namespace  Application.Services.FrontEnd.Common.Menus.Queries
     public class ResultGetMenusFrontEndDto
     {
         public List<GetMenu1Dto> Menus { get; set; }
+        public List<CrmCmsNewsGroups> BlogsGroup { get; set; }
     }
 
 

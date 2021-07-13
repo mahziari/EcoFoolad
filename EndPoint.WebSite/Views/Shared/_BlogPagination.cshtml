@@ -1,54 +1,46 @@
-﻿    @if (Model.PageId >= 1)
-    {
-        <nav class="woocommerce-pagination" lang="fa">
-            <ul class="page-numbers">
-                @if (Model.PageId > 1)
-                {
-                    <li>
-                        <a class="next page-numbers" asp-controller="Blogs" asp-action="Category" asp-route-pageView="page" asp-route-page="1">
-                            <i class="fa fa-angle-double-left" aria-hidden="true"></i>
-                        </a>
-                    </li>
+﻿@if (Model.PageId >= 1)
+{
+    <nav class="navbar-centeral">
+        <ul class="pagination">
+            @if (Model.PageId > 1)
+            {
+                <li class="page-item">
+                    <a class="page-link" asp-controller="Blogs" asp-action="Category" asp-route-pageView="page" asp-route-page="@(Model.PageId - 1)" aria-label="قبلی">
+                        <span aria-hidden="true">&laquo;</span>
+                        <span class="sr-only">قبلی</span>
+                    </a>
+                </li>
 
-                    <li>
-                        <a class="next page-numbers" asp-controller="Blogs" asp-action="Category" asp-route-pageView="page" asp-route-page="@(Model.PageId - 1)">
-                            <i class="fa fa-angle-left" aria-hidden="true"></i>
-                        </a>
+                <li class="page-item">
+                    <a class="page-link" asp-controller="Blogs" asp-action="Category" asp-route-pageView="page" asp-route-page="1">1</a>
+                </li>
+            }
+
+            @for (int i = 1; i <= Model.PageCount; i++)
+            {
+                <li class="page-item">
+                    <a class="page-link @(Model.PageId == i ? "current-page" : null)" asp-controller="Blogs" asp-action="Category" asp-route-pageView="page" asp-route-page="@i">@i</a>
+                </li>
+                @if (Model.PageCount < Model.PageId - 3 && i == Model.PageId - 1)
+                {
+                    <li class="page-item">
+                        <a class="page-link" href="#">…</a>
                     </li>
                 }
+            }
+            @if (Model.PageCount > Model.PageId)
+            {
+                <li class="page-item">
+                    <a class="page-link" asp-controller="Blogs" asp-action="Category" asp-route-pageView="page" asp-route-page="@(Model.PageCount)">@(Model.PageCount)</a>
+                </li>
 
-                @for (int i = 1; i <= Model.PageCount; i++)
-                {
-                    <li>
-                        <span aria-current="page" class="page-numbers @(Model.PageId == i ? "current" : null)">
-                            <a asp-controller="Blogs" asp-action="Category" asp-route-pageView="page" asp-route-page="@i">@i</a>
-                        </span>
-                    </li>
-                    @if ( Model.PageCount < Model.PageId - 3 && i == Model.PageId -1)
-                    {
-                    <li>
-                          <span class="page-numbers dots">…</span>
-                    </li>
-                    }
-
-                }
-
-
-             
-                @if (Model.PageCount > Model.PageId)
-                {
-                    <li>
-                        <a class="next page-numbers" asp-controller="Blogs" asp-action="Category" asp-route-pageView="page" asp-route-page="@(Model.PageId + 1)">
-                            <i class="fa fa-angle-right" aria-hidden="true"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="next page-numbers" asp-controller="Blogs" asp-action="Category" asp-route-pageView="page" asp-route-page="@(Model.PageCount)">
-                            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                        </a>
-                    </li>
-                }
-
-            </ul>
-        </nav>
-    }
+                <li class="page-item">
+                    <a class="page-link" asp-controller="Blogs" asp-action="Category" asp-route-pageView="page" asp-route-page="@(Model.PageId + 1)" aria-label="بعدی">
+                        <span aria-hidden="true">&raquo;</span>
+                        <span class="sr-only">بعدی</span>
+                    </a>
+                </li>
+            }
+        </ul>
+    </nav>
+}

@@ -20,18 +20,21 @@ $(document).ready(function () {
     $('.nav-btn').on('click', function () {
         $('.overlay').show();
         $('nav').toggleClass("open");
+        $('#raychatBtn').addClass("d-none");
+        // $('#raychatBtn').css("display","none");
     });
 
     $('.overlay').on('click', function () {
         if ($('nav').hasClass('open')) {
             $('nav').removeClass('open');
+            $('#raychatBtn').removeClass("d-none");
         }
         $(this).hide();
     });
 
 
     $('li.active').addClass('open').children('ul').show();
-    $("li.has-sub > a").on('click', function () {
+    $("li > a.sub").on('click', function () {
         $(this).removeAttr('href');
         var e = $(this).parent('li');
         if (e.hasClass('open')) {

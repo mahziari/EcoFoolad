@@ -86,6 +86,11 @@
 }
 
 @media (max-width: 1200px){
+    .nav-btn {
+        display: block;
+        margin-top: 0;
+        right: 4px;
+    }
 
     .main-content .topics .topics-content .post-module .comments-template .comment-respond .comment-form .comment-fields .input-textbox{
         margin-right: 0;
