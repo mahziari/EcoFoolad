@@ -354,6 +354,7 @@ namespace EndPoint.WebSite.Areas.Auth.Controllers
         [Route("users/auth/logout", Name = "logout")]
         public IActionResult LogOut()
         {
+            DeleteUserCache();
             _signInManager.SignOutAsync();
             return RedirectToAction("index", "Home");
         }
@@ -503,7 +504,7 @@ namespace EndPoint.WebSite.Areas.Auth.Controllers
             if (_userId != null) return;
             _userId = Guid.NewGuid().ToString();
             var cookieOptions = new CookieOptions { IsEssential = true };
-            cookieOptions.Expires = DateTime.Today.AddYears(2);
+            cookieOptions.Expires = DateTime.Today.AddYears(1);
             Response.Cookies.Append(basketCookieName, _userId, cookieOptions);
         }
         
@@ -520,7 +521,7 @@ namespace EndPoint.WebSite.Areas.Auth.Controllers
                     .SetSlidingExpiration(TimeSpan.FromHours(1));
             
                 var userPhoneNumberEncoded = Encoding.UTF8.GetBytes(phoneNumber);
-                _cache.Set("userPhoneNumberAuthController"+_userId, userPhoneNumberEncoded, options);
+                _cache.Set(userPhoneNumberCacheName, userPhoneNumberEncoded, options);
             }
         }
 
@@ -536,16 +537,16 @@ namespace EndPoint.WebSite.Areas.Auth.Controllers
         private void SetCacheForReturnUrl(string returnUrl)
         {
             _userId = Request.Cookies["UserIdAuth"];
-            var userPhoneNumberCacheName = "userReturnUrlAuthController"+_userId;
-            var userPhoneNumberCached = _cache.Get(userPhoneNumberCacheName);
+            var userReturnUrlCached = "userReturnUrlAuthController"+_userId;
+            var userReturnUrl = _cache.Get(userReturnUrlCached);
 
-            if (userPhoneNumberCached==null)
+            if (userReturnUrl==null)
             {
                 var options = new DistributedCacheEntryOptions()
                     .SetSlidingExpiration(TimeSpan.FromHours(1));
             
-                var userPhoneNumberEncoded = Encoding.UTF8.GetBytes(returnUrl);
-                _cache.Set("userReturnUrlAuthController"+_userId, userPhoneNumberEncoded, options);
+                var userReturnUrlEncoded = Encoding.UTF8.GetBytes(returnUrl);
+                _cache.Set(userReturnUrlCached, userReturnUrlEncoded, options);
             }
         }
         
@@ -582,8 +583,23 @@ namespace EndPoint.WebSite.Areas.Auth.Controllers
                 AbsoluteExpiration = DateTime.Now.AddMinutes(3)
             };
 
-            _cache.Set("userCunterTimeAuthController"+_userId, userPhoneNumberEncoded, options);
+            _cache.Set(userCunterTimeCacheName, userPhoneNumberEncoded, options);
             return 180;
+        }
+        
+        private void DeleteUserCache()
+        {
+            _userId = Request.Cookies["UserIdAuth"];
+            var data = new[]
+            {
+                "userPhoneNumberAuthController" + _userId,
+                "userReturnUrlAuthController" + _userId,
+                "userCunterTimeAuthController" + _userId
+            };
+            foreach (var item in data)
+            {
+                _cache.Remove(item);
+            }
         }
         
     }

@@ -55,28 +55,28 @@
                                         <!-- header section -->
                                         <div class="row my-2 py-50">
                                             <div class="col-sm-6 col-12 order-2 order-sm-1">
-                                                <h6 asp-for="Title" class="text-primary">عنوان دسته بندی بلاگ: <b class="text-danger h3">*</b></h6>
-                                                <input asp-for="GroupName" type="text" class="form-control" placeholder="عنوان را وارد کنید">
-                                                <span asp-validation-for="GroupName" class="text-danger"></span>
+                                                <h6 asp-for="Name" class="text-primary">عنوان دسته بندی بلاگ: <b class="text-danger h3">*</b></h6>
+                                                <input asp-for="Name" type="text" class="form-control" placeholder="عنوان را وارد کنید">
+                                                <span asp-validation-for="Name" class="text-danger"></span>
                                             </div>
                                         
                                             <div class="col-sm-6 col-12 order-2 order-sm-1">
-                                                <h6 asp-for="Title" class="text-primary">عنوان دسته بندی بلاگ انگلیسی: <b class="text-danger h3">*</b></h6>
-                                                <input asp-for="en_GroupName" type="text" class="form-control" placeholder="عنوان انگلیسی را وارد کنید">
-                                                <span asp-validation-for="en_GroupName" class="text-danger"></span>
+                                                <h6 asp-for="Slug" class="text-primary">عنوان دسته بندی بلاگ انگلیسی: <b class="text-danger h3">*</b></h6>
+                                                <input asp-for="Slug" type="text" class="form-control" placeholder="عنوان انگلیسی را وارد کنید">
+                                                <span asp-validation-for="Slug" class="text-danger"></span>
                                             </div>
                                         </div>
                                         
                                         <div class="row my-2 py-50">
                                             <div class="col-sm-6 col-12 order-2 order-sm-1">
-                                                <h6 asp-for="Title" class="text-primary">رنگ دسته بندی بلاگ: <b class="text-danger h3">*</b></h6>
-                                                <input asp-for="Color" type="text" class="form-control" placeholder="#99FF66">
+                                                <h6 asp-for="Color" class="text-primary">رنگ دسته بندی بلاگ: <b class="text-danger h3">*</b></h6>
+                                                <input asp-for="Color" type="color" class="form-control">
                                                 <span asp-validation-for="Color" class="text-danger"></span>
                                             </div>
                                                                                 
                                             <div class="col-sm-6 col-12 order-2 order-sm-1">
-                                                <h6 asp-for="Title" class="text-primary">آیکن دسته بندی بلاگ: <b class="text-danger h3">*</b></h6>
-                                                <input asp-for="FaIcon" type="text" class="form-control" placeholder="fa fa-XXX">
+                                                <h6 asp-for="FaIcon" class="text-primary">آیکن دسته بندی بلاگ: <b class="text-danger h3">*</b></h6>
+                                                <input asp-for="FaIcon" type="text" class="form-control">
                                                 <span asp-validation-for="FaIcon" class="text-danger"></span>
                                             </div>
                                         </div>
@@ -84,17 +84,17 @@
                                         
                                         <div class="row my-2 py-50">
                                             <div class="col-sm-12 col-12 order-2 order-sm-1">
-                                                <h6 asp-for="Description" class="text-primary">توضیحات  بندی بلاگ: <b class="text-danger h3">*</b></h6>
-                                                <input asp-for="Description" type="text" class="form-control" placeholder="#99FF66" height="300px">
-                                                <span asp-validation-for="Description" class="text-danger"></span>
+                                                <h6 asp-for="SmallDescription" class="text-primary">توضیحات دسته بندی بلاگ: <b class="text-danger h3">*</b></h6>
+                                                <input asp-for="SmallDescription" type="text" class="form-control" height="300px">
+                                                <span asp-validation-for="SmallDescription" class="text-danger"></span>
                                             </div>
                                         </div>
                                         
                                         <div class="row my-2 py-50">
                                             <div class="col-sm-12 col-12 order-2 order-sm-1">
-                                                <h6 asp-for="Description" class="text-primary">لینک عکس بندی بلاگ:<b class="text-danger h3">*</b></h6>
-                                                <input asp-for="Image" type="text" class="form-control" placeholder="" height="300px">
-                                                <span asp-validation-for="Image" class="text-danger"></span>
+                                                <h6 asp-for="SmallDescription" class="text-primary">لینک عکس دسته بندی بلاگ:<b class="text-danger h3">*</b></h6>
+                                                <input asp-for="ImageUrl" type="text" class="form-control" placeholder="" height="300px">
+                                                <span asp-validation-for="ImageUrl" class="text-danger"></span>
                                             </div>
                                         </div>
                                         

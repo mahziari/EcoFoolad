@@ -2662,7 +2662,7 @@ nav.main-menu ul.new-list-menu li.item-list-menu ul.list-menu-discounts-offers .
 footer {
     width: 100%;
     height: auto;
-    margin-top: 50px;
+    margin-top: -10px;
     padding: 80px 10px 0;
     background: #eceff1;
     position: relative;
@@ -11811,8 +11811,4 @@ ul.faq-list li .footer em {
 /*paginate*/
 .current-page{
     background-color: #ebd9ff ;
-}
-.navbar-centeral{
-    position: absolute;
-    right: 50%;
 }

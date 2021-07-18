@@ -1,9 +1,9 @@
 ﻿namespace  Application.Services.BackEnd.Admin.Blogs.Queries.GetCreateBlogs
 {
-    public class GetBlogsGroupsDto
+    public class GetBlogCategoryDto
     {
-        public int NewsGroupId { get; set; }
-        public string GroupName { get; set; }
+        public int Id { get; set; }
+        public string Name { get; set; }
 
     }
 }

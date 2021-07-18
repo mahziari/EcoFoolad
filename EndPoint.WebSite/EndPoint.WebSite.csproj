@@ -805,6 +805,13 @@
     <_ContentIncludedByDefault Remove="wwwroot\BackEnd\Admin\images\sliders\modern.jpg" />
     <_ContentIncludedByDefault Remove="wwwroot\BackEnd\Admin\images\sliders\stack.jpg" />
     <_ContentIncludedByDefault Remove="wwwroot\BackEnd\Admin\images\sliders\vuesax.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\BackEnd\Admin\images\fileManager\2021\2021-6\20b29a58-7996-467d-ad32-94607c2150b0enamad.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\BackEnd\Admin\images\fileManager\2021\2021-6\44e30ca7-3c3e-4343-9049-7c2fafa14e7eLogo-Header.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\BackEnd\Admin\images\fileManager\2021\2021-6\7bbf0201-350d-4425-96bb-c220f9dcb789LogoThumbnail.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\BackEnd\Admin\images\fileManager\2021\2021-6\8fc5610c-74cc-4993-8425-89821e2272a4964edb61.svg" />
+    <_ContentIncludedByDefault Remove="wwwroot\BackEnd\Admin\images\fileManager\2021\2021-6\c7b6d585-8f6b-4dfe-8236-e2e7772ad2604.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\BackEnd\Admin\images\fileManager\2021\2021-6\d15647d6-02f3-4301-9700-e1f631611446shamedGold.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\BackEnd\Admin\images\fileManager\2021\2021-6\e2e05b2c-dbf6-473c-b820-61be8ba043641اصلی.jpg" />
   </ItemGroup>
 
   <ItemGroup>

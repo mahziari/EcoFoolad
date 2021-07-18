@@ -1,7 +1,9 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
+using Application.Services.BackEnd.Admin.Blogs.Command.CreateBlogs;
 using Domain.Entities;
 using Domain.Entities.Baskets;
+using Domain.Entities.Blogs;
 using Domain.Entities.Factory;
 using Domain.Entities.FileManager;
 using Domain.Entities.Footer;
@@ -27,6 +29,8 @@ namespace Application.Interfaces.Contexts
         DbSet<Factory> Factories { get; set; }
         DbSet<FileManager> FileManagers { get; set; }
         DbSet<Footer> Footers { get; set; }
+        DbSet<BlogCategory> BlogCategories { get; set; } 
+        DbSet<Blog> Blogs { get; set; }
 
 
         

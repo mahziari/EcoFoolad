@@ -1,25 +1,33 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using Application.Interfaces.Contexts;
+using Application.Services.BackEnd.Admin.BlogsCategories.Queries.GetEditBlogsCategories;
+using Application.Services.FrontEnd.Blogs.Queries;
+using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 
 
 namespace  Application.Services.BackEnd.Admin.BlogsCategories.Queries.GetIndexBlogsCategories
 {
     public class GetIndexBlogsCategoriesServices : IGetIndexBlogsCategoriesServices
     {
-        private readonly IIdealCrmDataBaseContext _context;
+        private readonly ICustomDbContext _customDbContext;
+        private readonly IMapper _mapper;
 
-        public GetIndexBlogsCategoriesServices(IIdealCrmDataBaseContext context)
+        public GetIndexBlogsCategoriesServices(ICustomDbContext customDbContext, IMapper mapper)
         {
-            _context = context;
+            _customDbContext = customDbContext;
+            _mapper = mapper;
         }
 
 
         public ResultGetIndexBlogsCategoriesDto Execute()
         {
-            var blogsCategories = _context.CrmCmsNewsGroups
-                .OrderByDescending(n=> n.NewsGroupId)
-                .ToList();
-
+            var blogsCategoriesModel = _customDbContext.BlogCategories
+                .Include(s => s.Blog)
+                .OrderByDescending(s => s.Id);
+            var blogsCategories = _mapper.Map<List<GetIndexBlogsCategoriesDto>>(blogsCategoriesModel);
+            
             return new ResultGetIndexBlogsCategoriesDto
             {
                 BlogsCategories = blogsCategories,

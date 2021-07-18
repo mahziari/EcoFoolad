@@ -1,31 +1,32 @@
 ﻿using System;
 using System.IO;
 using Application.Interfaces.Contexts;
+using AutoMapper;
+using Common.Utilities;
+using Domain.Entities.Blogs;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
- 
-using  Domain.Entities.IdealCrm;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
+
 
 namespace  Application.Services.BackEnd.Admin.Blogs.Command.CreateBlogs
 {
     public class CreateBlogsServices : ICreateBlogsServices
     {
-
-        private readonly IIdealCrmDataBaseContext _context;
         private readonly IWebHostEnvironment _environment;
-        public CreateBlogsServices(IIdealCrmDataBaseContext context, IWebHostEnvironment environment)
+        private readonly IMapper _mapper;
+        private readonly ICustomDbContext _customDbContext;
+        private readonly IHttpContextAccessor _httpContext;
+        public CreateBlogsServices(IWebHostEnvironment environment, IMapper mapper, ICustomDbContext customDbContext, IHttpContextAccessor httpContext)
         {
-            _context = context;
             _environment = environment;
+            _mapper = mapper;
+            _customDbContext = customDbContext;
+            _httpContext = httpContext;
         }
 
         public ResultCreateBlogsDto Execute(CreateBlogsServicesDto createBlogsServicesDto)
         {
-
-
-            var uploadedResult = UploadFile(createBlogsServicesDto.Images);
+            var uploadedResult = UploadFile(createBlogsServicesDto.Image);
 
             if (uploadedResult.Status != true)
             {
@@ -35,33 +36,17 @@ namespace  Application.Services.BackEnd.Admin.Blogs.Command.CreateBlogs
                     Message = "لطفا یک عکس انتخاب کنید"
                 };
             }
+            
 
-            var blogs = new CrmCmsNews()
-            {
-                NewsGroupId = createBlogsServicesDto.NewsGroupId,
-                HeadLine = uploadedResult.FileNameAddress,
-                Title = createBlogsServicesDto.Title,
-                NewsSummery = createBlogsServicesDto.NewsSummery,
-                NewsBody = createBlogsServicesDto.NewsBody,
-                Position=createBlogsServicesDto.Position,
-                IsVerified = true,
-                UserId = 57,
-                Month1 = 6,
-                FirstRegisterUserId = 57,
-                PublishDateTime = DateTime.Now,
-                FirstRegisterDate = DateTime.Now,
-                FirstRegisterDatePersian = PersianDateTime.Now.ToString("yyyyMMdd"),
-                RegisterDate = DateTime.Now,
-                RegisterDatePersian = PersianDateTime.Now.ToString("yyyyMMdd"),
-                LocalTime = DateTime.Now.ToString("s")+"+"+TimeZoneInfo.Local.BaseUtcOffset.ToHHMM(),
-                AppType = "web",
-                LanguageId = 1065,
-                RequestToAuthorFav = createBlogsServicesDto.RequestToAuthorFav
-            };
-
-            _context.CrmCmsNews.Add(blogs);
-            _context.SaveChanges();
-
+            var blogs = _mapper.Map<Blog>(createBlogsServicesDto);
+            blogs.LocalTime = DateTime.Now.ToString("s") + "+" + TimeZoneInfo.Local.BaseUtcOffset.ToHHMM();
+            blogs.RegisterUserId= ClaimUtility.GetUserId(_httpContext.HttpContext?.User);
+            blogs.ImageUrl = uploadedResult.FileNameAddress;
+            blogs.IsVerified = true;
+            
+            _customDbContext.Blogs.Add(blogs);
+            _customDbContext.SaveChanges();
+            
             return new ResultCreateBlogsDto
             {
                 IsSuccess = true,
@@ -99,6 +84,5 @@ namespace  Application.Services.BackEnd.Admin.Blogs.Command.CreateBlogs
             };
 
         }
-
     }
 }

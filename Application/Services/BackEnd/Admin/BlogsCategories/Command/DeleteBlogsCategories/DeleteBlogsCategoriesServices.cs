@@ -6,16 +6,17 @@ namespace  Application.Services.BackEnd.Admin.BlogsCategories.Command.DeleteBlog
 {
     public class DeleteBlogsCategoriesServices : IDeleteBlogsCategoriesServices
     {
-        private readonly IIdealCrmDataBaseContext _context;
+        private readonly ICustomDbContext _customDbContext;
 
-        public DeleteBlogsCategoriesServices(IIdealCrmDataBaseContext context)
+        public DeleteBlogsCategoriesServices(ICustomDbContext customDbContext)
         {
-            _context = context;
+            _customDbContext = customDbContext;
         }
+
 
         public ResultDeleteBlogsCategoriesDto Execute(int id)
         {
-            var blogCategory = _context.CrmCmsNewsGroups.Find(id);
+            var blogCategory = _customDbContext.BlogCategories.Find(id);
             
             if (blogCategory == null)
             {
@@ -26,8 +27,8 @@ namespace  Application.Services.BackEnd.Admin.BlogsCategories.Command.DeleteBlog
                 };
             }
             
-            _context.CrmCmsNewsGroups.Remove(blogCategory);
-            _context.SaveChanges();
+            _customDbContext.BlogCategories.Remove(blogCategory);
+            _customDbContext.SaveChanges();
             return new ResultDeleteBlogsCategoriesDto
             {
                 IsSuccess = true,

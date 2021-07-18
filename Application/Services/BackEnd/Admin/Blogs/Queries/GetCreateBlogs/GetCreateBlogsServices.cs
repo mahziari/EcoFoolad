@@ -6,29 +6,28 @@ namespace  Application.Services.BackEnd.Admin.Blogs.Queries.GetCreateBlogs
 {
     public class GetCreateBlogsServices : IGetCreateBlogsServices
     {
-        private readonly IIdealCrmDataBaseContext _context;
+        private readonly ICustomDbContext _customDbContext;
 
-        public GetCreateBlogsServices(IIdealCrmDataBaseContext context)
+        public GetCreateBlogsServices(ICustomDbContext customDbContext)
         {
-            _context = context;
+            _customDbContext = customDbContext;
         }
 
 
         public ResultGetCreateBlogsDto Execute()
         {
-            var blogsGroup = _context.CrmCmsNewsGroups
-                .Select(g=>new GetBlogsGroupsDto
+            var blogCategory = _customDbContext.BlogCategories
+                .Select(g=>new GetBlogCategoryDto
                 {
-                    NewsGroupId = g.NewsGroupId,
-                    GroupName = g.GroupName
+                    Id = g.Id,
+                    Name = g.Name
                 }).ToList();
             
-            // var blogs = _context.CrmCmsNews.Where(p=>p.Position==0).ToList();
-            var blogs = _context.CrmCmsNews.ToList();
+            var blogs = _customDbContext.Blogs.ToList();
 
             return new ResultGetCreateBlogsDto
             {
-                BlogsGroup = blogsGroup,
+                BlogCategory = blogCategory,
                 Blogs = blogs,
             };
         }

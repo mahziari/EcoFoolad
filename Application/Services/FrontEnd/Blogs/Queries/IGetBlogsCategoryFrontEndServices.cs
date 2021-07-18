@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Application.Interfaces.Contexts;
 using AutoMapper;
+using Domain.Entities.Blogs;
 using Domain.Entities.Footer;
 using Domain.Entities.IdealCrm;
 using Microsoft.EntityFrameworkCore;
@@ -17,13 +18,11 @@ namespace  Application.Services.FrontEnd.Blogs.Queries
 
     public class GetBlogsCategoryFrontEndService: IGetBlogsCategoryFrontEndService
     {
-        private readonly IIdealCrmDataBaseContext _context;
         private readonly ICustomDbContext _customDbContext;
         private readonly IMapper _mapper;
 
-        public GetBlogsCategoryFrontEndService(IIdealCrmDataBaseContext context, ICustomDbContext customDbContext, IMapper mapper)
+        public GetBlogsCategoryFrontEndService(ICustomDbContext customDbContext, IMapper mapper)
         {
-            _context = context;
             _customDbContext = customDbContext;
             _mapper = mapper;
         }
@@ -33,41 +32,31 @@ namespace  Application.Services.FrontEnd.Blogs.Queries
         public ResultGetBlogsCategoryFrontEndDto Execute(string category, int page)
         {
 
-            var resultInEachPage = 12;
+            var resultInEachPage = 16;
             int skip = (page - 1) * resultInEachPage;
-            int count = _context.CrmCmsNews
-                .Where(b=>b.NewsGroup.en_GroupName == category)
-                .Where(b=>b.IsVerified)
+            int count = _customDbContext.Blogs
+                .Where(b=>b.BlogCategory.Slug == category)
+                .Where(g => g.IsVerified)
+                .Where(s => s.Position == 0)
+                .Where(s => s.RequestToAuthorFav!=true)
                 .Count(b => b.Position == 0);
             var pageId = page;
             var pageCount = (int)Math.Ceiling(count / (double)resultInEachPage);
 
 
-            var blogsCatrgory = _context.CrmCmsNews
-                .Include(b=>b.NewsGroup)
-                .Where(b => b.NewsGroup.en_GroupName == category)
-                .Where(b=>b.IsVerified)
-                .Where(b=>b.Position == 0)
-                .OrderByDescending(b=>b.NewsId)
-                .Select(b => new GetBlogsCatrgoryDto
-                {
-                    NewsId=b.NewsId,
-                    NewsGroupId=b.NewsGroupId,
-                    NewsGroupName = b.NewsGroup.GroupName,
-                    en_NewsGroupName = b.NewsGroup.en_GroupName,
-                    Title = b.Title.Replace(" ", "-"),
-                    NewsBody=b.NewsBody,
-                    NewsSummery=b.NewsSummery,
-                    DateTime= b.RegisterDate.ToPersianDateTime().ToString("yyyy/MM/d"),
-                    IsVerified = b.IsVerified,
-                    Position=b.Position,
-                    HeadLine=b.HeadLine,
-                }).Skip(skip).Take(resultInEachPage).ToList();
+            var catrgoriesBlogsModel = _customDbContext.Blogs
+                .Include(b=>b.BlogCategory)
+                .Where(b => b.BlogCategory.Slug == category.Replace('-',' '))
+                .Where(g => g.IsVerified)
+                .Where(s => s.Position == 0)
+                .Where(s => s.RequestToAuthorFav!=true)
+                .OrderByDescending(b=>b.Id)
+               .Skip(skip).Take(resultInEachPage).ToList();
+            var catrgoriesBlogs = _mapper.Map<List<Blog>>(catrgoriesBlogsModel);
 
-
-            var model = _context.CrmCmsNewsGroups
-                .Single(b => b.en_GroupName == category);
-            var categoryItem = _mapper.Map<CategoryItemDto>(model);
+            var categoryItemModel = _customDbContext.BlogCategories
+                .Where(b => b.Slug == category.Replace('-',' '));
+            var categoryItem = _mapper.Map<CategoryItemDto>(categoryItemModel);
 
 
 
@@ -75,7 +64,7 @@ namespace  Application.Services.FrontEnd.Blogs.Queries
             
             return new ResultGetBlogsCategoryFrontEndDto
             {
-                BlogsCatrgory =blogsCatrgory,
+                CatrgoriesBlogs =catrgoriesBlogs,
                 PageId =pageId,
                 PageCount =pageCount,
                 CategoryItem =categoryItem,
@@ -86,7 +75,7 @@ namespace  Application.Services.FrontEnd.Blogs.Queries
 
     public class ResultGetBlogsCategoryFrontEndDto
     {
-        public List<GetBlogsCatrgoryDto> BlogsCatrgory { get; set; }
+        public List<Blog> CatrgoriesBlogs { get; set; }
         public Footer Footers { get; set; }
         public CategoryItemDto CategoryItem { get; set; }
         public int PageId { get; set; }
@@ -96,24 +85,33 @@ namespace  Application.Services.FrontEnd.Blogs.Queries
 
     public class GetBlogsCatrgoryDto
     {
-        public int NewsId { get; set; }
+        public int Id { get; set; }
         public int NewsGroupId { get; set; }
         public string Title { get; set; }
-        public string NewsGroupName { get; set; }
-        public string en_NewsGroupName { get; set; }
-        public string NewsSummery { get; set; }
-        public string NewsBody { get; set; }
-        public string HeadLine { get; set; }
-        public string DateTime { get; set; }
+        public string ImageUrl { get; set; }
+        public string InsertTime { get; set; }
         public bool IsVerified { get; set; }
         public int Position { get; set; }
+        public int BlogCategoryId { get; set; }
+        public string BlogCategoryName { get; set; }
+        public string BlogCategorySlug { get; set; }
+        public string Slug { get; set; }
+        public string SmallDescription { get; set; }
+        public string Body { get; set; }
     }
 
     public class CategoryItemDto
     {
-        public string GroupName { get; set; }
-        public string en_GroupName { get; set; }
-        public string Description { get; set; }
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Slug { get; set; }
+        public string SmallDescription { get; set; }
+        public bool IsActive { get; set; }
+        public string RegisterUserId { get; set; }
+        public string Color { get; set; }
+        public string FaIcon { get; set; }
         public string LocalTime { get; set; }
+        public string Image { get; set; }
+
     }
 }

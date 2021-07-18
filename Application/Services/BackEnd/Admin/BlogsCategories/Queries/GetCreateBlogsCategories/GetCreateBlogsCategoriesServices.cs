@@ -6,11 +6,11 @@ namespace  Application.Services.BackEnd.Admin.BlogsCategories.Queries.GetCreateB
 {
     public class GetCreateBlogsCategoriesServices : IGetCreateBlogsCategoriesServices
     {
-        private readonly IIdealCrmDataBaseContext _context;
+        private readonly ICustomDbContext _customDbContext;
 
-        public GetCreateBlogsCategoriesServices(IIdealCrmDataBaseContext context)
+        public GetCreateBlogsCategoriesServices(ICustomDbContext customDbContext)
         {
-            _context = context;
+            _customDbContext = customDbContext;
         }
 
 

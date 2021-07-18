@@ -96,7 +96,7 @@
                                                 <td> @counter</td>
 
                                                 <td>
-                                                    @item.GroupName
+                                                    @item.Name
                                                 </td>
 
                                                 
@@ -115,7 +115,7 @@
                                                 <td class="tdDisplay">
                                                        @if (AuthorizationService.AuthorizeAsync(User, "BlogCategoriesEdit").Result.Succeeded)
                                                                                                             {
-                                                    <a asp-area="Admin" asp-controller="BlogsCategories" asp-action="Edit" asp-route-id="@item.NewsGroupId" title="ویرایش">
+                                                    <a asp-area="Admin" asp-controller="BlogsCategories" asp-action="Edit" asp-route-id="@item.Id" title="ویرایش">
                                                         <span class="badge badge-warning d-inline-flex align-items-center mr-1 mb-1">
                                                             <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                                                         </span>
@@ -124,7 +124,7 @@
 
                                                     @if (AuthorizationService.AuthorizeAsync(User, "BlogCategoriesDelete").Result.Succeeded)
                                                     {
-                                                        <a asp-area="Admin" asp-controller="BlogsCategories" asp-action="Delete" asp-route-id="@item.NewsGroupId" title="حذف" onclick="return confirm('ایا از حذف مطمعن هستید؟');">
+                                                        <a asp-area="Admin" asp-controller="BlogsCategories" asp-action="Delete" asp-route-id="@item.Id" title="حذف" onclick="return confirm('ایا از حذف مطمعن هستید؟');">
                                                             <span class="badge badge-danger d-inline-flex align-items-center mr-1 mb-1">
                                                                 <i class="fa fa-window-close" aria-hidden="true"></i>
                                                             </span>

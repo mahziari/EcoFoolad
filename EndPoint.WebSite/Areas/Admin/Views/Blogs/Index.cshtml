@@ -95,7 +95,7 @@
                                                 <td> @counter</td>
 
                                                 <td>
-                                                        <img src="~/@item.HeadLine" width="90px" height="auto">
+                                                        <img src="~/@item.ImageUrl" width="90px" height="auto">
                                                 </td>
 
 
@@ -104,7 +104,7 @@
                                                 </td>
 
                                                 <td>
-                                                    @item.NewsGroup.GroupName 
+                                                    @item.BlogCategory.Name 
                                                     <br>
                                                     @if (item.Position != 0)
                                                     {
@@ -117,20 +117,20 @@
                                                 </td>
 
                                                 <td>
-                                                    @item.RegisterDatePersian
+                                                    @* @item.CreatedAt *@
                                                 </td>
 
                                                 @* <td> تکمیل میگردد</td> *@
 
                                                 <td class="tdDisplay">
-                                                    <a asp-area="Admin" asp-controller="Blogs" asp-action="Details" asp-route-id="@item.NewsId" title="مشاهده جزییات">
+                                                    <a asp-area="Admin" asp-controller="Blogs" asp-action="Details" asp-route-id="@item.Id" title="مشاهده جزییات">
                                                         <span class="badge badge-info d-inline-flex align-items-center mr-1 mb-1">
                                                             <i class="fa fa-folder-open" aria-hidden="true"></i>
                                                         </span>
                                                     </a>
                                                     @if (AuthorizationService.AuthorizeAsync(User, "BlogsEdit").Result.Succeeded)
                                                     {
-                                                        <a asp-area="Admin" asp-controller="Blogs" asp-action="Edit" asp-route-id="@item.NewsId" title="ویرایش">
+                                                        <a asp-area="Admin" asp-controller="Blogs" asp-action="Edit" asp-route-id="@item.Id" title="ویرایش">
                                                             <span class="badge badge-warning d-inline-flex align-items-center mr-1 mb-1">
                                                                 <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                                                             </span>
@@ -142,7 +142,7 @@
                                                     {
                                                         @if (@item.IsVerified == false)
                                                         {
-                                                            <a asp-area="Admin" asp-controller="Blogs" asp-action="Active" asp-route-id="@item.NewsId" title="غیر فعال است">
+                                                            <a asp-area="Admin" asp-controller="Blogs" asp-action="Active" asp-route-id="@item.Id" title="غیر فعال است">
                                                                 <span class="badge badge-secondary d-inline-flex align-items-center mr-1 mb-1">
                                                                     <i class="fa fa-toggle-off" aria-hidden="true"></i>
                                                                 </span>
@@ -150,7 +150,7 @@
                                                         }
                                                         else
                                                         {
-                                                            <a asp-area="Admin" asp-controller="Blogs" asp-action="Active" asp-route-id="@item.NewsId" title="فعال است">
+                                                            <a asp-area="Admin" asp-controller="Blogs" asp-action="Active" asp-route-id="@item.Id" title="فعال است">
                                                                 <span class="badge badge-primary d-inline-flex align-items-center mr-1 mb-1">
                                                                     <i class="fa fa-toggle-on" aria-hidden="true"></i>
                                                                 </span>
@@ -161,7 +161,7 @@
                                                     
                                                       @if (AuthorizationService.AuthorizeAsync(User, "BlogsDelete").Result.Succeeded)
                                                       {
-                                                          <a asp-area="Admin" asp-controller="Blogs" asp-action="Delete" asp-route-id="@item.NewsId" title="حذف" onclick="return confirm('ایا از حذف مطمعن هستید؟');">
+                                                          <a asp-area="Admin" asp-controller="Blogs" asp-action="Delete" asp-route-id="@item.Id" title="حذف" onclick="return confirm('ایا از حذف مطمعن هستید؟');">
                                                               <span class="badge badge-danger d-inline-flex align-items-center mr-1 mb-1">
                                                                   <i class="fa fa-window-close" aria-hidden="true"></i>
                                                               </span>

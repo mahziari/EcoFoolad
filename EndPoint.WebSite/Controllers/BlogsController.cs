@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace EndPoint.WebSite.Controllers
 {
-    [Route("blog")]
+    [Route("mag")]
     public class BlogsController : Controller
     {
         private readonly IBlogsFrontEndFacad _blogsFrontEndFacad;

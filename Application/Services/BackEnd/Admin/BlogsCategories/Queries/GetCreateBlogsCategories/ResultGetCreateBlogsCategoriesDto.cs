@@ -2,11 +2,11 @@
 {
     public class ResultGetCreateBlogsCategoriesDto
     {
-        public string GroupName { get; set; }
-        public string en_GroupName { get; set; }
-        public string Description { get; set; }
+        public string Name { get; set; }
+        public string Slug { get; set; }
+        public string SmallDescription { get; set; }
         public string Color { get; set; }
         public string FaIcon { get; set; }
-        public string Image { get; set; }
+        public string ImageUrl { get; set; }
     }
 }

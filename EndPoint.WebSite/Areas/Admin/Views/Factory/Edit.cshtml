@@ -37,7 +37,7 @@
 }
 
 @Html.ValidationSummary(true)
-        @Html.HiddenFor(model => model.Blog.NewsId)
+        @Html.HiddenFor(model => model.Blog.Id)
 <div class="app-content content">
     <div class="content-overlay"></div>
     <div class="content-wrapper">
@@ -48,7 +48,7 @@
             <form asp-area="Admin" 
                   asp-controller="Blogs"
                   asp-action="Edit"
-                  asp-route-id="@Model.Blog.NewsId" 
+                  asp-route-id="@Model.Blog.Id" 
                   method="post" enctype="multipart/form-data">
                 <section class="invoice-edit-wrapper">
 
@@ -70,14 +70,14 @@
                                             <div class="col-md-4 col-12 order-2 order-sm-1">
                                                 <h6 class="text-primary"> نوع بلاگ:<b class="text-danger h3">*</b></h6>
                                                 <div class="form-group">
-                                                    <select class="select2 form-control" asp-for="NewsGroupId">
-                                                        <option value="@Model.Blog.NewsGroupId">@Model.Blog.NewsGroupName </option>
+                                                    <select class="select2 form-control" asp-for="BlogCategoryId">
+                                                        <option value="@Model.Blog.BlogCategoryId">@Model.Blog.BlogCategory.Name </option>
                                                         @foreach (var item in Model.BlogsGroup)
                                                         {
-                                                            <option value="@item.NewsGroupId">@item.GroupName </option>
+                                                            <option value="@item.Id">@item.Name </option>
                                                         }
                                                     </select>
-                                                    <span asp-validation-for="NewsGroupId" class="text-danger"></span>
+                                                    <span asp-validation-for="BlogCategoryId" class="text-danger"></span>
                                                 </div>
                                             </div>
 
@@ -107,9 +107,9 @@
                                             </div>
 
                                             <div class="col-sm-8 col-8 order-2 order-sm-1">
-                                                <h6 asp-for="NewsSummery" class="text-primary">توضیح کوتاه بلاگ: <b class="text-danger h3">*</b></h6>
-                                                <input asp-for="NewsSummery" value="@Model.Blog.NewsSummery" type="text" class="form-control" placeholder="عنوان را وارد کنید">
-                                                <span asp-validation-for="NewsSummery" class="text-danger"></span>
+                                                <h6 asp-for="SmallDescription" class="text-primary">توضیح کوتاه بلاگ: <b class="text-danger h3">*</b></h6>
+                                                <input asp-for="SmallDescription" value="@Model.Blog.SmallDescription" type="text" class="form-control" placeholder="عنوان را وارد کنید">
+                                                <span asp-validation-for="SmallDescription" class="text-danger"></span>
                                             </div>
                                             <div class="col-md-4 col-4 order-2 order-sm-1">
                                                 <h6 class="text-primary"> موقعیت بلاگ:<b class="text-danger h3"></b></h6>
@@ -143,8 +143,8 @@
                                         @*     <div class="col-lg-12 col-md-12 mt-25"> *@
                                         @*         <h6 class="invoice-to text-primary"> متن بلاگ: <b class="text-danger h3">*</b></h6> *@
                                         @*         <fieldset class="invoice-address form-group"> *@
-                                        @*             <textarea asp-for="NewsBody" class="form-control" rows="20" style="margin-top: 0px; margin-bottom: 0px; height: 2000px;">@Model.Blog.NewsSummery</textarea> *@
-                                        @*             <span asp-validation-for="NewsBody" class="text-danger"></span> *@
+                                        @*             <textarea asp-for="Body" class="form-control" rows="20" style="margin-top: 0px; margin-bottom: 0px; height: 2000px;">@Model.Blog.NewsSummery</textarea> *@
+                                        @*             <span asp-validation-for="Body" class="text-danger"></span> *@
                                         @*         </fieldset> *@
                                         @*     </div> *@
                                         @* </div> *@
@@ -154,9 +154,9 @@
                                             <div class="col-lg-12 col-md-12 mt-25">
                                                 <h6 class="invoice-to text-primary"> متن بلاگ: <b class="text-danger h3">*</b></h6>
                                                 <fieldset class="invoice-address form-group">
-                                                    @* <textarea asp-for="NewsBody" class="form-control" rows="20" style="margin-top: 0px; margin-bottom: 0px; height: 2000px;">@Model.Blog.NewsSummery</textarea> *@
-                                                      @Html.TextArea("NewsBody",Model.Blog.NewsBody, new { @class="form-control" })
-                                                    <span asp-validation-for="NewsBody" class="text-danger"></span>
+                                                    @* <textarea asp-for="Body" class="form-control" rows="20" style="margin-top: 0px; margin-bottom: 0px; height: 2000px;">@Model.Blog.NewsSummery</textarea> *@
+                                                      @Html.TextArea("Body",Model.Blog.Body, new { @class="form-control" })
+                                                    <span asp-validation-for="Body" class="text-danger"></span>
                                                 </fieldset>
                                             </div>
                                         </div>

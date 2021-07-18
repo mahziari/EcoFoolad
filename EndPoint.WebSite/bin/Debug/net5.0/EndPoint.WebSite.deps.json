@@ -2727,7 +2727,6 @@
       "Common/1.0.0": {
         "dependencies": {
           "Microsoft.EntityFrameworkCore": "5.0.6",
-          "Microsoft.Extensions.Hosting.Abstractions": "5.0.0",
           "PersianDateTime.Core": "1.0.8"
         },
         "runtime": {

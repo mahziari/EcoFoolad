@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Domain.Entities;
 using Domain.Entities.Attributes;
 using Domain.Entities.Baskets;
+using Domain.Entities.Blogs;
 using Domain.Entities.Factory;
 using Domain.Entities.FileManager;
 using Domain.Entities.Footer;
@@ -12,6 +13,8 @@ using Domain.Entities.Orders;
 using Domain.Entities.Payments;
 using Domain.Entities.Products;
 using Domain.Entities.Users;
+using Persistence.Config.SqlServer.Blog;
+using Persistence.Config.SqlServer.Product;
 using Persistence.Seeds;
 
 
@@ -42,7 +45,8 @@ namespace  Persistence.Contexts
         public DbSet<Factory> Factories { get; set; }
         public DbSet<FileManager> FileManagers { get; set; }
         public DbSet<Footer> Footers { get; set; }
-        
+        public DbSet<BlogCategory> BlogCategories { get; set; }
+        public DbSet<Blog> Blogs { get; set; }
         
         
         
@@ -70,8 +74,18 @@ namespace  Persistence.Contexts
             builder.ClaimsSeed();
             builder.FootersSeed();
             
+            Config(builder);
+            
             base.OnModelCreating(builder);
         }
+         
+         
+         private static void Config(ModelBuilder builder)
+         {
+             builder.ApplyConfiguration(new BlogConfig());
+             builder.ApplyConfiguration(new BlogCategoryConfig());
+             builder.ApplyConfiguration(new ProductConfig());
+         }  
 
         public override int SaveChanges()
         {

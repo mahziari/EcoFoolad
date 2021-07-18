@@ -5,7 +5,7 @@ using Application.Services.BackEnd.Admin.Blogs.FacadPattern;
 using Application.Services.BackEnd.Admin.BlogsCategories.FacadPattern;
 using Application.Services.BackEnd.Admin.Company.FacadPattern;
 using Application.Services.BackEnd.Admin.Factory.FacadPattern;
-using Application.Services.BackEnd.Admin.FileManager.FacadPattern;
+using Application.Services.BackEnd.Admin.FileManagers.FacadPattern;
 using Application.Services.BackEnd.Admin.Footers;
 using Application.Services.BackEnd.Admin.Home.FacadPattern;
 using Application.Services.BackEnd.Admin.Menus.FacadPattern;

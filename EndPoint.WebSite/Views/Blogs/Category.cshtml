@@ -4,7 +4,7 @@
 @inject ISiteSetting _siteSetting;
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 @{
-    ViewData["Title"] = Model.CategoryItem.GroupName;
+    ViewData["Title"] = Model.CategoryItem.Name;
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -13,22 +13,22 @@
     <link rel="stylesheet" href="~/assets/css/blog-style.css">
     <link rel="stylesheet" href="~/blog-assets/css/responsive.css">
 
-    <meta name="description" content="@Model.CategoryItem.Description">
+    <meta name="description" content="@Model.CategoryItem.SmallDescription">
     <link rel="canonical" href="@Context.Request.Scheme://@Context.Request.Host@Context.Request.Path.Value">
     <meta property="og:locale" content="fa_IR">
-    <meta property="og:type" content="@Model.CategoryItem.GroupName">
-    <meta property="og:title" content="@Model.CategoryItem.GroupName - @_siteSetting.GetSiteSetting().SiteName">
-    <meta property="og:description" content="@Model.CategoryItem.Description">
+    <meta property="og:type" content="@Model.CategoryItem.Name">
+    <meta property="og:title" content="@Model.CategoryItem.Name - @_siteSetting.GetSiteSetting().SiteName">
+    <meta property="og:description" content="@Model.CategoryItem.SmallDescription">
     <meta property="og:url" content="@Context.Request.Scheme://@Context.Request.Host@Context.Request.Path.Value">
     <meta property="og:site_name" content="@_siteSetting.GetSiteSetting().SiteName">
-    <meta property="article:section" content="@Model.CategoryItem.GroupName">
+    <meta property="article:section" content="@Model.CategoryItem.Name">
     <meta property="article:published_time" content="@Model.CategoryItem.LocalTime">
     <meta property="og:updated_time" content="@Model.CategoryItem.LocalTime">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@@ecofoolad">
     <meta name="twitter:url" content="@Context.Request.Scheme://@Context.Request.Host@Context.Request.Path.Value">
-    <meta name="twitter:description" content="@Model.CategoryItem.Description">
-    <meta name="twitter:title" content="@Model.CategoryItem.GroupName - @_siteSetting.GetSiteSetting().SiteName">
+    <meta name="twitter:description" content="@Model.CategoryItem.SmallDescription">
+    <meta name="twitter:title" content="@Model.CategoryItem.Name - @_siteSetting.GetSiteSetting().SiteName">
     <meta name="twitter:image" content="/Images/Settings/FavIcon/android-icon-192x192.png"/>
     <meta name="twitter:creator" content="@@ecofoolad"/>
 }
@@ -40,8 +40,8 @@
     <script type="application/ld+json">
     {
     "@@context":"https://schema.org",
-    "@@type":"@Model.CategoryItem.GroupName",
-    "headline":"@Model.CategoryItem.Description",
+    "@@type":"@Model.CategoryItem.Name",
+    "headline":"@Model.CategoryItem.SmallDescription",
     "publisher":{
     "@@type":"Organization",
     "name":"@_siteSetting.GetSiteSetting().SiteName",
@@ -55,7 +55,7 @@
     "datePublished":"@Model.CategoryItem.LocalTime",
     "dateCreated":"@Model.CategoryItem.LocalTime",
     "dateModified":"@Model.CategoryItem.LocalTime",
-    "description":"@Model.CategoryItem.Description"
+    "description":"@Model.CategoryItem.SmallDescription"
     }
     </script>
 }
@@ -66,7 +66,11 @@
             <nav>
                 <ul class="stick-menu">
                     <li class="stick-menu-item stick-logo">
-                        <a href="#" title="بلاگ @_siteSetting.GetSiteSetting().SiteName">Blog</a>
+                        <a href="#" title="بلاگ @_siteSetting.GetSiteSetting().SiteName">
+                            eco
+                            <br>
+                            MAG
+                        </a>
                     </li>
                     <li class="stick-menu-item login-popup-btn">
                         <a href="#">
@@ -82,19 +86,19 @@
                     <div class="col-lg-12 col-xs-12 pr-0 pl-0 pull-right">
                         <div class="topics-content">
                             <section class="masonry-gallery">
-                                @foreach (var item in Model.BlogsCatrgory)
+                                @foreach (var item in Model.CatrgoriesBlogs)
                                 {
                                     <div class="col-lg-3 col-md-3 col-xs-12 pull-right">
                                         <div class="masonry-gallery-item">
                                             <div class="image">
                                                 <a asp-controller="Blogs"
                                                    asp-action="Details"
-                                                   asp-route-category="@item.en_NewsGroupName"
-                                                   asp-route-title="@item.Title" class="image-linker">
+                                                   asp-route-category="@item.Slug.Replace(" ","-")"
+                                                   asp-route-title="@item.Title.Replace(" ","-")" class="image-linker">
                                                     <span class="image-mask"></span>
-                                                    <img src="/@item.HeadLine" alt="/@item.Title" class="image-img wp-post-image">
+                                                    <img src="/@item.ImageUrl" alt="/@item.Title" class="image-img wp-post-image">
                                                 </a>
-                                                <a href="#" class="image-badge">@item.NewsGroupName</a>
+                                                <a href="#" class="image-badge">@item.BlogCategory.Name</a>
                                                 @* <div class="image-fav"> *@
                                                 @*     <span class="popularity"> *@
                                                 @*         <span class="popularity-likes"> *@
@@ -110,13 +114,13 @@
                                             </div>
                                             <a asp-controller="Blogs"
                                                asp-action="Details"
-                                               asp-route-category="@item.en_NewsGroupName"
-                                               asp-route-title="@item.Title"
+                                               asp-route-category="@item.BlogCategory.Slug.Replace(" ","-")"
+                                               asp-route-title="@item.Title.Replace(" ","-")"
                                                class="masonry-gallery-item-title">
                                                 @item.Title
                                             </a>
                                             <div class="masonry-gallery-item-description">
-                                                @item.NewsSummery
+                                                @item.SmallDescription
                                             </div>
                                             <div class="masonry-gallery-item-detail">
                                                 <div class="user-profile-stat-wrapper mr-0">
@@ -126,7 +130,7 @@
                                                     </span>
                                                 </div>
                                                 <span class="popularity-time-to-read pull-left">
-                                                    <span class="popularity-minutes-read">@item.DateTime</span>
+                                                    @* <span class="popularity-minutes-read">@item.CreatedAt</span> *@
                                                     <i class="fa fa-clock-o"></i>
                                                 </span>
                                             </div>

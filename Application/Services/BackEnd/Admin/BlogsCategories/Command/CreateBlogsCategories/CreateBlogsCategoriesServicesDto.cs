@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using Microsoft.EntityFrameworkCore;
 
 namespace  Application.Services.BackEnd.Admin.BlogsCategories.Command.CreateBlogsCategories
 {
@@ -7,16 +8,16 @@ namespace  Application.Services.BackEnd.Admin.BlogsCategories.Command.CreateBlog
 
         [Display(Name = "نام دسته بندی بلاگ")]
         [Required(AllowEmptyStrings = false,ErrorMessage = "پر کردن فیلد {0} اجباری است")]
-        public string GroupName { get; set; }
+        public string Name { get; set; }
         
         
         [Display(Name = "نام دسته بندی انگلسیس بلاگ")]
         [Required(AllowEmptyStrings = false,ErrorMessage = "پر کردن فیلد {0} اجباری است")]
-        public string en_GroupName { get; set; }
+        public string Slug { get; set; }
         
-        [Display(Name = "نوضیح برای دسته بندی فارسی بلاگ")]
+        [Display(Name = "توضیح برای دسته بندی فارسی بلاگ")]
         [Required(AllowEmptyStrings = false,ErrorMessage = "پر کردن فیلد {0} اجباری است")]
-        public string Description { get; set; }
+        public string SmallDescription { get; set; }
         
         [Display(Name = "رنگ دسته بندی بلاگ")]
         [Required(ErrorMessage = "پر کردن فیلد {0} اجباری است")]
@@ -28,6 +29,6 @@ namespace  Application.Services.BackEnd.Admin.BlogsCategories.Command.CreateBlog
         
         [Display(Name = "عکس دسته بندی بلاگ")]
         [Required(ErrorMessage = "پر کردن فیلد {0} اجباری است")]
-        public string Image { get; set; }
+        public string ImageUrl { get; set; }
     }
 }

@@ -11,17 +11,23 @@ using  Application.Services.BackEnd.Admin.BlogsCategories.Queries;
 using  Application.Services.BackEnd.Admin.BlogsCategories.Queries.GetCreateBlogsCategories;
 using  Application.Services.BackEnd.Admin.BlogsCategories.Queries.GetEditBlogsCategories;
 using  Application.Services.BackEnd.Admin.BlogsCategories.Queries.GetIndexBlogsCategories;
+using AutoMapper;
+using Microsoft.AspNetCore.Http;
 
 namespace  Application.Services.BackEnd.Admin.BlogsCategories.FacadPattern
 {
     public class BlogsCategoriesFacad : IBlogsCategoriesFacad
     {
         
-        private readonly IIdealCrmDataBaseContext _context;
+        private readonly ICustomDbContext _customDbContext;
+        private readonly IMapper _mapper;
+        private readonly IHttpContextAccessor _httpContext;
 
-        public BlogsCategoriesFacad(IIdealCrmDataBaseContext context)
+        public BlogsCategoriesFacad(ICustomDbContext customDbContext, IMapper mapper, IHttpContextAccessor httpContext)
         {
-            _context = context;
+            _customDbContext = customDbContext;
+            _mapper = mapper;
+            _httpContext = httpContext;
         }
         
         
@@ -30,7 +36,7 @@ namespace  Application.Services.BackEnd.Admin.BlogsCategories.FacadPattern
         {
             get
             {
-                return _getIndexBlogsCategoriesServices ??= new GetIndexBlogsCategoriesServices(_context);
+                return _getIndexBlogsCategoriesServices ??= new GetIndexBlogsCategoriesServices(_customDbContext,_mapper);
             }
         }
         
@@ -41,7 +47,7 @@ namespace  Application.Services.BackEnd.Admin.BlogsCategories.FacadPattern
         {
             get
             {
-                return _getCreateBlogsCategoriesServices ??= new GetCreateBlogsCategoriesServices(_context);
+                return _getCreateBlogsCategoriesServices ??= new GetCreateBlogsCategoriesServices(_customDbContext);
             }
         }
         
@@ -51,7 +57,7 @@ namespace  Application.Services.BackEnd.Admin.BlogsCategories.FacadPattern
         {
             get
             {
-                return _createBlogsCategoriesServices ??= new CreateBlogsCategoriesServices(_context);
+                return _createBlogsCategoriesServices ??= new CreateBlogsCategoriesServices(_customDbContext,_mapper,_httpContext);
             }
         }
         
@@ -61,7 +67,7 @@ namespace  Application.Services.BackEnd.Admin.BlogsCategories.FacadPattern
         {
             get
             {
-                return _getEditBlogsCategoriesServices ??= new GetEditBlogsCategoriesServices(_context);
+                return _getEditBlogsCategoriesServices ??= new GetEditBlogsCategoriesServices(_customDbContext,_mapper);
             }
         }
         
@@ -72,7 +78,7 @@ namespace  Application.Services.BackEnd.Admin.BlogsCategories.FacadPattern
         {
             get
             {
-                return _editBlogsCategoriesServices ??= new EditBlogsCategoriesServices(_context);
+                return _editBlogsCategoriesServices ??= new EditBlogsCategoriesServices(_customDbContext,_mapper);
             }
         }
         
@@ -82,7 +88,7 @@ namespace  Application.Services.BackEnd.Admin.BlogsCategories.FacadPattern
         {
             get
             {
-                return _deleteBlogsCategoriesServices ??= new DeleteBlogsCategoriesServices(_context);
+                return _deleteBlogsCategoriesServices ??= new DeleteBlogsCategoriesServices(_customDbContext);
             }
         }
         
@@ -93,7 +99,7 @@ namespace  Application.Services.BackEnd.Admin.BlogsCategories.FacadPattern
         {
             get
             {
-                return _activeBlogsCategoriesServices ??= new ActiveBlogsCategoriesServices(_context);
+                return _activeBlogsCategoriesServices ??= new ActiveBlogsCategoriesServices(_customDbContext);
             }
         }
     }

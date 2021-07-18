@@ -6,16 +6,16 @@ namespace  Application.Services.BackEnd.Admin.BlogsCategories.Command.ActiveBlog
 {
     public class ActiveBlogsCategoriesServices : IActiveBlogsCategoriesServices
     {
-        private readonly IIdealCrmDataBaseContext _context;
+        private readonly ICustomDbContext _customDbContext;
 
-        public ActiveBlogsCategoriesServices(IIdealCrmDataBaseContext context)
+        public ActiveBlogsCategoriesServices(ICustomDbContext customDbContext)
         {
-            _context = context;
+            _customDbContext = customDbContext;
         }
 
         public ResultActiveBlogsCategoriestDto Execute(int id)
         {
-            var blog = _context.CrmCmsNews.Find(id);
+            var blog = _customDbContext.Blogs.Find(id);
 
             if (blog == null)
             {
@@ -34,7 +34,7 @@ namespace  Application.Services.BackEnd.Admin.BlogsCategories.Command.ActiveBlog
             {
                 blog.IsVerified = false;
             }
-            _context.SaveChanges();
+            _customDbContext.SaveChanges();
 
             return new ResultActiveBlogsCategoriestDto()
             {

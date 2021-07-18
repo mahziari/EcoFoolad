@@ -1,37 +1,31 @@
 ﻿using System.Linq;
 using Application.Interfaces.Contexts;
+using AutoMapper;
 
 
 namespace  Application.Services.BackEnd.Admin.BlogsCategories.Queries.GetEditBlogsCategories
 {
     public class GetEditBlogsCategoriesServices : IGetEditBlogsCategoriesServices
     {
-        private readonly IIdealCrmDataBaseContext _context;
+        private readonly ICustomDbContext _customDbContext;
+        private readonly IMapper _mapper;
 
-        public GetEditBlogsCategoriesServices(IIdealCrmDataBaseContext context)
+        public GetEditBlogsCategoriesServices(ICustomDbContext customDbContext, IMapper mapper)
         {
-            _context = context;
+            _customDbContext = customDbContext;
+            _mapper = mapper;
         }
 
 
         public ResultGetEditBlogsCategoriesDto Execute(int id)
         {
-            var blogsCategory = _context.CrmCmsNewsGroups
-                .Where(n=>n.NewsGroupId==id)
-                .Select(n => new GetEditBlogsCategoriesDto
-                {
-                    BlogsGroupId=n.NewsGroupId,
-                    GroupName=n.GroupName,
-                    en_GroupName=n.en_GroupName,
-                    Color=n.Color,
-                    Description=n.Description,
-                    FaIcon = n.FaIcon,
-                    Image = n.Image
-                }).FirstOrDefault();
-            
+            var blogCategoriesModel = _customDbContext.BlogCategories
+                .SingleOrDefault(n => n.Id == id);
+            var blogCategories = _mapper.Map<GetEditBlogsCategoriesDto>(blogCategoriesModel);
+
             return new ResultGetEditBlogsCategoriesDto
             {
-                BlogsCategory = blogsCategory,
+                BlogCategories = blogCategories,
             };
         }
     }

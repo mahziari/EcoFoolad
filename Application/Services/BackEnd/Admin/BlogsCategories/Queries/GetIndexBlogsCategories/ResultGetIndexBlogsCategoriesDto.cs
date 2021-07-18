@@ -1,10 +1,11 @@
 ﻿using System.Collections.Generic;
+using Application.Services.BackEnd.Admin.BlogsCategories.Queries.GetEditBlogsCategories;
 using  Domain.Entities.IdealCrm;
 
 namespace  Application.Services.BackEnd.Admin.BlogsCategories.Queries.GetIndexBlogsCategories
 {
     public class ResultGetIndexBlogsCategoriesDto
     {
-        public List<CrmCmsNewsGroups> BlogsCategories { get; set; }
+        public List<GetIndexBlogsCategoriesDto> BlogsCategories { get; set; }
     }
 }

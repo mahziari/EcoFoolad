@@ -1,17 +1,29 @@
-﻿namespace  Application.Services.BackEnd.Admin.Blogs.Queries.GetEditBlogs
+﻿using System;
+using Domain.Entities.Blogs;
+
+namespace  Application.Services.BackEnd.Admin.Blogs.Queries.GetEditBlogs
 
 {
     public class GetEditBlogsDto
     {
-        public int NewsId { get; set; }
-        public string NewsGroupName { get; set; }
-        public string RegisterDatePersian { get; set; }
-        public bool? IsVerified { get; set; }
+        public int Id { get; set; }
+        public int BlogCategoryId { get; set; }
         public string Title { get; set; }
-        public string NewsSummery { get; set; }
-        public string NewsBody { get; set; }
-        public int NewsGroupId { get; set; }
+        public string Slug { get; set; }
+        public string ImageUrl { get; set; }
+        public string SmallDescription { get; set; }
+        public string Body { get; set; }
+        public bool IsVerified { get; set; }
+        public string RegisterUserId { get; set; }
         public int Position { get; set; }
+        public string LocalTime { get; set; }
+        public int VisitCount { get; set; }
         public bool RequestToAuthorFav { get; set; }
+        public bool IsVideoClip { get; set; }
+        public string VideoClipDuration { get; set; }
+        public string Author { get; set; }
+        public DateTime CreatedAt { get; set; }
+        public DateTime UpdatedAt { get; set; }
+        public BlogCategory BlogCategory { get; set; }
     }
 }

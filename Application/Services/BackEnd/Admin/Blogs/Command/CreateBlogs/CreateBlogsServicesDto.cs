@@ -5,11 +5,9 @@ namespace  Application.Services.BackEnd.Admin.Blogs.Command.CreateBlogs
 {
     public class CreateBlogsServicesDto
     {
-        public int NewsId { get; set; }
-
         [Display(Name = "نوع بلاگ")]
         [Required(AllowEmptyStrings = false,ErrorMessage = "پر کردن فیلد {0} اجباری است")]
-        public int NewsGroupId { get; set; }
+        public int BlogCategoryId { get; set; }
 
         [Display(Name = "عنوان بلاگ")]
         [Required(ErrorMessage = "پر کردن فیلد {0} اجباری است")]
@@ -18,17 +16,17 @@ namespace  Application.Services.BackEnd.Admin.Blogs.Command.CreateBlogs
 
         [Display(Name = "توضیح کوتاه بلاگ")]
         [Required(ErrorMessage = "پر کردن فیلد {0} اجباری است")]
-        public string NewsSummery { get; set; }
+        public string SmallDescription { get; set; }
 
         [Display(Name = "متن بلاگ")]
         [Required(ErrorMessage = "پر کردن فیلد {0} اجباری است")]
-        public string NewsBody { get; set; }
+        public string Body { get; set; }
         
         [Display(Name = "تصویر بلاگ")]
         [Required(ErrorMessage = "لطفا یک {0} انتخاب کنید")]
         [DataType(DataType.Upload)]
         // [FileExtensions(Extensions = ".png,.jpg,.jpeg,.gif", ErrorMessage = "فرمت عکس نامعتبر است")]
-        public IFormFile Images { get; set; }
+        public IFormFile Image { get; set; }
         public int Position { get; set; }
         public bool RequestToAuthorFav { get; set; }
     }

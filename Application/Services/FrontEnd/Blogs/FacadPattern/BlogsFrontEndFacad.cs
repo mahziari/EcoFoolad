@@ -8,13 +8,11 @@ namespace  Application.Services.FrontEnd.Blogs.FacadPattern
 {
     public class BlogsFrontEndFacad: IBlogsFrontEndFacad
     {
-        private readonly IIdealCrmDataBaseContext _context;
         private readonly ICustomDbContext _customDbContext;
         private readonly IMapper _mapper;
 
-        public BlogsFrontEndFacad(IIdealCrmDataBaseContext context, ICustomDbContext customDbContext, IMapper mapper)
+        public BlogsFrontEndFacad(ICustomDbContext customDbContext, IMapper mapper)
         {
-            _context = context;
             _customDbContext = customDbContext;
             _mapper = mapper;
         }
@@ -24,7 +22,7 @@ namespace  Application.Services.FrontEnd.Blogs.FacadPattern
         {
             get
             {
-                return _getBlogsFrontEndService ??= new GetBlogsFrontEndService(_context,_customDbContext);
+                return _getBlogsFrontEndService ??= new GetBlogsFrontEndService(_customDbContext,_mapper);
             }
         }
         
@@ -34,7 +32,7 @@ namespace  Application.Services.FrontEnd.Blogs.FacadPattern
         {
             get
             {
-                return _getBlogsDetailsFrontEndService ??= new GetBlogsDetailsFrontEndService(_context,_customDbContext);
+                return _getBlogsDetailsFrontEndService ??= new GetBlogsDetailsFrontEndService(_customDbContext,_mapper);
             }
         }
         
@@ -45,7 +43,7 @@ namespace  Application.Services.FrontEnd.Blogs.FacadPattern
         {
             get
             {
-                return _getBlogsCategoryFrontEndService ??= new GetBlogsCategoryFrontEndService(_context,_customDbContext,_mapper);
+                return _getBlogsCategoryFrontEndService ??= new GetBlogsCategoryFrontEndService(_customDbContext,_mapper);
             }
         }
     }

@@ -100,7 +100,6 @@ namespace EndPoint.WebSite.Areas.Admin.Controllers
         }
 
         [Authorize(Policy = "BlogsActive")]
-        [HttpPost]
         public IActionResult Active(int id)
         {
             var result = _blogsFacad.ActiveBlogsServices.Execute(id);

@@ -41,7 +41,7 @@
         <div class="content-body">
             <!-- app invoice View Page -->
 
-            <form asp-area="Admin" asp-controller="BlogsCategories" asp-action="Edit" asp-route-id="@Model.BlogsCategory.BlogsGroupId">
+            <form asp-area="Admin" asp-controller="BlogsCategories" asp-action="Edit" asp-route-id="@Model.BlogCategories.Id">
                 <section class="invoice-edit-wrapper">
 
                     <div class="row">
@@ -55,14 +55,14 @@
                                         <div class="row my-2 py-50">
                                             <div class="col-sm-6 col-12 order-2 order-sm-1">
                                                 <h6 asp-for="Title" class="text-primary">عنوان دسته بندی بلاگ: <b class="text-danger h3">*</b></h6>
-                                                <input asp-for="GroupName" value="@Model.BlogsCategory.GroupName" type="text" class="form-control" placeholder="عنوان را وارد کنید">
-                                                <span asp-validation-for="GroupName" class="text-danger"></span>
+                                                <input asp-for="Name" value="@Model.BlogCategories.Name" type="text" class="form-control" placeholder="عنوان را وارد کنید">
+                                                <span asp-validation-for="Name" class="text-danger"></span>
                                             </div>
                                             
                                             <div class="col-sm-6 col-12 order-2 order-sm-1">
                                                 <h6 asp-for="Title" class="text-primary">عنوان دسته بندی بلاگ انگلیسی: <b class="text-danger h3">*</b></h6>
-                                                <input asp-for="en_GroupName" value="@Model.BlogsCategory.en_GroupName" type="text" class="form-control" placeholder="عنوان انگلیسی را وارد کنید">
-                                                <span asp-validation-for="en_GroupName" class="text-danger"></span>
+                                                <input asp-for="Slug" value="@Model.BlogCategories.Slug" type="text" class="form-control" placeholder="عنوان انگلیسی را وارد کنید">
+                                                <span asp-validation-for="Slug" class="text-danger"></span>
                                             </div>
                                             
                                         </div>
@@ -71,22 +71,22 @@
                                         <div class="row my-2 py-50">
                                             <div class="col-sm-6 col-12 order-2 order-sm-1">
                                                 <h6 asp-for="Title" class="text-primary">رنگ دسته بندی بلاگ: <b class="text-danger h3">*</b></h6>
-                                                <input asp-for="Color" value="@Model.BlogsCategory.Color" type="text" class="form-control" placeholder="#99FF66">
+                                                <input asp-for="Color" value="@Model.BlogCategories.Color" type="color" class="form-control">
                                                 <span asp-validation-for="Color" class="text-danger"></span>
                                             </div>
                                                                                 
                                             <div class="col-sm-6 col-12 order-2 order-sm-1">
                                                 <h6 asp-for="Title" class="text-primary">آیکن دسته بندی بلاگ: <b class="text-danger h3">*</b></h6>
-                                                <input asp-for="FaIcon" value="@Model.BlogsCategory.FaIcon" type="text" class="form-control" placeholder="fa fa-XXX">
+                                                <input asp-for="FaIcon" value="@Model.BlogCategories.FaIcon" type="text" class="form-control">
                                                 <span asp-validation-for="FaIcon" class="text-danger"></span>
                                             </div>
                                         </div>
                                         
                                         <div class="row my-2 py-50">
                                             <div class="col-sm-12 col-12 order-2 order-sm-1">
-                                                <h6 asp-for="Description" class="text-primary">توضیحات  بندی بلاگ: <b class="text-danger h3">*</b></h6>
-                                                <input asp-for="Description" value="@Model.BlogsCategory.Description" type="text" class="form-control" placeholder="" height="300px">
-                                                <span asp-validation-for="Description" class="text-danger"></span>
+                                                <h6 asp-for="Description" class="text-primary">توضیحات دسته بندی بلاگ: <b class="text-danger h3">*</b></h6>
+                                                <input asp-for="SmallDescription" value="@Model.BlogCategories.SmallDescription" type="text" class="form-control" placeholder="" height="300px">
+                                                <span asp-validation-for="SmallDescription" class="text-danger"></span>
                                             </div>
                                         </div>
                                         
@@ -94,7 +94,7 @@
                                         <div class="row my-2 py-50">
                                             <div class="col-sm-12 col-12 order-2 order-sm-1">
                                                 <h6 asp-for="Image" class="text-primary">لینک عکس دسته بندی بلاگ: <b class="text-danger h3">*</b></h6>
-                                                <input asp-for="Image" value="@Model.BlogsCategory.Image" type="text" class="form-control" placeholder="#99FF66">
+                                                <input asp-for="Image" value="@Model.BlogCategories.ImageUrl" type="text" class="form-control">
                                                 <span asp-validation-for="Image" class="text-danger"></span>
                                             </div>
                                         </div>

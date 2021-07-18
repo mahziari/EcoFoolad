@@ -14,7 +14,7 @@
 @section Head{
     <link rel="stylesheet" href="~/assets/css/blog-style.css">
     <link rel="stylesheet" href="~/blog-assets/css/responsive.css">
-    
+
     <meta name="description" content="اکوفولاد ؛ قیمت آهن، خرید و فروش آهن، انواع میلگرد، پروفیل، تیرآهن، ورق، نبشی و ناودانی، آهن آلات، با لیست قیمت‌های روزانه ✦ خرید پیشرو در بازار آهن: ☎ 021">
     <link rel="canonical" href="@Context.Request.Scheme://@Context.Request.Host@Context.Request.Path.Value">
     <meta property="og:locale" content="fa_IR">
@@ -106,11 +106,11 @@
                     onmouseout="this.style.background='#fff'">
                     <a asp-controller="Blogs"
                        asp-action="Category"
-                       asp-route-category="@item.en_GroupName.Replace(" ", "-")"
+                       asp-route-category="@item.Slug.Replace(" ", "-")"
                        class="menu-item-anchor">
                         @* <img src="assets/images/manu/shape.png"> *@
                         <i class="@item.FaIcon"></i>
-                        @item.GroupName
+                        @item.Name
                     </a>
                 </li>
             }
@@ -123,11 +123,11 @@
         <div class="home-menu-bottom-widget">
             <a asp-controller="Blogs"
                asp-action="Details"
-               asp-route-category="@Model.BlogsFav.Where(b => b.Position == 7).Select(b => b.en_NewsGroupName).FirstOrDefault()?.Replace(" ", "-")"
+               asp-route-category="@Model.BlogsFav.Where(b => b.Position == 7).Select(b => b.Slug).FirstOrDefault()?.Replace(" ", "-")"
                asp-route-title="@Model.BlogsFav.Where(b => b.Position == 7).Select(b => b.Title).FirstOrDefault()?.Replace(" ", "-")"
                class="promotion">
 
-                <img src="@Model.BlogsFav.Where(b => b.Position == 7).Select(b => b.HeadLine).FirstOrDefault()"
+                <img src="@Model.BlogsFav.Where(b => b.Position == 7).Select(b => b.ImageUrl).FirstOrDefault()"
                      alt="@Model.BlogsFav.Where(b => b.Position == 7).Select(b => b.Title).FirstOrDefault()"
                      class="promotion-img">
             </a>
@@ -155,10 +155,10 @@
                                 <div class="item">
                                     <a asp-controller="Blogs"
                                       asp-action="Details"
-                                      asp-route-category="@item.en_NewsGroupName.Replace(" ", "-")"
+                                      asp-route-category="@item.Slug.Replace(" ", "-")"
                                       asp-route-title="@item.Title.Replace(" ", "-")"
                                       class="d-block hover-img-link" data-toggle="modal" data-target="#exampleModal">
-                                        <img src="@item.HeadLine" class="img-fluid" alt="@item.Title">
+                                        <img src="@item.ImageUrl" class="img-fluid" alt="@item.Title">
                                     </a>
                                 </div>
                             </div>
@@ -176,9 +176,9 @@
             <div class="home-hover-widget">
                 <a asp-controller="Blogs"
                    asp-action="Details"
-                   asp-route-category="@Model.BlogsFav.Where(b => b.Position == 1).Select(b => b.en_NewsGroupName).FirstOrDefault()?.Replace(" ", "-")"
+                   asp-route-category="@Model.BlogsFav.Where(b => b.Position == 1).Select(b => b.Slug).FirstOrDefault()?.Replace(" ", "-")"
                    asp-route-title="@Model.BlogsFav.Where(b => b.Position == 1).Select(b => b.Title).FirstOrDefault()?.Replace(" ", "-")">
-                    <img src="@Model.BlogsFav.Where(b => b.Position == 1).Select(b => b.HeadLine).FirstOrDefault()"
+                    <img src="@Model.BlogsFav.Where(b => b.Position == 1).Select(b => b.ImageUrl).FirstOrDefault()"
                          alt="@Model.BlogsFav.Where(b => b.Position == 1).Select(b => b.Title).FirstOrDefault()">
                 </a>
             </div>
@@ -188,10 +188,10 @@
                 <div class="col-6 col-lg-4 pull-right pr-0 pl-0">
                     <a asp-controller="Blogs"
                        asp-action="Details"
-                       asp-route-category="@Model.BlogsFav.Where(b => b.Position == 2).Select(b => b.en_NewsGroupName).FirstOrDefault()?.Replace(" ", "-")"
+                       asp-route-category="@Model.BlogsFav.Where(b => b.Position == 2).Select(b => b.Slug).FirstOrDefault()?.Replace(" ", "-")"
                        asp-route-title="@Model.BlogsFav.Where(b => b.Position == 2).Select(b => b.Title).FirstOrDefault()?.Replace(" ", "-")"
                        class="tiles-item d-block mt-3">
-                        <img src="@Model.BlogsFav.Where(b => b.Position == 2).Select(b => b.HeadLine).FirstOrDefault()"
+                        <img src="@Model.BlogsFav.Where(b => b.Position == 2).Select(b => b.ImageUrl).FirstOrDefault()"
                              alt="@Model.BlogsFav.Where(b => b.Position == 2).Select(b => b.Title).FirstOrDefault()">
                         <span class="tiles-item-txt">
                             <span>
@@ -203,10 +203,10 @@
                 <div class="col-6 col-lg-4 pull-right pr-0 pl-0">
                     <a asp-controller="Blogs"
                        asp-action="Details"
-                       asp-route-category="@Model.BlogsFav.Where(b => b.Position == 3).Select(b => b.en_NewsGroupName).FirstOrDefault()?.Replace(" ", "-")"
+                       asp-route-category="@Model.BlogsFav.Where(b => b.Position == 3).Select(b => b.Slug).FirstOrDefault()?.Replace(" ", "-")"
                        asp-route-title="@Model.BlogsFav.Where(b => b.Position == 3).Select(b => b.Title).FirstOrDefault()?.Replace(" ", "-")"
                        class="tiles-item d-block mt-3">
-                        <img src="@Model.BlogsFav.Where(b => b.Position == 3).Select(b => b.HeadLine).FirstOrDefault()"
+                        <img src="@Model.BlogsFav.Where(b => b.Position == 3).Select(b => b.ImageUrl).FirstOrDefault()"
                              alt="@Model.BlogsFav.Where(b => b.Position == 3).Select(b => b.Title).FirstOrDefault()">
                         <span class="tiles-item-txt">
                             <span>
@@ -218,10 +218,10 @@
                 <div class="col-6 col-lg-4 pull-right pr-0 pl-0">
                     <a asp-controller="Blogs"
                        asp-action="Details"
-                       asp-route-category="@Model.BlogsFav.Where(b => b.Position == 4).Select(b => b.en_NewsGroupName).FirstOrDefault()?.Replace(" ", "-")"
+                       asp-route-category="@Model.BlogsFav.Where(b => b.Position == 4).Select(b => b.Slug).FirstOrDefault()?.Replace(" ", "-")"
                        asp-route-title="@Model.BlogsFav.Where(b => b.Position == 4).Select(b => b.Title).FirstOrDefault()?.Replace(" ", "-")"
                        class="tiles-item d-block mt-3">
-                        <img src="@Model.BlogsFav.Where(b => b.Position == 4).Select(b => b.HeadLine).FirstOrDefault()"
+                        <img src="@Model.BlogsFav.Where(b => b.Position == 4).Select(b => b.ImageUrl).FirstOrDefault()"
                              alt="@Model.BlogsFav.Where(b => b.Position == 4).Select(b => b.Title).FirstOrDefault()">
                         <span class="tiles-item-txt">
                             <span>
@@ -233,10 +233,10 @@
                 <div class="col-6 col-lg-8 pull-right pr-0 pl-0">
                     <a asp-controller="Blogs"
                        asp-action="Details"
-                       asp-route-category="@Model.BlogsFav.Where(b => b.Position == 5).Select(b => b.en_NewsGroupName).FirstOrDefault()?.Replace(" ", "-")"
+                       asp-route-category="@Model.BlogsFav.Where(b => b.Position == 5).Select(b => b.Slug).FirstOrDefault()?.Replace(" ", "-")"
                        asp-route-title="@Model.BlogsFav.Where(b => b.Position == 5).Select(b => b.Title).FirstOrDefault()?.Replace(" ", "-")"
                        class="tiles-item d-block mt-3">
-                        <img src="@Model.BlogsFav.Where(b => b.Position == 5).Select(b => b.HeadLine).FirstOrDefault()"
+                        <img src="@Model.BlogsFav.Where(b => b.Position == 5).Select(b => b.ImageUrl).FirstOrDefault()"
                              alt="@Model.BlogsFav.Where(b => b.Position == 5).Select(b => b.Title).FirstOrDefault()">
                         <span class="tiles-item-txt">
                             <span>
@@ -248,10 +248,10 @@
                 <div class="col-6 col-lg-4 pull-right pr-0 pl-0">
                     <a asp-controller="Blogs"
                        asp-action="Details"
-                       asp-route-category="@Model.BlogsFav.Where(b => b.Position == 6).Select(b => b.en_NewsGroupName).FirstOrDefault()?.Replace(" ", "-")"
+                       asp-route-category="@Model.BlogsFav.Where(b => b.Position == 6).Select(b => b.Slug).FirstOrDefault()?.Replace(" ", "-")"
                        asp-route-title="@Model.BlogsFav.Where(b => b.Position == 6).Select(b => b.Title).FirstOrDefault()?.Replace(" ", "-")"
                        class="tiles-item d-block mt-3">
-                        <img src="@Model.BlogsFav.Where(b => b.Position == 6).Select(b => b.HeadLine).FirstOrDefault()"
+                        <img src="@Model.BlogsFav.Where(b => b.Position == 6).Select(b => b.ImageUrl).FirstOrDefault()"
                              alt="@Model.BlogsFav.Where(b => b.Position == 6).Select(b => b.Title).FirstOrDefault()">
                         <span class="tiles-item-txt">
                             <span>
@@ -284,9 +284,9 @@
                                     <div class="item">
                                         <a asp-controller="Blogs"
                                            asp-action="Details"
-                                           asp-route-category="@item.en_NewsGroupName.Replace(" ", "-")"
+                                           asp-route-category="@item.BlogCategory.Slug.Replace(" ", "-")"
                                            asp-route-title="@item.Title.Replace(" ", "-")">
-                                            <img src="@item.HeadLine" class="img-fluid" alt="@item.Title">
+                                            <img src="@item.ImageUrl" class="img-fluid" alt="@item.Title">
                                         </a>
                                         <h2 class="post-title">
                                             <a href="#">
@@ -301,7 +301,7 @@
                                                 @* </span> *@
                                             </div>
                                             <time class="item-details-date">
-                                                @item.DateTime
+                                                @item.CreatedAt
                                                 <i class="fa fa-clock-o"></i>
                                             </time>
                                         </div>
@@ -366,16 +366,16 @@
                                             <div class="image">
                                                 <a asp-controller="Blogs"
                                                    asp-action="Details"
-                                                   asp-route-category="@item.en_NewsGroupName.Replace(" ", "-")"
+                                                   asp-route-category="@item.BlogCategory.Slug.Replace(" ", "-")"
                                                    asp-route-title="@item.Title.Replace(" ", "-")" class="image-linker">
                                                     <span class="image-mask"></span>
-                                                    <img src="@item.HeadLine" alt="" class="image-img wp-post-image">
+                                                    <img src="@item.ImageUrl" alt="" class="image-img wp-post-image">
                                                 </a>
                                                 <a asp-controller="Blogs"
                                                    asp-action="Details"
-                                                   asp-route-category="@item.en_NewsGroupName.Replace(" ", "-")"
+                                                   asp-route-category="@item.BlogCategory.Slug.Replace(" ", "-")"
                                                    asp-route-title="@item.Title.Replace(" ", "-")" class="image-badge">
-                                                    @item.NewsGroupName
+                                                    @item.BlogCategory.Name
                                                 </a>
                                                 <div class="image-fav">
                                                     @* <span class="popularity"> *@
@@ -392,12 +392,12 @@
                                             </div>
                                             <a asp-controller="Blogs"
                                                asp-action="Details"
-                                               asp-route-category="@item.en_NewsGroupName.Replace(" ", "-")"
+                                               asp-route-category="@item.BlogCategory.Slug.Replace(" ", "-")"
                                                asp-route-title="@item.Title.Replace(" ", "-")" class="masonry-gallery-item-title">
                                                 @item.Title
                                             </a>
                                             <div class="masonry-gallery-item-description">
-                                                @item.NewsSummery
+                                                @item.SmallDescription
                                             </div>
                                             <div class="masonry-gallery-item-detail">
                                                 <div class="user-profile-stat-wrapper mr-0">
@@ -407,7 +407,7 @@
                                                     @* </span> *@
                                                 </div>
                                                 <span class="popularity-time-to-read pull-left">
-                                                    <span class="popularity-minutes-read">@item.DateTime</span>
+                                                    <span class="popularity-minutes-read">@item.CreatedAt</span>
                                                     <i class="fa fa-clock-o"></i>
                                                 </span>
                                             </div>
@@ -417,41 +417,41 @@
                             </section>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-12 col-xs-12 pull-left">
+                    <div clasblogss="col-lg-3 col-md-12 col-xs-12 pull-left">
                         <aside class="sidebar-topics-aside">
-                            @foreach (var item in @Model.BlogsLeftPanelMostVisited)
+                            @foreach (var item in Model.BlogsLeftPanelMostVisited)
                             {
                                 <div class="post-list-widget">
                                     <div class="widget-title">
-                                        <span>@item.GroupName @_siteSetting.GetSiteSetting().SiteName</span>
+                                        <span>@item.Name @_siteSetting.GetSiteSetting().SiteName</span>
                                     </div>
-                                    @foreach (var itemBlog in @item.MostVisitedBlogs.Take(1))
+                                    @foreach (var itemBlog in item.Blog.Take(1))
                                     {
                                         <a asp-controller="Blogs"
                                            asp-action="Details"
-                                           asp-route-category="@itemBlog.en_NewsGroupName.Replace(" ", "-")"
+                                           asp-route-category="@itemBlog.Slug.Replace(" ", "-")"
                                            asp-route-title="@itemBlog.Title.Replace(" ", "-")"
                                            class="favourites-title">
-                                            <img src="@itemBlog.HeadLine" class="favourites-img">
+                                            <img src="@itemBlog.ImageUrl" class="favourites-img">
                                             @itemBlog.Title
                                         </a>
                                     }
 
                                     <ul class="favourites-list">
-                                        @foreach (var itemBlog in @item.MostVisitedBlogs.Skip(1))
+                                        @foreach (var itemBlog in item.Blog.Skip(1))
                                         {
                                             <li class="favourites-list video">
                                                 <a asp-controller="Blogs"
                                                    asp-action="Details"
-                                                   asp-route-category="@itemBlog.en_NewsGroupName.Replace(" ", "-")"
+                                                   asp-route-category="@itemBlog.Slug.Replace(" ", "-")"
                                                    asp-route-title="@itemBlog.Title.Replace(" ", "-")"
                                                    class="item-image d-inline-block">
-                                                    <img src="@itemBlog.HeadLine" alt="@itemBlog.Title" class="item-image-img" width="60" height="60">
+                                                    <img src="@itemBlog.ImageUrl" alt="@itemBlog.Title" class="item-image-img" width="60" height="60">
                                                 </a>
                                                 <div class="item-detail">
                                                     <a asp-controller="Blogs"
                                                        asp-action="Details"
-                                                       asp-route-category="@itemBlog.en_NewsGroupName.Replace(" ", "-")"
+                                                       asp-route-category="@itemBlog.Slug.Replace(" ", "-")"
                                                        asp-route-title="@itemBlog.Title.Replace(" ", "-")"
                                                        title="@itemBlog.Title"
                                                        class="item-detail-txt">
@@ -459,7 +459,7 @@
                                                     </a>
                                                     <div class="item-detail-time">
                                                         <i class="fa fa-clock-o"></i>
-                                                        <span class="past">@itemBlog.DateTime</span>
+                                                        @* <span class="past">@itemBlog.CreatedAt</span> *@
                                                     </div>
                                                 </div>
                                             </li>
@@ -468,7 +468,7 @@
                                     <div class="favourites-btn">
                                         <a asp-controller="Blogs"
                                            asp-action="Category"
-                                           asp-route-category="@item.en_GroupName.Replace(" ", "-")">
+                                           asp-route-category="@item.Slug.Replace(" ", "-")">
                                             مشاهده عناوین بیشتر
                                         </a>
                                     </div>

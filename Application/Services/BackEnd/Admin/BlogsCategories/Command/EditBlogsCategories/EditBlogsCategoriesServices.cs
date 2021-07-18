@@ -1,31 +1,31 @@
 ﻿ 
+using System;
 using Application.Interfaces.Contexts;
+using Application.Services.BackEnd.Admin.Blogs.Command.EditBlogs;
 using  Application.Services.BackEnd.Admin.BlogsCategories.Command.CreateBlogsCategories;
+using AutoMapper;
 using  Domain.Entities.IdealCrm;
 
 namespace  Application.Services.BackEnd.Admin.BlogsCategories.Command.EditBlogsCategories
 {
-    public class EditBlogsCategoriesServices:IEditBlogsCategoriesServices {
-        private readonly IIdealCrmDataBaseContext _context;
+    public class EditBlogsCategoriesServices:IEditBlogsCategoriesServices 
+    {
+        private readonly ICustomDbContext _customDbContext;
+        private readonly IMapper _mapper;
 
-        public EditBlogsCategoriesServices(IIdealCrmDataBaseContext context )
+        public EditBlogsCategoriesServices(ICustomDbContext customDbContext, IMapper mapper)
         {
-            _context = context;
+            _customDbContext = customDbContext;
+            _mapper = mapper;
         }
-
         public ResultEditBlogsCategoriesDto Execute(CreateBlogsCategoriesServicesDto createBlogsCategoriesServicesDto,
             CrmCmsNewsGroups crmCmsNewsGroups, int id)
         {
+            var blogCategoryModel = _customDbContext.BlogCategories.Find(id);
             
-            var blogCategory = _context.CrmCmsNewsGroups.Find(id);
+            var blogCategory = _mapper.Map<EditBlogsServicesDto>(blogCategoryModel);
+            _customDbContext.SaveChanges();
             
-            blogCategory.GroupName = createBlogsCategoriesServicesDto.GroupName;
-            blogCategory.en_GroupName = createBlogsCategoriesServicesDto.en_GroupName;
-            blogCategory.Description = createBlogsCategoriesServicesDto.Description;
-            blogCategory.Color = createBlogsCategoriesServicesDto.Color;
-            blogCategory.FaIcon = createBlogsCategoriesServicesDto.FaIcon;
-            blogCategory.Image = createBlogsCategoriesServicesDto.Image;
-            _context.SaveChanges();
 
             return new ResultEditBlogsCategoriesDto
             {
@@ -33,5 +33,21 @@ namespace  Application.Services.BackEnd.Admin.BlogsCategories.Command.EditBlogsC
                 Message = "دسته بندی بلاگ با موفقیت ویرایش شد"
             };
         }
+    }
+    
+    public class BlogCategoryDto
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Slug { get; set; }
+        public string SmallDescription { get; set; }
+        public bool IsActive { get; set; }
+        public string RegisterUserId { get; set; }
+        public string Color { get; set; }
+        public string FaIcon { get; set; }
+        public string LocalTime { get; set; }
+        public string ImageUrl { get; set; }
+        public DateTime CreatedAt { get; set; }
+        public DateTime UpdatedAt { get; set; }
     }
 }

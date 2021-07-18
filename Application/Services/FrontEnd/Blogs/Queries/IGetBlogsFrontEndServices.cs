@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using Application.Interfaces.Contexts;
+using AutoMapper;
+using Domain.Entities.Blogs;
 using Domain.Entities.Footer;
 using Microsoft.EntityFrameworkCore;
  
@@ -16,110 +18,85 @@ namespace Application.Services.FrontEnd.Blogs.Queries
 
     public class GetBlogsFrontEndService : IGetBlogsFrontEndService
     {
-        private readonly IIdealCrmDataBaseContext _context;
         private readonly ICustomDbContext _customDbContext;
-
-        public GetBlogsFrontEndService(IIdealCrmDataBaseContext context, ICustomDbContext customDbContext)
+        private readonly IMapper _mapper;
+        public GetBlogsFrontEndService(ICustomDbContext customDbContext, IMapper mapper)
         {
-            _context = context;
             _customDbContext = customDbContext;
+            _mapper = mapper;
         }
 
 
 
         public ResultGetBlogsFrontEndDto Execute()
         {
-            var blogs = _context.CrmCmsNews
-                .Include(s => s.NewsGroup)
+            var blogsModel = _customDbContext.Blogs
+                .Include(s => s.BlogCategory)
                 .Where(g => g.IsVerified)
                 .Where(s => s.Position == 0)
                 .Where(s => s.RequestToAuthorFav!=true)
-                .OrderByDescending(s => s.NewsId)
-                .Select(s => new GetBlogsDto
-                {
-                    NewsId = s.NewsId,
-                    NewsGroupId = s.NewsGroupId,
-                    NewsGroupName = s.NewsGroup.GroupName,
-                    en_NewsGroupName = s.NewsGroup.en_GroupName,
-                    HeadLine = s.HeadLine,
-                    Title = s.Title,
-                    NewsSummery = s.NewsSummery,
-                    DateTime = s.RegisterDate.ToPersianDateTime().ToString("yyyy/MM/d"),
-                    IsVerified = s.IsVerified,
-                    Position = s.Position,
-                }).Take(16).ToList();
+                .OrderByDescending(s => s.Id)
+                .Take(18);
+            var blogs = _mapper.Map<List<GetBlogsDto>>(blogsModel);
+            
 
-            var blogsFav = _context.CrmCmsNews
-                .Include(s => s.NewsGroup)
+            
+            var blogsFavModel = _customDbContext.Blogs
+                .Include(s => s.BlogCategory)
                 .Where(s => s.IsVerified)
                 .Where(s => s.Position != 0)
-                .OrderByDescending(s => s.NewsId)
-                .Select(s => new GetBlogsDto
-                {
-                    NewsId = s.NewsId,
-                    NewsGroupId = s.NewsGroupId,
-                    NewsGroupName = s.NewsGroup.GroupName,
-                    en_NewsGroupName = s.NewsGroup.en_GroupName,
-                    HeadLine = s.HeadLine,
-                    Title = s.Title,
-                    NewsSummery = s.NewsSummery,
-                    DateTime = s.RegisterDate.ToPersianDateTime().ToString("yyyy/MM/d"),
-                    IsVerified = s.IsVerified,
-                    Position = s.Position,
-                }).ToList();
+                .OrderByDescending(s => s.Id);
+            var blogsFav = _mapper.Map<List<GetBlogsDto>>(blogsFavModel);
 
-
-            var blogsAuthorFav = _context.CrmCmsNews
-                .Include(s => s.NewsGroup)
+            
+            var blogsAuthorFavModel = _customDbContext.Blogs
+                .Include(s => s.BlogCategory)
                 .Where(s => s.IsVerified)
                 .Where(s => s.Position == 0)
                 .Where(s => s.RequestToAuthorFav)
-                .OrderByDescending(s => s.NewsId)
-                .Select(s => new GetBlogsDto
-                {
-                    NewsId = s.NewsId,
-                    NewsGroupId = s.NewsGroupId,
-                    NewsGroupName = s.NewsGroup.GroupName,
-                    en_NewsGroupName = s.NewsGroup.en_GroupName,
-                    HeadLine = s.HeadLine,
-                    Title = s.Title,
-                    NewsSummery = s.NewsSummery,
-                    DateTime = s.RegisterDate.ToPersianDateTime().ToString("yyyy/MM/d"),
-                    IsVerified = s.IsVerified,
-                    Position = s.Position,
-                }).ToList();
+                .OrderByDescending(s => s.Id);
+            var blogsAuthorFav = _mapper.Map<List<GetBlogsDto>>(blogsAuthorFavModel);
 
+            
+            // var blogsLeftPanelMostVisited = _customDbContext.BlogCategories
+            //     .OrderByDescending(s => s.Blog.Sum(crmCmsNews => crmCmsNews.VisitCount))
+            //     .Select(s => new GetMostVisitedGroupBlogsDto
+            //     {
+            //         BlogCategoryId = s.Id,
+            //         BlogCategoryName = s.Name,
+            //         BlogCategorySlug = s.Slug,
+            //         MostVisitedBlogs = s.Blog
+            //             .Where(g => g.IsVerified)
+            //             .Where(s => s.Position == 0)
+            //             .Where(s => s.RequestToAuthorFav!=true)
+            //             .OrderByDescending(g => g.VisitCount)
+            //             .Select(g => new GetBlogsDto
+            //             {
+            //                 Id = g.Id,
+            //                 BlogCategoryId = g.BlogCategoryId,
+            //                 BlogCategoryName= s.Name,
+            //                 BlogCategorySlug = s.Slug,
+            //                 ImageUrl = g.ImageUrl,
+            //                 Title = g.Title,
+            //                 SmallDescription = g.SmallDescription,
+            //                 // InsertTime =s.InsertTime.ToPersianDateTime().ToString("yyyy/MM/d"),
+            //                 IsVerified = g.IsVerified,
+            //                 Position = g.Position,
+            //             }).Take(4).ToList(),
+            //     }).Take(3).ToList();
+            
+            
+            var blogsLeftPanelMostVisitedModel = _customDbContext.BlogCategories
+                .Include(s=>s.Blog)
+                .OrderByDescending(s => s.Blog.Sum(crmCmsNews => crmCmsNews.VisitCount))
+                .Take(3);
+            var blogsLeftPanelMostVisited = _mapper.Map<List<GetBlogCategoriesDto>>(blogsLeftPanelMostVisitedModel);
+            
 
-            var blogsLeftPanelMostVisited = _context.CrmCmsNewsGroups
-                .OrderByDescending(s => s.CrmCmsNews.Sum(crmCmsNews => crmCmsNews.VisitCount))
-                .Select(s => new GetMostVisitedGroupBlogsDto
-                {
-                    NewsGroupId = s.NewsGroupId,
-                    GroupName = s.GroupName,
-                    en_GroupName = s.en_GroupName,
-                    MostVisitedBlogs = s.CrmCmsNews
-                        .Where(g => g.IsVerified)
-                        .Where(s => s.Position == 0)
-                        .Where(s => s.RequestToAuthorFav!=true)
-                        .OrderByDescending(g => g.VisitCount)
-                        .Select(g => new GetBlogsDto
-                        {
-                            NewsId = g.NewsId,
-                            NewsGroupId = g.NewsGroupId,
-                            NewsGroupName = s.GroupName,
-                            en_NewsGroupName = s.en_GroupName,
-                            HeadLine = g.HeadLine,
-                            Title = g.Title,
-                            NewsSummery = g.NewsSummery,
-                            DateTime =s.RegisterDate.ToPersianDateTime().ToString("yyyy/MM/d"),
-                            IsVerified = g.IsVerified,
-                            Position = g.Position,
-                        }).Take(4).ToList(),
-                }).Take(3).ToList();
+            var blogsGroupModel = _customDbContext.BlogCategories;
+            var blogsGroup = _mapper.Map<List<GetBlogCategoriesDto>>(blogsGroupModel);
 
-            var blogsGroup = _context.CrmCmsNewsGroups.ToList();
-
-            var footers = _customDbContext.Footers.FirstOrDefault();
+            var footers = _customDbContext.Footers.SingleOrDefault();
 
             return new ResultGetBlogsFrontEndDto
             {
@@ -138,31 +115,49 @@ namespace Application.Services.FrontEnd.Blogs.Queries
         public List<GetBlogsDto> Blogs { get; set; }
         public List<GetBlogsDto> BlogsFav { get; set; }
         public List<GetBlogsDto> BlogsAuthorFav { get; set; }
-        public List<GetMostVisitedGroupBlogsDto> BlogsLeftPanelMostVisited { get; set; }
-        public List<CrmCmsNewsGroups> BlogsGroup { get; set; }
+        public List<GetBlogCategoriesDto> BlogsLeftPanelMostVisited { get; set; }
+        public List<GetBlogCategoriesDto> BlogsGroup { get; set; }
         public Footer Footers { get; set; }
     }
 
 
     public class GetBlogsDto
     {
-        public int NewsId { get; set; }
-        public int NewsGroupId { get; set; }
+        public int Id { get; set; }
+        public int BlogCategoryId { get; set; }
         public string Title { get; set; }
-        public string NewsGroupName { get; set; }
-        public string en_NewsGroupName { get; set; }
-        public string NewsSummery { get; set; }
-        public string HeadLine { get; set; }
-        public string DateTime { get; set; }
+        public string Slug { get; set; }
+        public string ImageUrl { get; set; }
+        public string SmallDescription { get; set; }
+        public string Body { get; set; }
         public bool IsVerified { get; set; }
+        public string RegisterUserId { get; set; }
         public int Position { get; set; }
+        public string LocalTime { get; set; }
+        public int VisitCount { get; set; }
+        public bool RequestToAuthorFav { get; set; }
+        public bool IsVideoClip { get; set; }
+        public string VideoClipDuration { get; set; }
+        public string Author { get; set; }
+        public DateTime CreatedAt { get; set; }
+        public DateTime UpdatedAt { get; set; }
+        public BlogCategory BlogCategory { get; set; }
     }
 
-    public class GetMostVisitedGroupBlogsDto
+    public class GetBlogCategoriesDto
     {
-        public int NewsGroupId { get; set; }
-        public string GroupName { get; set; }
-        public string en_GroupName { get; set; }
-        public List<GetBlogsDto> MostVisitedBlogs { get; set; }
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Slug { get; set; }
+        public string SmallDescription { get; set; }
+        public bool IsActive { get; set; }
+        public string RegisterUserId { get; set; }
+        public string Color { get; set; }
+        public string FaIcon { get; set; }
+        public string LocalTime { get; set; }
+        public string ImageUrl { get; set; }
+        public DateTime CreatedAt { get; set; }
+        public DateTime UpdatedAt { get; set; }
+        public List<Blog> Blog { get; set; }
     }
 }
