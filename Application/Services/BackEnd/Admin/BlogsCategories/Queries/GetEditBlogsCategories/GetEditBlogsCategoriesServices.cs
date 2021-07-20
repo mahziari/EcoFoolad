@@ -1,6 +1,9 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using Application.Interfaces.Contexts;
+using Application.Services.BackEnd.User.Addresses;
 using AutoMapper;
+using Domain.Entities;
 
 
 namespace  Application.Services.BackEnd.Admin.BlogsCategories.Queries.GetEditBlogsCategories
@@ -17,16 +20,18 @@ namespace  Application.Services.BackEnd.Admin.BlogsCategories.Queries.GetEditBlo
         }
 
 
-        public ResultGetEditBlogsCategoriesDto Execute(int id)
+        public BaseDto<BlogCategoryDto> Execute(int id)
         {
             var blogCategoriesModel = _customDbContext.BlogCategories
                 .SingleOrDefault(n => n.Id == id);
-            var blogCategories = _mapper.Map<GetEditBlogsCategoriesDto>(blogCategoriesModel);
-
-            return new ResultGetEditBlogsCategoriesDto
-            {
-                BlogCategories = blogCategories,
-            };
+            var blogCategories = _mapper.Map<BlogCategoryDto>(blogCategoriesModel);
+            
+            return new BaseDto<BlogCategoryDto>
+            (
+                true,
+                null,
+                _mapper.Map<BlogCategoryDto>(blogCategories)
+            );
         }
     }
 }

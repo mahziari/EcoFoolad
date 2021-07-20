@@ -1,6 +1,9 @@
-﻿using System.IO;
+﻿using System.Collections.Generic;
+using System.IO;
 using Application.Interfaces.Contexts;
+using Application.Services.BackEnd.Admin.Company.Command;
 using AutoMapper;
+using Domain.Entities;
 using Microsoft.AspNetCore.Hosting;
  
 
@@ -18,17 +21,17 @@ namespace  Application.Services.BackEnd.Admin.Blogs.Command.DeleteBlogs
             _customDbContext = customDbContext;
         }
 
-        public ResultDeleteBlogDto Execute(int id)
+        public BaseDto Execute(int id)
         {
             var blog = _customDbContext.Blogs.Find(id);
 
             if (blog == null)
             {
-                return new ResultDeleteBlogDto()
-                {
-                    IsSuccess = false,
-                    Message = "یافت نشد"
-                };
+                return new BaseDto
+                (
+                    false,
+                    new List<string> {"یافت نشد"}
+                );
             }
             
             string file =blog.ImageUrl;
@@ -44,11 +47,11 @@ namespace  Application.Services.BackEnd.Admin.Blogs.Command.DeleteBlogs
             
             _customDbContext.Blogs.Remove(blog);
             _customDbContext.SaveChanges();
-            return new ResultDeleteBlogDto
-            {
-                IsSuccess = true,
-                Message = "با موفقیت حذف شد"
-            };
+            return new BaseDto
+            (
+                true,
+                new List<string> {"با موفقست حذف شد"}
+            );
         }
 
     }

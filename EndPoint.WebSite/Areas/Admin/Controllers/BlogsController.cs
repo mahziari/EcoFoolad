@@ -1,4 +1,5 @@
 ﻿using Application.Interfaces.FacadPatterns.BackEnd.Admin;
+using Application.Services.BackEnd.Admin.Blogs;
 using Application.Services.BackEnd.Admin.Blogs.Command.CreateBlogs;
 using Application.Services.BackEnd.Admin.Blogs.Command.EditBlogs;
 using Microsoft.AspNetCore.Authorization;
@@ -30,7 +31,7 @@ namespace EndPoint.WebSite.Areas.Admin.Controllers
         public IActionResult Details(int id)
         {
             var result = _blogsFacad.GetDetailsBlogsServices.Execute(id);
-            return View(result);
+            return View(result.Data);
         }
 
 
@@ -46,17 +47,17 @@ namespace EndPoint.WebSite.Areas.Admin.Controllers
         [Authorize(Policy = "BlogsCreate")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(CreateBlogsServicesDto createBlogsServicesDto)
+        public IActionResult Create(BlogDto blogDto)
         {
             if (!ModelState.IsValid)
             {
                 return View("Create", _blogsFacad.GetCreateBlogsServices.Execute());
             }
 
-            var result = _blogsFacad.CreateBlogsServices.Execute(createBlogsServicesDto);
+            var result = _blogsFacad.CreateBlogsServices.Execute(blogDto);
 
             TempData["IsSuccess"] = result.IsSuccess;
-            TempData["Message"] = result.Message;
+            TempData["Message"] = result.Message[0];
 
             return RedirectToAction(nameof(Index));
         }
@@ -73,17 +74,17 @@ namespace EndPoint.WebSite.Areas.Admin.Controllers
         [Authorize(Policy = "BlogsEdit")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(EditBlogsServicesDto editBlogsServicesDto, int id)
+        public IActionResult Edit(BlogDto blogDto)
         {
             if (!ModelState.IsValid)
             {
-                return View("Edit", _blogsFacad.GetEditBlogsServices.Execute(id));
+                return View("Edit", _blogsFacad.GetEditBlogsServices.Execute(blogDto.Id));
             }
 
-            var result = _blogsFacad.EditBlogsServices.Execute(editBlogsServicesDto, id);
+            var result = _blogsFacad.EditBlogsServices.Execute(blogDto);
 
             TempData["IsSuccess"] = result.IsSuccess;
-            TempData["Message"] = result.Message;
+            TempData["Message"] = result.Message[0];
 
             return RedirectToAction(nameof(Index));
         }
@@ -94,7 +95,7 @@ namespace EndPoint.WebSite.Areas.Admin.Controllers
             var result = _blogsFacad.DeleteBlogsServices.Execute(id);
 
             TempData["IsSuccess"] = result.IsSuccess;
-            TempData["Message"] = result.Message;
+            TempData["Message"] = result.Message[0];
 
             return RedirectToAction(nameof(Index));
         }
@@ -105,7 +106,7 @@ namespace EndPoint.WebSite.Areas.Admin.Controllers
             var result = _blogsFacad.ActiveBlogsServices.Execute(id);
 
             TempData["IsSuccess"] = result.IsSuccess;
-            TempData["Message"] = result.Message;
+            TempData["Message"] = result.Message[0];
 
             return RedirectToAction(nameof(Index));
         }

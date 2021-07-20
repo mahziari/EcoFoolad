@@ -78,7 +78,7 @@ namespace  Application.Services.BackEnd.Admin.BlogsCategories.FacadPattern
         {
             get
             {
-                return _editBlogsCategoriesServices ??= new EditBlogsCategoriesServices(_customDbContext,_mapper);
+                return _editBlogsCategoriesServices ??= new EditBlogsCategoriesServices(_customDbContext,_mapper,_httpContext);
             }
         }
         

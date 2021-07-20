@@ -1,6 +1,6 @@
 ﻿using Application.Interfaces.FacadPatterns.BackEnd.Admin;
-using Application.Services.BackEnd.Admin.BlogsCategories.Command.CreateBlogsCategories;
-using Domain.Entities.IdealCrm;
+using Application.Services.BackEnd.Admin.BlogsCategories;
+using Application.Services.BackEnd.Admin.BlogsCategories.Queries.GetEditBlogsCategories;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -37,17 +37,17 @@ namespace EndPoint.WebSite.Areas.Admin.Controllers
         [Authorize(Policy = "BlogCategoriesCreate")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(CreateBlogsCategoriesServicesDto createBlogsCategoriesServicesDto)
+        public IActionResult Create(BlogCategoryDto blogsCategoryDto)
         {
             if (!ModelState.IsValid)
             {
                 return View("Create", _blogsCategoriesFacad.GetCreateBlogsCategoriesServices.Execute());
             }
 
-            var result = _blogsCategoriesFacad.CreateBlogsCategoriesServices.Execute(createBlogsCategoriesServicesDto);
+            var result = _blogsCategoriesFacad.CreateBlogsCategoriesServices.Execute(blogsCategoryDto);
 
             TempData["IsSuccess"] = result.IsSuccess;
-            TempData["Message"] = result.Message;
+            TempData["Message"] = result.Message[0];
 
             return RedirectToAction(nameof(Index));
         }
@@ -58,26 +58,23 @@ namespace EndPoint.WebSite.Areas.Admin.Controllers
         public IActionResult Edit(int id)
         {
             var result = _blogsCategoriesFacad.GetEditBlogsCategoriesServices.Execute(id);
-            return View(result);
+            return View(result.Data);
         }
 
         [Authorize(Policy = "BlogCategoriesEdit")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(CreateBlogsCategoriesServicesDto createBlogsCategoriesServicesDto,
-            CrmCmsNewsGroups crmCmsNewsGroups, int id)
+        public IActionResult Edit(BlogCategoryDto blogsCategoryDto)
         {
             if (!ModelState.IsValid)
             {
-                return View("Edit", _blogsCategoriesFacad.GetEditBlogsCategoriesServices.Execute(id));
+                return View("Edit", _blogsCategoriesFacad.GetEditBlogsCategoriesServices.Execute(blogsCategoryDto.Id).Data);
             }
 
-            var result =
-                _blogsCategoriesFacad.EditBlogsCategoriesServices.Execute(createBlogsCategoriesServicesDto,
-                    crmCmsNewsGroups, id);
+            var result = _blogsCategoriesFacad.EditBlogsCategoriesServices.Execute(blogsCategoryDto);
 
             TempData["IsSuccess"] = result.IsSuccess;
-            TempData["Message"] = result.Message;
+            TempData["Message"] = result.Message[0];
 
             return RedirectToAction(nameof(Index));
         }
@@ -88,7 +85,7 @@ namespace EndPoint.WebSite.Areas.Admin.Controllers
             var result = _blogsCategoriesFacad.DeleteBlogsCategoriesServices.Execute(id);
 
             TempData["IsSuccess"] = result.IsSuccess;
-            TempData["Message"] = result.Message;
+            TempData["Message"] = result.Message[0];
 
             return RedirectToAction(nameof(Index));
         }

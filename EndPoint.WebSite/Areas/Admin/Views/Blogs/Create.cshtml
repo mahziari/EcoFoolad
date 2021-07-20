@@ -1,5 +1,5 @@
 ﻿@using Application.Services.BackEnd.Admin.Blogs.Queries.GetCreateBlogs
-@model ResultGetCreateBlogsDto
+@model GetCreateBlogsDto
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 @{
     ViewData["Title"] = " بلاگ جدید ";
@@ -186,6 +186,13 @@
                                                 </div>
                                             </div>
                                             
+                                            <div class="col-sm-4 col-12 order-2 order-sm-1">
+                                                <h6 class="text-primary">نام نوسینده بلاگ: <b class="text-danger h3">*</b></h6>
+                                                <input asp-for="Author" type="text" class="form-control" placeholder="نام کامل را وارد کنید">
+                                                <span asp-validation-for="Author" class="text-danger"></span>
+                                            </div>
+                                            
+                                            
                                             <div class="col-md-4 col-4 order-2 order-sm-1">
                                                 <h6 class="text-primary"> بخش منتخب سردبیر :<b class="text-danger h3"></b></h6>
                                                 <div class="form-group">
@@ -214,6 +221,9 @@
                                                 </fieldset>
                                             </div>
                                         </div>
+                                        
+                                     
+                                        
 
 
                                     </div>

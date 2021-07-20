@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using Application.Interfaces.Contexts;
 using AutoMapper;
 using Common.Utilities;
+using Domain.Entities;
 using Domain.Entities.Blogs;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -24,21 +26,21 @@ namespace  Application.Services.BackEnd.Admin.Blogs.Command.CreateBlogs
             _httpContext = httpContext;
         }
 
-        public ResultCreateBlogsDto Execute(CreateBlogsServicesDto createBlogsServicesDto)
+        public BaseDto Execute(BlogDto blogDto)
         {
-            var uploadedResult = UploadFile(createBlogsServicesDto.Image);
+            var uploadedResult = UploadFile(blogDto.Image);
 
             if (uploadedResult.Status != true)
             {
-                return new ResultCreateBlogsDto
-                {
-                    IsSuccess = false,
-                    Message = "لطفا یک عکس انتخاب کنید"
-                };
+                return new BaseDto
+                (
+                    true,
+                    new List<string> {"یافت نشد"}
+                );
             }
             
 
-            var blogs = _mapper.Map<Blog>(createBlogsServicesDto);
+            var blogs = _mapper.Map<Blog>(blogDto);
             blogs.LocalTime = DateTime.Now.ToString("s") + "+" + TimeZoneInfo.Local.BaseUtcOffset.ToHHMM();
             blogs.RegisterUserId= ClaimUtility.GetUserId(_httpContext.HttpContext?.User);
             blogs.ImageUrl = uploadedResult.FileNameAddress;
@@ -47,11 +49,11 @@ namespace  Application.Services.BackEnd.Admin.Blogs.Command.CreateBlogs
             _customDbContext.Blogs.Add(blogs);
             _customDbContext.SaveChanges();
             
-            return new ResultCreateBlogsDto
-            {
-                IsSuccess = true,
-                Message = "بلاگ با موفقیت اضافه شد"
-            };
+            return new BaseDto
+            (
+                true,
+                new List<string> {"بلاگ با موفقیت اضافه شد"}
+            );
 
         }
         

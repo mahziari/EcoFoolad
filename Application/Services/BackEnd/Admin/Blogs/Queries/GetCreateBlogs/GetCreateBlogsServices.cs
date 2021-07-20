@@ -1,5 +1,11 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using Application.Interfaces.Contexts;
+using Application.Services.BackEnd.Admin.BlogsCategories;
+using AutoMapper;
+using Domain.Entities;
+using Domain.Entities.Blogs;
+using Microsoft.EntityFrameworkCore;
 
 
 namespace  Application.Services.BackEnd.Admin.Blogs.Queries.GetCreateBlogs
@@ -7,29 +13,24 @@ namespace  Application.Services.BackEnd.Admin.Blogs.Queries.GetCreateBlogs
     public class GetCreateBlogsServices : IGetCreateBlogsServices
     {
         private readonly ICustomDbContext _customDbContext;
-
-        public GetCreateBlogsServices(ICustomDbContext customDbContext)
+        private readonly IMapper _mapper;
+        public GetCreateBlogsServices(ICustomDbContext customDbContext, IMapper mapper)
         {
             _customDbContext = customDbContext;
+            _mapper = mapper;
         }
 
 
-        public ResultGetCreateBlogsDto Execute()
+        public GetCreateBlogsDto Execute()
         {
-            var blogCategory = _customDbContext.BlogCategories
-                .Select(g=>new GetBlogCategoryDto
-                {
-                    Id = g.Id,
-                    Name = g.Name
-                }).ToList();
+            var blogsModel = _customDbContext.Blogs;
+            var blogCategoryModel = _customDbContext.BlogCategories;
             
-            var blogs = _customDbContext.Blogs.ToList();
+            var data =new GetCreateBlogsDto();
+            data.Blogs = _mapper.Map<List<BlogDto>>(blogsModel);
+            data.BlogCategory = _mapper.Map<List<BlogCategoryDto>>(blogCategoryModel);
 
-            return new ResultGetCreateBlogsDto
-            {
-                BlogCategory = blogCategory,
-                Blogs = blogs,
-            };
+            return data;
         }
     }
 }

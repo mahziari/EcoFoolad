@@ -1,98 +1,58 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using Application.Interfaces.Contexts;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
- 
-using  Application.Services.BackEnd.Admin.Blogs.Command.CreateBlogs;
+using Application.Services.BackEnd.Admin.Blogs.Command.CreateBlogs;
 using AutoMapper;
+using Common.Utilities;
+using Domain.Entities;
 
-namespace  Application.Services.BackEnd.Admin.Blogs.Command.EditBlogs
+namespace Application.Services.BackEnd.Admin.Blogs.Command.EditBlogs
 {
-    public class EditBlogsServices:IEditBlogsServices
+    public class EditBlogsServices : IEditBlogsServices
     {
         private readonly IWebHostEnvironment _environment;
         private readonly IMapper _mapper;
         private readonly ICustomDbContext _customDbContext;
-        public EditBlogsServices(IWebHostEnvironment environment, IMapper mapper, ICustomDbContext customDbContext)
+        private readonly IHttpContextAccessor _httpContext;
+
+        public EditBlogsServices(IWebHostEnvironment environment, IMapper mapper, ICustomDbContext customDbContext,
+            IHttpContextAccessor httpContext)
         {
             _environment = environment;
             _mapper = mapper;
             _customDbContext = customDbContext;
+            _httpContext = httpContext;
         }
 
-        public ResultEditBlogsDto Execute(EditBlogsServicesDto editBlogsServicesDto,int id)
+        public BaseDto Execute(BlogDto blogDto)
         {
-            // if (createBlogsServicesDto.Position != 0)
-            // {
-            //     for (int i = 0; i < 9; i++)
-            //     {
-            //         if (_context.CrmCmsNews.Where(n=>n.Position==i) != null)
-            //         {
-            //             return new ResultEditBlogsDto
-            //             {
-            //                 IsSuccess = false,
-            //                 Message = "موقعیت قبلا انتخاب شده است"
-            //             };
-            //         }
-            //     }
-            // }
+            var blogModel = _customDbContext.Blogs.Find(blogDto.Id);
+
+            var uploadedResult = UploadFile(blogDto.Image, blogModel.ImageUrl);
             
-            var uploadedResult = UploadFile(editBlogsServicesDto.Images);
 
-            // if (uploadedResult.Status != true)
-            // {
-            //     return new ResultEditBlogsDto
-            //     {
-            //         IsSuccess = false,
-            //         Message = "لطفا یک عکس انتخاب کنید"
-            //     };
-            // }
-
-          
-            
-            var blogModel = _customDbContext.Blogs.Find(id);
-
-        
+            blogDto.LocalTime = DateTime.Now.ToString("s") + "+" + TimeZoneInfo.Local.BaseUtcOffset.ToHHMM();
+            blogDto.RegisterUserId = ClaimUtility.GetUserId(_httpContext.HttpContext?.User);
+            blogDto.IsVerified = true;
             if (uploadedResult.FileNameAddress != "ImageNotChange")
             {
-                string file =blogModel.ImageUrl;
-                var filePath = Path.Combine(_environment.WebRootPath, file);
-                var fileStream = new FileInfo(filePath);
-                if (fileStream.Exists)
-                {
-                    fileStream.Delete();
-                }
+                blogDto.ImageUrl = uploadedResult.FileNameAddress;
             }
-
-            // blog.NewsGroupId = editBlogsServicesDto.NewsGroupId;
-            // blog.Title = editBlogsServicesDto.Title;
-            // blog.NewsSummery = editBlogsServicesDto.NewsSummery;
-            // if (uploadedResult.FileNameAddress != "ImageNotChange")
-            // {
-            //     blog.HeadLine = uploadedResult.FileNameAddress;
-            // }
-            // blog.NewsBody = editBlogsServicesDto.NewsBody;
-            // blog.Position = editBlogsServicesDto.Position;
-            // blog.RequestToAuthorFav = editBlogsServicesDto.RequestToAuthorFav;
-            // _context.SaveChanges();
             
-            
-            
-            var blog = _mapper.Map<EditBlogsServicesDto>(blogModel);
-            blog.UpdatedAt = DateTime.Now;
+            _mapper.Map(blogDto, blogModel);
             _customDbContext.SaveChanges();
-     
-            
 
-            return new ResultEditBlogsDto
-            {
-                IsSuccess = true,
-                Message = "بلاگ با موفقیت ویرایش شد"
-            };
+            return new BaseDto
+            (
+                true,
+                new List<string> {"بلاگ با موفقیت ویرایش شد"}
+            );
         }
-        
-        private UploadDto UploadFile(IFormFile file)
+
+        private UploadDto UploadFile(IFormFile file, string ImageUrl)
         {
             if (file == null || file.Length <= 0)
                 return new UploadDto()
@@ -101,6 +61,20 @@ namespace  Application.Services.BackEnd.Admin.Blogs.Command.EditBlogs
                     FileNameAddress = "ImageNotChange",
                 };
 
+            if (ImageUrl !=null ||  file.Length > 0)
+            {
+                // Delete Old Image Source
+                var oldFile = ImageUrl;
+                var oldFilePath = Path.Combine(_environment.WebRootPath, oldFile);
+                var oldFileStream = new FileInfo(oldFilePath);
+                if (oldFileStream.Exists)
+                {
+                    oldFileStream.Delete();
+                }
+            }
+            
+            
+            // Upload Image Source
             string folder = @"Images/Blogs/";
             var uploadsRootFolder = Path.Combine(_environment.WebRootPath, folder);
             if (!Directory.Exists(uploadsRootFolder))
@@ -119,6 +93,5 @@ namespace  Application.Services.BackEnd.Admin.Blogs.Command.EditBlogs
                 FileNameAddress = folder + fileName,
             };
         }
-
     }
 }

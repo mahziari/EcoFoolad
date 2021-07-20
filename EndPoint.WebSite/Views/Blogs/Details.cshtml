@@ -1,418 +1,420 @@
-﻿@* @using Application.Services.FrontEnd.Blogs.Queries *@
-@* @model ResultGetBlogsDetailsFrontEndDto *@
-@* @using Application.Services.FrontEnd.Common *@
-@* @using Microsoft.AspNetCore.Http.Extensions *@
-@* @using System.Web *@
-@* @inject ISiteSetting _siteSetting; *@
-@* @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers *@
-@* @{ *@
-@*     ViewData["Title"] = Model.Blog.Title; *@
-@*     Layout = "~/Views/Shared/_Layout.cshtml"; *@
-@* } *@
-@* *@
-@* *@
-@* @section Head{ *@
-@*     <link rel="stylesheet" href="~/assets/css/blog-style.css"> *@
-@*     <link rel="stylesheet" href="~/blog-assets/css/responsive.css"> *@
-@* *@
-@*     <meta name="description" content="@Model.Blog.NewsSummery"> *@
-@*     <link rel="canonical" href="@Context.Request.Scheme://@Context.Request.Host@Context.Request.Path.Value"> *@
-@*     <meta property="og:locale" content="fa_IR"> *@
-@*     <meta property="og:type" content="@Model.Blog.en_NewsGroupName"> *@
-@*     <meta property="og:title" content="@Model.Blog.Title - @_siteSetting.GetSiteSetting().SiteName"> *@
-@*     <meta property="og:description" content="@Model.Blog.NewsSummery"> *@
-@*     <meta property="og:url" content="@Context.Request.Scheme://@Context.Request.Host@Context.Request.Path.Value"> *@
-@*     <meta property="og:site_name" content="@_siteSetting.GetSiteSetting().SiteName"> *@
-@*     <meta property="article:section" content="@Model.Blog.NewsGroupName"> *@
-@*     <meta property="article:published_time" content="@Model.Blog.LocalTime"> *@
-@*     <meta property="og:updated_time" content="@Model.Blog.LocalTime"> *@
-@*     <meta property="og:image" content="@Context.Request.Scheme://@Context.Request.Host/@Model.Blog.HeadLine"> *@
-@*     <meta name="twitter:card" content="summary_large_image"> *@
-@*     <meta name="twitter:site" content="@@ecofoolad"> *@
-@*     <meta name="twitter:url" content="@Context.Request.Scheme://@Context.Request.Host@Context.Request.Path.Value"> *@
-@*     <meta name="twitter:description" content="@Model.Blog.NewsSummery"> *@
-@*     <meta name="twitter:title" content="@Model.Blog.Title - @_siteSetting.GetSiteSetting().SiteName"> *@
-@*     <meta name="twitter:image" content="@Context.Request.Scheme://@Context.Request.Host/@Model.Blog.HeadLine"> *@
-@*     <meta name="twitter:creator" content="@@ecofoolad"/> *@
-@* } *@
-@* *@
-@* @section Foo{ *@
-@*         <script src="~/assets/js/blog-theia-sticky-sidebar.min.js"></script> *@
-@*         <script src="~/assets/js/blog-main.js"></script> *@
-@*     <script type="application/ld+json"> *@
-@*     { *@
-@*     "@@context":"https://schema.org", *@
-@*     "@@type":"@Model.Blog.en_NewsGroupName", *@
-@*     "headline":"@Model.Blog.Title", *@
-@*     "image":{ *@
-@*     "@@type":"ImageObject", *@
-@*     "url":"@Context.Request.Scheme://@Context.Request.Host/@Model.Blog.HeadLine", *@
-@*     "height":822, *@
-@*     "width":522 *@
-@*     }, *@
-@*     "author":"سردبیر خبری", *@
-@*     "editor":"سردبیر خبری", *@
-@*     "genre":"سردبیر خبری", *@
-@*     "wordcount":2603, *@
-@*     "publisher":{ *@
-@*     "@@type":"Organization", *@
-@*     "name":"@_siteSetting.GetSiteSetting().SiteName", *@
-@*     "logo":{ *@
-@*     "@@type":"ImageObject", *@
-@*     "url":"@_siteSetting.GetSiteSetting().LogoImage", *@
-@*     "width":"211", *@
-@*     "height":"60" *@
-@*     }}, *@
-@*     "url":"@Context.Request.Scheme://@Context.Request.Host@Context.Request.Path.Value", *@
-@*     "datePublished":"@Model.Blog.LocalTime", *@
-@*     "dateCreated":"@Model.Blog.LocalTime", *@
-@*     "dateModified":"@Model.Blog.LocalTime", *@
-@*     "description":"@Model.Blog.NewsSummery" *@
-@*     } *@
-@*     </script> *@
-@* } *@
-@* *@
-@*    <main class="pull-right main-single"> *@
-@*         <div class="col-12"> *@
-@*             <div class="main-aside pull-right sticky-sidebar sticky-sidebar-distant"> *@
-@*                 <nav> *@
-@*                     <ul class="stick-menu"> *@
-@*                         <li class="stick-menu-item stick-logo"> *@
-@*                             <a asp-controller="Blogs" asp-action="Index" title="بلاگ @_siteSetting.GetSiteSetting().SiteName">Blog</a> *@
-@*                         </li> *@
-@*                         $1$ <li class="stick-menu-item search-btn"> #1# *@
-@*                         $1$     <a href="#"> #1# *@
-@*                         $1$         <img src="assets/images/header/search-menu.png" alt="search"> #1# *@
-@*                         $1$     </a> #1# *@
-@*                         $1$ </li> #1# *@
-@*                         $1$ <li class="stick-menu-item login-popup-btn"> #1# *@
-@*                         $1$     <a href="#"> #1# *@
-@*                         $1$         <img src="assets/images/header/user.png" alt="user"> #1# *@
-@*                         $1$     </a> #1# *@
-@*                         $1$ </li> #1# *@
-@*                     </ul> *@
-@*                 </nav> *@
-@*             </div> *@
-@*             <div class="main-content"> *@
-@*                 <div class="topics wrapper"> *@
-@*                     <div class="col-lg-8 col-md-8 col-xs-12 pull-right"> *@
-@*                         <div class="topics-content"> *@
-@*                             <div class="post-module"> *@
-@*                                 <nav aria-label="breadcrumb"> *@
-@*                                     <ol class="breadcrumb"> *@
-@*                                         <li class="breadcrumb-item"><a href="/">خانه</a></li> *@
-@*                                         <li class="breadcrumb-item"><a asp-controller="Blogs" asp-action="Index">بلاگ</a></li> *@
-@*                                         <li class="breadcrumb-item"> *@
-@* *@
-@*                                             <a asp-controller="Blogs" *@
-@*                                                asp-action="Category" *@
-@*                                                asp-route-category="@Model.Blog.en_NewsGroupName.Replace(" ", "-")"> *@
-@*                                                 @Model.Blog.NewsGroupName *@
-@*                                             </a> *@
-@*                                         </li> *@
-@*                                         <li class="breadcrumb-item active" aria-current="page">@Model.Blog.Title</li> *@
-@*                                     </ol> *@
-@*                                 </nav> *@
-@*                                 <div class="sep"></div> *@
-@*                                 <article> *@
-@*                                     <div class="post-module-title"> *@
-@*                                         <h1 class="txt-entry-title">@Model.Blog.Title</h1> *@
-@*                                         $1$ <div class="social-act"> #1# *@
-@*                                         $1$     <span class="bookmark-wrapper wishlist-btn login-required"> #1# *@
-@*                                         $1$         <span class="social-act-txt">افزودن به لیست علاقه‌مندی ها</span> #1# *@
-@*                                         $1$         <i class="fa fa-bookmark-o"></i> #1# *@
-@*                                         $1$         <div class="social-act-sep"></div> #1# *@
-@*                                         $1$         <span class="popularity pull-left"> #1# *@
-@*                                         $1$             <span class="popularity-likes"> #1# *@
-@*                                         $1$                 <i class="fa fa-heart-o"></i> #1# *@
-@*                                         $1$             </span> #1# *@
-@*                                         $1$         </span> #1# *@
-@*                                         $1$     </span> #1# *@
-@*                                         $1$ </div> #1# *@
-@*                                     </div> *@
-@*                                     <div class="post-module-author"> *@
-@*                                         <div class="user-profile-stat-wrapper"> *@
-@*                                             <img src="@Model.Footers.ThumbnailLogoImage" width="35" height="35" alt="سردبیر خبری بلاگ اکو فولاد" class="avatar"> *@
-@*                                             $1$ <span class="vcard-author post-module-author-name"> #1# *@
-@*                                             $1$     <a href="#">حسن \</a> #1# *@
-@*                                             $1$ </span> #1# *@
-@*                                         </div> *@
-@*                                         <span class="post-module-author-date published"> *@
-@*                                             <i class="mdi mdi-clock-outline"></i> *@
-@*                                             @Model.Blog.DateTime *@
-@*                                         </span> *@
-@*                                     </div> *@
-@*                                     <div class="post-attachment"> *@
-@*                                         <img src="/@Model.Blog.HeadLine" alt="" class="post-module-img wp-post-image"> *@
-@*                                     </div> *@
-@*                                     <div class="post-module-content"> *@
-@*                                         <p> *@
-@*                                             @Html.Raw(Model.Blog.NewsBody) *@
-@*                                         </p> *@
-@*                                     </div> *@
-@*                                     <div class="post-module-social"> *@
-@*                                         <div class="operation"> *@
-@*                                             <span class="social-networks"> *@
-@*                                                 <a href="#" class="icon-social icon-telegram"> *@
-@*                                                     <i class="mdi mdi-telegram"></i> *@
-@*                                                 </a> *@
-@*                                                 <a href="#" class="icon-social icon-whatsapp"> *@
-@*                                                     <i class="mdi mdi-whatsapp"></i> *@
-@*                                                 </a> *@
-@*                                                 <a href="#" class="icon-social icon-twitter"> *@
-@*                                                     <i class="mdi mdi-twitter"></i> *@
-@*                                                 </a> *@
-@*                                                 <a href="#" class="icon-social icon-facebook"> *@
-@*                                                     <i class="mdi mdi-facebook"></i> *@
-@*                                                 </a> *@
-@*                                                 <a href="#" class="icon-social icon-linkedin"> *@
-@*                                                     <i class="mdi mdi-linkedin"></i> *@
-@*                                                 </a> *@
-@*                                             </span> *@
-@*                                             $1$ <span class="post-module-social-sep d-b"></span> #1# *@
-@*                                             $1$ <label for="#" class="check-handler post-like-button"> #1# *@
-@*                                             $1$     <span class="popularity"> #1# *@
-@*                                             $1$         <span class="popularity-likes"> #1# *@
-@*                                             $1$             <i class="fa fa-heart-o"></i> #1# *@
-@*                                             $1$             <span class="popularity-likes-num">2</span> #1# *@
-@*                                             $1$         </span> #1# *@
-@*                                             $1$     </span> #1# *@
-@*                                             $1$ </label> #1# *@
-@*                                             $1$ <span class="post-module-social-sep d-n"></span> #1# *@
-@*                                             <!-- social-responsive --> *@
-@*                                             <div class="post-module-social-btn-res"> *@
-@*                                                 <i class="mdi mdi-share"></i> *@
-@*                                                 <div class="dialog-info"> *@
-@*                                                     <a href="#" class="icon-social-res icon-telegram"> *@
-@*                                                         <i class="mdi mdi-telegram"></i> *@
-@*                                                     </a> *@
-@*                                                     <a href="#" class="icon-social-res icon-whatsapp"> *@
-@*                                                         <i class="mdi mdi-whatsapp"></i> *@
-@*                                                     </a> *@
-@*                                                     <a href="#" class="icon-social-res icon-twitter"> *@
-@*                                                         <i class="mdi mdi-twitter"></i> *@
-@*                                                     </a> *@
-@*                                                     <a href="#" class="icon-social-res icon-facebook"> *@
-@*                                                         <i class="mdi mdi-facebook"></i> *@
-@*                                                     </a> *@
-@*                                                     <a href="#" class="icon-social-res icon-linkedin"> *@
-@*                                                         <i class="mdi mdi-linkedin"></i> *@
-@*                                                     </a> *@
-@*                                                 </div> *@
-@*                                             </div> *@
-@*                                             <!-- social-responsive --> *@
-@*                                             $1$ <span class="post-module-social-sep"></span> #1# *@
-@*                                             $1$ <span class="post-module-social-btn"> #1# *@
-@*                                             $1$     <span class="popularity"> #1# *@
-@*                                             $1$         <span class="popularity-comment"> #1# *@
-@*                                             $1$             <i class="fa fa-comment-o"></i> #1# *@
-@*                                             $1$             <span class="popularity-likes-num">5</span> #1# *@
-@*                                             $1$         </span> #1# *@
-@*                                             $1$     </span> #1# *@
-@*                                             $1$ </span> #1# *@
-@*                                         </div> *@
-@*                                         $1$ <div class="operation operation-rtl"> #1# *@
-@*                                         $1$     <span class="post-module-social-start post-star-rating"> #1# *@
-@*                                         $1$         <span class="stars-wrapper"> #1# *@
-@*                                         $1$             <i class="fa fa-star active"></i> #1# *@
-@*                                         $1$             <i class="fa fa-star active"></i> #1# *@
-@*                                         $1$             <i class="fa fa-star active"></i> #1# *@
-@*                                         $1$             <i class="fa fa-star active"></i> #1# *@
-@*                                         $1$             <i class="fa fa-star"></i> #1# *@
-@*                                         $1$         </span> #1# *@
-@*                                         $1$     </span> #1# *@
-@*                                         $1$     <span class="stars-rate"> #1# *@
-@*                                         $1$         <span class="post-rate">۵ / <span>۵.۰</span></span> #1# *@
-@*                                         $1$         <small class="rating-count"> (از مجموع <span>۲</span> رای) </small> #1# *@
-@*                                         $1$     </span> #1# *@
-@*                                         $1$ </div> #1# *@
-@*                                     </div> *@
-@*                                     $1$ <div class="sep w-100"></div> #1# *@
-@*                                     $1$ <div class="post-module-tags"> #1# *@
-@*                                     $1$     <span class="post-module-tags-title">برچسب‌ها : </span> #1# *@
-@*                                     $1$     <a href="#" rel="tag" class="post-tag post-module-tags-item item">وان پلاس</a> #1# *@
-@*                                     $1$ </div> #1# *@
-@*                                     $1$ <div class="sep w-100"></div> #1# *@
-@*                                 </article> *@
-@*                                 $1$ <div class="comments-template"> #1# *@
-@*                                 $1$     <div class="comment-respond"> #1# *@
-@*                                 $1$         <strong id="reply-title" class="comment-reply-title">دیدگاه شما</strong> #1# *@
-@*                                 $1$         <form action="#" class="comment-form focused"> #1# *@
-@*                                 $1$             <div class="comment-form-avatar pull-right"> #1# *@
-@*                                 $1$                 <img src="assets/images/user.png" alt="user" class="img-user"> #1# *@
-@*                                 $1$             </div> #1# *@
-@*                                 $1$             <div class="comment-fields"> #1# *@
-@*                                 $1$                 <div class="input-textbox"> #1# *@
-@*                                 $1$                     <input type="text" name="author" id="author" class="input form-control" placeholder="نام * " value="" tabindex="1"> #1# *@
-@*                                 $1$                 </div> #1# *@
-@*                                 $1$                 <div class="input-textbox"> #1# *@
-@*                                 $1$                     <input type="email" name="email" id="email" class="input form-control" placeholder="ایمیل * " value="" tabindex="2"> #1# *@
-@*                                 $1$                 </div> #1# *@
-@*                                 $1$             </div> #1# *@
-@*                                 $1$             <div class="comment-form-comment"> #1# *@
-@*                                 $1$                 <textarea id="comment" name="comment" class="form-control" cols="45" rows="8" aria-required="true" placeholder="دیدگاه"></textarea> #1# *@
-@*                                 $1$             </div> #1# *@
-@*                                 $1$             <div class="sep w-100 mt-3 pull-right"></div> #1# *@
-@*                                 $1$             <div class="form-submit pt-3 pull-left"> #1# *@
-@*                                 $1$                 <input name="submit" type="submit" id="submit-comment" class="comment-submit-btn" value="ارسال دیدگاه"> #1# *@
-@*                                 $1$             </div> #1# *@
-@*                                 $1$         </form> #1# *@
-@*                                 $1$     </div> #1# *@
-@*                                 $1$ </div> #1# *@
-@*                             </div> *@
-@*                             <aside class="sidebar-banner"> *@
-@*                                 @foreach (var item in Model.BlogsGroup) *@
-@*                                 { *@
-@*                                     <div class="col-lg-4 col-md-4 col-xs-12 pull-right"> *@
-@*                                         <div class="single-banners-widget widget-wrapper banner-widget"> *@
-@*                                             <a asp-controller="Blogs" *@
-@*                                                asp-action="Category" *@
-@*                                                asp-route-category="@item.en_GroupName.Replace(" ", "-")" *@
-@*                                                class="promotion" *@
-@*                                                title="@item.GroupName | @_siteSetting.GetSiteSetting().SiteName"> *@
-@*                                                 <img src="@item.Image" alt="@item.GroupName | @_siteSetting.GetSiteSetting().SiteName" class="promotion-img"> *@
-@*                                             </a> *@
-@*                                         </div> *@
-@*                                     </div> *@
-@*                                 } *@
-@*                             </aside> *@
-@*                         </div> *@
-@*                     </div> *@
-@*                     <div class="col-lg-3 col-md-4 col-xs-12 pull-left sticky-sidebar"> *@
-@*                         <div class="post-nav"> *@
-@*                             $1$ <div class="post-nav-top"> #1# *@
-@*                             $1$     <div class="text-center"> #1# *@
-@*                             $1$         <div class="widget-suggestion widget card"> #1# *@
-@*                             $1$             <header class="card-header promo-single-headline product-header"> #1# *@
-@*                             $1$                 <h3 class="card-title"> #1# *@
-@*                             $1$                     <span class="bold">محصولات</span> #1# *@
-@*                             $1$                     <span>مرتبط در دیجی‌کالا</span> #1# *@
-@*                             $1$                 </h3> #1# *@
-@*                             $1$             </header> #1# *@
-@*                             $1$             <div id="suggestion-slider" class="owl-carousel owl-theme owl-rtl owl-loaded owl-drag"> #1# *@
-@*                             $1$             <div class="owl-stage-outer"> #1# *@
-@*                             $1$                 <div class="owl-stage" style="transform: translate3d(1369px, 0px, 0px); transition: all 0.25s ease 0s; width: 2190px;"> #1# *@
-@*                             $1$                     <div class="owl-item cloned" style="width: 273.75px;"> #1# *@
-@*                             $1$                        <div class="item"> #1# *@
-@*                             $1$                            <a href="#"> #1# *@
-@*                             $1$                                <img src="assets/images/topics/post-nav/1.jpg" class="w-100" alt=""> #1# *@
-@*                             $1$                            </a> #1# *@
-@*                             $1$                            <h3 class="product-title"> #1# *@
-@*                             $1$                                <a href="#">گوشی موبایل شیائومی مدل Redmi Note 8 M1908C3JG دو سیم‌ کارت ظرفیت 128 گیگابایت</a> #1# *@
-@*                             $1$                            </h3> #1# *@
-@*                             $1$                            <div class="price"> #1# *@
-@*                             $1$                                <span class="amount">6,899,000 #1# *@
-@*                             $1$                                    <span>تومان</span> #1# *@
-@*                             $1$                                 </span> #1# *@
-@*                             $1$                            </div> #1# *@
-@*                             $1$                         </div> #1# *@
-@*                             $1$                     </div> #1# *@
-@*                             $1$                     <div class="owl-item cloned" style="width: 273.75px;"> #1# *@
-@*                             $1$                         <div class="item"> #1# *@
-@*                             $1$                             <a href="#"> #1# *@
-@*                             $1$                                 <img src="assets/images/topics/post-nav/2.jpg" class="w-100" alt=""> #1# *@
-@*                             $1$                             </a> #1# *@
-@*                             $1$                             <h3 class="product-title"> #1# *@
-@*                             $1$                                 <a href="#">گوشی موبایل شیائومی مدل Redmi Note 8 Pro m1906g7G دو سیم‌ کارت ظرفیت 128 گیگابایت</a> #1# *@
-@*                             $1$                             </h3> #1# *@
-@*                             $1$                             <div class="price"> #1# *@
-@*                             $1$                                 <span class="amount">7,309,000 #1# *@
-@*                             $1$                                     <span>تومان</span> #1# *@
-@*                             $1$                                 </span> #1# *@
-@*                             $1$                             </div> #1# *@
-@*                             $1$                         </div> #1# *@
-@*                             $1$                     </div> #1# *@
-@*                             $1$                     <div class="owl-item" style="width: 273.75px;"> #1# *@
-@*                             $1$                         <div class="item"> #1# *@
-@*                             $1$                             <a href="#"> #1# *@
-@*                             $1$                                 <img src="assets/images/topics/post-nav/3.jpg" class="w-100" alt=""> #1# *@
-@*                             $1$                             </a> #1# *@
-@*                             $1$                             <h3 class="product-title"> #1# *@
-@*                             $1$                                 <a href="#">گوشی موبایل سامسونگ مدل Galaxy A10s SM-A107F/DS دو سیم کارت ظرفیت 32 گیگابایت</a> #1# *@
-@*                             $1$                             </h3> #1# *@
-@*                             $1$                             <div class="price"> #1# *@
-@*                             $1$                                 <span class="amount">4,299,000 #1# *@
-@*                             $1$                                     <span>تومان</span> #1# *@
-@*                             $1$                                 </span> #1# *@
-@*                             $1$                             </div> #1# *@
-@*                             $1$                         </div> #1# *@
-@*                             $1$                     </div> #1# *@
-@*                             $1$                     <div class="owl-item" style="width: 273.75px;"> #1# *@
-@*                             $1$                         <div class="item"> #1# *@
-@*                             $1$                             <a href="#"> #1# *@
-@*                             $1$                                 <img src="assets/images/topics/post-nav/4.jpg" class="w-100" alt=""> #1# *@
-@*                             $1$                             </a> #1# *@
-@*                             $1$                             <h3 class="product-title"> #1# *@
-@*                             $1$                                 <a href="#">گوشی موبایل شیائومی مدل Redmi Note 9 M2003J15SS دو سیم‌ کارت ظرفیت 64 گیگابایت</a> #1# *@
-@*                             $1$                             </h3> #1# *@
-@*                             $1$                             <div class="price"> #1# *@
-@*                             $1$                                 <span class="amount">6,152,000 #1# *@
-@*                             $1$                                     <span>تومان</span> #1# *@
-@*                             $1$                                 </span> #1# *@
-@*                             $1$                             </div> #1# *@
-@*                             $1$                         </div> #1# *@
-@*                             $1$                     </div> #1# *@
-@*                             $1$                     <div class="owl-item" style="width: 273.75px;"> #1# *@
-@*                             $1$                         <div class="item"> #1# *@
-@*                             $1$                             <a href="#"> #1# *@
-@*                             $1$                                 <img src="assets/images/topics/post-nav/5.jpg" class="w-100" alt=""> #1# *@
-@*                             $1$                             </a> #1# *@
-@*                             $1$                             <h3 class="product-title"> #1# *@
-@*                             $1$                                 <a href="#">گوشی موبایل سامسونگ مدل Galaxy A51 SM-A515F/DSN دو سیم کارت ظرفیت 128گیگابایت</a> #1# *@
-@*                             $1$                             </h3> #1# *@
-@*                             $1$                             <div class="price"> #1# *@
-@*                             $1$                                 <span class="amount">8,399,000 #1# *@
-@*                             $1$                                     <span>تومان</span> #1# *@
-@*                             $1$                                 </span> #1# *@
-@*                             $1$                             </div> #1# *@
-@*                             $1$                         </div> #1# *@
-@*                             $1$                     </div> #1# *@
-@*                             $1$                 </div> #1# *@
-@*                             $1$             </div> #1# *@
-@*                             $1$             <div class="owl-nav disabled"> #1# *@
-@*                             $1$                 <button type="button" role="presentation" class="owl-prev"></button> #1# *@
-@*                             $1$                 <button type="button" role="presentation" class="owl-next"></button> #1# *@
-@*                             $1$             </div> #1# *@
-@*                             $1$             <div class="owl-dots disabled"></div> #1# *@
-@*                             $1$             </div> #1# *@
-@*                             $1$         </div> #1# *@
-@*                             $1$      </div> #1# *@
-@*                             $1$ </div> #1# *@
-@*                             <div class="post-nav-body"> *@
-@*                                 <div class="title"> *@
-@*                                     <span class="bold">مطالب</span> *@
-@*                                     <span>مرتبط</span> *@
-@*                                 </div> *@
-@*                                 <ul class="related-posts"> *@
-@*                                     @foreach (var item in @Model.RelatedBlog) *@
-@*                                     { *@
-@*                                         <li class="related-posts-item"> *@
-@*                                             <a asp-controller="Blogs" *@
-@*                                                asp-action="Category" *@
-@*                                                asp-route-category="@item.en_NewsGroupName.Replace(" ","-")" *@
-@*                                                class="image-wrapper pull-right"> *@
-@*                                                 <img src="/@item.HeadLine" alt="@item.Title" class="image-wrapper-img wp-post-image" width="60" height="60"> *@
-@*                                             </a> *@
-@*                                             <div class="detail-wrapper"> *@
-@*                                                 <a asp-controller="Blogs" *@
-@*                                                    asp-action="Category" *@
-@*                                                    asp-route-category="@item.en_NewsGroupName.Replace(" ","-")" *@
-@*                                                    title="@item.Title" *@
-@*                                                    class="detail-wrapper-title"> *@
-@*                                                     @item.Title *@
-@*                                                 </a> *@
-@*                                                 <div class="detail-wrapper-time"> *@
-@*                                                     <i class="mdi mdi-clock-outline"></i> *@
-@*                                                     <span class="detail-wrapper-time-detail"> @item.DateTime</span> *@
-@*                                                 </div> *@
-@*                                             </div> *@
-@*                                         </li> *@
-@*                                     } *@
-@*                                 </ul> *@
-@*                             </div> *@
-@*                         </div> *@
-@*                     </div> *@
-@*                 </div> *@
-@*             </div> *@
-@*         </div> *@
-@*     </main> *@
+﻿@using Application.Services.FrontEnd.Blogs.Queries
+@model ResultGetBlogsDetailsFrontEndDto
+@using Application.Services.FrontEnd.Common
+@using Microsoft.AspNetCore.Http.Extensions
+@using System.Web
+@inject ISiteSetting _siteSetting;
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = Model.Blog.Title;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@section Head{
+    <link rel="stylesheet" href="~/assets/css/blog-style.css">
+    <link rel="stylesheet" href="~/blog-assets/css/responsive.css">
+
+    <meta name="description" content="@Model.Blog.SmallDescription">
+    <link rel="canonical" href="@Context.Request.Scheme://@Context.Request.Host@Context.Request.Path.Value">
+    <meta property="og:locale" content="fa_IR">
+    <meta property="og:type" content="@Model.Blog.BlogCategory.Slug">
+    <meta property="og:title" content="@Model.Blog.Title - @_siteSetting.GetSiteSetting().SiteName">
+    <meta property="og:description" content="@Model.Blog.SmallDescription">
+    <meta property="og:url" content="@Context.Request.Scheme://@Context.Request.Host@Context.Request.Path.Value">
+    <meta property="og:site_name" content="@_siteSetting.GetSiteSetting().SiteName">
+    <meta property="article:section" content="@Model.Blog.BlogCategory.Name">
+    <meta property="article:published_time" content="@Model.Blog.LocalTime">
+    <meta property="og:updated_time" content="@Model.Blog.LocalTime">
+    <meta property="og:image" content="@Context.Request.Scheme://@Context.Request.Host/@Model.Blog.ImageUrl">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@@ecofoolad">
+    <meta name="twitter:url" content="@Context.Request.Scheme://@Context.Request.Host@Context.Request.Path.Value">
+    <meta name="twitter:description" content="@Model.Blog.SmallDescription">
+    <meta name="twitter:title" content="@Model.Blog.Title - @_siteSetting.GetSiteSetting().SiteName">
+    <meta name="twitter:image" content="@Context.Request.Scheme://@Context.Request.Host/@Model.Blog.ImageUrl">
+    <meta name="twitter:creator" content="@@ecofoolad"/>
+}
+
+@section Foo{
+        <script src="~/assets/js/blog-theia-sticky-sidebar.min.js"></script>
+        <script src="~/assets/js/blog-main.js"></script>
+    <script type="application/ld+json">
+    {
+    "@@context":"https://schema.org",
+    "@@type":"@Model.Blog.BlogCategory.Slug",
+    "headline":"@Model.Blog.Title",
+    "image":{
+    "@@type":"ImageObject",
+    "url":"@Context.Request.Scheme://@Context.Request.Host/@Model.Blog.ImageUrl",
+    "height":822,
+    "width":522
+    },
+    "author":"@Model.Blog.Author",
+    "editor":"@Model.Blog.Author",
+    "genre":"@Model.Blog.Author",
+    "wordcount":2603,
+    "publisher":{
+    "@@type":"Organization",
+    "name":"@_siteSetting.GetSiteSetting().SiteName",
+    "logo":{
+    "@@type":"ImageObject",
+    "url":"@_siteSetting.GetSiteSetting().LogoImage",
+    "width":"211",
+    "height":"60"
+    }},
+    "url":"@Context.Request.Scheme://@Context.Request.Host@Context.Request.Path.Value",
+    "datePublished":"@Model.Blog.LocalTime",
+    "dateCreated":"@Model.Blog.LocalTime",
+    "dateModified":"@Model.Blog.LocalTime",
+    "description":"@Model.Blog.SmallDescription"
+    }
+    </script>
+}
+
+   <main class="pull-right main-single">
+        <div class="col-12">
+            <div class="main-aside pull-right sticky-sidebar sticky-sidebar-distant">
+                <nav>
+                    <ul class="stick-menu">
+                        <li class="stick-menu-item stick-logo">
+                            <a asp-controller="Blogs" asp-action="Index" title="بلاگ @_siteSetting.GetSiteSetting().SiteName">Blog</a>
+                        </li>
+                        @* <li class="stick-menu-item search-btn"> *@
+                        @*     <a href="#"> *@
+                        @*         <img src="assets/images/header/search-menu.png" alt="search"> *@
+                        @*     </a> *@
+                        @* </li> *@
+                        @* <li class="stick-menu-item login-popup-btn"> *@
+                        @*     <a href="#"> *@
+                        @*         <img src="assets/images/header/user.png" alt="user"> *@
+                        @*     </a> *@
+                        @* </li> *@
+                    </ul>
+                </nav>
+            </div>
+            <div class="main-content">
+                <div class="topics wrapper">
+                    <div class="col-lg-8 col-md-8 col-xs-12 pull-right">
+                        <div class="topics-content">
+                            <div class="post-module">
+                                <nav aria-label="breadcrumb">
+                                    <ol class="breadcrumb">
+                                        <li class="breadcrumb-item"><a href="/">خانه</a></li>
+                                        <li class="breadcrumb-item"><a asp-controller="Blogs" asp-action="Index">بلاگ</a></li>
+                                        <li class="breadcrumb-item">
+
+                                            <a asp-controller="Blogs"
+                                               asp-action="Category"
+                                               asp-route-category="@Model.Blog.BlogCategory.Slug.Replace(" ", "-")">
+                                                @Model.Blog.BlogCategory.Name
+                                            </a>
+                                        </li>
+                                        <li class="breadcrumb-item active" aria-current="page">@Model.Blog.Title</li>
+                                    </ol>
+                                </nav>
+                                <div class="sep"></div>
+                                <article>
+                                    <div class="post-module-title">
+                                        <h1 class="txt-entry-title">@Model.Blog.Title</h1>
+                                        @* <div class="social-act"> *@
+                                        @*     <span class="bookmark-wrapper wishlist-btn login-required"> *@
+                                        @*         <span class="social-act-txt">افزودن به لیست علاقه‌مندی ها</span> *@
+                                        @*         <i class="fa fa-bookmark-o"></i> *@
+                                        @*         <div class="social-act-sep"></div> *@
+                                        @*         <span class="popularity pull-left"> *@
+                                        @*             <span class="popularity-likes"> *@
+                                        @*                 <i class="fa fa-heart-o"></i> *@
+                                        @*             </span> *@
+                                        @*         </span> *@
+                                        @*     </span> *@
+                                        @* </div> *@
+                                    </div>
+                                    <div class="post-module-author">
+                                        <div class="user-profile-stat-wrapper">
+                                            <img src="@Model.Footers.ThumbnailLogoImage" width="35" height="35" alt="author" class="avatar">
+                                            <span class="vcard-author post-module-author-name">
+                                               @Model.Blog.Author
+                                            </span>
+                                        </div>
+                                        <span class="post-module-author-date published">
+                                            <i class="mdi mdi-clock-outline"></i>
+                                            @* @Model.Blog.DateTime *@
+                                        </span>
+                                    </div>
+                                    <div class="post-attachment">
+                                        <img src="/@Model.Blog.ImageUrl" alt="" class="post-module-img wp-post-image">
+                                    </div>
+                                    <div class="post-module-content">
+                                        <p>
+                                            @Html.Raw(Model.Blog.SmallDescription)
+                                        </p>
+                                    </div>
+                                    <div class="post-module-social">
+                                        <div class="operation">
+                                            <span class="social-networks">
+                                                <a href="#" class="icon-social icon-telegram">
+                                                    <i class="mdi mdi-telegram"></i>
+                                                </a>
+                                                <a href="#" class="icon-social icon-whatsapp">
+                                                    <i class="mdi mdi-whatsapp"></i>
+                                                </a>
+                                                <a href="#" class="icon-social icon-twitter">
+                                                    <i class="mdi mdi-twitter"></i>
+                                                </a>
+                                                <a href="#" class="icon-social icon-facebook">
+                                                    <i class="mdi mdi-facebook"></i>
+                                                </a>
+                                                <a href="#" class="icon-social icon-linkedin">
+                                                    <i class="mdi mdi-linkedin"></i>
+                                                </a>
+                                            </span>
+                                            @* <span class="post-module-social-sep d-b"></span> *@
+                                            @* <label for="#" class="check-handler post-like-button"> *@
+                                            @*     <span class="popularity"> *@
+                                            @*         <span class="popularity-likes"> *@
+                                            @*             <i class="fa fa-heart-o"></i> *@
+                                            @*             <span class="popularity-likes-num">2</span> *@
+                                            @*         </span> *@
+                                            @*     </span> *@
+                                            @* </label> *@
+                                            @* <span class="post-module-social-sep d-n"></span> *@
+                                            <!-- social-responsive -->
+                                            <div class="post-module-social-btn-res">
+                                                <i class="mdi mdi-share"></i>
+                                                <div class="dialog-info">
+                                                    <a href="#" class="icon-social-res icon-telegram">
+                                                        <i class="mdi mdi-telegram"></i>
+                                                    </a>
+                                                    <a href="#" class="icon-social-res icon-whatsapp">
+                                                        <i class="mdi mdi-whatsapp"></i>
+                                                    </a>
+                                                    <a href="#" class="icon-social-res icon-twitter">
+                                                        <i class="mdi mdi-twitter"></i>
+                                                    </a>
+                                                    <a href="#" class="icon-social-res icon-facebook">
+                                                        <i class="mdi mdi-facebook"></i>
+                                                    </a>
+                                                    <a href="#" class="icon-social-res icon-linkedin">
+                                                        <i class="mdi mdi-linkedin"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <!-- social-responsive -->
+                                            @* <span class="post-module-social-sep"></span> *@
+                                            @* <span class="post-module-social-btn"> *@
+                                            @*     <span class="popularity"> *@
+                                            @*         <span class="popularity-comment"> *@
+                                            @*             <i class="fa fa-comment-o"></i> *@
+                                            @*             <span class="popularity-likes-num">5</span> *@
+                                            @*         </span> *@
+                                            @*     </span> *@
+                                            @* </span> *@
+                                        </div>
+                                        @* <div class="operation operation-rtl"> *@
+                                        @*     <span class="post-module-social-start post-star-rating"> *@
+                                        @*         <span class="stars-wrapper"> *@
+                                        @*             <i class="fa fa-star active"></i> *@
+                                        @*             <i class="fa fa-star active"></i> *@
+                                        @*             <i class="fa fa-star active"></i> *@
+                                        @*             <i class="fa fa-star active"></i> *@
+                                        @*             <i class="fa fa-star"></i> *@
+                                        @*         </span> *@
+                                        @*     </span> *@
+                                        @*     <span class="stars-rate"> *@
+                                        @*         <span class="post-rate">۵ / <span>۵.۰</span></span> *@
+                                        @*         <small class="rating-count"> (از مجموع <span>۲</span> رای) </small> *@
+                                        @*     </span> *@
+                                        @* </div> *@
+                                    </div>
+                                    @* <div class="sep w-100"></div> *@
+                                    @* <div class="post-module-tags"> *@
+                                    @*     <span class="post-module-tags-title">برچسب‌ها : </span> *@
+                                    @*     <a href="#" rel="tag" class="post-tag post-module-tags-item item">وان پلاس</a> *@
+                                    @* </div> *@
+                                    @* <div class="sep w-100"></div> *@
+                                </article>
+                                @* <div class="comments-template"> *@
+                                @*     <div class="comment-respond"> *@
+                                @*         <strong id="reply-title" class="comment-reply-title">دیدگاه شما</strong> *@
+                                @*         <form action="#" class="comment-form focused"> *@
+                                @*             <div class="comment-form-avatar pull-right"> *@
+                                @*                 <img src="assets/images/user.png" alt="user" class="img-user"> *@
+                                @*             </div> *@
+                                @*             <div class="comment-fields"> *@
+                                @*                 <div class="input-textbox"> *@
+                                @*                     <input type="text" name="author" id="author" class="input form-control" placeholder="نام * " value="" tabindex="1"> *@
+                                @*                 </div> *@
+                                @*                 <div class="input-textbox"> *@
+                                @*                     <input type="email" name="email" id="email" class="input form-control" placeholder="ایمیل * " value="" tabindex="2"> *@
+                                @*                 </div> *@
+                                @*             </div> *@
+                                @*             <div class="comment-form-comment"> *@
+                                @*                 <textarea id="comment" name="comment" class="form-control" cols="45" rows="8" aria-required="true" placeholder="دیدگاه"></textarea> *@
+                                @*             </div> *@
+                                @*             <div class="sep w-100 mt-3 pull-right"></div> *@
+                                @*             <div class="form-submit pt-3 pull-left"> *@
+                                @*                 <input name="submit" type="submit" id="submit-comment" class="comment-submit-btn" value="ارسال دیدگاه"> *@
+                                @*             </div> *@
+                                @*         </form> *@
+                                @*     </div> *@
+                                @* </div> *@
+                            </div>
+                            <aside class="sidebar-banner">
+                                @foreach (var item in Model.BlogCategory)
+                                {
+                                    <div class="col-lg-4 col-md-4 col-xs-12 pull-right">
+                                        <div class="single-banners-widget widget-wrapper banner-widget">
+                                            <a asp-controller="Blogs"
+                                               asp-action="Category"
+                                               asp-route-category="@item.Slug.Replace(" ", "-")"
+                                               class="promotion"
+                                               title="@item.Name | @_siteSetting.GetSiteSetting().SiteName">
+                                                <img src="@item.ImageUrl" alt="@item.Name | @_siteSetting.GetSiteSetting().SiteName" class="promotion-img">
+                                            </a>
+                                        </div>
+                                    </div>
+                                }
+                            </aside>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-xs-12 pull-left sticky-sidebar">
+                        <div class="post-nav">
+                            @* <div class="post-nav-top"> *@
+                            @*     <div class="text-center"> *@
+                            @*         <div class="widget-suggestion widget card"> *@
+                            @*             <header class="card-header promo-single-headline product-header"> *@
+                            @*                 <h3 class="card-title"> *@
+                            @*                     <span class="bold">محصولات</span> *@
+                            @*                     <span>مرتبط در دیجی‌کالا</span> *@
+                            @*                 </h3> *@
+                            @*             </header> *@
+                            @*             <div id="suggestion-slider" class="owl-carousel owl-theme owl-rtl owl-loaded owl-drag"> *@
+                            @*             <div class="owl-stage-outer"> *@
+                            @*                 <div class="owl-stage" style="transform: translate3d(1369px, 0px, 0px); transition: all 0.25s ease 0s; width: 2190px;"> *@
+                            @*                     <div class="owl-item cloned" style="width: 273.75px;"> *@
+                            @*                        <div class="item"> *@
+                            @*                            <a href="#"> *@
+                            @*                                <img src="assets/images/topics/post-nav/1.jpg" class="w-100" alt=""> *@
+                            @*                            </a> *@
+                            @*                            <h3 class="product-title"> *@
+                            @*                                <a href="#">گوشی موبایل شیائومی مدل Redmi Note 8 M1908C3JG دو سیم‌ کارت ظرفیت 128 گیگابایت</a> *@
+                            @*                            </h3> *@
+                            @*                            <div class="price"> *@
+                            @*                                <span class="amount">6,899,000 *@
+                            @*                                    <span>تومان</span> *@
+                            @*                                 </span> *@
+                            @*                            </div> *@
+                            @*                         </div> *@
+                            @*                     </div> *@
+                            @*                     <div class="owl-item cloned" style="width: 273.75px;"> *@
+                            @*                         <div class="item"> *@
+                            @*                             <a href="#"> *@
+                            @*                                 <img src="assets/images/topics/post-nav/2.jpg" class="w-100" alt=""> *@
+                            @*                             </a> *@
+                            @*                             <h3 class="product-title"> *@
+                            @*                                 <a href="#">گوشی موبایل شیائومی مدل Redmi Note 8 Pro m1906g7G دو سیم‌ کارت ظرفیت 128 گیگابایت</a> *@
+                            @*                             </h3> *@
+                            @*                             <div class="price"> *@
+                            @*                                 <span class="amount">7,309,000 *@
+                            @*                                     <span>تومان</span> *@
+                            @*                                 </span> *@
+                            @*                             </div> *@
+                            @*                         </div> *@
+                            @*                     </div> *@
+                            @*                     <div class="owl-item" style="width: 273.75px;"> *@
+                            @*                         <div class="item"> *@
+                            @*                             <a href="#"> *@
+                            @*                                 <img src="assets/images/topics/post-nav/3.jpg" class="w-100" alt=""> *@
+                            @*                             </a> *@
+                            @*                             <h3 class="product-title"> *@
+                            @*                                 <a href="#">گوشی موبایل سامسونگ مدل Galaxy A10s SM-A107F/DS دو سیم کارت ظرفیت 32 گیگابایت</a> *@
+                            @*                             </h3> *@
+                            @*                             <div class="price"> *@
+                            @*                                 <span class="amount">4,299,000 *@
+                            @*                                     <span>تومان</span> *@
+                            @*                                 </span> *@
+                            @*                             </div> *@
+                            @*                         </div> *@
+                            @*                     </div> *@
+                            @*                     <div class="owl-item" style="width: 273.75px;"> *@
+                            @*                         <div class="item"> *@
+                            @*                             <a href="#"> *@
+                            @*                                 <img src="assets/images/topics/post-nav/4.jpg" class="w-100" alt=""> *@
+                            @*                             </a> *@
+                            @*                             <h3 class="product-title"> *@
+                            @*                                 <a href="#">گوشی موبایل شیائومی مدل Redmi Note 9 M2003J15SS دو سیم‌ کارت ظرفیت 64 گیگابایت</a> *@
+                            @*                             </h3> *@
+                            @*                             <div class="price"> *@
+                            @*                                 <span class="amount">6,152,000 *@
+                            @*                                     <span>تومان</span> *@
+                            @*                                 </span> *@
+                            @*                             </div> *@
+                            @*                         </div> *@
+                            @*                     </div> *@
+                            @*                     <div class="owl-item" style="width: 273.75px;"> *@
+                            @*                         <div class="item"> *@
+                            @*                             <a href="#"> *@
+                            @*                                 <img src="assets/images/topics/post-nav/5.jpg" class="w-100" alt=""> *@
+                            @*                             </a> *@
+                            @*                             <h3 class="product-title"> *@
+                            @*                                 <a href="#">گوشی موبایل سامسونگ مدل Galaxy A51 SM-A515F/DSN دو سیم کارت ظرفیت 128گیگابایت</a> *@
+                            @*                             </h3> *@
+                            @*                             <div class="price"> *@
+                            @*                                 <span class="amount">8,399,000 *@
+                            @*                                     <span>تومان</span> *@
+                            @*                                 </span> *@
+                            @*                             </div> *@
+                            @*                         </div> *@
+                            @*                     </div> *@
+                            @*                 </div> *@
+                            @*             </div> *@
+                            @*             <div class="owl-nav disabled"> *@
+                            @*                 <button type="button" role="presentation" class="owl-prev"></button> *@
+                            @*                 <button type="button" role="presentation" class="owl-next"></button> *@
+                            @*             </div> *@
+                            @*             <div class="owl-dots disabled"></div> *@
+                            @*             </div> *@
+                            @*         </div> *@
+                            @*      </div> *@
+                            @* </div> *@
+                            <div class="post-nav-body">
+                                <div class="title">
+                                    <span class="bold">مطالب</span>
+                                    <span>مرتبط</span>
+                                </div>
+                                <ul class="related-posts">
+                                    @foreach (var item in Model.RelatedBlog)
+                                    {
+                                        <li class="related-posts-item">
+                                            <a asp-controller="Blogs"
+                                              asp-action="Details"
+                                              asp-route-category="@item.BlogCategory.Slug.Replace(" ","-")"
+                                              asp-route-title="@item.Title.Replace(" ","-")"
+                                               class="image-wrapper pull-right">
+                                                <img src="/@item.ImageUrl" alt="@item.Title" class="image-wrapper-img wp-post-image" width="60" height="60">
+                                            </a>
+                                            <div class="detail-wrapper">
+                                                <a asp-controller="Blogs"
+                                                  asp-action="Details"
+                                                  asp-route-category="@item.BlogCategory.Slug.Replace(" ","-")"
+                                                  asp-route-title="@item.Title.Replace(" ","-")"
+                                                   title="@item.Title"
+                                                   class="detail-wrapper-title">
+                                                    @item.Title
+                                                </a>
+                                                <div class="detail-wrapper-time">
+                                                    <i class="mdi mdi-clock-outline"></i>
+                                                    @* <span class="detail-wrapper-time-detail"> @item.DateTime</span> *@
+                                                </div>
+                                            </div>
+                                        </li>
+                                    }
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>

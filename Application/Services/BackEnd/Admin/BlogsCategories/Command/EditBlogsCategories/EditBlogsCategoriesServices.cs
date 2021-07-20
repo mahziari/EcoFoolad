@@ -1,10 +1,15 @@
 ﻿ 
 using System;
+using System.Collections.Generic;
 using Application.Interfaces.Contexts;
 using Application.Services.BackEnd.Admin.Blogs.Command.EditBlogs;
 using  Application.Services.BackEnd.Admin.BlogsCategories.Command.CreateBlogsCategories;
+using Application.Services.BackEnd.Admin.BlogsCategories.Queries.GetEditBlogsCategories;
 using AutoMapper;
+using Common.Utilities;
+using Domain.Entities;
 using  Domain.Entities.IdealCrm;
+using Microsoft.AspNetCore.Http;
 
 namespace  Application.Services.BackEnd.Admin.BlogsCategories.Command.EditBlogsCategories
 {
@@ -12,42 +17,31 @@ namespace  Application.Services.BackEnd.Admin.BlogsCategories.Command.EditBlogsC
     {
         private readonly ICustomDbContext _customDbContext;
         private readonly IMapper _mapper;
+        private readonly IHttpContextAccessor _httpContext;
 
-        public EditBlogsCategoriesServices(ICustomDbContext customDbContext, IMapper mapper)
+        public EditBlogsCategoriesServices(ICustomDbContext customDbContext, IMapper mapper, IHttpContextAccessor httpContext)
         {
             _customDbContext = customDbContext;
             _mapper = mapper;
+            _httpContext = httpContext;
         }
-        public ResultEditBlogsCategoriesDto Execute(CreateBlogsCategoriesServicesDto createBlogsCategoriesServicesDto,
-            CrmCmsNewsGroups crmCmsNewsGroups, int id)
+        public BaseDto<BlogCategoryDto> Execute(BlogCategoryDto blogsCategoryDto)
         {
-            var blogCategoryModel = _customDbContext.BlogCategories.Find(id);
+            blogsCategoryDto.LocalTime = DateTime.Now.ToString("s") + "+" + TimeZoneInfo.Local.BaseUtcOffset.ToHHMM();
+            blogsCategoryDto.RegisterUserId=ClaimUtility.GetUserId(_httpContext.HttpContext?.User);
+            blogsCategoryDto.IsActive = true;
             
-            var blogCategory = _mapper.Map<EditBlogsServicesDto>(blogCategoryModel);
+            
+            var blogCategoryModel = _customDbContext.BlogCategories.Find(blogsCategoryDto.Id);
+            _mapper.Map(blogsCategoryDto,blogCategoryModel);
             _customDbContext.SaveChanges();
             
-
-            return new ResultEditBlogsCategoriesDto
-            {
-                IsSuccess = true,
-                Message = "دسته بندی بلاگ با موفقیت ویرایش شد"
-            };
+            return new BaseDto<BlogCategoryDto>
+            (
+                true,
+                new List<string> {"دسته بندی بلاگ با موفقیت ویرایش شد"},
+                _mapper.Map<BlogCategoryDto>(blogCategoryModel)
+            );
         }
-    }
-    
-    public class BlogCategoryDto
-    {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string Slug { get; set; }
-        public string SmallDescription { get; set; }
-        public bool IsActive { get; set; }
-        public string RegisterUserId { get; set; }
-        public string Color { get; set; }
-        public string FaIcon { get; set; }
-        public string LocalTime { get; set; }
-        public string ImageUrl { get; set; }
-        public DateTime CreatedAt { get; set; }
-        public DateTime UpdatedAt { get; set; }
     }
 }

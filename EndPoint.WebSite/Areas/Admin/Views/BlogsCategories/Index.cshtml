@@ -1,6 +1,6 @@
 ﻿@using Microsoft.AspNetCore.Authorization
-@using   Application.Services.BackEnd.Admin.BlogsCategories.Queries
-@model   Application.Services.BackEnd.Admin.BlogsCategories.Queries.GetIndexBlogsCategories.ResultGetIndexBlogsCategoriesDto
+@using Application.Services.BackEnd.Admin.BlogsCategories
+@model IEnumerable<BlogCategoryDto>
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 @inject IAuthorizationService AuthorizationService;
 @{
@@ -44,7 +44,6 @@
         <div class="content-header row">
         </div>
         <div class="content-body">
-
             @if (TempData["IsSuccess"] != null)
             {
                 @if (Convert.ToBoolean(TempData["IsSuccess"]) == true)
@@ -84,7 +83,7 @@
                                         </thead>
                                         <tbody>
                                         @{ var counter = 0; }
-                                        @foreach (var item in Model.BlogsCategories)
+                                        @foreach (var item in Model)
                                         {
                                             counter++;
                                             <tr>
@@ -99,27 +98,26 @@
                                                     @item.Name
                                                 </td>
 
-                                                
+
                                                 <td>
-                                                   
+
                                                     <div style="width: 20px;height: 20px;background: @item.Color ;"></div>
                                                 </td>
 
-                                                
+
                                                 <td>
                                                     <i class="@item.FaIcon"></i>
                                                 </td>
 
-                                                
 
                                                 <td class="tdDisplay">
-                                                       @if (AuthorizationService.AuthorizeAsync(User, "BlogCategoriesEdit").Result.Succeeded)
-                                                                                                            {
-                                                    <a asp-area="Admin" asp-controller="BlogsCategories" asp-action="Edit" asp-route-id="@item.Id" title="ویرایش">
-                                                        <span class="badge badge-warning d-inline-flex align-items-center mr-1 mb-1">
-                                                            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-                                                        </span>
-                                                    </a>
+                                                    @if (AuthorizationService.AuthorizeAsync(User, "BlogCategoriesEdit").Result.Succeeded)
+                                                    {
+                                                        <a asp-area="Admin" asp-controller="BlogsCategories" asp-action="Edit" asp-route-id="@item.Id" title="ویرایش">
+                                                            <span class="badge badge-warning d-inline-flex align-items-center mr-1 mb-1">
+                                                                <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                                                            </span>
+                                                        </a>
                                                     }
 
                                                     @if (AuthorizationService.AuthorizeAsync(User, "BlogCategoriesDelete").Result.Succeeded)

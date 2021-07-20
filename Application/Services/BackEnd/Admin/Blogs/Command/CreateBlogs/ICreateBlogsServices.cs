@@ -1,7 +1,9 @@
-﻿namespace  Application.Services.BackEnd.Admin.Blogs.Command.CreateBlogs
+﻿using Domain.Entities;
+
+namespace  Application.Services.BackEnd.Admin.Blogs.Command.CreateBlogs
 {
     public interface ICreateBlogsServices
     {
-        ResultCreateBlogsDto Execute(CreateBlogsServicesDto createBlogsServicesDto);
+        BaseDto Execute(BlogDto blogDto);
     }
 }

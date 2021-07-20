@@ -1,8 +1,11 @@
 ﻿
+using Application.Services.BackEnd.Admin.BlogsCategories.Queries.GetEditBlogsCategories;
+using Domain.Entities;
+
 namespace  Application.Services.BackEnd.Admin.BlogsCategories.Command.CreateBlogsCategories
 {
     public interface ICreateBlogsCategoriesServices
     {
-        ResultCreateBlogsCategoriesDto Execute(CreateBlogsCategoriesServicesDto createBlogsCategoriesServicesDto);
+        BaseDto<BlogCategoryDto> Execute(BlogCategoryDto blogsCategoryDto);
     }
 }

@@ -1,9 +1,10 @@
-﻿using  Domain.Entities.IdealCrm;
+﻿using Domain.Entities;
+using  Domain.Entities.IdealCrm;
 
 namespace  Application.Services.BackEnd.Admin.Blogs.Command.DeleteBlogs
 {
     public interface IDeleteBlogsServices
     {
-        ResultDeleteBlogDto Execute(int id);
+        BaseDto Execute(int id);
     }
 }

@@ -1,6 +1,9 @@
 ﻿ 
 
+using System.Collections.Generic;
 using Application.Interfaces.Contexts;
+using Application.Services.BackEnd.Admin.BlogsCategories.Queries.GetEditBlogsCategories;
+using Domain.Entities;
 
 namespace  Application.Services.BackEnd.Admin.BlogsCategories.Queries.GetCreateBlogsCategories
 {
@@ -14,20 +17,9 @@ namespace  Application.Services.BackEnd.Admin.BlogsCategories.Queries.GetCreateB
         }
 
 
-        public ResultGetCreateBlogsCategoriesDto Execute()
+        public BlogCategoryDto Execute()
         {
-            // var blogsCategories = _context.CrmCmsNewsGroups
-            //     .Select(g=>new GetBlogsCategoriesGroupsDto
-            //     {
-            //         BlogsGroupId = g.NewsGroupId,
-            //         GroupName = g.GroupName,
-            //     }).ToList();
-            //
-
-            return new ResultGetCreateBlogsCategoriesDto
-            {
-                // BlogsCategories = blogsCategories,
-            };
+            return new();
         }
     }
 }

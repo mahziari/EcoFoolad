@@ -68,6 +68,8 @@ namespace  Persistence.Contexts
             builder.Entity<Product>().HasQueryFilter(m => EF.Property<bool>(m, "IsRemoved") == false);
             builder.Entity<BasketItem>().HasQueryFilter(m => EF.Property<bool>(m, "IsRemoved") == false);
             builder.Entity<Basket>().HasQueryFilter(m => EF.Property<bool>(m, "IsRemoved") == false);
+            builder.Entity<Blog>().HasQueryFilter(m => EF.Property<bool>(m, "IsRemoved") == false);
+            builder.Entity<BlogCategory>().HasQueryFilter(m => EF.Property<bool>(m, "IsRemoved") == false);
 
             builder.Entity<Order>().OwnsOne(o => o.Address);
             
@@ -91,9 +93,7 @@ namespace  Persistence.Contexts
         {
             var modifiedEntries = ChangeTracker.Entries()
                 .Where(p => p.State == EntityState.Modified ||
-                p.State == EntityState.Added ||
-                p.State == EntityState.Deleted
-                );
+                p.State == EntityState.Added || p.State == EntityState.Deleted);
             
             foreach (var item in modifiedEntries)
             {
@@ -101,8 +101,8 @@ namespace  Persistence.Contexts
 
                 var inserted = entityType.FindProperty("InsertTime");
                 var updated = entityType.FindProperty("UpdateTime");
-                var RemoveTime = entityType.FindProperty("RemoveTime");
-                var IsRemoved = entityType.FindProperty("IsRemoved");
+                var removeTime = entityType.FindProperty("RemoveTime");
+                var isRemoved = entityType.FindProperty("IsRemoved");
                 
                 if (item.State == EntityState.Added && inserted != null)
                 {
@@ -113,7 +113,7 @@ namespace  Persistence.Contexts
                     item.Property("UpdateTime").CurrentValue = DateTime.Now;
                 }
 
-                if (item.State == EntityState.Deleted && RemoveTime != null && IsRemoved != null)
+                if (item.State == EntityState.Deleted && removeTime != null && isRemoved != null)
                 {
                     item.Property("RemoveTime").CurrentValue = DateTime.Now;
                     item.Property("IsRemoved").CurrentValue = true;

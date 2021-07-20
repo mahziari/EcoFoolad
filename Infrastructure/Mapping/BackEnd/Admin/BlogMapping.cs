@@ -1,4 +1,5 @@
-﻿using Application.Services.BackEnd.Admin.Blogs.Command.CreateBlogs;
+﻿using Application.Services.BackEnd.Admin.Blogs;
+using Application.Services.BackEnd.Admin.Blogs.Command.CreateBlogs;
 using Application.Services.BackEnd.Admin.Blogs.Command.EditBlogs;
 using Application.Services.BackEnd.Admin.Blogs.Queries.GetIndexBlogs;
 using Application.Services.FrontEnd.Blogs.Queries;
@@ -11,10 +12,8 @@ namespace Infrastructure.Mapping.BackEnd.Admin
     {
         public BlogMappingProfile()
         {
-            CreateMap<CreateBlogsServicesDto, Blog>();
-            CreateMap<Blog, GetIndexBlogsDto>();
-            CreateMap<Blog, EditBlogsServicesDto>().ReverseMap();
-            CreateMap<BlogCategory, CategoryItemDto>().ReverseMap();
+          
+            // CreateMap<BlogCategory, CategoryItemDto>().ReverseMap();
 
         }
     }

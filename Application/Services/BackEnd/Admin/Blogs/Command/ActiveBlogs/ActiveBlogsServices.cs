@@ -1,7 +1,10 @@
 ﻿ 
 
+using System.Collections.Generic;
 using Application.Interfaces.Contexts;
+using Application.Services.BackEnd.Admin.Company.Command;
 using AutoMapper;
+using Domain.Entities;
 
 namespace  Application.Services.BackEnd.Admin.Blogs.Command.ActiveBlogs
 {
@@ -13,34 +16,34 @@ namespace  Application.Services.BackEnd.Admin.Blogs.Command.ActiveBlogs
             _customDbContext = customDbContext;
         }
 
-        public ResultActiveBlogtDto Execute(int id)
+        public BaseDto Execute(int id)
         {
             var blog = _customDbContext.Blogs.Find(id);
 
             if (blog == null)
             {
-                return new ResultActiveBlogtDto()
-                {
-                    IsSuccess = false,
-                    Message = "یافت نشد"
-                };
+                return new BaseDto
+                (
+                    true, 
+                    new List<string> {"یافت نشد"}
+                );
             }
 
             if (blog.IsVerified == false)
             {
                 blog.IsVerified = true;  
             }
-            else if(blog.IsVerified == true)
+            else if(blog.IsVerified)
             {
                 blog.IsVerified = false;
             }
             _customDbContext.SaveChanges();
-
-            return new ResultActiveBlogtDto()
-            {
-                IsSuccess = true,
-                Message = "تغییر وضعیت با موفقیت انجام شد"
-            };
+            
+            return new BaseDto
+            (
+                true,
+                new List<string> {"تغییر وضعیت با موفقیت انجام شد"}
+            );
         }
 
     }

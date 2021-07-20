@@ -1,6 +1,9 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using Application.Interfaces.Contexts;
+using Application.Services.BackEnd.Admin.Blogs.Queries.GetCreateBlogs;
 using AutoMapper;
+using Domain.Entities;
 using Microsoft.EntityFrameworkCore;
  
 
@@ -18,36 +21,20 @@ namespace  Application.Services.BackEnd.Admin.Blogs.Queries.GetDetailsBlogs
         }
 
 
-        public ResultGetDetailsBlogsDto Execute(int id)
+        public BaseDto<BlogDto>  Execute(int id)
         {
-            // var blog = _customDbContext.Blogs
-            //     .Where(n => n.NewsId == id)
-            //     .Include(n=>n.NewsGroup)
-            //     .Select(n => new GetDetailsBlogsDto
-            //     {
-            //         NewsGroupName = n.NewsGroup.GroupName,
-            //         Title = n.Title,
-            //         NewsSummery=n.NewsSummery,
-            //         RegisterDatePersian = n.FirstRegisterDatePersian,
-            //         IsVerified = n.IsVerified,
-            //         HeadLine=n.HeadLine,
-            //         NewsBody = n.NewsBody,
-            //         Position=n.Position,
-            //     }).FirstOrDefault();
-            
             var blogModel = _customDbContext.Blogs
                 .Include(s => s.BlogCategory)
-                .Where(g => g.IsVerified)
-                .Where(s => s.Position == 0)
-                .Where(s => s.RequestToAuthorFav!=true)
-                .OrderByDescending(s => s.Id)
-                .Take(18);
-            var blog = _mapper.Map<GetDetailsBlogsDto>(blogModel);
+                .Where(s => s.Id == id);
+              
+            var blog = _mapper.Map<BlogDto>(blogModel);
 
-            return new ResultGetDetailsBlogsDto
-            {
-                Blog = blog,
-            };
+            return new BaseDto<BlogDto>
+            (
+                true,
+                null,
+                blog
+            );
         }
     }
 }

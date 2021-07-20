@@ -1,7 +1,9 @@
-﻿namespace  Application.Services.BackEnd.Admin.Blogs.Command.ActiveBlogs
+﻿using Domain.Entities;
+
+namespace  Application.Services.BackEnd.Admin.Blogs.Command.ActiveBlogs
 {
     public interface IActiveBlogsServices
     {
-        ResultActiveBlogtDto Execute(int id);
+        BaseDto Execute(int id);
     }
 }

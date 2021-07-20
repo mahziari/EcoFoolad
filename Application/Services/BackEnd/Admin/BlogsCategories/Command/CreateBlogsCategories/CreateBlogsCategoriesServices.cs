@@ -1,8 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Net.Http;
 using Application.Interfaces.Contexts;
+using Application.Services.BackEnd.Admin.BlogsCategories.Queries.GetEditBlogsCategories;
 using AutoMapper;
 using Common.Utilities;
+using Domain.Entities;
 using Domain.Entities.Blogs;
 using  Domain.Entities.IdealCrm;
 using Microsoft.AspNetCore.Http;
@@ -23,22 +26,23 @@ namespace  Application.Services.BackEnd.Admin.BlogsCategories.Command.CreateBlog
         }
 
 
-        public ResultCreateBlogsCategoriesDto Execute(CreateBlogsCategoriesServicesDto createBlogsCategoriesServicesDto)
+        public BaseDto<BlogCategoryDto> Execute(BlogCategoryDto blogsCategoryDto)
         {
-            var blogCategories = _mapper.Map<BlogCategory>(createBlogsCategoriesServicesDto);
+            blogsCategoryDto.LocalTime = DateTime.Now.ToString("s") + "+" + TimeZoneInfo.Local.BaseUtcOffset.ToHHMM();
+            blogsCategoryDto.RegisterUserId = ClaimUtility.GetUserId(_httpContext.HttpContext?.User);
+            blogsCategoryDto.IsActive = true;
             
-            blogCategories.LocalTime = DateTime.Now.ToString("s") + "+" + TimeZoneInfo.Local.BaseUtcOffset.ToHHMM();
-            blogCategories.RegisterUserId = ClaimUtility.GetUserId(_httpContext.HttpContext?.User);
-            blogCategories.IsActive = true;
+            var blogCategories = _mapper.Map<BlogCategory>(blogsCategoryDto);
             
             _customDbContext.BlogCategories.Add(blogCategories);
             _customDbContext.SaveChanges();
 
-            return new ResultCreateBlogsCategoriesDto
-            {
-                IsSuccess = true,
-                Message = "دسته بندی بلاگ با موفقیت اضافه شد"
-            };
+            return new BaseDto<BlogCategoryDto>
+            (
+                true,
+                new List<string> {"دسته بندی بلاگ با موفقیت اضافه شد"},
+                _mapper.Map<BlogCategoryDto>(blogCategories)
+            );
 
         }
     }

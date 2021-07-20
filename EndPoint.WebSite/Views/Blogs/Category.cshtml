@@ -86,14 +86,14 @@
                     <div class="col-lg-12 col-xs-12 pr-0 pl-0 pull-right">
                         <div class="topics-content">
                             <section class="masonry-gallery">
-                                @foreach (var item in Model.CatrgoriesBlogs)
+                                @foreach (var item in Model.Blogs)
                                 {
                                     <div class="col-lg-3 col-md-3 col-xs-12 pull-right">
                                         <div class="masonry-gallery-item">
                                             <div class="image">
                                                 <a asp-controller="Blogs"
                                                    asp-action="Details"
-                                                   asp-route-category="@item.Slug.Replace(" ","-")"
+                                                   asp-route-category="@item.BlogCategory.Slug.Replace(" ","-")"
                                                    asp-route-title="@item.Title.Replace(" ","-")" class="image-linker">
                                                     <span class="image-mask"></span>
                                                     <img src="/@item.ImageUrl" alt="/@item.Title" class="image-img wp-post-image">
@@ -126,7 +126,7 @@
                                                 <div class="user-profile-stat-wrapper mr-0">
                                                     <img src="@Model.Footers.ThumbnailLogoImage" class="avatar">
                                                     <span class="item-details-author">
-
+                                                        @item.Author
                                                     </span>
                                                 </div>
                                                 <span class="popularity-time-to-read pull-left">

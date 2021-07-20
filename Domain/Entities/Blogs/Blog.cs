@@ -3,6 +3,7 @@ using Domain.Entities.Attributes;
 
 namespace Domain.Entities.Blogs
 {
+    [Auditable]
     public class Blog
     {
         public int Id { get; set; }
@@ -21,7 +22,6 @@ namespace Domain.Entities.Blogs
         public bool IsVideoClip { get; set; }
         public string VideoClipDuration { get; set; }
         public string Author { get; set; }
-
         public virtual BlogCategory BlogCategory { get; set; }
     }
 }

@@ -28,8 +28,12 @@ namespace Persistence.Config.SqlServer.Blog
             builder.Property<string>("Author")
                 .HasColumnType("nvarchar(200)");
             
-            builder.Property<string>("ImageUrl")
-                .HasColumnType("nvarchar(MAX)");
+            builder.Property<string>("Author")
+                .HasColumnType("nvarchar(200)");
+            
+            builder.Property<string>("VideoClipDuration")
+                .HasColumnType("nvarchar(10)")
+                .IsRequired(false);
            
             builder.Property<int>("VisitCount")
                 .HasDefaultValue(0);

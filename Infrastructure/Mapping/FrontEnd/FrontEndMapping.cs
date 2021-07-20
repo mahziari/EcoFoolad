@@ -20,7 +20,7 @@ namespace Infrastructure.Mapping.FrontEnd
             CreateMap<Footer, FooterFrontEndDto>().ReverseMap();
             CreateMap<Footer, SiteSettingFrontEndDto>();
             CreateMap<Blog, GetBlogsDto>();
-            CreateMap<BlogCategory, GetBlogCategoriesDto>();
+            CreateMap<BlogCategory, GetBlogCategoryDto>();
            
         }
     }

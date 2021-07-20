@@ -7,7 +7,7 @@ using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 
 
-namespace  Application.Services.BackEnd.Admin.BlogsCategories.Queries.GetIndexBlogsCategories
+namespace Application.Services.BackEnd.Admin.BlogsCategories.Queries.GetIndexBlogsCategories
 {
     public class GetIndexBlogsCategoriesServices : IGetIndexBlogsCategoriesServices
     {
@@ -21,17 +21,14 @@ namespace  Application.Services.BackEnd.Admin.BlogsCategories.Queries.GetIndexBl
         }
 
 
-        public ResultGetIndexBlogsCategoriesDto Execute()
+        public List<BlogCategoryDto> Execute()
         {
             var blogsCategoriesModel = _customDbContext.BlogCategories
                 .Include(s => s.Blog)
                 .OrderByDescending(s => s.Id);
-            var blogsCategories = _mapper.Map<List<GetIndexBlogsCategoriesDto>>(blogsCategoriesModel);
-            
-            return new ResultGetIndexBlogsCategoriesDto
-            {
-                BlogsCategories = blogsCategories,
-            };
+            var blogsCategories = _mapper.Map<List<BlogCategoryDto>>(blogsCategoriesModel);
+
+            return blogsCategories;
         }
     }
 }

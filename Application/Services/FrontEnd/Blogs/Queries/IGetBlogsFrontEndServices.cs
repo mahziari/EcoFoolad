@@ -56,45 +56,18 @@ namespace Application.Services.FrontEnd.Blogs.Queries
                 .Where(s => s.RequestToAuthorFav)
                 .OrderByDescending(s => s.Id);
             var blogsAuthorFav = _mapper.Map<List<GetBlogsDto>>(blogsAuthorFavModel);
-
             
-            // var blogsLeftPanelMostVisited = _customDbContext.BlogCategories
-            //     .OrderByDescending(s => s.Blog.Sum(crmCmsNews => crmCmsNews.VisitCount))
-            //     .Select(s => new GetMostVisitedGroupBlogsDto
-            //     {
-            //         BlogCategoryId = s.Id,
-            //         BlogCategoryName = s.Name,
-            //         BlogCategorySlug = s.Slug,
-            //         MostVisitedBlogs = s.Blog
-            //             .Where(g => g.IsVerified)
-            //             .Where(s => s.Position == 0)
-            //             .Where(s => s.RequestToAuthorFav!=true)
-            //             .OrderByDescending(g => g.VisitCount)
-            //             .Select(g => new GetBlogsDto
-            //             {
-            //                 Id = g.Id,
-            //                 BlogCategoryId = g.BlogCategoryId,
-            //                 BlogCategoryName= s.Name,
-            //                 BlogCategorySlug = s.Slug,
-            //                 ImageUrl = g.ImageUrl,
-            //                 Title = g.Title,
-            //                 SmallDescription = g.SmallDescription,
-            //                 // InsertTime =s.InsertTime.ToPersianDateTime().ToString("yyyy/MM/d"),
-            //                 IsVerified = g.IsVerified,
-            //                 Position = g.Position,
-            //             }).Take(4).ToList(),
-            //     }).Take(3).ToList();
             
             
             var blogsLeftPanelMostVisitedModel = _customDbContext.BlogCategories
                 .Include(s=>s.Blog)
                 .OrderByDescending(s => s.Blog.Sum(crmCmsNews => crmCmsNews.VisitCount))
                 .Take(3);
-            var blogsLeftPanelMostVisited = _mapper.Map<List<GetBlogCategoriesDto>>(blogsLeftPanelMostVisitedModel);
+            var blogsLeftPanelMostVisited = _mapper.Map<List<GetBlogCategoryDto>>(blogsLeftPanelMostVisitedModel);
             
 
             var blogsGroupModel = _customDbContext.BlogCategories;
-            var blogsGroup = _mapper.Map<List<GetBlogCategoriesDto>>(blogsGroupModel);
+            var blogsGroup = _mapper.Map<List<GetBlogCategoryDto>>(blogsGroupModel);
 
             var footers = _customDbContext.Footers.SingleOrDefault();
 
@@ -115,8 +88,8 @@ namespace Application.Services.FrontEnd.Blogs.Queries
         public List<GetBlogsDto> Blogs { get; set; }
         public List<GetBlogsDto> BlogsFav { get; set; }
         public List<GetBlogsDto> BlogsAuthorFav { get; set; }
-        public List<GetBlogCategoriesDto> BlogsLeftPanelMostVisited { get; set; }
-        public List<GetBlogCategoriesDto> BlogsGroup { get; set; }
+        public List<GetBlogCategoryDto> BlogsLeftPanelMostVisited { get; set; }
+        public List<GetBlogCategoryDto> BlogsGroup { get; set; }
         public Footer Footers { get; set; }
     }
 
@@ -139,12 +112,12 @@ namespace Application.Services.FrontEnd.Blogs.Queries
         public bool IsVideoClip { get; set; }
         public string VideoClipDuration { get; set; }
         public string Author { get; set; }
-        public DateTime CreatedAt { get; set; }
-        public DateTime UpdatedAt { get; set; }
+        public DateTime InsertTime { get; set; }
+        public DateTime UpdateTime { get; set; }
         public BlogCategory BlogCategory { get; set; }
     }
 
-    public class GetBlogCategoriesDto
+    public class GetBlogCategoryDto
     {
         public int Id { get; set; }
         public string Name { get; set; }
@@ -156,8 +129,8 @@ namespace Application.Services.FrontEnd.Blogs.Queries
         public string FaIcon { get; set; }
         public string LocalTime { get; set; }
         public string ImageUrl { get; set; }
-        public DateTime CreatedAt { get; set; }
-        public DateTime UpdatedAt { get; set; }
+        public DateTime InsertTime { get; set; }
+        public DateTime UpdateTime { get; set; }
         public List<Blog> Blog { get; set; }
     }
 }

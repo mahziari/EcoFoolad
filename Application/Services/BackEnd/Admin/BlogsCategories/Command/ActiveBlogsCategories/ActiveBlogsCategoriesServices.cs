@@ -1,6 +1,9 @@
 ﻿ 
 
+using System.Collections.Generic;
 using Application.Interfaces.Contexts;
+using Application.Services.BackEnd.Admin.BlogsCategories.Queries.GetEditBlogsCategories;
+using Domain.Entities;
 
 namespace  Application.Services.BackEnd.Admin.BlogsCategories.Command.ActiveBlogsCategories
 {
@@ -13,34 +16,36 @@ namespace  Application.Services.BackEnd.Admin.BlogsCategories.Command.ActiveBlog
             _customDbContext = customDbContext;
         }
 
-        public ResultActiveBlogsCategoriestDto Execute(int id)
+        public BaseDto<BlogCategoryDto> Execute(int id)
         {
             var blog = _customDbContext.Blogs.Find(id);
 
             if (blog == null)
             {
-                return new ResultActiveBlogsCategoriestDto()
-                {
-                    IsSuccess = false,
-                    Message = "یافت نشد"
-                };
+                return new BaseDto<BlogCategoryDto>
+                (
+                    false,
+                    new List<string> {"یافت نشد"},
+                    null
+                );
             }
 
             if (blog.IsVerified == false)
             {
                 blog.IsVerified = true;  
             }
-            else if(blog.IsVerified == true)
+            else if(blog.IsVerified)
             {
                 blog.IsVerified = false;
             }
             _customDbContext.SaveChanges();
 
-            return new ResultActiveBlogsCategoriestDto()
-            {
-                IsSuccess = true,
-                Message = "تغییر وضعیت با موفقیت انجام شد"
-            };
+            return new BaseDto<BlogCategoryDto>
+            (
+                false,
+                new List<string> {"تغییر وضعیت با موفقیت انجام شد"},
+                null
+            );
         }
 
     }

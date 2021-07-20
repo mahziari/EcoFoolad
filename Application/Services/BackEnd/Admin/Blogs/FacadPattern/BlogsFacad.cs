@@ -43,7 +43,7 @@ namespace Application.Services.BackEnd.Admin.Blogs.FacadPattern
 
         public IGetCreateBlogsServices GetCreateBlogsServices
         {
-            get { return _getCreateBlogsServices ??= new GetCreateBlogsServices(_customDbContext); }
+            get { return _getCreateBlogsServices ??= new GetCreateBlogsServices(_customDbContext,_mapper); }
         }
 
 
@@ -75,7 +75,7 @@ namespace Application.Services.BackEnd.Admin.Blogs.FacadPattern
 
         public IEditBlogsServices EditBlogsServices
         {
-            get { return _editBlogsServices ??= new EditBlogsServices(_environment, _mapper, _customDbContext); }
+            get { return _editBlogsServices ??= new EditBlogsServices(_environment, _mapper, _customDbContext,_httpContext); }
         }
 
 

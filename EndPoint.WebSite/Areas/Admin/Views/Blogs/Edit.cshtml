@@ -1,5 +1,5 @@
-﻿@using  Application.Services.BackEnd.Admin.Blogs.Queries.GetEditBlogs
-@model ResultGetEditBlogsDto
+﻿@using Application.Services.BackEnd.Admin.Blogs.Queries.GetEditBlogs
+@model GetEditBlogsDto
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 @{
     ViewData["Title"] = " محصول جدید ";
@@ -37,7 +37,7 @@
 }
 
 @Html.ValidationSummary(true)
-@Html.HiddenFor(model => model.Blog.Id)
+@Html.HiddenFor(model => model.Id)
 <div class="app-content content">
     <div class="content-overlay"></div>
     <div class="content-wrapper">
@@ -45,10 +45,10 @@
         <div class="content-body">
             <!-- app invoice View Page -->
 
-            <form asp-area="Admin" 
+            <form asp-area="Admin"
                   asp-controller="Blogs"
                   asp-action="Edit"
-                  asp-route-id="@Model.Blog.Id" 
+                  asp-route-id="@Model.Id"
                   method="post" enctype="multipart/form-data">
                 <section class="invoice-edit-wrapper">
 
@@ -63,42 +63,43 @@
                                         <div class="row my-2 py-50">
                                             <div class="col-sm-4 col-12 order-2 order-sm-1">
                                                 <h6 asp-for="Title" class="text-primary">عنوان بلاگ: <b class="text-danger h3">*</b></h6>
-                                                <input asp-for="Title" value="@Model.Blog.Title" type="text" class="form-control" placeholder="عنوان را وارد کنید">
-                                                <span asp-validation-for="Title" class="text-danger"></span>
+                                                <input asp-for="@Model.Title" type="text" class="form-control" placeholder="عنوان را وارد کنید">
+                                                <span asp-validation-for="@Model.Title" class="text-danger"></span>
                                             </div>
 
                                             <div class="col-md-4 col-12 order-2 order-sm-1">
                                                 <h6 class="text-primary"> نوع بلاگ:<b class="text-danger h3">*</b></h6>
                                                 <div class="form-group">
-                                                    <select class="select2 form-control" asp-for="BlogCategoryId">
-                                                        <option value="@Model.Blog.BlogCategoryId">@Model.Blog.BlogCategory.Name </option>
-                                                        @foreach (var item in Model.BlogsGroup)
+                                                    <select class="select2 form-control" asp-for="@Model.BlogCategoryId">
+                                                        <option value="@Model.BlogCategoryId">@Model.BlogCategory.Name</option>
+                                                        @foreach (var item in Model.BlogCategories)
                                                         {
-                                                            <option value="@item.Id">@item.Name </option>
+                                                            <option  value="@item.Id" >@item.Name </option>
                                                         }
                                                     </select>
-                                                    <span asp-validation-for="BlogCategoryId" class="text-danger"></span>
+                                                    <span asp-validation-for="@Model.BlogCategoryId" class="text-danger"></span>
                                                 </div>
                                             </div>
 
 
                                             <div class="col-md-4 col-12">
                                                 <div class="card">
-                                                    <h6 class="text-primary"> عکس بلاگ:<b class="text-danger h3">*</b></h6>
+                                                    <h6 class="text-primary"> عکس بلاگ:<b class="text-danger h3"></b></h6>
                                                     <div class="col-md-12 mb-1">
                                                         <fieldset>
                                                             <div class="input-group">
                                                                 @* <div class="input-group-prepend"> *@
                                                                 @*     <span class="input-group-text" id="inputGroupFileAddon01">Upload</span> *@
                                                                 @* </div> *@
-                                                                <div class="custom-file">u
-                                                                    <input name="Images" type="file" multiple class="custom-file-input" aria-describedby="inputGroupFileAddon01">
+                                                                <div class="custom-file">
+                                                                    <input asp-for="@Model.ImageUrl" type="text" hidden>
+                                                                    <input name="Image" multiple type="file" class="custom-file-input" aria-describedby="inputGroupFileAddon01">
                                                                     <label class="custom-file-label"> انتخاب فایل</label>
-                                                                    
-                                                                    
-                                                                    @* <input asp-for="Images" type="file" multiple class="custom-file-input" aria-describedby="inputGroupFileAddon01"> *@
-                                                                    @* <label asp-for="Images" class="custom-file-label"> انتخاب فایل</label> *@
-                                                                    @* <span asp-validation-for="Images" class="text-danger"></span> *@
+
+
+                                                                    @* <input asp-for="Image" type="file" multiple class="custom-file-input" aria-describedby="inputGroupFileAddon01"> *@
+                                                                    @* <label asp-for="Image" class="custom-file-label"> انتخاب فایل</label> *@
+                                                                    @* <span asp-validation-for="Image" class="text-danger"></span> *@
                                                                 </div>
                                                             </div>
                                                         </fieldset>
@@ -108,14 +109,15 @@
 
                                             <div class="col-sm-12 col-12 order-2 order-sm-1">
                                                 <h6 asp-for="SmallDescription" class="text-primary">توضیح کوتاه بلاگ: <b class="text-danger h3">*</b></h6>
-                                                <input asp-for="SmallDescription" value="@Model.Blog.SmallDescription" type="text" class="form-control" placeholder="عنوان را وارد کنید">
-                                                <span asp-validation-for="SmallDescription" class="text-danger"></span>
+                                                <input asp-for="@Model.SmallDescription" type="text" class="form-control" placeholder="عنوان را وارد کنید">
+                                                <span asp-validation-for="@Model.SmallDescription" class="text-danger"></span>
                                             </div>
                                             <div class="col-md-4 col-4 order-2 order-sm-1">
                                                 <h6 class="text-primary"> موقعیت بلاگ:<b class="text-danger h3"></b></h6>
                                                 <div class="form-group">
-                                                    <select class="select2 form-control" asp-for="Position">
-                                                        <option value="@Model.Blog.Position" selected="selected"> @Model.Blog.Position</option>
+                                                    <select class="select2 form-control" asp-for="@Model.Position">
+                                                        <option value="0">انتخاب کنید</option>
+                                                        @* <option value="@Model.Position" selected="selected"> @Model.Position</option> *@
                                                         <hr>
                                                         @* <option value="0">در صورت تغییرانتخاب کنید</option> *@
                                                         <option value="1">1 </option>
@@ -129,18 +131,26 @@
                                                     </select>
                                                 </div>
                                             </div>
+
                                             
-                                             <div class="col-md-4 col-4 order-2 order-sm-1">
+                                            <div class="col-sm-4 col-12 order-2 order-sm-1">
+                                                <h6 class="text-primary">نام نوسینده بلاگ: <b class="text-danger h3">*</b></h6>
+                                                <input asp-for="Author" type="text" class="form-control" placeholder="نام کامل را وارد کنید">
+                                                <span asp-validation-for="Author" class="text-danger"></span>
+                                            </div>
+                                            
+                                            
+                                            <div class="col-md-4 col-4 order-2 order-sm-1">
                                                 <h6 class="text-primary"> بخش منتخب سردبیر :<b class="text-danger h3"></b></h6>
                                                 <div class="form-group">
                                                     <label class="ui-checkbox">
-                                                        @if (Model.Blog.RequestToAuthorFav)
+                                                        @if (Model.RequestToAuthorFav)
                                                         {
-                                                            <input asp-for="RequestToAuthorFav" type="checkbox" value="true" checked onclick="$(this).val(this.checked ? false : true)">
+                                                            <input asp-for="@Model.RequestToAuthorFav" type="checkbox" value="true" checked onclick="$(this).val(this.checked ? false : true)">
                                                         }
                                                         else
                                                         {
-                                                            <input asp-for="RequestToAuthorFav" type="checkbox" value="false" onclick="$(this).val(!!this.checked)">
+                                                            <input asp-for="@Model.RequestToAuthorFav" type="checkbox" value="false" onclick="$(this).val(!!this.checked)">
                                                         }
                                                         <span class="ui-checkbox-check"></span>
                                                     </label>
@@ -164,18 +174,18 @@
                                         @*     </div> *@
                                         @* </div> *@
                                         @* *@
-                                        
+
                                         <div class="row invoice-info">
                                             <div class="col-lg-12 col-md-12 mt-25">
                                                 <h6 class="invoice-to text-primary"> متن بلاگ: <b class="text-danger h3">*</b></h6>
                                                 <fieldset class="invoice-address form-group">
-                                                    @* <textarea asp-for="Body" class="form-control" rows="20" style="margin-top: 0px; margin-bottom: 0px; height: 2000px;">@Model.Blog.NewsSummery</textarea> *@
-                                                      @Html.TextArea("Body",Model.Blog.Body, new { @class="form-control" })
-                                                    <span asp-validation-for="Body" class="text-danger"></span>
+                                                    <textarea asp-for="@Model.Body" class="form-control" rows="20" style="margin-top: 0px; margin-bottom: 0px; height: 2000px;"></textarea>
+                                                    @* @Html.TextArea("Body", Model.Body, new {@class = "form-control"}) *@
+                                                    <span asp-validation-for="@Model.Body" class="text-danger"></span>
                                                 </fieldset>
                                             </div>
                                         </div>
-                                        
+
                                     </div>
                                 </div>
                             </div>

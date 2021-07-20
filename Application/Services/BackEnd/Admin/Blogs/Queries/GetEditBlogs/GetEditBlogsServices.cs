@@ -1,6 +1,12 @@
-﻿using System.Linq;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using Application.Interfaces.Contexts;
+using Application.Services.BackEnd.Admin.Blogs.Queries.GetCreateBlogs;
+using Application.Services.BackEnd.Admin.BlogsCategories;
 using AutoMapper;
+using Domain.Entities;
+using Domain.Entities.Blogs;
 using Microsoft.EntityFrameworkCore;
  
 
@@ -17,44 +23,24 @@ namespace  Application.Services.BackEnd.Admin.Blogs.Queries.GetEditBlogs
             _mapper = mapper;
         }
 
-        public ResultGetEditBlogsDto Execute(int id)
+        public GetEditBlogsDto Execute(int id)
         {
-
-            // var blog = _customDbContext.CrmCmsNews
-            //     .Where(n => n.NewsId == id)
-            //     .Include(n=>n.NewsGroup)
-            //     .Select(n => new GetEditBlogsDto
-            //     {
-            //         NewsId=n.NewsId,
-            //         NewsGroupId=n.NewsGroupId,
-            //         NewsGroupName = n.NewsGroup.GroupName,
-            //         Title = n.Title,
-            //         NewsBody=n.NewsBody,
-            //         NewsSummery=n.NewsSummery,
-            //         RegisterDatePersian = n.FirstRegisterDatePersian,
-            //         IsVerified = n.IsVerified,
-            //         Position=n.Position,
-            //         RequestToAuthorFav=n.RequestToAuthorFav
-            //     }).FirstOrDefault();
-            
             var blogModel = _customDbContext.Blogs
-                .Include(s => s.BlogCategory)
-                .Where(g => g.IsVerified)
-                .Where(s => s.Position == 0)
-                .Where(s => s.RequestToAuthorFav!=true)
-                .OrderByDescending(s => s.Id)
-                .Take(18);
-            var blog = _mapper.Map<GetEditBlogsDto>(blogModel);
-
-            var blogsGroup = _customDbContext.BlogCategories.ToList();
-
-            return new ResultGetEditBlogsDto
-            {
-                Blog = blog,
-                BlogsGroup = blogsGroup,
-            };
+                .Include(b=>b.BlogCategory)
+                .FirstOrDefault(b=>b.Id==id);
+            var blogsModel = _customDbContext.Blogs;
+            var blogCategoriesModel = _customDbContext.BlogCategories;
             
+            var data =_mapper.Map<GetEditBlogsDto>(blogModel);
+            data.Blog = _mapper.Map<List<BlogDto>>(blogsModel);
+            data.BlogCategories = _mapper.Map<List<BlogCategoryDto>>(blogCategoriesModel);
+
+            return data;
         }
-        
+
+        private void Include(Func<object, object> func)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

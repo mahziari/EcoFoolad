@@ -1,7 +1,10 @@
-﻿namespace  Application.Services.BackEnd.Admin.BlogsCategories.Command.DeleteBlogsCategories
+﻿using Application.Services.BackEnd.Admin.BlogsCategories.Queries.GetEditBlogsCategories;
+using Domain.Entities;
+
+namespace  Application.Services.BackEnd.Admin.BlogsCategories.Command.DeleteBlogsCategories
 {
     public interface IDeleteBlogsCategoriesServices
     {
-        ResultDeleteBlogsCategoriesDto Execute(int id);
+        BaseDto<BlogCategoryDto> Execute(int id);
     }
 }

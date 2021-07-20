@@ -1,6 +1,9 @@
 ﻿ 
 
+using System.Collections.Generic;
 using Application.Interfaces.Contexts;
+using Application.Services.BackEnd.Admin.BlogsCategories.Queries.GetEditBlogsCategories;
+using Domain.Entities;
 
 namespace  Application.Services.BackEnd.Admin.BlogsCategories.Command.DeleteBlogsCategories
 {
@@ -14,26 +17,28 @@ namespace  Application.Services.BackEnd.Admin.BlogsCategories.Command.DeleteBlog
         }
 
 
-        public ResultDeleteBlogsCategoriesDto Execute(int id)
+        public BaseDto<BlogCategoryDto> Execute(int id)
         {
             var blogCategory = _customDbContext.BlogCategories.Find(id);
             
             if (blogCategory == null)
             {
-                return new ResultDeleteBlogsCategoriesDto()
-                {
-                    IsSuccess = false,
-                    Message = "یافت نشد"
-                };
+                return new BaseDto<BlogCategoryDto>
+                (
+                    false,
+                    new List<string> {"یافت نشد"},
+                    null
+                );
             }
             
             _customDbContext.BlogCategories.Remove(blogCategory);
             _customDbContext.SaveChanges();
-            return new ResultDeleteBlogsCategoriesDto
-            {
-                IsSuccess = true,
-                Message = "با موفقیت حذف شد"
-            };
+            return new BaseDto<BlogCategoryDto>
+            (
+                false,
+                new List<string> {"با موفقیت حذف شد"},
+                null
+            );
         }
 
     }

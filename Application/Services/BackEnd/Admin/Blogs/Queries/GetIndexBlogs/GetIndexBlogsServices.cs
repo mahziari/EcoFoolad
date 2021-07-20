@@ -2,6 +2,7 @@
 using System.Linq;
 using Application.Interfaces.Contexts;
 using AutoMapper;
+using Domain.Entities;
 using Microsoft.EntityFrameworkCore;
  
 
@@ -19,18 +20,15 @@ namespace  Application.Services.BackEnd.Admin.Blogs.Queries.GetIndexBlogs
         }
 
 
-        public ResultGetIndexBlogsDto Execute()
+        public List<BlogDto>  Execute()
         {
             var blogsModel = _customDbContext.Blogs
                 .Include(s => s.BlogCategory)
                 .OrderByDescending(s => s.Id);
-            var blogs = _mapper.Map<List<GetIndexBlogsDto>>(blogsModel);
+            var blogs = _mapper.Map<List<BlogDto>>(blogsModel);
 
 
-            return new ResultGetIndexBlogsDto
-            {
-                Blogs = blogs,
-            };
+            return blogs;
         }
     }
 }
