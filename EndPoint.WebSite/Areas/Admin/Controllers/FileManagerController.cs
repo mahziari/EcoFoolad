@@ -3,7 +3,7 @@ using System.IO;
 using System.Linq;
 using Application.Interfaces.Contexts;
 using Application.Interfaces.FacadPatterns.BackEnd.Admin;
-using Application.Services.BackEnd.Admin.FileManager;
+using Application.Services.BackEnd.Admin.FileManagers;
 using Domain.Entities;
 using Domain.Entities.FileManager;
 using Microsoft.AspNetCore.Authorization;

@@ -27,6 +27,16 @@ namespace  Application.Services.FrontEnd.Blogs.FacadPattern
         }
         
         
+        private IGetAllBlogsFrontEndService _getAllBlogsFrontEndService;
+        public IGetAllBlogsFrontEndService GetAllBlogsFrontEndService
+        {
+            get
+            {
+                return _getAllBlogsFrontEndService ??= new GetAllBlogsFrontEndService(_customDbContext,_mapper);
+            }
+        }
+        
+        
         private IGetBlogsDetailsFrontEndService _getBlogsDetailsFrontEndService;
         public IGetBlogsDetailsFrontEndService GetBlogsDetailsFrontEndService
         {

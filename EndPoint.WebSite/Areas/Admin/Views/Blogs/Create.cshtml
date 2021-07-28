@@ -2,7 +2,7 @@
 @model GetCreateBlogsDto
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 @{
-    ViewData["Title"] = " بلاگ جدید ";
+    ViewData["Title"] = " مجله جدید ";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
@@ -56,14 +56,14 @@
                                         <!-- header section -->
                                         <div class="row my-2 py-50">
                                             <div class="col-sm-4 col-12 order-2 order-sm-1">
-                                                <h6 asp-for="Title" class="text-primary">عنوان بلاگ: <b class="text-danger h3">*</b></h6>
+                                                <h6 asp-for="Title" class="text-primary">عنوان مجله: <b class="text-danger h3">*</b></h6>
                                                 <input asp-for="Title" type="text" class="form-control" placeholder="عنوان را وارد کنید">
                                                 <span asp-validation-for="Title" class="text-danger"></span>
 
                                             </div>
 
                                             <div class="col-md-4 col-12 order-2 order-sm-1">
-                                                <h6 class="text-primary"> دسته بندی بلاگ:<b class="text-danger h3">*</b></h6>
+                                                <h6 class="text-primary"> دسته بندی مجله:<b class="text-danger h3">*</b></h6>
                                                 <div class="form-group">
                                                     <select class="select2 form-control" asp-for="BlogCategoryId">
                                                         <option value="">انتخاب کنید</option>
@@ -79,7 +79,7 @@
 
                                             <div class="col-md-4 col-12">
                                                 <div class="card">
-                                                    <h6 class="text-primary"> عکس بلاگ:<b class="text-danger h3">*</b></h6>
+                                                    <h6 class="text-primary"> عکس مجله:<b class="text-danger h3">*</b></h6>
                                                     <div class="col-md-12 mb-1">
                                                         <fieldset>
                                                             <div class="input-group">
@@ -98,12 +98,12 @@
                                             </div>
 
                                             <div class="col-sm-12 col-12 order-2 order-sm-1">
-                                                <h6 asp-for="SmallDescription" class="text-primary">توضیح کوتاه بلاگ: <b class="text-danger h3">*</b></h6>
+                                                <h6 asp-for="SmallDescription" class="text-primary">توضیح کوتاه مجله: <b class="text-danger h3">*</b></h6>
                                                 <input asp-for="SmallDescription" type="text" class="form-control" placeholder="عنوان را وارد کنید">
                                                 <span asp-validation-for="SmallDescription" class="text-danger"></span>
                                             </div>
                                             <div class="col-md-4 col-4 order-2 order-sm-1">
-                                                <h6 class="text-primary"> موقعیت بلاگ:<b class="text-danger h3"></b></h6>
+                                                <h6 class="text-primary"> موقعیت مجله:<b class="text-danger h3"></b></h6>
                                                 <div class="form-group">
                                                     <select class="select2 form-control" asp-for="Position">
                                                         <option value="0">انتخاب کنید</option>
@@ -187,7 +187,7 @@
                                             </div>
                                             
                                             <div class="col-sm-4 col-12 order-2 order-sm-1">
-                                                <h6 class="text-primary">نام نوسینده بلاگ: <b class="text-danger h3">*</b></h6>
+                                                <h6 class="text-primary">نام نوسینده مجله: <b class="text-danger h3">*</b></h6>
                                                 <input asp-for="Author" type="text" class="form-control" placeholder="نام کامل را وارد کنید">
                                                 <span asp-validation-for="Author" class="text-danger"></span>
                                             </div>
@@ -214,7 +214,7 @@
 
                                         <div class="row invoice-info">
                                             <div class="col-lg-12 col-md-12 mt-25">
-                                                <h6 class="invoice-to text-primary"> متن بلاگ: <b class="text-danger h3">*</b></h6>
+                                                <h6 class="invoice-to text-primary"> متن مجله: <b class="text-danger h3">*</b></h6>
                                                 <fieldset class="invoice-address form-group">
                                                     <textarea asp-for="Body" class="form-control" rows="20" style="margin-top: 0px; margin-bottom: 0px; height: 2000px;"></textarea>
                                                     <span asp-validation-for="Body" class="text-danger"></span>

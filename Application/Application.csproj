@@ -29,6 +29,7 @@
     <Folder Include="Services\BackEnd\Admin\Home\Commands" />
     <Folder Include="Services\BackEnd\Admin\Home\Queries" />
     <Folder Include="Services\BackEnd\User" />
+    <Folder Include="Services\FrontEnd\ContactUs" />
   </ItemGroup>
 
   <ItemGroup>

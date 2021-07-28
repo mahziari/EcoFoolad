@@ -13,7 +13,7 @@
 }
 
 .ico:before{
-    font-family: "icomoon" !important;
+    font-family: "icomoon", serif !important;
     font-style: normal;
     font-weight: normal;
     font-variant: normal;

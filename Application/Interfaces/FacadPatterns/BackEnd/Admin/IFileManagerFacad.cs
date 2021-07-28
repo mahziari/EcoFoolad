@@ -1,4 +1,4 @@
-﻿using Application.Services.BackEnd.Admin.FileManager;
+﻿using Application.Services.BackEnd.Admin.FileManagers;
 
 namespace Application.Interfaces.FacadPatterns.BackEnd.Admin
 {

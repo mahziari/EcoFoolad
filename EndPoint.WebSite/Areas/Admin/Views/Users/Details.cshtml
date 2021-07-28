@@ -50,14 +50,14 @@
 @*                                     <!-- header section --> *@
 @*                                     <div class="row"> *@
 @*                                         <div class="col-xl-4 col-md-12"> *@
-@*                                             <span class="invoice-number mr-50">عنوان بلاگ:</span> *@
+@*                                             <span class="invoice-number mr-50">عنوان مجله:</span> *@
 @*                                             <span>@Model.Blog.Title</span> *@
 @*                                         </div> *@
 @*                                         <div class="col-xl-8 col-md-12"> *@
 @*                                             <div class="d-flex align-items-center justify-content-xl-end flex-wrap"> *@
 @*                                                 <div class="mr-3"> *@
 @*                                                     <small class="text-muted"> *@
-@*                                                         تاریخ ثبت بلاگ: *@
+@*                                                         تاریخ ثبت مجله: *@
 @*                                                     </small> *@
 @*                                                     <span>@Model.Blog.RegisterDatePersian</span> *@
 @*                                                 </div> *@
@@ -71,11 +71,11 @@
 @*                                     <!-- logo and title --> *@
 @*                                     <div class="row my-3"> *@
 @*                                         <div class="col-4"> *@
-@*                                             <span>نوع بلاگ:</span> *@
+@*                                             <span>نوع مجله:</span> *@
 @*                                             <h6 class="text-primary">@Model.Blog.NewsGroupName</h6> *@
 @*                                         </div> *@
 @*                                         <div class="col-4"> *@
-@*                                             <span>فعال بودن بلاگ(در حال انشار بودن):</span> *@
+@*                                             <span>فعال بودن مجله(در حال انشار بودن):</span> *@
 @*                                             @if (@Model.Blog.IsVerified == true) *@
 @*                                             { *@
 @*                                                 <h6 class="text-primary">فعال است</h6> *@
@@ -89,7 +89,7 @@
 @*                                     <hr> *@
 @*                                     <div class="row invoice-info"> *@
 @*                                         <div class="col-12 mt-1"> *@
-@*                                             <h6 class="invoice-from">متن بلاگ:</h6> *@
+@*                                             <h6 class="invoice-from">متن مجله:</h6> *@
 @*                                             <div class="mb-1"> *@
 @*                                                 <span> *@
 @*                                                     @Html.Raw(@Model.Blog.NewsSummery) *@

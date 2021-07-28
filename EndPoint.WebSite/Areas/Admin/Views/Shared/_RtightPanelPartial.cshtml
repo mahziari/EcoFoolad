@@ -37,201 +37,201 @@
 </div>
 <div class="shadow-bottom" style="display: none;"></div>
 <div class="main-menu-content">
-    <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation" data-icon-style="lines">
-        <li class=" nav-item">
+<ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation" data-icon-style="lines">
+<li class=" nav-item">
+    <a href="~/admin/home/index">
+        <i class="fa fa-tachometer" aria-hidden="true"></i><span class="menu-title" data-i18n="Dashboard">داشبورد</span>
+        <span class="badge badge-light-danger badge-pill badge-round float-right mr-2"> خوش آمدید</span>
+    </a>
+    <ul class="menu-content">
+        <li>
             <a href="~/admin/home/index">
-                <i class="fa fa-tachometer" aria-hidden="true"></i><span class="menu-title" data-i18n="Dashboard">داشبورد</span>
-                <span class="badge badge-light-danger badge-pill badge-round float-right mr-2"> خوش آمدید</span>
+                <i class="fa fa-address-card" aria-hidden="true"></i><span class="menu-item" data-i18n="eCommerce">مشاهده پروفایل</span>
             </a>
-            <ul class="menu-content">
-                <li>
-                    <a href="~/admin/home/index">
-                        <i class="fa fa-address-card" aria-hidden="true"></i><span class="menu-item" data-i18n="eCommerce">مشاهده پروفایل</span>
-                    </a>
-                </li>
-                <li class="active">
-
-                    <a href="#">
-                        <i class="fa fa-key" aria-hidden="true"></i><span class="menu-item" data-i18n="Analytics">تغییر رمز ورود</span>
-                    </a>
-                </li>
-            </ul>
         </li>
-        <li class=" navigation-header">
-            <span>امکانات</span>
+        <li class="active">
+
+            <a href="#">
+                <i class="fa fa-key" aria-hidden="true"></i><span class="menu-item" data-i18n="Analytics">تغییر رمز ورود</span>
+            </a>
         </li>
+    </ul>
+</li>
+<li class=" navigation-header">
+    <span>امکانات</span>
+</li>
 
 
-        @if (AuthorizationService.AuthorizeAsync(User, "Sliders").Result.Succeeded)
-        {
-            <li class=" nav-item">
+@if (AuthorizationService.AuthorizeAsync(User, "Sliders").Result.Succeeded)
+{
+    <li class=" nav-item">
 
-                <a href="#">
-                    <i class="fa fa-th" aria-hidden="true"></i><span class="menu-title" data-i18n="Invoice">اسلایدرها</span>
-                </a>
+        <a href="#">
+            <i class="fa fa-th" aria-hidden="true"></i><span class="menu-title" data-i18n="Invoice">اسلایدرها</span>
+        </a>
 
-                <ul class="menu-content">
-                    <li>
-                        <a asp-area="Admin" asp-controller="Sliders" asp-action="Create">
-                            <i class="fa fa-plus" aria-hidden="true"></i><span class="menu-item" data-i18n="Invoice List">ایجاد</span>
-                        </a>
-                    </li>
-
-                    <li>
-                        <a asp-area="Admin" asp-controller="Sliders" asp-action="Index">
-                            <i class="fa fa-list" aria-hidden="true"></i><span class="menu-item" data-i18n="Invoice">مشاهده همه</span>
-                        </a>
-                    </li>
-                </ul>
-            </li>
-        }
-
-   
-    
-    
-    @if (AuthorizationService.AuthorizeAsync(User, "Menus").Result.Succeeded)
-        {
-            <li class=" nav-item">
-                <a asp-area="Admin" asp-controller="Menus" asp-action="Index">
-                    <i class="fa fa-list-alt"></i><span class="menu-title" data-i18n="Email">دسته بندی محصولات</span>
+        <ul class="menu-content">
+            <li>
+                <a asp-area="Admin" asp-controller="Sliders" asp-action="Create">
+                    <i class="fa fa-plus" aria-hidden="true"></i><span class="menu-item" data-i18n="Invoice List">ایجاد</span>
                 </a>
             </li>
-        }
 
-
-
-        @if (AuthorizationService.AuthorizeAsync(User, "ProductsIndex").Result.Succeeded)
-        {
-            <li class=" nav-item">
-                <a href="#">
-                    <i class="fa fa-steam" aria-hidden="true"></i><span class="menu-title" data-i18n="Invoice">محصولات</span>
+            <li>
+                <a asp-area="Admin" asp-controller="Sliders" asp-action="Index">
+                    <i class="fa fa-list" aria-hidden="true"></i><span class="menu-item" data-i18n="Invoice">مشاهده همه</span>
                 </a>
-
-                <ul class="menu-content">
-                    @if (AuthorizationService.AuthorizeAsync(User, "ProductsCreate").Result.Succeeded)
-                    {
-                        <li>
-                            <a asp-area="Admin" asp-controller="Products" asp-action="Create">
-                                <i class="fa fa-plus" aria-hidden="true"></i><span class="menu-item" data-i18n="Invoice List">ایجاد</span>
-                            </a>
-                        </li>
-                    }
-
-                    @if (AuthorizationService.AuthorizeAsync(User, "ProductsIndex").Result.Succeeded)
-                    {
-                        <li>
-                            <a asp-area="Admin" asp-controller="Products" asp-action="Index">
-                                <i class="fa fa-list" aria-hidden="true"></i><span class="menu-item" data-i18n="Invoice">مشاهده همه</span>
-                            </a>
-                        </li>
-                    }
-
-                </ul>
             </li>
-        }
+        </ul>
+    </li>
+}
 
 
 
-        @if (AuthorizationService.AuthorizeAsync(User, "BlogCategoriesIndex").Result.Succeeded)
-        {
-            <li class=" nav-item">
-                <a href="#">
-                    <i class="fa fa-list-alt"></i><span class="menu-title" data-i18n="Invoice">دسته بندی بلاگ</span>
-                </a>
-                <ul class="menu-content">
-                    @if (AuthorizationService.AuthorizeAsync(User, "BlogCategoriesCreate").Result.Succeeded)
-                    {
-                        <li>
-                            <a asp-area="Admin" asp-controller="BlogsCategories" asp-action="Create">
-                                <i class="fa fa-plus" aria-hidden="true"></i><span class="menu-item" data-i18n="Invoice List">ایجاد</span>
-                            </a>
-                        </li>
-                        }
-                  
-                    
-                    @if (AuthorizationService.AuthorizeAsync(User, "BlogCategoriesIndex").Result.Succeeded)
-                    {
-                        <li>
-                            <a asp-area="Admin" asp-controller="BlogsCategories" asp-action="Index">
-                                <i class="fa fa-list" aria-hidden="true"></i><span class="menu-item" data-i18n="Invoice">مشاهده همه</span>
-                            </a>
-                        </li> 
-                    }
-                  
-                </ul>
-            </li>
-        }
-       
 
- @if (AuthorizationService.AuthorizeAsync(User, "BlogsIndex").Result.Succeeded)
- {
-     <li class=" nav-item">
-         <a href="#">
-             <i class="fa fa-files-o"></i><span class="menu-title" data-i18n="Invoice">بلاگ</span>
-         </a>
-         <ul class="menu-content">
-              @if (AuthorizationService.AuthorizeAsync(User, "BlogsCreate").Result.Succeeded)
-              {
-                  <li>
-                      <a asp-area="Admin" asp-controller="Blogs" asp-action="Create">
-                          <i class="fa fa-plus" aria-hidden="true"></i><span class="menu-item" data-i18n="Invoice List">ایجاد</span>
-                      </a>
-                  </li>
-                  }
+@if (AuthorizationService.AuthorizeAsync(User, "Menus").Result.Succeeded)
+{
+    <li class=" nav-item">
+        <a asp-area="Admin" asp-controller="Menus" asp-action="Index">
+            <i class="fa fa-list-alt"></i><span class="menu-title" data-i18n="Email">دسته بندی محصولات</span>
+        </a>
+    </li>
+}
 
-             @if (AuthorizationService.AuthorizeAsync(User, "BlogsIndex").Result.Succeeded)
-             {
-                 <li>
-                     <a asp-area="Admin" asp-controller="Blogs" asp-action="Index">
-                         <i class="fa fa-list" aria-hidden="true"></i><span class="menu-item" data-i18n="Invoice">مشاهده همه</span>
-                     </a>
-                 </li>
-             }
-         </ul>
-     </li>
- }
-    
-     @if (AuthorizationService.AuthorizeAsync(User, "FileManagers").Result.Succeeded)
-     {
-         <li class=" nav-item">
-             <a href="#">
-                 <i class="fa fa-file-text" aria-hidden="true"></i><span class="menu-title" data-i18n="Invoice">فایل منیجر</span>
-             </a>
-             <ul class="menu-content">
-                 @if (AuthorizationService.AuthorizeAsync(User, "FileManagers").Result.Succeeded)
-                 {
-                     <li>
-                         <a asp-area="Admin" asp-controller="FileManager" asp-action="Index">
-                             <i class="fa fa-list" aria-hidden="true"></i><span class="menu-item" data-i18n="Invoice">مشاهده همه</span>
-                         </a>
-                     </li>
-                 }
-             </ul>
-         </li>
-     }
-   
-    @if (AuthorizationService.AuthorizeAsync(User, "Company").Result.Succeeded)
+
+
+@if (AuthorizationService.AuthorizeAsync(User, "ProductsIndex").Result.Succeeded)
+{
+    <li class=" nav-item">
+        <a href="#">
+            <i class="fa fa-steam" aria-hidden="true"></i><span class="menu-title" data-i18n="Invoice">محصولات</span>
+        </a>
+
+        <ul class="menu-content">
+            @if (AuthorizationService.AuthorizeAsync(User, "ProductsCreate").Result.Succeeded)
             {
-                <li class=" nav-item">
-                    <a href="#">
-                        <i class="fa fa-shopping-cart"></i><span class="menu-title" data-i18n="Invoice">فروشندگان </span>
+                <li>
+                    <a asp-area="Admin" asp-controller="Products" asp-action="Create">
+                        <i class="fa fa-plus" aria-hidden="true"></i><span class="menu-item" data-i18n="Invoice List">ایجاد</span>
                     </a>
-                    <ul class="menu-content">
-                        @* <li> *@
-                        @*     <a asp-area="Admin" asp-controller="Company" asp-action="Create"> *@
-                        @*         <i class="fa fa-list" aria-hidden="true"></i><span class="menu-item" data-i18n="Invoice List">ایجاد</span> *@
-                        @*     </a> *@
-                        @* </li> *@
-                        <li>
-                            <a asp-area="Admin" asp-controller="Company" asp-action="Index">
-                                <i class="fa fa-list" aria-hidden="true"></i><span class="menu-item" data-i18n="Invoice">مشاهده همه</span>
-                            </a>
-                        </li>
-                    </ul>
                 </li>
             }
 
-    @if (AuthorizationService.AuthorizeAsync(User, "UsersIndex").Result.Succeeded)
+            @if (AuthorizationService.AuthorizeAsync(User, "ProductsIndex").Result.Succeeded)
+            {
+                <li>
+                    <a asp-area="Admin" asp-controller="Products" asp-action="Index">
+                        <i class="fa fa-list" aria-hidden="true"></i><span class="menu-item" data-i18n="Invoice">مشاهده همه</span>
+                    </a>
+                </li>
+            }
+
+        </ul>
+    </li>
+}
+
+
+
+@if (AuthorizationService.AuthorizeAsync(User, "BlogCategoriesIndex").Result.Succeeded)
+{
+    <li class=" nav-item">
+        <a href="#">
+            <i class="fa fa-list-alt"></i><span class="menu-title" data-i18n="Invoice">دسته بندی مجله</span>
+        </a>
+        <ul class="menu-content">
+            @if (AuthorizationService.AuthorizeAsync(User, "BlogCategoriesCreate").Result.Succeeded)
+            {
+                <li>
+                    <a asp-area="Admin" asp-controller="BlogsCategories" asp-action="Create">
+                        <i class="fa fa-plus" aria-hidden="true"></i><span class="menu-item" data-i18n="Invoice List">ایجاد</span>
+                    </a>
+                </li>
+            }
+
+
+            @if (AuthorizationService.AuthorizeAsync(User, "BlogCategoriesIndex").Result.Succeeded)
+            {
+                <li>
+                    <a asp-area="Admin" asp-controller="BlogsCategories" asp-action="Index">
+                        <i class="fa fa-list" aria-hidden="true"></i><span class="menu-item" data-i18n="Invoice">مشاهده همه</span>
+                    </a>
+                </li>
+            }
+
+        </ul>
+    </li>
+}
+
+
+@if (AuthorizationService.AuthorizeAsync(User, "BlogsIndex").Result.Succeeded)
+{
+    <li class=" nav-item">
+        <a href="#">
+            <i class="fa fa-files-o"></i><span class="menu-title" data-i18n="Invoice">مجله</span>
+        </a>
+        <ul class="menu-content">
+            @if (AuthorizationService.AuthorizeAsync(User, "BlogsCreate").Result.Succeeded)
+            {
+                <li>
+                    <a asp-area="Admin" asp-controller="Blogs" asp-action="Create">
+                        <i class="fa fa-plus" aria-hidden="true"></i><span class="menu-item" data-i18n="Invoice List">ایجاد</span>
+                    </a>
+                </li>
+            }
+
+            @if (AuthorizationService.AuthorizeAsync(User, "BlogsIndex").Result.Succeeded)
+            {
+                <li>
+                    <a asp-area="Admin" asp-controller="Blogs" asp-action="Index">
+                        <i class="fa fa-list" aria-hidden="true"></i><span class="menu-item" data-i18n="Invoice">مشاهده همه</span>
+                    </a>
+                </li>
+            }
+        </ul>
+    </li>
+}
+
+@if (AuthorizationService.AuthorizeAsync(User, "FileManagers").Result.Succeeded)
+{
+    <li class=" nav-item">
+        <a href="#">
+            <i class="fa fa-file-text" aria-hidden="true"></i><span class="menu-title" data-i18n="Invoice">فایل منیجر</span>
+        </a>
+        <ul class="menu-content">
+            @if (AuthorizationService.AuthorizeAsync(User, "FileManagers").Result.Succeeded)
+            {
+                <li>
+                    <a asp-area="Admin" asp-controller="FileManager" asp-action="Index">
+                        <i class="fa fa-list" aria-hidden="true"></i><span class="menu-item" data-i18n="Invoice">مشاهده همه</span>
+                    </a>
+                </li>
+            }
+        </ul>
+    </li>
+}
+
+@if (AuthorizationService.AuthorizeAsync(User, "Company").Result.Succeeded)
+{
+    <li class=" nav-item">
+        <a href="#">
+            <i class="fa fa-shopping-cart"></i><span class="menu-title" data-i18n="Invoice">فروشندگان </span>
+        </a>
+        <ul class="menu-content">
+            @* <li> *@
+            @*     <a asp-area="Admin" asp-controller="Company" asp-action="Create"> *@
+            @*         <i class="fa fa-list" aria-hidden="true"></i><span class="menu-item" data-i18n="Invoice List">ایجاد</span> *@
+            @*     </a> *@
+            @* </li> *@
+            <li>
+                <a asp-area="Admin" asp-controller="Company" asp-action="Index">
+                    <i class="fa fa-list" aria-hidden="true"></i><span class="menu-item" data-i18n="Invoice">مشاهده همه</span>
+                </a>
+            </li>
+        </ul>
+    </li>
+}
+
+@if (AuthorizationService.AuthorizeAsync(User, "UsersIndex").Result.Succeeded)
 {
     <li class=" nav-item">
         <a href="#">
@@ -244,77 +244,112 @@
                 </a>
             </li>
         </ul>
-    </li> 
+    </li>
 }
-    
-      @if (AuthorizationService.AuthorizeAsync(User, "Factory").Result.Succeeded)
-                {
-                    
-                    <li class=" nav-item">
-                        <a href="#">
-                            <i class="fa fa-th" aria-hidden="true"></i>
-                             @{
-                                    var count = UserManager.GetUsersInRoleAsync("User").Result.Count(u => u.RequestToBeOwner);
-                             }
-                             
-                            <span class="menu-title" data-i18n="Invoice">فروشنده شوم!  </span>
-                            
-                             @if (count != 0)
-                             {
-                                 <span class="badge badge-pill badge-round badge-light-info float-right mr-2">
-                                     (@count.ToString())
-                                 </span>
-                             }
 
-                        </a>
-                        <ul class="menu-content">
-                            <li>
-                                <a asp-area="Admin" asp-controller="Users" asp-action="RequestToBeOwner">
-                                    <i class="fa fa-list" aria-hidden="true"></i><span class="menu-item" data-i18n="Invoice">مشاهده همه</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                }
-       
-
-    @if (AuthorizationService.AuthorizeAsync(User, "SeniorProgrammer").Result.Succeeded)
-    {
-        <li class=" nav-item">
-            <a href="#">
-                <i class="fa fa-random" aria-hidden="true"></i><span class="menu-title" data-i18n="Invoice">نقش ها</span>
-            </a>
-            <ul class="menu-content">
-                <li>
-                    <a asp-area="Admin" asp-controller="Roles" asp-action="Create">
-                        <i class="fa fa-plus" aria-hidden="true"></i><span class="menu-item" data-i18n="Invoice List">ایجاد</span>
-                    </a>
-                </li>
-                <li>
-                    <a asp-area="Admin" asp-controller="Roles" asp-action="Index">
-                        <i class="fa fa-list" aria-hidden="true"></i><span class="menu-item" data-i18n="Invoice">مشاهده همه</span>
-                    </a>
-                </li>
-            </ul>
-        </li>
-        }
-    
-     @if (AuthorizationService.AuthorizeAsync(User, "Footers").Result.Succeeded)
-        {
-            <li class=" nav-item">
-                <a href="#">
-                    <i class="fa fa-cog" aria-hidden="true"></i><span class="menu-title" data-i18n="Invoice">تنظیمات فوتر</span>
-                </a>
-                <ul class="menu-content">
-                    <li>
-                        <a asp-area="Admin" asp-controller="Footers" asp-action="Index">
-                            <i class="fa fa-pencil-square-o" aria-hidden="true"></i><span class="menu-item" data-i18n="Invoice List">ویرایش</span>
-                        </a>
-                    </li>
-                </ul>
-            </li>
+@if (AuthorizationService.AuthorizeAsync(User, "Factory").Result.Succeeded)
+{
+    <li class=" nav-item">
+        <a href="#">
+            <i class="fa fa-th" aria-hidden="true"></i>
+            @{
+                var count = UserManager.GetUsersInRoleAsync("User").Result.Count(u => u.RequestToBeOwner);
             }
-    
-    </ul>
+
+            <span class="menu-title" data-i18n="Invoice">فروشنده شوم! </span>
+
+            @if (count != 0)
+            {
+                <span class="badge badge-pill badge-round badge-light-info float-right mr-2">
+                    (@count.ToString())
+                </span>
+            }
+
+        </a>
+        <ul class="menu-content">
+            <li>
+                <a asp-area="Admin" asp-controller="Users" asp-action="RequestToBeOwner">
+                    <i class="fa fa-list" aria-hidden="true"></i><span class="menu-item" data-i18n="Invoice">مشاهده همه</span>
+                </a>
+            </li>
+        </ul>
+    </li>
+}
+
+
+@if (AuthorizationService.AuthorizeAsync(User, "SeniorProgrammer").Result.Succeeded)
+{
+    <li class=" nav-item">
+        <a href="#">
+            <i class="fa fa-random" aria-hidden="true"></i><span class="menu-title" data-i18n="Invoice">نقش ها</span>
+        </a>
+        <ul class="menu-content">
+            <li>
+                <a asp-area="Admin" asp-controller="Roles" asp-action="Create">
+                    <i class="fa fa-plus" aria-hidden="true"></i><span class="menu-item" data-i18n="Invoice List">ایجاد</span>
+                </a>
+            </li>
+            <li>
+                <a asp-area="Admin" asp-controller="Roles" asp-action="Index">
+                    <i class="fa fa-list" aria-hidden="true"></i><span class="menu-item" data-i18n="Invoice">مشاهده همه</span>
+                </a>
+            </li>
+        </ul>
+    </li>
+}
+
+@if (AuthorizationService.AuthorizeAsync(User, "Footers").Result.Succeeded)
+{
+    <li class=" nav-item">
+        <a href="#">
+            <i class="fa fa-cog" aria-hidden="true"></i><span class="menu-title" data-i18n="Invoice">تنظیمات فوتر</span>
+        </a>
+        <ul class="menu-content">
+            <li>
+                <a asp-area="Admin" asp-controller="Footers" asp-action="Index">
+                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i><span class="menu-item" data-i18n="Invoice List">ویرایش</span>
+                </a>
+            </li>
+        </ul>
+    </li>
+}
+
+
+@if (AuthorizationService.AuthorizeAsync(User, "AboutUs").Result.Succeeded)
+{
+    <li class=" nav-item">
+        <a href="#">
+            <i class="fa fa-cog" aria-hidden="true"></i><span class="menu-title" data-i18n="Invoice">تنظیمات درباره ما</span>
+        </a>
+        <ul class="menu-content">
+            <li>
+                <a asp-area="Admin" asp-controller="AboutUs" asp-action="Index">
+                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i><span class="menu-item" data-i18n="Invoice List">ویرایش</span>
+                </a>
+            </li>
+        </ul>
+    </li>
+}
+
+
+@if (AuthorizationService.AuthorizeAsync(User, "ContactUs").Result.Succeeded)
+{
+    <li class=" nav-item">
+        <a href="#">
+            <i class="fa fa-cog" aria-hidden="true"></i><span class="menu-title" data-i18n="Invoice">تنظیمات ارتباط با ما</span>
+        </a>
+        <ul class="menu-content">
+            <li>
+                <a asp-area="Admin" asp-controller="AboutUs" asp-action="Index">
+                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i><span class="menu-item" data-i18n="Invoice List">ویرایش</span>
+                </a>
+            </li>
+        </ul>
+    </li>
+}
+
+
+
+</ul>
 </div>
 </div>

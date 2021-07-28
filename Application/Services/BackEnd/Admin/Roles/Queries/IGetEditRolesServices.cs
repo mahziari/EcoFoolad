@@ -17,11 +17,12 @@ namespace  Application.Services.BackEnd.Admin.Roles.Queries
     public class GetEditRolesServices : IGetEditRolesServices
     {
         private readonly RoleManager<Role> _roleManager;
-        private readonly ICustomDbContext _customDbContext;
-        public GetEditRolesServices(RoleManager<Role> roleManager, ICustomDbContext customDbContext)
+        private readonly IIdentityDataBaseContext _identityDataBaseContext;
+
+        public GetEditRolesServices(RoleManager<Role> roleManager, IIdentityDataBaseContext identityDataBaseContext)
         {
             _roleManager = roleManager;
-            _customDbContext = customDbContext;
+            _identityDataBaseContext = identityDataBaseContext;
         }
 
         public ResultGetEditRolesDto Execute(string id)
@@ -34,7 +35,7 @@ namespace  Application.Services.BackEnd.Admin.Roles.Queries
                     Description = r.Description
                 }).FirstOrDefault();
 
-            var claims = _customDbContext.Claims
+            var claims = _identityDataBaseContext.Claims
                 .Select(c=>new Claims()
                 {
                     Id = c.Id,

@@ -14,12 +14,11 @@ namespace  Application.Services.BackEnd.Admin.Roles.FacadPattern
     public class RolesFacad : IRolesFacad
     {
         private readonly RoleManager<Role> _roleManager;
-        private readonly ICustomDbContext _customDbContext;
-
-        public RolesFacad(RoleManager<Role> roleManager, ICustomDbContext customDbContext)
+        private readonly IIdentityDataBaseContext _identityDataBaseContext;
+        public RolesFacad(RoleManager<Role> roleManager, IIdentityDataBaseContext identityDataBaseContext)
         {
             _roleManager = roleManager;
-            _customDbContext = customDbContext;
+            _identityDataBaseContext = identityDataBaseContext;
         }
         
         
@@ -58,7 +57,7 @@ namespace  Application.Services.BackEnd.Admin.Roles.FacadPattern
         {
             get
             {
-                return _getEditRolesServices ??= new GetEditRolesServices(_roleManager,_customDbContext);
+                return _getEditRolesServices ??= new GetEditRolesServices(_roleManager,_identityDataBaseContext);
             }
         }
         
@@ -68,7 +67,7 @@ namespace  Application.Services.BackEnd.Admin.Roles.FacadPattern
         {
             get
             {
-                return _editRolesServices ??= new EditRolesServices(_roleManager,_customDbContext);
+                return _editRolesServices ??= new EditRolesServices(_roleManager,_identityDataBaseContext);
             }
         }
 

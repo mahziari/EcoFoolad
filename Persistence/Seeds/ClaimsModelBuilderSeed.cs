@@ -16,56 +16,56 @@ namespace Persistence.Seeds
                 new Claims
                 {
                     Id = 2, ClaimType = "BlogCategories", ClaimValue = "BlogCategories",
-                    ClaimName = "مدیریت دسته بندی بلاگ", IsHead = true, ParentId = null
+                    ClaimName = "مدیریت دسته بندی مجله", IsHead = true, ParentId = null
                 },
                 new Claims
                 {
                     Id = 3, ClaimType = "BlogCategoriesIndex", ClaimValue = "BlogCategoriesIndex",
-                    ClaimName = "مشاهده دسته بندی بلاگ ها", IsHead = null, ParentId = 2
+                    ClaimName = "مشاهده دسته بندی مجله ها", IsHead = null, ParentId = 2
                 },
                 new Claims
                 {
                     Id = 4, ClaimType = "BlogCategoriesCreate", ClaimValue = "BlogCategoriesCreate",
-                    ClaimName = "ساخت دسته بندی بلاگ", IsHead = null, ParentId = 2
+                    ClaimName = "ساخت دسته بندی مجله", IsHead = null, ParentId = 2
                 },
                 new Claims
                 {
                     Id = 5, ClaimType = "BlogCategoriesEdit", ClaimValue = "BlogCategoriesEdit",
-                    ClaimName = "ویرایش دسته بندی بلاگ", IsHead = null, ParentId = 2
+                    ClaimName = "ویرایش دسته بندی مجله", IsHead = null, ParentId = 2
                 },
                 new Claims
                 {
                     Id = 6, ClaimType = "BlogCategoriesDelete", ClaimValue = "BlogCategoriesDelete",
-                    ClaimName = "حذف دسته بندی بلاگ", IsHead = null, ParentId = 2
+                    ClaimName = "حذف دسته بندی مجله", IsHead = null, ParentId = 2
                 },
                 new Claims
                 {
-                    Id = 7, ClaimType = "Blogs", ClaimValue = "Blogs", ClaimName = "مدیریت بلاگ", IsHead = true,
+                    Id = 7, ClaimType = "Blogs", ClaimValue = "Blogs", ClaimName = "مدیریت مجله", IsHead = true,
                     ParentId = null
                 },
                 new Claims
                 {
-                    Id = 8, ClaimType = "BlogsIndex", ClaimValue = "BlogsIndex", ClaimName = "مشاهده بلاگ ها",
+                    Id = 8, ClaimType = "BlogsIndex", ClaimValue = "BlogsIndex", ClaimName = "مشاهده مجله ها",
                     IsHead = null, ParentId = 7
                 },
                 new Claims
                 {
-                    Id = 9, ClaimType = "BlogsCreate", ClaimValue = "BlogsCreate", ClaimName = "ساخت بلاگ",
+                    Id = 9, ClaimType = "BlogsCreate", ClaimValue = "BlogsCreate", ClaimName = "ساخت مجله",
                     IsHead = null, ParentId = 7
                 },
                 new Claims
                 {
-                    Id = 10, ClaimType = "BlogsEdit", ClaimValue = "BlogsEdit", ClaimName = "ویرایش بلاگ",
+                    Id = 10, ClaimType = "BlogsEdit", ClaimValue = "BlogsEdit", ClaimName = "ویرایش مجله",
                     IsHead = null, ParentId = 7
                 },
                 new Claims
                 {
-                    Id = 11, ClaimType = "BlogsDelete", ClaimValue = "BlogsDelete", ClaimName = "حذف بلاگ",
+                    Id = 11, ClaimType = "BlogsDelete", ClaimValue = "BlogsDelete", ClaimName = "حذف مجله",
                     IsHead = null, ParentId = 7
                 },
                 new Claims
                 {
-                    Id = 12, ClaimType = "BlogsActive", ClaimValue = "BlogsActive", ClaimName = "غیرفعال کردن بلاگ",
+                    Id = 12, ClaimType = "BlogsActive", ClaimValue = "BlogsActive", ClaimName = "غیرفعال کردن مجله",
                     IsHead = null, ParentId = 7
                 },
                 new Claims
@@ -127,6 +127,26 @@ namespace Persistence.Seeds
                 {
                     Id = 24, ClaimType = "UsersEdit", ClaimValue = "UsersEdit", ClaimName = "ویرایش یوزر",
                     IsHead = null, ParentId = 22
+                },
+                new Claims
+                {
+                    Id = 25, ClaimType = "FileManagers", ClaimValue = "FileManagers", ClaimName = "فایل منیجر",
+                    IsHead = true, ParentId = null
+                },
+                new Claims
+                {
+                    Id = 26, ClaimType = "Footers", ClaimValue = "Footers", ClaimName = "ویرایش فوتر",
+                    IsHead = true, ParentId = null
+                },
+                new Claims
+                {
+                    Id = 27, ClaimType = "AboutUs", ClaimValue = "AboutUs", ClaimName = "ویرایش درباره ما",
+                    IsHead = true, ParentId = null
+                },
+                new Claims
+                {
+                    Id = 28, ClaimType = "ContactUs", ClaimValue = "ContactUs", ClaimName = "ویرایش ارتباط با ما",
+                    IsHead = true, ParentId = null
                 }
             );
         }

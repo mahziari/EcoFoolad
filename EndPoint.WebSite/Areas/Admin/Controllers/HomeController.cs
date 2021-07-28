@@ -20,7 +20,6 @@ namespace EndPoint.WebSite.Areas.Admin.Controllers
         {
             return View();
         }
-
-
+        
     }
 }

@@ -16,8 +16,8 @@
     <meta name="description" content="@Model.CategoryItem.SmallDescription">
     <link rel="canonical" href="@Context.Request.Scheme://@Context.Request.Host@Context.Request.Path.Value">
     <meta property="og:locale" content="fa_IR">
-    <meta property="og:type" content="@Model.CategoryItem.Name">
-    <meta property="og:title" content="@Model.CategoryItem.Name - @_siteSetting.GetSiteSetting().SiteName">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="@Model.CategoryItem.Name | @_siteSetting.GetSiteSetting().SiteName">
     <meta property="og:description" content="@Model.CategoryItem.SmallDescription">
     <meta property="og:url" content="@Context.Request.Scheme://@Context.Request.Host@Context.Request.Path.Value">
     <meta property="og:site_name" content="@_siteSetting.GetSiteSetting().SiteName">
@@ -28,7 +28,7 @@
     <meta name="twitter:site" content="@@ecofoolad">
     <meta name="twitter:url" content="@Context.Request.Scheme://@Context.Request.Host@Context.Request.Path.Value">
     <meta name="twitter:description" content="@Model.CategoryItem.SmallDescription">
-    <meta name="twitter:title" content="@Model.CategoryItem.Name - @_siteSetting.GetSiteSetting().SiteName">
+    <meta name="twitter:title" content="@Model.CategoryItem.Name | @_siteSetting.GetSiteSetting().SiteName">
     <meta name="twitter:image" content="/Images/Settings/FavIcon/android-icon-192x192.png"/>
     <meta name="twitter:creator" content="@@ecofoolad"/>
 }
@@ -66,8 +66,8 @@
             <nav>
                 <ul class="stick-menu">
                     <li class="stick-menu-item stick-logo">
-                        <a href="#" title="بلاگ @_siteSetting.GetSiteSetting().SiteName">
-                            eco
+                        <a href="#" title="مجله @_siteSetting.GetSiteSetting().SiteName">
+                             <span style="font-size: 9px">ecofoolad</span>
                             <br>
                             MAG
                         </a>

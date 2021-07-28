@@ -1,0 +1,116 @@
+﻿@using Application.Services.FrontEnd.AboutUs
+@using Application.Services.FrontEnd.Common
+@model AboutUsFrontEndDto
+@inject ISiteSetting _siteSetting;
+
+@{
+    ViewData["Title"] = "درباره ما";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Head{
+    <meta name="description" content="اکوفولاد ؛ قیمت آهن، خرید و فروش آهن، انواع میلگرد، پروفیل، تیرآهن، ورق، نبشی و ناودانی، آهن آلات، با لیست قیمت‌های روزانه ✦ خرید پیشرو در بازار آهن: ☎ 021">
+    <link rel="canonical" href="@Context.Request.Scheme://@Context.Request.Host@Context.Request.Path.Value">
+    <meta property="og:locale" content="fa_IR">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="درباره ما | @_siteSetting.GetSiteSetting().SiteName">
+    <meta property="og:description" content="فروشگاه آنلاین محصولات آهن و و فولاد">
+    <meta property="og:url" content="@Context.Request.Scheme://@Context.Request.Host@Context.Request.Path.Value">
+    <meta property="og:site_name" content="@_siteSetting.GetSiteSetting().SiteName">
+    <meta property="article:section" content="درباره ما">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@@ecofoolad">
+    <meta name="twitter:url" content="@Context.Request.Scheme://@Context.Request.Host@Context.Request.Path.Value">
+    <meta name="twitter:description" content="فروشگاه آنلاین محصولات آهن و و فولاد - درباره ما">
+    <meta name="twitter:title" content="درباره ما - @_siteSetting.GetSiteSetting().SiteName">
+    <meta name="twitter:image" content="/Images/Settings/FavIcon/android-icon-192x192.png"/>
+    <meta name="twitter:creator" content="@@ecofoolad"/>
+}
+
+@section Foo{
+    <script type="application/ld+json">
+        {
+        "@@context": "https://schema.org",
+        "@@type": "LocalBusiness",
+        "name": "درباره ما - @_siteSetting.GetSiteSetting().SiteName",
+        "image": "@_siteSetting.GetSiteSetting().LogoImage",
+        "@@id": "https://www.ecofoolad.com",
+        "url": "https://www.ecofoolad.com",
+        "telephone": "+982143000550",
+        "priceRange": "IRR",
+        "address": {
+            "@@type": "PostalAddress",
+            "streetAddress": "یوسف آباد - خیاب سید جمال الدین - بعد از خیابان ۶۵ - پلاک ۴۸۵ - واحد ۴۳ - دفتر اکو فولاد ",
+            "addressLocality": "تهران",
+            "postalCode": "1434964737",
+            "addressCountry": "IR"
+        },
+        "geo": {
+            "@@type": "GeoCoordinates",
+            "latitude": 35.748168,
+            "longitude": 51.405510
+        },
+        "openingHoursSpecification": {
+            "@@type": "OpeningHoursSpecification",
+            "dayOfWeek": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Saturday",
+                "Sunday"
+            ],
+            "opens": "08:00",
+            "closes": "17:00"
+        },
+        "sameAs": [
+            "https://www.facebook.com/ecofoolad",
+            "https://www.twitter.com/ecofoolad",
+            "https://plus.google.com/+ecofoolad",
+            "https://www.instagram.com/ecofoolad",
+            "https://www.youtube.com/channel/",
+            "https://www.linkedin.com/company/ecofoolad"
+        ]
+    }
+    </script>
+    <script type="application/ld+json">
+        {
+        "@@context": "https://schema.org",
+        "@@type": "WebSite",
+        "url": "https://www.ecofoolad.com",
+        "potentialAction": {
+            "@@type": "SearchAction",
+            "target": "https://www.ecofoolad.com/search/?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+        }
+        }
+    </script>
+}
+
+  <div class="info-page-cover">
+        <div class="col-lg-12 col-md-12 col-xs-12 mx-auto">
+            <div class="info-page-cover-title">درباره ما</div>
+            @* <form action="#" class="info-page-search"> *@
+            @*     <input type="text" class="info-page-input-search" placeholder="پرسش خود را جستجو کنید"> *@
+            @*     <a href="#"><button class="btn-info-page-search">جستجو</button></a> *@
+            @* </form> *@
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="info-page-faq">
+            <div class="content-info-page">
+                <div class="info-page-box-headline box-rounded_headline info-page-box-headline-question">میتوانم سفارش
+                    خود را در محل پرداخت کنم؟</div>
+                <div class="box-rounded-content">
+                    <section class="js-expert-article">
+                        <div class="content-expert-articles">
+                            @Html.Raw(Model.Body)
+                        </div>
+                    </section>
+                </div>
+                <br>
+                <br>
+            </div>
+        </div>
+    </div>

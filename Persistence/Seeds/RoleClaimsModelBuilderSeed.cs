@@ -140,6 +140,16 @@ namespace Persistence.Seeds
                 {
                     Id = 27, RoleId = "8ce221cd-1b57-4e0b-8781-79524b05fcc5", ClaimType = "Footers",
                     ClaimValue = "Footers"
+                },
+                new IdentityRoleClaim<string>
+                {
+                    Id = 28, RoleId = "8ce221cd-1b57-4e0b-8781-79524b05fcc5", ClaimType = "AboutUs",
+                    ClaimValue = "AboutUs"
+                },
+                new IdentityRoleClaim<string>
+                {
+                    Id = 29, RoleId = "8ce221cd-1b57-4e0b-8781-79524b05fcc5", ClaimType = "ContactUs",
+                    ClaimValue = "ContactUs"
                 }
             );
         }

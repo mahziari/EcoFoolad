@@ -52,7 +52,7 @@ namespace  Application.Services.BackEnd.Admin.Blogs.Command.CreateBlogs
             return new BaseDto
             (
                 true,
-                new List<string> {"بلاگ با موفقیت اضافه شد"}
+                new List<string> {"مجله با موفقیت اضافه شد"}
             );
 
         }

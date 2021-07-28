@@ -48,7 +48,7 @@ namespace Application.Services.BackEnd.Admin.Blogs.Command.EditBlogs
             return new BaseDto
             (
                 true,
-                new List<string> {"بلاگ با موفقیت ویرایش شد"}
+                new List<string> {"مجله با موفقیت ویرایش شد"}
             );
         }
 

@@ -18,8 +18,8 @@
     <meta name="description" content="@Model.Blog.SmallDescription">
     <link rel="canonical" href="@Context.Request.Scheme://@Context.Request.Host@Context.Request.Path.Value">
     <meta property="og:locale" content="fa_IR">
-    <meta property="og:type" content="@Model.Blog.BlogCategory.Slug">
-    <meta property="og:title" content="@Model.Blog.Title - @_siteSetting.GetSiteSetting().SiteName">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="@Model.Blog.Title | @_siteSetting.GetSiteSetting().SiteName">
     <meta property="og:description" content="@Model.Blog.SmallDescription">
     <meta property="og:url" content="@Context.Request.Scheme://@Context.Request.Host@Context.Request.Path.Value">
     <meta property="og:site_name" content="@_siteSetting.GetSiteSetting().SiteName">
@@ -31,7 +31,7 @@
     <meta name="twitter:site" content="@@ecofoolad">
     <meta name="twitter:url" content="@Context.Request.Scheme://@Context.Request.Host@Context.Request.Path.Value">
     <meta name="twitter:description" content="@Model.Blog.SmallDescription">
-    <meta name="twitter:title" content="@Model.Blog.Title - @_siteSetting.GetSiteSetting().SiteName">
+    <meta name="twitter:title" content="@Model.Blog.Title | @_siteSetting.GetSiteSetting().SiteName">
     <meta name="twitter:image" content="@Context.Request.Scheme://@Context.Request.Host/@Model.Blog.ImageUrl">
     <meta name="twitter:creator" content="@@ecofoolad"/>
 }
@@ -78,7 +78,11 @@
                 <nav>
                     <ul class="stick-menu">
                         <li class="stick-menu-item stick-logo">
-                            <a asp-controller="Blogs" asp-action="Index" title="بلاگ @_siteSetting.GetSiteSetting().SiteName">Blog</a>
+                            <a asp-controller="Blogs" asp-action="Index" title="مجله @_siteSetting.GetSiteSetting().SiteName">
+                                <span style="font-size: 9px">ecofoolad</span>
+                                <br>
+                                MAG
+                            </a>
                         </li>
                         @* <li class="stick-menu-item search-btn"> *@
                         @*     <a href="#"> *@
@@ -101,7 +105,7 @@
                                 <nav aria-label="breadcrumb">
                                     <ol class="breadcrumb">
                                         <li class="breadcrumb-item"><a href="/">خانه</a></li>
-                                        <li class="breadcrumb-item"><a asp-controller="Blogs" asp-action="Index">بلاگ</a></li>
+                                        <li class="breadcrumb-item"><a asp-controller="Blogs" asp-action="Index">مجله</a></li>
                                         <li class="breadcrumb-item">
 
                                             <a asp-controller="Blogs"

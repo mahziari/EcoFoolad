@@ -13,5 +13,6 @@ namespace Application.Interfaces.Contexts
     public interface IIdentityDataBaseContext
     {
          DbSet<User> Users { get; set; }
+         DbSet<Claims> Claims { get; set; }
     }
 }

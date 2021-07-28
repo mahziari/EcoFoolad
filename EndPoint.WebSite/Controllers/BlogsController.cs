@@ -20,6 +20,15 @@ namespace EndPoint.WebSite.Controllers
             var result = _blogsFrontEndFacad.GetBlogsFrontEndService.Execute();
             return View(result);
         }
+        
+        
+        [HttpGet]
+        [Route("Archive/{page}")]
+        public IActionResult All(int page)
+        {
+            var result = _blogsFrontEndFacad.GetAllBlogsFrontEndService.Execute(page);
+            return View(result);
+        }
 
 
         [HttpGet]

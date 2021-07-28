@@ -587,3 +587,7 @@ C:\Users\pc-2\Pictures\.NET\01_NewMyProject\EndPoint.WebSite\bin\Debug\net5.0\Do
 C:\Users\pc-2\Pictures\.NET\01_NewMyProject\EndPoint.WebSite\obj\Debug\net5.0\EndPoint.WebSite.Views.pdb
 C:\Users\pc-2\Pictures\.NET\01_NewMyProject\EndPoint.WebSite\obj\Debug\net5.0\EndPoint.WebSite.csproj.CopyComplete
 C:\Users\pc-2\Pictures\.NET\01_NewMyProject\EndPoint.WebSite\obj\Debug\net5.0\EndPoint.WebSite.genruntimeconfig.cache
+C:\Users\pc-2\Pictures\.NET\01_NewMyProject\EndPoint.WebSite\obj\Debug\net5.0\Razor\Views\Blogs\All.cshtml.g.cs
+C:\Users\pc-2\Pictures\.NET\01_NewMyProject\EndPoint.WebSite\obj\Debug\net5.0\Razor\Views\AboutUs\Index.cshtml.g.cs
+C:\Users\pc-2\Pictures\.NET\01_NewMyProject\EndPoint.WebSite\obj\Debug\net5.0\Razor\Views\ContactUs\Index.cshtml.g.cs
+C:\Users\pc-2\Pictures\.NET\01_NewMyProject\EndPoint.WebSite\obj\Debug\net5.0\Razor\Areas\Admin\Views\AboutUs\Index.cshtml.g.cs

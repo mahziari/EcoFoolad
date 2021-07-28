@@ -1,6 +1,5 @@
 ﻿using Application.Interfaces.Contexts;
 using Application.Interfaces.FacadPatterns.BackEnd.Admin;
-using Application.Services.BackEnd.Admin.FileManager;
 using Microsoft.AspNetCore.Hosting;
 
 namespace Application.Services.BackEnd.Admin.FileManagers.FacadPattern

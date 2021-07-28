@@ -24,7 +24,7 @@ namespace  Application.Services.BackEnd.Admin.Company.Command
             return new ResultCreateCompanyDto
             {
                 IsSuccess = true,
-                Message = "بلاگ با موفقیت اضافه شد"
+                Message = "مجله با موفقیت اضافه شد"
             };
 
         }

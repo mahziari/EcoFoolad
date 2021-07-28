@@ -25,4 +25,9 @@
     <ProjectReference Include="..\Domain\Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Migrations\CustomDb" />
+    <Folder Include="Migrations\IdentityDatabase" />
+  </ItemGroup>
+
 </Project>

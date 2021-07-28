@@ -27,6 +27,14 @@
         public string Photo14 {get; set; }
         public string Photo15 {get; set; }
         public string LogoImage {get; set; }
+        public string WhatsApp {get; set; }
+        public string Instagram {get; set; }
+        public string Telegram {get; set; }
+        public string Linkedin {get; set; }
+        public string Facebook {get; set; }
+        public string Youtube {get; set; }
+        public string Twitter {get; set; }
+        public string HoursOfWork {get; set; }
         public string ThumbnailLogoImage {get; set; }
     }
 }

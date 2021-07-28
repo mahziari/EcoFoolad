@@ -5,7 +5,7 @@
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 @addTagHelper *, LazZiya.TagHelpers
 @{
-    ViewData["Title"] = "بلاگ";
+    ViewData["Title"] = "مجله";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -19,16 +19,16 @@
     <link rel="canonical" href="@Context.Request.Scheme://@Context.Request.Host@Context.Request.Path.Value">
     <meta property="og:locale" content="fa_IR">
     <meta property="og:type" content="article">
-    <meta property="og:title" content="بلاگ - @_siteSetting.GetSiteSetting().SiteName">
+    <meta property="og:title" content="مجله | @_siteSetting.GetSiteSetting().SiteName">
     <meta property="og:description" content="فروشگاه آنلاین محصولات آهن و و فولاد">
     <meta property="og:url" content="@Context.Request.Scheme://@Context.Request.Host@Context.Request.Path.Value">
     <meta property="og:site_name" content="@_siteSetting.GetSiteSetting().SiteName">
-    <meta property="article:section" content="بلاگ">
+    <meta property="article:section" content="مجله">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@@ecofoolad">
     <meta name="twitter:url" content="@Context.Request.Scheme://@Context.Request.Host@Context.Request.Path.Value">
-    <meta name="twitter:description" content="فروشگاه آنلاین محصولات آهن و و فولاد - بلاگ">
-    <meta name="twitter:title" content="بلاگ - @_siteSetting.GetSiteSetting().SiteName">
+    <meta name="twitter:description" content="فروشگاه آنلاین محصولات آهن و و فولاد - مجله">
+    <meta name="twitter:title" content="مجله - @_siteSetting.GetSiteSetting().SiteName">
     <meta name="twitter:image" content="/Images/Settings/FavIcon/android-icon-192x192.png"/>
     <meta name="twitter:creator" content="@@ecofoolad"/>
 }
@@ -41,7 +41,7 @@
         {
         "@@context": "https://schema.org",
         "@@type": "LocalBusiness",
-        "name": "بلاگ - @_siteSetting.GetSiteSetting().SiteName",
+        "name": "مجله - @_siteSetting.GetSiteSetting().SiteName",
         "image": "@_siteSetting.GetSiteSetting().LogoImage",
         "@@id": "https://www.ecofoolad.com",
         "url": "https://www.ecofoolad.com",
@@ -286,7 +286,7 @@
                                 <div class="owl-item @(i == 1 || i == 2 || i == 3 || i == 4 ? "active" : "")" style="width: 309.083px; margin-left: 10px;">
                                     <div class="item">
                                         <a asp-controller="Blogs"
-                                           asp-action="Details"
+                                           aslist-menu-level-2 list-menu-discounts-offersp-action="Details"
                                            asp-route-category="@item.BlogCategory.Slug.Replace(" ", "-")"
                                            asp-route-title="@item.Title.Replace(" ", "-")">
                                             <img src="@item.ImageUrl" class="img-fluid" alt="@item.Title">
@@ -298,7 +298,7 @@
                                         </h2>
                                         <div class="item-details">
                                             <div class="user-profile-stat-wrapper">
-                                                <img src="@Model.Footers.ThumbnailLogoImage" class="avatar">
+                                                <img src="@Model.Footers.ThumbnailLogoImage" class="avatar" alt="logo">
                                                 <span class="item-details-author">
                                                     @item.Author
                                                 </span>
@@ -334,8 +334,8 @@
             <nav>
                 <ul class="stick-menu">
                     <li class="stick-menu-item stick-logo">
-                        <a href="#" title="بلاگ اکوفولاد">
-                            eco
+                        <a href="#" title="مجله اکوفولاد">
+                            <span style="font-size: 9px">ecofoolad</span>
                             <br>
                             MAG
                         </a>
@@ -376,7 +376,7 @@
                                                    asp-route-category="@item.BlogCategory.Slug.Replace(" ", "-")"
                                                    asp-route-title="@item.Title.Replace(" ", "-")" class="image-linker">
                                                     <span class="image-mask"></span>
-                                                    <img src="@item.ImageUrl" alt="" class="image-img wp-post-image">
+                                                    <img src="@item.ImageUrl" alt="@item.Title" class="image-img wp-post-image">
                                                 </a>
                                                 <a asp-controller="Blogs"
                                                    asp-action="Details"
@@ -408,7 +408,7 @@
                                             </div>
                                             <div class="masonry-gallery-item-detail">
                                                 <div class="user-profile-stat-wrapper mr-0">
-                                                    <img src="@Model.Footers.ThumbnailLogoImage" class="avatar">
+                                                    <img src="@Model.Footers.ThumbnailLogoImage" class="avatar" alt="logo">
                                                     <span class="item-details-author">
                                                         @item.Author
                                                     </span>
@@ -439,7 +439,7 @@
                                            asp-route-category="@itemBlog.BlogCategory.Slug.Replace(" ", "-")"
                                            asp-route-title="@itemBlog.Title.Replace(" ", "-")"
                                            class="favourites-title">
-                                            <img src="@itemBlog.ImageUrl" class="favourites-img">
+                                            <img src="@itemBlog.ImageUrl" class="favourites-img" alt="@itemBlog.Title">
                                             @itemBlog.Title
                                         </a>
                                     }
@@ -487,7 +487,7 @@
                 </div>
                 <div class="module-title module-title-two">
                     <div class="module-title-sep module-title-sep-two"></div>
-                    <a href="#" class="module-title-btn">مشاهده عناوین بیشتر</a>
+                    <a asp-controller="Blogs" asp-action="All" asp-route-page="1" class="module-title-btn">مشاهده عناوین بیشتر</a>
                 </div>
             </div>
         </div>

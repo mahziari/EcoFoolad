@@ -40,7 +40,7 @@ namespace  Application.Services.BackEnd.Admin.BlogsCategories.Command.CreateBlog
             return new BaseDto<BlogCategoryDto>
             (
                 true,
-                new List<string> {"دسته بندی بلاگ با موفقیت اضافه شد"},
+                new List<string> {"دسته بندی مجله با موفقیت اضافه شد"},
                 _mapper.Map<BlogCategoryDto>(blogCategories)
             );
 

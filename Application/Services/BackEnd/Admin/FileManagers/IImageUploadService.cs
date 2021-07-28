@@ -5,14 +5,10 @@ using System.IO;
 using System.Linq;
 using Application.Interfaces.Contexts;
 using Domain.Entities;
-using Domain.Entities.Orders;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
-using Newtonsoft.Json;
-using RestSharp;
-using RestSharp.Extensions;
 
-namespace Application.Services.BackEnd.Admin.FileManager
+namespace Application.Services.BackEnd.Admin.FileManagers
 {
     public interface IImageUploadService
     {

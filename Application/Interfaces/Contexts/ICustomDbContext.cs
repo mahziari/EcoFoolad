@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using Application.Services.BackEnd.Admin.Blogs.Command.CreateBlogs;
 using Domain.Entities;
+using Domain.Entities.AboutUs;
 using Domain.Entities.Baskets;
 using Domain.Entities.Blogs;
 using Domain.Entities.Factory;
@@ -18,7 +19,6 @@ namespace Application.Interfaces.Contexts
     public interface ICustomDbContext
     {
          DbSet<Slider> Sliders { get; set; }
-         DbSet<Claims> Claims { get; set; }
          DbSet<Product>  Products { get; set; }
         DbSet<Basket> Baskets { get; set; }
         DbSet<BasketItem> BasketItems { get; set; }
@@ -30,7 +30,8 @@ namespace Application.Interfaces.Contexts
         DbSet<FileManager> FileManagers { get; set; }
         DbSet<Footer> Footers { get; set; }
         DbSet<BlogCategory> BlogCategories { get; set; } 
-        DbSet<Blog> Blogs { get; set; }
+        DbSet<Blog> Blogs { get; set; } 
+        DbSet<AboutUs> AboutUs { get; set; }
 
 
         

@@ -39,7 +39,7 @@ namespace  Application.Services.BackEnd.Admin.BlogsCategories.Command.EditBlogsC
             return new BaseDto<BlogCategoryDto>
             (
                 true,
-                new List<string> {"دسته بندی بلاگ با موفقیت ویرایش شد"},
+                new List<string> {"دسته بندی مجله با موفقیت ویرایش شد"},
                 _mapper.Map<BlogCategoryDto>(blogCategoryModel)
             );
         }

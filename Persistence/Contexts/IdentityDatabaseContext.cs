@@ -18,8 +18,10 @@ namespace Persistence.Contexts
         public IdentityDatabaseContext(DbContextOptions<IdentityDatabaseContext> options)
             : base(options)
         {
-            
         }
+        
+        
+        public DbSet<Claims> Claims { get; set; }
         
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -36,12 +38,11 @@ namespace Persistence.Contexts
             modelBuilder.Entity<IdentityRoleClaim<string>>().HasKey(p => new { p.Id });
             modelBuilder.Entity<IdentityUserToken<string>>().HasKey(p => new { p.UserId, p.LoginProvider });
            
+            modelBuilder.ClaimsSeed();
             modelBuilder.UserSeed();
             modelBuilder.RoleSeed();
             modelBuilder.RoleClaimsSeed();
             modelBuilder.UserRoleSeed();
-
-            // base.OnModelCreating(modelBuilder);
         }
     }
 }

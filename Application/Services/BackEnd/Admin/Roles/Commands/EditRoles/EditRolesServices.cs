@@ -8,11 +8,11 @@ namespace  Application.Services.BackEnd.Admin.Roles.Commands.EditRoles
 {
     public class EditRolesServices:IEditRolesServices {
         private readonly RoleManager<Role> _roleManager;
-        private readonly ICustomDbContext _customDbContext;
-        public EditRolesServices(RoleManager<Role> roleManager, ICustomDbContext customDbContext)
+        private readonly IIdentityDataBaseContext _identityDataBaseContext;
+        public EditRolesServices(RoleManager<Role> roleManager, IIdentityDataBaseContext identityDataBaseContext)
         {
             _roleManager = roleManager;
-            _customDbContext = customDbContext;
+            _identityDataBaseContext = identityDataBaseContext;
         }
         public ResultEditRolesDto Execute(EditRolesServicesDto editRolesServicesDto, string id)
         {
@@ -22,7 +22,7 @@ namespace  Application.Services.BackEnd.Admin.Roles.Commands.EditRoles
             
             foreach (var  item in editRolesServicesDto.Claims)
             {
-                var selectedClaim = _customDbContext.Claims.FirstOrDefault(c => c.Id == item.Id);
+                var selectedClaim = _identityDataBaseContext.Claims.FirstOrDefault(c => c.Id == item.Id);
 
                 var claimRole = claimsRole.FirstOrDefault(s => s.Value == selectedClaim.ClaimValue);
                 var newClaim = new Claim(selectedClaim.ClaimValue ,selectedClaim.ClaimValue,ClaimValueTypes.String);

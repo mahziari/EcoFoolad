@@ -3,6 +3,7 @@ using System.Linq;
 using Application.Interfaces.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Domain.Entities;
+using Domain.Entities.AboutUs;
 using Domain.Entities.Attributes;
 using Domain.Entities.Baskets;
 using Domain.Entities.Blogs;
@@ -13,6 +14,7 @@ using Domain.Entities.Orders;
 using Domain.Entities.Payments;
 using Domain.Entities.Products;
 using Domain.Entities.Users;
+using Persistence.Config.SqlServer.AboutUs;
 using Persistence.Config.SqlServer.Blog;
 using Persistence.Config.SqlServer.Product;
 using Persistence.Seeds;
@@ -34,7 +36,7 @@ namespace  Persistence.Contexts
         
 
         public DbSet<Slider> Sliders { get; set; }
-        public DbSet<Claims> Claims { get; set; }
+      
         public DbSet<Product>  Products { get; set; }
         public DbSet<Basket> Baskets { get; set; }
         public DbSet<BasketItem> BasketItems { get; set; }
@@ -47,6 +49,7 @@ namespace  Persistence.Contexts
         public DbSet<Footer> Footers { get; set; }
         public DbSet<BlogCategory> BlogCategories { get; set; }
         public DbSet<Blog> Blogs { get; set; }
+        public DbSet<AboutUs> AboutUs { get; set; }
         
         
         
@@ -73,7 +76,6 @@ namespace  Persistence.Contexts
 
             builder.Entity<Order>().OwnsOne(o => o.Address);
             
-            builder.ClaimsSeed();
             builder.FootersSeed();
             
             Config(builder);
@@ -87,6 +89,7 @@ namespace  Persistence.Contexts
              builder.ApplyConfiguration(new BlogConfig());
              builder.ApplyConfiguration(new BlogCategoryConfig());
              builder.ApplyConfiguration(new ProductConfig());
+             builder.ApplyConfiguration(new AboutUsConfig());
          }  
 
         public override int SaveChanges()

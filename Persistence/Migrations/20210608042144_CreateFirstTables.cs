@@ -371,9 +371,9 @@ namespace Persistence.Migrations
                 columns: new[] { "Id", "ClaimName", "ClaimType", "ClaimValue", "IsHead", "ParentId" },
                 values: new object[,]
                 {
-                    { 2, "مدیریت دسته بندی بلاگ", "BlogCategories", "BlogCategories", true, null },
-                    { 4, "ساخت دسته بندی بلاگ", "BlogCategoriesCreate", "BlogCategoriesCreate", null, 2 },
-                    { 5, "ویرایش دسته بندی بلاگ", "BlogCategoriesEdit", "BlogCategoriesEdit", null, 2 },
+                    { 2, "مدیریت دسته بندی مجله", "BlogCategories", "BlogCategories", true, null },
+                    { 4, "ساخت دسته بندی مجله", "BlogCategoriesCreate", "BlogCategoriesCreate", null, 2 },
+                    { 5, "ویرایش دسته بندی مجله", "BlogCategoriesEdit", "BlogCategoriesEdit", null, 2 },
                     { 6, "حذف دسته بندی بلاگ", "BlogCategoriesDelete", "BlogCategoriesDelete", null, 2 },
                     { 7, "مدیریت بلاگ", "Blogs", "Blogs", true, null },
                     { 8, "مشاهده بلاگ ها", "BlogsIndex", "BlogsIndex", null, 7 },

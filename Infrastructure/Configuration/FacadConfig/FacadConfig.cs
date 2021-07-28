@@ -1,6 +1,7 @@
 ﻿using Application.Interfaces.FacadPatterns.BackEnd.Admin;
 using Application.Interfaces.FacadPatterns.BackEnd.Owner;
 using Application.Interfaces.FacadPatterns.FrontEnd;
+using Application.Services.BackEnd.Admin.AboutUs.FacadPattern;
 using Application.Services.BackEnd.Admin.Blogs.FacadPattern;
 using Application.Services.BackEnd.Admin.BlogsCategories.FacadPattern;
 using Application.Services.BackEnd.Admin.Company.FacadPattern;
@@ -19,6 +20,7 @@ using Application.Services.BackEnd.Owner.Profile.FacadPattern;
 using Application.Services.BackEnd.User.Addresses;
 using Application.Services.BackEnd.User.Home;
 using Application.Services.BackEnd.User.Orders;
+using Application.Services.FrontEnd.AboutUs.FacadPattern;
 using Application.Services.FrontEnd.Basket;
 using Application.Services.FrontEnd.Blogs.FacadPattern;
 using Application.Services.FrontEnd.Common;
@@ -49,6 +51,8 @@ namespace Infrastructure.Configuration.FacadConfig
             services.AddTransient<IFootersFrontEndFacad, FootersFrontEndFacad>();
             services.AddScoped<ISiteSetting, SiteSetting>();
             services.AddScoped<ISiteMapFacad, SiteMapFacad>();
+            services.AddScoped<IAboutUsFrontEndFacad, AboutUsFrontEndFacad>();
+
             //------ Admin Panel Services
             services.AddScoped<IMenusFacad, MenusFacad>();
             services.AddScoped<IProductsFacad, ProductsFacad>();
@@ -62,6 +66,7 @@ namespace Infrastructure.Configuration.FacadConfig
             services.AddScoped<IHomeFacad, HomeFacad>();
             services.AddScoped<IFileManagerFacad, FileManagerFacad>();
             services.AddScoped<IFootersServices, FootersServices>();
+            services.AddScoped<IAboutUsFacad, AboutUsFacad>();
             //------ Owner Panel Services
             services.AddScoped<IOwnerProductsFacad, OwnerProductsFacad>();
             services.AddScoped<IOwnerHomeFacad, OwnerHomeFacad>();

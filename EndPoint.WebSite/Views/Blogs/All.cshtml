@@ -1,0 +1,140 @@
+﻿@using Application.Services.FrontEnd.Blogs.Queries
+@using Application.Services.FrontEnd.Common
+@model ResultGetAllBlogsFrontEndDto
+@inject ISiteSetting _siteSetting;
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "جدیترین مطالب بازار آهن";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Head{
+    <link rel="stylesheet" href="~/assets/css/nice-select.css">
+    <link rel="stylesheet" href="~/assets/css/blog-style.css">
+    <link rel="stylesheet" href="~/blog-assets/css/responsive.css">
+
+    <link rel="canonical" href="@Context.Request.Scheme://@Context.Request.Host@Context.Request.Path.Value">
+    <meta property="og:locale" content="fa_IR">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="جدیترین مطالب بازار آهن | @_siteSetting.GetSiteSetting().SiteName">
+    <meta property="og:url" content="@Context.Request.Scheme://@Context.Request.Host@Context.Request.Path.Value">
+    <meta property="og:site_name" content="@_siteSetting.GetSiteSetting().SiteName">
+    <meta property="article:section" content="جدیترین مطالب بازار آهن">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@@ecofoolad">
+    <meta name="twitter:url" content="@Context.Request.Scheme://@Context.Request.Host@Context.Request.Path.Value">
+    <meta name="twitter:title" content="جدیترین مطالب بازار آهن | @_siteSetting.GetSiteSetting().SiteName">
+    <meta name="twitter:image" content="/Images/Settings/FavIcon/android-icon-192x192.png"/>
+    <meta name="twitter:creator" content="@@ecofoolad"/>
+}
+
+@section Foo{
+    <script src="~/assets/js/blog-theia-sticky-sidebar.min.js"></script>
+    <script src="~/assets/js/jquery.nice-select.min.js"></script>
+    <script src="~/assets/js/blog-main.js"></script>
+    <script type="application/ld+json">
+    {
+    "@@context":"https://schema.org",
+    "@@type":"جدیترین مطالب بازار آهن",
+    "publisher":{
+    "@@type":"Organization",
+    "name":"@_siteSetting.GetSiteSetting().SiteName",
+    "logo":{
+    "@@type":"ImageObject",
+    "url":"@_siteSetting.GetSiteSetting().LogoImage",
+    "width":"211",
+    "height":"60"
+    }},
+    "url":"@Context.Request.Scheme://@Context.Request.Host@Context.Request.Path.Value"
+    }
+    </script>
+}
+
+<div class="main mt-0 bg-search">
+    <div class="col-12 pull-right">
+        <div class="main-aside pull-right sticky-sidebar sticky-sidebar-distant">
+            <nav>
+                <ul class="stick-menu">
+                    <li class="stick-menu-item stick-logo">
+                        <a href="#" title="مجله @_siteSetting.GetSiteSetting().SiteName">
+                            eco
+                            <br>
+                            MAG
+                        </a>
+                    </li>
+                    <li class="stick-menu-item login-popup-btn">
+                        <a href="#">
+                            <img src="assets/images/header/user.png" alt="user">
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <div class="container">
+            <div class="main-content">
+                <div class="topics">
+                    <div class="col-lg-12 col-xs-12 pr-0 pl-0 pull-right">
+                        <div class="topics-content">
+                            <section class="masonry-gallery">
+                                @foreach (var item in Model.Blogs)
+                                {
+                                    <div class="col-lg-3 col-md-3 col-xs-12 pull-right">
+                                        <div class="masonry-gallery-item">
+                                            <div class="image">
+                                                <a asp-controller="Blogs"
+                                                   asp-action="Details"
+                                                   asp-route-category="@item.BlogCategory.Slug.Replace(" ","-")"
+                                                   asp-route-title="@item.Title.Replace(" ","-")" class="image-linker">
+                                                    <span class="image-mask"></span>
+                                                    <img src="/@item.ImageUrl" alt="/@item.Title" class="image-img wp-post-image">
+                                                </a>
+                                                <a href="#" class="image-badge">@item.BlogCategory.Name</a>
+                                                @* <div class="image-fav"> *@
+                                                @*     <span class="popularity"> *@
+                                                @*         <span class="popularity-likes"> *@
+                                                @*             <i class="fa fa-heart"></i> *@
+                                                @*             <span class="popularity-likes-num">2</span> *@
+                                                @*         </span> *@
+                                                @*         <span class="popularity-time-to-read"> *@
+                                                @*             <i class="fa fa-clock-o"></i> *@
+                                                @*             <span class="popularity-minutes-read">مدت ۱:۳۷</span> *@
+                                                @*         </span> *@
+                                                @*     </span> *@
+                                                @* </div> *@
+                                            </div>
+                                            <a asp-controller="Blogs"
+                                               asp-action="Details"
+                                               asp-route-category="@item.BlogCategory.Slug.Replace(" ","-")"
+                                               asp-route-title="@item.Title.Replace(" ","-")"
+                                               class="masonry-gallery-item-title">
+                                                @item.Title
+                                            </a>
+                                            <div class="masonry-gallery-item-description">
+                                                @item.SmallDescription
+                                            </div>
+                                            <div class="masonry-gallery-item-detail">
+                                                <div class="user-profile-stat-wrapper mr-0">
+                                                    <img src="@Model.Footers.ThumbnailLogoImage" class="avatar">
+                                                    <span class="item-details-author">
+                                                        @item.Author
+                                                    </span>
+                                                </div>
+                                                <span class="popularity-time-to-read pull-left">
+                                                    @* <span class="popularity-minutes-read">@item.CreatedAt</span> *@
+                                                    <i class="fa fa-clock-o"></i>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            </section>
+                      
+                        </div>
+                    </div>
+                </div>
+                <div class="clear"></div>
+                    <partial name="_BlogPagination"/>
+            </div>
+        </div>
+    </div>
+</div>
