@@ -30,11 +30,10 @@ namespace  Application.Services.FrontEnd.Blogs.Queries
         public ResultGetAllBlogsFrontEndDto Execute(int page)
         {
 
-            var resultInEachPage = 16;
+            var resultInEachPage = 2;
             int skip = (page - 1) * resultInEachPage;
             int count = _customDbContext.Blogs
                 .Where(g => g.IsVerified)
-                .Where(s => s.Position == 0)
                 .Where(s => s.RequestToAuthorFav!=true)
                 .Count(b => b.Position == 0);
             var pageId = page;
@@ -45,12 +44,10 @@ namespace  Application.Services.FrontEnd.Blogs.Queries
                 .Include(b=>b.BlogCategory)
                 .Where(g => g.IsVerified)
                 .Where(s => s.Position == 0)
-                // .Where(s => s.RequestToAuthorFav!=true)
                 .OrderByDescending(b=>b.Id)
                 .Skip(skip).Take(resultInEachPage);
-            var blogs = _mapper.Map<List<GetBlogsDto>>(blogsModel);
-            
 
+            var blogs = _mapper.Map<List<GetBlogsDto>>(blogsModel);
 
 
             var footers = _customDbContext.Footers.Single();

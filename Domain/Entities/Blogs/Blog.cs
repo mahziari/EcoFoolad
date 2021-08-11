@@ -23,5 +23,6 @@ namespace Domain.Entities.Blogs
         public string VideoClipDuration { get; set; }
         public string Author { get; set; }
         public virtual BlogCategory BlogCategory { get; set; }
+        
     }
 }

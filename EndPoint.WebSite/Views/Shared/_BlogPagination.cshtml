@@ -1,4 +1,17 @@
-﻿@if (Model.PageId >= 1)
+﻿@{
+        int totalShowPage;
+    var a = Model.PageId + 1;
+    if (a>Model.PageCount)
+    {
+        totalShowPage = Model.PageCount;
+    }
+    else
+    {
+        totalShowPage = Model.PageId + 1;
+    }
+}
+
+@if (Model.PageId >= 1)
 {
     <nav class="navbar-centeral">
         <ul class="pagination">
@@ -10,30 +23,44 @@
                         <span class="sr-only">قبلی</span>
                     </a>
                 </li>
-
-                <li class="page-item">
-                    <a class="page-link" asp-controller="Blogs" asp-action="Category" asp-route-pageView="page" asp-route-page="1">1</a>
-                </li>
             }
+            
+            @if (Model.PageCount<totalShowPage)
+                {
+                    <li class="page-item">
+                        <a class="page-link" asp-controller="Blogs" asp-action="Category" asp-route-pageView="page" asp-route-page="@(1)">1</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="#" style="cursor: context-menu;">…</a>
+                    </li>
+                }
+            
+            
 
-            @for (int i = 1; i <= Model.PageCount; i++)
+            @for (int i = Model.PageId; i <=totalShowPage ; i++)
             {
                 <li class="page-item">
                     <a class="page-link @(Model.PageId == i ? "current-page" : null)" asp-controller="Blogs" asp-action="Category" asp-route-pageView="page" asp-route-page="@i">@i</a>
                 </li>
-                @if (Model.PageCount < Model.PageId - 3 && i == Model.PageId - 1)
-                {
-                    <li class="page-item">
-                        <a class="page-link" href="#">…</a>
-                    </li>
-                }
+                        
+                
             }
-            @if (Model.PageCount > Model.PageId)
+            
+            @if (Model.PageCount>totalShowPage)
             {
                 <li class="page-item">
-                    <a class="page-link" asp-controller="Blogs" asp-action="Category" asp-route-pageView="page" asp-route-page="@(Model.PageCount)">@(Model.PageCount)</a>
+                    <a class="page-link" href="#" style="cursor: context-menu;">…</a>
                 </li>
+                
+                <li class="page-item">
+                    <a class="page-link" asp-controller="Blogs" asp-action="Category" asp-route-pageView="page" asp-route-page="@Model.PageCount">@Model.PageCount</a>
+                </li>
+            }
 
+
+
+            @if (Model.PageCount > Model.PageId)
+            {
                 <li class="page-item">
                     <a class="page-link" asp-controller="Blogs" asp-action="Category" asp-route-pageView="page" asp-route-page="@(Model.PageId + 1)" aria-label="بعدی">
                         <span aria-hidden="true">&raquo;</span>

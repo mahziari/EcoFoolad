@@ -1,4 +1,5 @@
 ﻿using Domain.Entities;
+using Domain.Entities.Dtos;
 using  Domain.Entities.IdealCrm;
 
 namespace  Application.Services.BackEnd.Admin.Blogs.Command.DeleteBlogs

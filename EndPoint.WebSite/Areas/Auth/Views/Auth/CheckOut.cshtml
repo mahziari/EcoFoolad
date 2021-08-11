@@ -2,7 +2,6 @@
 @using Application.Services.FrontEnd.Common
 @inject ISiteSetting _siteSetting;
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
-
 @{
     ViewData["Title"] = "ورود/ثبت نام ";
     Layout = "~/Areas/Auth/Views/Shared/_Layout.cshtml";
@@ -12,7 +11,7 @@
     <div class="col-lg-4 col-md-6 col-xs-12 mx-auto">
         <div class="account-box">
             <a href="/" class="logo-account">
-                <img src="@_siteSetting.GetSiteSetting().LogoImage">
+                <img src="@_siteSetting.GetSiteSetting().LogoImage" alt="logo">
             </a>
             
             
@@ -47,13 +46,13 @@
             
                <span class="account-head-line">ورود / ثبت نام</span>
                
-            <form asp-controller="Auth" asp-action="CheckOut" method="post">
+            <form asp-controller="Auth" asp-action="CheckOut" method="post" id="CheckOutForm">
 
                 <div class="content-account">
                     <label>شماره موبایل خود را وارد کنید</label>
                     <input asp-for="PhoneNumber" type="text" class="input-email-account" placeholder="">
                     <div class="clear"></div>
-                    <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                    <span asp-validation-for="PhoneNumber" class="text-danger" id="GoogleReCaptchaToken"></span>
 
                     <div class="parent-btn">
                         <button class="dk-btn dk-btn-info">
@@ -61,6 +60,8 @@
                             <i class="fa fa-sign-in sign-in"></i>
                         </button>
                     </div>
+                    
+                    
                     @* <div class="form-auth-row"> *@
                     @*     <label for="#" class="ui-checkbox"> *@
                     @*         <input type="checkbox" value="1" name="login" checked="" id="remember"> *@
@@ -89,7 +90,10 @@
                 </div>
                 
                 <input asp-for="ReturnUrl" type="hidden"/>
+                <input type="hidden" name="Captcha" id="captchaInput" value=""/>
             </form>
         </div>
     </div>
 </div>
+
+

@@ -1,7 +1,7 @@
 ﻿@using Application.Services.FrontEnd.Basket;
 @using Application.Services.FrontEnd.Common
 @model BasketDto;
-@inject ISiteSetting _siteSetting;
+@inject ISiteSetting SiteSetting;
 @{
     Layout = null;
 }
@@ -53,7 +53,7 @@ else
                                             <span class="header-basket-list-item-shipping-type">
                                                 موجود در
                                                 انبار
-                                                @_siteSetting.GetSiteSetting().SiteName
+                                                @SiteSetting.GetSiteSetting().SiteName
                                             </span>
                                             <div class="header-basket-list-item-footer">
                                                 <div class="header-basket-list-item-props">

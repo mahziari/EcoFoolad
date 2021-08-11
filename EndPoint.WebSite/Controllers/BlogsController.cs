@@ -23,8 +23,8 @@ namespace EndPoint.WebSite.Controllers
         
         
         [HttpGet]
-        [Route("Archive/{page}")]
-        public IActionResult All(int page)
+        [Route("Archive/{pageView?}/{page?}")]
+        public IActionResult All(int page=1)
         {
             var result = _blogsFrontEndFacad.GetAllBlogsFrontEndService.Execute(page);
             return View(result);
@@ -32,17 +32,18 @@ namespace EndPoint.WebSite.Controllers
 
 
         [HttpGet]
-        [Route("{category}/{pageView?}/{page?}")]
+        [Route("category/{category}/{pageView?}/{page?}")]
         public IActionResult Category(string category,string pageView ,int page=1)
         {
             var result = _blogsFrontEndFacad.GetBlogsCategoryFrontEndService.Execute(category,page);
+            ViewBag.Blogs  = result.Blogs;
             return View(result);
         }
 
 
         [HttpGet]
-        [Route("{category}/{title}")]
-        public IActionResult Details(string category,string title)
+        [Route("{title}")]
+        public IActionResult Details(string title)
         {
             var result = _blogsFrontEndFacad.GetBlogsDetailsFrontEndService.Execute(title);
             return View(result);

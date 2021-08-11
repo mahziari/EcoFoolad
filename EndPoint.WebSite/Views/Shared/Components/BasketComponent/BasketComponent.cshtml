@@ -1,7 +1,7 @@
 ﻿@using Application.Services.FrontEnd.Basket;
 @using Application.Services.FrontEnd.Common
 @model BasketDto;
-@inject ISiteSetting _siteSetting;
+@inject ISiteSetting SiteSetting;
 
 @{
     Layout = null;
@@ -10,7 +10,7 @@
 @if (Model == null)
 {
   <div class="mini-cart-header">
-    <a href="~/basket" style="color: #4a5f73;">
+    <a href="~/basket">
         <span class="mdi mdi-basket"></span>
         <span class="cart-count">0</span>
     </a>
@@ -27,7 +27,7 @@
 else
 {
 <div class="mini-cart-header">
-    <a href="~/basket" style="color: #4a5f73;">
+    <a href="~/basket">
         <span class="mdi mdi-basket"></span>
         <span class="cart-count">@Model.Items.Count</span>
     </a>
@@ -56,7 +56,7 @@ else
                                           <span class="header-basket-list-item-shipping-type">
                                               موجود در
                                               انبار
-                                              @_siteSetting.GetSiteSetting().SiteName
+                                              @SiteSetting.GetSiteSetting().SiteName
                                           </span>
                                           <div class="header-basket-list-item-footer">
                                               <div class="header-basket-list-item-props">

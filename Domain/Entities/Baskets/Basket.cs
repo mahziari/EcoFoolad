@@ -17,6 +17,7 @@ namespace Domain.Entities.Baskets
             this.BuyerId = buyerId;
         }
 
+        
         public void AddItem(long productId, int quantity, int unitPrice)
         {
             if (!Items.Any(p => p.ProductId == productId))

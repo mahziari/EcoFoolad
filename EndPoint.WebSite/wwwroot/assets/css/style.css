@@ -333,7 +333,7 @@ header {
     line-height: 34px;
     vertical-align: middle;
     padding-left: 7px;
-    color: #616161;
+    color: #191842;
 }
 
 .dropdown-menu-login {
@@ -413,7 +413,7 @@ header {
 
 .dropdown-menu-login .header-profile-dropdown-account .header-profile-dropdown-user .header-profile-dropdown-user-info .header-profile-dropdown-user-profile-link {
     align-items: center;
-    color: #19bfd3;
+    color: #191842;
     font-size: 10px;
     font-size: .714rem;
     line-height: 2.2;
@@ -598,7 +598,7 @@ header {
 }
 
 .mini-cart-dropdown .header-cart-info-header a.header-cart-info-link {
-    color: #0fabc6;
+    color: #191842;
     font-size: 12px!important;
     font-weight: 600;
     float: left;
@@ -1137,7 +1137,7 @@ nav.main-menu ul.new-list-menu li.item-list-menu ul.list-menu-discounts-offers .
     user-select: none;
     display: none;
     position: absolute;
-    top: 15px;
+    top: 0px;
     right: 20px;
 }
 
@@ -2795,6 +2795,7 @@ footer .footer-form span.newslitter-form {
     color: #4b4b4b;
     display: block;
     text-align: right;
+    margin-bottom: 24px;
 }
 
 footer .footer-form form {
@@ -2862,15 +2863,16 @@ footer .footer-social .newslitter-form-social {
 }
 
 footer .footer-social .social-links {
-    width: 200px;
+    /*width: 200px;*/
+    width: 100%;
     height: 50px;
     margin-top: 10px;
     overflow: hidden;
-    text-align: right;
+    text-align: center;
 }
 
 footer .footer-social .social-links a {
-    width: 40px;
+    width: 11%;
     height: 40px;
     color: #9c9c9c;
     display: inline-block;
@@ -2927,10 +2929,9 @@ footer .footer-address .footer-contact ul li.email-title {
 footer .footer-address .address-images {
     width: 100%;
     height: auto;
-    float: left;
+    /*float: left;*/
     line-height: 63px;
 }
-
 footer .footer-address .address-images img {
     width: 90px;
 }
@@ -2942,6 +2943,33 @@ footer .more-info {
     float: right;
     padding: 20px 0;
 }
+
+
+.footer-links h1 {
+    font: 16px iranyekan;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #616161;
+}
+
+.footer-links p {
+    font: 12px iranyekan;
+    color: #535353;
+    text-align: justify;
+}
+
+.newslitter-form i{
+    color: #191842;
+    font-size: 28px;
+    top: 8px;
+    position: relative;
+    margin-left: 4px;
+}
+
+.rotatePhone{
+    transform: rotate(242deg);
+}
+
 
 footer .more-info .about-site {
     width: 100%;
@@ -3265,7 +3293,7 @@ footer .copy-right-footer p {
     margin-top: 10px;
     font-family: iranyekan;
     width: 338px;
-    box-shadow: 0 2px 6px 0 rgb(214 0 0 / 50%);
+    box-shadow:  0 2px 6px 0 rgb(25, 24, 66);
 }
 
 button.dk-btn {
@@ -3298,7 +3326,7 @@ button.dk-btn {
 }
 
 .dk-btn-info {
-    background-color: #ef394e;
+    background-color: #191842;
 }
 
 .dk-btn-danger {
@@ -3439,8 +3467,8 @@ button, input, optgroup, select, textarea {
 .account-footer .btn-link-register {
     font: 14px iranyekan;
     text-decoration: none;
-    color: #1ca2bd;
-    border-bottom: 1px dashed #1ca2bd;
+    color: #191842;
+    border-bottom: 1px dashed #181942;
     font-weight: 700;
 }
 
@@ -4107,7 +4135,7 @@ input[type=number] {
     width: 100%;
     float: right;
     height: 410px;
-    background: linear-gradient(rgba(0, 0, 0, .6), rgba(0, 0, 0, .6)), url(../images/info-page-cover.jpg) top no-repeat;
+    /*background: linear-gradient(rgba(0, 0, 0, .6), rgba(0, 0, 0, .6)), url(../images/info-page-cover.jpg) top no-repeat;*/
     margin-top: 60px;
     text-align: center;
 }
@@ -10781,6 +10809,9 @@ ul.faq-list li .footer em {
 /*responsive---------------------*/
 
 @media(max-width: 767px) {
+    .footer-social{
+        margin-top: 0px !important;
+    }
     .header-right {
         margin-right: 0px !important;
     }
@@ -10875,7 +10906,7 @@ ul.faq-list li .footer em {
         border-radius: 8px;
     }
     .question-not-found .info-page_contact-option>span, i {
-        color: #2a2a2a;
+        color: #6b6c6c;
     }
     .question-not-found .info-page_contact-option .faq-send-message {
         margin-bottom: 20px;
@@ -11129,7 +11160,7 @@ ul.faq-list li .footer em {
         right: -10px;
     }
     .responsive-header-left .btn-login-responsive a {
-        color: #424750;
+        color: #191842;
     }
     .responsive-header-left .btn-login-responsive:hover .dropdown-menu-login {
         opacity: 1;
@@ -11147,7 +11178,7 @@ ul.faq-list li .footer em {
         cursor: pointer;
         font-size: 30px;
         height: 40px;
-        color: #424750;
+        color: #191842;
     }
     .responsive-header-left .question-faq {
         background: #fff;
@@ -11157,6 +11188,7 @@ ul.faq-list li .footer em {
         left: 0;
         height: 30px;
         cursor: pointer;
+      
         outline: none;
     }
     .responsive-header-left .question-faq span {
@@ -11757,44 +11789,52 @@ ul.faq-list li .footer em {
 
 
 .text-office-1 {
-    color: #7a00ff !important;
+    color: #191842 !important;
 }
 
 .text-office-2 {
-    color: #7a00ff !important;
+    color: #191842 !important;
 }
 
 .text-office-3 {
-    color: #7a00ff !important;
+    color: #191842 !important;
 }
 
 .text-office-4 {
-    color: #7a00ff !important;
+    color: #191842 !important;
 }
 
 .text-office-5 {
-    color: #7a00ff !important;
+    color: #191842 !important;
 }
 
 .text-office-6 {
-    color: #7a00ff !important;
+    color: #191842 !important;
 }
 
 .text-office-7 {
-    color: #7a00ff !important;
+    color: #191842 !important;
 }
 
 .text-office-8 {
-    color: #7a00ff !important;
+    color: #191842 !important;
 }
 
 .text-office-9 {
-    color: #7a00ff  !important;
+    color: #191842  !important;
 }
 
 .text-office-home{
-    color: #0f7bff !important;
+    color: #191842 !important;
 }
+
+.mdi-basket {
+    color: #191842 !important;
+}
+.copyRight {
+    color: #191842 !important;
+}
+
 
 .againCodeAfter{
     background-color: #f5fdf0;
@@ -11811,4 +11851,54 @@ ul.faq-list li .footer em {
 /*paginate*/
 .current-page{
     background-color: #ebd9ff ;
+}
+
+.content-info-page iframe{
+    left:0;
+    top:0;
+    width:100%;
+    position:relative;
+}
+
+.card.single-promo-card {
+    border: 2px dashed #ebebeb;
+    border-radius: 1rem;
+    z-index: 1;
+}
+.single-promo-card {
+    transition: all .2s ease;
+}
+.single-promo-hover {
+    transition: all .2s ease-out;
+    will-change: transform;
+}
+.text-center {
+    text-align: center !important;
+}
+.card {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+}
+
+.card-body {
+    padding: 1.5rem;
+}
+
+.contactUsFontLi{
+    color: #ff9100;
+    font-size: 30px;
+}
+
+.bgborder{
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 7px;
 }

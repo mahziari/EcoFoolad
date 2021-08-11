@@ -1,5 +1,5 @@
 ﻿@using Application.Services.FrontEnd.Common
-@inject ISiteSetting _siteSetting;
+@inject ISiteSetting SiteSetting;
 
 <!--    responsive-megamenu-mobile----------------->
 <nav class="sidebar">
@@ -7,7 +7,7 @@
         <div class="header-cover"></div>
         <div class="logo-wrap">
             <a class="logo-icon" href="/">
-                <img alt="logo-icon" src="@_siteSetting.GetSiteSetting().LogoImage" width="40">
+                <img alt="logo-icon" src="@SiteSetting.GetSiteSetting().LogoImage" width="40">
             </a>
         </div>
     </div>
@@ -32,7 +32,7 @@
 
     <ul class="nav-categories ul-base">
         <li>
-            <a asp-controller="Blogs" asp-action="Index">
+            <a asp-controller="ContactUS" asp-action="Index">
                 ارتباط با ما
             </a>
         </li>
@@ -40,7 +40,7 @@
 
     <ul class="nav-categories ul-base">
         <li>
-            <a asp-controller="Blogs" asp-action="Index">
+            <a asp-controller="AboutUs" asp-action="Index">
                 درباره ما
             </a>
         </li>

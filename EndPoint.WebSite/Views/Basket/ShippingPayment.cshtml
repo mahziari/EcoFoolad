@@ -1,7 +1,7 @@
 ﻿@using EndPoint.WebSite.Models.ViewModel.Baskets
 @using Application.Services.FrontEnd.Common
 @model ShippingPaymentViewModel
-@inject ISiteSetting _siteSetting;
+@inject ISiteSetting SiteSetting;
 
 @{
     ViewData["Title"] = "پرداخت";
@@ -14,7 +14,7 @@
         <div class="container">
             <div class="header-shopping-logo">
                 <a href="#">
-                    <img src="@_siteSetting.GetSiteSetting().LogoImage" alt="Logo"></a>
+                    <img src="@SiteSetting.GetSiteSetting().LogoImage" alt="Logo"></a>
             </div>
         </div>
 
@@ -74,7 +74,7 @@
                                                 @item.City-@item.State-@item.PostalAddress-@item.ZipCode
                                             </div>
                                             <div class="checkout-paymethod-by-digipay">
-                                                <img src="@_siteSetting.GetSiteSetting().ThumbnailLogoImage">
+                                                <img src="@SiteSetting.GetSiteSetting().ThumbnailLogoImage">
                                             </div>
                                         </div>
                                     </li>

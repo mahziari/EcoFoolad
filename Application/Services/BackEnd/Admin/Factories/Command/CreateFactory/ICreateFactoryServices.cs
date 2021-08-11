@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using Domain.Entities;
+using Domain.Entities.Dtos;
 
 namespace Application.Services.BackEnd.Admin.Factory.Command.CreateFactory
 {

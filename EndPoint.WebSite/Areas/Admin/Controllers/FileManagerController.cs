@@ -5,7 +5,7 @@ using Application.Interfaces.Contexts;
 using Application.Interfaces.FacadPatterns.BackEnd.Admin;
 using Application.Services.BackEnd.Admin.FileManagers;
 using Domain.Entities;
-using Domain.Entities.FileManager;
+using Domain.Entities.FileManagers;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -58,13 +58,11 @@ namespace EndPoint.WebSite.Areas.Admin.Controllers
             {
                 //upload
                 var uploadRtesult = _fileManagerFacad.ImageUploadService.Upload(multiImageDto);
-                foreach (var item in uploadRtesult.FileNameAddress)
+                foreach (var item in uploadRtesult.FileData)
                 {
                     var data = new FileManager
                     {
                         Address = item,
-                     
-                        Title = Path.GetExtension(multiImageDto.files.ToString())
                     };
                     
                     _customDbContext.FileManagers.Add(data);

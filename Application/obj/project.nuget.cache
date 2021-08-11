@@ -1,11 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "ltgBCRMnuxfRymW9JHBxrRDmNBRzFIL2/xs/9zfFUFoQFWri+qKqJzfarHBfC24uvvSMhgLNT9tbQfMxdwoStQ==",
+  "dgSpecHash": "W/OU7rmVS1t1mk35FE1OQrMmxtvq5Trm2a5bG+tUFpRDcQG0O02jTHM5BlyEzlrQo2n2emtUe3D1hstaax5P/Q==",
   "success": true,
   "projectFilePath": "C:\\Users\\pc-2\\Pictures\\.NET\\01_NewMyProject\\Application\\Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\pc-2\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
+    "C:\\Users\\pc-2\\.nuget\\packages\\fluentvalidation\\10.3.0\\fluentvalidation.10.3.0.nupkg.sha512",
+    "C:\\Users\\pc-2\\.nuget\\packages\\fluentvalidation.aspnetcore\\10.3.0\\fluentvalidation.aspnetcore.10.3.0.nupkg.sha512",
+    "C:\\Users\\pc-2\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\10.3.0\\fluentvalidation.dependencyinjectionextensions.10.3.0.nupkg.sha512",
     "C:\\Users\\pc-2\\.nuget\\packages\\humanizer.core\\2.2.0\\humanizer.core.2.2.0.nupkg.sha512",
+    "C:\\Users\\pc-2\\.nuget\\packages\\jetbrains.annotations\\2021.1.0\\jetbrains.annotations.2021.1.0.nupkg.sha512",
     "C:\\Users\\pc-2\\.nuget\\packages\\libuv\\1.10.0\\libuv.1.10.0.nupkg.sha512",
     "C:\\Users\\pc-2\\.nuget\\packages\\microsoft.aspnetcore.connections.abstractions\\5.0.6\\microsoft.aspnetcore.connections.abstractions.5.0.6.nupkg.sha512",
     "C:\\Users\\pc-2\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\5.0.6\\microsoft.aspnetcore.cryptography.internal.5.0.6.nupkg.sha512",
@@ -186,7 +190,8 @@
     "C:\\Users\\pc-2\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
     "C:\\Users\\pc-2\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
     "C:\\Users\\pc-2\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
-    "C:\\Users\\pc-2\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512"
+    "C:\\Users\\pc-2\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512",
+    "C:\\Users\\pc-2\\.nuget\\packages\\x.pagedlist\\8.1.0\\x.pagedlist.8.1.0.nupkg.sha512"
   ],
   "logs": []
 }

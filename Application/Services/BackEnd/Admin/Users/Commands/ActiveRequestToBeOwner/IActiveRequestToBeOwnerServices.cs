@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Domain.Entities;
+using Domain.Entities.Dtos;
 using Domain.Entities.Users;
 using Microsoft.AspNetCore.Identity;
 

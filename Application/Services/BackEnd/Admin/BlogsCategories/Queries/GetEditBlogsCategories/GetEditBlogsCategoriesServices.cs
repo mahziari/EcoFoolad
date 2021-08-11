@@ -4,6 +4,7 @@ using Application.Interfaces.Contexts;
 using Application.Services.BackEnd.User.Addresses;
 using AutoMapper;
 using Domain.Entities;
+using Domain.Entities.Dtos;
 
 
 namespace  Application.Services.BackEnd.Admin.BlogsCategories.Queries.GetEditBlogsCategories

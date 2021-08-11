@@ -43,7 +43,7 @@ namespace Application.Services.FrontEnd.SiteMaps
                 
                 var options = new DistributedCacheEntryOptions()
                 {
-                    AbsoluteExpirationRelativeToNow = TimeSpan.FromMinutes(_configuration.GetValue<int>("SiteMapCacheTime:SiteMap"))
+                    AbsoluteExpirationRelativeToNow = TimeSpan.FromDays(_configuration.GetValue<int>("SiteMapCacheTime:SiteMap"))
                 };
                 var jsonData = JsonConvert.SerializeObject(xml);
                 _cache.SetString("SiteMap", jsonData, options);
@@ -78,12 +78,12 @@ namespace Application.Services.FrontEnd.SiteMaps
                 // add the blog posts to the sitemap
                 foreach (var item in blogs)
                 {
-                    siteMapsGenerator.AddUrl(baseUrl+"/"+"blog"+"/"+item.NewsGroup.en_GroupName+"/"+item.Title.Replace(" ","-"), modified: item.LocalTime,ChangeFrequency.Daily,0.9);
+                    siteMapsGenerator.AddUrl(baseUrl+"/"+"blog"+"/"+item.NewsGroup.en_GroupName+"/"+item.Title.Replace(" ","-"), modified: item.LocalTime,ChangeFrequency.Hourly,0.9);
                 }
                 
                 foreach (var item in blogsCategory)
                 {
-                    siteMapsGenerator.AddUrl(baseUrl+"/"+"blog"+"/"+item.en_GroupName.Replace(" ","-")+"/", modified: item.RegisterDate.ToString("s") + "+" + TimeZoneInfo.Local.BaseUtcOffset.ToHHMM(),ChangeFrequency.Daily,0.9);
+                    siteMapsGenerator.AddUrl(baseUrl+"/"+"blog"+"/"+item.en_GroupName.Replace(" ","-")+"/", modified: item.RegisterDate.ToString("s") + "+" + TimeZoneInfo.Local.BaseUtcOffset.ToHHMM(),ChangeFrequency.Weekly,0.8);
                 }
 
                 // generate the sitemap xml

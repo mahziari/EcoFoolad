@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using Application.Interfaces.Contexts;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -8,6 +9,7 @@ using Application.Services.BackEnd.Admin.Blogs.Command.CreateBlogs;
 using AutoMapper;
 using Common.Utilities;
 using Domain.Entities;
+using Domain.Entities.Dtos;
 
 namespace Application.Services.BackEnd.Admin.Blogs.Command.EditBlogs
 {
@@ -33,7 +35,6 @@ namespace Application.Services.BackEnd.Admin.Blogs.Command.EditBlogs
 
             var uploadedResult = UploadFile(blogDto.Image, blogModel.ImageUrl);
             
-
             blogDto.LocalTime = DateTime.Now.ToString("s") + "+" + TimeZoneInfo.Local.BaseUtcOffset.ToHHMM();
             blogDto.RegisterUserId = ClaimUtility.GetUserId(_httpContext.HttpContext?.User);
             blogDto.IsVerified = true;

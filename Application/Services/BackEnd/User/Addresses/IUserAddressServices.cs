@@ -4,6 +4,7 @@ using System.Linq;
 using Application.Interfaces.Contexts;
 using AutoMapper;
 using Domain.Entities;
+using Domain.Entities.Dtos;
 using Domain.Entities.Users;
 
 namespace Application.Services.BackEnd.User.Addresses

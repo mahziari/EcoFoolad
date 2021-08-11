@@ -4,6 +4,7 @@ using System.Text;
 using Application.Interfaces.Contexts;
 using AutoMapper;
 using Domain.Entities;
+using Domain.Entities.Dtos;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Caching.Distributed;
 using Newtonsoft.Json;
@@ -36,9 +37,8 @@ namespace Application.Services.FrontEnd.Common.Footers.Queries
                 
                 
                 var options = new DistributedCacheEntryOptions()
-                    .SetSlidingExpiration(TimeSpan.FromMinutes(3));
-            
-            
+                    .SetSlidingExpiration(TimeSpan.FromDays(6));
+                
                 var jsonData = JsonConvert.SerializeObject(data);
                 byte[] jsonFootersEncoded = Encoding.UTF8.GetBytes(jsonData);
                 _cache.Set("IGetFootersFrontEndService_footers", jsonFootersEncoded, options);

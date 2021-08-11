@@ -1,12 +1,6 @@
 ﻿@using Application.Services.FrontEnd.Common
 @inject ISiteSetting _siteSetting;
-@using Microsoft.Extensions.Configuration
-@inject IConfiguration Configuration
-@{
-    string siteKey = @Configuration.GetSection("GoogleReCaptcha")["SiteKey"];
-    string secretKey = @Configuration.GetSection("GoogleReCaptcha")["SecretKey"];
-}
-
+@inject Microsoft.Extensions.Configuration.IConfiguration Configuration
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 
 <!DOCTYPE html>
@@ -36,21 +30,15 @@
 <script src="~/assets/js/bootstrap.js"></script>
 <script>$('.alertSlideUp').delay(5000).slideUp(300); </script>
 @await RenderSectionAsync("Foo", false)
+@await RenderSectionAsync("script", false)
 
-<script src="https://www.google.com/recaptcha/api.js?render=@siteKey"></script>
-
-
-@* Google ReCaptcha *@
-<script>
-      function onClick(e) {
-        e.preventDefault();
-        grecaptcha.ready(function() {
-          grecaptcha.execute('@siteKey', {action: 'submit'}).then(function(token) {
-              // Add your logic to submit to your backend server here.
-          });
+ <script src="https://www.google.com/recaptcha/api.js?render=@Configuration["googleReCaptcha:SiteKey"]"></script>
+    <script>
+    grecaptcha.ready(function() {
+        grecaptcha.execute('@Configuration["googleReCaptcha:SiteKey"]', { action: 'Captcha' }).then(function (token) {
+            $("#captchaInput").val(token);
         });
-      }
-  </script>
-
+    });
+    </script>
 </body>
 </html>

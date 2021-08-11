@@ -1,9 +1,6 @@
-﻿using Application.Interfaces.Contexts;
-using Infrastructure.Configuration.IdentityConfigs.Helpers.Policy;
-using Microsoft.EntityFrameworkCore;
+﻿using Infrastructure.Configuration.IdentityConfigs.Helpers.Policy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Persistence.Contexts;
 
 namespace Infrastructure.Configuration.AuthorizationConfig
 {
@@ -14,6 +11,7 @@ namespace Infrastructure.Configuration.AuthorizationConfig
            
           services.AddAuthorization(options =>
             {
+                
                 // Roles Policy
                 options.AddPolicy("SeniorProgrammer", policy => { policy.RequireRole("SeniorProgrammer"); });
                 options.AddPolicy("AdminRole", policy => { policy.RequireRole("Admin"); });

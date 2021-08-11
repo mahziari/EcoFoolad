@@ -7,6 +7,7 @@ using AutoMapper;
 using Common.Utilities;
 using Domain.Entities;
 using Domain.Entities.Blogs;
+using Domain.Entities.Dtos;
 using  Domain.Entities.IdealCrm;
 using Microsoft.AspNetCore.Http;
 
@@ -26,22 +27,22 @@ namespace  Application.Services.BackEnd.Admin.BlogsCategories.Command.CreateBlog
         }
 
 
-        public BaseDto<BlogCategoryDto> Execute(BlogCategoryDto blogsCategoryDto)
+        public BaseDto<CreateBlogCategoryDto> Execute(CreateBlogCategoryDto createBlogCategoryDto)
         {
-            blogsCategoryDto.LocalTime = DateTime.Now.ToString("s") + "+" + TimeZoneInfo.Local.BaseUtcOffset.ToHHMM();
-            blogsCategoryDto.RegisterUserId = ClaimUtility.GetUserId(_httpContext.HttpContext?.User);
-            blogsCategoryDto.IsActive = true;
+            createBlogCategoryDto.LocalTime = DateTime.Now.ToString("s") + "+" + TimeZoneInfo.Local.BaseUtcOffset.ToHHMM();
+            createBlogCategoryDto.RegisterUserId = ClaimUtility.GetUserId(_httpContext.HttpContext?.User);
+            createBlogCategoryDto.IsActive = true;
             
-            var blogCategories = _mapper.Map<BlogCategory>(blogsCategoryDto);
+            var blogCategories = _mapper.Map<BlogCategory>(createBlogCategoryDto);
             
             _customDbContext.BlogCategories.Add(blogCategories);
             _customDbContext.SaveChanges();
 
-            return new BaseDto<BlogCategoryDto>
+            return new BaseDto<CreateBlogCategoryDto>
             (
                 true,
                 new List<string> {"دسته بندی مجله با موفقیت اضافه شد"},
-                _mapper.Map<BlogCategoryDto>(blogCategories)
+                _mapper.Map<CreateBlogCategoryDto>(blogCategories)
             );
 
         }

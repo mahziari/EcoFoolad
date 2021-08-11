@@ -16,7 +16,6 @@ namespace Infrastructure.Configuration.IdentityConfigs
             services.AddDbContext<IdentityDatabaseContext>(options =>
                     options.UseSqlServer(configuration.GetConnectionString("SqlServer")));
             
-            
             //------ Auth Services
             services.AddIdentity<User, Role>()
                 .AddEntityFrameworkStores<IdentityDatabaseContext>()
@@ -38,7 +37,7 @@ namespace Infrastructure.Configuration.IdentityConfigs
                 option.Password.RequiredLength = 8;
                 option.Password.RequiredUniqueChars = 1;
                 //Lockout Setting
-                option.Lockout.MaxFailedAccessAttempts = 10;
+                option.Lockout.MaxFailedAccessAttempts = 6;
                 option.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(1);
                 //SignIn Setting
                 option.SignIn.RequireConfirmedAccount = false;
@@ -46,8 +45,6 @@ namespace Infrastructure.Configuration.IdentityConfigs
                 option.SignIn.RequireConfirmedPhoneNumber = true;
             });
 
-            
-            
             return services;
         }
     }

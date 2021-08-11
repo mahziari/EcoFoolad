@@ -32,7 +32,7 @@ namespace EndPoint.WebSite.Areas.Admin.Controllers
             {
                 return View("Index", _aboutUsFacad.AboutUsServices.GetAboutUs());
             }
-            var result = _aboutUsFacad.AboutUsServices.EditFootersValues(aboutUsDto);
+            var result = _aboutUsFacad.AboutUsServices.EditAboutUsValues(aboutUsDto);
             
             TempData["IsSuccess"] = result.IsSuccess;
             TempData["Message"] = result.Message[0];

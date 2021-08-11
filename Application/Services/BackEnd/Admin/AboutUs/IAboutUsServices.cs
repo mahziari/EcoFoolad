@@ -5,13 +5,14 @@ using Application.Interfaces.Contexts;
 using Application.Services.BackEnd.Admin.Footers;
 using AutoMapper;
 using Domain.Entities;
+using Domain.Entities.Dtos;
 
 namespace Application.Services.BackEnd.Admin.AboutUs
 {
     public interface IAboutUsServices
     {
         AboutUsDto GetAboutUs();
-        BaseDto<AboutUsDto> EditFootersValues(AboutUsDto aboutUsDto);
+        BaseDto<AboutUsDto> EditAboutUsValues(AboutUsDto aboutUsDto);
     }
 
     public class AboutUsServices : IAboutUsServices
@@ -35,15 +36,15 @@ namespace Application.Services.BackEnd.Admin.AboutUs
             return data;
         }
 
-        public BaseDto<AboutUsDto> EditFootersValues(AboutUsDto aboutUsDto)
+        public BaseDto<AboutUsDto> EditAboutUsValues(AboutUsDto aboutUsDto)
         {
-            var model = _customDbContext.Footers.Find(aboutUsDto.Id);
+            var model = _customDbContext.AboutUs.Find(aboutUsDto.Id);
             var data =  _mapper.Map(aboutUsDto, model);
             _customDbContext.SaveChanges();
             return new BaseDto<AboutUsDto>
             (
                 true,
-                new List<string> {"فوتر با موفقیت ویرایش شد"},
+                new List<string> {"درباره ما با موفقیت ویرایش شد"},
                 _mapper.Map<AboutUsDto>(data)
             );
         }
@@ -62,10 +63,28 @@ namespace Application.Services.BackEnd.Admin.AboutUs
         [Display(Name = "لینک عکس اعضا ۱")]
         public string Member1 { get; set; }
         
+        [Display(Name = "نام کامل")]
+        public string FullName1 { get; set; }
+        
+        [Display(Name = "سمت")]
+        public string MemberSide1 { get; set; }
+        
         [Display(Name = "لینک عکس اعضا 2")]
         public string Member2 { get; set; }
         
+        [Display(Name = "نام کامل")]
+        public string FullName2 { get; set; }
+        
+        [Display(Name = "سمت")]
+        public string MemberSide2 { get; set; }
+        
         [Display(Name = "لینک عکس اعضا 3")]
         public string Member3 { get; set; }
+        
+        [Display(Name = "نام کامل")]
+        public string FullName3 { get; set; }
+        
+        [Display(Name = "سمت")]
+        public string MemberSide3 { get; set; }
     }
 }

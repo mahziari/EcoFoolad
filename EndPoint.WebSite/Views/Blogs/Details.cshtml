@@ -3,7 +3,7 @@
 @using Application.Services.FrontEnd.Common
 @using Microsoft.AspNetCore.Http.Extensions
 @using System.Web
-@inject ISiteSetting _siteSetting;
+@inject ISiteSetting SiteSetting;
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 @{
     ViewData["Title"] = Model.Blog.Title;
@@ -19,10 +19,10 @@
     <link rel="canonical" href="@Context.Request.Scheme://@Context.Request.Host@Context.Request.Path.Value">
     <meta property="og:locale" content="fa_IR">
     <meta property="og:type" content="article">
-    <meta property="og:title" content="@Model.Blog.Title | @_siteSetting.GetSiteSetting().SiteName">
+    <meta property="og:title" content="@Model.Blog.Title | @SiteSetting.GetSiteSetting().SiteName">
     <meta property="og:description" content="@Model.Blog.SmallDescription">
     <meta property="og:url" content="@Context.Request.Scheme://@Context.Request.Host@Context.Request.Path.Value">
-    <meta property="og:site_name" content="@_siteSetting.GetSiteSetting().SiteName">
+    <meta property="og:site_name" content="@SiteSetting.GetSiteSetting().SiteName">
     <meta property="article:section" content="@Model.Blog.BlogCategory.Name">
     <meta property="article:published_time" content="@Model.Blog.LocalTime">
     <meta property="og:updated_time" content="@Model.Blog.LocalTime">
@@ -31,7 +31,7 @@
     <meta name="twitter:site" content="@@ecofoolad">
     <meta name="twitter:url" content="@Context.Request.Scheme://@Context.Request.Host@Context.Request.Path.Value">
     <meta name="twitter:description" content="@Model.Blog.SmallDescription">
-    <meta name="twitter:title" content="@Model.Blog.Title | @_siteSetting.GetSiteSetting().SiteName">
+    <meta name="twitter:title" content="@Model.Blog.Title | @SiteSetting.GetSiteSetting().SiteName">
     <meta name="twitter:image" content="@Context.Request.Scheme://@Context.Request.Host/@Model.Blog.ImageUrl">
     <meta name="twitter:creator" content="@@ecofoolad"/>
 }
@@ -39,37 +39,11 @@
 @section Foo{
         <script src="~/assets/js/blog-theia-sticky-sidebar.min.js"></script>
         <script src="~/assets/js/blog-main.js"></script>
-    <script type="application/ld+json">
-    {
-    "@@context":"https://schema.org",
-    "@@type":"@Model.Blog.BlogCategory.Slug",
-    "headline":"@Model.Blog.Title",
-    "image":{
-    "@@type":"ImageObject",
-    "url":"@Context.Request.Scheme://@Context.Request.Host/@Model.Blog.ImageUrl",
-    "height":822,
-    "width":522
-    },
-    "author":"@Model.Blog.Author",
-    "editor":"@Model.Blog.Author",
-    "genre":"@Model.Blog.Author",
-    "wordcount":2603,
-    "publisher":{
-    "@@type":"Organization",
-    "name":"@_siteSetting.GetSiteSetting().SiteName",
-    "logo":{
-    "@@type":"ImageObject",
-    "url":"@_siteSetting.GetSiteSetting().LogoImage",
-    "width":"211",
-    "height":"60"
-    }},
-    "url":"@Context.Request.Scheme://@Context.Request.Host@Context.Request.Path.Value",
-    "datePublished":"@Model.Blog.LocalTime",
-    "dateCreated":"@Model.Blog.LocalTime",
-    "dateModified":"@Model.Blog.LocalTime",
-    "description":"@Model.Blog.SmallDescription"
-    }
-    </script>
+    
+        
+        <script type="application/ld+json">{"@@context":"http://schema.org","@@type":"BreadcrumbList","itemListElement":[{"@@type":"ListItem","position":1,"item":{"@@id":"https://www.ecofoolad.com/mag/","name":"خانه"}},{"@@type":"ListItem","position":2,"item":{"@@id":"https://www.ecofoolad.com/mag/category/@Model.Blog.BlogCategory.Slug/","name":"@Model.Blog.BlogCategory.Name"}}]}</script>
+        <script type="application/ld+json">{"@@context":"http://schema.org","@@type":["TechArticle"],"headline":"@Model.Blog.Title","image":{"@@type":"ImageObject","url":"https://www.ecofoolad.com/@Model.Blog.ImageUrl","height":680,"width":452},"author":"@Model.Blog.Author","editor":"@Model.Blog.Author","genre":"@Model.Blog.BlogCategory.Name","wordcount":96,"publisher":{"@@type":"Organization","name":"مجله اکوفولاد","logo":{"@@type":"ImageObject","url":"@SiteSetting.GetSiteSetting().LogoImage","width":"211","height":"60"}},"name":"@Model.Blog.Title","description":"@Model.Blog.SmallDescription","thumbnailUrl":"https://www.ecofoolad.com/@Model.Blog.ImageUrl","datePublished":"@Model.Blog.LocalTime","dateCreated":"@Model.Blog.LocalTime","dateModified":"@Model.Blog.LocalTime"}</script>
+        <script type="application/ld+json"></script>
 }
 
    <main class="pull-right main-single">
@@ -78,10 +52,10 @@
                 <nav>
                     <ul class="stick-menu">
                         <li class="stick-menu-item stick-logo">
-                            <a asp-controller="Blogs" asp-action="Index" title="مجله @_siteSetting.GetSiteSetting().SiteName">
-                                <span style="font-size: 9px">ecofoolad</span>
+                            <a asp-controller="Blogs" asp-action="Index" title="مجله @SiteSetting.GetSiteSetting().SiteName">
+                               <span style="color: #fc465b">MAG</span>
                                 <br>
-                                MAG
+                                AHAN
                             </a>
                         </li>
                         @* <li class="stick-menu-item search-btn"> *@
@@ -143,7 +117,7 @@
                                         </div>
                                         <span class="post-module-author-date published">
                                             <i class="mdi mdi-clock-outline"></i>
-                                            @* @Model.Blog.DateTime *@
+                                            @DateTime.Parse(Model.Blog.LocalTime).ToPersianDateTime().ToString("yyyy/MM/dd")
                                         </span>
                                     </div>
                                     <div class="post-attachment">
@@ -273,8 +247,8 @@
                                                asp-action="Category"
                                                asp-route-category="@item.Slug.Replace(" ", "-")"
                                                class="promotion"
-                                               title="@item.Name | @_siteSetting.GetSiteSetting().SiteName">
-                                                <img src="@item.ImageUrl" alt="@item.Name | @_siteSetting.GetSiteSetting().SiteName" class="promotion-img">
+                                               title="@item.Name | @SiteSetting.GetSiteSetting().SiteName">
+                                                <img src="@item.ImageUrl" alt="@item.Name | @SiteSetting.GetSiteSetting().SiteName" class="promotion-img">
                                             </a>
                                         </div>
                                     </div>
@@ -393,7 +367,6 @@
                                         <li class="related-posts-item">
                                             <a asp-controller="Blogs"
                                               asp-action="Details"
-                                              asp-route-category="@item.BlogCategory.Slug.Replace(" ","-")"
                                               asp-route-title="@item.Title.Replace(" ","-")"
                                                class="image-wrapper pull-right">
                                                 <img src="/@item.ImageUrl" alt="@item.Title" class="image-wrapper-img wp-post-image" width="60" height="60">
@@ -401,7 +374,6 @@
                                             <div class="detail-wrapper">
                                                 <a asp-controller="Blogs"
                                                   asp-action="Details"
-                                                  asp-route-category="@item.BlogCategory.Slug.Replace(" ","-")"
                                                   asp-route-title="@item.Title.Replace(" ","-")"
                                                    title="@item.Title"
                                                    class="detail-wrapper-title">
@@ -409,7 +381,9 @@
                                                 </a>
                                                 <div class="detail-wrapper-time">
                                                     <i class="mdi mdi-clock-outline"></i>
-                                                    @* <span class="detail-wrapper-time-detail"> @item.DateTime</span> *@
+                                                    <span class="detail-wrapper-time-detail">
+                                                        @DateTime.Parse(@item.LocalTime).ToPersianDateTime().ToString("yyyy/MM/dd")
+                                                    </span>
                                                 </div>
                                             </div>
                                         </li>

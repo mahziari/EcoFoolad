@@ -1,9 +1,11 @@
-﻿@using Microsoft.AspNetCore.Authorization;
+﻿@using Application.Services.FrontEnd.Common
+@using Microsoft.AspNetCore.Authorization;
 @using Microsoft.AspNetCore.Identity
 @using Domain.Entities.Users
 @inject IAuthorizationService AuthorizationService;
 @inject SignInManager<User> SignInManager
 @inject UserManager<Domain.Entities.Users.User> UserManager
+@inject ISiteSetting _siteSetting;
 
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 
@@ -14,7 +16,7 @@
         <li class="nav-item mr-auto">
             <a class="navbar-brand" asp-area="Admin" asp-controller="Home" asp-action="Index">
                 <div class="brand-logo">
-                    <img class="logo" src="~/BackEnd/Admin/images/logo/logo.png"/>
+                    <img class="logo" src="@_siteSetting.GetSiteSetting().ThumbnailLogoImage" alt="logo">
                 </div>
 
                 @if (AuthorizationService.AuthorizeAsync(User, "SeniorProgrammer").Result.Succeeded)

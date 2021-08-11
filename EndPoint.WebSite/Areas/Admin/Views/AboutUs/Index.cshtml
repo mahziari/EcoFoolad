@@ -44,6 +44,24 @@
     <div class="content-wrapper">
         <div class="content-header row"></div>
         <div class="content-body">
+            
+            @if (TempData["IsSuccess"] != null)
+            {
+                @if (Convert.ToBoolean(TempData["IsSuccess"]) == true)
+                {
+                    <div class="alert alert-success">
+                        @TempData["Message"]
+                    </div>
+                }
+
+                else if (Convert.ToBoolean(TempData["IsSuccess"]) == false)
+                {
+                    <div class="alert alert-danger">
+                        @TempData["Message"]
+                    </div>
+                }
+            }
+            
             <!-- app invoice View Page -->
 
             <form asp-area="Admin" asp-controller="AboutUs" asp-action="Edit" asp-route-id="@Model.Id" method="post">
@@ -60,30 +78,61 @@
                                         <div class="row my-2 py-50">
                                             <div class="col-sm-12 col-12 order-2 order-sm-1">
                                                 <label asp-for="@Model.ImageUrl"></label>
-                                                <input asp-for="@Model.ImageUrl" type="text" class="form-control" placeholder="عنوان را وارد کنید">
+                                                <input asp-for="@Model.ImageUrl" type="text" class="form-control" placeholder="لینک را وارد کنید">
                                                 <span asp-validation-for="@Model.ImageUrl" class="text-danger"></span>
-                                            </div>
-                                        </div>
-                                        <div class="row my-2 py-50">
-                                            <div class="col-sm-12 col-12 order-2 order-sm-1">
-                                                <label asp-for="@Model.Member1"></label>
-                                                <input asp-for="@Model.Member1" type="text" class="form-control" placeholder="عنوان را وارد کنید">
-                                                <span asp-validation-for="@Model.Member1" class="text-danger"></span>
                                             </div>
                                         </div>
                                         
                                         <div class="row my-2 py-50">
-                                            <div class="col-sm-12 col-12 order-2 order-sm-1">
+                                            <div class="col-sm-4 col-12 order-2 order-sm-1">
+                                                <label asp-for="@Model.Member1"></label>
+                                                <input asp-for="@Model.Member1" type="text" class="form-control" placeholder="لینک را وارد کنید">
+                                                <span asp-validation-for="@Model.Member1" class="text-danger"></span>
+                                            </div>
+                                            <div class="col-sm-4 col-12 order-2 order-sm-1">
+                                                <label asp-for="@Model.MemberSide1"></label>
+                                                <input asp-for="@Model.MemberSide1" type="text" class="form-control" placeholder="سمت را وارد کنید">
+                                                <span asp-validation-for="@Model.MemberSide1" class="text-danger"></span>
+                                            </div>
+                                            <div class="col-sm-4 col-12 order-2 order-sm-1">
+                                                <label asp-for="@Model.FullName1"></label>
+                                                <input asp-for="@Model.FullName1" type="text" class="form-control" placeholder="نام کامل را وارد کنید">
+                                                <span asp-validation-for="@Model.FullName1" class="text-danger"></span>
+                                            </div>
+                                        </div>
+
+                                        <div class="row my-2 py-50">
+                                            <div class="col-sm-4 col-12 order-2 order-sm-1">
                                                 <label asp-for="@Model.Member2"></label>
                                                 <input asp-for="@Model.Member2" type="text" class="form-control" placeholder="عنوان را وارد کنید">
                                                 <span asp-validation-for="@Model.Member2" class="text-danger"></span>
                                             </div>
+                                            <div class="col-sm-4 col-12 order-2 order-sm-1">
+                                                <label asp-for="@Model.MemberSide2"></label>
+                                                <input asp-for="@Model.MemberSide2" type="text" class="form-control" placeholder="سمت را وارد کنید">
+                                                <span asp-validation-for="@Model.MemberSide2" class="text-danger"></span>
+                                            </div>
+                                            <div class="col-sm-4 col-12 order-2 order-sm-1">
+                                                <label asp-for="@Model.FullName2"></label>
+                                                <input asp-for="@Model.FullName2" type="text" class="form-control" placeholder="نام کامل را وارد کنید">
+                                                <span asp-validation-for="@Model.FullName2" class="text-danger"></span>
+                                            </div>
                                         </div>
                                         <div class="row my-2 py-50">
-                                            <div class="col-sm-12 col-12 order-2 order-sm-1">
+                                            <div class="col-sm-4 col-12 order-2 order-sm-1">
                                                 <label asp-for="@Model.Member3"></label>
                                                 <input asp-for="@Model.Member3" type="text" class="form-control" placeholder="عنوان را وارد کنید">
                                                 <span asp-validation-for="@Model.Member3" class="text-danger"></span>
+                                            </div>
+                                            <div class="col-sm-4 col-12 order-2 order-sm-1">
+                                                <label asp-for="@Model.MemberSide3"></label>
+                                                <input asp-for="@Model.MemberSide3" type="text" class="form-control" placeholder="سمت را وارد کنید">
+                                                <span asp-validation-for="@Model.MemberSide1" class="text-danger"></span>
+                                            </div>
+                                            <div class="col-sm-4 col-12 order-2 order-sm-1">
+                                                <label asp-for="@Model.FullName3"></label>
+                                                <input asp-for="@Model.FullName3" type="text" class="form-control" placeholder="نام کامل را وارد کنید">
+                                                <span asp-validation-for="@Model.FullName3" class="text-danger"></span>
                                             </div>
                                         </div>
 
@@ -91,14 +140,14 @@
 
                                         <div class="row invoice-info">
                                             <div class="col-lg-12 col-md-12 mt-25">
-                                                  <label asp-for="@Model.Body"></label>
+                                                <label asp-for="@Model.Body"></label>
                                                 <fieldset class="invoice-address form-group">
                                                     <textarea asp-for="@Model.Body" class="form-control" rows="20" style="margin-top: 0px; margin-bottom: 0px; height: 700px;"></textarea>
                                                     <span asp-validation-for="@Model.Body" class="text-danger"></span>
                                                 </fieldset>
                                             </div>
                                         </div>
-                                        
+
                                     </div>
                                 </div>
                             </div>

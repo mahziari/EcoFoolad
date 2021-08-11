@@ -1,7 +1,7 @@
 ﻿@using Application.Services.FrontEnd.Home.Queries
 @model ResultGetHomeFrontEndDto
 @using Application.Services.FrontEnd.Common
-@inject ISiteSetting _siteSetting;
+@inject ISiteSetting SiteSetting;
 @{
     ViewData["Title"] = "فروشگاه آنلاین محصولات آهن و و فولاد";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -14,16 +14,16 @@
     <meta property="og:locale" content="fa_IR">
     <meta property="og:image" content="/Images/Settings/FavIcon/apple-icon-180x180.png"/>
     <meta property="og:type" content="اکوفولاد">
-    <meta property="og:title" content="صفحه اصلی - @_siteSetting.GetSiteSetting().SiteName">
+    <meta property="og:title" content="صفحه اصلی - @SiteSetting.GetSiteSetting().SiteName">
     <meta property="og:description" content="فروشگاه آنلاین محصولات آهن و و فولاد">
     <meta property="og:url" content="@Context.Request.Scheme://@Context.Request.Host@Context.Request.Path.Value">
-    <meta property="og:site_name" content="@_siteSetting.GetSiteSetting().SiteName">
+    <meta property="og:site_name" content="@SiteSetting.GetSiteSetting().SiteName">
     <meta property="article:section" content="اکو فولاد">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@@ecofoolad">
     <meta name="twitter:url" content="@Context.Request.Scheme://@Context.Request.Host@Context.Request.Path.Value">
     <meta name="twitter:description" content="فروشگاه آنلاین محصولات آهن و و فولاد">
-    <meta name="twitter:title" content="EcoFoolad - @_siteSetting.GetSiteSetting().SiteName">
+    <meta name="twitter:title" content="EcoFoolad - @SiteSetting.GetSiteSetting().SiteName">
     <meta name="twitter:image" content="/Images/Settings/FavIcon/android-icon-192x192.png"/>
     <meta name="twitter:creator" content="@@ecofoolad"/>
 }
@@ -33,8 +33,8 @@
                     {
         "@@context": "https://schema.org",
         "@@type": "LocalBusiness",
-        "name": "EcoFoolad - @_siteSetting.GetSiteSetting().SiteName",
-        "image": "@_siteSetting.GetSiteSetting().LogoImage",
+        "name": "EcoFoolad - @SiteSetting.GetSiteSetting().SiteName",
+        "image": "@SiteSetting.GetSiteSetting().LogoImage",
         "@@id": "https://www.ecofoolad.com",
         "url": "https://www.ecofoolad.com",
         "telephone": "+982143000550",

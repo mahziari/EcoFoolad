@@ -14,10 +14,14 @@ namespace Application.Services.BackEnd.Admin.Blogs
 
         [Display(Name = "عنوان بلاگ")]
         [Required(ErrorMessage = "پر کردن فیلد {0} اجباری است")]
+        [MinLength(13, ErrorMessage = "حداقل تعداد کاراکتر 13 کاراکتر")]
+        [MaxLength(70, ErrorMessage = "حداکثر تعداد کاراکتر 70 کاراکتر")]
         [StringLength(200, ErrorMessage = "تعداد کاراکتر بیش از حد مجاز")]
         public string Title { get; set; }
 
         [Display(Name = "توضیح کوتاه بلاگ")]
+        [MinLength(60, ErrorMessage = "حداقل تعداد کاراکتر 60 کاراکتر")]
+        [MaxLength(165, ErrorMessage = "حداکثر تعداد کاراکتر 165 کاراکتر")]
         [Required(ErrorMessage = "پر کردن فیلد {0} اجباری است")]
         public string SmallDescription { get; set; }
 

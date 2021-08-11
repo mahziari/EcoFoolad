@@ -1,7 +1,7 @@
 ﻿@using Application.Services.FrontEnd.Common.Footers.Queries
 @model FooterFrontEndDto
 @using Application.Services.FrontEnd.Common
-@inject ISiteSetting _siteSetting;
+@inject ISiteSetting SiteSetting;
 
 @{
     Layout = null;
@@ -106,26 +106,61 @@
         @*         </div> *@
         @*     </div> *@
         @* </div> *@
-        
+         <div class="more-info">
+         <div class="col-12">
+             <div class="middle-bar-footer">
+                 <div class="col-lg-6 col-xs-12 pull-right">
+                     <div class="footer-links">
+                         <h1>فروشگاه آنلاین محصولات آهن و و فولاد @SiteSetting.GetSiteSetting().SiteName</h1>
+                         <p>
+                             @Html.Raw(Model.Description)
+                         </p>
+                         @* <div class="links-col"> *@
+                         @*     <a href="#" class="head-line">راهنمای خرید از دیجی‌استور</a> *@
+                         @*     <ul class="links-ul"> *@
+                         @*         <li><a href="#">نحوه ثبت سفارش</a></li> *@
+                         @*         <li><a href="#">رویه ارسال سفارش</a></li> *@
+                         @*         <li><a href="#">شیوه‌های پرداخت</a></li> *@
+                         @*     </ul> *@
+                         @* </div> *@
+
+                     </div>
+                 </div>
+  
+                 <div class="col-lg-4 col-xs-12 pull-right bgborder">
+                     <div class="footer-form">
+                         <span class="newslitter-form">
+                             <i class="fa fa-phone rotatePhone"></i>
+                             شماره تماس:
+                             <span>@Model.PhoneNumber1</span>
+                         </span>
+                         <span class="newslitter-form">
+                             <i class="fa fa-map-marker contactUsFontLi"></i>
+                             آدرس دفتر:
+                             <span>@Model.OfficeAddress</span>
+                         </span>
+                     </div>
+  
+                     <div class="footer-social">
+                         @* <span class="newslitter-form-social">اکوفولاد را در شبکه‌های اجتماعی دنبال کنید:</span> *@
+                         <div class="social-links">
+                             <a href="#"><i class="fa fa-instagram"></i></a>
+                             <a href="#"><i class="fa fa-twitter"></i></a>
+                             <a href="#"><i class="fa fa-facebook"></i></a>
+                             <a href="#"><i class="fa fa-youtube"></i></a>
+                             <a href="#"><i class="fa fa-linkedin-square"></i></a>
+                             <a href="#"><i class="fa fa-telegram"></i></a>
+                             <a href="#"><i class="fa fa-whatsapp"></i></a>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+         </div>
+         </div>
         <div class="more-info">
             <div class="col-12">
-                <div class="address-site">
-                      <div class="footer-contact">
-                           <ul>
-                               <li class="email-title">شماره تماس : <a href="tel:@Model.PhoneNumber1" class="phone-contact">@Model.PhoneNumber1</a></li>
-                               <li class="email-title mt-3">ایمیل  : <a href="#" class="phone-contact">info@ecofoolad.com</a></li>
-                               <li class="email-title mt-3">آدرس دفتر : <a href="#">@Model.OfficeAddress</a></li>
-                               <li class="email-title mt-3">آدرس انبار : <a href="#">@Model.FactoryAddress</a></li>
-                           </ul>
-                       </div>
-                </div>
                 
                 <div class="about-site">
-                    <h1>فروشگاه آنلاین محصولات آهن و و فولاد @_siteSetting.GetSiteSetting().SiteName</h1>
-                    <p>
-                        @Html.Raw(Model.Description)
-                    </p>
-
                     <div class="footer-inner-box">
                         <a href="#" class="footer-badge">
                             <img src="@Model.Photo1" alt="اینماد" style="width: 85px !important;">
@@ -154,8 +189,8 @@
 
                 <div class="copy-right-footer">
                     <p>
-                        استفاده از مطالب @_siteSetting.GetSiteSetting().SiteName برای مقاصد غیرتجاری با ذکر نام @_siteSetting.GetSiteSetting().SiteName و لینک
-                        به منبع بلامانع است. تمامی حقوق این سایت به <a href="/"><span class="white fontIran">شرکت @_siteSetting.GetSiteSetting().SiteName</span></a> تعلق دارد. Copyright © 2010-2021
+                        استفاده از مطالب @SiteSetting.GetSiteSetting().SiteName برای مقاصد غیرتجاری با ذکر نام @SiteSetting.GetSiteSetting().SiteName و لینک
+                        به منبع بلامانع است.<br> تمامی حقوق این سایت به <a class="copyRight" href="/"><span class="white fontIran">شرکت @SiteSetting.GetSiteSetting().SiteName</span></a> تعلق دارد. Copyright © 2010-2021
                     </p>
                 </div>
             </div>

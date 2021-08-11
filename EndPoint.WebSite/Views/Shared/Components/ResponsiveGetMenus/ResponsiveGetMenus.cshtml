@@ -1,7 +1,7 @@
 ﻿@using Application.Services.FrontEnd.Common.Menus.Queries
 @using Application.Services.FrontEnd.Common
 @model ResultGetMenusFrontEndDto
-@inject ISiteSetting _siteSetting;
+@inject ISiteSetting SiteSetting;
 
 @{
     Layout = null;
@@ -10,7 +10,7 @@
 <ul class="nav-categories ul-base">
     <li class="has-sub" style="background-color: #f0b9ff;">
         <a asp-controller="Blogs" asp-action="Index" class="font-weight-bold">
-            مجله @_siteSetting.GetSiteSetting().SiteName
+            مجله @SiteSetting.GetSiteSetting().SiteName
         </a>
         
         <a href="#" class="sub"></a>

@@ -1,10 +1,14 @@
 using System.Text.Encodings.Web;
 using System.Text.Unicode;
+using FluentValidation.AspNetCore;
+using GoogleReCaptcha.V3;
+using GoogleReCaptcha.V3.Interface;
 using Infrastructure.Configuration.AuthorizationConfig;
 using Infrastructure.Configuration.ConfigResponseCompression;
 using Infrastructure.Configuration.CookieConfig;
 using Infrastructure.Configuration.DbContextConfig;
 using Infrastructure.Configuration.FacadConfig;
+using Infrastructure.Configuration.FluentValidationConfig;
 using Infrastructure.Configuration.HtmlMinifyConfig;
 using Infrastructure.Configuration.IdentityConfigs;
 using Infrastructure.Configuration.MapperConfig;
@@ -39,6 +43,8 @@ namespace EndPoint.WebSite
             services.AddMapperService(Configuration);
             services.AddResponseCompressionServices(Configuration);
             services.AddWebMarkupMinService(Configuration);
+            services.AddFluentValidationService(Configuration);
+            services.AddHttpClient<ICaptchaValidator, GoogleReCaptchaValidator>();
 
             services.AddMvc();
             services.AddResponseCompression();
@@ -46,7 +52,7 @@ namespace EndPoint.WebSite
             services.AddSingleton(HtmlEncoder.Create(UnicodeRanges.BasicLatin, UnicodeRanges.Arabic));
             
             // load Project Ui WithOut Rebuilding When Change in Ui
-            var mvcBuilder = services.AddControllersWithViews();
+            var mvcBuilder = services.AddControllersWithViews().AddFluentValidation();
             #if DEBUG
             mvcBuilder.AddRazorRuntimeCompilation();
             #endif
@@ -63,9 +69,9 @@ namespace EndPoint.WebSite
             else
             {
                 app.UseStatusCodePagesWithReExecute("/Error/{0}");
-                // app.UseHsts();
+                app.UseHsts();
             }
-            // app.UseHttpsRedirection();
+            app.UseHttpsRedirection();
             app.UseResponseCompression();
             app.UseStaticFiles();
             app.UseRouting();

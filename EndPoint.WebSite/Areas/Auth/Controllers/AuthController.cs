@@ -1,6 +1,9 @@
 ﻿using System;
+using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
+using System.Threading.Tasks;
 using Application.Interfaces.Contexts;
 using Application.Services.FrontEnd.Basket;
 using Common.Extentions;
@@ -8,12 +11,15 @@ using Common.Utilities;
 using Domain.Entities.IdealCrm;
 using Domain.Entities.Users;
 using EndPoint.WebSite.Areas.Auth.Data.Dto;
+using GoogleReCaptcha.V3.Interface;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Caching.Distributed;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json.Linq;
 using Persistence.Contexts;
 
 namespace EndPoint.WebSite.Areas.Auth.Controllers
@@ -28,14 +34,14 @@ namespace EndPoint.WebSite.Areas.Auth.Controllers
         private readonly ILogger _logger;
         private readonly IBasketService _basketService;
         private readonly IDistributedCache _cache;
-        private readonly ICustomDbContext _customDbContext;
         private string _userId = null;
+        private readonly ICaptchaValidator _captchaValidator;
 
 
         public AuthController(UserManager<Domain.Entities.Users.User> userManager, RoleManager<Role> roleManager,
             SignInManager<Domain.Entities.Users.User> signInManager,
             ILoggerFactory logger, IdealCrmDataBaseContext idealCrmDataBaseContext,
-            IBasketService basketService, IDistributedCache cache, ICustomDbContext customDbContext)
+            IBasketService basketService, IDistributedCache cache, ICaptchaValidator captchaValidator)
         {
             _userManager = userManager;
             _roleManager = roleManager;
@@ -44,7 +50,7 @@ namespace EndPoint.WebSite.Areas.Auth.Controllers
             _logger = logger.CreateLogger("Account");
             _basketService = basketService;
             _cache = cache;
-            _customDbContext = customDbContext;
+            _captchaValidator = captchaValidator;
         }
 
         [HttpGet]
@@ -52,27 +58,34 @@ namespace EndPoint.WebSite.Areas.Auth.Controllers
         public IActionResult CheckOut(string returnUrl = "/")
         {
             SetCookiesForPhoneNumber();
-
+       
             return View(new CheckOutDto
             {
-                ReturnUrl = Request.Headers["Referer"].ToString()
+                ReturnUrl = Request.Headers["Referer"].ToString().Replace("https://localhost:5001/","~/")
+                    .Replace("https://www.ecofoolad.com/","~/"),
             });
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Route("users/auth/checkout", Name = "checkout")]
-        public IActionResult CheckOut(CheckOutDto checkOutDto)
+        public async Task<IActionResult> CheckOut(CheckOutDto checkOutDto)
         {
             if (!ModelState.IsValid)
             {
                 return View(checkOutDto);
             }
+            
+            if (!await _captchaValidator.IsCaptchaPassedAsync(checkOutDto.Captcha))
+            {
+                TempData["AuthErrors"] = "شما ربات تشخیص داده شده اید";
+                return RedirectToAction(nameof(CheckOut));
+            }
+
             SetCacheForPhoneNumber(checkOutDto.PhoneNumber);
             SetCacheForReturnUrl(checkOutDto.ReturnUrl);
-            
-            TempData["PhoneNumber"] = checkOutDto.PhoneNumber;
-            TempData["ReturnUrl"] = checkOutDto.ReturnUrl;
+            // TempData["PhoneNumber"] = checkOutDto.PhoneNumber;
+            // TempData["ReturnUrl"] = checkOutDto.ReturnUrl;
             var user = _userManager.FindByNameAsync(checkOutDto.PhoneNumber).Result;
             if (user == null)
             {
@@ -105,11 +118,16 @@ namespace EndPoint.WebSite.Areas.Auth.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Route("users/auth/register", Name = "register")]
-        public IActionResult Register(RegisterDto registerDto)
+        public async Task<IActionResult> Register(RegisterDto registerDto)
         {
             if (ModelState.IsValid == false)
             {
                 return View(registerDto);
+            }
+            if (!await _captchaValidator.IsCaptchaPassedAsync(registerDto.Captcha))
+            {
+                TempData["AuthErrors"] = "شما ربات تشخیص داده شده اید";
+                return RedirectToAction(nameof(CheckOut));
             }
 
             if (registerDto.PhoneNumber == registerDto.Password)
@@ -201,7 +219,7 @@ namespace EndPoint.WebSite.Areas.Auth.Controllers
                 if (roles == null)
                 {
                     // Delete User If User Role is Unavailable
-                    _userManager.DeleteAsync(user);
+                    await _userManager.DeleteAsync(user);
                     TempData["AuthErrors"] = "مشکلی در ثبت نام بوجود آمده است, لطفا با پشتیبانی تماس بگیرید.";
                     return View(registerDto);
                 }
@@ -246,13 +264,19 @@ namespace EndPoint.WebSite.Areas.Auth.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Route("users/auth/confirm-phone-number", Name = "confirm-phone-number")]
-        public IActionResult Confirm(ConfirmDto confirmDto)
+        public async Task<IActionResult> Confirm(ConfirmDto confirmDto)
         {
             TempData["PhoneNumber"] = confirmDto.PhoneNumber;
 
             if (ModelState.IsValid == false)
             {
                 return View(confirmDto);
+            }
+            
+            if (!await _captchaValidator.IsCaptchaPassedAsync(confirmDto.Captcha))
+            {
+                TempData["AuthErrors"] = "شما ربات تشخیص داده شده اید";
+                return RedirectToAction(nameof(CheckOut));
             }
 
             var user = _userManager.FindByNameAsync(confirmDto.PhoneNumber).Result;
@@ -286,7 +310,6 @@ namespace EndPoint.WebSite.Areas.Auth.Controllers
         [Route("users/auth/login", Name = "login")]
         public IActionResult Login()
         {
-           
             return View(new LoginDto
             {
                 ReturnUrl = GetReturnUrlFromCache(),
@@ -299,15 +322,21 @@ namespace EndPoint.WebSite.Areas.Auth.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Route("users/auth/login", Name = "login")]
-        public IActionResult Login(LoginDto loginDto)
+        public async Task<IActionResult> Login(LoginDto loginDto)
         {
             if (!ModelState.IsValid)
             {
                 return View(loginDto);
             }
+            
+            if (!await _captchaValidator.IsCaptchaPassedAsync(loginDto.Captcha))
+            {
+                TempData["AuthErrors"] = "شما ربات تشخیص داده شده اید";
+                return RedirectToAction(nameof(CheckOut));
+            }
 
             var user = _userManager.FindByNameAsync(loginDto.UserName).Result;
-            _signInManager.SignOutAsync();
+             _signInManager.SignOutAsync();
 
             var result = _signInManager
                 .PasswordSignInAsync(user, loginDto.Password, false, true)
@@ -401,13 +430,19 @@ namespace EndPoint.WebSite.Areas.Auth.Controllers
 
         [HttpPost]
         [Route("users/auth/forgot-password", Name = "forgotPassword")]
-        public IActionResult ForgotPassword(ForgotPasswordDto forgotPasswordDto)
+        public async Task<IActionResult> ForgotPassword(ForgotPasswordDto forgotPasswordDto)
         {
             if (ModelState.IsValid == false)
             {
                 return View(forgotPasswordDto);
             }
-
+            
+            if (!await _captchaValidator.IsCaptchaPassedAsync(forgotPasswordDto.Captcha))
+            {
+                TempData["AuthErrors"] = "شما ربات تشخیص داده شده اید";
+                return RedirectToAction(nameof(CheckOut));
+            }
+            
             var user = _userManager.FindByNameAsync(forgotPasswordDto.PhoneNumber).Result;
             var resultConfirm = _userManager.IsPhoneNumberConfirmedAsync(user).Result;
             if (resultConfirm == false)
@@ -601,6 +636,25 @@ namespace EndPoint.WebSite.Areas.Auth.Controllers
                 _cache.Remove(item);
             }
         }
+
+        // private bool GoogleReCaptchaAuthentication(string googleReCaptchaResponse)
+        // {
+        //     var result = false;
+        //     var secretKey=  Configuration["googleReCaptcha:SiteKey"];
+        //     var apiUrl = "https://www.google.com/recaptcha/api/siteverify?secret={0}&response={1}";
+        //     var requestUri = string.Format(apiUrl, secretKey, googleReCaptchaResponse);
+        //     var request = (HttpWebRequest)WebRequest.Create(requestUri);
+        //     using (WebResponse response = request.GetResponse())
+        //     {
+        //         using (StreamReader stream = new StreamReader(response.GetResponseStream()))
+        //         {
+        //             JObject jresponse = JObject.Parse(stream.ReadToEnd());
+        //             var isSuccess = jresponse.Values<bool>("success"); 
+        //             result = (isSuccess) != null ? true : false;
+        //         }
+        //         return result;
+        //     }
+        // }
         
     }
 }

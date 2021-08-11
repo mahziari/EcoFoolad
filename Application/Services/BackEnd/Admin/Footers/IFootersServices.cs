@@ -4,6 +4,7 @@ using System.Linq;
 using Application.Interfaces.Contexts;
 using AutoMapper;
 using Domain.Entities;
+using Domain.Entities.Dtos;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Application.Services.BackEnd.Admin.Footers

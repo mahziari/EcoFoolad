@@ -8,7 +8,7 @@ using Domain.Entities.Attributes;
 using Domain.Entities.Baskets;
 using Domain.Entities.Blogs;
 using Domain.Entities.Factory;
-using Domain.Entities.FileManager;
+using Domain.Entities.FileManagers;
 using Domain.Entities.Footer;
 using Domain.Entities.Orders;
 using Domain.Entities.Payments;

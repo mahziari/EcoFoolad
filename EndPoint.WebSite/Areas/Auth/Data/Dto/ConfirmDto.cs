@@ -11,7 +11,8 @@ namespace EndPoint.WebSite.Areas.Auth.Data.Dto
         [MinLength(6, ErrorMessage = "تعداد کاراکتر کمتر از حد مجاز")]
         public string Code { get; set; }
 
-        public String PhoneNumber { get; set; }
+        public string PhoneNumber { get; set; }
         public int CounterTime { get; set; }
+        public string Captcha { get; set; }
     }
 }

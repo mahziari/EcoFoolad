@@ -8,6 +8,7 @@ using Application.Services.BackEnd.Admin.BlogsCategories.Queries.GetEditBlogsCat
 using AutoMapper;
 using Common.Utilities;
 using Domain.Entities;
+using Domain.Entities.Dtos;
 using  Domain.Entities.IdealCrm;
 using Microsoft.AspNetCore.Http;
 
@@ -25,22 +26,22 @@ namespace  Application.Services.BackEnd.Admin.BlogsCategories.Command.EditBlogsC
             _mapper = mapper;
             _httpContext = httpContext;
         }
-        public BaseDto<BlogCategoryDto> Execute(BlogCategoryDto blogsCategoryDto)
+        public BaseDto<EditBlogCategoryDto> Execute(EditBlogCategoryDto editBlogCategoryDto)
         {
-            blogsCategoryDto.LocalTime = DateTime.Now.ToString("s") + "+" + TimeZoneInfo.Local.BaseUtcOffset.ToHHMM();
-            blogsCategoryDto.RegisterUserId=ClaimUtility.GetUserId(_httpContext.HttpContext?.User);
-            blogsCategoryDto.IsActive = true;
+            editBlogCategoryDto.LocalTime = DateTime.Now.ToString("s") + "+" + TimeZoneInfo.Local.BaseUtcOffset.ToHHMM();
+            editBlogCategoryDto.RegisterUserId=ClaimUtility.GetUserId(_httpContext.HttpContext?.User);
+            editBlogCategoryDto.IsActive = true;
             
             
-            var blogCategoryModel = _customDbContext.BlogCategories.Find(blogsCategoryDto.Id);
-            _mapper.Map(blogsCategoryDto,blogCategoryModel);
+            var blogCategoryModel = _customDbContext.BlogCategories.Find(editBlogCategoryDto.Id);
+            _mapper.Map(editBlogCategoryDto,blogCategoryModel);
             _customDbContext.SaveChanges();
             
-            return new BaseDto<BlogCategoryDto>
+            return new BaseDto<EditBlogCategoryDto>
             (
                 true,
                 new List<string> {"دسته بندی مجله با موفقیت ویرایش شد"},
-                _mapper.Map<BlogCategoryDto>(blogCategoryModel)
+                _mapper.Map<EditBlogCategoryDto>(blogCategoryModel)
             );
         }
     }

@@ -72,6 +72,7 @@
                    </div>
                    <input asp-for="ReturnUrl" type="hidden"/>
                    <input asp-for="UserName" type="hidden"/>
+                   <input type="hidden" name="Captcha" id="captchaInput" value=""/>
                </form>
                  <form asp-controller="Auth" asp-action="ForgotPasswordSendSmsCode" method="post">
                         <div class="account-footer">

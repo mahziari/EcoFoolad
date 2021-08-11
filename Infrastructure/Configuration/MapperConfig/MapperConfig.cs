@@ -11,7 +11,6 @@ namespace Infrastructure.Configuration.MapperConfig
         public static IServiceCollection AddMapperService(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddAutoMapper(typeof(AdminMappingProfile));
-            services.AddAutoMapper(typeof(BlogMappingProfile));
             services.AddAutoMapper(typeof(FrontEndMappingProfile));
 
             return services;

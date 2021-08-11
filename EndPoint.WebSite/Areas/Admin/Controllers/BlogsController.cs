@@ -1,7 +1,5 @@
 ﻿using Application.Interfaces.FacadPatterns.BackEnd.Admin;
 using Application.Services.BackEnd.Admin.Blogs;
-using Application.Services.BackEnd.Admin.Blogs.Command.CreateBlogs;
-using Application.Services.BackEnd.Admin.Blogs.Command.EditBlogs;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 

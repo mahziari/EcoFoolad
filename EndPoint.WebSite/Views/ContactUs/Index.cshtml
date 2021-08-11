@@ -1,7 +1,221 @@
-﻿@using Application.Services.FrontEnd.Basket
-@model BasketDto
-
+﻿@using Application.Services.FrontEnd.Common.Footers.Queries
+@using Application.Services.FrontEnd.Common
+@model Domain.Entities.Dtos.BaseDto<FooterFrontEndDto>
+@inject ISiteSetting SiteSetting;
 @{
     ViewData["Title"] = "ارتباط با ما";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
+@section Head{
+    <meta name="description" content="اکوفولاد ؛ قیمت آهن، خرید و فروش آهن، انواع میلگرد، پروفیل، تیرآهن، ورق، نبشی و ناودانی، آهن آلات، با لیست قیمت‌های روزانه ✦ خرید پیشرو در بازار آهن: ☎ 021">
+    <link rel="canonical" href="@Context.Request.Scheme://@Context.Request.Host@Context.Request.Path.Value">
+    <meta property="og:locale" content="fa_IR">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="ارتباط با ما | @SiteSetting.GetSiteSetting().SiteName">
+    <meta property="og:description" content="فروشگاه آنلاین محصولات آهن و و فولاد">
+    <meta property="og:url" content="@Context.Request.Scheme://@Context.Request.Host@Context.Request.Path.Value">
+    <meta property="og:site_name" content="@SiteSetting.GetSiteSetting().SiteName">
+    <meta property="article:section" content="ارتباط با ما">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@@ecofoolad">
+    <meta name="twitter:url" content="@Context.Request.Scheme://@Context.Request.Host@Context.Request.Path.Value">
+    <meta name="twitter:description" content="فروشگاه آنلاین محصولات آهن و و فولاد - ارتباط با ما">
+    <meta name="twitter:title" content="ارتباط با ما - @SiteSetting.GetSiteSetting().SiteName">
+    <meta name="twitter:image" content="/Images/Settings/FavIcon/android-icon-192x192.png"/>
+    <meta name="twitter:creator" content="@@ecofoolad"/>
+}
+
+@section Foo{
+    <script type="application/ld+json">
+        {
+        "@@context": "https://schema.org",
+        "@@type": "LocalBusiness",
+        "name": "ارتباط با ما - @SiteSetting.GetSiteSetting().SiteName",
+        "image": "@SiteSetting.GetSiteSetting().LogoImage",
+        "@@id": "https://www.ecofoolad.com",
+        "url": "https://www.ecofoolad.com",
+        "telephone": "+982143000550",
+        "priceRange": "IRR",
+        "address": {
+            "@@type": "PostalAddress",
+            "streetAddress": "یوسف آباد - خیاب سید جمال الدین - بعد از خیابان ۶۵ - پلاک ۴۸۵ - واحد ۴۳ - دفتر اکو فولاد ",
+            "addressLocality": "تهران",
+            "postalCode": "1434964737",
+            "addressCountry": "IR"
+        },
+        "geo": {
+            "@@type": "GeoCoordinates",
+            "latitude": 35.748168,
+            "longitude": 51.405510
+        },
+        "openingHoursSpecification": {
+            "@@type": "OpeningHoursSpecification",
+            "dayOfWeek": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Saturday",
+                "Sunday"
+            ],
+            "opens": "08:00",
+            "closes": "17:00"
+        },
+        "sameAs": [
+            "https://www.facebook.com/ecofoolad",
+            "https://www.twitter.com/ecofoolad",
+            "https://plus.google.com/+ecofoolad",
+            "https://www.instagram.com/ecofoolad",
+            "https://www.youtube.com/channel/",
+            "https://www.linkedin.com/company/ecofoolad"
+        ]
+    }
+    </script>
+    <script type="application/ld+json">
+        {
+        "@@context": "https://schema.org",
+        "@@type": "WebSite",
+        "url": "https://www.ecofoolad.com",
+        "potentialAction": {
+            "@@type": "SearchAction",
+            "target": "https://www.ecofoolad.com/search/?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+        }
+        }
+    </script>
+}
+
+<div class="info-page-cover" style="background: linear-gradient(rgba(0, 0, 0, .6), rgba(0, 0, 0, .6)), url(/BackEnd/Admin/images/fileManager/2021/2021-7/a5cb3118-baa0-4de1-be39-8d6e1c0be327info-page-cover.jpg) top no-repeat">
+    <div class="col-lg-12 col-md-12 col-xs-12 mx-auto">
+        <div class="info-page-cover-title">
+            ارتباط با ما
+        </div>
+        @* <form action="#" class="info-page-search"> *@
+        @*     <input type="text" class="info-page-input-search" placeholder="پرسش خود را جستجو کنید"> *@
+        @*     <a href="#"><button class="btn-info-page-search">جستجو</button></a> *@
+        @* </form> *@
+    </div>
+</div>
+
+<div class="container">
+    <div class="info-page-faq">
+        <div class="content-info-page">
+            <div class="box-rounded-content">
+                <section class="js-expert-article">
+                    @* <div class="content-expert-articles"> *@
+                    @*     @Html.Raw(Model.Body) *@
+                    @* </div> *@
+                    <section class="contact-us-promo pt-100">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-3 col-md-6 col-sm-6">
+                                    <div class="card single-promo-card single-promo-hover text-center">
+                                        <div class="card-body py-5">
+                                            <div class="pb-2">
+                                                @* <span class="ti-mobile icon-sm color-primary"></span> *@
+                                                <i class="fa fa-mobile contactUsFontLi" aria-hidden="true"></i>
+                                            </div>
+                                            <div>
+                                                <h5 class="mb-0">تماس با ما</h5>
+                                                <p class="text-muted mb-0">@Model.Data.PhoneNumber1</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-6 col-sm-6">
+                                    <div class="card single-promo-card single-promo-hover text-center">
+                                        <div class="card-body py-5">
+                                            <div class="pb-2">
+                                                <i class="fa fa-map-marker contactUsFontLi" aria-hidden="true"></i>
+                                            </div>
+                                            <div>
+                                                <h5 class="mb-0">محل ما</h5>
+                                                <p class="text-muted mb-0">تهران </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-6 col-sm-6">
+                                    <div class="card single-promo-card single-promo-hover text-center">
+                                        <div class="card-body py-5">
+                                            <div class="pb-2">
+                                                <i class="fa fa-envelope contactUsFontLi" aria-hidden="true"></i>
+                                            </div>
+                                            <div>
+                                                <h5 class="mb-0">ایمیل ما</h5>
+                                                <p class="text-muted mb-0">info@ecofoolad.com</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-6 col-sm-6">
+                                    <div class="card single-promo-card single-promo-hover text-center">
+                                        <div class="card-body py-5">
+                                            <div class="pb-2">
+                                                <i class="fa fa-headphones contactUsFontLi"></i>
+                                            </div>
+                                            <div>
+                                                <h5 class="mb-0">پشتیبانی ما</h5>
+                                                <p class="text-muted mb-0">به صورت 24/7</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </section>
+            </div>
+            
+            <div class="box-rounded-content">
+                <section class="js-expert-article">
+                    @* <div class="content-expert-articles"> *@
+                    @*     @Html.Raw(Model.Body) *@
+                    @* </div> *@
+                    <section class="contact-us-promo pt-100">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-12 col-md-12 col-sm-12">
+                                    <div class="card single-promo-card single-promo-hover text-center">
+                                        <div class="card-body py-5">
+                                            <div class="pb-2">
+                                                @* <span class="ti-mobile icon-sm color-primary"></span> *@
+                                                <i class="fa fa-building contactUsFontLi" aria-hidden="true"></i>
+                                            </div>
+                                            <div>
+                                                <h5 class="mb-0">آدرس دفتر</h5>
+                                                <p class="text-muted mb-0">@Model.Data.OfficeAddress</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 col-md-12 col-sm-12">
+                                    <div class="card single-promo-card single-promo-hover text-center">
+                                        <div class="card-body py-5">
+                                            <div class="pb-2">
+                                                <i class="fa fa-industry contactUsFontLi" aria-hidden="true"></i>
+                                            </div>
+                                            <div>
+                                                <h5 class="mb-0">آدرس انبار</h5>
+                                                <p class="text-muted mb-0">@Model.Data.FactoryAddress</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </section>
+            </div>
+            
+            <br>
+            <br>
+        </div>
+    </div>
+    <div class="info-page-faq">
+        <div class="content-info-page">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d6927.808101182909!2d51.40080786510871!3d35.74674787374283!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2s!4v1628064279833!5m2!1sen!2s" width="900" height="600" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </div>
+</div>

@@ -1,6 +1,6 @@
 ﻿using Domain.Entities.Attributes;
 
-namespace Domain.Entities.FileManager
+namespace Domain.Entities.FileManagers
 {
     [Auditable]
     public class FileManager

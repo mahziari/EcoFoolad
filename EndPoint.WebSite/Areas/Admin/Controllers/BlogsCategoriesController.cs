@@ -1,6 +1,6 @@
 ﻿using Application.Interfaces.FacadPatterns.BackEnd.Admin;
-using Application.Services.BackEnd.Admin.BlogsCategories;
-using Application.Services.BackEnd.Admin.BlogsCategories.Queries.GetEditBlogsCategories;
+using Application.Services.BackEnd.Admin.BlogsCategories.Command.CreateBlogsCategories;
+using Application.Services.BackEnd.Admin.BlogsCategories.Command.EditBlogsCategories;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -37,14 +37,14 @@ namespace EndPoint.WebSite.Areas.Admin.Controllers
         [Authorize(Policy = "BlogCategoriesCreate")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(BlogCategoryDto blogsCategoryDto)
+        public IActionResult Create(CreateBlogCategoryDto createBlogCategoryDto)
         {
             if (!ModelState.IsValid)
             {
                 return View("Create", _blogsCategoriesFacad.GetCreateBlogsCategoriesServices.Execute());
             }
 
-            var result = _blogsCategoriesFacad.CreateBlogsCategoriesServices.Execute(blogsCategoryDto);
+            var result = _blogsCategoriesFacad.CreateBlogsCategoriesServices.Execute(createBlogCategoryDto);
 
             TempData["IsSuccess"] = result.IsSuccess;
             TempData["Message"] = result.Message[0];
@@ -64,14 +64,14 @@ namespace EndPoint.WebSite.Areas.Admin.Controllers
         [Authorize(Policy = "BlogCategoriesEdit")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(BlogCategoryDto blogsCategoryDto)
+        public IActionResult Edit(EditBlogCategoryDto editBlogCategoryDto)
         {
             if (!ModelState.IsValid)
             {
-                return View("Edit", _blogsCategoriesFacad.GetEditBlogsCategoriesServices.Execute(blogsCategoryDto.Id).Data);
+                return View("Edit", _blogsCategoriesFacad.GetEditBlogsCategoriesServices.Execute(editBlogCategoryDto.Id).Data);
             }
 
-            var result = _blogsCategoriesFacad.EditBlogsCategoriesServices.Execute(blogsCategoryDto);
+            var result = _blogsCategoriesFacad.EditBlogsCategoriesServices.Execute(editBlogCategoryDto);
 
             TempData["IsSuccess"] = result.IsSuccess;
             TempData["Message"] = result.Message[0];

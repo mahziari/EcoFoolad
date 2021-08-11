@@ -1,13 +1,13 @@
 ﻿@using Application.Services.FrontEnd.Common
-@inject ISiteSetting _siteSetting;
+@inject ISiteSetting SiteSetting;
 
 <!DOCTYPE html>
 <html lang="fa">
 <head>
-    <title>@ViewData["Title"].ToString() | @_siteSetting.GetSiteSetting().SiteName</title>
-     <partial name="_HeadPartial"/>
+    <title>@ViewData["Title"].ToString() | @SiteSetting.GetSiteSetting().SiteName</title>
+    <partial name="_HeadPartial"/>
     @await RenderSectionAsync("Head", false)
-   
+
 
     <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':

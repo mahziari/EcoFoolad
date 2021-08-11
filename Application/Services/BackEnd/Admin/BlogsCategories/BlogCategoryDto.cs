@@ -1,4 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using Application.Interfaces.Contexts;
+using Domain.Entities;
+using FluentValidation;
 
 namespace Application.Services.BackEnd.Admin.BlogsCategories
 {
@@ -33,5 +38,28 @@ namespace Application.Services.BackEnd.Admin.BlogsCategories
         public string LocalTime { get; set; }
         public string RegisterUserId { get; set; }
         public bool IsActive { get; set; }
+    }
+    
+    public class BlogCategoryValidator : AbstractValidator<BlogCategoryDto>
+    {
+        private readonly ICustomDbContext _customDbContext;
+        public BlogCategoryValidator(ICustomDbContext customDbContext)
+        {
+            _customDbContext = customDbContext;
+            RuleFor(x => x.Name).Must(BeUniqueName).WithMessage("این نام دسته بندی قبلا استفاده شده است");
+            RuleFor(x => x.Slug).Must(BeUniqueSlug).WithMessage("این نام انگلیسی دسته بندی قبلا استفاده شده است");
+        }
+
+        private bool BeUniqueName(string name)
+        {
+            var blogCategoriesName = _customDbContext.BlogCategories.FirstOrDefault(c => c.Name == name);
+            return blogCategoriesName==null;
+        }
+        
+        private bool BeUniqueSlug(string slug)
+        {
+            var blogCategoriesSlug = _customDbContext.BlogCategories.FirstOrDefault(c => c.Slug == slug);
+            return blogCategoriesSlug==null;
+        }
     }
 }

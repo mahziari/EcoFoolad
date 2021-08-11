@@ -3,6 +3,8 @@ using Application.Services.BackEnd.Admin.Blogs;
 using Application.Services.BackEnd.Admin.Blogs.Queries.GetCreateBlogs;
 using Application.Services.BackEnd.Admin.Blogs.Queries.GetEditBlogs;
 using Application.Services.BackEnd.Admin.BlogsCategories;
+using Application.Services.BackEnd.Admin.BlogsCategories.Command.CreateBlogsCategories;
+using Application.Services.BackEnd.Admin.BlogsCategories.Command.EditBlogsCategories;
 using Application.Services.BackEnd.Admin.BlogsCategories.Queries.GetEditBlogsCategories;
 using Application.Services.BackEnd.Admin.Factory.Command.CreateFactory;
 using Application.Services.BackEnd.Admin.Footers;
@@ -30,6 +32,8 @@ namespace Infrastructure.Mapping.BackEnd.Admin
             CreateMap<Blog, BlogDto>().ReverseMap();
             CreateMap<Blog, GetEditBlogsDto>();
             CreateMap<BlogCategory, BlogCategoryDto>().ReverseMap();
+            CreateMap<BlogCategory, CreateBlogCategoryDto>().ReverseMap();
+            CreateMap<BlogCategory, EditBlogCategoryDto>().ReverseMap();
             CreateMap<AboutUs, AboutUsDto>().ReverseMap();
 
             

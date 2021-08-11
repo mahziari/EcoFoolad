@@ -11,7 +11,9 @@ namespace EndPoint.WebSite.Areas.Auth.Data.Dto
         [MinLength(11, ErrorMessage = "حداقل تعداد شماره تلفن 11 کاراکتر")]
         [MaxLength(11, ErrorMessage = "حداکثر تعداد شماره تلفن 11 کاراکتر")]
         [RegularExpression(@"(\+98|0)?09\d{9}", ErrorMessage = "فرمت شماره تلفن نامعتبر است")]
-        public String PhoneNumber { get; set; }
-        public String ReturnUrl { get; set; }
+        public string PhoneNumber { get; set; }
+        public string ReturnUrl { get; set; }
+        public string Captcha { get; set; }
+
     }
 }

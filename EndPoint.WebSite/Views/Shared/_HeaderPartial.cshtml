@@ -2,10 +2,10 @@
 @using Microsoft.AspNetCore.Identity
 @using Domain.Entities.Users
 @using Application.Services.FrontEnd.Common
-@inject ISiteSetting _siteSetting;
-@inject IAuthorizationService _authorizationService;
-@inject SignInManager<User> _signInManager
-@inject UserManager<User> _userManager
+@inject ISiteSetting SiteSetting;
+@inject IAuthorizationService AuthorizationService;
+@inject SignInManager<User> SignInManager
+@inject UserManager<User> UserManager
 
 <header class="header-main-page">
 <div class="d-block">
@@ -14,14 +14,14 @@
     <div class="header-right">
         <div class="logo">
             <a href="/">
-                <img src="@_siteSetting.GetSiteSetting().LogoImage" alt="@_siteSetting.GetSiteSetting().SiteName">
+                <img src="@SiteSetting.GetSiteSetting().LogoImage" alt="@SiteSetting.GetSiteSetting().SiteName">
             </a>
         </div>
 
         <div class="col-lg-8 col-md-12 col-xs-12 pull-right">
             <div class="search-header search-box">
                 <form action="#">
-                    <input type="text" class="header-search-input" placeholder="جستجو در @_siteSetting.GetSiteSetting().SiteName...">
+                    <input type="text" class="header-search-input" placeholder="جستجو در @SiteSetting.GetSiteSetting().SiteName...">
                     <button class="btn-search" type="submit">
                         <img src="~/assets/images/search.png">
                     </button>
@@ -106,7 +106,7 @@
 
 @if (User.Identity.IsAuthenticated)
 {
-    @if (_authorizationService.AuthorizeAsync(User, "SeniorProgrammer").Result.Succeeded)
+    @if (AuthorizationService.AuthorizeAsync(User, "SeniorProgrammer").Result.Succeeded)
     {
         <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="login-link" target="_blank">
             <button class="btn-login">
@@ -120,7 +120,7 @@
                             </div>
                             <div class="header-profile-dropdown-user-info">
                                 <p class="header-profile-dropdown-user-name">
-                                    @_userManager.GetUserAsync(User).Result.FirstName @_userManager.GetUserAsync(User).Result.LastName
+                                    @UserManager.GetUserAsync(User).Result.FirstName @UserManager.GetUserAsync(User).Result.LastName
                                     <span class="header-profile-dropdown-user-profile-link">
                                         مشاهده حساب
                                         کاربری
@@ -167,7 +167,7 @@
             </button>
         </a>
     }
-    else if (_authorizationService.AuthorizeAsync(User, "AdminRole").Result.Succeeded)
+    else if (AuthorizationService.AuthorizeAsync(User, "AdminRole").Result.Succeeded)
     {
           <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="login-link" target="_blank">
             <button class="btn-login">
@@ -181,7 +181,7 @@
                             </div>
                             <div class="header-profile-dropdown-user-info">
                                 <p class="header-profile-dropdown-user-name">
-                                    @_userManager.GetUserAsync(User).Result.FirstName @_userManager.GetUserAsync(User).Result.LastName
+                                    @UserManager.GetUserAsync(User).Result.FirstName @UserManager.GetUserAsync(User).Result.LastName
                                     <span class="header-profile-dropdown-user-profile-link">
                                         مشاهده حساب
                                         کاربری
@@ -228,7 +228,7 @@
             </button>
         </a>
     }
-    else if (_authorizationService.AuthorizeAsync(User, "OwnerRole").Result.Succeeded)
+    else if (AuthorizationService.AuthorizeAsync(User, "OwnerRole").Result.Succeeded)
     {
           <a asp-area="Owner" asp-controller="Home" asp-action="Index" class="login-link" target="_blank">
             <button class="btn-login">
@@ -242,7 +242,7 @@
                             </div>
                             <div class="header-profile-dropdown-user-info">
                                 <p class="header-profile-dropdown-user-name">
-                                    @_userManager.GetUserAsync(User).Result.FirstName @_userManager.GetUserAsync(User).Result.LastName
+                                    @UserManager.GetUserAsync(User).Result.FirstName @UserManager.GetUserAsync(User).Result.LastName
                                     <span class="header-profile-dropdown-user-profile-link">
                                         مشاهده حساب
                                         کاربری
@@ -289,7 +289,7 @@
             </button>
         </a>
     }
-    else if (_authorizationService.AuthorizeAsync(User, "UserRole").Result.Succeeded)
+    else if (AuthorizationService.AuthorizeAsync(User, "UserRole").Result.Succeeded)
     {
           <a asp-area="User" asp-controller="Home" asp-action="Index" class="login-link" target="_blank">
             <button class="btn-login">
@@ -303,7 +303,7 @@
                             </div>
                             <div class="header-profile-dropdown-user-info">
                                 <p class="header-profile-dropdown-user-name">
-                                    @_userManager.GetUserAsync(User).Result.FirstName @_userManager.GetUserAsync(User).Result.LastName
+                                    @UserManager.GetUserAsync(User).Result.FirstName @UserManager.GetUserAsync(User).Result.LastName
                                     <span class="header-profile-dropdown-user-profile-link">
                                         مشاهده حساب
                                         کاربری
@@ -441,7 +441,7 @@ else
     
     @await Component.InvokeAsync("ResponsiveBasketComponent")
     <button class="question-faq">
-    <span class="fa fa-question-circle-o"></span>
+    <span class="fa fa-instagram"></span>
 </button>
 </div>
 <!-- responsive basket header------------------->

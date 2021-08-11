@@ -1,7 +1,7 @@
 ﻿@using Application.Services.FrontEnd.AboutUs
 @using Application.Services.FrontEnd.Common
 @model AboutUsFrontEndDto
-@inject ISiteSetting _siteSetting;
+@inject ISiteSetting SiteSetting;
 
 @{
     ViewData["Title"] = "درباره ما";
@@ -13,16 +13,16 @@
     <link rel="canonical" href="@Context.Request.Scheme://@Context.Request.Host@Context.Request.Path.Value">
     <meta property="og:locale" content="fa_IR">
     <meta property="og:type" content="article">
-    <meta property="og:title" content="درباره ما | @_siteSetting.GetSiteSetting().SiteName">
+    <meta property="og:title" content="درباره ما | @SiteSetting.GetSiteSetting().SiteName">
     <meta property="og:description" content="فروشگاه آنلاین محصولات آهن و و فولاد">
     <meta property="og:url" content="@Context.Request.Scheme://@Context.Request.Host@Context.Request.Path.Value">
-    <meta property="og:site_name" content="@_siteSetting.GetSiteSetting().SiteName">
+    <meta property="og:site_name" content="@SiteSetting.GetSiteSetting().SiteName">
     <meta property="article:section" content="درباره ما">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@@ecofoolad">
     <meta name="twitter:url" content="@Context.Request.Scheme://@Context.Request.Host@Context.Request.Path.Value">
     <meta name="twitter:description" content="فروشگاه آنلاین محصولات آهن و و فولاد - درباره ما">
-    <meta name="twitter:title" content="درباره ما - @_siteSetting.GetSiteSetting().SiteName">
+    <meta name="twitter:title" content="درباره ما - @SiteSetting.GetSiteSetting().SiteName">
     <meta name="twitter:image" content="/Images/Settings/FavIcon/android-icon-192x192.png"/>
     <meta name="twitter:creator" content="@@ecofoolad"/>
 }
@@ -32,8 +32,8 @@
         {
         "@@context": "https://schema.org",
         "@@type": "LocalBusiness",
-        "name": "درباره ما - @_siteSetting.GetSiteSetting().SiteName",
-        "image": "@_siteSetting.GetSiteSetting().LogoImage",
+        "name": "درباره ما - @SiteSetting.GetSiteSetting().SiteName",
+        "image": "@SiteSetting.GetSiteSetting().LogoImage",
         "@@id": "https://www.ecofoolad.com",
         "url": "https://www.ecofoolad.com",
         "telephone": "+982143000550",
@@ -87,30 +87,67 @@
     </script>
 }
 
-  <div class="info-page-cover">
-        <div class="col-lg-12 col-md-12 col-xs-12 mx-auto">
-            <div class="info-page-cover-title">درباره ما</div>
-            @* <form action="#" class="info-page-search"> *@
-            @*     <input type="text" class="info-page-input-search" placeholder="پرسش خود را جستجو کنید"> *@
-            @*     <a href="#"><button class="btn-info-page-search">جستجو</button></a> *@
-            @* </form> *@
+<div class="info-page-cover" style="background: linear-gradient(rgba(0, 0, 0, .6), rgba(0, 0, 0, .6)), url(@Model.ImageUrl) top no-repeat">
+    <div class="col-lg-12 col-md-12 col-xs-12 mx-auto">
+        <div class="info-page-cover-title">
+            درباره ما
         </div>
+        @* <form action="#" class="info-page-search"> *@
+        @*     <input type="text" class="info-page-input-search" placeholder="پرسش خود را جستجو کنید"> *@
+        @*     <a href="#"><button class="btn-info-page-search">جستجو</button></a> *@
+        @* </form> *@
     </div>
+</div>
 
-    <div class="container">
-        <div class="info-page-faq">
-            <div class="content-info-page">
-                <div class="info-page-box-headline box-rounded_headline info-page-box-headline-question">میتوانم سفارش
-                    خود را در محل پرداخت کنم؟</div>
-                <div class="box-rounded-content">
-                    <section class="js-expert-article">
-                        <div class="content-expert-articles">
-                            @Html.Raw(Model.Body)
-                        </div>
-                    </section>
-                </div>
-                <br>
-                <br>
+<div class="container">
+    <div class="info-page-faq">
+        <div class="content-info-page">
+            @* <div class="info-page-box-headline box-rounded_headline info-page-box-headline-question"> *@
+            @*     میتوانم سفارش *@
+            @*     خود را در محل پرداخت کنم؟ *@
+            @* </div> *@
+            <div class="box-rounded-content">
+                <section class="js-expert-article">
+                    <div class="content-expert-articles">
+                        @Html.Raw(Model.Body)
+                    </div>
+                </section>
             </div>
+            <br>
+            <br>
         </div>
     </div>
+    @* <div class="info-page-faq"> *@
+    @*             <div class="content-info-page "> *@
+    @*                 <div class="box-rounded_headline">تیم ما</div> *@
+    @*                 <div class="col-lg-4 col-md-4 col-xs-12 pull-right" style="padding:0;"> *@
+    @*                     <div class="info-page_cat info-page_after-faq"> *@
+    @*                         <div class="info-page_cat-icon"> *@
+    @*                             <img src="@Model.Member1" alt="@Model.FullName1"> *@
+    @*                         </div> *@
+    @*                         <p class="mt-1">@Model.FullName1</p> *@
+    @*                         <a>@Model.MemberSide1</a> *@
+    @*                     </div> *@
+    @*                 </div> *@
+    @* *@
+    @*                 <div class="col-lg-4 col-md-4 col-xs-12 pull-right" style="padding:0;"> *@
+    @*                     <div class="info-page_cat info-page_after-faq"> *@
+    @*                         <div class="info-page_cat-icon"> *@
+    @*                             <img src="@Model.Member2" alt="@Model.FullName2"> *@
+    @*                         </div> *@
+    @*                         <p class="mt-1">@Model.FullName2</p> *@
+    @*                         <a>@Model.MemberSide2</a> *@
+    @*                     </div> *@
+    @*                 </div> *@
+    @*                 <div class="col-lg-4 col-md-4 col-xs-12 pull-right" style="padding:0;"> *@
+    @*                     <div class="info-page_cat"> *@
+    @*                         <div class="info-page_cat-icon"> *@
+    @*                             <img src="@Model.Member3" alt="@Model.FullName3"> *@
+    @*                         </div> *@
+    @*                         <p class="mt-1">@Model.FullName3</p> *@
+    @*                         <a>@Model.MemberSide3</a>              *@
+    @*                         </div> *@
+    @*                 </div> *@
+    @*             </div> *@
+    @*         </div> *@
+</div>

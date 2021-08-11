@@ -542,7 +542,7 @@ a:hover{
     user-select: none;
     display: none;
     position: absolute;
-    top: 15px;
+    /*top: 15px;*/
     right: 20px;
       
   }
@@ -1012,8 +1012,8 @@ a:hover{
 }
 
 .homepage-header-content .tiles .tiles-wrapper a.tiles-item:hover img{
-    filter: grayscale(80%);
-    -webkit-filter: grayscale(80%);
+    filter: grayscale(40%);
+    -webkit-filter: grayscale(40%);
     transition: all .35s;
 }
 
@@ -1022,7 +1022,7 @@ a:hover{
     font-size: 14px;
     align-items: center;
     background-color: rgba(255,255,255,.85);
-    color: #000;
+    color: #191842;
     width: 100%;
     line-height: 25px;
     text-align: right;
@@ -1343,7 +1343,7 @@ a:hover{
     right: -25px;
     top: 50%;
     color: #a8a8a8;
-    box-shadow: -30px 0 200px 100px #e9e9e9;
+    box-shadow:  0 0 8px 2px #191842;
     color: #a8a8a8;
     border-radius: 50px 0 0 50px;
 }
@@ -1353,7 +1353,7 @@ a:hover{
     left: -25px;
     top: 50%;
     color: #a8a8a8;
-    box-shadow: -30px 0 200px 100px #e9e9e9;
+    box-shadow:  0 0 4px 1px #b9b9b9;
     color: #a8a8a8;
     border-radius: 0 50px 50px 0;
 }
@@ -1464,7 +1464,7 @@ a:hover{
 
 .main-aside nav ul.stick-menu li.stick-menu-item:first-child{
     color: #fff;
-    background-color: #2899d5;
+    background-color: #181842;
     font-size: 16px;
 }
 
@@ -1549,7 +1549,7 @@ a:hover{
     pointer-events: none;
     z-index: 3;
     background: -webkit-gradient(linear,left bottom,left top,from(#2f2727),to(transparent));
-    background: linear-gradient(to top,#2f2727,transparent);
+    background: linear-gradient(to top,#191842,transparent);
     transition: all .15s;
 }
 
@@ -1735,7 +1735,7 @@ a:hover{
     border-radius: 50px;
     display: block;
     margin: 0 auto 25px;
-
+    object-fit: cover;
 }
 
 .main .main-content .sidebar-topics-aside .post-list-widget ul.favourites-list{
@@ -1757,7 +1757,7 @@ a:hover{
 .main .main-content .sidebar-topics-aside .post-list-widget ul.favourites-list li.favourites-list .item-detail{
     padding: 0;
     display: inline-block;
-    width: 65%;
+    width: 57%;
     float: left;
     margin-top: -5px;
     margin-right: 10px;
@@ -1795,6 +1795,10 @@ a:hover{
 /* .main .main-content .module-title-two{
     margin: 20px 0 30px 310px;
 } */
+
+.module-title-two{
+    margin: 20px 0 30px 310px;
+}
 
 .main .main-content .module-title-two .module-title-btn{
     width: 190px;

@@ -1,5 +1,5 @@
 ﻿@using Application.Services.FrontEnd.Common
-@inject ISiteSetting _siteSetting;
+@inject ISiteSetting SiteSetting;
 
 <nav class="main-menu">
     <ul class="new-list-menu">
@@ -16,11 +16,10 @@
         <li class="item-list-menu megamenu-1">
             <a asp-controller="Blogs" asp-action="Index" class="list-category first after">
                 <i class="mdi mdi-newspaper-variant-multiple-outline text-office-9"></i>
-            اکوفولاد<span style="color: #ef394e">مگ</span>
+                مجله‌اکوفولاد
             </a>
         </li>
         
-
         @await Component.InvokeAsync("GetMenus")
 
 
@@ -34,7 +33,7 @@
         
 
         <li class="item-list-menu megamenu-1">
-            <a asp-controller="Blogs" asp-action="Index" class="list-category first after">
+            <a asp-controller="ContactUs" asp-action="Index" class="list-category first after">
                 <i class="mdi mdi-contacts text-primary"></i>
                 ارتباط با ما
             </a>

@@ -112,8 +112,6 @@ namespace Application.Services.FrontEnd.Blogs.Queries
         public bool IsVideoClip { get; set; }
         public string VideoClipDuration { get; set; }
         public string Author { get; set; }
-        public DateTime InsertTime { get; set; }
-        public DateTime UpdateTime { get; set; }
         public BlogCategory BlogCategory { get; set; }
     }
 

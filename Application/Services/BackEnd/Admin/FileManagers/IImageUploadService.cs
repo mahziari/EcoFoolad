@@ -5,6 +5,8 @@ using System.IO;
 using System.Linq;
 using Application.Interfaces.Contexts;
 using Domain.Entities;
+using Domain.Entities.Dtos;
+using Domain.Entities.FileManagers;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 
@@ -55,7 +57,7 @@ namespace Application.Services.BackEnd.Admin.FileManagers
             }
             return new UploadDto()
             {
-                FileNameAddress=address,
+                FileData=address,
                 IsSuccess=true,
                 Message="فایل ها با موفقیت آپلود شدند",
             };
@@ -88,14 +90,14 @@ namespace Application.Services.BackEnd.Admin.FileManagers
 
     public class UploadDto
     {
-        public List<string> FileNameAddress { get; set; }
+        public List<string> FileData { get; set; }
         public bool IsSuccess { get; set; }
         public string Message { get; set; }
     }
 
     public class ListFilesDto
     {
-        public List<Domain.Entities.FileManager.FileManager> FileAddress { get; set; }
+        public List<FileManager> FileAddress { get; set; }
         public string Address { get; set; }
     }
     

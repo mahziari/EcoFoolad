@@ -4,6 +4,7 @@ using Application.Interfaces.Contexts;
 using Application.Services.BackEnd.Admin.Blogs.Queries.GetCreateBlogs;
 using AutoMapper;
 using Domain.Entities;
+using Domain.Entities.Dtos;
 using Microsoft.EntityFrameworkCore;
  
 

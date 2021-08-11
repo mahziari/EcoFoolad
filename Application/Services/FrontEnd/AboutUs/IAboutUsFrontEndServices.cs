@@ -35,19 +35,26 @@ namespace Application.Services.FrontEnd.AboutUs
     {
         public int Id { get; set; }
         
-        [Display(Name = "عکس بالای صفحه")]
         public string ImageUrl { get; set; }
         
-        [Display(Name = "متن درباره ما")]
         public string Body { get; set; }
         
-        [Display(Name = "عکس اعضا ۱")]
         public string Member1 { get; set; }
         
-        [Display(Name = "عکس اعضا 2")]
+        public string FullName1 { get; set; }
+        
+        public string MemberSide1 { get; set; }
+        
         public string Member2 { get; set; }
         
-        [Display(Name = "عکس اعضا 3")]
+        public string FullName2 { get; set; }
+        
+        public string MemberSide2 { get; set; }
+        
         public string Member3 { get; set; }
+        
+        public string FullName3 { get; set; }
+        
+        public string MemberSide3 { get; set; }
     }
 }
