@@ -291,6 +291,7 @@ C:\Users\pc-2\Pictures\.NET\01_NewMyProject\EndPoint.WebSite\bin\Debug\net5.0\Fl
 C:\Users\pc-2\Pictures\.NET\01_NewMyProject\EndPoint.WebSite\bin\Debug\net5.0\FluentValidation.DependencyInjectionExtensions.dll
 C:\Users\pc-2\Pictures\.NET\01_NewMyProject\EndPoint.WebSite\bin\Debug\net5.0\GoogleReCaptcha.V3.dll
 C:\Users\pc-2\Pictures\.NET\01_NewMyProject\EndPoint.WebSite\bin\Debug\net5.0\Humanizer.dll
+C:\Users\pc-2\Pictures\.NET\01_NewMyProject\EndPoint.WebSite\bin\Debug\net5.0\JetBrains.Annotations.dll
 C:\Users\pc-2\Pictures\.NET\01_NewMyProject\EndPoint.WebSite\bin\Debug\net5.0\LazZiya.TagHelpers.dll
 C:\Users\pc-2\Pictures\.NET\01_NewMyProject\EndPoint.WebSite\bin\Debug\net5.0\Microsoft.AspNetCore.Connections.Abstractions.dll
 C:\Users\pc-2\Pictures\.NET\01_NewMyProject\EndPoint.WebSite\bin\Debug\net5.0\Microsoft.AspNetCore.Cryptography.Internal.dll
@@ -368,6 +369,8 @@ C:\Users\pc-2\Pictures\.NET\01_NewMyProject\EndPoint.WebSite\bin\Debug\net5.0\Sy
 C:\Users\pc-2\Pictures\.NET\01_NewMyProject\EndPoint.WebSite\bin\Debug\net5.0\WebMarkupMin.AspNet.Common.dll
 C:\Users\pc-2\Pictures\.NET\01_NewMyProject\EndPoint.WebSite\bin\Debug\net5.0\WebMarkupMin.AspNetCore5.dll
 C:\Users\pc-2\Pictures\.NET\01_NewMyProject\EndPoint.WebSite\bin\Debug\net5.0\WebMarkupMin.Core.dll
+C:\Users\pc-2\Pictures\.NET\01_NewMyProject\EndPoint.WebSite\bin\Debug\net5.0\X.PagedList.dll
+C:\Users\pc-2\Pictures\.NET\01_NewMyProject\EndPoint.WebSite\bin\Debug\net5.0\X.PagedList.Mvc.Core.dll
 C:\Users\pc-2\Pictures\.NET\01_NewMyProject\EndPoint.WebSite\bin\Debug\net5.0\cs\Microsoft.CodeAnalysis.resources.dll
 C:\Users\pc-2\Pictures\.NET\01_NewMyProject\EndPoint.WebSite\bin\Debug\net5.0\de\Microsoft.CodeAnalysis.resources.dll
 C:\Users\pc-2\Pictures\.NET\01_NewMyProject\EndPoint.WebSite\bin\Debug\net5.0\es\Microsoft.CodeAnalysis.resources.dll
@@ -466,7 +469,7 @@ C:\Users\pc-2\Pictures\.NET\01_NewMyProject\EndPoint.WebSite\bin\Debug\net5.0\Co
 C:\Users\pc-2\Pictures\.NET\01_NewMyProject\EndPoint.WebSite\bin\Debug\net5.0\Infrastructure.pdb
 C:\Users\pc-2\Pictures\.NET\01_NewMyProject\EndPoint.WebSite\bin\Debug\net5.0\Persistence.pdb
 C:\Users\pc-2\Pictures\.NET\01_NewMyProject\EndPoint.WebSite\bin\Debug\net5.0\Domain.pdb
-C:\Users\pc-2\Pictures\.NET\01_NewMyProject\EndPoint.WebSite\obj\Debug\net5.0\EndPoint.WebSite.csprojAssemblyReference.cache
+C:\Users\pc-2\Pictures\.NET\01_NewMyProject\EndPoint.WebSite\obj\Debug\net5.0\EndPoint.WebSite.csproj.AssemblyReference.cache
 C:\Users\pc-2\Pictures\.NET\01_NewMyProject\EndPoint.WebSite\obj\Debug\net5.0\EndPoint.WebSite.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\pc-2\Pictures\.NET\01_NewMyProject\EndPoint.WebSite\obj\Debug\net5.0\EndPoint.WebSite.AssemblyInfoInputs.cache
 C:\Users\pc-2\Pictures\.NET\01_NewMyProject\EndPoint.WebSite\obj\Debug\net5.0\EndPoint.WebSite.AssemblyInfo.cs
@@ -558,8 +561,9 @@ C:\Users\pc-2\Pictures\.NET\01_NewMyProject\EndPoint.WebSite\obj\Debug\net5.0\Ra
 C:\Users\pc-2\Pictures\.NET\01_NewMyProject\EndPoint.WebSite\obj\Debug\net5.0\Razor\Views\AboutUs\Index.cshtml.g.cs
 C:\Users\pc-2\Pictures\.NET\01_NewMyProject\EndPoint.WebSite\obj\Debug\net5.0\Razor\Views\Basket\Index.cshtml.g.cs
 C:\Users\pc-2\Pictures\.NET\01_NewMyProject\EndPoint.WebSite\obj\Debug\net5.0\Razor\Views\Basket\ShippingPayment.cshtml.g.cs
-C:\Users\pc-2\Pictures\.NET\01_NewMyProject\EndPoint.WebSite\obj\Debug\net5.0\Razor\Views\Blogs\All.cshtml.g.cs
+C:\Users\pc-2\Pictures\.NET\01_NewMyProject\EndPoint.WebSite\obj\Debug\net5.0\Razor\Views\Blogs\Archive.cshtml.g.cs
 C:\Users\pc-2\Pictures\.NET\01_NewMyProject\EndPoint.WebSite\obj\Debug\net5.0\Razor\Views\Blogs\Category.cshtml.g.cs
+C:\Users\pc-2\Pictures\.NET\01_NewMyProject\EndPoint.WebSite\obj\Debug\net5.0\Razor\Views\Blogs\CategoryArchive.cshtml.g.cs
 C:\Users\pc-2\Pictures\.NET\01_NewMyProject\EndPoint.WebSite\obj\Debug\net5.0\Razor\Views\Blogs\Details.cshtml.g.cs
 C:\Users\pc-2\Pictures\.NET\01_NewMyProject\EndPoint.WebSite\obj\Debug\net5.0\Razor\Views\Blogs\Index.cshtml.g.cs
 C:\Users\pc-2\Pictures\.NET\01_NewMyProject\EndPoint.WebSite\obj\Debug\net5.0\Razor\Views\ContactUs\Index.cshtml.g.cs
@@ -574,7 +578,6 @@ C:\Users\pc-2\Pictures\.NET\01_NewMyProject\EndPoint.WebSite\obj\Debug\net5.0\Ra
 C:\Users\pc-2\Pictures\.NET\01_NewMyProject\EndPoint.WebSite\obj\Debug\net5.0\Razor\Views\Shared\Components\ResponsiveGetMenus\ResponsiveGetMenus.cshtml.g.cs
 C:\Users\pc-2\Pictures\.NET\01_NewMyProject\EndPoint.WebSite\obj\Debug\net5.0\Razor\Views\Shared\Errors\AccessDenied.cshtml.g.cs
 C:\Users\pc-2\Pictures\.NET\01_NewMyProject\EndPoint.WebSite\obj\Debug\net5.0\Razor\Views\Shared\Errors\Error.cshtml.g.cs
-C:\Users\pc-2\Pictures\.NET\01_NewMyProject\EndPoint.WebSite\obj\Debug\net5.0\Razor\Views\Shared\_BlogPagination.cshtml.g.cs
 C:\Users\pc-2\Pictures\.NET\01_NewMyProject\EndPoint.WebSite\obj\Debug\net5.0\Razor\Views\Shared\_CkEditorScriptsPartial.cshtml.g.cs
 C:\Users\pc-2\Pictures\.NET\01_NewMyProject\EndPoint.WebSite\obj\Debug\net5.0\Razor\Views\Shared\_FooPartial.cshtml.g.cs
 C:\Users\pc-2\Pictures\.NET\01_NewMyProject\EndPoint.WebSite\obj\Debug\net5.0\Razor\Views\Shared\_FooterPartial.cshtml.g.cs
@@ -582,7 +585,6 @@ C:\Users\pc-2\Pictures\.NET\01_NewMyProject\EndPoint.WebSite\obj\Debug\net5.0\Ra
 C:\Users\pc-2\Pictures\.NET\01_NewMyProject\EndPoint.WebSite\obj\Debug\net5.0\Razor\Views\Shared\_HeadPartial.cshtml.g.cs
 C:\Users\pc-2\Pictures\.NET\01_NewMyProject\EndPoint.WebSite\obj\Debug\net5.0\Razor\Views\Shared\_Layout.cshtml.g.cs
 C:\Users\pc-2\Pictures\.NET\01_NewMyProject\EndPoint.WebSite\obj\Debug\net5.0\Razor\Views\Shared\_MenusPartial.cshtml.g.cs
-C:\Users\pc-2\Pictures\.NET\01_NewMyProject\EndPoint.WebSite\obj\Debug\net5.0\Razor\Views\Shared\_ProductsPagination.cshtml.g.cs
 C:\Users\pc-2\Pictures\.NET\01_NewMyProject\EndPoint.WebSite\obj\Debug\net5.0\Razor\Views\Shared\_ResponsiveMenusPartial.cshtml.g.cs
 C:\Users\pc-2\Pictures\.NET\01_NewMyProject\EndPoint.WebSite\obj\Debug\net5.0\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
 C:\Users\pc-2\Pictures\.NET\01_NewMyProject\EndPoint.WebSite\obj\Debug\net5.0\Razor\Views\_ViewImports.cshtml.g.cs
@@ -595,7 +597,4 @@ C:\Users\pc-2\Pictures\.NET\01_NewMyProject\EndPoint.WebSite\obj\Debug\net5.0\En
 C:\Users\pc-2\Pictures\.NET\01_NewMyProject\EndPoint.WebSite\obj\Debug\net5.0\ref\EndPoint.WebSite.dll
 C:\Users\pc-2\Pictures\.NET\01_NewMyProject\EndPoint.WebSite\obj\Debug\net5.0\EndPoint.WebSite.pdb
 C:\Users\pc-2\Pictures\.NET\01_NewMyProject\EndPoint.WebSite\obj\Debug\net5.0\EndPoint.WebSite.genruntimeconfig.cache
-C:\Users\pc-2\Pictures\.NET\01_NewMyProject\EndPoint.WebSite\obj\Debug\net5.0\Razor\Views\Shared\_BlogArchivePagination.cshtml.g.cs
-C:\Users\pc-2\Pictures\.NET\01_NewMyProject\EndPoint.WebSite\bin\Debug\net5.0\JetBrains.Annotations.dll
-C:\Users\pc-2\Pictures\.NET\01_NewMyProject\EndPoint.WebSite\bin\Debug\net5.0\X.PagedList.dll
-C:\Users\pc-2\Pictures\.NET\01_NewMyProject\EndPoint.WebSite\bin\Debug\net5.0\X.PagedList.Mvc.Core.dll
+C:\Users\pc-2\Pictures\.NET\01_NewMyProject\EndPoint.WebSite\obj\Debug\net5.0\Razor\Views\Products\Category1.cshtml.g.cs

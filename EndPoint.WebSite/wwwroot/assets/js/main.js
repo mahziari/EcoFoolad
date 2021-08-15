@@ -91,22 +91,22 @@ $(document).ready(function () {
     //    SearchResult-----------------------------
 
     //    header fixed-----------------------------
-    $(window).scroll(function () {
-        if ($(this).scrollTop() > 60) {
-            $('.header-main-page').addClass('fixed');
-        } else {
-            $('.header-main-page').removeClass('fixed');
-        }
-    });
+    // $(window).scroll(function () {
+    //     if ($(this).scrollTop() > 60) {
+    //         $('.header-main-page').addClass('fixed');
+    //     } else {
+    //         $('.header-main-page').removeClass('fixed');
+    //     }
+    // });
     var lastScrollTop = 0;
     window.addEventListener('scroll', function () {
         var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
         if (scrollTop > lastScrollTop && !$('.main-menu').hasClass('is-active')) {
             $('.header-main-page .main-menu').addClass('hidden-nav-main');
-            $('.header-main-page .main-menu').slideUp(200);
+            $('.header-main-page .main-menu').slideUp(400);
         } else {
             $('.header-main-page .main-menu').removeClass('hidden-nav-main');
-            $('.header-main-page .main-menu').slideDown(200);
+            $('.header-main-page .main-menu').slideDown(400);
         }
         lastScrollTop = scrollTop;
     });

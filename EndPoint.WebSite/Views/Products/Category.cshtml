@@ -9,312 +9,717 @@
     var currentUrl = Context.Request.GetDisplayUrl();
 }
 
+@section Scripts{
+    <script src="~/assets/js/apexcharts.min.js"></script>
+    <!-- popup -->
+    <script>
+        // Get the modal
+        var modal = document.getElementById("myModal");
 
+        // Get the button that opens the modal
+        var btn = document.getElementById("myBtn");
 
-<style>
-    body.archive .content-area#primary ul.products li {
-        -ms-flex: 1 0 25%;
-        flex: 0 100%!important;
-        max-width: 25%!important;
-        position: relative;
-    }
-</style>
+        // Get the <span> element that closes the modal
+        var span = document.getElementById("closemodal");
 
-
-<div class="container main_content_taxonomy_archive ">
-
-
-<div id="primary" class="content-area">
-    <main id="main" class="site-main" role="main">
-        <div class="responsive_button_orderby_and_filter_product">
-            <span class="button_display_filter_product">جستجوی پیشرفته</span>
-            <span class="button_display_order_by">مرتب‌سازی بر اساس محبوبیت</span>
-        </div>
-        @* <ul class="woocommerce-breadcrumb"> *@
-        @*     <li> *@
-        @*         <a href="https://newkalatheme.ir/preview">نیوکالا</a> *@
-        @*     </li><span>/</span><li>لباس</li> *@
-        @* </ul> *@
-        @* <h1 style="overflow:hidden;height:0px;" class="woocommerce-products-header__title page-title">لباس</h1> *@
-        @* *@
-        @* <div class="woocommerce-notices-wrapper"></div> *@
-        @* <p class="woocommerce-result-count"> *@
-        @*     نمایش 1–8 از 9 نتیجه *@
-        @* </p> *@
-
-
-        <div class="main_custom_order_by_sort">
-            <span class="title_order_by">مرتب سازی بر اساس: </span>
-            <span style="display:none"> selected='selected'</span> <strong sortby="menu_order"  class="custom_order_by_sort" rel="nofollow"><span></span><a asp-action="Category" asp-route-SortType="0">پیش‌فرض</a> </strong>
-            <span style="display:none"></span> <strong class="custom_order_by_sort sortType" rel="nofollow"><span></span> <a value="1">پربازدیدترین</a></strong>
-            <span style="display:none"></span> <strong class="custom_order_by_sort" rel="nofollow"><span></span> <a asp-action="Category" asp-route-SortType="4">جدیدترین</a></strong>
-            <span style="display:none"></span> <strong class="custom_order_by_sort" rel="nofollow"><span></span><a asp-action="Category" asp-route-SortType="5">ارزانترین</a> </strong>
-            <span style="display:none"></span> <strong class="custom_order_by_sort" rel="nofollow"><span></span><a asp-action="Category" asp-route-SortType="6">گرانترین</a> </strong>
-
-
-            <script>
-            $(".sortType").click(function(){
-              $.ajax({url: "demo_test.txt", success: function(result){
-                $("#div1").html(result);
-              }});
-            });
-            
-               $(document).ready(function () {
-                        $(".sortType").on('click',function () {
-                            $sortType = $(".sortType").val();
-                            $.ajax({
-                                  type: 'get',
-                                  headers:{'RequestVerificationToken' :token},
-                                  url: currentUrl+'?SortType='+sortType,
-                                success: function (data) {
-                                    $('#result-sortType').html(data);
-                                }
-                            });
-                        });
-                    });
-
-			jQuery('.sortType').on('click', function(){
-
-				var data_sort = jQuery(this).attr('sortType');
-
-				jQuery('.sortType').val(data_sort);
-
-				   jQuery.ajax({
-                      type: 'get',
-                      headers:{'RequestVerificationToken' :token},
-                      url: currentUrl.url+'?SortType='+sortType,
-                    success: function (data) {
-                        $('#result-sortType').html(data);
-                    }
-                });
-			});
-
-		</script>
-
-            <span type_view="listing" class="type_view type_view_listing "></span>
-            <span type_view="grid" class="type_view type_view_grid active"></span>
-        </div>
-
-        <div class="opacity_black_cover_for_order_by_product" style=""></div>
-
-        <ul class="products  columns-4" id="result-sortType">
-            @foreach (var item in Model.Products)
-            {
-                <li class="swiper-slide not_in_offer_tax not_in_offer_slider product type-product post-3807 status-publish first instock product_cat-cloth product_tag-234 product_tag-236 has-post-thumbnail taxable shipping-taxable purchasable product-type-simple" data-id="3807">
-
-                    <div class="before_content_product_catalog">
-                        <a asp-controller="Products"
-                           asp-action="Details"
-                           asp-route-MenuName="@item.subMenu.EnSgname.Replace(" ", "-")"
-                           asp-route-PrdName="@item.PrdName.Replace(" ", "-")"
-                           class="woocommerce-LoopProduct-link woocommerce-loop-product__link">
-
-                            <div class="archive_outofstock_wrapper">
-                                <div class="archive_outofstock_text">ناموجود</div>
-                            </div>
-
-                            <div class="archive_outofstock_wrapper archive_sale_expired">
-                                <div class="archive_outofstock_text">پایان زمان سفارش</div>
-                            </div>
-
-                            <div class="product_is_in_special_offer">
-                                <img src="/Images/Menus/2.jpg">
-                            </div>
-
-
-                            <div class="acl_wrapper acl_inc_offer">
-                                <div class="acl_text">شگفت‌انگیز</div>
-                            </div>
-
-                            <div class="acl_wrapper acl_outofstock_offer">
-                                <div class="acl_text">پایان موجودی شگفت انگیز</div>
-                            </div>
-
-                            <div class="acl_wrapper acl_outofstock">
-                                <div class="acl_text">ناموجود</div>
-                            </div>
-
-                            <div class="acl_wrapper acl_sale_expired">
-                                <div class="acl_text">پایان زمان سفارش</div>
-                            </div>
-
-                            <div class="acl_wrapper acl_commingsoon" style="">
-                                <div class="acl_text">شروع سفارش به زودی</div>
-                            </div>
-
-                            <img src="/Images/Menus/1.jpg"
-                                 class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail"
-                                 alt="@item.PrdName"
-                                 srcset="/Images/Menus/1.jpg 210w,  300w,  1024w, 180w, 768w, 20w, 30w, 40w,  600w, 100w, 1280w" sizes="(max-width: 210px) 100vw, 210px" width="210" height="210">
-                            <h2 class="woocommerce-loop-product__title">@item.PrdName</h2>
-                        </a>
-                        <div class="main_custom_rating_loop_woocommerce">
-                            <a title="رفتن به فروشگاه  سون ست" class="icon_seller_to_catalog_products" target="_blank" href="https://newkalatheme.ir/preview/store/svenset/">
-                                <em>فروشنده:</em> <strong>سون ست</strong>
-                            </a>
-                            <div class="product_custom_actions_items"></div>
-                        </div>
-                        <div class="main_custom_attributes">
-                            <div class="title_custom_attributes">ویژگی ها</div>
-                            <ul>
-                                <li>
-                                    جنس: نخ (کتان)
-                                </li>
-                                <li>
-                                    طرح پارچه: ساده
-                                </li>
-                                <li>
-                                    فرم لباس: معمولی
-                                </li><li>کلاه: بدون کلاه</li>
-                            </ul>
-                        </div>
-                        <form asp-controller="Basket" asp-action="Index" method="post">
-                            <div class="newkala_container_custom_price">
-                                <span class="price" lang="fa">
-                                    <span class="woocommerce-Price-amount amount">
-                                        <bdi>
-                                            @item.PrdPrice.ToString("n0")<span class="woocommerce-Price-currencySymbol">تومان</span>
-                                        </bdi>
-                                    </span>
-                                </span>
-                                @* <a href="~/cart/addToCart?ProductId=@item.ProductId" *@
-                                @*    data-quantity="1"  *@
-                                @*    class="button product_type_simple add_to_cart_button ajax_add_to_cart newkala_add_to_cart_button_loop select_quantity_on"  *@
-                                @*    data-product_id="3807"  *@
-                                @*    data-product_sku="#12360"  *@
-                                @*    aria-label="" *@
-                                @*    rel="nofollow"  *@
-                                @*    title="افزودن به سبد خرید">+</a> *@
-                                <input type="hidden" name="productId" value="@item.ProductId">
-                                <input type="text" name="quantity" value="1">
-                                <button type="submit">
-                                    اضافه به سبد خرید
-                                </button>
-
-                                @* <button class="newkala_add_to_cart_button_loop" type="button">+</button> *@
-                                @* <select class="select_quantity"> *@
-                                @*     <option selected="">تعداد</option><option value="1">1 عدد</option><option value="2">2 عدد</option><option value="3">3 عدد</option><option value="4">4 عدد</option><option value="5">5 عدد</option><option value="6">6 عدد</option><option value="7">7 عدد</option><option value="8">8 عدد</option><option value="9">9 عدد</option><option value="10">10 عدد</option> *@
-                                @* </select> *@
-                            </div>
-                        </form>
-                    </div>
-                </li>
+        // When the user clicks the button, open the modal 
+        btn.onclick = function() {
+                modal.style.display = "block";
             }
-        </ul>
+            // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
 
-        @* <partial name="_ProductsPagination"/> *@
-    </main>
-</div>
-<div class="main_sidebar sidebar_archive_product">
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
 
-    <div class="responsive_title_filters">
-        <strong>تبلت و کتابخوان</strong><span></span>
+    <script>
+            var options = {
+                series: [{
+                    name: 'series1',
+                    data: [31, 40, 28, 51, 42, 109, 100]
+                }, {
+                    name: 'series2',
+                    data: [11, 32, 45, 32, 34, 52, 41]
+                }],
+                chart: {
+                    height: 350,
+                    type: 'area'
+                },
+                dataLabels: {
+                    enabled: false
+                },
+                stroke: {
+                    curve: 'smooth'
+                },
+                xaxis: {
+                    type: 'datetime',
+                    categories: ["2018-09-19T00:00:00.000Z", "2018-09-19T01:30:00.000Z", "2018-09-19T02:30:00.000Z", "2018-09-19T03:30:00.000Z", "2018-09-19T04:30:00.000Z", "2018-09-19T05:30:00.000Z", "2018-09-19T06:30:00.000Z"]
+                },
+                tooltip: {
+                    x: {
+                        format: 'dd/MM/yy HH:mm'
+                    },
+                },
+            };
+    
+            var chart = new ApexCharts(document.querySelector("#chart"), options);
+            chart.render();
+        </script>
+}
+
+<!--        responsive-sidebar----------------------->
+<div class="col-12">
+<div class="header-filters">
+<button class="btn-filter btn-filter-advanced" onclick="document.getElementById('modal-search').style.display='block'">جستجوی پیشرفته</button>
+<button class="btn-filter btn-filter-direction" data-toggle="modal" data-target="#exampleModalCenter">پربازدیدترین</button>
+<div class="remodal-search-advanced" id="modal-search">
+<nav class="remodal-page-layout">
+<button class="search-filter-remodal-close" onclick="document.getElementById('modal-search').style.display='none'">
+    <i class="fa fa-close"></i>
+</button>
+<div class="remodal-page-header">لوازم جانبی گوشی موبایل</div>
+<div class="remodal-page-main">
+<div class="filter-bar">
+    <button class="js-listing-options-clear">پاک کردن همه</button>
+    <div class="js-box-content-items">
+        <a href="#">
+            <label for="switch3">
+                <input type="checkbox" id="switch3"/>
+                <span class="switch">
+                    <h1 class="switch-title">کالاهای موجود </h1>
+                </span>
+                <span class="toggle"></span>
+            </label>
+        </a>
     </div>
-
-    <div class="newkala_widget_display_instock">
-
-        <div class="cover_instock_display_product"></div>
-
-        <label style="padding-right: 0px !important;">
-            <img src="~/Images/Blogs/6374762326606459894.jpg">
+</div>
+<div class="remodal-page-content">
+    <div class="filter">
+        <label for="#" class="profile-edit-label">
+            <span>جستجو در نتایج</span>
+            <input type="text" value="" name="searchInput"
+                   placeholder="نام محصول مورد نظر را بنویسید ...">
         </label>
     </div>
 
+    <div class="filter">
+        <a href="#">
+            <label for="switch4">
+                <input type="checkbox" id="switch4"/><span class="switch"></span>
+                <h1 class="switch-title">فقط کالاهای اصل </h1>
+                <span class="toggle"></span>
+            </label>
+        </a>
+    </div>
 
-    <div id="woocommerce_product_categories-4" class="mian_widg_archive_product woocommerce widget_product_categories">
-        <div class="title-widget-archive-product">
-            <h5>بر اساس کارخانه</h5>
-        </div>
-        <ul class="product-categories">
-              <form asp-controller="Products" asp-action="Category" method="get">
-            @foreach (var items in Model.Companies.Take(5))
-            {
-                @if (companies.ToList().Any(p => p == items.CompanyId.ToString()))
-                {
-                    <li class="cat-item cat-item-15">
-                        <input type="checkbox" value="@items.CompanyId" checked name="CompanyId" onclick="submit();">@items.CmpName 
-                    </li>
-                }
-                else
-                {
-                    <li class="cat-item cat-item-15">
-                        <input type="checkbox" value="@items.CompanyId" name="CompanyId" onclick="submit();">@items.CmpName 
-                    </li>
-                }
-            }
-              </form>
-        </ul>
+    <div class="filter">
+        <a href="#">
+            <label for="switch5">
+                <input type="checkbox" id="switch5"/><span class="switch"></span>
+                <h1 class="switch-title">فقط کالاهای آماده ارسال</h1>
+                <span class="toggle"></span>
+            </label>
+        </a>
     </div>
-    
-    @* <div id="woocommerce_product_search-3" class="mian_widg_archive_product woocommerce widget_product_search"> *@
-    @*     <div class="title-widget-archive-product"> *@
-    @*         <h5>جستجو در نتایج:</h5> *@
-    @*     </div> *@
-    @*     <form role="search" method="get" class="woocommerce-product-search" action=""> *@
-    @* *@
-    @*         <input autocomplete="off" type="search" id="woocommerce-product-search-field-0" class="search-field" placeholder="نام محصول یا برند مورد نظر را بنویسید…" value="" name="s"> *@
-    @*         <button type="submit" value=""></button> *@
-    @*         <input type="hidden" name="post_type" value="product"> *@
-    @*     </form> *@
-    @* </div> *@
-    
-    <div id="woocommerce_layered_nav-8" class="mian_widg_archive_product woocommerce widget_layered_nav woocommerce-widget-layered-nav">
-        <div class="title-widget-archive-product">
-            <h5> بر اساس سایز</h5>
-        </div>
-        <ul class="woocommerce-widget-layered-nav-list">
-            <form asp-controller="Products" asp-action="Category" method="get">
-                 @foreach (var items in Model.Companies)
-                    {
-                        @if (companies.ToList().Any(p => p == items.CompanyId.ToString()))
-                        {
-                            <li class="woocommerce-widget-layered-nav-list__item wc-layered-nav-term ">
-                                <input type="checkbox" value="@items.CompanyId" rel="nofollow"  checked name="CompanyId" onclick="submit();">@items.CmpName 
-                                @* <span class="count">(2)</span> *@
+
+
+    <div class="filter">
+        <div class="toggle-box">
+            <div class="toggle-box-active">
+                <ul>
+                    <li class="has-sub">
+                        <a href="#">برند</a>
+                        <ul>
+                            <li>
+                                <a href="#" class="filter-label">
+                                    <div class="form-auth-row">
+                                        <label for="#" class="ui-checkbox">
+                                            <input type="checkbox" value="1" name="login"
+                                                   id="remember">
+                                            <span class="ui-checkbox-check"></span>
+                                        </label>
+                                        <label for="remember" class="remember-me">سامسونگ</label>
+                                    </div>
+                                </a>
                             </li>
-                        }
-                        else
-                        {
-                            <li class="woocommerce-widget-layered-nav-list__item wc-layered-nav-term ">
-                                <input type="checkbox" value="@items.CompanyId" name="CompanyId" onclick="submit();">@items.CmpName
-                                @* <span class="count">(2)</span> *@
+
+                            <li>
+                                <a href="#" class="filter-label">
+                                    <div class="form-auth-row">
+                                        <label for="#" class="ui-checkbox">
+                                            <input type="checkbox" value="1" name="login"
+                                                   id="remember">
+                                            <span class="ui-checkbox-check"></span>
+                                        </label>
+                                        <label for="remember" class="remember-me">نوکیا</label>
+                                    </div>
+                                </a>
                             </li>
-                        }
-                    }
-            </form>
-        </ul>
-    </div>
-    <div id="woocommerce_layered_nav-9" class="mian_widg_archive_product woocommerce widget_layered_nav woocommerce-widget-layered-nav">
-        <div class="title-widget-archive-product">
-            <h5>مقدار حافظه</h5>
+
+                            <li>
+                                <a href="#" class="filter-label">
+                                    <div class="form-auth-row">
+                                        <label for="#" class="ui-checkbox">
+                                            <input type="checkbox" value="1" name="login"
+                                                   id="remember">
+                                            <span class="ui-checkbox-check"></span>
+                                        </label>
+                                        <label for="remember" class="remember-me">اپل</label>
+                                    </div>
+                                </a>
+                            </li>
+
+
+                            <li>
+                                <a href="#" class="filter-label">
+                                    <div class="form-auth-row">
+                                        <label for="#" class="ui-checkbox">
+                                            <input type="checkbox" value="1" name="login"
+                                                   id="remember">
+                                            <span class="ui-checkbox-check"></span>
+                                        </label>
+                                        <label for="remember" class="remember-me">شیائومی</label>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="filter-label">
+                                    <div class="form-auth-row">
+                                        <label for="#" class="ui-checkbox">
+                                            <input type="checkbox" value="1" name="login"
+                                                   id="remember">
+                                            <span class="ui-checkbox-check"></span>
+                                        </label>
+                                        <label for="remember" class="remember-me">آنر</label>
+                                    </div>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#" class="filter-label">
+                                    <div class="form-auth-row">
+                                        <label for="#" class="ui-checkbox">
+                                            <input type="checkbox" value="1" name="login"
+                                                   id="remember">
+                                            <span class="ui-checkbox-check"></span>
+                                        </label>
+                                        <label for="remember" class="remember-me">ماهوت</label>
+                                    </div>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#" class="filter-label">
+                                    <div class="form-auth-row">
+                                        <label for="#" class="ui-checkbox">
+                                            <input type="checkbox" value="1" name="login"
+                                                   id="remember">
+                                            <span class="ui-checkbox-check"></span>
+                                        </label>
+                                        <label for="remember" class="remember-me">سونی</label>
+                                    </div>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#" class="filter-label">
+                                    <div class="form-auth-row">
+                                        <label for="#" class="ui-checkbox">
+                                            <input type="checkbox" value="1" name="login"
+                                                   id="remember">
+                                            <span class="ui-checkbox-check"></span>
+                                        </label>
+                                        <label for="remember" class="remember-me">هوآوی</label>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
         </div>
-        <ul class="woocommerce-widget-layered-nav-list">
-            <li class="woocommerce-widget-layered-nav-list__item wc-layered-nav-term ">
-                <a rel="nofollow" href="https://product-mirzacode.ir/newkala/preview/product-category/digital-product/tablet/?filter_ram=3-gb">3 گيگابايت</a> <span class="count">(6)</span>
-            </li>
-        </ul>
     </div>
-    <div id="woocommerce_price_filter-7" class="mian_widg_archive_product woocommerce widget_price_filter"><div class="title-widget-archive-product"><h5>فیلتر براساس قیمت : محدوده قیمت</h5></div>
-    <form method="get" action="https://product-mirzacode.ir/newkala/preview/shop/">
-    	<div class="price_slider_wrapper">
-    		<div class="price_slider ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content" style=""><div class="ui-slider-range ui-corner-all ui-widget-header" style="left: 0%; width: 95.3109%;"></div><span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default" style="left: 0%;"></span><span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default" style="left: 95.3109%;"></span></div>
-    		<div class="price_slider_amount" data-step="10">
-    			<input type="text" id="min_price" name="min_price" value="14800" data-min="14800" placeholder="حداقل قیمت" style="display: none;">
-    			<input type="text" id="max_price" name="max_price" value="74000000" data-max="74000000" placeholder="حداكثر قيمت" style="display: none;">
-    						<button type="submit" class="button">صافی</button>
-    			<div class="price_label" style="">
-    				قيمت: <span class="from">14,800&nbsp;تومان</span> — <span class="to">70,530,750&nbsp;تومان</span>
-    			</div>
-    			<input type="hidden" name="orderby" value="incredible_offer">			<div class="clear"></div>
-    		</div>
-    	</div>
-    </form>
-    
+
+    <div class="filter">
+        <div class="toggle-box">
+            <div class="toggle-box-active">
+                <ul>
+                    <li class="has-sub">
+                        <a href="#">فروشنده</a>
+                        <ul>
+                            <li>
+                                <a href="#" class="filter-label">
+                                    <div class="form-auth-row">
+                                        <label for="#" class="ui-checkbox">
+                                            <input type="checkbox" value="1" name="login"
+                                                   id="remember">
+                                            <span class="ui-checkbox-check"></span>
+                                        </label>
+                                        <label for="remember" class="remember-me">دیجی‌استور</label>
+                                    </div>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#" class="filter-label">
+                                    <div class="form-auth-row">
+                                        <label for="#" class="ui-checkbox">
+                                            <input type="checkbox" value="1" name="login"
+                                                   id="remember">
+                                            <span class="ui-checkbox-check"></span>
+                                        </label>
+                                        <label for="remember" class="remember-me">دیجی‌استور</label>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="filter-label">
+                                    <div class="form-auth-row">
+                                        <label for="#" class="ui-checkbox">
+                                            <input type="checkbox" value="1" name="login"
+                                                   id="remember">
+                                            <span class="ui-checkbox-check"></span>
+                                        </label>
+                                        <label for="remember" class="remember-me">دیجی‌استور</label>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </div>
+</div>
+</div>
+</nav>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document" style="max-width: 305px; margin:20px auto;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="remodal-header">مرتب‌سازی بر اساس</div>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="remodal-list-sort">
+                <ul class="listing-sort nav nav-tabs" id="myTab" role="tablist" data-label="مرتب‌سازی بر اساس :">
+                    <li class="listing-active nav-item">
+                        <a class="nav-link active" id="mostvisited-tab" data-toggle="tab" href="#mostvisited" role="tab" aria-controls="mostvisited" aria-selected="true">پربازدید ترین</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="bestselling-tab" data-toggle="tab" href="#bestselling" role="tab" aria-controls="bestselling" aria-selected="false">
+                            پرفروش
+                            ترین
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="mostpopular-tab" data-toggle="tab" href="#mostpopular" role="tab" aria-controls="mostpopular" aria-selected="false">
+                            محبوب
+                            ترین
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="news-tab" data-toggle="tab" href="#news" role="tab" aria-controls="news" aria-selected="false">جدید ترین</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="cheapest-tab" data-toggle="tab" href="#cheapest" role="tab" aria-controls="cheapest" aria-selected="false">ارزان ترین</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="mostexpensive-tab" data-toggle="tab" href="#mostexpensive" role="tab" aria-controls="mostexpensive" aria-selected="false">گران ترین</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!--        responsive-sidebar----------------------->
+<div class="col-lg-3 col-md-4 col-xs-12 float-right sticky-sidebar">
+    <div class="sidebar-wrapper search-sidebar">
+
+
+        <div class="box-slider">
+            <div class="slider-sidebar" style="order: 0;">
+                <div class="widget-suggestion widget card">
+                    <header class="card-header promo-single-headline">
+                        <h3 class="card-title">کارشناس ها</h3>
+                    </header>
+                    <div id="progressBar">
+                        <div class="slide-progress" style="width: 100%; transition: width 5000ms ease 0s;"></div>
+                    </div>
+                    <div id="suggestion-slider" class="owl-carousel owl-theme owl-rtl owl-loaded owl-drag">
+                        <div class="owl-stage-outer">
+                            <div class="owl-stage" style="transform: translate3d(1369px, 0px, 0px); transition: all 0.25s ease 0s; width: 2190px;">
+                                <div class="owl-item cloned" style="width: 273.75px;">
+                                    <div class="item">
+                                        <a href="#">
+                                            <img src="assets/images/slider-sidebar/slider-sidebar-1.jpg" class="w-100" alt="">
+                                        </a>
+                                        <div class="appcon">
+                                            <i class="fa fa-instagram"></i>
+                                            <i class="fa fa-whatsapp" aria-hidden="true"></i>
+                                            <i class="fa fa-phone"></i>
+                                        </div>
+
+
+                                        <!-- <h3 class="product-title">
+                                            <a href="#"> لپ تاپ 15 اینچی ایسوس مدل VivoBook X543MA - A</a>
+                                        </h3> -->
+                                        <div class="price">
+                                            <!-- <del><span class="amount">۴,۵۳۰,۰۰۰<span>تومان</span></span></del> -->
+                                            <span class="amount">محمد حسین</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="owl-item" style="width: 273.75px;">
+                                    <div class="item">
+                                        <a href="#">
+                                            <img src="assets/images/slider-sidebar/slider-sidebar-4.jpg" class="w-100" alt="">
+                                        </a>
+                                        <div class="appcon">
+                                            <i class="fa fa-instagram"></i>
+                                            <i class="fa fa-whatsapp" aria-hidden="true"></i>
+                                            <i class="fa fa-phone"></i>
+                                        </div>
+
+
+                                        <!-- <h3 class="product-title">
+                                            <a href="#"> لپ تاپ ۱۵ اینچی ایسوس مدل FX503VD - A  </a>
+                                        </h3> -->
+
+                                        <div class="price">
+                                            <!-- <del><span class="amount">۴,۵۳۰,۰۰۰<span>تومان</span></span></del> -->
+                                            <span class="amount">علی</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="owl-nav disabled ">
+                            <button type="button" role="presentation" class="owl-prev">
+                                <span
+                                    aria-label="Previous">
+                                    ‹
+                                </span>
+                            </button>
+                            <button type="button" role="presentation" class="owl-next">
+                                <span aria-label="Next">›</span>
+                            </button>
+                        </div>
+                        <div class="owl-dots enabled "></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="box-sidebar">
+            <button class="btn btn-light btn-box-sidebar" type="button" data-toggle="collapse" data-target="#collapseExampleSeller" aria-expanded="false" aria-controls="collapseExampleSeller">
+                <i class="fa fa-chevron-down arrow"></i>فروشنده
+            </button>
+            <div class="collapse show" id="collapseExampleSeller">
+                <div class="catalog">
+                    <ul>
+                        <li>
+                            <a href="#" class="filter-label">
+                                <div class="form-auth-row">
+                                    <label for="#" class="ui-checkbox">
+                                        <input type="checkbox" value="1" name="login" id="rememberseller1">
+                                        <span class="ui-checkbox-check"></span>
+                                    </label>
+                                    <label for="rememberseller1" class="remember-me">دیجی استور</label>
+                                </div>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#" class="filter-label">
+                                <div class="form-auth-row">
+                                    <label for="#" class="ui-checkbox">
+                                        <input type="checkbox" value="1" name="login" id="rememberseller2">
+                                        <span class="ui-checkbox-check"></span>
+                                    </label>
+                                    <label for="rememberseller2" class="remember-me">دیجی استور</label>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+<div class="col-lg-9 col-md-8 col-xs-12 pull-left">
+<div class="js-products">
+
+
+<div class="listing-header">
+    <span class="mdi mdi-sort-variant"></span>
+    <ul class="listing-sort nav nav-tabs" id="myTab" role="tablist" data-label="مرتب‌سازی بر اساس :">
+        <li class="listing-active nav-item">
+            <a class="nav-link active" id="mostvisited-tab" data-toggle="tab" href="#mostvisited" role="tab" aria-controls="mostvisited" aria-selected="true">پربازدید ترین</a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" id="news-tab" data-toggle="tab" href="#news" role="tab" aria-controls="news" aria-selected="false">جدید ترین</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="cheapest-tab" data-toggle="tab" href="#cheapest" role="tab" aria-controls="cheapest" aria-selected="false">ارزان ترین</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="mostexpensive-tab" data-toggle="tab" href="#mostexpensive" role="tab" aria-controls="mostexpensive" aria-selected="false">گران ترین</a>
+        </li>
+    </ul>
+</div>
+
+<div class="listing-listing" style="margin-bottom: 2%; ">
+
+<div class="content">
+<p class="hash">هاش</p>
+<div class="se">
+    <h2>هاش HEA</h2>
+    <span>1400/05/04</span>
+</div>
+
+<!-- <div class="maliat">
+    <span>قیمت‌ها بدون احتساب 9 درصد مالیات بر ارزش افزوده است.                        </span>
+</div> -->
+<table class="jadval">
+    <tr class="trhead">
+        <th class="tdhead">کد</th>
+        <th class="tdhead">نام</th>
+        <th class="tdhead">سایز</th>
+        <th class="tdhead">استاندارد</th>
+        <th class="tdhead">طول(m)</th>
+        <th class="tdhead">کارخانه</th>
+        <th class="tdhead">تحویل</th>
+        <th class="tdhead">قیمت</th>
+        <th class="tdhead">تماس بگیرید</th>
+        <th class="tdhead">توضیحات </th>
+        <th class="tdhead"> خرید</th>
+
+    </tr>
+
+
+    <tr class="trzir">
+        <td class="tdzir">9929</td>
+        <td class="tdzir">هاش سبک</td>
+        <td class="tdzir">20</td>
+        <td class="tdzir">hea</td>
+        <td class="tdzir">12متری</td>
+        <td class="tdzir">ذوب اهن</td>
+        <td class="tdzir">بنگاه تهران</td>
+        <td class="tdzir">224,235</td>
+        <td class="tdzir">تماس بگیرید</td>
+        <td class="tdzir">1400/5/18-10:34</td>
+        <td class="tdzir">
+            <button class="buy">
+                <i class="fa fa-cart-plus" aria-hidden="true"></i>
+            </button>
+            <button title="مشاهده نمودار قیمت محصول" class="chart" id="myBtn">
+                <i class="fa fa-bar-chart" aria-hidden="true"></i>
+            </button>
+        </td>
+    </tr>
+    <tr class="trzir">
+        <td class="tdzir">9929</td>
+        <td class="tdzir">هاش سبک</td>
+        <td class="tdzir">20</td>
+        <td class="tdzir">hea</td>
+        <td class="tdzir">12متری</td>
+        <td class="tdzir">ذوب اهن</td>
+        <td class="tdzir">بنگاه تهران</td>
+        <td class="tdzir">224,235</td>
+        <td class="tdzir">تماس بگیرید</td>
+        <td class="tdzir">1400/5/18-10:34</td>
+        <td class="tdzir">
+            <button class="buy">
+                <i class="fa fa-cart-plus" aria-hidden="true"></i>
+            </button>
+            <button title="مشاهده نمودار قیمت محصول" class="chart" id="myBtn">
+                <i class="fa fa-bar-chart" aria-hidden="true"></i>
+            </button>
+        </td>
+    </tr>
+    <tr class="trzir">
+        <td class="tdzir">9929</td>
+        <td class="tdzir">هاش سبک</td>
+        <td class="tdzir">20</td>
+        <td class="tdzir">hea</td>
+        <td class="tdzir">12متری</td>
+        <td class="tdzir">ذوب اهن</td>
+        <td class="tdzir">بنگاه تهران</td>
+        <td class="tdzir">224,235</td>
+        <td class="tdzir">تماس بگیرید</td>
+        <td class="tdzir">1400/5/18-10:34</td>
+        <td class="tdzir">
+            <button class="buy">
+                <i class="fa fa-cart-plus" aria-hidden="true"></i>
+            </button>
+            <button title="مشاهده نمودار قیمت محصول" class="chart" id="myBtn">
+                <i class="fa fa-bar-chart" aria-hidden="true"></i>
+            </button>
+        </td>
+    </tr>
+    <tr class="trzir">
+        <td class="tdzir">9929</td>
+        <td class="tdzir">هاش سبک</td>
+        <td class="tdzir">20</td>
+        <td class="tdzir">hea</td>
+        <td class="tdzir">12متری</td>
+        <td class="tdzir">ذوب اهن</td>
+        <td class="tdzir">بنگاه تهران</td>
+        <td class="tdzir">224,235</td>
+        <td class="tdzir">تماس بگیرید</td>
+        <td class="tdzir">1400/5/18-10:34</td>
+        <td class="tdzir">
+            <button class="buy">
+                <i class="fa fa-cart-plus" aria-hidden="true"></i>
+            </button>
+            <button title="مشاهده نمودار قیمت محصول" class="chart" id="myBtn">
+                <i class="fa fa-bar-chart" aria-hidden="true"></i>
+            </button>
+        </td>
+    </tr>
+    <tr class="trzir">
+        <td class="tdzir">9929</td>
+        <td class="tdzir">هاش سبک</td>
+        <td class="tdzir">20</td>
+        <td class="tdzir">hea</td>
+        <td class="tdzir">12متری</td>
+        <td class="tdzir">ذوب اهن</td>
+        <td class="tdzir">بنگاه تهران</td>
+        <td class="tdzir">224,235</td>
+        <td class="tdzir">تماس بگیرید</td>
+        <td class="tdzir">1400/5/18-10:34</td>
+        <td class="tdzir">
+            <button class="buy">
+                <i class="fa fa-cart-plus" aria-hidden="true"></i>
+            </button>
+            <button title="مشاهده نمودار قیمت محصول" class="chart" id="myBtn">
+                <i class="fa fa-bar-chart" aria-hidden="true"></i>
+            </button>
+        </td>
+    </tr>
+    <tr class="trzir">
+        <td class="tdzir">9929</td>
+        <td class="tdzir">هاش سبک</td>
+        <td class="tdzir">20</td>
+        <td class="tdzir">hea</td>
+        <td class="tdzir">12متری</td>
+        <td class="tdzir">ذوب اهن</td>
+        <td class="tdzir">بنگاه تهران</td>
+        <td class="tdzir">224,235</td>
+        <td class="tdzir">تماس بگیرید</td>
+        <td class="tdzir">1400/5/18-10:34</td>
+        <td class="tdzir">
+            <button class="buy">
+                <i class="fa fa-cart-plus" aria-hidden="true"></i>
+            </button>
+            <button title="مشاهده نمودار قیمت محصول" class="chart" id="myBtn">
+                <i class="fa fa-bar-chart" aria-hidden="true"></i>
+            </button>
+        </td>
+    </tr>
+    <tr class="trzir">
+        <td class="tdzir">9929</td>
+        <td class="tdzir">هاش سبک</td>
+        <td class="tdzir">20</td>
+        <td class="tdzir">hea</td>
+        <td class="tdzir">12متری</td>
+        <td class="tdzir">ذوب اهن</td>
+        <td class="tdzir">بنگاه تهران</td>
+        <td class="tdzir">224,235</td>
+        <td class="tdzir">تماس بگیرید</td>
+        <td class="tdzir">1400/5/18-10:34</td>
+        <td class="tdzir">
+            <button class="buy">
+                <i class="fa fa-cart-plus" aria-hidden="true"></i>
+            </button>
+            <button title="مشاهده نمودار قیمت محصول" class="chart" id="myBtn">
+                <i class="fa fa-bar-chart" aria-hidden="true"></i>
+            </button>
+        </td>
+    </tr>
+    <tr class="trzir">
+        <td class="tdzir">9929</td>
+        <td class="tdzir">هاش سبک</td>
+        <td class="tdzir">20</td>
+        <td class="tdzir">hea</td>
+        <td class="tdzir">12متری</td>
+        <td class="tdzir">ذوب اهن</td>
+        <td class="tdzir">بنگاه تهران</td>
+        <td class="tdzir">224,235</td>
+        <td class="tdzir">تماس بگیرید</td>
+        <td class="tdzir">1400/5/18-10:34</td>
+        <td class="tdzir">
+            <button class="buy">
+                <i class="fa fa-cart-plus" aria-hidden="true"></i>
+            </button>
+            <button title="مشاهده نمودار قیمت محصول" class="chart" id="myBtn">
+                <i class="fa fa-bar-chart" aria-hidden="true"></i>
+            </button>
+        </td>
+    </tr>
+    <tr class="trzir">
+        <td class="tdzir">9929</td>
+        <td class="tdzir">هاش سبک</td>
+        <td class="tdzir">20</td>
+        <td class="tdzir">hea</td>
+        <td class="tdzir">12متری</td>
+        <td class="tdzir">ذوب اهن</td>
+        <td class="tdzir">بنگاه تهران</td>
+        <td class="tdzir">224,235</td>
+        <td class="tdzir">تماس بگیرید</td>
+        <td class="tdzir">1400/5/18-10:34</td>
+        <td class="tdzir">
+            <button class="buy">
+                <i class="fa fa-cart-plus" aria-hidden="true"></i>
+            </button>
+            <button title="مشاهده نمودار قیمت محصول" class="chart" id="myBtn">
+                <i class="fa fa-bar-chart" aria-hidden="true"></i>
+            </button>
+        </td>
+    </tr>
+
+
+</table>
+
+
 </div>
 
 </div>
+
+
+</div>
+
+</div>
+<!--search-category------------------------->
 
 <div class="clear"></div>
 
-
+<!-- The Modal -->
+<div class="w3-container w3-center w3-animate-top">
+    <div id="myModal" class="modal ">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span id="closemodal">&times;</span>
+            <div id="chart">
+            </div>
+        </div>
+    </div>
+</div>

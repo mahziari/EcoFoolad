@@ -10,7 +10,7 @@ C:\Users\pc-2\Pictures\.NET\01_NewMyProject\Persistence\bin\Debug\net5.0\Domain.
 C:\Users\pc-2\Pictures\.NET\01_NewMyProject\Persistence\bin\Debug\net5.0\Application.pdb
 C:\Users\pc-2\Pictures\.NET\01_NewMyProject\Persistence\bin\Debug\net5.0\Domain.pdb
 C:\Users\pc-2\Pictures\.NET\01_NewMyProject\Persistence\bin\Debug\net5.0\Common.pdb
-C:\Users\pc-2\Pictures\.NET\01_NewMyProject\Persistence\obj\Debug\net5.0\Persistence.csprojAssemblyReference.cache
+C:\Users\pc-2\Pictures\.NET\01_NewMyProject\Persistence\obj\Debug\net5.0\Persistence.csproj.AssemblyReference.cache
 C:\Users\pc-2\Pictures\.NET\01_NewMyProject\Persistence\obj\Debug\net5.0\Persistence.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\pc-2\Pictures\.NET\01_NewMyProject\Persistence\obj\Debug\net5.0\Persistence.AssemblyInfoInputs.cache
 C:\Users\pc-2\Pictures\.NET\01_NewMyProject\Persistence\obj\Debug\net5.0\Persistence.AssemblyInfo.cs

@@ -10,7 +10,7 @@ C:\Users\pc-2\Pictures\.NET\01_NewMyProject\Infrastructure\bin\Debug\net5.0\Pers
 C:\Users\pc-2\Pictures\.NET\01_NewMyProject\Infrastructure\bin\Debug\net5.0\Application.pdb
 C:\Users\pc-2\Pictures\.NET\01_NewMyProject\Infrastructure\bin\Debug\net5.0\Common.pdb
 C:\Users\pc-2\Pictures\.NET\01_NewMyProject\Infrastructure\bin\Debug\net5.0\Domain.pdb
-C:\Users\pc-2\Pictures\.NET\01_NewMyProject\Infrastructure\obj\Debug\net5.0\Infrastructure.csprojAssemblyReference.cache
+C:\Users\pc-2\Pictures\.NET\01_NewMyProject\Infrastructure\obj\Debug\net5.0\Infrastructure.csproj.AssemblyReference.cache
 C:\Users\pc-2\Pictures\.NET\01_NewMyProject\Infrastructure\obj\Debug\net5.0\Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\pc-2\Pictures\.NET\01_NewMyProject\Infrastructure\obj\Debug\net5.0\Infrastructure.AssemblyInfoInputs.cache
 C:\Users\pc-2\Pictures\.NET\01_NewMyProject\Infrastructure\obj\Debug\net5.0\Infrastructure.AssemblyInfo.cs

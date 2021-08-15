@@ -16,7 +16,7 @@ namespace  Application.Services.FrontEnd.Blogs.Queries
 {
     public interface IGetBlogsCategoryFrontEndService
     {
-        ResultGetBlogsCategoryFrontEndDto Execute(string category, int page);
+        ResultGetBlogsCategoryFrontEndDto Execute(string category, int pageNumber);
     }
 
     public class GetBlogsCategoryFrontEndService: IGetBlogsCategoryFrontEndService
@@ -32,31 +32,8 @@ namespace  Application.Services.FrontEnd.Blogs.Queries
 
 
 
-        public ResultGetBlogsCategoryFrontEndDto Execute(string category, int page)
+        public ResultGetBlogsCategoryFrontEndDto Execute(string category, int pageNumber)
         {
-
-            // var resultInEachPage = 1;
-            // int skip = (page - 1) * resultInEachPage;
-            // int count = _customDbContext.Blogs
-            //     .Where(b=>b.BlogCategory.Slug == category)
-            //     .Where(g => g.IsVerified)
-            //     .Where(s => s.RequestToAuthorFav!=true)
-            //     .Count(b => b.Position == 0);
-            // var pageId = page;
-            // var pageCount = (int)Math.Ceiling(count / (double)resultInEachPage);
-            //
-            //
-            // var blogsModel = _customDbContext.Blogs
-            //     .Include(b=>b.BlogCategory)
-            //     .Where(b => b.BlogCategory.Slug == category.Replace('-',' '))
-            //     .Where(g => g.IsVerified)
-            //     .Where(s => s.Position == 0)
-            //     .OrderByDescending(b=>b.Id)
-            //     .Skip(skip).Take(resultInEachPage);
-            // var blogs = _mapper.Map<List<GetBlogsDto>>(blogsModel);
-            
-            
-            
             var blogsModel = _customDbContext.Blogs
                 .Include(b=>b.BlogCategory)
                 .Where(b => b.BlogCategory.Slug == category.Replace('-',' '))
@@ -64,7 +41,7 @@ namespace  Application.Services.FrontEnd.Blogs.Queries
                 .Where(s => s.Position == 0)
                 .OrderByDescending(b=>b.Id);
             var mapedBlogs = _mapper.Map<List<GetBlogsDto>>(blogsModel);
-            var blogs = mapedBlogs.ToPagedList(page, 1);
+            var blogs = mapedBlogs.ToPagedList(pageNumber, 1);
             
           
 

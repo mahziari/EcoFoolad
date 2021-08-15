@@ -95,6 +95,13 @@
         }
         }
     </script>
+    <script>
+    var arr = [], l = document.links;
+    for(var i=0; i<l.length; i++) {
+      arr.push(l[i].href);
+      url.replace(/\/?(\?|#|$)/, '/$1')
+    }
+    </script>
 }
 
 <div class="col-lg-3 col-md-3 col-xs-12 pull-right pull-right-margin">
@@ -130,7 +137,7 @@
                asp-route-title="@Model.BlogsFav.Where(b => b.Position == 7).Select(b => b.Title).FirstOrDefault()?.Replace(" ", "-")"
                class="promotion">
 
-                <img src="@Model.BlogsFav.Where(b => b.Position == 7).Select(b => b.ImageUrl).FirstOrDefault()"
+                <img src="/@Model.BlogsFav.Where(b => b.Position == 7).Select(b => b.ImageUrl).FirstOrDefault()"
                      alt="@Model.BlogsFav.Where(b => b.Position == 7).Select(b => b.Title).FirstOrDefault()"
                      class="promotion-img">
             </a>
@@ -160,7 +167,7 @@
                                       asp-action="Details"
                                       asp-route-title="@item.Title.Replace(" ", "-")"
                                       class="d-block hover-img-link" data-toggle="modal" data-target="#exampleModal">
-                                        <img src="@item.ImageUrl" class="img-fluid" alt="@item.Title">
+                                        <img src="/@item.ImageUrl" class="img-fluid" alt="@item.Title">
                                     </a>
                                 </div>
                             </div>
@@ -179,7 +186,7 @@
                 <a asp-controller="Blogs"
                    asp-action="Details"
                    asp-route-title="@Model.BlogsFav.Where(b => b.Position == 1).Select(b => b.Title).FirstOrDefault()?.Replace(" ", "-")">
-                    <img src="@Model.BlogsFav.Where(b => b.Position == 1).Select(b => b.ImageUrl).FirstOrDefault()"
+                    <img src="/@Model.BlogsFav.Where(b => b.Position == 1).Select(b => b.ImageUrl).FirstOrDefault()"
                          alt="@Model.BlogsFav.Where(b => b.Position == 1).Select(b => b.Title).FirstOrDefault()">
                 </a>
             </div>
@@ -191,7 +198,7 @@
                        asp-action="Details"
                        asp-route-title="@Model.BlogsFav.Where(b => b.Position == 2).Select(b => b.Title).FirstOrDefault()?.Replace(" ", "-")"
                        class="tiles-item d-block mt-3">
-                        <img src="@Model.BlogsFav.Where(b => b.Position == 2).Select(b => b.ImageUrl).FirstOrDefault()"
+                        <img src="/@Model.BlogsFav.Where(b => b.Position == 2).Select(b => b.ImageUrl).FirstOrDefault()"
                              alt="@Model.BlogsFav.Where(b => b.Position == 2).Select(b => b.Title).FirstOrDefault()">
                         <span class="tiles-item-txt">
                             <span>
@@ -205,7 +212,7 @@
                        asp-action="Details"
                        asp-route-title="@Model.BlogsFav.Where(b => b.Position == 3).Select(b => b.Title).FirstOrDefault()?.Replace(" ", "-")"
                        class="tiles-item d-block mt-3">
-                        <img src="@Model.BlogsFav.Where(b => b.Position == 3).Select(b => b.ImageUrl).FirstOrDefault()"
+                        <img src="/@Model.BlogsFav.Where(b => b.Position == 3).Select(b => b.ImageUrl).FirstOrDefault()"
                              alt="@Model.BlogsFav.Where(b => b.Position == 3).Select(b => b.Title).FirstOrDefault()">
                         <span class="tiles-item-txt">
                             <span>
@@ -219,7 +226,7 @@
                        asp-action="Details"
                        asp-route-title="@Model.BlogsFav.Where(b => b.Position == 4).Select(b => b.Title).FirstOrDefault()?.Replace(" ", "-")"
                        class="tiles-item d-block mt-3">
-                        <img src="@Model.BlogsFav.Where(b => b.Position == 4).Select(b => b.ImageUrl).FirstOrDefault()"
+                        <img src="/@Model.BlogsFav.Where(b => b.Position == 4).Select(b => b.ImageUrl).FirstOrDefault()"
                              alt="@Model.BlogsFav.Where(b => b.Position == 4).Select(b => b.Title).FirstOrDefault()">
                         <span class="tiles-item-txt">
                             <span>
@@ -233,7 +240,7 @@
                        asp-action="Details"
                        asp-route-title="@Model.BlogsFav.Where(b => b.Position == 5).Select(b => b.Title).FirstOrDefault()?.Replace(" ", "-")"
                        class="tiles-item d-block mt-3">
-                        <img src="@Model.BlogsFav.Where(b => b.Position == 5).Select(b => b.ImageUrl).FirstOrDefault()"
+                        <img src="/@Model.BlogsFav.Where(b => b.Position == 5).Select(b => b.ImageUrl).FirstOrDefault()"
                              alt="@Model.BlogsFav.Where(b => b.Position == 5).Select(b => b.Title).FirstOrDefault()">
                         <span class="tiles-item-txt">
                             <span>
@@ -247,7 +254,7 @@
                        asp-action="Details"
                        asp-route-title="@Model.BlogsFav.Where(b => b.Position == 6).Select(b => b.Title).FirstOrDefault()?.Replace(" ", "-")"
                        class="tiles-item d-block mt-3">
-                        <img src="@Model.BlogsFav.Where(b => b.Position == 6).Select(b => b.ImageUrl).FirstOrDefault()"
+                        <img src="/@Model.BlogsFav.Where(b => b.Position == 6).Select(b => b.ImageUrl).FirstOrDefault()"
                              alt="@Model.BlogsFav.Where(b => b.Position == 6).Select(b => b.Title).FirstOrDefault()">
                         <span class="tiles-item-txt">
                             <span>
@@ -281,7 +288,7 @@
                                         <a asp-controller="Blogs"
                                            asp-action="Details"
                                            asp-route-title="@item.Title.Replace(" ", "-")">
-                                            <img src="@item.ImageUrl" class="img-fluid" alt="@item.Title">
+                                            <img src="/@item.ImageUrl" class="img-fluid" alt="@item.Title">
                                         </a>
                                         <h2 class="post-title">
                                             <a href="#">
@@ -368,7 +375,7 @@
                                                    asp-action="Details"
                                                    asp-route-title="@item.Title.Replace(" ", "-")" class="image-linker">
                                                     <span class="image-mask"></span>
-                                                    <img src="@item.ImageUrl" alt="@item.Title" class="image-img wp-post-image">
+                                                    <img src="/@item.ImageUrl" alt="@item.Title" class="image-img wp-post-image">
                                                 </a>
                                                 <a asp-controller="Blogs"
                                                    asp-action="Details"
@@ -431,7 +438,7 @@
                                            asp-action="Details"
                                            asp-route-title="@itemBlog.Title.Replace(" ", "-")"
                                            class="favourites-title">
-                                            <img src="@itemBlog.ImageUrl" class="favourites-img" alt="@itemBlog.Title">
+                                            <img src="/@itemBlog.ImageUrl" class="favourites-img" alt="@itemBlog.Title">
                                             @itemBlog.Title
                                         </a>
                                     }
@@ -444,7 +451,7 @@
                                                    asp-action="Details"
                                                    asp-route-title="@itemBlog.Title.Replace(" ", "-")"
                                                    class="item-image d-inline-block">
-                                                    <img src="@itemBlog.ImageUrl" alt="@itemBlog.Title" class="item-image-img" width="80" height="60">
+                                                    <img src="/@itemBlog.ImageUrl" alt="@itemBlog.Title" class="item-image-img" width="80" height="60">
                                                 </a>
                                                 <div class="item-detail">
                                                     <a asp-controller="Blogs"
@@ -479,7 +486,7 @@
                 </div>
                 <div class="module-title module-title-two">
                     <div class="module-title-sep module-title-sep-two"></div>
-                    <a asp-controller="Blogs" asp-action="All" asp-route-pageView="page" asp-route-page="1" class="module-title-btn">مشاهده عناوین بیشتر</a>
+                    <a asp-controller="Blogs" asp-action="Archive" asp-route-pageView="page" asp-route-pageNumber="1" class="module-title-btn">مشاهده عناوین بیشتر</a>
                 </div>
             </div>
         </div>

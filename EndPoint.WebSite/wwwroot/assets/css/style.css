@@ -116,7 +116,7 @@ header {
     width: 100%;
     height: auto;
     float: right;
-    margin-top: 60px;
+    /*margin-top: 60px;*/
 }
 
 .adplacement-header a.adplacement-item {
@@ -1963,15 +1963,13 @@ nav.main-menu ul.new-list-menu li.item-list-menu ul.list-menu-discounts-offers .
     height: auto;
     overflow: hidden;
     background: #fff;
-    border: 1px solid rgba(0, 191, 214, .3);
+    border: 1px solid #abb8c4;
     border-radius: 5px;
     -webkit-box-shadow: 1px 1px 4px 0 rgba(0, 0, 0, .03);
     box-shadow: 1px 1px 4px 0 rgba(0, 0, 0, .03);
     text-align: center;
     position: relative;
-    margin-top: 10px;
     font: 14px iranyekan;
-    margin-top: 10px;
 }
 
 .widget-suggestion .card-header {
@@ -1986,9 +1984,9 @@ nav.main-menu ul.new-list-menu li.item-list-menu ul.list-menu-discounts-offers .
 }
 
 .slide-progress {
-    box-shadow: 0 0 8px 0 rgba(255, 138, 138, .5);
+    box-shadow: 0 0 8px 0 rgb(171, 184, 196);
     height: 1px;
-    background: linear-gradient(90deg, #ffd3db, #fb3449);
+    background: linear-gradient(90deg, #abb8c4, #191842);
     position: absolute;
     width: 0;
     left: 0;
@@ -4508,7 +4506,6 @@ input[type=number] {
     width: 100%;
     height: auto;
     float: right;
-    margin-top: 60px;
 }
 
 .sidebar-wrapper .box-sidebar {
@@ -5085,7 +5082,7 @@ input[type='checkbox']:checked~.switch {
     width: 100%;
     height: auto;
     float: right;
-    margin-top: 60px;
+    /*margin-top: 60px;*/
 }
 
 .product-gallery #gallery_01f {
@@ -5478,7 +5475,7 @@ ul.listing-sort li a {
 }
 
 ul.listing-sort li a.nav-link.active {
-    background-color: #9953ff;
+    background-color: #191842;
     color: #fff !important;
 }
 
@@ -11885,7 +11882,6 @@ ul.faq-list li .footer em {
     word-wrap: break-word;
     background-color: #fff;
     background-clip: border-box;
-    border: 1px solid rgba(0,0,0,.125);
     border-radius: .25rem;
 }
 
@@ -11901,4 +11897,402 @@ ul.faq-list li .footer em {
 .bgborder{
     background-color: rgba(0, 0, 0, 0.05);
     border-radius: 7px;
+}
+
+
+/*--------------- Mahziarii --------------*/
+
+
+.listing-listing {
+    width: 100%;
+}
+
+.jadval {
+    width: 90%;
+    margin: auto;
+    height: 100%;
+    font-size: 0.85em;
+    margin-bottom: 20px;
+}
+
+.trhead .tdhead {
+    font-weight: bolder;
+    font-size: 15px;
+    text-align: center;
+    height: 10vh;
+}
+
+.trzir td {
+    text-align: center;
+    height: 10vh;
+    border-bottom: 1px solid #ccc;
+    background-color: transparent;
+}
+
+.trzir:nth-of-type(odd) {
+    background-color: rgb(245, 245, 245);
+}
+
+.trzir:nth-of-type(even) {
+    background-color: #fff;
+}
+
+.trzir:hover {
+    color: #191842;
+    transition: 0.5s;
+}
+
+.tdzir button {
+    background-color: #191842;
+    color: #fff;
+    border-radius: 3px;
+    height: 30px;
+    line-height: 35px;
+    width: 30px;
+    text-align: center;
+    font-size: 0.8em;
+    cursor: pointer;
+    border: 1px solid transparent;
+}
+
+.tdzir button:hover {
+    box-shadow: 1px 1px 5px #727272;
+}
+
+.tdzir button i {
+    font-size: 20px;
+}
+
+
+.content {
+    width: 100%;
+    height: 100%;
+    background-color: #abb8c4;
+    border-radius: 10px;
+}
+
+.hash {
+    font-size: larger;
+    font-weight: bold;
+    margin: auto;
+    height: 50px;
+    line-height: 50px;
+    width: 100%;
+    text-align: center;
+    background-color: #191842;
+    color: #fff;
+    border-bottom-left-radius: 150%;
+    border-bottom-right-radius: 150%;
+    /*box-shadow: 3px 3px 10px rgb(184, 5, 5);*/
+}
+
+.se {
+    margin-top: 5%;
+    display: flex;
+    justify-content: space-between;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.se h2 {
+    width: 10%;
+    height: 45px;
+    text-align: center;
+    line-height: 45px;
+    border-radius: 10px;
+    background-color: #191842;
+    color: #FFF;
+    font-size: 1EM;
+}
+
+.se b {
+    color: #fff;
+    background-color: #191842;
+    padding-right: 10px;
+    text-align: center;
+}
+
+.se span {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #fff;
+    width: 10%;
+    height: 45px;
+    text-align: center;
+    line-height: 45px;
+    border-radius: 10px;
+    background-color: #191842;
+    font-size: 1EM;
+}
+
+.maliat {
+    display: flex;
+    justify-content: center;
+}
+
+.maliat span {
+    margin-bottom: 30px;
+    background-color: #2d9411;
+    color: #fff;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    border-radius: 10px;
+    width: 50%;
+    font-weight: bold;
+}
+
+th {
+    color: #fff;
+}
+
+
+/* BERAND */
+
+.price {
+    margin-top: 5%;
+    font-size: 1em !important;
+}
+
+.appcon {
+    width: 50%;
+    height: 25%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.appcon .fa {
+    font-size: 30px;
+    margin-left: 10px;
+}
+
+
+/* foroshande start 
+*/
+
+#forosh {
+    margin-top: 5%;
+}
+
+.js-products {
+    margin-bottom: 10%;
+}
+
+.slider-sidebar {
+    border-radius: 10px !important;
+}
+
+td:first-child {
+    padding-right: 6px;
+}
+
+
+/* listing header */
+
+
+.listing-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    padding-right: 8px;
+    border-radius: 10px;
+    /*margin-top: 10px;*/
+    margin-bottom: 2px;
+    border: 1px solid #abb8c4;
+}
+
+
+/* icon listing */
+
+.mdi-sort-variant {
+    position: relative;
+    top: 15px;
+    right: 13px;
+}
+
+
+/* popup */
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.modal {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    padding-top: 150px;
+    /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100VW;
+    /* Full width */
+    height: 100vh;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(95, 95, 95, 0.7);
+    /* Black w/ opacity */
+    animation: fadeIn ease 0.5s;
+}
+
+
+/* Modal Content */
+
+.modal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50vw;
+}
+
+
+/* The Close Button */
+
+#closemodal {
+    color: #aaaaaa;
+    font-size: 28px;
+    font-weight: bold;
+    float: right;
+    margin-left: 89%;
+}
+
+#closemodal:hover,
+#closemodal:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.tdzir:last-child {
+    border-right: 1px solid #ccc;
+}
+
+tr:last-child {
+    margin-bottom: 20px;
+}
+
+@media only screen and (max-width:1000px) {
+    .tdzir:nth-child(1) {
+        /* کد */
+        display: none;
+    }
+    .tdhead:nth-child(1) {
+        /* کد */
+        display: none;
+    }
+    .tdhead:nth-child(3),
+        /* استاندارد */
+    .tdzir:nth-child(3) {
+        display: none;
+    }
+    .tdhead:nth-child(4),
+        /* طول */
+    .tdzir:nth-child(4) {
+        display: none;
+    }
+    .tdhead:nth-child(7),
+        /* توضیحات بیشتر */
+    .tdzir:nth-child(7) {
+        display: none;
+    }
+    .tdhead:nth-child(9),
+        /* توضیحات بیشتر */
+    .tdzir:nth-child(9) {
+        display: none;
+    }
+    .tdhead:nth-child(10),
+        /* توضیحات بیشتر */
+    .tdzir:nth-child(10) {
+        display: none;
+    }
+    .tdzir {
+        font-size: 12px;
+    }
+    .tdhead {
+        font-size: 15px;
+        font-weight: bold;
+    }
+    .maliat span {
+        width: 100%;
+        font-weight: bold;
+        font-size: 17px !important;
+    }
+    .se span {
+        font-size: 13px;
+        color: #fff;
+    }
+    .se h2 {
+        width: 20%;
+        font-size: 16px !important;
+    }
+    .hash {
+        font-size: 25px;
+    }
+    .listing-header {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .modal-backdrop.show {
+        z-index: 0;
+    }
+    .modal-dialog {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        position: relative;
+    }
+    .modal-content {
+        width: 100%;
+        position: absolute;
+        top: 17%;
+    }
+    .remodal-list-sort {
+        width: 90%;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    .modal-backdrop.show {
+        z-index: 0;
+    }
+    .modal-dialog {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        position: relative;
+    }
+    .modal-content {
+        width: 100%;
+        position: absolute;
+        top: 17%;
+    }
+    .remodal-list-sort {
+        width: 90%;
+    }
+}
+/*--------------- Mahziarii --------------*/
+
+
+.fixed-header{
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
 }

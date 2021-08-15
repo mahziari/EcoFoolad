@@ -129,14 +129,10 @@
                     </div>
                 </div>
                 <div class="clear"></div>
-                @Html.PagedListPager((IPagedList)ViewBag.Blogs, page =>
-                    Url.Action("Category", "Blogs", new {category=Model.CategoryItem.Slug, pageView="page" ,page=page }),
-                    new PagedListRenderOptions
-                    {
-                        LiElementClasses = new string[] { "page-item" },
-                        PageClasses = new string[] { "page-link" }
-                    });
-                @* <partial name="_BlogPagination"/> *@
+                <div class="module-title module-title-two">
+                    <div class="module-title-sep module-title-sep-two"></div>
+                    <a asp-controller="Blogs" asp-action="CategoryArchive" asp-route-pageView="page" asp-route-pageNumber="2" class="module-title-btn">مشاهده عناوین بیشتر</a>
+                </div>
             </div>
         </div>
     </div>

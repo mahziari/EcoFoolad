@@ -2,7 +2,7 @@ C:\Users\pc-2\Pictures\.NET\01_NewMyProject\Common\bin\Debug\net5.0\Common.deps.
 C:\Users\pc-2\Pictures\.NET\01_NewMyProject\Common\bin\Debug\net5.0\Common.dll
 C:\Users\pc-2\Pictures\.NET\01_NewMyProject\Common\bin\Debug\net5.0\ref\Common.dll
 C:\Users\pc-2\Pictures\.NET\01_NewMyProject\Common\bin\Debug\net5.0\Common.pdb
-C:\Users\pc-2\Pictures\.NET\01_NewMyProject\Common\obj\Debug\net5.0\Common.csprojAssemblyReference.cache
+C:\Users\pc-2\Pictures\.NET\01_NewMyProject\Common\obj\Debug\net5.0\Common.csproj.AssemblyReference.cache
 C:\Users\pc-2\Pictures\.NET\01_NewMyProject\Common\obj\Debug\net5.0\Common.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\pc-2\Pictures\.NET\01_NewMyProject\Common\obj\Debug\net5.0\Common.AssemblyInfoInputs.cache
 C:\Users\pc-2\Pictures\.NET\01_NewMyProject\Common\obj\Debug\net5.0\Common.AssemblyInfo.cs

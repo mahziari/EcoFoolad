@@ -1,3 +1,4 @@
+using System;
 using System.Text.Encodings.Web;
 using System.Text.Unicode;
 using FluentValidation.AspNetCore;
@@ -50,6 +51,11 @@ namespace EndPoint.WebSite
             services.AddResponseCompression();
             services.AddRouting(options => options.LowercaseUrls = true);
             services.AddSingleton(HtmlEncoder.Create(UnicodeRanges.BasicLatin, UnicodeRanges.Arabic));
+            services.AddHsts(options =>
+            {
+                options.MaxAge = TimeSpan.FromDays(300);
+                options.IncludeSubDomains = true;
+            });
             
             // load Project Ui WithOut Rebuilding When Change in Ui
             var mvcBuilder = services.AddControllersWithViews().AddFluentValidation();
@@ -71,6 +77,7 @@ namespace EndPoint.WebSite
                 app.UseStatusCodePagesWithReExecute("/Error/{0}");
                 app.UseHsts();
             }
+            // app.UseRewriter(new RewriteOptions().AddRedirect("^(((.*/)|(/?))[^/.]+(?!/$))$", "$1/"));
             app.UseHttpsRedirection();
             app.UseResponseCompression();
             app.UseStaticFiles();

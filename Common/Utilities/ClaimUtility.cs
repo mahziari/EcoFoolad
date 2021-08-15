@@ -4,9 +4,9 @@ namespace Common.Utilities
 {
     public static class ClaimUtility
     {
-        public static string GetUserId(ClaimsPrincipal User)
+        public static string GetUserId(ClaimsPrincipal user)
         {
-            var claimsIdentity = User.Identity as ClaimsIdentity;
+            var claimsIdentity = user.Identity as ClaimsIdentity;
             string userId = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier).Value;
             return userId;
         }

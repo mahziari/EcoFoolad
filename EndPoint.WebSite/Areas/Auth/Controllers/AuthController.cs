@@ -336,7 +336,7 @@ namespace EndPoint.WebSite.Areas.Auth.Controllers
             }
 
             var user = _userManager.FindByNameAsync(loginDto.UserName).Result;
-             _signInManager.SignOutAsync();
+            await _signInManager.SignOutAsync();
 
             var result = _signInManager
                 .PasswordSignInAsync(user, loginDto.Password, false, true)
@@ -351,7 +351,7 @@ namespace EndPoint.WebSite.Areas.Auth.Controllers
                     TransferBasketForuser(user.Id);
                 }
                 
-                _userManager.AddLoginAsync(user, null);
+                // _userManager.AddLoginAsync(user, null);
                 _logger.LogInformation(LogEvents.LogInformationComplete, "LoginSuccess");
 
                 if (Url.IsLocalUrl(loginDto.ReturnUrl))

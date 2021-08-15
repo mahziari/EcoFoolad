@@ -37,13 +37,19 @@
 <amp-analytics config="https://www.googletagmanager.com/amp.json?id=GTM-5LWFZWM&gtm.url=SOURCE_URL" data-credentials="include"></amp-analytics>
 
 <partial name="_HeaderPartial"/>
+    <div class="nav-categories-overlay"></div>
+<div class="overlay-search-box"></div>
 
-@RenderBody()
+    
+<main style="padding-top: 132px">
+   @RenderBody()
+</main>
 
 <partial name="_FooterPartial"/>
 <partial name="_FooPartial"/>
 @await RenderSectionAsync("Foo", false)
 @await RenderSectionAsync("Scripts", false)
+<!--BEGIN RAYCHAT CODE--> <script type="text/javascript">!function(){function t(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,localStorage.getItem("rayToken")?t.src="https://app.raychat.io/scripts/js/"+o+"?rid="+localStorage.getItem("rayToken")+"&href="+window.location.href:t.src="https://app.raychat.io/scripts/js/"+o+"?href="+window.location.href;var e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(t,e)}var e=document,a=window,o="3e7bc701-3103-458f-94ac-3eb7c115f83c";"complete"==e.readyState?t():a.attachEvent?a.attachEvent("onload",t):a.addEventListener("load",t,!1)}();</script> <!--END RAYCHAT CODE-->
 </body>
 
 </html>

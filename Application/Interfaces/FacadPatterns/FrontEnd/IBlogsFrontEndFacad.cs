@@ -5,8 +5,9 @@ namespace  Application.Interfaces.FacadPatterns.FrontEnd
     public interface IBlogsFrontEndFacad
     {
         IGetBlogsFrontEndService GetBlogsFrontEndService { get; }
-        IGetAllBlogsFrontEndService GetAllBlogsFrontEndService { get; }
+        IGetArchiveBlogsFrontEndService GetArchiveBlogsFrontEndService { get; }
         IGetBlogsDetailsFrontEndService GetBlogsDetailsFrontEndService { get; }
+        IGetBlogsCategoryArchiveFrontEndServices GetBlogsCategoryArchiveFrontEndServices { get; }
         IGetBlogsCategoryFrontEndService GetBlogsCategoryFrontEndService { get; }
 
     }

@@ -27,12 +27,12 @@ namespace  Application.Services.FrontEnd.Blogs.FacadPattern
         }
         
         
-        private IGetAllBlogsFrontEndService _getAllBlogsFrontEndService;
-        public IGetAllBlogsFrontEndService GetAllBlogsFrontEndService
+        private IGetArchiveBlogsFrontEndService _getArchiveBlogsFrontEndService;
+        public IGetArchiveBlogsFrontEndService GetArchiveBlogsFrontEndService
         {
             get
             {
-                return _getAllBlogsFrontEndService ??= new GetAllBlogsFrontEndService(_customDbContext,_mapper);
+                return _getArchiveBlogsFrontEndService ??= new GetArchiveBlogsFrontEndService(_customDbContext,_mapper);
             }
         }
         
@@ -49,11 +49,24 @@ namespace  Application.Services.FrontEnd.Blogs.FacadPattern
         
         
         private IGetBlogsCategoryFrontEndService _getBlogsCategoryFrontEndService;
+
         public IGetBlogsCategoryFrontEndService GetBlogsCategoryFrontEndService
         {
             get
             {
-                return _getBlogsCategoryFrontEndService ??= new GetBlogsCategoryFrontEndService(_customDbContext,_mapper);
+                return _getBlogsCategoryFrontEndService ??=
+                    new GetBlogsCategoryFrontEndService(_customDbContext, _mapper);
+            }
+        }
+
+
+
+        private IGetBlogsCategoryArchiveFrontEndServices _getBlogsCategoryArchiveFrontEndServices;
+        public IGetBlogsCategoryArchiveFrontEndServices GetBlogsCategoryArchiveFrontEndServices
+        {
+            get
+            {
+                return _getBlogsCategoryArchiveFrontEndServices ??= new GetBlogsCategoryArchiveFrontEndServices(_customDbContext,_mapper);
             }
         }
     }
