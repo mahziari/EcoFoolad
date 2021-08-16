@@ -6,6 +6,7 @@ using Application.Services.BackEnd.Admin.BlogsCategories;
 using Application.Services.BackEnd.Admin.BlogsCategories.Command.CreateBlogsCategories;
 using Application.Services.BackEnd.Admin.BlogsCategories.Command.EditBlogsCategories;
 using Application.Services.BackEnd.Admin.BlogsCategories.Queries.GetEditBlogsCategories;
+using Application.Services.BackEnd.Admin.Experts;
 using Application.Services.BackEnd.Admin.Factory.Command.CreateFactory;
 using Application.Services.BackEnd.Admin.Footers;
 using Application.Services.BackEnd.User.Addresses;
@@ -14,6 +15,7 @@ using Application.Services.FrontEnd.Blogs.Queries;
 using AutoMapper;
 using Domain.Entities.AboutUs;
 using Domain.Entities.Blogs;
+using Domain.Entities.Experts;
 using Domain.Entities.Factory;
 using Domain.Entities.Footer;
 using Domain.Entities.IdealCrm;
@@ -35,6 +37,7 @@ namespace Infrastructure.Mapping.BackEnd.Admin
             CreateMap<BlogCategory, CreateBlogCategoryDto>().ReverseMap();
             CreateMap<BlogCategory, EditBlogCategoryDto>().ReverseMap();
             CreateMap<AboutUs, AboutUsDto>().ReverseMap();
+            CreateMap<Expert, ExpertDto>().ReverseMap();
 
             
             // Owner

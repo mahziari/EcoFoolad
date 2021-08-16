@@ -598,3 +598,6 @@ C:\Users\pc-2\Pictures\.NET\01_NewMyProject\EndPoint.WebSite\obj\Debug\net5.0\re
 C:\Users\pc-2\Pictures\.NET\01_NewMyProject\EndPoint.WebSite\obj\Debug\net5.0\EndPoint.WebSite.pdb
 C:\Users\pc-2\Pictures\.NET\01_NewMyProject\EndPoint.WebSite\obj\Debug\net5.0\EndPoint.WebSite.genruntimeconfig.cache
 C:\Users\pc-2\Pictures\.NET\01_NewMyProject\EndPoint.WebSite\obj\Debug\net5.0\Razor\Views\Products\Category1.cshtml.g.cs
+C:\Users\pc-2\Pictures\.NET\01_NewMyProject\EndPoint.WebSite\obj\Debug\net5.0\Razor\Areas\Admin\Views\Experts\Create.cshtml.g.cs
+C:\Users\pc-2\Pictures\.NET\01_NewMyProject\EndPoint.WebSite\obj\Debug\net5.0\Razor\Areas\Admin\Views\Experts\Edit.cshtml.g.cs
+C:\Users\pc-2\Pictures\.NET\01_NewMyProject\EndPoint.WebSite\obj\Debug\net5.0\Razor\Areas\Admin\Views\Experts\Index.cshtml.g.cs

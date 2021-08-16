@@ -4134,7 +4134,6 @@ input[type=number] {
     float: right;
     height: 410px;
     /*background: linear-gradient(rgba(0, 0, 0, .6), rgba(0, 0, 0, .6)), url(../images/info-page-cover.jpg) top no-repeat;*/
-    margin-top: 60px;
     text-align: center;
 }
 
@@ -11938,12 +11937,12 @@ ul.faq-list li .footer em {
 }
 
 .trzir:hover {
-    color: #191842;
+    color: #abb8c4;
     transition: 0.5s;
 }
 
 .tdzir button {
-    background-color: #191842;
+    background-color: #abb8c4;
     color: #fff;
     border-radius: 3px;
     height: 30px;
@@ -11956,7 +11955,7 @@ ul.faq-list li .footer em {
 }
 
 .tdzir button:hover {
-    box-shadow: 1px 1px 5px #727272;
+    box-shadow: 0 1px 2px #999;
 }
 
 .tdzir button i {
@@ -11983,7 +11982,7 @@ ul.faq-list li .footer em {
     color: #fff;
     border-bottom-left-radius: 150%;
     border-bottom-right-radius: 150%;
-    /*box-shadow: 3px 3px 10px rgb(184, 5, 5);*/
+    box-shadow:0 6px 5px rgb(108, 108, 108);;
 }
 
 .se {

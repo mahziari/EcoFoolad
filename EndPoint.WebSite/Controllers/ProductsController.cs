@@ -52,10 +52,10 @@ namespace EndPoint.WebSite.Controllers
 
 
         [HttpGet]
-        [Route("product/{MenuName}/{PrdName}/")]
-        public IActionResult Details(string CategoryName,string MenuName,string PrdName)
+        [Route("product/{PrdName}/")]
+        public IActionResult Details(string categoryName,string prdName)
         {
-            var result = _productsFrontEndFacad.GetProductsDetailsFrontEndService.Execute(PrdName);
+            var result = _productsFrontEndFacad.GetProductsDetailsFrontEndService.Execute(prdName);
             return View(result);
         }
     }

@@ -5,6 +5,7 @@ using Domain.Entities;
 using Domain.Entities.AboutUs;
 using Domain.Entities.Baskets;
 using Domain.Entities.Blogs;
+using Domain.Entities.Experts;
 using Domain.Entities.Factory;
 using Domain.Entities.FileManagers;
 using Domain.Entities.Footer;
@@ -32,6 +33,7 @@ namespace Application.Interfaces.Contexts
         DbSet<BlogCategory> BlogCategories { get; set; } 
         DbSet<Blog> Blogs { get; set; } 
         DbSet<AboutUs> AboutUs { get; set; }
+        DbSet<Expert> Experts { get; set; }
 
 
         

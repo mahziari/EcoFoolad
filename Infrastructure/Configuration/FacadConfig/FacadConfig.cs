@@ -5,6 +5,7 @@ using Application.Services.BackEnd.Admin.AboutUs.FacadPattern;
 using Application.Services.BackEnd.Admin.Blogs.FacadPattern;
 using Application.Services.BackEnd.Admin.BlogsCategories.FacadPattern;
 using Application.Services.BackEnd.Admin.Company.FacadPattern;
+using Application.Services.BackEnd.Admin.Experts.FacadPattern;
 using Application.Services.BackEnd.Admin.Factory.FacadPattern;
 using Application.Services.BackEnd.Admin.FileManagers.FacadPattern;
 using Application.Services.BackEnd.Admin.Footers;
@@ -67,6 +68,7 @@ namespace Infrastructure.Configuration.FacadConfig
             services.AddScoped<IFileManagerFacad, FileManagerFacad>();
             services.AddScoped<IFootersServices, FootersServices>();
             services.AddScoped<IAboutUsFacad, AboutUsFacad>();
+            services.AddScoped<IExpertsFacad, ExpertsFacad>();
             //------ Owner Panel Services
             services.AddScoped<IOwnerProductsFacad, OwnerProductsFacad>();
             services.AddScoped<IOwnerHomeFacad, OwnerHomeFacad>();

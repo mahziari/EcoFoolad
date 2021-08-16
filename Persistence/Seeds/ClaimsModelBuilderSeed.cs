@@ -147,6 +147,11 @@ namespace Persistence.Seeds
                 {
                     Id = 28, ClaimType = "ContactUs", ClaimValue = "ContactUs", ClaimName = "ویرایش ارتباط با ما",
                     IsHead = true, ParentId = null
+                },
+                new Claims
+                {
+                    Id = 29, ClaimType = "Experts", ClaimValue = "Experts", ClaimName = "مدیریت اسلاید کارشناسان فروش",
+                    IsHead = true, ParentId = null
                 }
             );
         }

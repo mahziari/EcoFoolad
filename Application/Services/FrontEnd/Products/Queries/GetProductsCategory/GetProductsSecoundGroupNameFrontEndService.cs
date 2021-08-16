@@ -26,32 +26,18 @@ namespace Application.Services.FrontEnd.Products.Queries.GetProductsCategory
         {
        
             
-            var firstGroup = _idealCrmDataBase.WsproductFirstGroup
-                .SingleOrDefault(s => s.EnFgname == productsFiltersDto.SecoundGroupName
-                    .Replace("-"," "));
-            
-
-            // Paginate Code
-            var resultInEachPage = 16;
-            int skip = (productsFiltersDto.PageNum - 1) * resultInEachPage;
-            int count = _idealCrmDataBase.Wsproducts
-                .Include(p => p.PrdGroup)
-                .ThenInclude(p=>p.FirstGroup)
-                .Where(p => p.PrdGroup.FirstGroup.PrdFirstGroupId == firstGroup.PrdFirstGroupId)
-                .Count(p => p.PrdInactiveInSale == true);
-            var pageId = productsFiltersDto.PageNum;
-            var pageCount = (int) Math.Ceiling(count / (double) resultInEachPage);
-            // Paginate Code
+            var secoundGroupName = _idealCrmDataBase.WsproductFirstGroup
+                .Include(s=>s.ParsaPooladMenus)
+                .Single(s => s.EnFgname == productsFiltersDto.SecoundGroupName.Replace("-"," "));
 
 
             var query = _idealCrmDataBase.Wsproducts
-                .Include(p => p.PrdUnit)
-                .Include(p => p.PrdShpotherSupplier)
                 .Include(p => p.PrdGroup)
                 .ThenInclude(p=>p.FirstGroup)
-                .Where(p => p.PrdGroup.FirstGroup.PrdFirstGroupId == firstGroup.PrdFirstGroupId)
+                .Where(p => p.PrdGroup.FirstGroup.PrdFirstGroupId == secoundGroupName.PrdFirstGroupId)
                 .Where(p => p.PrdInactiveInSale == true)
-                .OrderByDescending(p => p.ProductId)
+                .OrderByDescending(p => p.PrdPrice)
+                .Take(10)
                 .AsQueryable();
 
             if (productsFiltersDto.CompanyId != null)
@@ -118,12 +104,12 @@ namespace Application.Services.FrontEnd.Products.Queries.GetProductsCategory
             var products = query.Select(p => new GetIndexProductsDto
             {
                 ProductId = p.ProductId,
+                PrdCode = p.PrdCode,
                 PrdName = p.PrdName,
-                // UrlName = parsapooladMenu.UrlName,
                 PrdInactiveInSale = p.PrdInactiveInSale,
                 RegisterDatePersian = p.RegisterDatePersian,
-                // PrdUnit = _idealCrmDataBase.WsproductUnits.SingleOrDefault(u => u.ProductUnitId == p.PrdUnitId).Unit,
-                PrdUnit = p.PrdUnit.Unit,
+                PrdUnit = p.PrdUnit,
+                PrdShpotherSupplier = p.PrdShpotherSupplier,
                 PrdMaxQty = p.PrdMaxQty,
                 PrdSize = p.PrdSize,
                 PrdModel = p.PrdModel,
@@ -131,7 +117,7 @@ namespace Application.Services.FrontEnd.Products.Queries.GetProductsCategory
                 PrdDescription = p.PrdDescription,
                 DateTime = p.RegisterDate,
                 subMenu = new GetIndexMenuDto{ EnSgname = productsFiltersDto.SecoundGroupName,},
-            }).Skip(skip).Take(resultInEachPage).ToList();
+            }).ToList();
 
 
             var mFactories = _customDbContext.Factories.ToList();
@@ -143,9 +129,9 @@ namespace Application.Services.FrontEnd.Products.Queries.GetProductsCategory
             
             return new ResultGetProductsCategoryFrontEndDto
             {
+                FirstMenuName=secoundGroupName.ParsaPooladMenus,
+                SecoundMenuName=secoundGroupName,
                 Products = products,
-                PageId = pageId,
-                PageCount = pageCount,
                 Factories = factories,
                 Companies = companies,
             };

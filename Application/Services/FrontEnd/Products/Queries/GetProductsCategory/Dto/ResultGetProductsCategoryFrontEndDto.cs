@@ -1,17 +1,16 @@
 using System.Collections.Generic;
+using Domain.Entities.IdealCrm;
 
 namespace Application.Services.FrontEnd.Products.Queries.GetProductsCategory.Dto
 {
     public class ResultGetProductsCategoryFrontEndDto
     {
         public List<GetIndexProductsDto> Products { get; set; }
-        public int PageId { get; set; }
-        public int PageCount { get; set; }
-        public string UrlName { get; set; }
-        public string CategoryName { get; set; }
-        public string MenuName { get; set; }
-        public int PageNum { get; set; } = 1;
+        public ParsaPooladMenus FirstMenuName { get; set; }
+        public WsproductFirstGroup SecoundMenuName { get; set; }
+        public WsproductSecondGroup ThirdMenuName { get; set; }
         public List<FactoriesDto> Factories { get; set; }
         public List<CompanyDto> Companies { get; set; }
+        public List<ExpertsDto> Experts { get; set; }
     }
 }

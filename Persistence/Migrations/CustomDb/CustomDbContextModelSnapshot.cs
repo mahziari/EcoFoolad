@@ -17,7 +17,7 @@ namespace Persistence.Migrations.CustomDb
             modelBuilder
                 .HasDefaultSchema("dbo")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
-                .HasAnnotation("ProductVersion", "5.0.6")
+                .HasAnnotation("ProductVersion", "5.0.9")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
             modelBuilder.Entity("Domain.Entities.AboutUs.AboutUs", b =>
@@ -78,7 +78,7 @@ namespace Persistence.Migrations.CustomDb
                     b.Property<DateTime>("InsertTime")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2021, 8, 4, 9, 8, 25, 726, DateTimeKind.Local).AddTicks(6173));
+                        .HasDefaultValue(new DateTime(2021, 8, 16, 14, 40, 16, 573, DateTimeKind.Local).AddTicks(740));
 
                     b.Property<bool>("IsRemoved")
                         .ValueGeneratedOnAdd()
@@ -109,7 +109,7 @@ namespace Persistence.Migrations.CustomDb
                     b.Property<DateTime>("InsertTime")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2021, 8, 4, 9, 8, 25, 737, DateTimeKind.Local).AddTicks(5441));
+                        .HasDefaultValue(new DateTime(2021, 8, 16, 14, 40, 16, 583, DateTimeKind.Local).AddTicks(123));
 
                     b.Property<bool>("IsRemoved")
                         .ValueGeneratedOnAdd()
@@ -162,7 +162,7 @@ namespace Persistence.Migrations.CustomDb
                     b.Property<DateTime>("InsertTime")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2021, 8, 4, 9, 8, 25, 737, DateTimeKind.Local).AddTicks(8652));
+                        .HasDefaultValue(new DateTime(2021, 8, 16, 14, 40, 16, 583, DateTimeKind.Local).AddTicks(2962));
 
                     b.Property<bool>("IsRemoved")
                         .ValueGeneratedOnAdd()
@@ -238,7 +238,7 @@ namespace Persistence.Migrations.CustomDb
                     b.Property<DateTime>("InsertTime")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2021, 8, 4, 9, 8, 25, 738, DateTimeKind.Local).AddTicks(492));
+                        .HasDefaultValue(new DateTime(2021, 8, 16, 14, 40, 16, 583, DateTimeKind.Local).AddTicks(4551));
 
                     b.Property<bool>("IsActive")
                         .HasColumnType("bit");
@@ -278,6 +278,39 @@ namespace Persistence.Migrations.CustomDb
                     b.ToTable("BlogCategories");
                 });
 
+            modelBuilder.Entity("Domain.Entities.Experts.Expert", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("FirstName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImageUrl")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Instagram")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LastName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Telegram")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("WhatsApp")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Experts");
+                });
+
             modelBuilder.Entity("Domain.Entities.Factory.Factory", b =>
                 {
                     b.Property<int>("Id")
@@ -288,7 +321,7 @@ namespace Persistence.Migrations.CustomDb
                     b.Property<DateTime>("InsertTime")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2021, 8, 4, 9, 8, 25, 738, DateTimeKind.Local).AddTicks(2025));
+                        .HasDefaultValue(new DateTime(2021, 8, 16, 14, 40, 16, 583, DateTimeKind.Local).AddTicks(5893));
 
                     b.Property<bool>("IsRemoved")
                         .ValueGeneratedOnAdd()
@@ -309,7 +342,7 @@ namespace Persistence.Migrations.CustomDb
                     b.ToTable("Factories");
                 });
 
-            modelBuilder.Entity("Domain.Entities.FileManager.FileManager", b =>
+            modelBuilder.Entity("Domain.Entities.FileManagers.FileManager", b =>
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
@@ -322,7 +355,7 @@ namespace Persistence.Migrations.CustomDb
                     b.Property<DateTime>("InsertTime")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2021, 8, 4, 9, 8, 25, 738, DateTimeKind.Local).AddTicks(3185));
+                        .HasDefaultValue(new DateTime(2021, 8, 16, 14, 40, 16, 583, DateTimeKind.Local).AddTicks(6913));
 
                     b.Property<bool>("IsRemoved")
                         .ValueGeneratedOnAdd()
@@ -472,7 +505,7 @@ namespace Persistence.Migrations.CustomDb
                     b.Property<DateTime>("InsertTime")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2021, 8, 4, 9, 8, 25, 738, DateTimeKind.Local).AddTicks(4837));
+                        .HasDefaultValue(new DateTime(2021, 8, 16, 14, 40, 16, 583, DateTimeKind.Local).AddTicks(8427));
 
                     b.Property<bool>("IsRemoved")
                         .ValueGeneratedOnAdd()
@@ -515,7 +548,7 @@ namespace Persistence.Migrations.CustomDb
                     b.Property<DateTime>("InsertTime")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2021, 8, 4, 9, 8, 25, 738, DateTimeKind.Local).AddTicks(7287));
+                        .HasDefaultValue(new DateTime(2021, 8, 16, 14, 40, 16, 584, DateTimeKind.Local).AddTicks(715));
 
                     b.Property<bool>("IsRemoved")
                         .ValueGeneratedOnAdd()
@@ -609,7 +642,7 @@ namespace Persistence.Migrations.CustomDb
                     b.Property<DateTime>("InsertTime")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2021, 8, 4, 9, 8, 25, 738, DateTimeKind.Local).AddTicks(9393));
+                        .HasDefaultValue(new DateTime(2021, 8, 16, 14, 40, 16, 584, DateTimeKind.Local).AddTicks(2781));
 
                     b.Property<bool>("IsRemoved")
                         .ValueGeneratedOnAdd()
@@ -834,7 +867,7 @@ namespace Persistence.Migrations.CustomDb
                     b.Property<DateTime>("InsertTime")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2021, 8, 4, 9, 8, 25, 739, DateTimeKind.Local).AddTicks(1648));
+                        .HasDefaultValue(new DateTime(2021, 8, 16, 14, 40, 16, 584, DateTimeKind.Local).AddTicks(4892));
 
                     b.Property<bool>("IsRemoved")
                         .ValueGeneratedOnAdd()

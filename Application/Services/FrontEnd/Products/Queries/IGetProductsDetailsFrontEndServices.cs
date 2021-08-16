@@ -9,7 +9,7 @@ namespace  Application.Services.FrontEnd.Products.Queries
 {
     public interface IGetProductsDetailsFrontEndService
     {
-        ResultGetProductsDetailsFrontEndDto Execute(string PrdName);
+        ResultGetProductsDetailsFrontEndDto Execute(string prdName);
     }
 
     public class GetProductsDetailsFrontEndService: IGetProductsDetailsFrontEndService
@@ -24,15 +24,15 @@ namespace  Application.Services.FrontEnd.Products.Queries
 
 
 
-        public ResultGetProductsDetailsFrontEndDto Execute(string PrdName)
+        public ResultGetProductsDetailsFrontEndDto Execute(string prdName)
         {
             var product = _context.Wsproducts
-                .SingleOrDefault(p => p.PrdName == PrdName.Replace("-"," "));
+                .Single(p => p.PrdName == prdName.Replace("-"," "));
             product.VisitCount += 1;
             _context.SaveChanges();
 
 
-           var customProduct= _customDbContext.Products.SingleOrDefault(p => p.PrdCrmId == product.ProductId);
+           var customProduct= _customDbContext.Products.Single(p => p.PrdCrmId == product.ProductId);
            customProduct.VisitCount += 1;
            _customDbContext.SaveChanges();
 

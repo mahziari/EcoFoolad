@@ -7,6 +7,7 @@ using Domain.Entities.AboutUs;
 using Domain.Entities.Attributes;
 using Domain.Entities.Baskets;
 using Domain.Entities.Blogs;
+using Domain.Entities.Experts;
 using Domain.Entities.Factory;
 using Domain.Entities.FileManagers;
 using Domain.Entities.Footer;
@@ -50,6 +51,7 @@ namespace  Persistence.Contexts
         public DbSet<BlogCategory> BlogCategories { get; set; }
         public DbSet<Blog> Blogs { get; set; }
         public DbSet<AboutUs> AboutUs { get; set; }
+        public DbSet<Expert> Experts { get; set; }
         
         
         

@@ -1,0 +1,112 @@
+﻿@using Application.Services.BackEnd.Admin.Experts
+@model ExpertDto
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "ویرایش کارشناس فروش";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@section Head{
+    <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/vendors/css/vendors-rtl.min.css">
+    <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/vendors/css/forms/select/select2.min.css">
+    <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/css/bootstrap-extended.min.css">
+    <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/css/colors.min.css">
+    <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/css/components.min.css">
+    <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/css/themes/dark-layout.min.css">
+    <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/css/themes/semi-dark-layout.min.css">
+    <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/css/custom-rtl.min.css">
+    <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/css/core/menu/menu-types/vertical-menu-karaji.min.css">
+    <link rel="stylesheet" type="text/css" href="~/BackEnd/Admin/css/style.css">
+}
+
+@section Foo{
+    <script src="~/BackEnd/Admin/vendors/js/vendors.min.js"></script>
+    <script src="~/BackEnd/Admin/vendors/js/forms/select/select2.full.min.js"></script>
+    <script src="~/BackEnd/Admin/vendors/js/extensions/jquery.steps.min.js"></script>
+    <script src="~/BackEnd/Admin/vendors/js/forms/validation/jquery.validate.min.js"></script>
+    <script src="~/BackEnd/Admin/js/scripts/configs/vertical-menu-dark.min.js"></script>
+    <script src="~/BackEnd/Admin/js/core/app-menu.min.js"></script>
+    <script src="~/BackEnd/Admin/js/core/app.min.js"></script>
+    <script src="~/BackEnd/Admin/js/scripts/components.min.js"></script>
+    <script src="~/BackEnd/Admin/js/scripts/footer.min.js"></script>
+    <script src="~/BackEnd/Admin/js/scripts/customizer.min.js"></script>
+    <script src="~/BackEnd/Admin/js/scripts/forms/select/form-select2.min.js"></script>
+    <script>$('div.alert').delay(3000).slideUp(300); </script>
+    <partial name="_CkEditorScriptsPartial"/>
+}
+
+<div class="app-content content">
+    <div class="content-overlay"></div>
+    <div class="content-wrapper">
+        <div class="content-header row"></div>
+        <div class="content-body">
+            <!-- app invoice View Page -->
+
+            <form asp-area="Admin"
+                  asp-controller="Experts"
+                  asp-action="Edit"
+                  asp-route-id="Id"
+                  method="post">
+                <section class="invoice-edit-wrapper">
+
+                    <div class="row">
+                        <!-- invoice view page -->
+                        <div class="col-xl-12 col-md-12 col-12">
+                            <div class="card">
+                                <div class="card-content">
+                                    <div class="card-body pb-0 mx-25">
+
+                                        <div class="col-sm-4 col-12 order-2 order-sm-1">
+                                            <label asp-for="FirstName" class="text-primary"></label>
+                                            <input asp-for="FirstName" type="text" class="form-control" placeholder="نام را وارد کنید">
+                                            <span asp-validation-for="FirstName" class="text-danger"></span>
+                                        </div>
+
+                                        <div class="col-sm-4 col-12 order-2 order-sm-1">
+                                            <label asp-for="LastName" class="text-primary"></label>
+                                            <input asp-for="LastName" type="text" class="form-control" placeholder="نام خانوادگی را وارد کنید">
+                                            <span asp-validation-for="LastName" class="text-danger"></span>
+                                        </div>
+
+
+                                        <div class="col-sm-4 col-12 order-2 order-sm-1">
+                                            <label asp-for="ImageUrl" class="text-primary"></label>
+                                            <input asp-for="ImageUrl" type="text" class="form-control" placeholder="ادرس عکس وارد کنید">
+                                            <span asp-validation-for="ImageUrl" class="text-danger"></span>
+                                        </div>
+                                        <div class="col-sm-4 col-12 order-2 order-sm-1">
+                                            <label asp-for="PhoneNumber" class="text-primary"></label>
+                                            <input asp-for="PhoneNumber" type="text" class="form-control" placeholder="ادرس عکس وارد کنید">
+                                            <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                                        </div>
+
+                                        <div class="col-sm-12 col-12 order-2 order-sm-1">
+                                            <label asp-for="Telegram" class="text-primary"></label>
+                                            <input asp-for="Telegram" type="text" class="form-control" placeholder="آی دی تلگرام را وارد کنید">
+                                            <span asp-validation-for="Telegram" class="text-danger"></span>
+                                        </div>
+
+                                        <div class="col-sm-12 col-12 order-2 order-sm-1">
+                                            <label asp-for="WhatsApp" class="text-primary"></label>
+                                            <input asp-for="WhatsApp" type="text" class="form-control" placeholder="لینک واتس اپ را وارد کنید">
+                                            <span asp-validation-for="WhatsApp" class="text-danger"></span>
+                                        </div>
+
+                                        <div class="col-sm-12 col-12 order-2 order-sm-1">
+                                            <label asp-for="Instagram" class="text-primary"></label>
+                                            <input asp-for="Instagram" type="text" class="form-control" placeholder="آی دی اینستاگرام را وارد کنید">
+                                            <span asp-validation-for="Instagram" class="text-danger"></span>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <button class="btn btn-primary btn-block subtotal-preview-btn">ثبت</button>
+            </form>
+        </div>
+    </div>
+</div>

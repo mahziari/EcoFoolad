@@ -5,73 +5,32 @@
     ViewData["Title"] = "محصولات";
     Layout = "~/Views/Shared/_Layout.cshtml";
     var companies = Context.Request.Query["CompanyId"];
+    var sortTypeId = Context.Request.Query["SortType"];
     // var sortType = Context.Request.Query["SortType"];
     var currentUrl = Context.Request.GetDisplayUrl();
 }
+@section Head{
+    <script src="~/assets/js/apexcharts.min.js"></script>
+}
 
 @section Scripts{
-    <script src="~/assets/js/apexcharts.min.js"></script>
-    <!-- popup -->
-    <script>
-        // Get the modal
-        var modal = document.getElementById("myModal");
-
-        // Get the button that opens the modal
-        var btn = document.getElementById("myBtn");
-
-        // Get the <span> element that closes the modal
-        var span = document.getElementById("closemodal");
-
-        // When the user clicks the button, open the modal 
-        btn.onclick = function() {
-                modal.style.display = "block";
-            }
-            // When the user clicks on <span> (x), close the modal
-        span.onclick = function() {
-            modal.style.display = "none";
-        }
-
-        // When the user clicks anywhere outside of the modal, close it
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
-        }
-    </script>
-
-    <script>
-            var options = {
-                series: [{
-                    name: 'series1',
-                    data: [31, 40, 28, 51, 42, 109, 100]
-                }, {
-                    name: 'series2',
-                    data: [11, 32, 45, 32, 34, 52, 41]
-                }],
-                chart: {
-                    height: 350,
-                    type: 'area'
-                },
-                dataLabels: {
-                    enabled: false
-                },
-                stroke: {
-                    curve: 'smooth'
-                },
-                xaxis: {
-                    type: 'datetime',
-                    categories: ["2018-09-19T00:00:00.000Z", "2018-09-19T01:30:00.000Z", "2018-09-19T02:30:00.000Z", "2018-09-19T03:30:00.000Z", "2018-09-19T04:30:00.000Z", "2018-09-19T05:30:00.000Z", "2018-09-19T06:30:00.000Z"]
-                },
-                tooltip: {
-                    x: {
-                        format: 'dd/MM/yy HH:mm'
-                    },
-                },
-            };
     
-            var chart = new ApexCharts(document.querySelector("#chart"), options);
-            chart.render();
-        </script>
+    @*---- sorted by Ajax ----*@
+    <script>
+       $(document).ready(function () {
+                $(".sortType").on('click',function () {
+                    $sortType = $(".sortType").val();
+                    $.ajax({
+                          type: 'get',
+                          headers:{'RequestVerificationToken' :token},
+                          url: currentUrl+'?SortType='+sortType,
+                        success: function (data) {
+                            $('#result-sortType').html(data);
+                        }
+                    });
+                });
+            });
+    </script>
 }
 
 <!--        responsive-sidebar----------------------->
@@ -86,50 +45,8 @@
 </button>
 <div class="remodal-page-header">لوازم جانبی گوشی موبایل</div>
 <div class="remodal-page-main">
-<div class="filter-bar">
-    <button class="js-listing-options-clear">پاک کردن همه</button>
-    <div class="js-box-content-items">
-        <a href="#">
-            <label for="switch3">
-                <input type="checkbox" id="switch3"/>
-                <span class="switch">
-                    <h1 class="switch-title">کالاهای موجود </h1>
-                </span>
-                <span class="toggle"></span>
-            </label>
-        </a>
-    </div>
-</div>
+
 <div class="remodal-page-content">
-    <div class="filter">
-        <label for="#" class="profile-edit-label">
-            <span>جستجو در نتایج</span>
-            <input type="text" value="" name="searchInput"
-                   placeholder="نام محصول مورد نظر را بنویسید ...">
-        </label>
-    </div>
-
-    <div class="filter">
-        <a href="#">
-            <label for="switch4">
-                <input type="checkbox" id="switch4"/><span class="switch"></span>
-                <h1 class="switch-title">فقط کالاهای اصل </h1>
-                <span class="toggle"></span>
-            </label>
-        </a>
-    </div>
-
-    <div class="filter">
-        <a href="#">
-            <label for="switch5">
-                <input type="checkbox" id="switch5"/><span class="switch"></span>
-                <h1 class="switch-title">فقط کالاهای آماده ارسال</h1>
-                <span class="toggle"></span>
-            </label>
-        </a>
-    </div>
-
-
     <div class="filter">
         <div class="toggle-box">
             <div class="toggle-box-active">
@@ -137,109 +54,29 @@
                     <li class="has-sub">
                         <a href="#">برند</a>
                         <ul>
-                            <li>
-                                <a href="#" class="filter-label">
-                                    <div class="form-auth-row">
-                                        <label for="#" class="ui-checkbox">
-                                            <input type="checkbox" value="1" name="login"
-                                                   id="remember">
-                                            <span class="ui-checkbox-check"></span>
-                                        </label>
-                                        <label for="remember" class="remember-me">سامسونگ</label>
-                                    </div>
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="#" class="filter-label">
-                                    <div class="form-auth-row">
-                                        <label for="#" class="ui-checkbox">
-                                            <input type="checkbox" value="1" name="login"
-                                                   id="remember">
-                                            <span class="ui-checkbox-check"></span>
-                                        </label>
-                                        <label for="remember" class="remember-me">نوکیا</label>
-                                    </div>
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="#" class="filter-label">
-                                    <div class="form-auth-row">
-                                        <label for="#" class="ui-checkbox">
-                                            <input type="checkbox" value="1" name="login"
-                                                   id="remember">
-                                            <span class="ui-checkbox-check"></span>
-                                        </label>
-                                        <label for="remember" class="remember-me">اپل</label>
-                                    </div>
-                                </a>
-                            </li>
-
-
-                            <li>
-                                <a href="#" class="filter-label">
-                                    <div class="form-auth-row">
-                                        <label for="#" class="ui-checkbox">
-                                            <input type="checkbox" value="1" name="login"
-                                                   id="remember">
-                                            <span class="ui-checkbox-check"></span>
-                                        </label>
-                                        <label for="remember" class="remember-me">شیائومی</label>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="filter-label">
-                                    <div class="form-auth-row">
-                                        <label for="#" class="ui-checkbox">
-                                            <input type="checkbox" value="1" name="login"
-                                                   id="remember">
-                                            <span class="ui-checkbox-check"></span>
-                                        </label>
-                                        <label for="remember" class="remember-me">آنر</label>
-                                    </div>
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="#" class="filter-label">
-                                    <div class="form-auth-row">
-                                        <label for="#" class="ui-checkbox">
-                                            <input type="checkbox" value="1" name="login"
-                                                   id="remember">
-                                            <span class="ui-checkbox-check"></span>
-                                        </label>
-                                        <label for="remember" class="remember-me">ماهوت</label>
-                                    </div>
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="#" class="filter-label">
-                                    <div class="form-auth-row">
-                                        <label for="#" class="ui-checkbox">
-                                            <input type="checkbox" value="1" name="login"
-                                                   id="remember">
-                                            <span class="ui-checkbox-check"></span>
-                                        </label>
-                                        <label for="remember" class="remember-me">سونی</label>
-                                    </div>
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="#" class="filter-label">
-                                    <div class="form-auth-row">
-                                        <label for="#" class="ui-checkbox">
-                                            <input type="checkbox" value="1" name="login"
-                                                   id="remember">
-                                            <span class="ui-checkbox-check"></span>
-                                        </label>
-                                        <label for="remember" class="remember-me">هوآوی</label>
-                                    </div>
-                                </a>
-                            </li>
+                        <form asp-controller="Products" asp-action="Category" method="get">
+                             @foreach (var items in Model.Companies)
+                             {
+                                 <li>
+                                     <a href="#" class="filter-label">
+                                         <div class="form-auth-row">
+                                             <label for="#" class="ui-checkbox">
+                                                 @if (companies.ToList().Any(p => p == items.CompanyId.ToString()))
+                                                 {
+                                                     <input type="checkbox" value="@items.CompanyId" checked name="CompanyId" onclick="submit();">
+                                                 }
+                                                 else
+                                                 {
+                                                     <input type="checkbox" value="@items.CompanyId" name="CompanyId" onclick="submit();">
+                                                 }
+                                                 <span class="ui-checkbox-check"></span>
+                                             </label>
+                                             <label for="remember" class="remember-me">@items.CmpName </label>
+                                         </div>
+                                     </a>
+                                 </li>
+                             }
+                        </form>
                         </ul>
                     </li>
                 </ul>
@@ -361,50 +198,33 @@
                     <div id="suggestion-slider" class="owl-carousel owl-theme owl-rtl owl-loaded owl-drag">
                         <div class="owl-stage-outer">
                             <div class="owl-stage" style="transform: translate3d(1369px, 0px, 0px); transition: all 0.25s ease 0s; width: 2190px;">
-                                <div class="owl-item cloned" style="width: 273.75px;">
-                                    <div class="item">
-                                        <a href="#">
-                                            <img src="assets/images/slider-sidebar/slider-sidebar-1.jpg" class="w-100" alt="">
-                                        </a>
-                                        <div class="appcon">
-                                            <i class="fa fa-instagram"></i>
-                                            <i class="fa fa-whatsapp" aria-hidden="true"></i>
-                                            <i class="fa fa-phone"></i>
+                                @foreach (var item in Model.Experts)
+                                {
+                                    <div class="owl-item cloned" style="width: 273.75px;">
+                                        <div class="item">
+                                            <a href="#">
+                                                <img src="@item.ImageUrl" class="w-100" alt="@item.FirstName @item.LastName">
+                                            </a>
+                                            <div class="appcon">
+                                                @* <i class="fa fa-instagram"></i> *@
+                                                @* <i class="fa fa-whatsapp" aria-hidden="true"></i> *@
+                                                @* <i class="fa fa-phone" aria-hidden="true"></i> *@
+                                               <a href="tel:@item.PhoneNumber"><i class="fa fa-instagram"></i></a>
+                                               <a href=><i class="fa fa-whatsapp"></i></a>
+                                               <a href="tel:@item.PhoneNumber"><i class="fa fa-phone"></i></a>
+                                            </div>
+
+
+                                            <!-- <h3 class="product-title">
+                                                <a href="#"> لپ تاپ 15 اینچی ایسوس مدل VivoBook X543MA - A</a>
+                                            </h3> -->
+                                            <div class="price">
+                                                <!-- <del><span class="amount">۴,۵۳۰,۰۰۰<span>تومان</span></span></del> -->
+                                                <span class="amount">@item.FirstName @item.LastName</span>
+                                            </div>
                                         </div>
-
-
-                                        <!-- <h3 class="product-title">
-                                            <a href="#"> لپ تاپ 15 اینچی ایسوس مدل VivoBook X543MA - A</a>
-                                        </h3> -->
-                                        <div class="price">
-                                            <!-- <del><span class="amount">۴,۵۳۰,۰۰۰<span>تومان</span></span></del> -->
-                                            <span class="amount">محمد حسین</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="owl-item" style="width: 273.75px;">
-                                    <div class="item">
-                                        <a href="#">
-                                            <img src="assets/images/slider-sidebar/slider-sidebar-4.jpg" class="w-100" alt="">
-                                        </a>
-                                        <div class="appcon">
-                                            <i class="fa fa-instagram"></i>
-                                            <i class="fa fa-whatsapp" aria-hidden="true"></i>
-                                            <i class="fa fa-phone"></i>
-                                        </div>
-
-
-                                        <!-- <h3 class="product-title">
-                                            <a href="#"> لپ تاپ ۱۵ اینچی ایسوس مدل FX503VD - A  </a>
-                                        </h3> -->
-
-                                        <div class="price">
-                                            <!-- <del><span class="amount">۴,۵۳۰,۰۰۰<span>تومان</span></span></del> -->
-                                            <span class="amount">علی</span>
-                                        </div>
-                                    </div>
-                                </div>
-
+                                    </div> 
+                                }
                             </div>
                         </div>
                         <div class="owl-nav disabled ">
@@ -432,29 +252,85 @@
             <div class="collapse show" id="collapseExampleSeller">
                 <div class="catalog">
                     <ul>
-                        <li>
-                            <a href="#" class="filter-label">
-                                <div class="form-auth-row">
-                                    <label for="#" class="ui-checkbox">
-                                        <input type="checkbox" value="1" name="login" id="rememberseller1">
-                                        <span class="ui-checkbox-check"></span>
-                                    </label>
-                                    <label for="rememberseller1" class="remember-me">دیجی استور</label>
-                                </div>
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="#" class="filter-label">
-                                <div class="form-auth-row">
-                                    <label for="#" class="ui-checkbox">
-                                        <input type="checkbox" value="1" name="login" id="rememberseller2">
-                                        <span class="ui-checkbox-check"></span>
-                                    </label>
-                                    <label for="rememberseller2" class="remember-me">دیجی استور</label>
-                                </div>
-                            </a>
-                        </li>
+                        
+                        @if (currentUrl.Contains("/main/category-"))
+                        {
+                            <form asp-controller="Products" asp-action="CategorySecoundGroup" method="get">
+                                @foreach (var items in Model.Companies)
+                                {
+                                    <li>
+                                        <a href="#" class="filter-label">
+                                            <div class="form-auth-row">
+                                                <label for="@items.CompanyId" class="ui-checkbox">
+                                                    @if (companies.ToList().Any(p => p == items.CompanyId.ToString()))
+                                                    {
+                                                        <input type="checkbox" value="@items.CompanyId" checked name="CompanyId" onclick="submit();">
+                                                    }
+                                                    else
+                                                    {
+                                                        <input type="checkbox" value="@items.CompanyId"  name="CompanyId" onclick="submit();">
+                                                    }
+                                                    <span class="ui-checkbox-check"></span>
+                                                </label>
+                                                <label for="@items.CompanyId" class="remember-me">@items.CmpName</label>
+                                            </div>
+                                        </a>
+                                    </li>
+                                }
+                            </form>
+                        }
+                        else if (currentUrl.Contains("/main/category-") == false && currentUrl.Contains("search/") == false)
+                        {
+                            <form asp-controller="Products" asp-action="CategoryFirstGroup" method="get">
+                                @foreach (var items in Model.Companies)
+                                {
+                                    <li>
+                                        <a href="#" class="filter-label">
+                                            <div class="form-auth-row">
+                                                <label for="@items.CompanyId" class="ui-checkbox">
+                                                    @if (companies.ToList().Any(p => p == items.CompanyId.ToString()))
+                                                    {
+                                                        <input type="checkbox" value="@items.CompanyId" checked name="CompanyId" onclick="submit();">
+                                                    }
+                                                    else
+                                                    {
+                                                        <input type="checkbox" value="@items.CompanyId"  name="CompanyId" onclick="submit();">
+                                                    }
+                                                    <span class="ui-checkbox-check"></span>
+                                                </label>
+                                                <label for="@items.CompanyId" class="remember-me">@items.CmpName</label>
+                                            </div>
+                                        </a>
+                                    </li>
+                                }
+                            </form>
+                        }
+                        else if (currentUrl.Contains("search/"))
+                        {
+                            <form asp-controller="Products" asp-action="Category" method="get">
+                                @foreach (var items in Model.Companies)
+                                {
+                                    <li>
+                                        <a href="#" class="filter-label">
+                                            <div class="form-auth-row">
+                                                <label for="@items.CompanyId" class="ui-checkbox">
+                                                    @if (companies.ToList().Any(p => p == items.CompanyId.ToString()))
+                                                    {
+                                                        <input type="checkbox" value="@items.CompanyId" checked name="CompanyId" onclick="submit();">
+                                                    }
+                                                    else
+                                                    {
+                                                        <input type="checkbox" value="@items.CompanyId"  name="CompanyId" onclick="submit();">
+                                                    }
+                                                    <span class="ui-checkbox-check"></span>
+                                                </label>
+                                                <label for="@items.CompanyId" class="remember-me">@items.CmpName</label>
+                                            </div>
+                                        </a>
+                                    </li>
+                                }
+                            </form>
+                        }
                     </ul>
                 </div>
             </div>
@@ -465,35 +341,86 @@
 </div>
 <div class="col-lg-9 col-md-8 col-xs-12 pull-left">
 <div class="js-products">
-
-
+    
 <div class="listing-header">
     <span class="mdi mdi-sort-variant"></span>
-    <ul class="listing-sort nav nav-tabs" id="myTab" role="tablist" data-label="مرتب‌سازی بر اساس :">
-        <li class="listing-active nav-item">
-            <a class="nav-link active" id="mostvisited-tab" data-toggle="tab" href="#mostvisited" role="tab" aria-controls="mostvisited" aria-selected="true">پربازدید ترین</a>
-        </li>
-
-        <li class="nav-item">
-            <a class="nav-link" id="news-tab" data-toggle="tab" href="#news" role="tab" aria-controls="news" aria-selected="false">جدید ترین</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" id="cheapest-tab" data-toggle="tab" href="#cheapest" role="tab" aria-controls="cheapest" aria-selected="false">ارزان ترین</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" id="mostexpensive-tab" data-toggle="tab" href="#mostexpensive" role="tab" aria-controls="mostexpensive" aria-selected="false">گران ترین</a>
-        </li>
+    <ul class="listing-sort nav nav-tabs" id="myTab">
+        @if (currentUrl.Contains("/main/category-"))
+        {
+            <li class="listing-active nav-item">
+                <a class="nav-link sortType @(sortTypeId == "0" || String.IsNullOrEmpty(sortTypeId) ? "active" : "")" asp-action="CategorySecoundGroup" asp-route-SortType="0" rell="nofollow">پیش فرض</a>
+            </li>
+            <li class="listing-active nav-item">
+                <a class="nav-link sortType @(sortTypeId == "1" ? "active" : "")" asp-action="CategorySecoundGroup" asp-route-SortType="1" rell="nofollow">پربازدید ترین</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link sortType @(sortTypeId == "4" ? "active" : "")" asp-action="CategorySecoundGroup" asp-route-SortType="4" rell="nofollow">جدید ترین</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link sortType @(sortTypeId == "5" ? "active" : "")" asp-action="CategorySecoundGroup" asp-route-SortType="5" rell="nofollow">ارزان ترین</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link sortType @(sortTypeId == "6" ? "active" : "")" asp-action="CategorySecoundGroup" asp-route-SortType="6" rell="nofollow">گران ترین</a>
+            </li>
+        }
+        else if (currentUrl.Contains("/main/category-") == false && currentUrl.Contains("search/") == false)
+        {
+            <li class="listing-active nav-item">
+                <a class="nav-link sortType @(sortTypeId == "0" || String.IsNullOrEmpty(sortTypeId) ? "active" : "")" asp-action="CategoryFirstGroup" asp-route-SortType="0" rell="nofollow">پیش فرض</a>
+            </li>
+            <li class="listing-active nav-item">
+                <a class="nav-link sortType @(sortTypeId == "1" ? "active" : "")" asp-action="CategoryFirstGroup" asp-route-SortType="1" rell="nofollow">پربازدید ترین</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link sortType @(sortTypeId == "4" ? "active" : "")" asp-action="CategoryFirstGroup" asp-route-SortType="4" rell="nofollow">جدید ترین</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link sortType @(sortTypeId == "5" ? "active" : "")" asp-action="CategoryFirstGroup" asp-route-SortType="5" rell="nofollow">ارزان ترین</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link sortType @(sortTypeId == "6" ? "active" : "")" asp-action="CategoryFirstGroup" asp-route-SortType="6" rell="nofollow">گران ترین</a>
+            </li>
+        }
+        else if (currentUrl.Contains("search/"))
+        {
+            <li class="listing-active nav-item">
+                <a class="nav-link sortType @(sortTypeId == "0" || String.IsNullOrEmpty(sortTypeId) ? "active" : "")" asp-action="Category" asp-route-SortType="0" rell="nofollow">پیش فرض</a>
+            </li>
+            <li class="listing-active nav-item">
+                <a class="nav-link sortType @(sortTypeId == "1" ? "active" : "")" asp-action="Category" asp-route-SortType="1" rell="nofollow">پربازدید ترین</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link sortType @(sortTypeId == "4" ? "active" : "")" asp-action="Category" asp-route-SortType="4" rell="nofollow">جدید ترین</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link sortType @(sortTypeId == "5" ? "active" : "")" asp-action="Category" asp-route-SortType="5" rell="nofollow">ارزان ترین</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link sortType @(sortTypeId == "6" ? "active" : "")" asp-action="Category" asp-route-SortType="6" rell="nofollow">گران ترین</a>
+            </li>
+        }
     </ul>
 </div>
 
 <div class="listing-listing" style="margin-bottom: 2%; ">
 
 <div class="content">
-<p class="hash">هاش</p>
-<div class="se">
-    <h2>هاش HEA</h2>
-    <span>1400/05/04</span>
-</div>
+<p class="hash">@Model.FirstMenuName.Name</p>
+    <div class="se">
+        @if (currentUrl.Contains("/main/category-"))
+         {
+             <h2>@Model.SecoundMenuName.Fgname</h2>
+         } 
+        else if (currentUrl.Contains("/main/category-") == false && currentUrl.Contains("search/") == false)
+         {
+             <h2>@Model.FirstMenuName.Name</h2>
+         }
+         else if (currentUrl.Contains("search/"))
+          {
+              <h2>@Model.ThirdMenuName.Sgname</h2>
+          }
+        <span>@DateTime.Now.ToString("yyyy/M/d")</span>
+    </div>
 
 <!-- <div class="maliat">
     <span>قیمت‌ها بدون احتساب 9 درصد مالیات بر ارزش افزوده است.                        </span>
@@ -502,199 +429,96 @@
     <tr class="trhead">
         <th class="tdhead">کد</th>
         <th class="tdhead">نام</th>
+        <th class="tdhead">کارخانه تولیدی</th>
         <th class="tdhead">سایز</th>
         <th class="tdhead">استاندارد</th>
-        <th class="tdhead">طول(m)</th>
-        <th class="tdhead">کارخانه</th>
-        <th class="tdhead">تحویل</th>
+        <th class="tdhead">واحد</th>
         <th class="tdhead">قیمت</th>
         <th class="tdhead">تماس بگیرید</th>
-        <th class="tdhead">توضیحات </th>
-        <th class="tdhead"> خرید</th>
-
+        <th class="tdhead">تاریخ درج</th>
+        <th class="tdhead"></th>
     </tr>
 
+  @foreach (var item in Model.Products)
+  {
+      <tr class="trzir" id="result-sortType">
+          <td class="tdzir"><a asp-controller="Products" asp-action="Details" asp-route-PrdName="@item.PrdName.Replace(" ", "-")">@item.PrdCode</a></td>
+          <td class="tdzir"><a asp-controller="Products" asp-action="Details" asp-route-PrdName="@item.PrdName.Replace(" ", "-")">@item.PrdName</a></td>
+          <td class="tdzir">@item.PrdShpotherSupplier.CmpName</td>
+          <td class="tdzir">@item.PrdSize</td>
+          <td class="tdzir">@item.PrdModel</td>
+          <td class="tdzir">@item.PrdUnit.Unit</td>
+          <td class="tdzir">@item.PrdPrice</td>
+          <td class="tdzir">تماس بگیرید</td>
+          <td class="tdzir">@item.DateTime.ToString("yyyy/M/d")</td>
+          <td class="tdzir">
+              <button title="مشاهده نمودار قیمت محصول" class="chart" id="myBtn-@item.ProductId">
+                  <i class="fa fa-bar-chart" aria-hidden="true"></i>
+              </button>
 
-    <tr class="trzir">
-        <td class="tdzir">9929</td>
-        <td class="tdzir">هاش سبک</td>
-        <td class="tdzir">20</td>
-        <td class="tdzir">hea</td>
-        <td class="tdzir">12متری</td>
-        <td class="tdzir">ذوب اهن</td>
-        <td class="tdzir">بنگاه تهران</td>
-        <td class="tdzir">224,235</td>
-        <td class="tdzir">تماس بگیرید</td>
-        <td class="tdzir">1400/5/18-10:34</td>
-        <td class="tdzir">
-            <button class="buy">
-                <i class="fa fa-cart-plus" aria-hidden="true"></i>
-            </button>
-            <button title="مشاهده نمودار قیمت محصول" class="chart" id="myBtn">
-                <i class="fa fa-bar-chart" aria-hidden="true"></i>
-            </button>
-        </td>
-    </tr>
-    <tr class="trzir">
-        <td class="tdzir">9929</td>
-        <td class="tdzir">هاش سبک</td>
-        <td class="tdzir">20</td>
-        <td class="tdzir">hea</td>
-        <td class="tdzir">12متری</td>
-        <td class="tdzir">ذوب اهن</td>
-        <td class="tdzir">بنگاه تهران</td>
-        <td class="tdzir">224,235</td>
-        <td class="tdzir">تماس بگیرید</td>
-        <td class="tdzir">1400/5/18-10:34</td>
-        <td class="tdzir">
-            <button class="buy">
-                <i class="fa fa-cart-plus" aria-hidden="true"></i>
-            </button>
-            <button title="مشاهده نمودار قیمت محصول" class="chart" id="myBtn">
-                <i class="fa fa-bar-chart" aria-hidden="true"></i>
-            </button>
-        </td>
-    </tr>
-    <tr class="trzir">
-        <td class="tdzir">9929</td>
-        <td class="tdzir">هاش سبک</td>
-        <td class="tdzir">20</td>
-        <td class="tdzir">hea</td>
-        <td class="tdzir">12متری</td>
-        <td class="tdzir">ذوب اهن</td>
-        <td class="tdzir">بنگاه تهران</td>
-        <td class="tdzir">224,235</td>
-        <td class="tdzir">تماس بگیرید</td>
-        <td class="tdzir">1400/5/18-10:34</td>
-        <td class="tdzir">
-            <button class="buy">
-                <i class="fa fa-cart-plus" aria-hidden="true"></i>
-            </button>
-            <button title="مشاهده نمودار قیمت محصول" class="chart" id="myBtn">
-                <i class="fa fa-bar-chart" aria-hidden="true"></i>
-            </button>
-        </td>
-    </tr>
-    <tr class="trzir">
-        <td class="tdzir">9929</td>
-        <td class="tdzir">هاش سبک</td>
-        <td class="tdzir">20</td>
-        <td class="tdzir">hea</td>
-        <td class="tdzir">12متری</td>
-        <td class="tdzir">ذوب اهن</td>
-        <td class="tdzir">بنگاه تهران</td>
-        <td class="tdzir">224,235</td>
-        <td class="tdzir">تماس بگیرید</td>
-        <td class="tdzir">1400/5/18-10:34</td>
-        <td class="tdzir">
-            <button class="buy">
-                <i class="fa fa-cart-plus" aria-hidden="true"></i>
-            </button>
-            <button title="مشاهده نمودار قیمت محصول" class="chart" id="myBtn">
-                <i class="fa fa-bar-chart" aria-hidden="true"></i>
-            </button>
-        </td>
-    </tr>
-    <tr class="trzir">
-        <td class="tdzir">9929</td>
-        <td class="tdzir">هاش سبک</td>
-        <td class="tdzir">20</td>
-        <td class="tdzir">hea</td>
-        <td class="tdzir">12متری</td>
-        <td class="tdzir">ذوب اهن</td>
-        <td class="tdzir">بنگاه تهران</td>
-        <td class="tdzir">224,235</td>
-        <td class="tdzir">تماس بگیرید</td>
-        <td class="tdzir">1400/5/18-10:34</td>
-        <td class="tdzir">
-            <button class="buy">
-                <i class="fa fa-cart-plus" aria-hidden="true"></i>
-            </button>
-            <button title="مشاهده نمودار قیمت محصول" class="chart" id="myBtn">
-                <i class="fa fa-bar-chart" aria-hidden="true"></i>
-            </button>
-        </td>
-    </tr>
-    <tr class="trzir">
-        <td class="tdzir">9929</td>
-        <td class="tdzir">هاش سبک</td>
-        <td class="tdzir">20</td>
-        <td class="tdzir">hea</td>
-        <td class="tdzir">12متری</td>
-        <td class="tdzir">ذوب اهن</td>
-        <td class="tdzir">بنگاه تهران</td>
-        <td class="tdzir">224,235</td>
-        <td class="tdzir">تماس بگیرید</td>
-        <td class="tdzir">1400/5/18-10:34</td>
-        <td class="tdzir">
-            <button class="buy">
-                <i class="fa fa-cart-plus" aria-hidden="true"></i>
-            </button>
-            <button title="مشاهده نمودار قیمت محصول" class="chart" id="myBtn">
-                <i class="fa fa-bar-chart" aria-hidden="true"></i>
-            </button>
-        </td>
-    </tr>
-    <tr class="trzir">
-        <td class="tdzir">9929</td>
-        <td class="tdzir">هاش سبک</td>
-        <td class="tdzir">20</td>
-        <td class="tdzir">hea</td>
-        <td class="tdzir">12متری</td>
-        <td class="tdzir">ذوب اهن</td>
-        <td class="tdzir">بنگاه تهران</td>
-        <td class="tdzir">224,235</td>
-        <td class="tdzir">تماس بگیرید</td>
-        <td class="tdzir">1400/5/18-10:34</td>
-        <td class="tdzir">
-            <button class="buy">
-                <i class="fa fa-cart-plus" aria-hidden="true"></i>
-            </button>
-            <button title="مشاهده نمودار قیمت محصول" class="chart" id="myBtn">
-                <i class="fa fa-bar-chart" aria-hidden="true"></i>
-            </button>
-        </td>
-    </tr>
-    <tr class="trzir">
-        <td class="tdzir">9929</td>
-        <td class="tdzir">هاش سبک</td>
-        <td class="tdzir">20</td>
-        <td class="tdzir">hea</td>
-        <td class="tdzir">12متری</td>
-        <td class="tdzir">ذوب اهن</td>
-        <td class="tdzir">بنگاه تهران</td>
-        <td class="tdzir">224,235</td>
-        <td class="tdzir">تماس بگیرید</td>
-        <td class="tdzir">1400/5/18-10:34</td>
-        <td class="tdzir">
-            <button class="buy">
-                <i class="fa fa-cart-plus" aria-hidden="true"></i>
-            </button>
-            <button title="مشاهده نمودار قیمت محصول" class="chart" id="myBtn">
-                <i class="fa fa-bar-chart" aria-hidden="true"></i>
-            </button>
-        </td>
-    </tr>
-    <tr class="trzir">
-        <td class="tdzir">9929</td>
-        <td class="tdzir">هاش سبک</td>
-        <td class="tdzir">20</td>
-        <td class="tdzir">hea</td>
-        <td class="tdzir">12متری</td>
-        <td class="tdzir">ذوب اهن</td>
-        <td class="tdzir">بنگاه تهران</td>
-        <td class="tdzir">224,235</td>
-        <td class="tdzir">تماس بگیرید</td>
-        <td class="tdzir">1400/5/18-10:34</td>
-        <td class="tdzir">
-            <button class="buy">
-                <i class="fa fa-cart-plus" aria-hidden="true"></i>
-            </button>
-            <button title="مشاهده نمودار قیمت محصول" class="chart" id="myBtn">
-                <i class="fa fa-bar-chart" aria-hidden="true"></i>
-            </button>
-        </td>
-    </tr>
+              <button class="buy" title="اضافه به سبد خرید">
+                  <i class="fa fa-cart-plus" aria-hidden="true"></i>
+              </button>
+          </td>
+      </tr>
+      
+      <!-- The Modal -->
+      <div class="w3-container w3-center w3-animate-top">
+          <div id="myModal-@item.ProductId" class="modal ">
+              <!-- Modal content -->
+              <div class="modal-content">
+                  <span id="closemodal-@item.ProductId">&times;</span>
+                  <div id="chart-@item.ProductId">
+                  </div>
+              </div>
+          </div>
+      </div>
+      <script>
+        var modal = document.getElementById("myModal-@item.ProductId");
+        var btn = document.getElementById("myBtn-@item.ProductId");
+        var span = document.getElementById("closemodal-@item.ProductId");
+        btn.onclick = function() { modal.style.display = "block"; }
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() { modal.style.display = "none"; }
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) { if (event.target == modal) {modal.style.display = "none";}}
+    </script>
+
+      <script>
+            var options = {
+                series: [{
+                    name: 'قیمت محصول',
+                    data: [31, 40, 28, 51, 42, 109, 100]
+                }, {
+                    name: 'میانگین قیمت کل بازار',
+                    data: [11, 32, 45, 32, 34, 52, 41]
+                }],
+                chart: {
+                    height: 350,
+                    type: 'area'
+                },
+                dataLabels: {
+                    enabled: true
+                },
+                stroke: {
+                    curve: 'smooth'
+                },
+                xaxis: {
+                    type: 'datetime',
+                    categories: ["2018-09-19T00:00:00.000Z", "2018-09-19T01:30:00.000Z", "2018-09-19T02:30:00.000Z", "2018-09-19T03:30:00.000Z", "2018-09-19T04:30:00.000Z", "2018-09-19T05:30:00.000Z", "2018-09-19T06:30:00.000Z"]
+                },
+                tooltip: {
+                    x: {
+                        format: 'dd/MM/yy'
+                    },
+                },
+            };
+  
+            var chart = new ApexCharts(document.querySelector("#chart-@item.ProductId"), options);
+            chart.render();
+        </script>
+  }
+
 
 
 </table>
@@ -711,15 +535,3 @@
 <!--search-category------------------------->
 
 <div class="clear"></div>
-
-<!-- The Modal -->
-<div class="w3-container w3-center w3-animate-top">
-    <div id="myModal" class="modal ">
-        <!-- Modal content -->
-        <div class="modal-content">
-            <span id="closemodal">&times;</span>
-            <div id="chart">
-            </div>
-        </div>
-    </div>
-</div>
