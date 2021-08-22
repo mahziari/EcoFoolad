@@ -16,6 +16,17 @@ html {
     font-family: Yekan !important
 }
 
+.important-star{
+    font-size: 15px;
+    margin-bottom: 0.5rem;
+}
+
+.important-star:after{
+    font: normal normal normal 10px/1 FontAwesome;
+    content: "\f069";
+    color: #FF5B5C;
+}
+
 code, kbd, pre, samp {
     font-family: Yekan !important;
 }

@@ -474,8 +474,22 @@ $(document).ready(function () {
         }
     });
     //    slider-product------------------- 
-});
 
+
+
+    /*--------------- Mahziarii BEGIN floating Left --------------*/
+    let float_btn = document.querySelector('.floating-button');
+    let float_con = document.querySelector('.content-floating-button');
+    let cls_float = document.querySelector('.closefloat');
+    
+    cls_float.addEventListener('click', function() {
+        float_con.style.display = "none";
+    })
+    float_btn.addEventListener('click', function() {
+        float_con.style.display = 'block';
+
+    });
+});
 
 
 

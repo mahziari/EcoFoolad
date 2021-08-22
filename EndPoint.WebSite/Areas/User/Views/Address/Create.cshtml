@@ -2,18 +2,118 @@
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 @{
     ViewData["Title"] = "افزودن آدرس";
-    Layout = "~/Areas/User/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
+
+@await Component.InvokeAsync("LayoutComponent")
+
+
+
+
+@* <div class="remodal-overlay" id="modal"> *@
+@*       <div class="col-lg-8 col-md-8 col-xs-12 mx-auto"> *@
+@*           <div class="remodal"> *@
+@*               <a href="#" class="remodal-close close-profile-address" *@
+@*                   onclick="document.getElementById('modal').style.display='none'"><i class="fa fa-close"></i></a> *@
+<div class="middle-container">
+    <form asp-area="User" asp-controller="Address" asp-action="Create" method="post" class="form-checkout">
+        <div class="form-checkout-headline">ویرایش آدرس</div>
+        <div class="form-checkout-row">
+            <label for="name">
+                نام و نام خانوادگی تحویل گیرنده
+                <span class="required-star"style="color:red;">*</span>
+            </label>
+            <input asp-for="ReciverName" type="text" id="name" class="input-name-checkout" placeholder="نام تحویل گیرنده را وارد نمایید">
+           
+            <label for="phone-number">
+                شماره موبایل
+                <span class="required-star"
+                      style="color:red;">
+                    *
+                </span>
+            </label>
+            <input type="text" id="phone-number" class="input-name-checkout" placeholder="09xxxxxxxxx"
+                   style="text-align:left;">
+            
+            
+            <label for="fixed-number">
+                شماره تلفن ثابت
+                <span class="required-star"
+                      style="color:red;">
+                    *
+                </span>
+            </label>
+            <input type="text" id="fixed-number" class="input-name-checkout" placeholder="021xxxxxx"
+                   style="text-align:left;">
+
+            
+            <div class="form-checkout-valid-row">
+                <label for="province">
+                    استان
+                    <span class="required-star"
+                          style="color:red;">
+                    </span>
+                </label>
+                <select asp-for="City" id="province">
+                    <option value="date-desc" selected="selected">
+                        شهر مورد نظر خود را انتخاب کنید
+                    </option>
+                    <option value="date-asc">تهران</option>
+                    <option value="rate">مشهد</option>
+                    <option value="views">اصفهان</option>
+                    <option value="comments">شیراز</option>
+                </select>
+            </div>
+
+            <div class="form-checkout-valid-row">
+                <label for="city">
+                    شهر
+                    <span class="required-star" style="color:red;">*</span>
+                </label>
+                <select asp-for="State" id="city">
+                    <option value="date-desc" selected="selected">
+                        شهر مورد نظر خود را انتخاب کنید
+                    </option>
+                    <option value="date-asc">آشخانه</option>
+                    <option value="rate">شیروان</option>
+                    <option value="views">اسفراین</option>
+                    <option value="comments">جاجرم</option>
+                </select>
+            </div>
+
+            <label for="address">
+                آدرس
+                <span class="required-star" style="color:red;">*</span>
+            </label>
+            <input asp-for="PostalAddress" type="text" class="input-name-checkout"
+                   placeholder="آدرس خود را وارد نمایید" style="height:80px;">
+
+            <div class="form-checkout-valid-row">
+                <div class="parent-btn">
+                    <button type="submit" class="dk-btn dk-btn-info">
+                        ثبت آدرس
+                        <i class="fa fa-check sign-in"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+@*         </div> *@
+@*     </div> *@
+@* </div> *@
+
 
 <div class="theiaStickySidebar" style="padding-top: 0px; padding-bottom: 1px; position: static; transform: none;">
     <div class="woocommerce-notices-wrapper"></div>
-    <form asp-area="User" asp-controller="Address" asp-action="Create"  method="post">
+    <form asp-area="User" asp-controller="Address" asp-action="Create" method="post">
 
         <h3>آدرس برای ارسال بار : </h3>
         <div class="woocommerce-address-fields">
 
             <div class="woocommerce-address-fields__field-wrapper">
-                
+
                 <p class="form-row form-row form-row-last address-field validate-required">
                     <label asp-for="City" class="">شهر </label>
                     <input asp-for="City" type="text" class="input-text" placeholder="شهر">
@@ -34,10 +134,10 @@
                     </span>
                 </p>
 
-                <p class="form-row form-row-wide address-field validate-required validate-postcode" >
+                <p class="form-row form-row-wide address-field validate-required validate-postcode">
                     <label asp-for="ReciverName" class="">نام گیرنده &nbsp;<abbr class="required" title="ضروری">*</abbr></label>
                     <span class="woocommerce-input-wrapper">
-                        <input asp-for="ReciverName" type="text" class="input-text "  placeholder="" autocomplete="postal-code">
+                        <input asp-for="ReciverName" type="text" class="input-text " placeholder="" autocomplete="postal-code">
                         <span asp-validation-for="ReciverName" class="text-danger"></span>
                     </span>
                 </p>

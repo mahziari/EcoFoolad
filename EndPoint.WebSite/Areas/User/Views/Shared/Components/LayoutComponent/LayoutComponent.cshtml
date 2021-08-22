@@ -1,47 +1,85 @@
-﻿@model Application.Services.BackEnd.User.Home.UserHomeInformationPanelDto;
+﻿@using Application.Services.BackEnd.User.Home
+@model UserHomeInformationPanelDto;
+@using Domain.Entities.Users
+@using Microsoft.AspNetCore.Authorization
+@using Microsoft.AspNetCore.Identity
+@inject IAuthorizationService AuthorizationService;
+@inject SignInManager<User> SignInManager
+@inject UserManager<User> UserManager
 @{
     Layout = null;
 }  
 
+<div class="col-lg-3 col-md-4 col-xs-12">
+    <div class="sidebar-wrapper">
+        @* <div class="box-sidebar"> *@
+        @*     <div class="profile-box" style="border: none;"> *@
+        @*         <img src="assets/images/profile/1.jpg" class="profile-box-img-banner"> *@
+        @*     </div> *@
+        @* </div> *@
 
-
-<div class="sp_Possibilities">
-                    <ul class="sp_Information_panel">
-                        <li class="wallet">
-                            <div class="sp_paragraph">
-                                <span>کامنت</span>
-                                <span>0</span>
-                            </div>
-                            <div class="sp_icons_Information_panel">
-                                <i class="fas fa-wallet"></i>
-                            </div>
-                        </li>
-                        <li class="order">
-                            <div class="sp_paragraph">
-                                <span>سفارشات شما</span>
-                                <span> @Model.OrderCount</span>
-                            </div>
-                            <div class="sp_icons_Information_panel">
-                                <i class="fas fa-shopping-bag"></i>
-                            </div>
-                        </li>
-                        <li class="number_of_registration_day">
-                            <div class="sp_paragraph">
-                                @Model.WithMe
-                                <span>روز است که همراه ما هستید</span>
-                            </div>
-                            <div class="sp_icons_Information_panel">
-                                <i class="fas fa-smile"></i>
-                            </div>
-                        </li>
-                        <li class="discount_code">
-                            <div class="sp_paragraph">
-                                <span>اعلان ها</span>
-                                <span>1</span>
-                            </div>
-                            <div class="sp_icons_Information_panel">
-                                <i class="fas fa-scroll"></i>
-                            </div>
-                        </li>
-                    </ul>
+        <div class="box-sidebar">
+            <div class="profile-box">
+                <div class="profile-box-avator">
+                    <img src="~/BackEnd/User/images/avatars/UserAvatar.jpg">
                 </div>
+
+                <div class="profile-box-content">
+                    <span class="profile-box-nameuser">@UserManager.GetUserAsync(User).Result.FirstName @UserManager.GetUserAsync(User).Result.LastName</span>
+                    <span class="profile-box-phone">@UserManager.GetUserAsync(User).Result.PhoneNumber</span>
+                </div>
+
+                @* <a href="#" class="profile-box-row-arrow"> *@
+                @*     <div class="profile-box-title">کیف پول</div> *@
+                @*     <div class="profile-box-price"> *@
+                @*         <div class="wallet-amount">0</div> *@
+                @*         <div class="profile-box-currency">تومان</div> *@
+                @*         <i class="fa fa-angle-left"></i> *@
+                @*     </div> *@
+                @*     <p class="profile-box-wallet-link">افزایش موجودی</p> *@
+                @* </a> *@
+                @* *@
+                @* <a href="#" class="profile-box-row-arrow"> *@
+                @*     <div class="profile-box-title">دیجی کلاب</div> *@
+                @*     <div class="profile-box-price"> *@
+                @*         <div class="wallet-amount">0</div> *@
+                @*         <div class="profile-box-currency">امتیاز</div> *@
+                @*         <i class="fa fa-angle-left"></i> *@
+                @*     </div> *@
+                @* </a> *@
+            </div>
+            <ul class="profile-menu-items">
+                <li>
+                    <a href="profile.html" class="profile-menu-url">
+                        <span
+                            class="mdi mdi-account-outline">
+                        </span>پروفایل
+                    </a>
+                </li>
+                <li>
+                    <a asp-area="User" asp-controller="Orders" asp-action="Index" class="profile-menu-url">
+                        <span
+                            class="mdi mdi-basket">
+                        </span>همه سفارش ها
+                    </a>
+                </li>
+           
+                <li>
+                    <a asp-area="User" asp-controller="Address" asp-action="Index" class="profile-menu-url">
+                        <span class="mdi mdi-map-marker-outline"></span>آدرس
+                        ها
+                    </a>
+                </li>
+
+                <li>
+                    <a asp-area="Auth" asp-controller="Auth" asp-action="LogOut" class="profile-menu-url">
+                        <span
+                            class="mdi mdi-power">
+                        </span>خروج
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</div>

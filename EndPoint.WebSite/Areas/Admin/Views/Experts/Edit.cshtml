@@ -46,7 +46,7 @@
             <form asp-area="Admin"
                   asp-controller="Experts"
                   asp-action="Edit"
-                  asp-route-id="Id"
+                  asp-route-id="@Model.Id"
                   method="post">
                 <section class="invoice-edit-wrapper">
 
@@ -57,46 +57,53 @@
                                 <div class="card-content">
                                     <div class="card-body pb-0 mx-25">
 
-                                        <div class="col-sm-4 col-12 order-2 order-sm-1">
-                                            <label asp-for="FirstName" class="text-primary"></label>
-                                            <input asp-for="FirstName" type="text" class="form-control" placeholder="نام را وارد کنید">
-                                            <span asp-validation-for="FirstName" class="text-danger"></span>
-                                        </div>
+                                        <div class="row my-2 py-50">
+                                            <div class="col-sm-4 col-12 order-2 order-sm-1">
+                                                <label asp-for="FirstName" class="text-primary important-star"></label>
+                                                <input asp-for="FirstName" type="text" class="form-control" placeholder="نام را وارد کنید">
+                                                <span asp-validation-for="FirstName" class="text-danger"></span>
+                                            </div>
 
-                                        <div class="col-sm-4 col-12 order-2 order-sm-1">
-                                            <label asp-for="LastName" class="text-primary"></label>
-                                            <input asp-for="LastName" type="text" class="form-control" placeholder="نام خانوادگی را وارد کنید">
-                                            <span asp-validation-for="LastName" class="text-danger"></span>
-                                        </div>
+                                            <div class="col-sm-4 col-12 order-2 order-sm-1">
+                                                <label asp-for="LastName" class="text-primary important-star"></label>
+                                                <input asp-for="LastName" type="text" class="form-control" placeholder="نام خانوادگی را وارد کنید">
+                                                <span asp-validation-for="LastName" class="text-danger"></span>
+                                            </div>
 
 
-                                        <div class="col-sm-4 col-12 order-2 order-sm-1">
-                                            <label asp-for="ImageUrl" class="text-primary"></label>
-                                            <input asp-for="ImageUrl" type="text" class="form-control" placeholder="ادرس عکس وارد کنید">
-                                            <span asp-validation-for="ImageUrl" class="text-danger"></span>
+                                            <div class="col-sm-4 col-12 order-2 order-sm-1">
+                                                <label asp-for="ImageUrl" class="text-primary important-star"></label>
+                                                <input asp-for="ImageUrl" type="text" class="form-control" placeholder="ادرس عکس وارد کنید">
+                                                <span asp-validation-for="ImageUrl" class="text-danger"></span>
+                                            </div>
                                         </div>
+                                        
+                                         <div class="row my-2 py-50">
                                         <div class="col-sm-4 col-12 order-2 order-sm-1">
-                                            <label asp-for="PhoneNumber" class="text-primary"></label>
+                                            <label asp-for="PhoneNumber" class="text-primary important-star"></label>
                                             <input asp-for="PhoneNumber" type="text" class="form-control" placeholder="ادرس عکس وارد کنید">
                                             <span asp-validation-for="PhoneNumber" class="text-danger"></span>
                                         </div>
 
-                                        <div class="col-sm-12 col-12 order-2 order-sm-1">
-                                            <label asp-for="Telegram" class="text-primary"></label>
+                                        <div class="col-sm-4 col-12 order-2 order-sm-1">
+                                            <label asp-for="Telegram" class="text-primary important-star"></label>
                                             <input asp-for="Telegram" type="text" class="form-control" placeholder="آی دی تلگرام را وارد کنید">
                                             <span asp-validation-for="Telegram" class="text-danger"></span>
                                         </div>
 
-                                        <div class="col-sm-12 col-12 order-2 order-sm-1">
-                                            <label asp-for="WhatsApp" class="text-primary"></label>
+                                        <div class="col-sm-4 col-12 order-2 order-sm-1">
+                                            <label asp-for="WhatsApp" class="text-primary important-star"></label>
                                             <input asp-for="WhatsApp" type="text" class="form-control" placeholder="لینک واتس اپ را وارد کنید">
                                             <span asp-validation-for="WhatsApp" class="text-danger"></span>
                                         </div>
+                                        </div>
 
-                                        <div class="col-sm-12 col-12 order-2 order-sm-1">
-                                            <label asp-for="Instagram" class="text-primary"></label>
+                                         <div class="row my-2 py-50">
+                                        <div class="col-sm-4 col-12 order-2 order-sm-1">
+                                            <label asp-for="Instagram" class="text-primary important-star"></label>
                                             <input asp-for="Instagram" type="text" class="form-control" placeholder="آی دی اینستاگرام را وارد کنید">
                                             <span asp-validation-for="Instagram" class="text-danger"></span>
+                                        </div>
                                         </div>
 
                                     </div>

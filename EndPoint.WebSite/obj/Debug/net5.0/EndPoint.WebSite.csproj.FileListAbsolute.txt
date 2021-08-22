@@ -555,9 +555,6 @@ C:\Users\pc-2\Pictures\.NET\01_NewMyProject\EndPoint.WebSite\obj\Debug\net5.0\Ra
 C:\Users\pc-2\Pictures\.NET\01_NewMyProject\EndPoint.WebSite\obj\Debug\net5.0\Razor\Areas\User\Views\Orders\Factor.cshtml.g.cs
 C:\Users\pc-2\Pictures\.NET\01_NewMyProject\EndPoint.WebSite\obj\Debug\net5.0\Razor\Areas\User\Views\Orders\Index.cshtml.g.cs
 C:\Users\pc-2\Pictures\.NET\01_NewMyProject\EndPoint.WebSite\obj\Debug\net5.0\Razor\Areas\User\Views\Shared\Components\LayoutComponent\LayoutComponent.cshtml.g.cs
-C:\Users\pc-2\Pictures\.NET\01_NewMyProject\EndPoint.WebSite\obj\Debug\net5.0\Razor\Areas\User\Views\Shared\_HeadPartial.cshtml.g.cs
-C:\Users\pc-2\Pictures\.NET\01_NewMyProject\EndPoint.WebSite\obj\Debug\net5.0\Razor\Areas\User\Views\Shared\_Layout.cshtml.g.cs
-C:\Users\pc-2\Pictures\.NET\01_NewMyProject\EndPoint.WebSite\obj\Debug\net5.0\Razor\Areas\User\Views\Shared\_RtightPanelPartial.cshtml.g.cs
 C:\Users\pc-2\Pictures\.NET\01_NewMyProject\EndPoint.WebSite\obj\Debug\net5.0\Razor\Views\AboutUs\Index.cshtml.g.cs
 C:\Users\pc-2\Pictures\.NET\01_NewMyProject\EndPoint.WebSite\obj\Debug\net5.0\Razor\Views\Basket\Index.cshtml.g.cs
 C:\Users\pc-2\Pictures\.NET\01_NewMyProject\EndPoint.WebSite\obj\Debug\net5.0\Razor\Views\Basket\ShippingPayment.cshtml.g.cs
@@ -597,7 +594,6 @@ C:\Users\pc-2\Pictures\.NET\01_NewMyProject\EndPoint.WebSite\obj\Debug\net5.0\En
 C:\Users\pc-2\Pictures\.NET\01_NewMyProject\EndPoint.WebSite\obj\Debug\net5.0\ref\EndPoint.WebSite.dll
 C:\Users\pc-2\Pictures\.NET\01_NewMyProject\EndPoint.WebSite\obj\Debug\net5.0\EndPoint.WebSite.pdb
 C:\Users\pc-2\Pictures\.NET\01_NewMyProject\EndPoint.WebSite\obj\Debug\net5.0\EndPoint.WebSite.genruntimeconfig.cache
-C:\Users\pc-2\Pictures\.NET\01_NewMyProject\EndPoint.WebSite\obj\Debug\net5.0\Razor\Views\Products\Category1.cshtml.g.cs
 C:\Users\pc-2\Pictures\.NET\01_NewMyProject\EndPoint.WebSite\obj\Debug\net5.0\Razor\Areas\Admin\Views\Experts\Create.cshtml.g.cs
 C:\Users\pc-2\Pictures\.NET\01_NewMyProject\EndPoint.WebSite\obj\Debug\net5.0\Razor\Areas\Admin\Views\Experts\Edit.cshtml.g.cs
 C:\Users\pc-2\Pictures\.NET\01_NewMyProject\EndPoint.WebSite\obj\Debug\net5.0\Razor\Areas\Admin\Views\Experts\Index.cshtml.g.cs

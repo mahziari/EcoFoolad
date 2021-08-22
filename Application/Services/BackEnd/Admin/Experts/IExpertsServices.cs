@@ -100,31 +100,31 @@ namespace Application.Services.BackEnd.Admin.Experts
     {
         public int Id { get; set; }
         
-        [Display(Name = "آدرس عکس کارشناس")]
+        [Display(Name = "آدرس عکس کارشناس:")]
         [Required(ErrorMessage = "پر کردن فیلد {0} اجباری است")]
         public string ImageUrl { get; set; }
         
-        [Display(Name = "نام")]
+        [Display(Name = "نام:")]
         [Required(ErrorMessage = "پر کردن فیلد {0} اجباری است")]
         public string FirstName { get; set; }
         
-        [Display(Name = "نام خوانوادگی")]
+        [Display(Name = "نام خوانوادگی:")]
         [Required(ErrorMessage = "پر کردن فیلد {0} اجباری است")]
         public string LastName { get; set; }
         
-        [Display(Name = "شماره موبایل")]
+        [Display(Name = "شماره موبایل:")]
         [Required(ErrorMessage = "پر کردن فیلد {0} اجباری است")]
         public string PhoneNumber { get; set; }
         
-        [Display(Name = "لینک  واتس آپ")]
+        [Display(Name = "لینک  واتس آپ:")]
         [Required(ErrorMessage = "پر کردن فیلد {0} اجباری است")]
         public string WhatsApp { get; set; }
         
-        [Display(Name = "آی دی تلگرام")]
+        [Display(Name = "آی دی تلگرام:")]
         [Required(ErrorMessage = "پر کردن فیلد {0} اجباری است")]
         public string Telegram { get; set; }
         
-        [Display(Name = "آی دی اینستاگرام")]
+        [Display(Name = "آی دی اینستاگرام:")]
         [Required(ErrorMessage = "پر کردن فیلد {0} اجباری است")]
         public string Instagram { get; set; } 
     }

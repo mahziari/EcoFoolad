@@ -4,77 +4,128 @@
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 @{
     ViewData["Title"] = "سفارشات";
-    Layout = "~/Areas/User/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 
-<table class="woocommerce-orders-table woocommerce-MyAccount-orders shop_table shop_table_responsive my_account_orders account-orders-table">
-    <thead>
-    <tr>
-        <th class="woocommerce-orders-table__header woocommerce-orders-table__header-order-number">
-            <span class="nobr">سفارش</span>
-        </th>
-        <th class="woocommerce-orders-table__header woocommerce-orders-table__header-order-date">
-            <span class="nobr">تاریخ</span>
-        </th>
-        <th class="woocommerce-orders-table__header woocommerce-orders-table__header-order-status">
-            <span class="nobr">وضعیت</span>
-        </th>
-        <th class="woocommerce-orders-table__header woocommerce-orders-table__header-order-total">
-            <span class="nobr">مجموع</span>
-        </th>
-        <th class="woocommerce-orders-table__header woocommerce-orders-table__header-order-actions">
-            <span class="nobr">عملیات ها</span>
-        </th>
-    </tr>
-    </thead>
+ @await Component.InvokeAsync("LayoutComponent")
+ <div class="col-lg-9 col-md-8 col-xs-12 pull-left">
+        <div class="headline-profile page-profile-order">
+            <span>همه سفارش ها</span>
+        </div>
+        <div class="profile-stats page-profile-order">
+            <div class="table-orders">
+                <table class="table">
+                    <thead class="thead-light">
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">شماره سفارش</th>
+                            <th scope="col">تاریخ ثبت سفارش</th>
+                            <th scope="col">مبلغ قابل پرداخت</th>
+                            <th scope="col">مبلغ کل</th>
+                            <th scope="col">عملیات پرداخت</th>
+                            <th scope="col"></th>
+                            <th scope="col">جزئیات</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    @{ var i = 0;}
+                    @foreach (var items in Model)
+                    {
+                        i++;
+                        <tr>
+                            <td>@i</td>
+                            <td class="order-code">#@items.Id</td>
+                            <td>@items.OrderDate.ToPersianDateTime().ToString("yyyy/MM/d")</td>
+                            <td>@items.OrderItems.Count</td>
+                            <td> @items.TotalPrice.ToString("n0") تومان</td>
+                            @if (@items.PaymentStatus == PaymentStatus.Paid)
+                            {
+                                <td class="text-success"> پرداخت موفق</td>
+                            }
+                            else
+                            {
+                                <td class="text-danger"> پرداخت ناموفق</td>
+                            }
+                            @if (items.OrderStatus == OrderStatus.Processing)
+                                {
+                                    <td>سفارش در حال انجام میباشد</td>
+                                }else if (items.OrderStatus == OrderStatus.Canceled)
+                                {
+                                    <td>سفارش کنسل شده است</td>
+                                }
+                                else if (items.OrderStatus == OrderStatus.Delivered)
+                                {
+                                    <td class="text-success">سفارش تحویل داده شده است</td>
+                                }
+                                else if (items.OrderStatus == OrderStatus.Returned)
+                                {
+                                    <td>سفارش مرجوع گردیده است</td>
+                                }
+                            <td class="detail"><a asp-area="User" asp-controller="Orders" asp-action="Details" asp-route-id="@items.Id"><i class="fa fa-angle-left"></i></a></td>
+                        </tr>
+                    }
+                    </tbody>
+                </table>
+            </div>
+        </div>
 
-    <tbody>
-    @foreach (var items in Model)
-    {
-        <tr class="woocommerce-orders-table__row woocommerce-orders-table__row--status-processing order">
-            <td class="woocommerce-orders-table__cell woocommerce-orders-table__cell-order-number" data-title="سفارش">
-                <a href="">
-                   #@items.Id
-                </a>
-
-            </td>
-            <td class="woocommerce-orders-table__cell woocommerce-orders-table__cell-order-date" data-title="تاریخ">
-                <time datetime="2021-06-12T15:48:29+00:00">@items.OrderDate.ToPersianDateTime().ToString("yyyy/MM/d")</time>
-
-            </td>
-            <td class="woocommerce-orders-table__cell woocommerce-orders-table__cell-order-status" data-title="وضعیت">
-                @if (items.OrderStatus == OrderStatus.Processing)
-                {
-                    <span>سفارش در حال انجام میباشد</span>
-                }else if (items.OrderStatus == OrderStatus.Canceled)
-                {
-                    <span>سفارش کنسل شده است</span>
-                }
-                else if (items.OrderStatus == OrderStatus.Delivered)
-                {
-                    <span>سفارش تحویل داده شده است</span>
-                }
-                else if (items.OrderStatus == OrderStatus.Returned)
-                {
-                    <span>سفارش مرجوع گردیده است</span>
-                }
-            </td>
-            
-            <td class="woocommerce-orders-table__cell woocommerce-orders-table__cell-order-total" data-title="مجموع">
-                <span class="woocommerce-Price-amount amount">
-                    @items.TotalPrice.ToString("n0")
-                    <span class="woocommerce-Price-currencySymbol">تومان</span>
-                </span>
-            </td>
-            
-            <td class="woocommerce-orders-table__cell woocommerce-orders-table__cell-order-actions" data-title="عملیات ها">
-                <a asp-area="User" asp-controller="Orders" asp-action="Details" asp-route-id="@items.Id"
-                   class="woocommerce-button button view">نمایش </a>
-            </td>
-            
-        </tr>
-  
-    }
-    </tbody>
-</table>
+        <!--        responsive-profile-order------------------------->
+        <div class="page-profile">
+            <div class="page-navigation">
+                <div class="page-navigation-title">سفارش‌های من</div>
+                <a href="#" class="page-navigation-btn-back">بازگشت <i class="fa fa-angle-left"></i></a>
+            </div>
+            <div class="profile-orders">
+                
+                    @foreach (var items in Model)
+                    {
+                        <div class="collapse">
+                            <div class="profile-orders-item">
+                                <div class="profile-orders-header">
+                                    <a href="profile-order-2.html" class="profile-orders-header-details">
+                                        <div class="profile-orders-header-summary">
+                                            <div class="profile-orders-header-row">
+                                                <span class="profile-orders-header-id">#@items.Id</span>
+                                                   @if (items.OrderStatus == OrderStatus.Processing)
+                                                    {
+                                                        <span class="profile-orders-header-state">سفارش در حال انجام میباشد</span>
+                                                    }else if (items.OrderStatus == OrderStatus.Canceled)
+                                                    {
+                                                        <span class="profile-orders-header-state">سفارش کنسل شده است</span>
+                                                    }
+                                                    else if (items.OrderStatus == OrderStatus.Delivered)
+                                                    {
+                                                        <span class="profile-orders-header-state">سفارش تحویل داده شده است</span>
+                                                    }
+                                                    else if (items.OrderStatus == OrderStatus.Returned)
+                                                    {
+                                                        <span class="profile-orders-header-state">سفارش مرجوع گردیده است</span>
+                                                    }
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <hr class="ui-separator">
+                                    <div class="profile-orders-header-data">
+                                        <div class="profile-info-row">
+                                            <div class="profile-info-label">تاریخ ثبت سفارش</div>
+                                            <div class="profile-info-value">@items.OrderDate.ToPersianDateTime().ToString("yyyy/MM/d")</div>
+                                        </div>
+                                        <div class="profile-info-row">
+                                            <div class="profile-info-label">مبلغ قابل پرداخت</div>
+                                            <div class="profile-info-value"></div>
+                                        </div>
+                                        <div class="profile-info-row">
+                                            <div class="profile-info-label">مبلغ کل</div>
+                                            <div class="profile-info-value">@items.TotalPrice.ToString("n0")</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    }
+            </div>
+        </div>
+        <!--        responsive-profile-order------------------------->
+    </div>
