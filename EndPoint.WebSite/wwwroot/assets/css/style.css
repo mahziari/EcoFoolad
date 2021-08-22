@@ -3617,7 +3617,6 @@ button, input, optgroup, select, textarea {
     width: 100%;
     height: auto;
     float: right;
-    margin-top: 60px;
     border-bottom: 1px solid #e1e1e1;
 }
 
@@ -5395,11 +5394,13 @@ main.single-product .product .gallery-items li img:hover {
 }
 
 .breadcrumb li {
+    font-weight: 700;
+    color: #6b7074;
     font-size: 12px;
 }
 
 .breadcrumb li a {
-    color: #666;
+    color: #949ca2;
     font-size: 12px;
 }
 
@@ -5822,7 +5823,7 @@ ul.profile-menu-items li a.profile-menu-url {
 }
 
 ul.profile-menu-items li a.profile-menu-url:hover {
-    color: #009ec9 !important;
+    color: #abb8c4 !important;
 }
 
 ul.profile-menu-items li a.profile-menu-url span {
@@ -5835,7 +5836,7 @@ ul.profile-menu-items li a.profile-menu-url span {
     width: 100%;
     height: auto;
     float: right;
-    margin-top: 60px;
+    /*margin-top: 60px;*/
     display: block;
     font: 20px iranyekan;
     color: #858585;
@@ -6171,7 +6172,7 @@ a.add-address:hover {
     width: 100%;
     height: auto;
     float: right;
-    margin-top: 60px;
+    /*margin-top: 60px;*/
     border: 1px solid #dedede;
     box-shadow: 0 12px 12px 0 hsla(0, 0%, 71%, .1);
     background: #fff;
@@ -8129,7 +8130,6 @@ form#shipping-data-form {
     float: right;
     padding: 15px;
     border-radius: 5px;
-    margin-top: 60px;
 }
 
 .product-headline {
@@ -11744,6 +11744,10 @@ ul.faq-list li .footer em {
 }
 
 @media (max-width: 575px) {
+    .product-config table{
+        margin-top: 0px;
+        width: 100%;
+    }
     .product-comment .comments-product-col-info .comments-product-attributes .slider.slider-horizontal {
         width: 100%;
     }
@@ -11928,6 +11932,10 @@ ul.faq-list li .footer em {
     background-color: transparent;
 }
 
+.trzir td a{
+  color: #151515;
+}
+
 .trzir:nth-of-type(odd) {
     background-color: rgb(245, 245, 245);
 }
@@ -11936,10 +11944,6 @@ ul.faq-list li .footer em {
     background-color: #fff;
 }
 
-.trzir:hover {
-    color: #abb8c4;
-    transition: 0.5s;
-}
 
 .tdzir button {
     background-color: #abb8c4;
@@ -12295,3 +12299,170 @@ tr:last-child {
     position: sticky;
     top: 0;
 }
+
+
+.product-config {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+/*--------------- Mahziarii Product Details --------------*/
+
+.Name-Products {
+    text-align: center;
+    font-size: 1.5em;
+}
+
+.product-config {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+table {
+    margin-top: 15%;
+    width: 70%;
+}
+
+.product-attributes .product-seller-info {
+    margin-top: 35%
+}
+
+.table-head-procuct-details {
+    width: 100px;
+    color: red;
+    padding-right: 25px;
+}
+
+.table-data-procuct-details {
+    margin-left: 50px;
+}
+
+.table-head-procuct-details,
+.table-data-procuct-details {
+    padding-bottom: 50px;
+}
+
+/*--------------- Mahziarii BEGIN floating Left --------------*/
+
+
+.fa-database {
+    text-align: center;
+    width: 100%;
+    font-size: 40px;
+    color: #fff;
+}
+
+ 
+
+.floating-button {
+    transition: box-shadow .2s ease-in-out !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    background-color: #181942;
+    border-radius: 50%;
+    z-index: 1;    
+    /*transition: width 0.5s,height 0.5s;*/
+
+}
+.floating-button:hover{
+    width: 62px;
+    height: 62px;
+   
+}
+.content-floating-button {
+    display: none;
+    width: 370px;
+    height: 554px;
+    background-color: #fff;
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    overflow-y: scroll;
+    z-index: 9999;
+    border-radius: 10px;
+}
+
+.floating-button-head {
+    width: 100%;
+    height: 60px;
+    background-color: #191842;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    padding-top: 19px;
+    justify-content: space-between;
+}
+
+.avrag-floating {
+    font-size: 1.2em;
+    color: #fff;
+    padding-left: 25%;
+    font-weight: bold;
+}
+
+.floating-button-head .fa-times {
+    font-size: 19px;
+    margin-right: 15px;
+    color: #fff;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 25px;
+    height: 25px;
+}
+
+.closefloat:hover {
+    font-size: 21px;
+    
+    
+}
+
+.floating-button-list {
+    height: 494px;
+    width: 100%;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.floating-button-list-scroll {
+    width: 90%;
+    margin: 0;
+    padding-right: 25px;
+    height: 480px;
+    overflow-y: scroll;
+}
+
+.floating-button-list-scroll .jadval {
+    height: 20px !important;
+    border: 1px solid #ccc;
+}
+/* formBtnBuy */
+
+.formBtnBuy {
+    display: inline;
+}
+
+.trzir:hover {
+    box-shadow: 4px 7px 8px -8px;
+    z-index: 99999999999999999999;
+    inset: revert;
+    transform: rotate(0);
+}
+
+
+ 

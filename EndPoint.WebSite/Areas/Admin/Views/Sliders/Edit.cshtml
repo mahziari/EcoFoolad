@@ -129,13 +129,13 @@
     <div class="row">
         <div class="col-12">
             <div class="card-header">
-                <h6 class="text-primary"> انتخاب موقعیت:<b class="text-danger h3">*</b></h6>
+                <h6 class=" important-star"> انتخاب موقعیت:<b class="text-danger h3">*</b></h6>
                 </div>
             <div class="card-content">
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-4">
-                            @* <h6 class="text-primary"> انتخاب دسته بندی <b class="text-danger h3">*</b></h6> *@
+                            @* <h6 class=" important-star"> انتخاب دسته بندی <b class="text-danger h3">*</b></h6> *@
                             @* <p>Use <code>.select2</code> class for basic select2 control.</p> *@
                             <div class="form-group">
                                 <select class="select2 form-control selectMenuAndReturnSubMenu">
@@ -150,7 +150,7 @@
                         </div>
 
                         <div class="col-md-4">
-                            @* <h6 class="text-primary"> انتخاب  شرکت <b class="text-danger h3">*</b></h6> *@
+                            @* <h6 class=" important-star"> انتخاب  شرکت <b class="text-danger h3">*</b></h6> *@
                             @* <p>Use <code>.select2</code> class for basic select2 control.</p> *@
                             <div class="form-group">
                                 <select class="select2 form-control selectMenuAndReturnSubSubMenu" id="resultSubMenu">
@@ -160,7 +160,7 @@
                         </div>
 
                         <div class="col-md-4">
-                            @* <h6 class="text-primary"> انتخاب  شرکت <b class="text-danger h3">*</b></h6> *@
+                            @* <h6 class=" important-star"> انتخاب  شرکت <b class="text-danger h3">*</b></h6> *@
                             @* <p>Use <code>.select2</code> class for basic select2 control.</p> *@
                             <div class="form-group">
                                 <select class="select2 form-control resultSubSubMenu" asp-for="PrdGroupId">
@@ -183,13 +183,13 @@
 <!-- header section -->
 <div class="row my-2 py-50">
     <div class="col-sm-6 col-12 order-2 order-sm-1">
-        <h6 asp-for="PrdName" class="text-primary">نام محصول: <b class="text-danger h3">*</b></h6>
+        <h6 asp-for="PrdName" class=" important-star">نام محصول: <b class="text-danger h3">*</b></h6>
         <input asp-for="PrdName" type="text" value="@Model.Product.PrdName" class="form-control" placeholder="نام را وارد کنید">
         <span asp-validation-for="PrdName" class="text-danger"></span>
 
     </div>
     <div class="col-md-6 col-12 order-2 order-sm-1">
-        <h6 class="text-primary"> انتخاب شرکت سازنده محصول:<b class="text-danger h3">*</b></h6>
+        <h6 class=" important-star"> انتخاب شرکت سازنده محصول:<b class="text-danger h3">*</b></h6>
         <div class="form-group">
             <select class="select2 form-control" asp-for="PrdShpotherSupplierId">
                 <option value="@Model.Product.PrdShpotherSupplier.CompanyId">@Model.Product.PrdShpotherSupplier.CmpName </option>
@@ -219,7 +219,7 @@
                         <div class="row">
 
                             <div class="col-md-6">
-                                <h6 class="text-primary">واحد محصول:<b class="text-danger h3">*</b></h6>
+                                <h6 class=" important-star">واحد محصول:<b class="text-danger h3">*</b></h6>
                                 @* <p>Use <code>.select2</code> class for basic select2 control.</p> *@
                                 <div class="form-group">
                                     <select asp-for="PrdUnitId" class="select2 form-control UnitProduct">
@@ -231,19 +231,19 @@
                             </div>
 
                             <div class="col-sm-6 col-12 order-2 order-sm-1">
-                                <h6 class="text-primary"> موجودی(بر حسب واحد محصول): <b class="text-danger h3">*</b></h6>
+                                <h6 class=" important-star"> موجودی(بر حسب واحد محصول): <b class="text-danger h3">*</b></h6>
                                 <input asp-for="PrdMaxQty" type="text" value="@Model.Product.PrdMaxQty" class="form-control" placeholder="موجودی را وارد کنید">
                                 <span asp-validation-for="PrdMaxQty" class="text-danger"></span>
                             </div>
 
                             <div class="col-sm-6 col-12 order-2 order-sm-1">
-                                <h6 class="text-primary"> سایز: <b class="text-danger h3">*</b></h6>
+                                <h6 class=" important-star"> سایز: <b class="text-danger h3">*</b></h6>
                                 <input asp-for="PrdSize" type="text" value="@Model.Product.PrdSize" class="form-control" placeholder="سایز را وارد کنید">
                                 <span asp-validation-for="PrdSize" class="text-danger"></span>
                             </div>
 
                             <div class="col-sm-6 col-12 order-2 order-sm-1">
-                                <h6 class="text-primary"> مدل(نوع آلیاژ,طول,ضخامت): <b class="text-danger h3">*</b></h6>
+                                <h6 class=" important-star"> مدل(نوع آلیاژ,طول,ضخامت): <b class="text-danger h3">*</b></h6>
                                 <input asp-for="PrdModel" type="text" value="@Model.Product.PrdModel" class="form-control" placeholder="مدل را وارد کنید">
                                 <span asp-validation-for="PrdModel" class="text-danger"></span>
                             </div>
@@ -273,7 +273,7 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-sm-6 col-12 order-2 order-sm-1">
-                                <h6 class="text-primary"> قیت(ریال): <b class="text-danger h3">*</b></h6>
+                                <h6 class=" important-star"> قیت(ریال): <b class="text-danger h3">*</b></h6>
                                 <input asp-for="PrdPrice" type="text" value="@Model.Product.PrdPrice" class="form-control" placeholder="فقط عدد وارد کنید">
                                 <span asp-validation-for="PrdPrice" class="text-danger"></span>
                             </div>

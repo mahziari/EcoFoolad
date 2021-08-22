@@ -1926,21 +1926,21 @@ nav.top-menu-box ul.search-footer-menu li.menu-item ul.sub-menu li.menu-item-vid
 }
 
 .main-content .topics .topics-content .breadcrumb li.breadcrumb-item.active{
-    font-weight: 700;
+    /*font-weight: 700;*/
     color: #6b7074;
     min-width: 50%;
     font-size: 13px;
 }
 
 .main-content .topics .topics-content .breadcrumb li.breadcrumb-item+.breadcrumb-item::before{
-    content: "\f104";
+    content: "/";
     font: normal normal normal 14px/1 FontAwesome;
     vertical-align: middle;
     display: inline-block;
-    color: #ff637d;
-    top: 2px;
+    color: #6c757d;
+    /*top: 2px;*/
     position: relative;
-    font-size: 18px;
+    font-size: 15px;
 }
 
 .main-content .topics .topics-content .post-module .sep{

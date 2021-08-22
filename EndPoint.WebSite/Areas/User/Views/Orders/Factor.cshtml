@@ -1,7 +1,9 @@
 ﻿@{
     ViewData["Title"] = "فاکتور سفارش";
-    Layout = "~/Areas/User/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
+ @await Component.InvokeAsync("LayoutComponent")
 
 
 <section class="woocommerce-order-details">

@@ -2,10 +2,10 @@
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 @{
     ViewData["Title"] = "آدرس ها";
-    Layout = "~/Areas/User/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-
+ @await Component.InvokeAsync("LayoutComponent")
 
 @if (TempData["IsSuccess"] != null)
 {
@@ -24,11 +24,9 @@
     }
 }
 
-<p>
     <a asp-area="User" asp-controller="Address" asp-action="Create" type="bottom">
         ثبت آدرس جدید
     </a>
-</p>
 <br>
 
 @foreach (var item in Model)
@@ -41,5 +39,61 @@
         <address>
             @item.PostalAddress
         </address>
+    </div>
+    
+    <div class="col-lg-9 col-md-8 col-xs-12 pull-right">
+        <div class="d-block">
+            <div class="profile-content">
+                <div class="profile-stats">
+                    <div class="profile-address">
+                        <div class="box-header">
+                            <span class="box-title">نشانی ما</span>
+                        </div>
+                        <div class="profile-address-item">
+                            <div class="profile-address-item-top">
+                                <div class="profile-address-item-title">خراسان شمالی ، بجنورد</div>
+                                <div class="ui-more">
+                                    <button class="btn-remove-address btn btn-danger" type="submit">حذف</button>
+                                </div>
+                            </div>
+
+                            <div class="profile-address-content">
+                                <ul class="profile-address-info">
+                                    <li>
+                                        <div class="profile-address-info-item location">
+                                            <i class="mdi mdi-map-outline"></i>
+                                            خراسان شمالی، بجنورد
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="profile-address-info-item location">
+                                            <i class="mdi mdi-email-outline"></i>
+                                            945789651235
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="profile-address-info-item location">
+                                            <i class="mdi mdi-phone"></i>
+                                            0991*******
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="profile-address-info-item location">
+                                            <i class="mdi mdi-account"></i>
+                                            خراسان شمالی، بجنورد
+                                        </div>
+                                    </li>
+                                    <li class="location-link">
+                                        <a href="#" class="edit-address-link"
+                                           onclick="document.getElementById('modal').style.display='block'">ویرایش
+                                            نشانی</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 }

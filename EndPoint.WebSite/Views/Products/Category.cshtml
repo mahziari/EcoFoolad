@@ -198,9 +198,12 @@
                     <div id="suggestion-slider" class="owl-carousel owl-theme owl-rtl owl-loaded owl-drag">
                         <div class="owl-stage-outer">
                             <div class="owl-stage" style="transform: translate3d(1369px, 0px, 0px); transition: all 0.25s ease 0s; width: 2190px;">
+                                
+                                @{ var i = 0;}
                                 @foreach (var item in Model.Experts)
                                 {
-                                    <div class="owl-item cloned" style="width: 273.75px;">
+                                    i++;
+                                    <div class="owl-item @(i==1? "cloned":"")" style="width: 273.75px;">
                                         <div class="item">
                                             <a href="#">
                                                 <img src="@item.ImageUrl" class="w-100" alt="@item.FirstName @item.LastName">
@@ -209,9 +212,9 @@
                                                 @* <i class="fa fa-instagram"></i> *@
                                                 @* <i class="fa fa-whatsapp" aria-hidden="true"></i> *@
                                                 @* <i class="fa fa-phone" aria-hidden="true"></i> *@
-                                               <a href="tel:@item.PhoneNumber"><i class="fa fa-instagram"></i></a>
-                                               <a href=><i class="fa fa-whatsapp"></i></a>
-                                               <a href="tel:@item.PhoneNumber"><i class="fa fa-phone"></i></a>
+                                                <a href="tel:@item.PhoneNumber"><i class="fa fa-instagram"></i></a>
+                                                <a href=""><i class="fa fa-whatsapp"></i></a>
+                                                <a href="tel:@item.PhoneNumber"><i class="fa fa-phone"></i></a>
                                             </div>
 
 
@@ -223,7 +226,7 @@
                                                 <span class="amount">@item.FirstName @item.LastName</span>
                                             </div>
                                         </div>
-                                    </div> 
+                                    </div>
                                 }
                             </div>
                         </div>
@@ -442,7 +445,7 @@
   @foreach (var item in Model.Products)
   {
       <tr class="trzir" id="result-sortType">
-          <td class="tdzir"><a asp-controller="Products" asp-action="Details" asp-route-PrdName="@item.PrdName.Replace(" ", "-")">@item.PrdCode</a></td>
+          <td class="tdzir"><a class="aaa" asp-controller="Products" asp-action="Details" asp-route-PrdName="@item.PrdName.Replace(" ", "-")">@item.PrdCode</a></td>
           <td class="tdzir"><a asp-controller="Products" asp-action="Details" asp-route-PrdName="@item.PrdName.Replace(" ", "-")">@item.PrdName</a></td>
           <td class="tdzir">@item.PrdShpotherSupplier.CmpName</td>
           <td class="tdzir">@item.PrdSize</td>
@@ -455,10 +458,12 @@
               <button title="مشاهده نمودار قیمت محصول" class="chart" id="myBtn-@item.ProductId">
                   <i class="fa fa-bar-chart" aria-hidden="true"></i>
               </button>
-
-              <button class="buy" title="اضافه به سبد خرید">
-                  <i class="fa fa-cart-plus" aria-hidden="true"></i>
-              </button>
+                <form asp-controller="Basket" asp-action="Index" method="post" class="formBtnBuy">
+                    <button type="submit" class="buy" title="اضافه به سبد خرید">
+                        <i class="fa fa-cart-plus" aria-hidden="true"></i>
+                    </button>
+                    <input type="hidden" name="productId" value="@item.ProductId">
+                </form>
           </td>
       </tr>
       

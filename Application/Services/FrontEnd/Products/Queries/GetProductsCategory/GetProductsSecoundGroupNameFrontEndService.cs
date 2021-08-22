@@ -127,6 +127,9 @@ namespace Application.Services.FrontEnd.Products.Queries.GetProductsCategory
             var companies = _mapper.Map<List<CompanyDto>>(mCompanies);
             
             
+            var expertModel = _customDbContext.Experts.ToList();
+            var experts = _mapper.Map<List<ExpertsDto>>(expertModel);
+            
             return new ResultGetProductsCategoryFrontEndDto
             {
                 FirstMenuName=secoundGroupName.ParsaPooladMenus,
@@ -134,6 +137,7 @@ namespace Application.Services.FrontEnd.Products.Queries.GetProductsCategory
                 Products = products,
                 Factories = factories,
                 Companies = companies,
+                Experts = experts
             };
         }
     }

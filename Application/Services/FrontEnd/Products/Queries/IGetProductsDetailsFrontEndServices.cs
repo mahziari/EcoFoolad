@@ -27,6 +27,9 @@ namespace  Application.Services.FrontEnd.Products.Queries
         public ResultGetProductsDetailsFrontEndDto Execute(string prdName)
         {
             var product = _context.Wsproducts
+                .Include(p=>p.PrdGroup)
+                .ThenInclude(p=>p.FirstGroup)
+                .ThenInclude(p=>p.ParsaPooladMenus)
                 .Single(p => p.PrdName == prdName.Replace("-"," "));
             product.VisitCount += 1;
             _context.SaveChanges();

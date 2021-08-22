@@ -3117,7 +3117,10 @@
         },
         "runtime": {
           "bin/placeholder/Application.dll": {}
-        }
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
       },
       "Common/1.0.0": {
         "type": "project",
@@ -3166,7 +3169,10 @@
         },
         "runtime": {
           "bin/placeholder/Infrastructure.dll": {}
-        }
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
       },
       "Persistence/1.0.0": {
         "type": "project",
@@ -3185,7 +3191,10 @@
         },
         "runtime": {
           "bin/placeholder/Persistence.dll": {}
-        }
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
       }
     }
   },
